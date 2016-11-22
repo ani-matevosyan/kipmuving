@@ -1,0 +1,243 @@
+.visual {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.visual.home {
+  height: 500px;
+}
+.visual.activities-all {
+  height: 200px;
+}
+.visual.activity-single {
+  height: 380px;
+}
+.your-reservation.activity .head {
+  padding: 0 0 10px 64px;
+}
+.your-reservation.activity .head::after {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-image: url(../images/image-none.jpg);
+}
+@media (max-width: 767px) {
+  .your-reservation.activity .program-schedule {
+    display: block;
+  }
+}
+.your-reservation .box {
+  max-width: 713px;
+  padding: 50px 0;
+}
+.your-reservation .btn-pay {
+  color: #ffffff;
+  min-width: 175px;
+  padding: 8px 10px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  border-radius: 0px;
+}
+.your-reservation .btn-pay.paypal {
+  background: #ebb414;
+}
+.your-reservation .btn-pay.stripe {
+  background: #517bda;
+}
+.your-reservation .note {
+  margin-top: 18px;
+}
+.your-reservation .more-detail .opener {
+  z-index: 1;
+}
+.your-reservation.new .timing1 li.cal input[type=text] {
+  border: 1px solid #cdcdcd;
+  padding: 6px 12px;
+}
+.img-tour .row > div {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.offers-list li a {
+  color: white;
+  font-size: 13px;
+}
+.offers-list li a:hover {
+  text-decoration: line-through;
+}
+/* Calendar Customization */
+.fc-time-grid .fc-event,
+.fc-time-grid .fc-bgevent {
+  /*text-align: center;*/
+}
+.fc-event.cal-offer {
+  padding: 12px 10px;
+  border-radius: 0px;
+}
+.fc-event.cal-offer .fc-time {
+  display: none;
+}
+.fc-event.cal-offer .fc-title {
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 700;
+}
+.fc-event.cal-offer .fc-bg {
+  display: none;
+}
+.fc-event.cal-offer .agency-name {
+  /*text-transform: uppercase;*/
+  margin-top: 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000;
+  /*font-weight: 700;*/
+}
+@media (max-width: 767px) {
+  .fc-event.cal-offer .hours,
+  .fc-event.cal-offer .persona {
+    margin-left: 0;
+  }
+}
+.fc-event.cal-offer .move,
+.fc-event.cal-offer .delete {
+  color: #d1d1d1;
+  font-size: 16px;
+}
+.fc-event.cal-offer .move:hover,
+.fc-event.cal-offer .delete:hover {
+  color: #ffffff;
+}
+.fc-event.cal-offer .delete {
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  z-index: 5;
+}
+.popover {
+  max-width: 600px;
+}
+.popover .popover-title {
+  color: #089f02;
+  font-size: 30px;
+}
+.popover img {
+  max-height: 180px;
+}
+.popover a {
+  color: #089f02;
+}
+body.home2 .all-activities {
+  padding-top: 25px;
+}
+body.home2 .all-activities.new header {
+  text-align: left;
+  margin: 0 0 20px;
+}
+body.home2 .all-activities.new .activities-list li {
+  margin: 0;
+  float: left;
+}
+body.home2 .all-activities.new .activities-list li a {
+  width: 94px;
+  height: 70px;
+  padding: 7px;
+}
+body.home2 .all-activities .btn-success {
+  font-size: 15px;
+}
+.img-chart {
+  width: 100%;
+  max-width: 300px;
+}
+.all-activities .activity-block.aire .heading {
+  color: #4b66af;
+}
+.all-activities .activity-block.familia .heading {
+  color: #933d6d;
+}
+.activity-form .btn-primary {
+  float: left;
+  padding-left: 13px;
+  padding-right: 13px;
+  background: #46350d;
+}
+.jcf-select {
+  border-radius: 4px;
+}
+.your-reservation.activity.add .program-schedule {
+  margin-top: -170px;
+}
+@media (max-width: 767px) {
+  .your-reservation.activity.add .program-schedule {
+    margin-top: -200px;
+  }
+}
+.carrito-bar {
+  background-color: #eeeeee;
+}
+.carrito-bar .item {
+  padding: 6px;
+}
+.carrito-bar .item .wrapper {
+  border-left: 1px solid #cccccc;
+  padding-left: 6px;
+}
+.carrito-bar .item .title {
+  font-weight: 700;
+  font-size: 13px;
+}
+.carrito-bar .item .details {
+  font-weight: 700;
+  font-size: 17px;
+  margin-top: 4px;
+}
+.carrito-bar .item.item1 {
+  padding-left: 50px;
+  background: url(../images/carrito-bar1.png) no-repeat 12px 10px;
+}
+.carrito-bar .item.item2 .details {
+  color: #963d4c;
+}
+.carrito-bar .item.item3 {
+  padding-left: 12px;
+}
+.carrito-bar .item.item3 .details {
+  color: #088365;
+}
+.carrito-bar .item.item3 {
+  padding-left: 50px;
+  background: url(../images/carrito-bar3.jpg) no-repeat 12px 10px;
+}
+.carrio-heading {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #474a4c;
+}
+
+.your-reservation.activity.custom_add .program-schedule{
+  margin: -150px 0 0;
+}
+@media(max-width: 470px){
+  .your-reservation.activity.custom_add .program-schedule{
+    margin: -197px 0 0;
+  }
+}
+.your-reservation.custom_add{
+  padding-bottom: 22px;
+}
+body.home2 .all-activities.custom_title{
+  padding: 35px 0 0;
+}
+body.home2 .all-activities.custom_title header {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 17px;
+}
+

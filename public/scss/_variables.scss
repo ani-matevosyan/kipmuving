@@ -1,0 +1,59 @@
+// bootstrap override
+
+$white:#fff;
+$black:#000;
+$green:#089f02;
+$brown:#994040;
+$yellow:#eab011;
+$dark-green:#133939;
+
+$body-bg:$white;
+$font-size-base: 14px;
+
+$link-color:            $brown !default;
+$link-hover-decoration: none !default;
+
+.form-control{
+	border:0;
+	height:28px;
+	color:$black;
+	box-shadow:none;
+	padding:5px 10px;
+	background:$white;
+	border-color:$white;
+	@include font(12, 18);
+	@include placeholder{color:$black;}
+}
+
+.btn{
+	border:0;
+	padding:5px 10px;
+	@include font(11, 16);
+	text-transform:uppercase;
+	@include transition(all, 0.3s, linear);
+}
+
+.btn-primary{
+	background:#133939;
+	&:hover{
+		background:#234646;
+	}
+}
+
+.btn-success{
+	background:$green;
+	&:hover{
+		background:#045b00;
+	}
+}
+
+a{
+	text-decoration:none;
+	@include transition(all, 0.3s, linear);
+	&:hover,
+	&:focus,
+	&:active{
+		outline:none;
+		text-decoration:none;
+	}
+}

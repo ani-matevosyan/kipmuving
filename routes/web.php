@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+
+#Activities
+Route::get('/activities', 'ActivityController@index');
+
+#Agencies
+Route::get('/agencies', 'AgencyController@index');
+
+#User
+Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
+
+#Guiae
+Route::get('/guia', 'GuiaController@index');
+Route::get('/guia/bicicleta', 'GuiaController@getBicicleta');
+Route::get('/guia/decarro', 'GuiaController@getDecarro');
+Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
