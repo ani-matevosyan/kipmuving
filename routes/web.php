@@ -24,6 +24,8 @@ Route::get('/agencies', 'AgencyController@index');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
+Route::get('/user/confirm/', 'UserController@getConfirmEmail');
+Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
 
 #Guiae
 Route::get('/guia', 'GuiaController@index');

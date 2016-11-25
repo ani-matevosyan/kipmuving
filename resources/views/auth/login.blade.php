@@ -45,9 +45,11 @@
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
                                         <div class="checkbox">
-                                            <label for="remember" style="padding-left: 0px;">&nbsp;&nbsp;Recordarme
-                                                <input type="hidden" name="remember" value="0">
-                                                <span class="jcf-checkbox jcf-unchecked"><span></span><input tabindex="4" type="checkbox" name="remember" id="remember" value="1" style="margin: 0px; position: absolute; height: 100%; width: 100%; opacity: 0;"></span>
+                                            <label for="remember" style="padding-left: 0px;">
+                                                <input type="checkbox" name="remember" id="remember" checked>&nbsp;&nbsp;Recordarme
+                                                {{--<span class="jcf-checkbox jcf-unchecked">--}}
+                                                    {{--<input tabindex="4" type="checkbox" name="remember" id="remember" value="1" style="margin: 0px; position: absolute; height: 100%; width: 100%; opacity: 0;">--}}
+                                                {{--</span>--}}
                                             </label>
                                         </div>
                                     </div>
@@ -55,7 +57,7 @@
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
                                         <button tabindex="3" type="submit" class="btn btn-primary">Entrar</button>
-                                        <!-- <a class="btn btn-default" href="forgot">(forgot password)</a> -->
+                                        {{--<a class="btn btn-default" href="forgot">(forgot password)</a>--}}
                                     </div>
                                 </div>
                             </fieldset>
@@ -68,6 +70,11 @@
                         @if(Session::has('fail'))
                             <div class="alert alert-info" role="alert">
                                 {{Session::get('fail')}}
+                            </div>
+                        @endif
+                        @if(Session::has('info'))
+                            <div class="alert alert-info" role="alert">
+                                {{Session::get('info')}}
                             </div>
                         @endif
                     </div>
