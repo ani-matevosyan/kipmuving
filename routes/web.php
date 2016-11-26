@@ -32,3 +32,6 @@ Route::get('/guia', 'GuiaController@index');
 Route::get('/guia/bicicleta', 'GuiaController@getBicicleta');
 Route::get('/guia/decarro', 'GuiaController@getDecarro');
 Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
+
+#Locales
+Route::get('/locale/{code}', 'LocaleController@setLocale');

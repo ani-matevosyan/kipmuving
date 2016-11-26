@@ -23,22 +23,12 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10">
-                                        <button tabindex="3" type="submit" class="btn btn-primary">Entrar</button>
+                                        <button tabindex="2" type="submit" class="btn btn-primary">Entrar</button>
                                         {{--<a class="btn btn-default" href="forgot">(forgot password)</a>--}}
                                     </div>
                                 </div>
                             </fieldset>
                         </form>
-                        @if(Session::has('success'))
-                            <div class="alert alert-info" role="alert">
-                                {{Session::get('success')}}
-                            </div>
-                        @endif
-                        @if(Session::has('fail'))
-                            <div class="alert alert-info" role="alert">
-                                {{Session::get('fail')}}
-                            </div>
-                        @endif
                     </div>
                 </div>
             </div>
