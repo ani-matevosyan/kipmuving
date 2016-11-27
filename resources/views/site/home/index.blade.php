@@ -2,102 +2,113 @@
 
 {{-- Content --}}
 @section('content')
-    {{--<section class="visual home">--}}
-    {{--<section class="visual home" style="background-image: url(/images/img0{{$img_index}}.jpg);">--}}
-    <section class="visual home" style="background-image: url({{ url('/images/img01.jpg') }})">
-        <!-- <img src="images/img28.jpg" alt="image description"> -->
-        <div class="caption">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <form action="/activites" class="activity-form">
-                            <strong class="title">¿Que actividades quieres hacer?</strong>
-                            <div class="holder">
-                                <div class="col">
-                                    <select class="form-control" id="activity_id">
-                                        {{--@foreach ($activities as $a)--}}
-                                        {{--<option value="{{ $a['id'] }}">{{ $a['name'] }}</option>--}}
-                                        {{--@endforeach--}}
-                                        foreach
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <div class="sub-col">
-                                        <div class="text-field has-ico calender"><input id="activity_date" type="text"
-                                                                                        placeholder="Fecha"
-                                                                                        class="form-control"
-                                                                                        data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-                                        </div>
-                                        <!-- <div class="text-field has-ico date"><input type="text" placeholder="Dia en Pucon" class="form-control"></div> -->
-                                    </div>
-                                    <div class="sub-col">
-                                        <!-- <div class="text-field has-ico person"><input type="text" placeholder="Personas" class="form-control"></div> -->
-                                        <input type="submit" value="BUSCAR" class="btn btn-primary">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="form_under_p">menos <span> 10% </span> em todas as atividades</p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <main id="main">
-        <div class="line-box">
-            <div class="line-wrap">
-                <p>TODAS LAS ACTIVIDADES DE PUCÓN EN UN SOLO LUGAR TODAS LAS ACTIVIDADES DE PUCÓN EN UN SOLO LUGAR TODAS
-                    LAS ACTIVIDADES DE PUCÓN EN UN SOLO LUGAR TODAS LAS ACTIVIDADES DE PUCÓN EN UN SOLO LUGAR</p>
-            </div>
-        </div>
+	{{--<section class="visual home">--}}
+	{{--<section class="visual home" style="background-image: url(/images/img0{{$img_index}}.jpg);">--}}
+	<section class="visual home" style="background-image: url({{ url('/images/img01.jpg') }})">
+		<!-- <img src="images/img28.jpg" alt="image description"> -->
+		<div class="caption">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<form action="/activites" class="activity-form">
+							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
+							<div class="holder">
+								<div class="col">
+									<select class="form-control" id="activity_id">
+										{{--@foreach ($activities as $a)--}}
+										{{--<option value="{{ $a['id'] }}">{{ $a['name'] }}</option>--}}
+										<option value="1">Activity name 1</option>
+										<option value="2">Activity name 2</option>
+										<option value="3">Activity name 3</option>
+										<option value="4">Activity name 4</option>
+										{{--@endforeach--}}
+									</select>
+								</div>
+								<div class="col">
+									<div class="sub-col">
+										<div class="text-field has-ico calender">
+											<input id="activity_date" type="text" placeholder="{{ trans('form.date') }}"
+													 class="form-control"
+													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+										</div>
+										<!-- <div class="text-field has-ico date"><input type="text" placeholder="Dia en Pucon" class="form-control"></div> -->
+									</div>
+									<div class="sub-col">
+										<!-- <div class="text-field has-ico person"><input type="text" placeholder="Personas" class="form-control"></div> -->
+										<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
+									</div>
+								</div>
+							</div>
+							<p class="form_under_p">{{ trans('main.less_in_all_activities', ['percent' => '10%']) }}</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<main id="main">
+		<div class="line-box">
+			<div class="line-wrap">
+				<p>{{ trans('main.all_activities_in_single_place') }}</p>
+			</div>
+		</div>
 
-        <div class="container your-reservation activity add" style="padding-bottom: 0px;">
-            @include('site.offers.offers_quickinfo')
-        </div>
-        <section id="guia" class="s_guia">
-            <div class="container">
-                <div class="col-md-3 col-md-push-3">
-                    <h1>Guia</h1>
-                    <h4>completo</h4>
-                    <h2>pucon</h2>
-                    <h3>gratuito</h3>
-                </div>
-                <div class="col-md-3 col-md-pull-3">
-                    <ul>
-                        <li><a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     version="1.1" x="0px" y="0px" viewBox="0 0 459.486 459.486"
-                                     style="enable-background:new 0 0 459.486 459.486;"
-                                     width="512px"
-                                     height="512px">
-                                    <g>
-                                        <path d="M370.073,180.346c-12.088,0-23.621,2.416-34.149,6.783l-37.012-71.814h42.78c4.977,0,9.024,4.049,9.024,9.025   c0,4.977-4.048,9.025-9.024,9.025h-8.813c-4.143,0-7.5,3.358-7.5,7.5s3.357,7.5,7.5,7.5h8.813   c13.247,0,24.024-10.777,24.024-24.025c0-13.247-10.777-24.025-24.024-24.025h-55.083c-2.615,0-5.042,1.363-6.404,3.596   c-1.361,2.233-1.461,5.015-0.263,7.34l15.374,29.829H172.09l-13.146-25.765h20.805c4.143,0,7.5-3.358,7.5-7.5s-3.357-7.5-7.5-7.5   h-55.083c-4.143,0-7.5,3.358-7.5,7.5s3.357,7.5,7.5,7.5h17.438l16.805,32.936l-27.494,42.595c-12.53-6.696-26.829-10.5-42.002-10.5   C40.11,180.346,0,220.456,0,269.758c0,49.303,40.11,89.413,89.413,89.413c38.454,0,71.314-24.401,83.914-58.532l37.929,2.378   l-2.115,6.884c-1.218,3.959,1.005,8.156,4.964,9.374c0.734,0.226,1.478,0.333,2.208,0.333c3.206,0,6.174-2.072,7.166-5.297   l3.161-10.291c0.886,0.069,1.779,0.115,2.683,0.115c18.955,0,34.377-15.421,34.377-34.377c0-9.359-3.764-17.852-9.853-24.057   l53.128-81.998l15.627,30.32c-25.174,15.836-41.942,43.862-41.942,75.736c0,49.303,40.11,89.413,89.413,89.413   s89.413-40.11,89.413-89.413C459.486,220.456,419.376,180.346,370.073,180.346z M166.791,163.699l37.372,73.246l-30.836,1.933   c-5.87-15.901-16.139-29.686-29.322-39.88L166.791,163.699z M163.826,269.758c0,5.193-0.539,10.262-1.556,15.158l-50.252-3.151   c1.911-3.584,2.999-7.67,2.999-12.007s-1.087-8.423-2.998-12.007l50.252-3.151C163.287,259.497,163.826,264.565,163.826,269.758z    M89.413,259.154c5.847,0,10.604,4.757,10.604,10.604s-4.757,10.604-10.604,10.604c-5.848,0-10.604-4.757-10.604-10.604   S83.565,259.154,89.413,259.154z M115.942,242.476l19.89-30.815c9.332,7.471,16.828,17.133,21.706,28.207L115.942,242.476z    M89.413,344.171C48.382,344.171,15,310.79,15,269.758c0-41.031,33.382-74.413,74.413-74.413c12.177,0,23.669,2.959,33.826,8.166   l-25.904,40.131l-8.319,0.521c-13.936,0.214-25.208,11.609-25.208,25.594s11.272,25.381,25.208,25.594l68.521,4.296   C146.002,325.836,119.815,344.171,89.413,344.171z M177.37,253.654l22.385-1.404c-3.051,5.132-4.809,11.117-4.809,17.508   c0,6.391,1.759,12.376,4.809,17.508l-22.385-1.404c0.954-5.226,1.456-10.608,1.456-16.105S178.324,258.88,177.37,253.654z    M231.243,289.038l5.248-17.082c1.216-3.959-1.01-8.155-4.969-9.371c-3.958-1.215-8.155,1.009-9.371,4.969l-5.242,17.064   c-4.251-3.557-6.963-8.896-6.963-14.86c0-10.684,8.692-19.376,19.377-19.376s19.377,8.692,19.377,19.376   C248.7,279.795,241.03,288.071,231.243,289.038z M241.271,237.527c-3.724-1.385-7.749-2.145-11.948-2.145   c-1.331,0-2.642,0.084-3.934,0.232l-4.908,0.308l-40.738-79.841h114.297L241.271,237.527z M370.073,344.171   c-41.031,0-74.413-33.381-74.413-74.413c0-26.074,13.491-49.043,33.848-62.336l23.005,44.637c1.332,2.583,3.954,4.065,6.673,4.065   c1.157,0,2.331-0.269,3.43-0.835c3.683-1.897,5.129-6.42,3.231-10.103l-23.015-44.655c8.443-3.334,17.627-5.187,27.24-5.187   c41.031,0,74.413,33.381,74.413,74.413C444.486,310.79,411.104,344.171,370.073,344.171z"
-                                              fill="#FFFFFF"/>
-                                        <path d="M376.996,266.89c-2.517-6.272-11.728-5.909-13.984,0.341c-1.103,3.057-0.028,6.603,2.579,8.539   c2.471,1.835,5.886,1.968,8.489,0.318C377.11,274.168,378.395,270.214,376.996,266.89   C376.815,266.44,377.186,267.34,376.996,266.89z"
-                                              fill="#FFFFFF"/>
-                                    </g>
-                                </svg>
-                            </a>
-                            Bicicleta
-                        </li>
-                        <li><a href="#">
-                                <svg version="1.1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     x="0px"
-                                     y="0px"
-                                     width="512px"
-                                     height="512px"
-                                     viewBox="0 0 512 512"
-                                     enable-background="new 0 0 512 512">
-                                    <g>
-                                        <path fill="#FFFFFF" d="M123.029,343.463c-14.18,0-25.715,11.535-25.715,25.715s11.537,25.715,25.715,25.715
+		<div class="container your-reservation activity add" style="padding-bottom: 0px;">
+			@include('site.offers.offers_quickinfo')
+		</div>
+		<section id="guia" class="s_guia">
+			<div class="container">
+				<div class="col-md-3 col-md-push-3">
+					@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
+						<h1>{{ trans('main.guide') }}</h1>
+						<h4>{{ trans('main.complete') }}</h4>
+						<h2>pucon</h2>
+						<h3>{{ trans('main.free') }}</h3>
+					@elseif(App::getLocale() == 'en')
+						<h4>{{ trans('main.complete') }}</h4>
+						<h2>pucon</h2>
+						<h1>{{ trans('main.guide') }}</h1>
+						<h3>{{ trans('main.free') }}</h3>
+					@endif
+				</div>
+				<div class="col-md-3 col-md-pull-3">
+					<ul>
+						<li><a href="#">
+								<svg xmlns="http://www.w3.org/2000/svg"
+									  xmlns:xlink="http://www.w3.org/1999/xlink"
+									  version="1.1" x="0px" y="0px" viewBox="0 0 459.486 459.486"
+									  style="enable-background:new 0 0 459.486 459.486;"
+									  width="512px"
+									  height="512px">
+									<g>
+										<path
+											d="M370.073,180.346c-12.088,0-23.621,2.416-34.149,6.783l-37.012-71.814h42.78c4.977,0,9.024,4.049,9.024,9.025   c0,4.977-4.048,9.025-9.024,9.025h-8.813c-4.143,0-7.5,3.358-7.5,7.5s3.357,7.5,7.5,7.5h8.813   c13.247,0,24.024-10.777,24.024-24.025c0-13.247-10.777-24.025-24.024-24.025h-55.083c-2.615,0-5.042,1.363-6.404,3.596   c-1.361,2.233-1.461,5.015-0.263,7.34l15.374,29.829H172.09l-13.146-25.765h20.805c4.143,0,7.5-3.358,7.5-7.5s-3.357-7.5-7.5-7.5   h-55.083c-4.143,0-7.5,3.358-7.5,7.5s3.357,7.5,7.5,7.5h17.438l16.805,32.936l-27.494,42.595c-12.53-6.696-26.829-10.5-42.002-10.5   C40.11,180.346,0,220.456,0,269.758c0,49.303,40.11,89.413,89.413,89.413c38.454,0,71.314-24.401,83.914-58.532l37.929,2.378   l-2.115,6.884c-1.218,3.959,1.005,8.156,4.964,9.374c0.734,0.226,1.478,0.333,2.208,0.333c3.206,0,6.174-2.072,7.166-5.297   l3.161-10.291c0.886,0.069,1.779,0.115,2.683,0.115c18.955,0,34.377-15.421,34.377-34.377c0-9.359-3.764-17.852-9.853-24.057   l53.128-81.998l15.627,30.32c-25.174,15.836-41.942,43.862-41.942,75.736c0,49.303,40.11,89.413,89.413,89.413   s89.413-40.11,89.413-89.413C459.486,220.456,419.376,180.346,370.073,180.346z M166.791,163.699l37.372,73.246l-30.836,1.933   c-5.87-15.901-16.139-29.686-29.322-39.88L166.791,163.699z M163.826,269.758c0,5.193-0.539,10.262-1.556,15.158l-50.252-3.151   c1.911-3.584,2.999-7.67,2.999-12.007s-1.087-8.423-2.998-12.007l50.252-3.151C163.287,259.497,163.826,264.565,163.826,269.758z    M89.413,259.154c5.847,0,10.604,4.757,10.604,10.604s-4.757,10.604-10.604,10.604c-5.848,0-10.604-4.757-10.604-10.604   S83.565,259.154,89.413,259.154z M115.942,242.476l19.89-30.815c9.332,7.471,16.828,17.133,21.706,28.207L115.942,242.476z    M89.413,344.171C48.382,344.171,15,310.79,15,269.758c0-41.031,33.382-74.413,74.413-74.413c12.177,0,23.669,2.959,33.826,8.166   l-25.904,40.131l-8.319,0.521c-13.936,0.214-25.208,11.609-25.208,25.594s11.272,25.381,25.208,25.594l68.521,4.296   C146.002,325.836,119.815,344.171,89.413,344.171z M177.37,253.654l22.385-1.404c-3.051,5.132-4.809,11.117-4.809,17.508   c0,6.391,1.759,12.376,4.809,17.508l-22.385-1.404c0.954-5.226,1.456-10.608,1.456-16.105S178.324,258.88,177.37,253.654z    M231.243,289.038l5.248-17.082c1.216-3.959-1.01-8.155-4.969-9.371c-3.958-1.215-8.155,1.009-9.371,4.969l-5.242,17.064   c-4.251-3.557-6.963-8.896-6.963-14.86c0-10.684,8.692-19.376,19.377-19.376s19.377,8.692,19.377,19.376   C248.7,279.795,241.03,288.071,231.243,289.038z M241.271,237.527c-3.724-1.385-7.749-2.145-11.948-2.145   c-1.331,0-2.642,0.084-3.934,0.232l-4.908,0.308l-40.738-79.841h114.297L241.271,237.527z M370.073,344.171   c-41.031,0-74.413-33.381-74.413-74.413c0-26.074,13.491-49.043,33.848-62.336l23.005,44.637c1.332,2.583,3.954,4.065,6.673,4.065   c1.157,0,2.331-0.269,3.43-0.835c3.683-1.897,5.129-6.42,3.231-10.103l-23.015-44.655c8.443-3.334,17.627-5.187,27.24-5.187   c41.031,0,74.413,33.381,74.413,74.413C444.486,310.79,411.104,344.171,370.073,344.171z"
+											fill="#FFFFFF"/>
+										<path
+											d="M376.996,266.89c-2.517-6.272-11.728-5.909-13.984,0.341c-1.103,3.057-0.028,6.603,2.579,8.539   c2.471,1.835,5.886,1.968,8.489,0.318C377.11,274.168,378.395,270.214,376.996,266.89   C376.815,266.44,377.186,267.34,376.996,266.89z"
+											fill="#FFFFFF"/>
+									</g>
+								</svg>
+							</a>
+							{{ trans('main.bicycle') }}
+						</li>
+						<li><a href="#">
+								<svg version="1.1"
+									  xmlns="http://www.w3.org/2000/svg"
+									  x="0px"
+									  y="0px"
+									  width="512px"
+									  height="512px"
+									  viewBox="0 0 512 512"
+									  enable-background="new 0 0 512 512">
+									<g>
+										<path fill="#FFFFFF" d="M123.029,343.463c-14.18,0-25.715,11.535-25.715,25.715s11.537,25.715,25.715,25.715
                                 c14.178,0,25.714-11.535,25.714-25.715S137.207,343.463,123.029,343.463z M123.029,376.184c-3.864,0-7.007-3.145-7.007-7.006
                                 c0-3.863,3.144-7.008,7.007-7.008c3.862,0,7.007,3.143,7.007,7.008C130.036,373.041,126.891,376.184,123.029,376.184z"/>
-                                        <path fill="#FFFFFF" d="M388.972,343.463c-14.18,0-25.715,11.535-25.715,25.715s11.536,25.715,25.715,25.715
+										<path fill="#FFFFFF" d="M388.972,343.463c-14.18,0-25.715,11.535-25.715,25.715s11.536,25.715,25.715,25.715
                                 s25.715-11.535,25.715-25.715C414.688,354.998,403.15,343.463,388.972,343.463z M388.972,376.184c-3.863,0-7.007-3.145-7.007-7.006
                                 c0-3.863,3.145-7.008,7.007-7.008s7.007,3.143,7.007,7.008C395.979,373.041,392.835,376.184,388.972,376.184z"/>
-                                        <path fill="#FFFFFF" d="M500.127,324.055v-87.771v-95.59c0-29.772-24.222-53.994-53.994-53.994H95.751
+										<path fill="#FFFFFF" d="M500.127,324.055v-87.771v-95.59c0-29.772-24.222-53.994-53.994-53.994H95.751
                                 c-46.25,0-83.877,37.628-83.877,83.878v153.475C4.669,329.465,0,338.08,0,347.764v1.147c0,16.333,13.288,29.621,29.621,29.621
                                 h38.081c4.469,26.507,27.569,46.767,55.327,46.767c27.757,0,50.858-20.26,55.327-46.767h155.291
                                 c4.469,26.507,27.568,46.767,55.326,46.767c27.759,0,50.858-20.26,55.327-46.767h38.08c16.334,0,29.621-13.288,29.621-29.621
@@ -112,50 +123,54 @@
                                 c-20.63,0-37.414-16.784-37.414-37.415c0-20.63,16.784-37.414,37.414-37.414s37.413,16.784,37.413,37.414
                                 C426.385,389.807,409.602,406.591,388.972,406.591z M493.292,348.911c0,6.019-4.896,10.913-10.913,10.913H444.3
                                 c-1.425-8.449-4.742-16.26-9.503-22.986h47.582c6.019,0,10.913,4.902,10.913,10.926V348.911z"/>
-                                        <path fill="#FFFFFF" d="M407.057,224.548V152.43c0-11.629-9.46-21.09-21.09-21.09H97.958c-24.884,0-45.129,20.245-45.129,45.129
+										<path fill="#FFFFFF" d="M407.057,224.548V152.43c0-11.629-9.46-21.09-21.09-21.09H97.958c-24.884,0-45.129,20.245-45.129,45.129
                                 v48.08c0,11.629,9.46,21.09,21.09,21.09h312.049C397.597,245.638,407.057,236.177,407.057,224.548z M239.297,150.048h73.537v76.882
                                 h-73.537V150.048L239.297,150.048z M220.589,226.93h-73.535v-76.882h73.535V226.93z M71.537,224.548v-48.08
                                 c0-14.568,11.853-26.421,26.421-26.421h30.389v76.882H73.919C72.604,226.93,71.537,225.861,71.537,224.548z M388.349,224.548
                                 c0,1.313-1.066,2.382-2.382,2.382H331.54v-76.882h54.427c1.313,0,2.382,1.068,2.382,2.382V224.548z"/>
-                                        <path fill="#FFFFFF" d="M460.886,303.584c5.166,0,9.354-4.188,9.354-9.354v-8.314c0-5.166-4.188-9.354-9.354-9.354
+										<path fill="#FFFFFF" d="M460.886,303.584c5.166,0,9.354-4.188,9.354-9.354v-8.314c0-5.166-4.188-9.354-9.354-9.354
                                 s-9.354,4.188-9.354,9.354v8.314C451.532,299.396,455.72,303.584,460.886,303.584z"/>
-                                    </g>
-                                </svg>
-                            </a>
-                            Ônibus
-                        </li>
-                        <li><a href="#">
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        version="1.1"
-                                        viewBox="0 0 470 470"
-                                        enable-background="new 0 0 470 470"
-                                        width="512px"
-                                        height="512px">
-                                    <g>
-                                        <path d="m126.184,358.951c19.299,0 35-15.701 35-35s-15.701-35-35-35-35,15.701-35,35 15.701,35 35,35zm0-55c11.028,0 20,8.972 20,20s-8.972,20-20,20-20-8.972-20-20 8.971-20 20-20z"
-                                              fill="#FFFFFF"/>
-                                        <path d="m343.816,288.951c-19.299,0-35,15.701-35,35s15.701,35 35,35 35-15.701 35-35-15.701-35-35-35zm0,55c-11.028,0-20-8.972-20-20s8.972-20 20-20 20,8.972 20,20-8.971,20-20,20z"
-                                              fill="#FFFFFF"/>
-                                        <path d="m137.5,116.049h23.779c4.143,0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-23.779c-10.423,0-27.031,7.176-34.177,14.767l-60.088,63.845c-2.051,2.179-2.609,5.368-1.423,8.115 1.187,2.747 3.893,4.525 6.885,4.525h290.271c2.562,0 4.945-1.307 6.323-3.467 1.377-2.159 1.558-4.873 0.478-7.195l-30.854-66.365c-3.315-7.046-14.628-14.225-22.415-14.225h-101.221c-4.143,0-7.5,3.358-7.5,7.5l-.001,68.752h-117.722l48.19-51.204c4.243-4.508 17.066-10.048 23.254-10.048zm61.279,0h93.7c2.203,0.103 7.842,3.681 8.849,5.581l25.883,55.671h-128.433l.001-61.252z"
-                                              fill="#FFFFFF"/>
-                                        <path d="m470,257.692c0-26.631-20.555-55.149-45.819-63.57-0.017-0.006-35.078-11.693-35.078-11.693-5.854-1.951-13.576-8.812-16.203-14.394l-30.84-65.535c-8.299-17.636-30.068-31.451-49.56-31.451h-155c-18.639,0-43.247,10.632-56.022,24.206l-69.158,73.482c-6.909,7.34-12.32,20.984-12.32,31.064v94.15c0,20.678 16.822,37.5 37.5,37.5h14.06c3.775,37.846 35.8,67.5 74.624,67.5s70.849-29.654 74.624-67.5h45.509c4.143,0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-45.509c-3.775-37.846-35.8-67.5-74.624-67.5s-70.849,29.654-74.624,67.5h-14.06c-12.406,0-22.5-10.093-22.5-22.5v-94.15c0-6.294 3.929-16.2 8.242-20.783l69.159-73.483c9.941-10.563 30.594-19.486 45.099-19.486h155c13.682,0 30.162,10.458 35.987,22.838l30.84,65.535c4.421,9.395 15.182,18.955 25.031,22.238l28.498,9.499c-0.492,2.841-0.748,5.729-0.748,8.642 0,25.238 18.65,46.198 42.892,49.831v29.32c0,12.407-8.357,22.5-18.631,22.5h-17.929c-3.775-37.846-35.8-67.5-74.624-67.5-41.355,0-75,33.645-75,75s33.645,75 75,75c38.824,0 70.849-29.654 74.624-67.5h17.929c18.544,0 33.631-16.822 33.631-37.5v-36.26zm-343.816,6.259c33.084,0 60,26.916 60,60s-26.916,60-60,60-60-26.916-60-60 26.916-60 60-60zm217.632,120c-33.084,0-60-26.916-60-60s26.916-60 60-60 60,26.916 60,60-26.916,60-60,60zm83.292-169.15c0-0.969 0.04-1.934 0.117-2.893 13.16,7.627 23.787,22.37 26.864,37.266-15.466-3.785-26.981-17.756-26.981-34.373z"
-                                              fill="#FFFFFF"/>
-                                    </g>
-                                </svg>
-                            </a>
-                            Carro
-                        </li>
-                        <li><a href="#">
-                                <svg version="1.1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     x="0px"
-                                     y="0px"
-                                     width="491.52px"
-                                     height="491.52px"
-                                     viewBox="0 0 491.52 491.52"
-                                     enable-background="new 0 0 491.52 491.52">
-                                    <path fill="#FFFFFF" d="M353.043,250.91l-0.83-7.609h-1.272l-0.343-6.239l-0.305-1.171c-0.217,0.056-0.429,0.122-0.637,0.195v7.215
+									</g>
+								</svg>
+							</a>
+							{{ trans('main.bus') }}
+						</li>
+						<li><a href="#">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									version="1.1"
+									viewBox="0 0 470 470"
+									enable-background="new 0 0 470 470"
+									width="512px"
+									height="512px">
+									<g>
+										<path
+											d="m126.184,358.951c19.299,0 35-15.701 35-35s-15.701-35-35-35-35,15.701-35,35 15.701,35 35,35zm0-55c11.028,0 20,8.972 20,20s-8.972,20-20,20-20-8.972-20-20 8.971-20 20-20z"
+											fill="#FFFFFF"/>
+										<path
+											d="m343.816,288.951c-19.299,0-35,15.701-35,35s15.701,35 35,35 35-15.701 35-35-15.701-35-35-35zm0,55c-11.028,0-20-8.972-20-20s8.972-20 20-20 20,8.972 20,20-8.971,20-20,20z"
+											fill="#FFFFFF"/>
+										<path
+											d="m137.5,116.049h23.779c4.143,0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-23.779c-10.423,0-27.031,7.176-34.177,14.767l-60.088,63.845c-2.051,2.179-2.609,5.368-1.423,8.115 1.187,2.747 3.893,4.525 6.885,4.525h290.271c2.562,0 4.945-1.307 6.323-3.467 1.377-2.159 1.558-4.873 0.478-7.195l-30.854-66.365c-3.315-7.046-14.628-14.225-22.415-14.225h-101.221c-4.143,0-7.5,3.358-7.5,7.5l-.001,68.752h-117.722l48.19-51.204c4.243-4.508 17.066-10.048 23.254-10.048zm61.279,0h93.7c2.203,0.103 7.842,3.681 8.849,5.581l25.883,55.671h-128.433l.001-61.252z"
+											fill="#FFFFFF"/>
+										<path
+											d="m470,257.692c0-26.631-20.555-55.149-45.819-63.57-0.017-0.006-35.078-11.693-35.078-11.693-5.854-1.951-13.576-8.812-16.203-14.394l-30.84-65.535c-8.299-17.636-30.068-31.451-49.56-31.451h-155c-18.639,0-43.247,10.632-56.022,24.206l-69.158,73.482c-6.909,7.34-12.32,20.984-12.32,31.064v94.15c0,20.678 16.822,37.5 37.5,37.5h14.06c3.775,37.846 35.8,67.5 74.624,67.5s70.849-29.654 74.624-67.5h45.509c4.143,0 7.5-3.358 7.5-7.5s-3.357-7.5-7.5-7.5h-45.509c-3.775-37.846-35.8-67.5-74.624-67.5s-70.849,29.654-74.624,67.5h-14.06c-12.406,0-22.5-10.093-22.5-22.5v-94.15c0-6.294 3.929-16.2 8.242-20.783l69.159-73.483c9.941-10.563 30.594-19.486 45.099-19.486h155c13.682,0 30.162,10.458 35.987,22.838l30.84,65.535c4.421,9.395 15.182,18.955 25.031,22.238l28.498,9.499c-0.492,2.841-0.748,5.729-0.748,8.642 0,25.238 18.65,46.198 42.892,49.831v29.32c0,12.407-8.357,22.5-18.631,22.5h-17.929c-3.775-37.846-35.8-67.5-74.624-67.5-41.355,0-75,33.645-75,75s33.645,75 75,75c38.824,0 70.849-29.654 74.624-67.5h17.929c18.544,0 33.631-16.822 33.631-37.5v-36.26zm-343.816,6.259c33.084,0 60,26.916 60,60s-26.916,60-60,60-60-26.916-60-60 26.916-60 60-60zm217.632,120c-33.084,0-60-26.916-60-60s26.916-60 60-60 60,26.916 60,60-26.916,60-60,60zm83.292-169.15c0-0.969 0.04-1.934 0.117-2.893 13.16,7.627 23.787,22.37 26.864,37.266-15.466-3.785-26.981-17.756-26.981-34.373z"
+											fill="#FFFFFF"/>
+									</g>
+								</svg>
+							</a>
+							{{ trans('main.car') }}
+						</li>
+						<li><a href="#">
+								<svg version="1.1"
+									  xmlns="http://www.w3.org/2000/svg"
+									  x="0px"
+									  y="0px"
+									  width="491.52px"
+									  height="491.52px"
+									  viewBox="0 0 491.52 491.52"
+									  enable-background="new 0 0 491.52 491.52">
+									<path fill="#FFFFFF" d="M353.043,250.91l-0.83-7.609h-1.272l-0.343-6.239l-0.305-1.171c-0.217,0.056-0.429,0.122-0.637,0.195v7.215
                             h1.283l-0.343-6.239l1.615,6.239l0.81,7.612L353.043,250.91L353.043,250.91z M344.562,243.301h5.094v-7.215
                             c-3.187,1.125-5.224,4.203-5.094,7.507V243.301z M359.863,248.801l0.006,162.901c0,4.224-3.425,7.648-7.65,7.648
                             c-4.225,0-7.648-3.424-7.648-7.648V251.124h-33.647c-3.156,0-6.282-0.491-9.272-1.437c-2.965-0.938-5.805-2.34-8.408-4.173
@@ -191,13 +206,13 @@
                             c1.488,0.471,3.06,0.715,4.654,0.715h38.74c0.501,0,0.776-0.003,0.869-0.008c0.108-0.006,0.225-0.014,0.349-0.025
                             C352.758,235.197,354.508,234.5,356.01,233.798L356.01,233.798z M352.213,197.481l-0.867,7.601c0.295,0.033,0.595,0.05,0.897,0.049
                             L352.213,197.481L352.213,197.481z"/>
-                                    <path fill="#FFFFFF" d="M324.256,107.104c0-8.368-3.392-15.945-8.877-21.43c-5.481-5.483-13.059-8.875-21.428-8.875
+									<path fill="#FFFFFF" d="M324.256,107.104c0-8.368-3.392-15.945-8.877-21.43c-5.481-5.483-13.059-8.875-21.428-8.875
                             s-15.945,3.392-21.428,8.875c-5.504,5.502-8.906,13.081-8.906,21.429h0.029c0,8.371,3.393,15.949,8.875,21.433
                             c5.483,5.484,13.061,8.876,21.43,8.876s15.946-3.392,21.43-8.876C320.863,123.052,324.256,115.475,324.256,107.104L324.256,107.104z
                              M326.241,139.397c-8.266,8.264-19.679,13.376-32.289,13.376s-24.026-5.111-32.289-13.376c-8.265-8.264-13.375-19.682-13.375-32.292
                             h0.03c0-12.628,5.1-24.044,13.346-32.29c8.264-8.263,19.68-13.375,32.288-13.375c12.607,0,24.023,5.112,32.288,13.376
                             c8.264,8.265,13.376,19.681,13.376,32.289C339.616,119.714,334.506,131.132,326.241,139.397L326.241,139.397z"/>
-                                    <path fill="#FFFFFF" d="M175.581,252.158L175.581,252.158c-3.126,11.326-12.745,16.182-23.587,16.336
+									<path fill="#FFFFFF" d="M175.581,252.158L175.581,252.158c-3.126,11.326-12.745,16.182-23.587,16.336
                             c-3.828,0.053-7.771-0.5-11.538-1.569s-7.452-2.675-10.755-4.722c-9.553-5.917-15.89-15.398-13.197-26.75
                             c0.035-0.225,0.082-0.451,0.14-0.677l0.011,0.002l16.438-65.345c0.048-0.259,0.113-0.518,0.191-0.776l0.03,0.009
                             c1.906-6.242,5.822-10.921,10.742-14.201l4.261,6.39l-4.229-6.39c5.272-3.514,11.718-5.388,17.925-5.811
@@ -208,113 +223,110 @@
                             h0.003l-0.097,0.382h0.002l-0.009,0.02l-16.438,65.348l-7.439-1.86l7.448,1.874c-0.051,0.201-0.108,0.398-0.175,0.591
                             c-0.752,3.82,2.186,7.471,6.377,10.068c2.05,1.27,4.4,2.282,6.855,2.979c2.457,0.698,4.929,1.06,7.218,1.028
                             c4.315-0.062,8.032-1.584,9.009-5.111l-0.021-0.007c0.079-0.291,0.177-0.576,0.286-0.849L184.622,170.138L184.622,170.138z"/>
-                                    <path fill="#FFFFFF" d="M177.245,122.079l-6.378,16.932c-1.491,3.96,0.511,8.379,4.47,9.87c3.961,1.491,8.379-0.51,9.87-4.47
+									<path fill="#FFFFFF" d="M177.245,122.079l-6.378,16.932c-1.491,3.96,0.511,8.379,4.47,9.87c3.961,1.491,8.379-0.51,9.87-4.47
                             l6.378-16.932c1.491-3.96-0.51-8.379-4.47-9.87C183.155,116.118,178.736,118.119,177.245,122.079L177.245,122.079z"/>
-                                    <path fill="#FFFFFF" d="M189.948,179.386c-4.107-0.977-8.232,1.562-9.209,5.67c-0.978,4.109,1.561,8.232,5.67,9.21l17.592,4.227
+									<path fill="#FFFFFF" d="M189.948,179.386c-4.107-0.977-8.232,1.562-9.209,5.67c-0.978,4.109,1.561,8.232,5.67,9.21l17.592,4.227
                             c4.109,0.977,8.233-1.562,9.211-5.67c0.977-4.108-1.562-8.232-5.67-9.21L189.948,179.386z"/>
-                                    <path fill="#FFFFFF" d="M172.959,235.006c-4.108-0.978-8.233,1.562-9.211,5.67c-0.976,4.108,1.563,8.232,5.672,9.209l17.593,4.229
+									<path fill="#FFFFFF" d="M172.959,235.006c-4.108-0.978-8.233,1.562-9.211,5.67c-0.976,4.108,1.563,8.232,5.672,9.209l17.593,4.229
                             c4.107,0.977,8.231-1.562,9.211-5.671c0.976-4.107-1.564-8.231-5.67-9.208L172.959,235.006z"/>
-                                </svg>
-                            </a>
-                            Caminhando
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <p><span>Todas as respostas estão aquí.</span> O que você precisa saber
-                        para aproveitar seus dias em Pucón no melhor estilo.</p>
-                    <p class="tegs"><span>Mapas, Guias, Endereços, Sugestões</span></p>
-                    <a href="#" class="btn-orange"><img src="images/arrow.png" alt=""></i>Ir ao guía</a>
-                </div>
-            </div>
-        </section>
-        <section id="howitworks" class="s_howitworks">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <h1>Como funciona <span>KipMuving</span></h1>
-                        <p>As melhores ofertas, simples e rápido. Crie seu panorama</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="images/10.svg" alt="">
-                        <p><span>KipMuving</span> tem um acordo com as
-                            agencias locais e por isso temos
-                            <span>preços preferentes</span></p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="images/umbrella.svg" alt="">
-                        <p><span>Apoianos</span> com um pequena comissão
-                            de <span>U$ 5</span> por qualquer reserva Servirá
-                            para pagar a manutenção do site,
-                            pagamento de salario e melhorias.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="images/broken-link.svg" alt="">
-                        <p>Fazemos a <span>união sua com a agencia.</span>
-                            Você paga seus passeios diretamente
-                            com a agencia. </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="text-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col">
-                        <div class="img-holder"><img src="images/img33.png" alt=""></div>
-                        <div class="text">
-                            <strong class="value">1%</strong>
-                            <div class="txt">es destinada a la organización <strong>parques para chile</strong></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 col">
-                        <p>Kipmuving está consciente de que la naturaleza nos mueve y queremos ayudar a mantenerla para
-                            que podamos seguir disfrutando de sus maravillas. Con esto donamos 1% de nuestra comisión
-                            para la preservación de los parques chilenos junto con la Fundación Parques para Chile
-                            http://www.parquesparachile.cl/</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="all-activities" style="padding-top: 50px;">
-            <div class="container">
-                <header>
-                    <h1>Las actividades en Pucón</h1>
-                    <p>Primero elija su itinerario, lo que le gustaria hacer y vea lo que resulta</p>
-                </header>
+								</svg>
+							</a>
+							{{ trans('main.walking') }}
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}</p>
+					<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
+					<a href="#" class="btn-orange">
+						<img src="{{ asset('images/arrow.png') }}" alt="">
+						{{ trans('button-links.go_to_guide') }}
+					</a>
+				</div>
+			</div>
+		</section>
+		<section id="howitworks" class="s_howitworks">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<h1>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h1>
+						<p>{{ trans('main.best_deals') }}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<img src="{{ asset('images/10.svg') }}" alt="">
+						<p><span>KipMuving</span> {{ trans('main.has_an_agreement') }}
+							<span>{{ trans('main.preferential_prices') }}</span></p>
+					</div>
+					<div class="col-md-3">
+						<img src="{{ asset('images/umbrella.svg') }}" alt="">
+						<p>
+							<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
+							<span>U$ 5</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
+						</p>
+					</div>
+					<div class="col-md-3">
+						<img src="{{ asset('images/broken-link.svg') }}" alt="">
+						<p>{{ trans('main.we_make') }} <span>{{ trans('main.your_union_with_the_agency') }}</span>
+							{{ trans('main.you_pay_your_tours') }}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="text-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12 col">
+						<div class="img-holder"><img src="images/img33.png" alt=""></div>
+						<div class="text">
+							<strong class="value">1%</strong>
+							<div class="txt">{{ trans('main.for_the_organization') }} <strong>{{ trans('main.parks_for_chili') }}</strong></div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 col">
+						<p>{{ trans('main.kipmuving_is_aware_that_nature') }} http://www.parquesparachile.cl/</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="all-activities" style="padding-top: 50px;">
+			<div class="container">
+				<header>
+					<h1>{{ trans('main.activities_in_pucon') }}</h1>
+					<p>{{ trans('main.first_choose_your_itinerary') }}</p>
+				</header>
 
 
-                <div class="row">
-                    @for($i = 0; $i < 8; $i++)
-                        <div class="col-md-3 col-sm-6 col-xs-12 col">
-                            @include('site.partials.activities.all-list-item-arr')
-                        </div>
-                    @endfor
-                </div>
+				<div class="row">
+					@for($i = 0; $i < 8; $i++)
+						<div class="col-md-3 col-sm-6 col-xs-12 col">
+							@include('site.partials.activities.all-list-item-arr')
+						</div>
+					@endfor
+				</div>
 
 
-                <div class="btn-holder">
-                    <a href="{{ url('/activities') }}" class="btn btn-success">VER TODAS LAS ACTIVIDADES</a>
-                </div>
-            </div>
-        </div>
-        <section id="viagem" class="s_viagem">
-            <div class="container">
-                <div class="block">
-                    <h3>Mais de 40 ATIVIDADES</h3>
-                    <p>Tosas as atividades juntas em um só lugar</p>
-                </div>
-                <div class="block">
-                    <h3>Mais tempo</h3>
-                    <p>Aproveite toda sua viagem</p>
-                </div>
-                <div class="block">
-                    <h3>Todas as agencias juntas</h3>
-                    <p>Pra que sair caminhando se pode ver aqui?</p>
-                </div>
-            </div>
-        </section>
-    </main>
+				<div class="btn-holder">
+					<a href="{{ action('ActivityController@index') }}" class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
+				</div>
+			</div>
+		</div>
+		<section id="viagem" class="s_viagem">
+			<div class="container">
+				<div class="block">
+					<h3>{{ trans('main.more_than_activities', ['activities' => 40]) }}</h3>
+					<p>{{ trans('main.all_activities_in_one_place') }}</p>
+				</div>
+				<div class="block">
+					<h3>{{ trans('main.more_time') }}</h3>
+					<p>{{ trans('main.enjoy_your_entire_trip') }}</p>
+				</div>
+				<div class="block">
+					<h3>{{ trans('main.all_agencies_together') }}</h3>
+					<p>{{ trans('main.what_you_can_see_here') }}</p>
+				</div>
+			</div>
+		</section>
+	</main>
 @stop

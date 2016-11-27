@@ -64,8 +64,8 @@
 													{{ csrf_field() }}
 												</form>
 											@else
-												<a href="{{ url('/register') }}" class="btn btn-primary">Registro</a>
-												<a href="{{ url('/login') }}" class="btn btn-primary">Login</a>
+												<a href="{{ url('/register') }}" class="btn btn-primary">{{ trans('button-links.register') }}</a>
+												<a href="{{ url('/login') }}" class="btn btn-primary">{{ trans('button-links.login') }}</a>
 											@endif
 										</div>
 									</div>
@@ -73,14 +73,14 @@
 								<div class="top-holder">
 									<nav id="nav">
 										<ul>
-											<li><a href="{{ action('ActivityController@index') }}">Actividades</a></li>
-											<li><a href="{{ action('AgencyController@index') }}">Agencias</a></li>
-											<li><a href="{{ action('GuiaController@index') }}">Guia Pucon</a></li>
+											<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
+											<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
+											<li><a href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a></li>
 											<!--<li><a href="/ofertas">Ofertas</a></li> -->
 										</ul>
 									</nav>
 									<div class="compare-price">
-										<p>Compara precios entre <strong>30 agencias</strong></p>
+										<p>{{ trans('main.compare_prices_between') }} <strong>30 {{ trans('main.agencies') }}</strong></p>
 									</div>
 								</div>
 							</div>
@@ -121,7 +121,7 @@
 							</ul>
 						</div>
 						<div class="col-md-2 col-sm-4 col-xs-12 box">
-							<strong class="title">Donde Estamos</strong>
+							<strong class="title">{{ trans('main.where_we_are') }}</strong>
 							<address class="address">
 								<span>Colo Colo 485 - Pucón - Chile</span>
 								<span>
@@ -133,19 +133,19 @@
 							</address>
 						</div>
 						<div class="col-md-4 col-sm-12 col-xs-12 box">
-							<strong class="title">Contactese con nosotros</strong>
+							<strong class="title">{{ trans('main.contact_us') }}</strong>
 							<form action="https://formspree.io/rafaelzarro@gmail.com" class="contact-form" method="POST">
 								<div class="sub-row">
-									<label for="name">Nome</label>
+									<label for="name">{{ trans('form.name') }}</label>
 									<div class="text-field"><input type="text" class="form-control" id="name" name="name"></div>
 								</div>
 								<div class="sub-row">
-									<label for="email">Email</label>
+									<label for="email">{{ trans('form.email') }}</label>
 									<div class="text-field"><input type="email" class="form-control" id="email" name="email">
 									</div>
 								</div>
 								<div class="sub-row">
-									<label for="message">Mensaje</label>
+									<label for="message">{{ trans('form.message') }}</label>
 									<div class="text-field"><textarea rows="5" cols="5" class="form-control" id="message"
 																				 name="message"></textarea></div>
 								</div>

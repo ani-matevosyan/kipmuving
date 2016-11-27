@@ -19,11 +19,11 @@ return array(
 	"alpha_dash"       => "El campo :attribute sólo puede contener letras, números y guiones.",
 	"alpha_num"        => "El campo :attribute sólo puede contener letras y números.",
 	"before"           => "El campo :attribute debe ser una fecha anterior a :date.",
-	"between"          => array(
+	"between"          => [
 		"numeric" => "El campo :attribute debe estar comprendido entre :min - :max.",
 		"file"    => "El campo :attribute debe tener entre :min - :max kilobytes.",
 		"string"  => "El campo :attribute debe tener entre :min - :max characters.",
-	),
+	],
 	"confirmed"        => "El campo :attribute confirmación no coincide.",
 	"date"             => "El campo :attribute no es una fecha válida.",
 	"date_format"      => "El campo :attribute no coincide con el formato :format.",
@@ -36,17 +36,17 @@ return array(
 	"in"               => "El campo :attribute seleccionado es inválido..",
 	"integer"          => "El campo :attribute debe ser un entero.",
 	"ip"               => "El campo :attribute debe ser una dirección IP válida.",
-	"max"              => array(
+	"max"              => [
 		"numeric" => "El campo :attribute no debe ser mayor a :max.",
 		"file"    => "El campo :attribute no debe ser mayor a :max kilobytes.",
 		"string"  => "El campo :attribute no debe ser mayor a :max characters.",
-	),
+	],
 	"mimes"            => "El campo :attribute debe ser un archivo de tipo :values.",
-	"min"              => array(
+	"min"              => [
 		"numeric" => "El campo :attribute debe ser mínimo de :min.",
 		"file"    => "El campo :attribute debe tener al menos :min kilobytes.",
 		"string"  => "El campo :attribute debe tener al menos :min characters.",
-	),
+	],
 	"not_in"           => "El campo :attribute es inválido.",
 	"numeric"          => "El campo :attribute debe ser numérico.",
 	"regex"            => "El formato del campo :attribute es inválido.",
@@ -55,11 +55,11 @@ return array(
 	"required_with"    => "El campo :attribute es requerido cuando :values está presente.",
 	"required_without" => "El campo :attribute es requerido cuando :values no está presente.",
 	"same"             => "El campo :attribute y :other no coinciden.",
-	"size"             => array(
+	"size"             => [
 		"numeric" => "El campo :attribute debe ser :size.",
 		"file"    => "El campo :attribute debe ser de :size kilobytes.",
 		"string"  => "El campo :attribute debe ser de :size characters.",
-	),
+	],
 	"unique"           => "El campo :attribute ya ha sido tomado.",
 	"url"              => "El formato del campo :attribute es inválido.",
 
@@ -74,7 +74,7 @@ return array(
 	|
 	*/
 
-	'custom' => array(),
+	'custom' => [],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -87,6 +87,6 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => [],
 
 );

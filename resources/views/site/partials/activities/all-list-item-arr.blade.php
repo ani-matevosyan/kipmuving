@@ -13,6 +13,6 @@
         contactar las costumbres de la etnia más grande de Chile, los Mapuche. Podrás disfrutar de la vista a los
         volcanes Villarrica, Quetrupillan y Lanin y los ríos Trancura, Liucura y Turbio.
     <p>
-        <strong class="price"><span>Desde de</span> <sub>$</sub> 23.000</strong>
-        <a href="/activities/1" class="btn-primary">VISUALIZAR</a>
+        <strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub> 23.000</strong>
+        <a href="/activities/1" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>
