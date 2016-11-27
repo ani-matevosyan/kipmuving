@@ -162,13 +162,14 @@ return [
 		Illuminate\Translation\TranslationServiceProvider::class,
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
-		Zizaco\Entrust\EntrustServiceProvider::class,
 
 		/*
 		 * Package Service Providers...
 		 */
+
+		Zizaco\Entrust\EntrustServiceProvider::class,
 		SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
-		//
+		Dimsav\Translatable\TranslatableServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
