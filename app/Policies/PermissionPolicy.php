@@ -13,7 +13,7 @@ class PermissionPolicy
 
 	public function display(User $user, Permission $permission)
 	{
-		if (Auth::check() && Auth::user()->can('permissions-list')) {
+		if (Auth::check() && Auth::user()->can('permissions-control')) {
 			return true;
 		}
 		return false;
@@ -21,7 +21,7 @@ class PermissionPolicy
 
 	public function create(User $user)
 	{
-		if (Auth::check() && Auth::user()->can('permissions-create')) {
+		if (Auth::check() && Auth::user()->can('permissions-control')) {
 			return true;
 		}
 		return false;
@@ -29,7 +29,7 @@ class PermissionPolicy
 
 	public function edit(User $user, Permission $permission)
 	{
-		if (Auth::check() && Auth::user()->can('permissions-edit')) {
+		if (Auth::check() && Auth::user()->can('permissions-control')) {
 			return true;
 		}
 		return false;
@@ -37,7 +37,7 @@ class PermissionPolicy
 
 	public function delete(User $user, Permission $permission)
 	{
-		if (Auth::check() && Auth::user()->can('permissions-delete')) {
+		if (Auth::check() && Auth::user()->can('permissions-control')) {
 			return true;
 		}
 		return false;

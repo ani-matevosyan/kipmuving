@@ -13,7 +13,7 @@ class RolePolicy
 
 	public function display(User $user, Role $role)
 	{
-		if (Auth::check() && Auth::user()->can('roles-list')) {
+		if (Auth::check() && Auth::user()->can('roles-control')) {
 			return true;
 		}
 		return false;
@@ -21,7 +21,7 @@ class RolePolicy
 
 	public function create(User $user)
 	{
-		if (Auth::check() && Auth::user()->can('roles-create')) {
+		if (Auth::check() && Auth::user()->can('roles-control')) {
 			return true;
 		}
 		return false;
@@ -29,7 +29,7 @@ class RolePolicy
 
 	public function edit(User $user, Role $role)
 	{
-		if (Auth::check() && Auth::user()->can('roles-edit')) {
+		if (Auth::check() && Auth::user()->can('roles-control')) {
 			return true;
 		}
 		return false;
@@ -37,7 +37,7 @@ class RolePolicy
 
 	public function delete(User $user, Role $role)
 	{
-		if (Auth::check() && Auth::user()->can('roles-delete')) {
+		if (Auth::check() && Auth::user()->can('roles-control')) {
 			return true;
 		}
 		return false;

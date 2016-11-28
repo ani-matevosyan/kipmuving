@@ -12,7 +12,7 @@ class UserPolicy
 
 	public function display(User $user, User $item)
 	{
-		if (Auth::check() && Auth::user()->can('users-list')) {
+		if (Auth::check() && Auth::user()->can('users-control')) {
 			return true;
 		}
 		return false;
@@ -20,7 +20,7 @@ class UserPolicy
 
 	public function create(User $user)
 	{
-		if (Auth::check() && Auth::user()->can('users-create')) {
+		if (Auth::check() && Auth::user()->can('users-control')) {
 			return true;
 		}
 		return false;
@@ -28,7 +28,7 @@ class UserPolicy
 
 	public function edit(User $user, User $item)
 	{
-		if (Auth::check() && Auth::user()->can('users-edit')) {
+		if (Auth::check() && Auth::user()->can('users-control')) {
 			return true;
 		}
 		return false;
@@ -36,7 +36,7 @@ class UserPolicy
 
 	public function delete(User $user, User $item)
 	{
-		if (Auth::check() && Auth::user()->can('users-delete')) {
+		if (Auth::check() && Auth::user()->can('users-control')) {
 			return true;
 		}
 		return false;
