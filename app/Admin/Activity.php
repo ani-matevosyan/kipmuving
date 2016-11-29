@@ -14,9 +14,15 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		$display = AdminDisplay::table()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('name')->setLabel('Name'),
-			AdminColumn::datetime('available_start')->setLabel('Start'),
-			AdminColumn::datetime('available_end')->setLabel('End'),
+			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d.m.Y'),
+			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d.m.Y'),
 			AdminColumn::text('min_age')->setLabel('Min. age'),
+			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
+				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
+			}),
+			AdminColumn::custom()->setLabel('Visible')->setCallback(function ($instance) {
+				return $instance->visibility ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
+			})
 //            AdminColumn::text('short_description')->setLabel('Short description'),
 //            AdminColumn::text('description')->setLabel('Description name'),
 		]);
@@ -30,6 +36,7 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 			AdminFormElement::text('subtitle', 'Subtitle')->required(),
 			AdminFormElement::textarea('short_description', 'Short description')->required(),
 			AdminFormElement::textarea('description', 'Description')->required(),
+			AdminFormElement::multiselect('styles', 'Styles')->setModelForOptions('App\ActivityStyle')->setDisplay('name'),
 
 			AdminFormElement::columns()
 				->addColumn([
@@ -64,6 +71,6 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		return $form;
 	});
 
-})
-	->addMenuPage(Activity::class, 0)
-	->setIcon('fa fa-tree');
+});
+//	->addMenuPage(Activity::class, 0)
+//	->setIcon('fa fa-tree');

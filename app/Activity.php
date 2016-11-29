@@ -4,24 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
-use App\Http\Traits\NewUpload;
 use KodiComponents\Support\Upload;
 
 class Activity extends Model
 {
-//	use Upload;
-//	use NewUpload;
-//	use Translatable;
 	use Upload, Translatable {
 		Translatable::getAttribute insteadof Upload;
 		Upload::getAttribute as getUploadAttribute;
 		Translatable::setAttribute insteadof Upload;
 		Upload::setAttribute as setUploadAttribute;
-//		Translatable::setAttribute insteadof Upload;
-//		Upload::getAttribute as test;
-//		Upload::setAttribute as testt;
 	}
-//	dd();
 
 	public $translationModel = 'App\ActivityTranslation';
 	public $translatedAttributes = ['name', 'subtitle', 'description', 'short_description'];
@@ -33,4 +25,9 @@ class Activity extends Model
 		'image_thumb' => 'image',
 		'image_icon' => 'image'
 	];
+
+	public function styles()
+	{
+		return $this->belongsToMany('App\ActivityStyle', 'activity_style', 'activity_id', 'style_id');
+	}
 }
