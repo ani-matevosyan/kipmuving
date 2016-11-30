@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivityStylesTable extends Migration
+class CreateActivityImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateActivityStylesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activity_styles', function (Blueprint $table) {
+        Schema::create('activity_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('activity_id');
+            $table->string('image_url');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateActivityStylesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activity_styles');
+        Schema::dropIfExists('activity_images');
     }
 }

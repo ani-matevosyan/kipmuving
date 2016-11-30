@@ -33,5 +33,5 @@ AdminSection::registerModel(Role::class, function (ModelConfiguration $model) {
     });
 
 })
-    ->addMenuPage(Role::class, 0)
+    ->addMenuPage(Role::class, 2)
     ->setIcon('fa fa-graduation-cap');

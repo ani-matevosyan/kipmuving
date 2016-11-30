@@ -299,11 +299,11 @@
 
 
 				<div class="row">
-					@for($i = 0; $i < 8; $i++)
+					@foreach($activities as $activity)
 						<div class="col-md-3 col-sm-6 col-xs-12 col">
 							@include('site.partials.activities.all-list-item-arr')
 						</div>
-					@endfor
+					@endforeach
 				</div>
 
 

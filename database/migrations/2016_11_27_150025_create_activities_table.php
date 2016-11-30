@@ -16,7 +16,7 @@ class CreateActivitiesTable extends Migration
 		Schema::create('activities', function (Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
-//			styles
+			$table->text('styles');
 			$table->boolean('availability')->default(true);
 			$table->date('available_start');
 			$table->date('available_end');
@@ -25,21 +25,20 @@ class CreateActivitiesTable extends Migration
 			$table->string('image_thumb');
 			$table->string('image_icon');
 			$table->integer('min_age');
-//			carries
-//			restrictions
 			$table->decimal('latitude', 9, 5);
 			$table->decimal('longitude', 9, 5);
-//			gallery images
 		});
 
 		Schema::create('activity_translations', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('activity_id')->unsigned();
+			$table->string('locale')->index();
 			$table->string('name');
 			$table->string('subtitle');
-			$table->text('description');
 			$table->text('short_description');
-			$table->string('locale')->index();
+			$table->text('description');
+			$table->text('carry');
+			$table->text('restrictions');
 
 			$table->unique(['activity_id', 'locale']);
 			$table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');

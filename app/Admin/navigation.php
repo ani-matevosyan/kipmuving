@@ -37,14 +37,9 @@ return [
 	[
 		'title' => 'Activities',
 		'icon' => 'fa fa-tree',
-		'pages' => [
-			(new Page(\App\Activity::class))
+		(new Page(\App\Activity::class))
 			->setIcon('fa fa-chevron-right')
-			->setPriority(0),
-			(new Page(\App\ActivityStyle::class))
-			->setIcon('fa fa-chevron-right')
-			->setPriority(0),
-		]
+			->setPriority(0)
 //		'model' => '\App\Activity',
 //		'pages' => [
 //			'title' => 'Styles',
