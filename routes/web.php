@@ -18,6 +18,8 @@ Route::get('/home', 'HomeController@index');
 
 #Activities
 Route::get('/activities', 'ActivityController@index');
+Route::get('/activity/{id}', 'ActivityController@getActivity')
+	->where('id', '[0-9]+');
 
 #Agencies
 Route::get('/agencies', 'AgencyController@index');

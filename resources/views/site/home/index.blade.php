@@ -15,13 +15,9 @@
 							<div class="holder">
 								<div class="col">
 									<select class="form-control" id="activity_id">
-										{{--@foreach ($activities as $a)--}}
-										{{--<option value="{{ $a['id'] }}">{{ $a['name'] }}</option>--}}
-										<option value="1">Activity name 1</option>
-										<option value="2">Activity name 2</option>
-										<option value="3">Activity name 3</option>
-										<option value="4">Activity name 4</option>
-										{{--@endforeach--}}
+										@foreach ($activitiesList as $item)
+											<option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="col">
@@ -236,7 +232,8 @@
 					</ul>
 				</div>
 				<div class="col-md-6">
-					<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}</p>
+					<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
+					</p>
 					<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
 					<a href="#" class="btn-orange">
 						<img src="{{ asset('images/arrow.png') }}" alt="">
@@ -281,7 +278,8 @@
 						<div class="img-holder"><img src="images/img33.png" alt=""></div>
 						<div class="text">
 							<strong class="value">1%</strong>
-							<div class="txt">{{ trans('main.for_the_organization') }} <strong>{{ trans('main.parks_for_chili') }}</strong></div>
+							<div class="txt">{{ trans('main.for_the_organization') }}
+								<strong>{{ trans('main.parks_for_chili') }}</strong></div>
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12 col">
@@ -308,7 +306,8 @@
 
 
 				<div class="btn-holder">
-					<a href="{{ action('ActivityController@index') }}" class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
+					<a href="{{ action('ActivityController@index') }}"
+						class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
 				</div>
 			</div>
 		</div>

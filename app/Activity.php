@@ -65,7 +65,33 @@ class Activity extends Model
 
 	public function getHomePageActivities()
 	{
-		$activities = Activity::get();
+		$activities = Activity::limit(8)->get();
+		foreach ($activities as $activity) {
+			$offer = Offer::where('activity_id', $activity['id'])
+				->orderby('price')
+				->select('price')
+				->first();
+			$offer['price'] ? $activity['price'] = $offer['price'] : $activity['price'] = 0.00;
+		}
+
 		return $activities;
+	}
+
+	public function getActivitiesList()
+	{
+		$activitiesList = Activity::where('activity_translations.locale', app()->getLocale())
+			->join('activity_translations', 'activity_translations.activity_id', 'activities.id')
+			->select('activities.id as id' ,'activity_translations.name as name')
+			->orderby('activity_translations.name')
+			->get();
+
+		return $activitiesList;
+	}
+
+	public function getActivity($id)
+	{
+		$activity = Activity::where('id', $id)->first();
+
+		return $activity;
 	}
 }

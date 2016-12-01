@@ -10,7 +10,8 @@ class HomeController extends Controller
 	public function index(Activity $activity)
 	{
 		$data = [
-			'activities' => $activities = $activity->getHomePageActivities()
+			'activities' => $activity->getHomePageActivities(),
+			'activitiesList' => $activity->getActivitiesList()
 		];
 		return view('site.home.index', $data);
 	}

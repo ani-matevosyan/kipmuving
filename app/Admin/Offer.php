@@ -13,18 +13,16 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	$model->onDisplay(function () {
 		$display = AdminDisplay::table()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
-			AdminColumn::text('name')->setLabel('Name'),
-//			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d.m.Y'),
-//			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d.m.Y'),
-//			AdminColumn::text('min_age')->setLabel('Min. age'),
-//			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
-//				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
-//			}),
-//			AdminColumn::custom()->setLabel('Visible')->setCallback(function ($instance) {
-//				return $instance->visibility ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
-//			})
-//            AdminColumn::text('short_description')->setLabel('Short description'),
-//            AdminColumn::text('description')->setLabel('Description name'),
+			AdminColumn::text('activity')->setLabel('Activity'),
+			AdminColumn::text('agency')->setLabel('Agency'),
+			AdminColumn::text('price')->setLabel('Price'),
+			AdminColumn::text('persons')->setLabel('Persons'),
+			AdminColumn::text('min_age')->setLabel('Min age'),
+			AdminColumn::datetime('available_start')->setLabel('Start'),
+			AdminColumn::datetime('available_end')->setLabel('End'),
+			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
+				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
+			})
 		]);
 		$display->paginate(10);
 		return $display;
@@ -35,9 +33,6 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 
 		$tabs = AdminDisplay::tabbed([
 			'Activity' => new \SleepingOwl\Admin\Form\FormElements([
-//				AdminFormElement::text('email', 'Email')->required(),
-//				AdminFormElement::text('address', 'Address')->required(),
-//				AdminFormElement::textarea('description', 'Description')->required(),
 
 				AdminFormElement::columns()
 					->addColumn([
@@ -83,28 +78,18 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 							->required()
 					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
-//				AdminFormElement::columns()
-//					->addColumn([
-//						AdminFormElement::image('image', 'Image'),
-//					], 4)
-//					->addColumn([
-//						AdminFormElement::image('image_thumb', 'Image thumb'),
-//					], 4)
-//					->addColumn([
-//						AdminFormElement::image('image_icon', 'Image icon'),
-//					], 4)
 			]),
 			'Includes' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('includes', 'Includes')->required()
 			]),
 			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('restrictions', 'Restrictions')->required()
+				AdminFormElement::textarea('restrictions', 'Restrictions')
 			]),
 			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()
 			]),
 			'Carry' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('carry', 'Carry')->required()
+				AdminFormElement::textarea('carry', 'Carry')
 			])
 		]);
 
