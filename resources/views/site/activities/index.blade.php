@@ -44,7 +44,7 @@
         </div>
     </section>
     <!--Slider section-->
-    <section id="first-slider-sec">
+    <section id="first-slider-sec" class="csHidden">
         <div class="container">
             <div class="col-xs-12">
                 <div class="col-md-4">
@@ -59,31 +59,32 @@
             <div class="col-xs-12">
                 <div id="cpa-slider-1">
                     <div class="item">
-                        <img src="images/capa-1.png" alt="cpa 1"/>
-                        <h2>Cuevas Volcánicas</h2>
+                        <a href="/activities/2">
+                            <img src="/uploads/activity/ GmaWx-VolcánVillarrica_mini.jpg" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
+                            <h2>Trekking Volcán Villarrica</h2>
+                        </a>
                     </div>
                     <div class="item">
-                        <img src="images/capa-2.png" alt="cpa 2"/>
-                        <h2>Cuevas Volcánicas</h2>
+                        <a href="/activities/4">
+                            <img src="/uploads/activity/ zNYN9-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
+                            <h2>Rafting Alto</h2>
+                        </a>
                     </div>
                     <div class="item">
-                        <img src="images/capa-3.png" alt="cpa 3"/>
-                        <h2>Cuevas Volcánicas</h2>
+                        <a href="/activities/1">
+                            <img src="/uploads/activity/ kpEoA-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
+                            <h2>Rafting Bajo</h2>
+                        </a>
                     </div>
                     <div class="item">
-                        <img src="images/capa-1.png" alt="cpa 1"/>
-                        <h2>Cuevas Volcánicas</h2>
-                    </div>
-                    <div class="item">
-                        <img src="images/capa-2.png" alt="cpa 2"/>
-                        <h2>Cuevas Volcánicas</h2>
-                    </div>
-                    <div class="item">
-                        <img src="images/capa-3.png" alt="cpa 3"/>
-                        <h2>Cuevas Volcánicas</h2>
+                        <a href="/activities/3">
+                            <img src="/uploads/activity/ ERPJI-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
+                            <h2>Tour por la zona + Termas</h2>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!--End Slider section-->
