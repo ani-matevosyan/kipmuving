@@ -29,14 +29,4 @@ $(document).ready(function () {
         itemsDesktopSmall: [979, 3]
 
     });
-
-    // Guia Page Tabs  
-    $(".col a").click(function (e) {
-        e.preventDefault();
-        var currentAttrValue = $(this).attr('href');
-        //find the active class and remove it
-        $('.your-reservation').find('.active-tab').removeClass("active-tab");        
-        //add the active class to the 
-        $(currentAttrValue).addClass('active-tab');
-    }); 
 });

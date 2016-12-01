@@ -47,9 +47,10 @@
     right: 0px;
     color: #ffffff;
     text-align: center;
-    padding-bottom: 15px;
+    padding: 0 20px 15px;
     opacity: 90;
-    margin-top: 5px; }
+    margin-top: 5px;
+    text-shadow: 1px 3px 1px #38383a; }
 @media (max-width: 767px) {
     #first-slider-sec .item h2, #second-slider-sec .item h2 {
         font-size: 25px; } }
@@ -583,8 +584,7 @@ tooltip fade top in {
     padding: 0;
     margin: 10px 0px 0px 5px;
     vertical-align: bottom;
-    list-style: none;
-    display: inline-block; }
+    list-style: none; }
 .placeholder-info p:first-child {
     font-size: 16px;
     font-weight: bold; }
@@ -593,8 +593,12 @@ tooltip fade top in {
     margin: 15px auto auto auto;
     padding: 0; }
 .placeholder-info li {
-    float: left;
-    list-style-type: none; }
+    list-style-type: none;
+    -webkit-flex: 1;
+     -moz-flex: 1;
+     -ms-flex: 1;
+     -o-flex: 1;
+     flex: 1; }
 .placeholder-info a {
     width: 170px;
     color: #000000;
@@ -831,7 +835,13 @@ tooltip fade top in {
 .placeholder-info {
   margin-top: 0px; }
   .placeholder-info ul {
-    margin-top: 1px; }
+    margin-top: 1px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap; }
   .placeholder-info a {
     width: 300px; }
     .placeholder-info a img {
@@ -872,7 +882,7 @@ tooltip fade top in {
 #m-box-2 .placeholder-info {
   margin-top: 10px; }
   #m-box-2 .placeholder-info a {
-    width: 175px; }
+    width: 180px; }
 #m-box-2 .termas {
   margin-bottom: 20px;
   display: block;
@@ -913,8 +923,8 @@ tooltip fade top in {
   font-size: 11px;
   top: 0px; }
   #m-box-2 .termas .opiniones img {
-    width: 100px;
-    height: 15px; }
+    width: auto;
+    height: auto; }
 #m-box-2 .termas .opiniones:before {
   font-size: 11px; }
 #m-box-2 .bottom-tab-links {
@@ -1000,5 +1010,18 @@ tooltip fade top in {
         text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/*=======TripAdvision widget=====*/
+
+.TA_socialButtonBubbles{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content:center;
+}
+
+/*====End TripAdvision widget ===*/
 
 
