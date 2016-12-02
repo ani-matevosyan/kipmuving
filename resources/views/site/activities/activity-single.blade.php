@@ -87,16 +87,16 @@
 										</div>
 										<div class="tab-pane" id="tab3">
 											<ul class="accordion">
-												{{--											@foreach ($offers_price as $offer)--}}
-												{{--												@include('site.partials.offers.list-item', array('offer' => $offer))--}}
-												{{--@endforeach--}}
+												@foreach ($offers['price'] as $offer)
+													@include('site.partials.offers.list-item')
+												@endforeach
 											</ul>
 										</div>
 										<div class="tab-pane" id="tab4">
 											<ul class="accordion">
-												{{--											@foreach ($offers_includes as $offer)--}}
-												{{--												@include('site.partials.offers.list-item', array('offer' => $offer))--}}
-												{{--@endforeach--}}
+												@foreach ($offers['includes'] as $offer)
+													@include('site.partials.offers.list-item')
+												@endforeach
 											</ul>
 										</div>
 									</div>

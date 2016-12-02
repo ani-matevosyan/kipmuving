@@ -84,11 +84,15 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					->addColumn([
 						AdminFormElement::number('min_age', 'Min age')
 							->required()
-					], 6)
+					], 3)
 					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
-					], 6),
+					], 3)
+					->addColumn([
+						AdminFormElement::number('includes_count', 'Includes count')
+							->required()
+					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Includes' => new \SleepingOwl\Admin\Form\FormElements([
