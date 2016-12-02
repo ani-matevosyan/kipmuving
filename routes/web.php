@@ -18,6 +18,11 @@ Route::get('/home', 'HomeController@index');
 
 #Activities
 Route::get('/activities', 'ActivityController@index');
+Route::get('/activity/{id}', 'ActivityController@getActivity')
+	->where('id', '[0-9]+');
+
+#Offers
+Route::post('/offer/date/set', 'OfferController@setDate');
 
 #Agencies
 Route::get('/agencies', 'AgencyController@index');
