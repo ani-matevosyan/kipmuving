@@ -18,7 +18,12 @@ function initDatepicker() {
 			window.location.href="?dt=" + dt;
 	});
 	$('#reserve-date-sd').datepicker('option', 'onSelect', function(dt){
-			window.location.href="?dt=" + dt;
+			$.ajax( {
+				type : 'POST',
+				url  : '/offer/date/set',
+				data : { dt : dt }
+			} );
+			// window.location.href="?dt=" + dt;
 	});
 }
 
