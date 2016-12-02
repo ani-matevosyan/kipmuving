@@ -40,7 +40,7 @@
                             <div class="ico">
                                 <img src="../images/claro.svg" alt="image description" width="33" height="33" />
                             </div>
-                            <strong>Salto El Claro</strong>
+                            <strong>Ojos de Caburgua</strong>
                         </a>
                     </li> 
                     <li>
@@ -48,7 +48,7 @@
                             <div class="ico">
                                 <img src="../images/ojos.svg" alt="image description" width="33" height="33" />
                             </div>
-                            <strong>Ojos de Caburgua</strong>
+                            <strong>Salto El Claro</strong>
                         </a>
                     </li> 
                 </ul> 

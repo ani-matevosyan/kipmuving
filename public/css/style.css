@@ -1,11 +1,11 @@
 /* Media query variable*/
 /*First slider*/
 #first-slider-sec {
-    background-color: #ffcb47; }
+    background-color: #333333; }
 #first-slider-sec p {
-    color: #85630d; }
+    color: #FFFFFF; }
 #first-slider-sec h1 {
-    color: #85630d; }
+    color: #FFFFFF; }
 
 #second-slider-sec {
     background-color: #9bd4d6; }
@@ -50,7 +50,8 @@
     padding: 0 20px 15px;
     opacity: 90;
     margin-top: 5px;
-    text-shadow: 1px 3px 1px #38383a; }
+    text-shadow: 1px 3px 1px #38383a;
+    font-weight: bold;}
 @media (max-width: 767px) {
     #first-slider-sec .item h2, #second-slider-sec .item h2 {
         font-size: 25px; } }

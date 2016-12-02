@@ -53,7 +53,6 @@
                 <div class="col-md-8 row">
                     <p>Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más
                         hacen. </p>
-
                 </div>
             </div>
             <div class="col-xs-12">
