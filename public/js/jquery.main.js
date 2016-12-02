@@ -21,7 +21,7 @@ function initDatepicker() {
 			$.ajax( {
 				type : 'POST',
 				url  : '/offer/date/set',
-				data : { dt : dt }
+				data : { dt : dt, '_token': $('meta[name="csrf-token"]').attr('content') }
 			} );
 			// window.location.href="?dt=" + dt;
 	});
