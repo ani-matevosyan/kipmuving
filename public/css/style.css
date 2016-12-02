@@ -1012,17 +1012,7 @@ tooltip fade top in {
 
 /*# sourceMappingURL=style.css.map */
 
-/*=======TripAdvision widget=====*/
-
-.TA_socialButtonBubbles{
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content:center;
+.csHidden{
+    display: none;
 }
-
-/*====End TripAdvision widget ===*/
-
 

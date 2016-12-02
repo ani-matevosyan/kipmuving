@@ -41,10 +41,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="all-activities new all-activities-header">
+				<header>
+					<h1>Todas las actividades en Pucón</h1>
+					<p>Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para
+						facilitar su búsqueda, separamos por estilos.</p>
+				</header>
+			</div>
 		</div>
 	</section>
 	<!--Slider section-->
-	<section id="first-slider-sec">
+	<section id="first-slider-sec" class="csHidden">
 		<div class="container">
 			<div class="col-xs-12">
 				<div class="col-md-4">
@@ -58,28 +65,28 @@
 			<div class="col-xs-12">
 				<div id="cpa-slider-1">
 					<div class="item">
-						<img src="images/capa-1.png" alt="cpa 1"/>
-						<h2>Cuevas Volcánicas</h2>
+						<a href="/activity/2">
+							<img src="/uploads/activity/ GmaWx-VolcánVillarrica_mini.jpg" alt="Trekking Volcán Villarrica"/>
+							<h2>Trekking Volcán Villarrica</h2>
+						</a>
 					</div>
 					<div class="item">
-						<img src="images/capa-2.png" alt="cpa 2"/>
-						<h2>Cuevas Volcánicas</h2>
+						<a href="/activity/4">
+							<img src="/uploads/activity/ zNYN9-2.jpg" alt="Rafting Alto"/>
+							<h2>Rafting Alto</h2>
+						</a>
 					</div>
 					<div class="item">
-						<img src="images/capa-3.png" alt="cpa 3"/>
-						<h2>Cuevas Volcánicas</h2>
+						<a href="/activity/1">
+							<img src="/uploads/activity/ kpEoA-2.jpg" alt="Rafting Bajo"/>
+							<h2>Rafting Bajo</h2>
+						</a>
 					</div>
 					<div class="item">
-						<img src="images/capa-1.png" alt="cpa 1"/>
-						<h2>Cuevas Volcánicas</h2>
-					</div>
-					<div class="item">
-						<img src="images/capa-2.png" alt="cpa 2"/>
-						<h2>Cuevas Volcánicas</h2>
-					</div>
-					<div class="item">
-						<img src="images/capa-3.png" alt="cpa 3"/>
-						<h2>Cuevas Volcánicas</h2>
+						<a href="/activity/3">
+							<img src="/uploads/activity/ ERPJI-2.jpg" alt="Tour por la zona + Termas"/>
+							<h2>Tour por la zona + Termas</h2>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -91,11 +98,6 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="all-activities new">
-						<header>
-							<h1>Todas las actividades en Pucón</h1>
-							<p>Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para
-								facilitar su búsqueda, separamos por estilos.</p>
-						</header>
 
 						<div class="activites-bar">
 

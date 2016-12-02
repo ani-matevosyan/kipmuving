@@ -562,6 +562,10 @@ body.home2 .all-activities {
   padding: 50px 0;
 }
 
+body.home2 .all-activities.all-activities-header{
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   body.home2 .all-activities {
     padding: 20px 0;
