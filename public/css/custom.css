@@ -551,3 +551,60 @@ body.home2 .all-activities.custom_title header {
 .modal-backdrop {
   background: #545353; }
 /*--------------END MODAL WIDNOW "RESERVE"------------*/
+
+/*--------------PICK LANGUAGE MENU------------*/
+
+#header.new .pick-lang{
+  position: relative;
+  overflow: visible;
+  width: auto;
+  height: auto;
+}
+
+.pick-lang.pressed:before{
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: -11px;
+  width: calc(100% + 22px);
+  height: calc(100% + 22px);
+  background: #002a2a;
+  outline: 3px solid #133939;
+}
+
+
+#header .country .pick-lang img{
+  margin: 0;
+}
+
+.choose-lang{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 41px;
+  left: -13px;
+  list-style: none;
+  background: #184242;
+  border: 3px solid #002a2a;
+  border-bottom-width: 0;
+  display: none;
+}
+
+.pick-lang.pressed .choose-lang{
+  display: block;
+}
+
+.choose-lang li{
+  margin-bottom: 0;
+  padding: 11px;
+  border-bottom: 3px solid #002a2a;
+}
+
+.current-lang{
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+/*--------------END PICK LANGUAGE MENU------------*/
