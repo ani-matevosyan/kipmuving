@@ -41,6 +41,13 @@
                     </div>
                 </div>
             </div>
+            <div class="all-activities new all-activities-header">
+                <header>
+                    <h1>Todas las actividades en Pucón</h1>
+                    <p>Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para
+                        facilitar su búsqueda, separamos por estilos.</p>
+                </header>
+            </div>
         </div>
     </section>
     <!--Slider section-->
@@ -91,11 +98,6 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="all-activities new">
-                        <header>
-                            <h1>Todas las actividades en Pucón</h1>
-                            <p>Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para
-                                facilitar su búsqueda, separamos por estilos.</p>
-                        </header>
 
                         <div class="activites-bar">
 
