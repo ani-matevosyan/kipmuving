@@ -8,7 +8,6 @@ class OfferController extends Controller
 {
 	public function setDate(Request $request)
 	{
-
 		dd($request);
 	}
 }
