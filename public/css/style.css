@@ -38,7 +38,7 @@
     width: 100%;
     max-width: 335px;
     height: auto;
-    background-color: #ffffff; }
+    background-color: black; }
 #first-slider-sec .item h2, #second-slider-sec .item h2 {
     position: absolute;
     display: block;
@@ -1011,9 +1011,17 @@ tooltip fade top in {
 
 /*# sourceMappingURL=style.css.map */
 
+/*=======TripAdvision widget=====*/
 
-.csHidden{
-    visibility: hidden;
+.TA_socialButtonBubbles{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content:center;
 }
+
+/*====End TripAdvision widget ===*/
 
 

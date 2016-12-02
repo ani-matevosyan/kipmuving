@@ -91,6 +91,7 @@ class Activity extends Model
 	public function getActivity($id)
 	{
 		$activity = Activity::where('id', $id)->first();
+//		dd($activity);
 
 		return $activity;
 	}

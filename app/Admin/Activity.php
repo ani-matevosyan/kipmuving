@@ -96,8 +96,19 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 						AdminFormElement::number('min_age', 'Min age')->required()
 					], 4),
 
-				AdminFormElement::checkbox('availability', 'Available'),
-				AdminFormElement::checkbox('visibility', 'Visible'),
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::checkbox('availability', 'Available'),
+						AdminFormElement::checkbox('visibility', 'Visible')
+					], 4)
+					->addColumn([
+						AdminFormElement::checkbox('available_day', 'Available on day'),
+						AdminFormElement::checkbox('available_night', 'Available on night'),
+					], 4)
+					->addColumn([
+						AdminFormElement::checkbox('available_high', 'Available from March to November'),
+						AdminFormElement::checkbox('available_low', 'Available from December to March'),
+					], 4),
 
 				AdminFormElement::columns()
 					->addColumn([
@@ -115,6 +126,9 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 			]),
 			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('restrictions', 'Restrictions')->required(),
+			]),
+			'Weather' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::textarea('weather_embed', 'Weather embed'),
 			]),
 			'Gallery' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::images('images', 'Images'),

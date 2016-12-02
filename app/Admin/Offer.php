@@ -60,6 +60,14 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 							->required()
 					], 3)
 					->addColumn([
+						AdminFormElement::time('start_time', 'Start time')
+//							->setFormat('Y-m-d H:i:s')
+							->required(),
+						AdminFormElement::time('end_time', 'End time')
+//							->setFormat('Y-m-d H:i:s')
+							->required()
+					], 3)
+					->addColumn([
 						AdminFormElement::text('price', 'Price')
 							->required(),
 						AdminFormElement::text('price_offer', 'Offer price')
@@ -70,13 +78,17 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 							->required(),
 						AdminFormElement::text('break_close', 'Break close')
 							->required()
-					], 3)
+					], 3),
+
+				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::number('min_age', 'Min age')
-							->required(),
+							->required()
+					], 6)
+					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
-					], 3),
+					], 6),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Includes' => new \SleepingOwl\Admin\Form\FormElements([

@@ -23,7 +23,9 @@
 								<div class="col">
 									<div class="sub-col">
 										<div class="text-field has-ico calender">
-											<input id="activity_date" type="text" placeholder="{{ trans('form.date') }}"
+											<input id="activity_date"
+													 type="text"
+													 placeholder="{{ trans('form.date') }}"
 													 class="form-control"
 													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
 										</div>
