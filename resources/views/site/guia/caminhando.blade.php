@@ -54,8 +54,8 @@
 </div>                                    
 <div class="row">
     <div class="map-detail">
-        <div class="col-md-6">                                                    
-            <iframe frameBorder="0" src="https://a.tiles.mapbox.com/v4/rafaelzarro.1c21lk6l.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw"></iframe>
+        <div class="col-md-6">
+            <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/rafaelzarro.1c21lk6l/attribution,share.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw'></iframe>
             <button type="button" class="maximize-map" data-toggle="modal" data-target="#myModal"></button>                                                    
         </div>
     </div>
