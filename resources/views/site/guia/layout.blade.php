@@ -4,6 +4,7 @@
 @section('content')
 <section class="visual activities-all" style="background-image: url({{ url('/images/img01.jpg') }})">
 </section>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/guia-instafeed.css') }}">
  <main id="main">
     <div class="container">
         <div class="row">
@@ -93,7 +94,4 @@
         </div>
     </div>
 </main>
-<link href="/css/instafeed/guia-instafeed.css" rel="stylesheet" type="text/css" media="all">
-<script type="text/javascript" src="/js/instafeed/instafeed.min.js"></script>
-<script type="text/javascript" src="/js/instafeed/guia-instafeed.js"></script>
 @stop
