@@ -64,9 +64,14 @@
 				<div class="list-box">
 					<strong class="title">Que incluye:</strong>
 					<ul>
-						@foreach (json_decode($offer['includes']) as $include)
-							<li>{{ $include }}</li>
-						@endforeach
+						{{--{!! dd($offer['includes']) !!}--}}
+						@if(is_array($offer['includes']))
+							@foreach ($offer['includes'] as $include)
+								<li>{{ $include }}</li>
+							@endforeach
+						@else
+							<li>{{ $offer['includes'] }}</li>
+						@endif
 					</ul>
 				<!-- <br />
         <strong class="title">Idiomas:</strong>
@@ -123,7 +128,7 @@
 			@endif
 		</div>
 	<!-- <div class="col-md-3 col-sm-3 col-xs-12">
-      <strong class="price" data-unit-price="{{ $offer['price_offer'] }}"><sub>$</sub> {{ number_format ($offer->price_offer, 0, '.', '.') }}</strong>
+      <strong class="price" data-unit-price="{{ $offer->price_offer }}"><sub>$</sub> {{ number_format ($offer->price_offer, 0, '.', '.') }}</strong>
       <a href="#" class="btn btn-primary btn-reserve" data-offer-id="{{ $offer->id }}">AGREGAR</a>
     </div> -->
 	</div>

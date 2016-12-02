@@ -81,7 +81,7 @@ class Activity extends Model
 	{
 		$activitiesList = Activity::where('activity_translations.locale', app()->getLocale())
 			->join('activity_translations', 'activity_translations.activity_id', 'activities.id')
-			->select('activities.id as id' ,'activity_translations.name as name')
+			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')
 			->get();
 
@@ -91,8 +91,27 @@ class Activity extends Model
 	public function getActivity($id)
 	{
 		$activity = Activity::where('id', $id)->first();
-//		dd($activity);
 
 		return $activity;
+	}
+
+	public function getAllActivities()
+	{
+		$activities['trekking'] = Activity::where('styles', 'like', '%trekking%')->get();
+		$activities['rio'] = Activity::where('styles', 'like', '%rio%')->get();
+		$activities['aire'] = Activity::where('styles', 'like', '%aire%')->get();
+		$activities['relax'] = Activity::where('styles', 'like', '%relax%')->get();
+		$activities['nieve'] = Activity::where('styles', 'like', '%nieve%')->get();
+		$activities['familia'] = Activity::where('styles', 'like', '%familia%')->get();
+		foreach ($activities as $activity) {
+			foreach ($activity as $item) {
+				$offer = Offer::where('activity_id', $item['id'])
+					->orderby('price')
+					->select('price')
+					->first();
+				$offer['price'] ? $item['price'] = $offer['price'] : $item['price'] = 0.00;
+			}
+		}
+		return $activities;
 	}
 }

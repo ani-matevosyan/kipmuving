@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
-	public function index()
+	public function index(Activity $activity)
 	{
-		return view('site.activities.index');
+		$data = [
+			'activities' => $activity->getAllActivities()
+		];
+		return view('site.activities.index', $data);
 	}
 
 	public function getActivity($id, Activity $activity, Offer $offer)
@@ -23,7 +26,9 @@ class ActivityController extends Controller
 			'activity' => $activity->getActivity($id),
 			'activitiesList' => $activity->getActivitiesList(),
 			'offers' => [
-				'recommend' => $offer->getRecommendOffers($id)
+				'recommend' => $offer->getRecommendOffers($id),
+				'price' => $offer->getPriceOffers($id),
+				'includes' => $offer->getIncludesOffers($id)
 			]
 		];
 

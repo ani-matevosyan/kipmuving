@@ -19,6 +19,29 @@ class Offer extends Model
 	];
 	protected $table = 'offers';
 
+	private function getAgency($agencyId)
+	{
+		$agency = AgencyTranslation::where('agencies.id', $agencyId)
+			->join('agencies', 'agency_translations.agency_id', 'agencies.id')
+			->where('agency_translations.locale', app()->getLocale())
+			->select(
+				'agencies.id',
+				'agencies.address',
+				'agencies.latitude',
+				'agencies.longitude',
+				'agencies.image',
+				'agencies.image_icon',
+				'agency_translations.name',
+				'agency_translations.description'
+			)
+			->first();
+
+		return $agency;
+	}
+	private function includesToArray($includes){
+		return explode('; ',$includes);
+	}
+
 	public function getActivityAttribute()
 	{
 		$activity = Activity::where('id', $this['activity_id'])
@@ -44,28 +67,39 @@ class Offer extends Model
 
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
-			$agency = AgencyTranslation::where('agencies.id', $offer['agency_id'])
-				->join('agencies', 'agency_translations.agency_id', 'agencies.id')
-				->where('agency_translations.locale', app()->getLocale())
-				->select(
-					'agencies.id',
-					'agencies.address',
-					'agencies.latitude',
-					'agencies.longitude',
-					'agencies.image',
-					'agencies.image_icon',
-					'agency_translations.name',
-					'agency_translations.description'
-				)
-				->first();
-			$offer['offerAgency'] = $agency;
+			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+			$offer['includes'] = $this->includesToArray($offer['includes']);
+		}
+		return $offers;
+	}
+
+	public function getPriceOffers($activityId)
+	{
+		$offers = Offer::where('activity_id', $activityId)
+			->where('availability', true)
+			->orderBy('price_offer', 'ASC')
+			->get();
+
+		foreach ($offers as $offer) {
+			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
+			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 		}
 
 		return $offers;
 	}
 
-	public function getPriceOffers()
+	public function getIncludesOffers($activityId)
 	{
+		$offers = Offer::where('activity_id', $activityId)
+			->where('availability', true)
+			->orderBy('includes_count', 'DESC')
+			->get();
 
+		foreach ($offers as $offer) {
+			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
+			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+		}
+
+		return $offers;
 	}
 }
