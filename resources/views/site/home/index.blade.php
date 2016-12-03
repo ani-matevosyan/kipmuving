@@ -301,10 +301,18 @@
 
 
 				<div class="row">
-					@foreach($activities as $activity)
+					@foreach($activities as $key=>$activity)
 						<div class="col-md-3 col-sm-6 col-xs-12 col">
 							@include('site.partials.activities.all-list-item-arr')
-						</div>
+                        </div>
+                        <?php ++$key?>
+                        @if($key === 2)
+                            <div class="clearfix visible-sm-block"></div>
+                        @elseif($key===4)
+                            <div class="clearfix visible-md-block"></div>
+                            <?php $key = 1 ?>
+                        @endif
+
 					@endforeach
 				</div>
 

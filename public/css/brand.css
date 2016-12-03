@@ -766,6 +766,8 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header.new .country > a {
   color: #fff;
+  display: block;
+  margin-top: 3px;
 }
 
 #header.new .btn-holder {
@@ -776,6 +778,9 @@ body.home2 .roteros-options .raised-form .text-field {
 #header.new .btn-primary {
   margin: 0 0 5px;
   display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 #header.new .img-flag {
@@ -3564,7 +3569,18 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #footer .address span {
-  display: block;
+  margin-right: 5%;
+}
+
+#footer .address span:last-child {
+  margin-right: 0
+}
+
+@media(max-width: 1199px) and (min-width: 992px){
+  #footer .address span:first-child {
+    display: block;
+    margin-right: 0%;
+  }
 }
 
 #footer .address .tel {
@@ -5543,6 +5559,7 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 3px 10px;
   text-align: center;
   background: #fff;
+  text-transform: uppercase;
 }
 
 @media (max-width: 767px) {

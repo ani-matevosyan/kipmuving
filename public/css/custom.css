@@ -558,16 +558,16 @@ body.home2 .all-activities.custom_title header {
   position: relative;
   overflow: visible;
   width: auto;
-  height: auto;
+  height: 26px;
 }
 
 .pick-lang.pressed:before{
   content: '';
   position: absolute;
-  top: -11px;
-  left: -11px;
-  width: calc(100% + 22px);
-  height: calc(100% + 22px);
+  top: -7px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 14px);
   background: #002a2a;
   outline: 3px solid #133939;
 }
@@ -581,8 +581,8 @@ body.home2 .all-activities.custom_title header {
   position: absolute;
   margin: 0;
   padding: 0;
-  top: 41px;
-  left: -13px;
+  top: 36px;
+  left: -8px;
   list-style: none;
   background: #184242;
   border: 3px solid #002a2a;
