@@ -301,7 +301,8 @@
 
 
 				<div class="row">
-					@foreach($activities as $key=>$activity)
+					<?php $key = 0; ?>
+					@foreach($activities as $activity)
 						<div class="col-md-3 col-sm-6 col-xs-12 col">
 							@include('site.partials.activities.all-list-item-arr')
                         </div>
@@ -310,9 +311,10 @@
                             <div class="clearfix visible-sm-block"></div>
                         @elseif($key===4)
                             <div class="clearfix visible-md-block"></div>
-                            <?php $key = 1 ?>
+							<div class="clearfix visible-lg-block"></div>
+							<div class="clearfix visible-sm-block"></div>
+                            <?php $key = 0; ?>
                         @endif
-
 					@endforeach
 				</div>
 

@@ -422,6 +422,9 @@ body.home-sin {
   background: url(../images/bg-body.jpg) no-repeat;
   background-size: cover;
 }
+body.nav-active{
+  overflow: hidden;
+}
 
 body.nav-active .w1 {
   right: 260px;
