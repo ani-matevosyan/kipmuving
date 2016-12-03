@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Offer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ActivityController extends Controller
 {
@@ -28,7 +30,8 @@ class ActivityController extends Controller
 			'offers' => [
 				'recommend' => $offer->getRecommendOffers($id),
 				'price' => $offer->getPriceOffers($id),
-				'includes' => $offer->getIncludesOffers($id)
+				'includes' => $offer->getIncludesOffers($id),
+				'selected' => $offer->getSelectedOffers()
 			]
 		];
 

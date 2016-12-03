@@ -41,7 +41,7 @@ class Activity extends Model
 
 	public function getImagesAttribute()
 	{
-		$images = ActivityImage::where('activity_id', 2)->get();
+		$images = ActivityImage::where('activity_id', $this['id'])->get();
 		$imagesUrls = [];
 		foreach ($images as $image) {
 			$imagesUrls[] = $image['image_url'];

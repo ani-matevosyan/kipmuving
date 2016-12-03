@@ -65,7 +65,7 @@
 																 type="text"
 																 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 																 placeholder=""
-																 value="{{-- $dt --}}">
+																 value="{{ \Carbon\Carbon::parse(Session::get('selectedDate'))->format('d/m/Y') }}">
 													</a>
 												</div>
 											</div>

@@ -4,6 +4,7 @@ namespace App;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class Offer extends Model
 {
@@ -38,8 +39,10 @@ class Offer extends Model
 
 		return $agency;
 	}
-	private function includesToArray($includes){
-		return explode('; ',$includes);
+
+	private function includesToArray($includes)
+	{
+		return explode('; ', $includes);
 	}
 
 	public function getActivityAttribute()
@@ -70,6 +73,7 @@ class Offer extends Model
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->includesToArray($offer['includes']);
 		}
+
 		return $offers;
 	}
 
@@ -101,5 +105,35 @@ class Offer extends Model
 		}
 
 		return $offers;
+	}
+
+	public function getSelectedOffers()
+	{
+		if (session()->has('selectedOffers')) {
+			$sessionOffers = session('selectedOffers');
+			$offers = [];
+			foreach ($sessionOffers as $sessionOffer) {
+				$offers[] = Offer::where('offers.id', $sessionOffer['offer_id'])
+					->join('activities', 'activities.id', 'offers.activity_id')
+					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
+					->where('activity_translations.locale', app()->getLocale())
+					->select('offers.persons', 'activity_translations.name')
+					->first();
+			}
+			if (count($offers) > 0)
+				foreach ($offers as $key => $offer) {
+					if ($sessionOffers[$key]['persons'] > $offer['persons'])
+						$sessionOffers[$key]['persons'] = $offer['persons'];
+					$sessionOffers[$key]['name'] = $offer['name'];
+				}
+			else
+				$sessionOffers = null;
+
+		} else {
+			session()->forget('selectedOffers');
+			$sessionOffers = null;
+		}
+//		dd($sessionOffers);
+		return $sessionOffers;
 	}
 }

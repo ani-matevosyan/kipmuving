@@ -19,22 +19,23 @@
 			<input id="reserve-date-sd" type="text"
 					 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 					 placeholder="Fecha" class="form-control"
-					 value="{{-- $dt --}}">
+					 value="{{ \Carbon\Carbon::parse(Session::get('selectedDate'))->format('d/m/Y') }}">
 		</div>
 	</form>
 </section>
-<section class="widget summary">
-	<h2>Resumen de su panorama:</h2>
-	<ul class="offers-list">
-		!!!OFFERS!!!
-		<?php $oid = 0; ?>
-		{{--@foreach ($offers as $offer)--}}
-			{{--<li><a href="#" data-oid={{ $oid }}>{{ date("d/m/Y", strtotime($offer['date'])) }}--}}
-{{--					- {{ $offer['offer']->activity->name }}</a></li>--}}
-			<?php $oid = $oid + 1; ?>
-		{{--@endforeach--}}
-	</ul>
-</section>
+@if($offers['selected'])
+	<section class="widget summary">
+		<h2>Resumen de su panorama:</h2>
+		<ul class="offers-list">
+			<?php $oid = 0; ?>
+			@foreach ($offers['selected'] as $offer)
+				<li><a href="#" data-oid={{ $oid }}>{{ $offer['date'] }}
+						- {{ $offer['name'] }} [{{ $offer['persons'] }} pers.]</a></li>
+				<?php $oid++; ?>
+			@endforeach
+		</ul>
+	</section>
+@endif
 <section class="important-block">
 	<div class="box alert">
 		<h2>Importante</h2>

@@ -23,6 +23,8 @@ Route::get('/activity/{id}', 'ActivityController@getActivity')
 
 #Offers
 Route::post('/offer/date/set', 'OfferController@setDate');
+Route::post('/offer/reserve', 'OfferController@reserve');
+Route::post('/offer/remove', 'OfferController@remove');
 
 #Agencies
 Route::get('/agencies', 'AgencyController@index');
