@@ -50,4 +50,17 @@ $(document).ready(function () {
         $(currentAttrValue).addClass('active-sub-tab');
     });
 
+    var langPressed = false;
+
+    $(".current-lang, .choose-lang").click(function(e){
+        $(".pick-lang").addClass("pressed");
+        langPressed = true;
+        e.stopPropagation();
+    });
+
+    $(document).click(function(){
+        $(".pick-lang").removeClass("pressed");
+    });
+
+
 });

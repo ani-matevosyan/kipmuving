@@ -11,4 +11,6 @@
 <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' >
 
 <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}" type="image/x-icon">
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&sensor=false"></script>
 {{--<link rel="icon" href="/images/favicon.ico" type="image/x-icon">--}}

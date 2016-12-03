@@ -44,21 +44,27 @@
 								<div class="login-panel">
 									<div class="login-box">
 										<div class="country">
-											<div class="img-flag">
-												<img src="{{ asset('/images/rad-flag4.png') }}" alt="image description">
+											<div class="img-flag pick-lang">
+												<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.png') }}" alt="image description" class="current-lang">
+												<ul class="choose-lang">
+													@foreach($locales as $locale)
+														<li>
+															<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
+																<img src="{{ asset('/images/'.$locale['code'].'-flag.png') }}" alt="image description">
+															</a>
+														</li>
+													@endforeach
+												</ul>
 											</div>
-											<span data-target="#" data-toggle="dropdown">{{ $currentLocale['code'] }}</span>
-											@foreach($locales as $locale)
-												<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">{{ $locale['code'] }}</a>
-											@endforeach
+											<a href="#" data-target="#" data-toggle="dropdown" aria-expanded="true">CLP $</a>
 										</div>
 										<div class="btn-holder">
 											@if (!Auth::guest())
-												<a href="/user" class="btn btn-primary">
+												<a href="/user" class="btn btn-primary" title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 													{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
 												</a>
 												<a href="{{ url('/logout') }}" class="btn btn-primary"
-													onclick="event.preventDefault(); document.getElementById('logout-form').submit();">SALIR</a>
+													onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="SALIR">SALIR</a>
 												<form id="logout-form" action="{{ url('/logout') }}" method="POST"
 														style="display: none;">
 													{{ csrf_field() }}
@@ -96,19 +102,19 @@
 			<aside class="holder">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3 col-sm-4 col-xs-12 box">
-							<!--
-							<strong class="title">Aventura Chile</strong>
-							<nav class="footer-nav">
-									  <ul>
-												 <li><a href="#">Quien Somos</a></li>
-												 <li><a href="#">Time</a></li>
-												 <li><a href="#">Trabaje con nosotros</a></li>
-												 <li><a href="#">Contacto</a></li>
-									  </ul>
-							</nav>
-							-->
-						</div>
+						{{--<div class="col-md-3 col-sm-4 col-xs-12 box">--}}
+							{{--<!----}}
+							{{--<strong class="title">Aventura Chile</strong>--}}
+							{{--<nav class="footer-nav">--}}
+									  {{--<ul>--}}
+												 {{--<li><a href="#">Quien Somos</a></li>--}}
+												 {{--<li><a href="#">Time</a></li>--}}
+												 {{--<li><a href="#">Trabaje con nosotros</a></li>--}}
+												 {{--<li><a href="#">Contacto</a></li>--}}
+									  {{--</ul>--}}
+							{{--</nav>--}}
+							{{---->--}}
+						{{--</div>--}}
 						<div class="col-md-3 col-sm-4 col-xs-12 box">
 							<ul class="payment-cards">
 								@for($i = 1; $i <= 6; $i++)
@@ -120,10 +126,10 @@
 								@endfor
 							</ul>
 						</div>
-						<div class="col-md-2 col-sm-4 col-xs-12 box">
+						<div class="col-md-5 col-sm-8 col-xs-12 box">
 							<strong class="title">{{ trans('main.where_we_are') }}</strong>
 							<address class="address">
-								<span>Colo Colo 485 - Pucón - Chile</span>
+								<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
 								<span>
 									<a href="tel:56452444035" class="tel">+56 45 2444035</a>
 								</span>
