@@ -10,7 +10,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<form action="/activites" class="activity-form">
+						<form action="/activites" class="activity-form" id="activity-form">
 							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
 							<div class="holder">
 								<div class="col">
@@ -52,7 +52,9 @@
 		</div>
 
 		<div class="container your-reservation activity add" style="padding-bottom: 0px;">
-			@include('site.offers.offers_quickinfo')
+			<div id="id="home-tour-step-2" class="clearfix">
+				@include('site.offers.offers_quickinfo')
+			</div>
 		</div>
 		<section id="guia" class="s_guia">
 			<div class="container">

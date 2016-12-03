@@ -44,13 +44,6 @@
 								<div class="login-panel">
 									<div class="login-box">
 										<div class="country">
-											{{--<div class="img-flag">--}}
-												{{--<img src="{{ asset('/images/rad-flag4.png') }}" alt="image description">--}}
-											{{--</div>--}}
-											{{--<span data-target="#" data-toggle="dropdown">{{ $currentLocale['code'] }}</span>--}}
-											{{--@foreach($locales as $locale)--}}
-												{{--<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">{{ $locale['code'] }}</a>--}}
-											{{--@endforeach--}}
 											<div class="img-flag pick-lang">
 												<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.png') }}" alt="image description" class="current-lang">
 												<ul class="choose-lang">
@@ -61,12 +54,6 @@
 															</a>
 														</li>
 													@endforeach
-													{{--<li>--}}
-														{{--<a href="#"><img src="{{ asset('/images/rad-flag3.png') }}" alt=""></a>--}}
-													{{--</li>--}}
-													{{--<li>--}}
-														{{--<a href="#"><img src="{{ asset('/images/rad-flag2.png') }}" alt=""></a>--}}
-													{{--</li>--}}
 												</ul>
 											</div>
 										</div>
