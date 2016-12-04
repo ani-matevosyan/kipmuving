@@ -159,7 +159,7 @@
     <div class="col-md-12 right-col">
         <img src="images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
         <h4>Fotos de Instagram</h4><strong>#pucon</strong>
-       <div id="instafeed1">
+       <div id="instafeed1" class="instafeed">
 
        </div>
     </div>

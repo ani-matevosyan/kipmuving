@@ -56,15 +56,39 @@ jQuery(document).ready(function(){
 			$('#message-modal').modal('show');
 			return false;
 		}
-		$.post( "/offer/reserve", {
-			'_token': $('meta[name="csrf-token"]').attr('content'),
-			offer_id: offer_id,
-			persons: persona,
-			date: dt
+		$.ajax({
+			type: "POST",
+			url: "/offer/reserve",
+			data: {
+				'_token': $('meta[name="csrf-token"]').attr('content'),
+				offer_id: offer_id,
+			 	persons: persona,
+			 	date: dt
+			},
+			success: function(data){
+				console.log("RESPONSE");
+				console.log(data);
+			}
+		});
+		$.ajax({
+			type: "GET",
+			url: "/activities/getsuprogram",
+			data: "",
+			success: function(data){
+				console.log("ACTIVITIES")
+				console.log(data);
+			}
 		})
-	  	.done(function( response ) {
-				 location.reload();
-  		});
+
+		// $.post( "/offer/reserve", {
+		// 	'_token': $('meta[name="csrf-token"]').attr('content'),
+		// 	offer_id: offer_id,
+		// 	persons: persona,
+		// 	date: dt
+		// })
+	  	// .done(function( response ) {
+		// 		 location.reload();
+  		// });
 			return false;
 	});
 

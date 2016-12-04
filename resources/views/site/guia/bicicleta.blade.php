@@ -82,6 +82,16 @@
                             </div>
                             <script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=315&amp;locationId=3181592&amp;lang=pt&amp;border=false&amp;display_version=2"></script>
                         </div>
+                        {{--<div class="opiniones">--}}
+                            {{--<br>--}}
+                            {{--<a href="https://www.tripadvisor.com.ar/Hotel_Review-g312848-d301975-Reviews-m25698-Llao_Llao_Hotel_and_Resort_Golf_Spa-San_Carlos_de_Bariloche_Province_of_Rio_Negr.html#REVIEWS" target="_blank" rel="nofollow" onclick="ga('send', 'event', 'Saliente', 'Click', 'Bariloche > Hotels > Botón Trip Advisor > Llao Llao Hotel &amp; Resort');">--}}
+                                {{--<span class="ta"><img src="https://www.tripadvisor.com.ar/img/cdsi/img2/ratings/traveler/3.5-25698-5.png"></span>--}}
+                            {{--</a>--}}
+                            {{--<br>--}}
+                            {{--<a href="https://www.tripadvisor.com.ar/Hotel_Review-g312848-d301975-Reviews-m25698-Llao_Llao_Hotel_and_Resort_Golf_Spa-San_Carlos_de_Bariloche_Province_of_Rio_Negr.html#REVIEWS" target="_blank" rel="nofollow" onclick="ga('send', 'event', 'Saliente', 'Click', 'Bariloche > Hotels > Link Trip Advisor > Llao Llao Hotel &amp; Resort');">--}}
+                                {{--Basado en 1889 comentarios--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
                     </div> 
                 </div>
             </div>
@@ -237,7 +247,7 @@
         <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
 
         <h4>Fotos de Instagram</h4><strong>#rioturbio #ojosdelcaburgua #saltodelclaro</strong>
-       <div id="instafeed2">
+       <div id="instafeed2" class="instafeed">
             <span id="instafeed2_1"></span>
             <span id="instafeed2_2"></span>
             <span id="instafeed2_3"></span>
