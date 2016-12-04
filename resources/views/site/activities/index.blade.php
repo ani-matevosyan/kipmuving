@@ -225,6 +225,7 @@
 							</nav> -->
 						</div>
 
+						@if(count($activities['trekking']) > 0)
 						<section class="activity-block" id="trekking">
 							<strong class="heading">
 								<span>
@@ -236,23 +237,27 @@
 								</span>
 								Trekking
 							</strong>
-							@if(count($activities['trekking']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['trekking'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['trekking']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
+							</div>
 						</section>
-
+						@endif
+						@if(count($activities['rio']) > 0)
 						<section class="activity-block rio" id="rio">
 							<strong class="heading">
 								<span>
@@ -264,23 +269,27 @@
 								</span>
 								Rio
 							</strong>
-							@if(count($activities['rio']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['rio'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['rio']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
+							</div>
 						</section>
-
+						@endif
+						@if(count($activities['aire']) > 0)
 						<section class="activity-block aire" id="aire">
 							<strong class="heading">
 								<span>
@@ -292,23 +301,27 @@
 								</span>
 								Acción
 							</strong>
-							@if(count($activities['aire']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['aire'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['aire']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
+							</div>
 						</section>
-
+						@endif
+						@if(count($activities['relax']) > 0)
 						<section class="activity-block relax" id="relax">
 							<strong class="heading">
 								<span>
@@ -320,23 +333,27 @@
 								</span>
 								Relax
 							</strong>
-							@if(count($activities['relax']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['relax'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['relax']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
+							</div>
 						</section>
-
+						@endif
+						@if(count($activities['nieve']) > 0)
 						<section class="activity-block nieve" id="nieve">
 							<strong class="heading">
 								<span>
@@ -348,24 +365,27 @@
 								</span>
 								Nieve
 							</strong>
-							@if(count($activities['nieve']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['nieve'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['nieve']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
-
-
+							</div>
 						</section>
+						@endif
+						@if(count($activities['familia']) > 0)
 						<section class="activity-block familia" id="familia">
 							<strong class="heading">
 								<span>
@@ -377,22 +397,26 @@
 								</span>
 								Cultural
 							</strong>
-							@if(count($activities['familia']) > 0)
-								<?php $col = 0; ?>
+							<div class="row">
+								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 								@foreach ($activities['familia'] as $activity)
-									@if ($col % 4 == 0)
-										<div class="row">
-											@endif
-											<div class="col-md-3 col-sm-4 col-xs-12 col">
-												@include('site.partials.activities.all-list-item')
-											</div>
-											<?php $col++; ?>
-											@if ($col % 4 == 0 || $col == count($activities['familia']))
-										</div>
+									<div class="col-md-3 col-sm-4 col-xs-12 col">
+										@include('site.partials.activities.all-list-item')
+									</div>
+									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+									@if($key_for_4_col ===4 )
+										<div class="clearfix visible-lg-block"></div>
+										<div class="clearfix visible-md-block"></div>
+										<?php $key_for_4_col = 0; ?>
+									@endif
+									@if($key_for_3_col ===3 )
+										<div class="clearfix visible-sm-block"></div>
+										<?php $key_for_3_col = 0; ?>
 									@endif
 								@endforeach
-							@endif
+							</div>
 						</section>
+						@endif
 					</div>
 				</div>
 			</div>
