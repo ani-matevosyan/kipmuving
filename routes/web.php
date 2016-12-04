@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@index');
 
 #Activities
 Route::get('/activities', 'ActivityController@index');
+Route::post('/activity/search', 'ActivityController@search');
 Route::get('/activity/{id}', 'ActivityController@getActivity')
 	->where('id', '[0-9]+');
 
@@ -28,6 +29,8 @@ Route::post('/offer/remove', 'OfferController@remove');
 
 #Agencies
 Route::get('/agencies', 'AgencyController@index');
+Route::get('/agency/{id}', 'AgencyController@getAgency')
+	->where('id', '[0-9]+');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');

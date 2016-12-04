@@ -8,16 +8,18 @@
 			<div class="col-xs-12">
 				<ul class="breadcrumb">
 					<li><a href="#">HOME</a></li>
-					<li>{{ $agency->name }}</li>
+					<li>{{ $agency['name'] }}</li>
 				</ul>
 				<div class="your-reservation adventure new">
 					<article class="main-post">
 						<header>
-							<h1>{{ $agency->name }}</h1>
+							<h1>{{ $agency['name'] }}</h1>
 							<!-- <strong class="sub-title">O`Higgins Nº211-C </strong> -->
 						</header>
 						<div class="post-holder">
-							<div class="align-left"><img src="/{{ $agency->image }}" alt="image description"></div>
+							<div class="align-left">
+								<img src="/{{ $agency['image'] }}" alt="image description">
+							</div>
 							<!-- <div class="align-right"><img src="images/img16.jpg" alt="image description"></div> -->
 							<div class="text">
 								<!-- <div class="rating">
@@ -25,7 +27,7 @@
 									<span>120 comentarios</span>
 								</div> -->
 								<div class="text-holder">
-									<p>{{ $agency->description }}</p>
+									<p>{{ $agency['description'] }}</p>
 								</div>
 								<div class="trip-adv">
 
@@ -86,7 +88,7 @@
 								</div>
 								<ul class="accordion">
 									@foreach ($offers as $offer)
-										@include('site.partials.offers.list-item-ag', array('offer' => $offer))
+										@include('site.partials.offers.list-item-ag')
 									@endforeach
 								</ul>
 							</section>
@@ -95,7 +97,7 @@
 							<div class="map-block">
 								<div id="map" style="width: 100%; height: 300px"></div>
 								<script type="text/javascript">
-					        var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
+					        var latLng = new google.maps.LatLng({{ $agency['latitude'] }}, {{ $agency['longitude'] }});
 					        var myOptions = {
 					          zoom: 15,
 					          center: latLng,
@@ -105,12 +107,12 @@
 					        var marker = new google.maps.Marker({
 					          position: latLng,
 					          map: map,
-					          title: '{{ $agency->name }}'
+					          title: '{{ $agency['name'] }}'
 					        });
 					      </script>
 							</div>
 							<div class="ta-code">
-								{{ $agency->tripadvisor_code }}
+								{!! $agency['tripadvisor_code'] !!}
 							</div>
 						</div>
 					</div>

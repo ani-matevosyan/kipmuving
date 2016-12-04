@@ -4,7 +4,6 @@ namespace App;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Session;
 
 class Offer extends Model
 {
@@ -135,5 +134,31 @@ class Offer extends Model
 		}
 //		dd($sessionOffers);
 		return $sessionOffers;
+	}
+
+	public function getSelectedOffersPersons()
+	{
+		$countPersons = 0;
+		$selectedOffers = $this->getSelectedOffers();
+		if ($selectedOffers)
+			foreach ($selectedOffers as $offer) {
+				$countPersons += $offer['persons'];
+			}
+
+		return $countPersons;
+	}
+
+	public function getAgencyOffers($agencyId)
+	{
+		$offers = Offer::where('agency_id', $agencyId)
+			->join('activities', 'activities.id', 'offers.activity_id')
+			->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
+			->where('activity_translations.locale', app()->getLocale())
+			->select(
+				'activity_translations.name'
+			)
+			->get();
+		dd($offers[0]['name']);
+		return $offers;
 	}
 }

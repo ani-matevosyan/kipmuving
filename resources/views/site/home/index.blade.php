@@ -2,19 +2,18 @@
 
 {{-- Content --}}
 @section('content')
-	{{--<section class="visual home">--}}
-	{{--<section class="visual home" style="background-image: url(/images/img0{{$img_index}}.jpg);">--}}
-	<section class="visual home" style="background-image: url({{ url('/images/img01.jpg') }})">
+	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
 		<!-- <img src="images/img28.jpg" alt="image description"> -->
 		<div class="caption">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<form action="/activites" class="activity-form" id="activity-form">
+						<form action="/activity/search" class="activity-form" id="activity-form" method="post">
+							{{ csrf_field() }}
 							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
 							<div class="holder">
 								<div class="col">
-									<select class="form-control" id="activity_id">
+									<select class="form-control" id="activity_id" name="activity_id">
 										@foreach ($activitiesList as $item)
 											<option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
 										@endforeach
@@ -23,8 +22,11 @@
 								<div class="col">
 									<div class="sub-col">
 										<div class="text-field has-ico calender">
+											{{--TODO--}}
 											<input id="activity_date"
 													 type="text"
+													 name="activity_date"
+													 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
 													 placeholder="{{ trans('form.date') }}"
 													 class="form-control"
 													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
