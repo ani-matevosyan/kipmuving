@@ -14,7 +14,8 @@ return [
 	'less_in_all_activities' => 'Less :percent in all activities',
 
 	'program' => 'Program',
-	'activities_for_persons' => ':activities activities for :persons persons',
+	'activities_for' => 'activities for',
+	'persons' => 'persons',
 
 	'all_activities_in_single_place' => 'ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE',
 
