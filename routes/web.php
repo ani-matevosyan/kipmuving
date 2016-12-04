@@ -21,6 +21,7 @@ Route::get('/activities', 'ActivityController@index');
 Route::post('/activity/search', 'ActivityController@search');
 Route::get('/activity/{id}', 'ActivityController@getActivity')
 	->where('id', '[0-9]+');
+Route::get('/activities/getsuprogram', 'ActivityController@getSuProgram');
 
 #Offers
 Route::post('/offer/date/set', 'OfferController@setDate');
