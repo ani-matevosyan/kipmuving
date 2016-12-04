@@ -42,6 +42,21 @@ jQuery(document).ready(function(){
 
 	});
 
+    function getsuprogram(){
+        $.ajax({
+            type: "GET",
+            url: "/activities/getsuprogram",
+            data: "",
+            success: function(data){
+                $("#count_activities").text(data.data.offers);
+                $("#count_persons").text(data.data.persons);
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
 	jQuery('.btn-reserve').click(function(){
 		var dt = $("#reserve-date").val();
 		if (dt == '') {
@@ -69,20 +84,20 @@ jQuery(document).ready(function(){
                 console.log(err);
             }
 		}).done(function(){
+            getsuprogram();
             $.ajax({
                 type: "GET",
-                url: "/activities/getsuprogram",
+                url: "/activities/getselectedoffers",
                 data: "",
                 success: function(data){
-                    $("#count_activities").text(data.data.offers);
-                    $("#count_persons").text(data.data.persons);
-                },
-                error: function(err){
-                    console.log(err);
+                    var lastel = data.data[data.data.length - 1];
+                    if($(".offers-list li").length === 0){
+                        $("section.widget.summary").slideDown();
+                    }
+                    $(".offers-list").append("<li><a href='#'>"+ lastel.date + " - "+ lastel.name + " ["+lastel.persons + " pers.]</a>");
                 }
-            });
+            })
         });
-
 		return false;
 	});
 
@@ -115,11 +130,23 @@ jQuery(document).ready(function(){
 
 
 	jQuery('.offers-list').on("click", "a", function(){
-		var oid = $(this).data('oid');
-		$.post( "/offer/remove", { '_token': $('meta[name="csrf-token"]').attr('content'), oid: oid })
-	  	.done(function( response ) {
-				 location.reload();
-  		});
+        var oid = $(this).parent().prevAll().length;
+        var pickedel = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: "/offer/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: function(){
+                pickedel.remove();
+                getsuprogram();
+                if($(".offers-list li").length === 0 ){
+                    $("section.widget.summary").slideUp();
+                }
+            }
+        });
 		return false;
 	});
 

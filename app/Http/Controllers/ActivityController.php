@@ -25,7 +25,12 @@ class ActivityController extends Controller
             'offers' => count($offer->getSelectedOffers()),
             'persons' => $offer->getSelectedOffersPersons()
         ];
-        return array('data' => $data);;
+        return array('data' => $data);
+    }
+
+    public function getSelectedOffers(Offer $offer){
+        $data = $offer->getSelectedOffers();
+        return array('data' => $data);
     }
 
 	public function getActivity($id, Activity $activity, Offer $offer)

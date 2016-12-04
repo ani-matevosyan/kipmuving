@@ -27,14 +27,18 @@
 	<section class="widget summary">
 		<h2>Resumen de su panorama:</h2>
 		<ul class="offers-list">
-			<?php $oid = 0; ?>
 			@foreach ($offers['selected'] as $offer)
-				<li><a href="#" data-oid={{ $oid }}>{{ $offer['date'] }}
+				<li><a href="#">{{ $offer['date'] }}
 						- {{ $offer['name'] }} [{{ $offer['persons'] }} pers.]</a></li>
-				<?php $oid++; ?>
 			@endforeach
 		</ul>
 	</section>
+@else
+    <section class="widget summary" style="display:none">
+        <h2>Resumen de su panorama:</h2>
+        <ul class="offers-list">
+        </ul>
+    </section>
 @endif
 <section class="important-block">
 	<div class="box alert">
