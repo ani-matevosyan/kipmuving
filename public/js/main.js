@@ -3,11 +3,11 @@
 // page init
 jQuery(document).ready(function(){
 
-	jQuery('.activity-form').submit(function(e) {
-		e.preventDefault();
-		window.location.href="/activities/" + jQuery('#activity_id').val() + "?dt=" + jQuery('#activity_date').val();
-		return false;
-	});
+	// jQuery('.activity-form').submit(function(e) {
+	// 	e.preventDefault();
+	// 	window.location.href="/activities/" + jQuery('#activity_id').val() + "?dt=" + jQuery('#activity_date').val();
+	// 	return false;
+	// });
 
 	jQuery('.raised-form').submit(function(e) {
 		e.preventDefault();

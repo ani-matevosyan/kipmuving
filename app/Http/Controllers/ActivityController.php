@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Offer;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class ActivityController extends Controller
 {
-	public function index(Activity $activity)
+	public function index(Activity $activity, Offer $offer)
 	{
 		$data = [
-			'activities' => $activity->getAllActivities()
+			'activities' => $activity->getAllActivities(),
+			'count' => [
+				'offers' => count($offer->getSelectedOffers()),
+				'persons' => $offer->getSelectedOffersPersons()
+			]
 		];
 		return view('site.activities.index', $data);
 	}
@@ -32,9 +34,19 @@ class ActivityController extends Controller
 				'price' => $offer->getPriceOffers($id),
 				'includes' => $offer->getIncludesOffers($id),
 				'selected' => $offer->getSelectedOffers()
+			],
+			'count' => [
+				'offers' => count($offer->getSelectedOffers()),
+				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
 
 		return view('site.activities.activity-single', $data);
+	}
+
+	public function search(Request $request)
+	{
+//		TODO
+		dd($request['offer_id']);
 	}
 }
