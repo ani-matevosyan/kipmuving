@@ -121,8 +121,8 @@ class Offer extends Model
 			}
 			if (count($offers) > 0)
 				foreach ($offers as $key => $offer) {
-					if ($sessionOffers[$key]['persons'] > $offer['persons'])
-						$sessionOffers[$key]['persons'] = $offer['persons'];
+//					if ($sessionOffers[$key]['persons'] > $offer['persons'])
+//						$sessionOffers[$key]['persons'] = $offer['persons'];
 					$sessionOffers[$key]['name'] = $offer['name'];
 					$sessionOffers[$key]['price_offer'] = $offer['price_offer'];
 				}
