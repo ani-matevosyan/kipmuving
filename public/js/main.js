@@ -64,10 +64,6 @@ jQuery(document).ready(function(){
 				offer_id: offer_id,
 			 	persons: persona,
 			 	date: dt
-			},
-			success: function(data){
-				console.log("RESPONSE");
-				console.log(data);
 			}
 		});
 		$.ajax({
@@ -75,21 +71,11 @@ jQuery(document).ready(function(){
 			url: "/activities/getsuprogram",
 			data: "",
 			success: function(data){
-				console.log("ACTIVITIES")
-				console.log(data);
+				$("#count_activities").text(data.data.offers);
+				$("#count_persons").text(data.data.persons);
 			}
-		})
-
-		// $.post( "/offer/reserve", {
-		// 	'_token': $('meta[name="csrf-token"]').attr('content'),
-		// 	offer_id: offer_id,
-		// 	persons: persona,
-		// 	date: dt
-		// })
-	  	// .done(function( response ) {
-		// 		 location.reload();
-  		// });
-			return false;
+		});
+		return false;
 	});
 
 	jQuery('.btn-reserve-ag').click(function(){
