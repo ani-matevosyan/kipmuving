@@ -45,12 +45,14 @@
 									<div class="login-box">
 										<div class="country">
 											<div class="img-flag pick-lang">
-												<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.png') }}" alt="image description" class="current-lang">
+												<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.png') }}"
+													  alt="image description" class="current-lang">
 												<ul class="choose-lang">
 													@foreach($locales as $locale)
 														<li>
 															<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
-																<img src="{{ asset('/images/'.$locale['code'].'-flag.png') }}" alt="image description">
+																<img src="{{ asset('/images/'.$locale['code'].'-flag.png') }}"
+																	  alt="image description">
 															</a>
 														</li>
 													@endforeach
@@ -60,18 +62,22 @@
 										</div>
 										<div class="btn-holder">
 											@if (!Auth::guest())
-												<a href="/user" class="btn btn-primary" title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
+												<a href="/user" class="btn btn-primary"
+													title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 													{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
 												</a>
 												<a href="{{ url('/logout') }}" class="btn btn-primary"
-													onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="SALIR">SALIR</a>
+													onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+													title="SALIR">SALIR</a>
 												<form id="logout-form" action="{{ url('/logout') }}" method="POST"
 														style="display: none;">
 													{{ csrf_field() }}
 												</form>
 											@else
-												<a href="{{ url('/register') }}" class="btn btn-primary">{{ trans('button-links.register') }}</a>
-												<a href="{{ url('/login') }}" class="btn btn-primary">{{ trans('button-links.login') }}</a>
+												<a href="{{ url('/register') }}"
+													class="btn btn-primary">{{ trans('button-links.register') }}</a>
+												<a href="{{ url('/login') }}"
+													class="btn btn-primary">{{ trans('button-links.login') }}</a>
 											@endif
 										</div>
 									</div>
@@ -79,14 +85,21 @@
 								<div class="top-holder">
 									<nav id="nav">
 										<ul>
-											<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
-											<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
-											<li><a href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a></li>
+											<li><a
+													href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
+											</li>
+											<li><a
+													href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
+											</li>
+											<li><a
+													href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
+											</li>
 											<!--<li><a href="/ofertas">Ofertas</a></li> -->
 										</ul>
 									</nav>
 									<div class="compare-price">
-										<p>{{ trans('main.compare_prices_between') }} <strong>30 {{ trans('main.agencies') }}</strong></p>
+										<p>{{ trans('main.compare_prices_between') }}
+											<strong>30 {{ trans('main.agencies') }}</strong></p>
 									</div>
 								</div>
 							</div>
@@ -103,17 +116,17 @@
 				<div class="container">
 					<div class="row">
 						{{--<div class="col-md-3 col-sm-4 col-xs-12 box">--}}
-							{{--<!----}}
-							{{--<strong class="title">Aventura Chile</strong>--}}
-							{{--<nav class="footer-nav">--}}
-									  {{--<ul>--}}
-												 {{--<li><a href="#">Quien Somos</a></li>--}}
-												 {{--<li><a href="#">Time</a></li>--}}
-												 {{--<li><a href="#">Trabaje con nosotros</a></li>--}}
-												 {{--<li><a href="#">Contacto</a></li>--}}
-									  {{--</ul>--}}
-							{{--</nav>--}}
-							{{---->--}}
+						{{--<!----}}
+						{{--<strong class="title">Aventura Chile</strong>--}}
+						{{--<nav class="footer-nav">--}}
+						{{--<ul>--}}
+						{{--<li><a href="#">Quien Somos</a></li>--}}
+						{{--<li><a href="#">Time</a></li>--}}
+						{{--<li><a href="#">Trabaje con nosotros</a></li>--}}
+						{{--<li><a href="#">Contacto</a></li>--}}
+						{{--</ul>--}}
+						{{--</nav>--}}
+						{{---->--}}
 						{{--</div>--}}
 						<div class="col-md-3 col-sm-4 col-xs-12 box">
 							<ul class="payment-cards">
@@ -140,20 +153,26 @@
 						</div>
 						<div class="col-md-4 col-sm-12 col-xs-12 box">
 							<strong class="title">{{ trans('main.contact_us') }}</strong>
-							<form action="https://formspree.io/rafaelzarro@gmail.com" class="contact-form" method="POST">
+							{{--rafaelzarro@gmail.com--}}
+							<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
+								{{ csrf_field() }}
 								<div class="sub-row">
 									<label for="name">{{ trans('form.name') }}</label>
-									<div class="text-field"><input type="text" class="form-control" id="name" name="name"></div>
+									<div class="text-field">
+										<input type="text" class="form-control" id="name" name="name">
+									</div>
 								</div>
 								<div class="sub-row">
 									<label for="email">{{ trans('form.email') }}</label>
-									<div class="text-field"><input type="email" class="form-control" id="email" name="email">
+									<div class="text-field">
+										<input type="email" class="form-control" id="email" name="email">
 									</div>
 								</div>
 								<div class="sub-row">
 									<label for="message">{{ trans('form.message') }}</label>
-									<div class="text-field"><textarea rows="5" cols="5" class="form-control" id="message"
-																				 name="message"></textarea></div>
+									<div class="text-field">
+										<textarea rows="5" cols="5" class="form-control" id="message" name="message"></textarea>
+									</div>
 								</div>
 								<input type="submit" value="OK" class="btn btn-success">
 							</form>
@@ -233,15 +252,15 @@
 {{--Scripts--}}
 @include('site.foot.footer-scripts')
 <script type="text/javascript">
-	if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
-		var msViewportStyle = document.createElement('style');
-		msViewportStyle.appendChild(
-			document.createTextNode(
-				'@-ms-viewport{width:auto !important}'
-			)
-		);
-		document.querySelector('head').appendChild(msViewportStyle)
-	}
+    if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+        var msViewportStyle = document.createElement('style');
+        msViewportStyle.appendChild(
+            document.createTextNode(
+                '@-ms-viewport{width:auto !important}'
+            )
+        );
+        document.querySelector('head').appendChild(msViewportStyle)
+    }
 </script>
 {{--/Scripts--}}
 

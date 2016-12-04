@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -59,6 +63,18 @@ class RegisterController extends Controller
 		]);
 	}
 
+	public function register(Request $request)
+	{
+		$this->validator($request->all())->validate();
+
+		event(new Registered($user = $this->create($request->all())));
+
+//		$this->guard()->login($user);
+
+		return $this->registered($request, $user)
+			?: redirect($this->redirectPath());
+	}
+
 	/**
 	 * Create a new user instance after a valid registration.
 	 *
@@ -78,5 +94,15 @@ class RegisterController extends Controller
 			'password' => bcrypt($data['password']),
 		]);
 		return $user;
+	}
+
+	protected function registered(Request $request, $user)
+	{
+		$user['_token'] = $request['_token'];
+		Mail::send('emails.auth.confirm', ['user' => $user], function ($message) use ($user) {
+			$message->from('info@kipmuving.com', 'Kipmuving team');
+			$message->to($user['email'], $user['name'])->subject('Confirm your email');
+		});
+		return Redirect::to('/login')->with('info', 'On your email was send email to confirm your account.');
 	}
 }

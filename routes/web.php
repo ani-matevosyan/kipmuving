@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::post('/contact-us', 'HomeController@sendMessage');
 
 #Activities
 Route::get('/activities', 'ActivityController@index');

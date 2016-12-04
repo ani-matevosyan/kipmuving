@@ -116,7 +116,7 @@ class Offer extends Model
 					->join('activities', 'activities.id', 'offers.activity_id')
 					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 					->where('activity_translations.locale', app()->getLocale())
-					->select('offers.persons', 'activity_translations.name')
+					->select('offers.persons', 'offers.price_offer','activity_translations.name')
 					->first();
 			}
 			if (count($offers) > 0)
@@ -124,6 +124,7 @@ class Offer extends Model
 					if ($sessionOffers[$key]['persons'] > $offer['persons'])
 						$sessionOffers[$key]['persons'] = $offer['persons'];
 					$sessionOffers[$key]['name'] = $offer['name'];
+					$sessionOffers[$key]['price_offer'] = $offer['price_offer'];
 				}
 			else
 				$sessionOffers = null;

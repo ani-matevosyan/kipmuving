@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -21,5 +23,24 @@ class HomeController extends Controller
 			]
 		];
 		return view('site.home.index', $data);
+	}
+
+	public function sendMessage(Request $request){
+		$this->validate($request, [
+			'email' => 'email|required|max:128',
+			'name' => 'alpha|required|max:128',
+			'message' => 'required|min:5|max:1000'
+		]);
+		$data = [
+			'name' => $request['name'],
+			'email' => $request['email'],
+			'message' => $request['message']
+		];
+		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
+			$message->from('info@kipmuving.com', 'Kipmuving team');
+			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
+		});
+//		dd($request);
+		return Redirect::to('/')->with('info', 'Your message is successfully send.');
 	}
 }
