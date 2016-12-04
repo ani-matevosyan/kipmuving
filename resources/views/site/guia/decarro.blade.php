@@ -185,7 +185,7 @@
         <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
         <h4>Fotos de Instagram</h4><strong>#termasmenetue</strong>
  
-            <div id="instafeed3">
+            <div id="instafeed3" class="instafeed">
 
             </div>
         </div> 

@@ -4,4 +4,8 @@
         }@media(max-width: 480px){
             #myModalX .modal-dialog{width: 300px;   }
         }
-        
+
+.instafeed{
+    float: left;
+    margin: 10px -10px;
+}
