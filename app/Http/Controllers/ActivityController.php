@@ -22,12 +22,10 @@ class ActivityController extends Controller
 
 	public function getSuProgram(Offer $offer){
         $data = [
-            'count' => [
-                'offers' => count($offer->getSelectedOffers()),
-                'persons' => $offer->getSelectedOffersPersons()
-            ]
+            'offers' => count($offer->getSelectedOffers()),
+            'persons' => $offer->getSelectedOffersPersons()
         ];
-        return array('data' => $data);
+        return array('data' => $data);;
     }
 
 	public function getActivity($id, Activity $activity, Offer $offer)
