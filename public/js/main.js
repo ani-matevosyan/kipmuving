@@ -51,8 +51,8 @@ jQuery(document).ready(function(){
                 $("#count_activities").text(data.data.offers);
                 $("#count_persons").text(data.data.persons);
             },
-            error: function(err){
-                console.log(err);
+            error: function(){
+                location.reload();
             }
         });
     }
@@ -80,8 +80,8 @@ jQuery(document).ready(function(){
 			 	persons: persona,
 			 	date: dt
 			},
-            error: function(err){
-                console.log(err);
+            error: function(){
+                location.reload();
             }
 		}).done(function(){
             getsuprogram();
@@ -95,6 +95,9 @@ jQuery(document).ready(function(){
                         $("section.widget.summary").slideDown();
                     }
                     $(".offers-list").append("<li><a href='#'>"+ lastel.date + " - "+ lastel.name + " ["+lastel.persons + " pers.]</a>");
+                },
+                error: function(){
+                    location.reload();
                 }
             })
         });
@@ -145,6 +148,9 @@ jQuery(document).ready(function(){
                 if($(".offers-list li").length === 0 ){
                     $("section.widget.summary").slideUp();
                 }
+            },
+            error: function(){
+                location.reload();
             }
         });
 		return false;

@@ -41,47 +41,70 @@
 							<div id='calendar'></div>
 							<br>
 						</div>
-						<div class="col-md-3 col-sm-12 col-xs-12 your-reservation">
-							<section class="program-schedule">
-								<h2>su programa</h2>
-								<strong class="sub-title"><span>{{ $count['offers'] }}</span> actividades</strong>
+						<div class="col-md-3 col-sm-12 col-xs-12">
+							<section class="s_suprogram">
+								<header>
+									<h3>Su programa</h3>
+									<p><span>{{ $count['offers'] }}</span> actividades</p>
+								</header>
 								<ul class="offers-list">
-									<?php $oid = 0; ?>
 									<?php $total_cost = 0; ?>
-									{{--{{ dd($selectedOffers) }}--}}
 									@foreach ($selectedOffers as $offer)
 										<li>
-											<a href="#" data-oid={{ $oid }}>
-												{{ $offer['date'] }} - {{ $offer['name'] }}</a>
+											<a href="#">
+												<h4>{{ $offer['name'] }}</h4>
+												<span>{{$offer['price_offer'] * $offer['persons']}}</span>
+											</a>
 										</li>
-									<!-- <span>$ {{ $offer['price_offer'] * $offer['persons']}}</span> -->
 										<?php
-										$oid = $oid + 1;
 										$total_cost += $offer['price_offer'] * $offer['persons'];
 										?>
 									@endforeach
 								</ul>
-								<footer class="footer">
-									<a href="/reservar" class="btn-reservar btn btn-primary">RESERVAR</a>
-									<strong class="total-price">$ {{ number_format($total_cost, 0, ".", ".") }}
-										<span>con IVA</span></strong>
-								</footer>
-							</section>
-							<section class="important-block" style="padding-bottom: 0px;">
-								<div class="box alert">
-									<h2>Importante</h2>
-									<strong class="sub-title">Como funciona su reserva</strong>
-									<p>Nosotros tenemos el objetivo de presentar las mejores opciones de paseos en Pucón para que
-										puedas elegir teniendo el completo panorama y empezar a planificar su viaje y aprovechar
-										todo del destino.</p>
-									<p>Mostramos las mejores ofertas de todas agencias con sus atractivos. Cuando hace la
-										reserva, hacemos la confirmación con la agencia. Recuerda que el destino donde el clima
-										influye en la actividad. Que haremos:</p>
+								<div class="total">
+									<div class="totalprice">
+										<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
+										<span>total em pesos</span>
+									</div>
+									<?php $total_discount = $total_cost * 0.9 ?>
+									<div class="discount">
+										<span>está economizando</span>
+										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
+									</div>
+								</div>
+								<a class="btn-reservar reserve" href="/reservar">Reservar este panorama</a>
+								<div class="note">
+									* valor aproximado
 								</div>
 							</section>
-							<div class="img-chart"><img src="/images/boxhowork.svg" alt="image description" width="250"
-																 height="30"
-																 onerror="this.onerror=null; this.src='images/img-chart.jpg'"></div>
+							<section class="s_howitworks_sidebar">
+								<div class="section-container">
+									<header>
+										<h3>Como funciona <span>KipMuving</span></h3>
+									</header>
+									<div class="item percent">
+										<img src="images/10-grey.svg" alt="10%">
+										<p>Acordo realizado com as agencias locais</p>
+									</div>
+									<div class="item umbrella">
+										<img src="images/umbrella-grey.svg" alt="umbrella">
+										<p><span>Apoianos</span> com um pequena comissão de <span>U$ 5 </span> pagar a manutenção do site, etc.</p>
+									</div>
+									<div class="item broklink">
+										<img src="images/broken-link-grey.svg" alt="broken-link">
+										<p>Fazemos a união sua com a agencia. Você paga seus passeios diretamente com eles.</p>
+									</div>
+								</div>
+								<div class="payment">
+									<span>Pode usar:</span>
+									<a href="#">
+										<img src="images/stripe.png" alt="Stripe">
+									</a>
+									<a href="#">
+										<img src="images/paypal.png" alt="PayPal">
+									</a>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
