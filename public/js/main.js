@@ -64,17 +64,25 @@ jQuery(document).ready(function(){
 				offer_id: offer_id,
 			 	persons: persona,
 			 	date: dt
-			}
-		});
-		$.ajax({
-			type: "GET",
-			url: "/activities/getsuprogram",
-			data: "",
-			success: function(data){
-				$("#count_activities").text(data.data.offers);
-				$("#count_persons").text(data.data.persons);
-			}
-		});
+			},
+            error: function(err){
+                console.log(err);
+            }
+		}).done(function(){
+            $.ajax({
+                type: "GET",
+                url: "/activities/getsuprogram",
+                data: "",
+                success: function(data){
+                    $("#count_activities").text(data.data.offers);
+                    $("#count_persons").text(data.data.persons);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        });
+
 		return false;
 	});
 
