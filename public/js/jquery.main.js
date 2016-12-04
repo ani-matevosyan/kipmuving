@@ -22,8 +22,8 @@ function initDatepicker() {
                 date: dt,
                 '_token': $('meta[name="csrf-token"]').attr('content')
             },
-            success: function(){
-                location.reload();
+            success: function () {
+                $('#reserve-date-sd').val(dt);
             }
         });
     });
@@ -35,8 +35,8 @@ function initDatepicker() {
                 date: dt,
                 '_token': $('meta[name="csrf-token"]').attr('content')
             },
-            success: function(){
-                location.reload();
+            success: function () {
+                $('#reserve-date').val(dt);
             }
         });
     });
