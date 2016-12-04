@@ -18,19 +18,27 @@ function initDatepicker() {
         $.ajax({
             type: 'POST',
             url: '/offer/date/set',
-            data: {date: dt, '_token': $('meta[name="csrf-token"]').attr('content')}
+            data: {
+                date: dt,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(){
+                location.reload();
+            }
         });
-        location.reload();
-        // window.location.href="?dt=" + dt;
     });
     $('#reserve-date-sd').datepicker('option', 'onSelect', function (dt) {
         $.ajax({
             type: 'POST',
             url: '/offer/date/set',
-            data: {date: dt, '_token': $('meta[name="csrf-token"]').attr('content')}
+            data: {
+                date: dt,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(){
+                location.reload();
+            }
         });
-        location.reload();
-        // window.location.href="?dt=" + dt;
     });
 }
 
