@@ -151,14 +151,25 @@ class Offer extends Model
 	public function getAgencyOffers($agencyId)
 	{
 		$offers = Offer::where('agency_id', $agencyId)
+			->join('offer_translations', 'offers.id', 'offer_translations.offer_id')
 			->join('activities', 'activities.id', 'offers.activity_id')
 			->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 			->where('activity_translations.locale', app()->getLocale())
+			->where('offer_translations.locale', app()->getLocale())
 			->select(
-				'activity_translations.name'
+				'activity_translations.name as activity_name',
+				'offer_translations.includes as offer_includes',
+				'offers.id',
+				'offers.start_time',
+				'offers.end_time',
+				'offers.price_offer'
 			)
 			->get();
-		dd($offers[0]['name']);
+		foreach ($offers as $offer) {
+			$offer['offer_includes'] = $this->includesToArray($offer['offer_includes']);
+			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
+		}
+//		dd($offers[0]['price_offer']);
 		return $offers;
 	}
 }

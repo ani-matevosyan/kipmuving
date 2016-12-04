@@ -82,7 +82,13 @@ jQuery(document).ready(function(){
 			$('#message-modal').modal('show');
 			return false;
 		}
-		$.post( "/offer/reserve", { '_token': $('meta[name="csrf-token"]').attr('content'), offer_id: offer_id, persona: persona, date: dt })
+		// $.post( "/offer/reserve", { '_token': $('meta[name="csrf-token"]').attr('content'), offer_id: offer_id, persona: persona, date: dt })
+        $.post( "/offer/reserve", {
+            '_token': $('meta[name="csrf-token"]').attr('content'),
+            offer_id: offer_id,
+            persons: persona,
+            date: dt
+        })
 	  	.done(function( response ) {
 				 location.reload();
   		});

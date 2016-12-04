@@ -26,10 +26,8 @@ class AgencyController extends Controller
 	{
 		$data = [
 			'agency' => $agency->getAgency($id),
-			'offers' => $offer->getAgencyOffers($id),
-			'countOffers' => count($offer->getAgencyOffers($id))
+			'offers' => $offer->getAgencyOffers($id)
 		];
-//		dd($data);
 		return view('site.agencies.agency-single', $data);
 	}
 }

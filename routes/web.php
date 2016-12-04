@@ -32,6 +32,9 @@ Route::get('/agencies', 'AgencyController@index');
 Route::get('/agency/{id}', 'AgencyController@getAgency')
 	->where('id', '[0-9]+');
 
+#Calendar
+Route::get('/calendar', 'CalendarController@index');
+
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
