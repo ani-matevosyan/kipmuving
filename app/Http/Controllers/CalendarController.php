@@ -18,4 +18,15 @@ class CalendarController extends Controller
 		];
 		return view('site.calendar.index', $data);
 	}
+
+	public function getAjaxData(Offer $offer)
+    {
+        $data = [
+            'offers' => count($offer->getSelectedOffers()),
+            'persons' => $offer->getSelectedOffersPersons()
+        ];
+
+        return array($data);
+    }
+
 }

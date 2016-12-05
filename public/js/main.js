@@ -148,6 +148,17 @@ jQuery(document).ready(function(){
                 if($(".offers-list li").length === 0 ){
                     $("section.widget.summary").slideUp();
                 }
+                if (window.location.pathname === '/calendar'){
+                    var totalcost = 0;
+                    var totaldisc;
+                    $( ".offers-list li" ).each( function(){
+                        totalcost += parseInt($(this).find("a").find("span").text());
+                    });
+                    $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
+					totaldisc = totalcost * 0.9;
+					$(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
+
+				}
             },
             error: function(){
                 location.reload();

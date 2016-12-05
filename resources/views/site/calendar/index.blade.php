@@ -45,7 +45,7 @@
 							<section class="s_suprogram">
 								<header>
 									<h3>Su programa</h3>
-									<p><span>{{ $count['offers'] }}</span> actividades</p>
+									<p><span id="count_activities">{{ $count['offers'] }}</span> actividades</p>
 								</header>
 								<ul class="offers-list">
 									<?php $total_cost = 0; ?>
