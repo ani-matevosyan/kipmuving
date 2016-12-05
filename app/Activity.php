@@ -65,7 +65,9 @@ class Activity extends Model
 
 	public function getHomePageActivities()
 	{
-		$activities = Activity::limit(8)->get();
+		$activities = Activity::limit(8)
+			->inRandomOrder()
+			->get();
 		foreach ($activities as $activity) {
 			$offer = Offer::where('activity_id', $activity['id'])
 				->orderby('price')
