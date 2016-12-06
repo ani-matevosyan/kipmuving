@@ -75,14 +75,14 @@
                 <div class="col-sm-6 mobile-left col-xs-12">                                                        
                     <div class="pull-right">
                         <div class="opiniones">
-                            <div id="TA_cdsratingsonlynarrow193" class="TA_cdsratingsonlynarrow">
-                            <ul id="dzS9IU75yb" class="TA_links Y59dGpsNxC">
-                            <li id="WwGABY8" class="gXALfDE133">
-                            <a target="_blank" href="https://www.tripadvisor.com.br/"><img src="https://www.tripadvisor.com.br/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
-                            </li>
-                            </ul>
+                            <div id="TA_selfserveprop659" class="TA_selfserveprop">
+                                <ul id="wtTUSgSa8b" class="TA_links gdK8AW1JZw">
+                                    <li id="1hZmXKHA" class="Mq6NQnXIwq">
+                                        <a target="_blank" href="https://www.tripadvisor.cl/"><img src="https://www.tripadvisor.cl/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=193&amp;locationId=1419889&amp;lang=pt&amp;border=false&amp;display_version=2"></script>
+                            <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=659&amp;locationId=1419889&amp;lang=es_CL&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
                         </div>
                     </div> 
                 </div>

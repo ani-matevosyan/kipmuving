@@ -81,52 +81,6 @@
                                 </ul>
                             </div>
                             <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=719&amp;locationId=3181592&amp;lang=es&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
-                            <style>
-                                #CDSWIDSSP .widSSPData .widSSPBranding dt.widSSPTagline,
-                                #CDSWIDSSP .widSSPData .widSSPH18,
-                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPH11,
-                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPAll,
-                                #CDSWIDSSP .widSSPData .widSSPLegal
-                                {
-                                    display: none;
-                                }
-                                #CDSWIDSSP .widSSPData{
-                                    margin-top: -7px;
-                                }
-                                #CDSWIDSSP .widSSPData .widSSPBranding{
-                                    border-bottom: none;
-                                    width: 34px;
-                                    left: 63px;
-                                    top: 1px;
-                                    overflow: hidden;
-                                    position: absolute;
-                                }
-                                #CDSWIDSSP .widSSPData .widSSPSummary a{
-                                    position: absolute;
-                                    height: 26px;
-                                    color: transparent;
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    width: 100px;
-                                    right: 73px;
-                                    display: block;
-                                }
-                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPTrvlRtng .widSSPOverall{
-                                    text-align: center;
-                                }
-                                #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall img{
-                                    margin: 3px 6px 4px 30px;
-                                }
-                                #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div{
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    width: 120px;
-                                    position: absolute;
-                                    right: 0;
-                                    left: 0;
-                                    margin: 0 auto;
-                                }
-                            </style>
                         </div>
                         {{--<div class="opiniones">--}}
                             {{--<br>--}}
@@ -178,14 +132,14 @@
                 <div class="termas">                                                        
                     <div class="pull-right">
                         <div class="opiniones">
-                            <div id="TA_cdsratingsonlynarrow1000" class="TA_cdsratingsonlynarrow">
-                            <ul id="s8OzZFbED2P" class="TA_links rjbKLd">
-                            <li id="vEMKb2aB7Rzd" class="bKMcCjvuzf0i">
-                            <a target="_blank" href="https://www.tripadvisor.com.br/"><img src="https://www.tripadvisor.com.br/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
-                            </li>
-                            </ul>
+                            <div id="TA_selfserveprop621" class="TA_selfserveprop">
+                                <ul id="wNySVp" class="TA_links TOlu3lX">
+                                    <li id="Kbbvpl1jH" class="keK1YUIay">
+                                        <a target="_blank" href="https://www.tripadvisor.cl/"><img src="https://www.tripadvisor.cl/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=1000&amp;locationId=2695264&amp;lang=pt&amp;border=false&amp;display_version=2"></script>
+                            <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=621&amp;locationId=2695264&amp;lang=es_CL&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
                         </div>
                     </div> 
                 </div>
@@ -227,14 +181,14 @@
                 <div class="termas">                                                        
                     <div class="pull-right">
                         <div class="opiniones">
-                            <div id="TA_cdsratingsonlynarrow71" class="TA_cdsratingsonlynarrow">
-                            <ul id="4fe0m82Jt69R" class="TA_links gplBjl3Kt95">
-                            <li id="VccEzAYHevu" class="j7lHjLZzjkj">
-                            <a target="_blank" href="https://www.tripadvisor.com.br/"><img src="https://www.tripadvisor.com.br/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
-                            </li>
-                            </ul>
+                            <div id="TA_selfserveprop943" class="TA_selfserveprop">
+                                <ul id="DZLqawAQrRO" class="TA_links EH9gCELf80">
+                                    <li id="OChJxuJ" class="khcluu">
+                                        <a target="_blank" href="https://www.tripadvisor.cl/"><img src="https://www.tripadvisor.cl/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=71&amp;locationId=7364382&amp;lang=pt&amp;border=false&amp;display_version=2"></script>
+                            <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=943&amp;locationId=7364382&amp;lang=es_CL&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
                         </div>
                     </div> 
                 </div>

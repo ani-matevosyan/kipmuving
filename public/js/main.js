@@ -178,3 +178,11 @@ jQuery(document).ready(function(){
 	});
 
 });
+
+//TRIPADVISOR WIDGET CUSTOMIZE
+$(window).load(function(){
+    $("#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div").each(function(){
+       var tripadvisorsubtext = $(this).html();
+        $(this).html(tripadvisorsubtext.replace("de viajeros", ""));
+    });
+});

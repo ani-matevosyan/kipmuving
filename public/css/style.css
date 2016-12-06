@@ -629,7 +629,14 @@ tooltip fade top in {
     position: relative;
     top: 15px;
     text-align: center;
-    right: 15px; }
+    right: 15px;
+    margin-right: -40px;
+    z-index: 1;}
+@media (max-width: 767px){
+    .termas .opiniones{
+        margin-right: 0px;
+    }
+}
 .termas .opiniones:before {
     content: "TripAdvisor Traveler Rating";
     font-size: 13px;
@@ -922,7 +929,6 @@ tooltip fade top in {
 #m-box-2 .termas .opiniones {
   font-size: 11px;
   top: 0px;
-  margin-right: -40px;
   margin-bottom: 10px;}
   #m-box-2 .termas .opiniones img {
     width: auto;
