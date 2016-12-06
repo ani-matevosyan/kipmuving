@@ -157,7 +157,6 @@ jQuery(document).ready(function(){
                     $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
 					totaldisc = totalcost * 0.9;
 					$(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
-
 				}
             },
             error: function(){

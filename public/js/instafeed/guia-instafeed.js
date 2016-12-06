@@ -4,7 +4,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'pucon',
 			target: 'instafeed1',
-			accessToken : '646191610.e029fea.516b109430104ecca9b8287bfaea56a4',
+			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 14,
 			after: function(){
@@ -36,7 +36,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'rioturbio',
 			target: 'instafeed2_1',
-			accessToken : '646191610.e029fea.516b109430104ecca9b8287bfaea56a4',
+			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 5,
 			after: function(){
@@ -68,7 +68,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'ojosdelcaburgua',
 			target: 'instafeed2_2',
-			accessToken : '646191610.e029fea.516b109430104ecca9b8287bfaea56a4',
+			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 5,
 			after: function(){
@@ -100,7 +100,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'saltodelclaro',
 			target: 'instafeed2_3',
-			accessToken : '646191610.e029fea.516b109430104ecca9b8287bfaea56a4',
+			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 4,
 			after: function(){
@@ -132,7 +132,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'termasmenetue',
 			target: 'instafeed3',
-			accessToken : '646191610.e029fea.516b109430104ecca9b8287bfaea56a4',
+			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 14,
 			after: function(){

@@ -73,14 +73,60 @@
                 <div class="termas">                                                        
                     <div class="pull-right">
                         <div class="opiniones">
-                            <div id="TA_cdsratingsonlynarrow315" class="TA_cdsratingsonlynarrow">
-                            <ul id="lZ3kNy" class="TA_links s3bEH7Kos8">
-                            <li id="gAnIMwAU75V" class="1eQjoSfmDPLi">
-                            <a target="_blank" href="https://www.tripadvisor.com.br/"><img src="https://www.tripadvisor.com.br/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
-                            </li>
-                            </ul>
+                            <div id="TA_selfserveprop719" class="TA_selfserveprop">
+                                <ul id="StEbQyO7dJ" class="TA_links Bu0Lw0ZNo">
+                                    <li id="wQAL39MfV" class="KgvBfM">
+                                        <a target="_blank" href="https://www.tripadvisor.es/"><img src="https://www.tripadvisor.es/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=315&amp;locationId=3181592&amp;lang=pt&amp;border=false&amp;display_version=2"></script>
+                            <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=719&amp;locationId=3181592&amp;lang=es&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
+                            <style>
+                                #CDSWIDSSP .widSSPData .widSSPBranding dt.widSSPTagline,
+                                #CDSWIDSSP .widSSPData .widSSPH18,
+                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPH11,
+                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPAll,
+                                #CDSWIDSSP .widSSPData .widSSPLegal
+                                {
+                                    display: none;
+                                }
+                                #CDSWIDSSP .widSSPData{
+                                    margin-top: -7px;
+                                }
+                                #CDSWIDSSP .widSSPData .widSSPBranding{
+                                    border-bottom: none;
+                                    width: 34px;
+                                    left: 63px;
+                                    top: 1px;
+                                    overflow: hidden;
+                                    position: absolute;
+                                }
+                                #CDSWIDSSP .widSSPData .widSSPSummary a{
+                                    position: absolute;
+                                    height: 26px;
+                                    color: transparent;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    width: 100px;
+                                    right: 73px;
+                                    display: block;
+                                }
+                                #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPTrvlRtng .widSSPOverall{
+                                    text-align: center;
+                                }
+                                #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall img{
+                                    margin: 3px 6px 4px 30px;
+                                }
+                                #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div{
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    width: 120px;
+                                    position: absolute;
+                                    right: 0;
+                                    left: 0;
+                                    margin: 0 auto;
+                                }
+                            </style>
                         </div>
                         {{--<div class="opiniones">--}}
                             {{--<br>--}}
