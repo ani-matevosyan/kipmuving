@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -55,5 +57,56 @@ class UserController extends Controller
 				->subject('Verify your email address');
 		});
 		return Redirect::to('/login')->with('info', 'On your email was send email message');
+	}
+
+	public function getUser($id, User $user)
+	{
+		$currentUser = $user->getUser($id);
+		if (!$currentUser)
+			abort(404);
+
+		$data = [
+			'user' => $currentUser
+		];
+
+		return view('site.user.index', $data);
+	}
+
+	public function updateUser($id, Request $request)
+	{
+		$this->validate($request, [
+			'first_name' => 'required|max:255',
+			'last_name' => 'required|max:255',
+			'email' => 'required|email|max:255',
+			'phone' => 'required|min:9|max:18',
+			'day' => 'required|digits_between:1,2',
+			'month' => 'required|digits_between:1,2',
+			'year' => 'required|digits:4',
+			'gender' => 'required|size:1',
+			'image' => 'image',
+		]);
+
+		$day = ($request['day'] < 10) ? '0'.$request['day'] : $request['day'];
+		$month = ($request['day'] < 10) ? '0'.$request['day'] : $request['day'];
+
+		$user = User::find($id);
+		$user->first_name = $request['first_name'];
+		$user->last_name = $request['last_name'];
+		$user->email = $request['email'];
+		$user->phone = $request['phone'];
+		$user->birthday = Carbon::parse($request['year'].'-'.$month.'-'.$day)->toDateString();
+		$user->gender = $request['gender'];
+
+		if (Input::hasFile('image')){
+			$image = Input::file('image');
+			$destination_path = public_path('uploads/users/');
+			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
+			$image->move($destination_path, $file_path);
+			$user->avatar = $file_path;
+		}
+
+		$user->save();
+
+		return Redirect::to(action('UserController@getUser', $id))->with('success', 'Your data is updated');
 	}
 }

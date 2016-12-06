@@ -132,7 +132,7 @@
                    }
                },
                allDaySlot: false,
-               defaultDate: '{{-- $view_date --}}',
+               defaultDate: '{{ $viewDate }}',
                editable: false,
                // titleFormat: 'D MMM',
 
@@ -171,7 +171,8 @@
                var oid = jQuery(this).data('oid');
                var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
                $.ajax({
-                   url: "/calendar/process?a=" + dir + "&oid=" + oid, success: function (result) {
+                   url: "/calendar/process?a=" + dir + "&oid=" + oid,
+						 success: function (result) {
                        jQuery('#calendar').fullCalendar('refetchEvents');
                    }
                });
@@ -187,7 +188,8 @@
                var oid = jQuery(this).data('oid');
                $('#delete-modal').modal('hide');
                $.ajax({
-                   url: "/calendar/process?a=del&oid=" + oid, success: function (result) {
+                   url: "/calendar/process?a=del&oid=" + oid,
+						 success: function (result) {
                        jQuery('#calendar').fullCalendar('refetchEvents');
                    }
                });
