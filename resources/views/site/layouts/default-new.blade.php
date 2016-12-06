@@ -171,7 +171,7 @@
 								<div class="sub-row">
 									<label for="message">{{ trans('form.message') }}</label>
 									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message"></textarea>
+										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters"></textarea>
 									</div>
 								</div>
 								<input type="submit" value="OK" class="btn btn-success">

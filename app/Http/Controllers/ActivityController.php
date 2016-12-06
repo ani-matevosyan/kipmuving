@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class ActivityController extends Controller
 {
@@ -59,7 +62,8 @@ class ActivityController extends Controller
 
 	public function search(Request $request)
 	{
-//		TODO
-		dd($request['offer_id']);
+		Session::set('selectedDate', Carbon::createFromFormat('d/m/Y', $request['activity_date'])->toDateString());
+
+		return Redirect::to(action('ActivityController@getActivity', $request['activity_id']));
 	}
 }

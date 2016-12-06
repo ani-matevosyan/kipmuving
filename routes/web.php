@@ -37,11 +37,16 @@ Route::get('/agency/{id}', 'AgencyController@getAgency')
 
 #Calendar
 Route::get('/calendar', 'CalendarController@index');
+Route::get('/calendar/data', 'CalendarController@getData');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
 Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
+Route::get('/user/{id}', 'UserController@getUser')
+	->where('id', '[0-9]+');
+Route::post('/user/{id}/edit', 'UserController@updateUser')
+	->where('id', '[0-9]+');
 
 #Guiae
 Route::get('/guia', 'GuiaController@index');
