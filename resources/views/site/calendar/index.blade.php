@@ -66,7 +66,7 @@
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
-								<a class="btn-reservar reserve" href="/reservar">Reservar este panorama</a>
+								<a class="btn-reservar reserve" href="{{ action('ReservationController@index') }}">Reservar este panorama</a>
 								<div class="note">
 									* valor aproximado
 								</div>
