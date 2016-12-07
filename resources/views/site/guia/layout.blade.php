@@ -4,7 +4,6 @@
 @section('content')
 <section class="visual activities-all" style="background-image: url({{ url('/images/top'.$imageIndex.'.jpg') }})">
 </section>
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/guia-instafeed.css') }}">
  <main id="main">
     <div class="container">
         <div class="row">
@@ -94,4 +93,6 @@
         </div>
     </div>
 </main>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/guia-instafeed.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/tripadvisor.css') }}">
 @stop

@@ -157,7 +157,6 @@ jQuery(document).ready(function(){
                     $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
 					totaldisc = totalcost * 0.9;
 					$(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
-
 				}
             },
             error: function(){
@@ -178,4 +177,12 @@ jQuery(document).ready(function(){
 		priceElem.html('<sub>$</sub>' + numberWithDots($(this).val() * unit_price));
 	});
 
+});
+
+//TRIPADVISOR WIDGET CUSTOMIZE
+$(window).load(function(){
+    $("#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div").each(function(){
+       var tripadvisorsubtext = $(this).html();
+        $(this).html(tripadvisorsubtext.replace("de viajeros", ""));
+    });
 });
