@@ -66,7 +66,7 @@
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
-								<a class="btn-reservar reserve" href="{{ action('ReservationController@index') }}">Reservar este panorama</a>
+								<a class="btn-reservar reserve" href="/reservar">Reservar este panorama</a>
 								<div class="note">
 									* valor aproximado
 								</div>
@@ -128,23 +128,18 @@
                allDaySlot: false,
                defaultDate: '{{ $viewDate }}',
                editable: false,
-               // titleFormat: 'D MMM',
-
-               eventLimit: true, // allow "more" link when too many events
+               eventLimit: true,
                events: '/calendar/data',
                eventRender: function (event, element) {
-                   // console.log(element);
-                   // event.overlap = true;
+//                    event.overlap = true;
                    $(element).data('duplicate', event.duplicate);
                    element.append('<br>');
                    element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
                    element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
                    element.append('<br>');
                    element.append('<div class="agency-name">' + event.agency_name + '</div>');
-                   element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.hours_start + ' a ' + event.hours_end + ')</div>');
-                   // element.append('<div class="hours-duration">' + + '</div>');
-                   element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persona + ' persona</div>');
-                   // element.append('<div class="price"> $ ' + event.price + '</div>');
+                   element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.start_time + ' a ' + event.end_time+ ')</div>');
+                   element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persons + ' persona</div>');
                    element.append('<br>');
 
                    element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
