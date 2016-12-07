@@ -116,7 +116,7 @@ class Offer extends Model
 					->join('activities', 'activities.id', 'offers.activity_id')
 					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 					->where('activity_translations.locale', app()->getLocale())
-					->select('offers.persons', 'offers.price_offer','activity_translations.name')
+					->select('offers.persons', 'offers.price_offer', 'activity_translations.name')
 					->first();
 			}
 			if (count($offers) > 0)
@@ -172,5 +172,30 @@ class Offer extends Model
 		}
 //		dd($offers[0]['price_offer']);
 		return $offers;
+	}
+
+	public function getOffer($offerId)
+	{
+		$offer = Offer::where('offers.id', $offerId)
+			->join('offer_translations', 'offer_translations.offer_id', 'offers.id')
+			->where('offer_translations.locale', app()->getLocale())
+			->select(
+				'offers.id as offer_id',
+				'offers.agency_id',
+				'offers.activity_id',
+				'offers.start_time',
+				'offers.end_time',
+				'offers.price_offer',
+				'offer_translations.includes as offerIncludes',
+				'offer_translations.important as offerImportant'
+			)
+			->first();
+		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+		$offer['offerActivity'] = Activity::where('activities.id', $offer['activity_id'])
+			->first();
+		$offer['offerIncludes'] = $this->includesToArray($offer['offerIncludes']);
+
+//		dd($result);
+		return $offer;
 	}
 }

@@ -39,6 +39,9 @@ Route::get('/agency/{id}', 'AgencyController@getAgency')
 Route::get('/calendar', 'CalendarController@index');
 Route::get('/calendar/data', 'CalendarController@getData');
 
+#Reservation
+Route::get('/reserve', 'ReservationController@index');
+
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
