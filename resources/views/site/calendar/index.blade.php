@@ -2,12 +2,6 @@
 
 {{-- Content --}}
 @section('content')
-	<link href='/plugins/fullcalendar/fullcalendar.css' rel='stylesheet'/>
-	<link href='/plugins/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print'/>
-	<script src='/plugins/fullcalendar/lib/moment.min.js'></script>
-	<script src='/plugins/fullcalendar/fullcalendar.min.js'></script>
-	<script src='/plugins/fullcalendar/es.js'></script>
-
 	<main id="main">
 		<div class="container">
 			<div class="row">
