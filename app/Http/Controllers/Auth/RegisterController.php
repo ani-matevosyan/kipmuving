@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -83,12 +84,16 @@ class RegisterController extends Controller
 	 */
 	protected function create(array $data)
 	{
+		$day = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
+		$month = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
+
 		$confirmation_code = str_random(30);
 		$user = User::create([
 			'username' => '',
 			'first_name' => $data['first_name'],
 			'last_name' => $data['last_name'],
-			'phone' => 'phone',
+			'phone' => $data['phone'],
+			'birthday' => Carbon::parse($data['year'].'-'.$month.'-'.$day)->toDateString(),
 			'confirmation_code' => $confirmation_code,
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),

@@ -62,7 +62,7 @@
 										</div>
 										<div class="btn-holder">
 											@if (!Auth::guest())
-												<a href="/user" class="btn btn-primary"
+												<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
 													title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 													{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
 												</a>

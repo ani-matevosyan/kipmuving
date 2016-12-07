@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
-use KodiComponents\Support\Upload;
 
 class Activity extends Model
 {
@@ -65,11 +64,14 @@ class Activity extends Model
 
 	public function getHomePageActivities()
 	{
+		$currentDate = session('selectedDate');
 		$activities = Activity::limit(8)
 			->inRandomOrder()
 			->get();
 		foreach ($activities as $activity) {
 			$offer = Offer::where('activity_id', $activity['id'])
+				->whereDate('available_start', '<', $currentDate)
+				->whereDate('available_end', '>', $currentDate)
 				->orderby('price')
 				->select('price')
 				->first();
@@ -81,7 +83,10 @@ class Activity extends Model
 
 	public function getActivitiesList()
 	{
+		$currentDate = session('selectedDate');
 		$activitiesList = Activity::where('activity_translations.locale', app()->getLocale())
+			->whereDate('activities.available_start', '<', $currentDate)
+			->whereDate('activities.available_end', '>', $currentDate)
 			->join('activity_translations', 'activity_translations.activity_id', 'activities.id')
 			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')
