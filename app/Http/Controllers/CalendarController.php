@@ -11,8 +11,12 @@ class CalendarController extends Controller
 {
 	public function index(Offer $offer)
 	{
+		$selectedOffers = $offer->getSelectedOffers();
+		if (count($selectedOffers) <= 0)
+			return redirect()->to(action('ActivityController@index'));
+
 		$data = [
-			'selectedOffers' => $offer->getSelectedOffers(),
+			'selectedOffers' => $selectedOffers,
 			'viewDate' => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
 			'count' => [
 				'offers' => count($offer->getSelectedOffers()),
@@ -26,6 +30,8 @@ class CalendarController extends Controller
 	public function getData(Offer $offer)
 	{
 		$selectedOffers = session('selectedOffers');
+		if (count($selectedOffers) <= 0)
+			abort(404);
 		$colors = ['#28975d', '#afa318', '#4a8b8d', '#ebb414'];
 		$results = [];
 
