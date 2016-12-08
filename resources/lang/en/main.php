@@ -26,7 +26,7 @@ return [
 	'all_answers_here' => 'All the answers are here.',
 	'what_you_need_to_know_to_enjoy' => 'What you need to know to enjoy your days in Pucón in the best style.',
 	'maps_guides_addresses_suggestions' => 'Maps, Guides, Addresses, Suggestions',
-	'guide' => 'Guid',
+	'guide' => 'Guide',
 	'complete' => 'Complete',
 	'free' => 'Free',
 
@@ -57,5 +57,28 @@ return [
 	'what_you_can_see_here' => 'Why walk out if you can see it here?',
 
 	'where_we_are' => 'Where we are',
-	'contact_us' => 'Contact us'
+	'contact_us' => 'Contact us',
+
+
+
+	'home' => 'Home',
+	'all_activities_in_pucon' => 'All activities in Pucón',
+	'below_you_will_find_all_the_activities' => 'Below you will find all the activities available in Pucón by the agencies. To facilitate your search, we separate by styles.',
+	'the_most_requested' => 'The most requested',
+	'below_are_the_activities' => 'Below are the activities that stand out most in Pucón and those that most tourists do.',
+
+	'trekking' => 'Trekking',
+	'river' => 'River',
+	'action' => 'Action',
+	'relax' => 'Relax',
+	'snow' => 'Snow',
+	'cultural' => 'Cultural',
+
+	'iconography' => 'Iconography',
+	'day_activity' => 'Day activity',
+	'night_activity' => 'Night activity',
+	'march_to_november' => 'Low: March to November',
+	'december_to_march' => 'High: December to March',
+
+	'this_activity_is_an_alternative_of' => 'This activity is an alternative of excitement and entertainment, which is not more dangerous and is suitable for children, young and old, who can enjoy a pleasant adventure.'
 ];

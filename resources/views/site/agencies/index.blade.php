@@ -10,20 +10,17 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="breadcrumb">
-						<li><a href="#">HOME</a></li>
-						<li><a href="#">AGENCIAS</a></li>
+						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+						<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
 					</ul>
 					<div class="your-reservation activity add" style="padding-bottom: 0px;">
 						@include('site.offers.offers_quickinfo')
 					</div>
 					<div class="all-activities new">
 						<header>
-							<h1>Agencias</h1>
-							<p>Esta actividad es una alternativa de emoción y entretención, que no reviste mayor peligro
-								y es apta para niños, jóvenes y adultos mayores, los cuales pueden disfrutar de una
-								agradable Aventura. </p>
+							<h1>{{ trans('button-links.agencies') }}</h1>
+							<p>{{ trans('main.this_activity_is_an_alternative_of') }}</p>
 						</header>
-
 						<?php $col = 0; ?>
 						@foreach ($agencies as $agency)
 							@if ($col == 0)

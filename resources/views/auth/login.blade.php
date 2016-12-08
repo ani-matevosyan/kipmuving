@@ -18,10 +18,7 @@
                     <div class="page-header">
                         <h1><strong>{{ trans('main.login') }}</strong></h1>
                         <p>{{ trans('main.login_to_modify') }}</p>
-                        {{--{{ Confide::makeLoginForm()->render() }}--}}
-
                         <form class="form-horizontal registration " method="POST" action="/login" accept-charset="UTF-8">
-                            {{--<input type="hidden" name="_token" value="VbmnmEeVoMrrsH6yTE3AxrXn5Vw3xqzwLqq6JKzC">--}}
                             {{ csrf_field() }}
                             <fieldset>
                                 <div class="form-group">

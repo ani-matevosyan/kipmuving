@@ -13,7 +13,9 @@ class ActivityController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
+		$imageIndex = rand(1, 3); //1-3
 		$data = [
+			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
 			'count' => [
 				'offers' => count($offer->getSelectedOffers()),
