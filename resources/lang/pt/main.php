@@ -80,5 +80,38 @@ return [
 	'march_to_november' => 'Baja: de marzo a noviembre',
 	'december_to_march' => 'Alta: de diciembre a marzo',
 
-	'this_activity_is_an_alternative_of' => 'Esta actividad es una alternativa de emoción y entretención, que no reviste mayor peligro y es apta para niños, jóvenes y adultos mayores, los cuales pueden disfrutar de una agradable Aventura.'
+	'this_activity_is_an_alternative_of' => 'Esta actividad es una alternativa de emoción y entretención, que no reviste mayor peligro y es apta para niños, jóvenes y adultos mayores, los cuales pueden disfrutar de una agradable Aventura.',
+
+	'by_car_or_bus' => 'De Carro ou Ônibus',
+	'cultural_tour' => 'Tour Cultural',
+	'pukon_walking' => 'Conhcer Pucón caminhando. Principais ruas e atrativos da cidade',
+	'tracks_and_routes' => 'Trilhas e roteiros que pode pedalar e conhcer coisas bacanas',
+	'traditional_tours' => 'Os passeios tradicionais que a maioria dos turistas fazem',
+	'meet_pukon_mapuches' => 'Conheça Pucón pelos Mapuches Uma experiencia inesquecível',
+
+	'close' => 'Cerca',
+
+	'we_prepared_small_guide' => 'Preparamos uma pequenha guia do que pode fazer em Pucón.',
+	'at_least_one_day_is_necessary' => 'Pelo menos um dia é necessário para caminhar e conhecer todos os atrativos que possui esta linda cidade. Pucon é pequeno, em 20 minutos se pode conhecer todo seu encanto.',
+	'click_on_the_icons_for_more_info' => 'Clique em cima dos ícones para ter mais informações',
+	'a_small_circuit' => 'Um pequeno circuito',
+	'which_you_can_do_to_know_main_streets' => 'que pode fazer para conhecer as principais ruas e locais onde poderá tirar foto e apreciar o Vulcão Villarrica',
+	'the_main_streets' => 'As ruas principais',
+	'where_there_are_businesses_shops' => 'onde estão os negocios, lojas, restaurantes e cassino. As demais ruas, normalmente são de casas.',
+	'viewpoints_praia_grande' => 'Miradores Praia Grande e La Poza',
+	'from_this_two_viewpoints' => 'Destes dois miradores, poderá ver o Vulcão Villarrica e também a Praia Grande Pucón. São dois cenários que valem a pena serem vistos. São os clássicos para serem visitados e apreciados. Abaixo algumas fotos destes dois locais.',
+	'main_streets' => 'Ruas principais',
+	'here_we_present_the_most_visited' => 'Aqui te apresentamos as atrações mais visitadas das ruas de Pucón.',
+	'the_main_street_of_pucon' => 'A principal rua de Pucón. Pode encontrar agencias de turismo. a prefeitura, restaurantes e bares.',
+	'restaurants' => 'Restaurantes',
+	'pastas' => 'massas',
+	'local_and_international_food' => 'comida local e internacional',
+	'stores' => 'Lojas',
+	'electronics_and_clothing' => 'eletrónicos e roupas',
+	'outdoor_clothing' => 'roupa outdoor',
+	'one_of_the_main_streets_of_pukon' => 'Uma das principais ruas de Pucón. Onde você pode encontrar muitos restaurantes e lojas. Destacamos os principais negócios:',
+	'restaurant_and_cafeteria' => 'Restaurante e Cafeteria',
+	'sushi' => 'Sushi',
+	'street_where_is_the_casino_of_pukon' => 'Rua onde está o Cassino de Pucon',
+	'instagram_pictures' => 'Fotos de Instagram'
 ];

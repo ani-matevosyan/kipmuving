@@ -6,7 +6,7 @@ use App\Agency;
 
 AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) {
 
-//	$model->enableAccessCheck();
+	$model->enableAccessCheck();
 
 	$model->setTitle('Agencies');
 

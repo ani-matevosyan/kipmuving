@@ -80,5 +80,38 @@ return [
 	'march_to_november' => 'Low: March to November',
 	'december_to_march' => 'High: December to March',
 
-	'this_activity_is_an_alternative_of' => 'This activity is an alternative of excitement and entertainment, which is not more dangerous and is suitable for children, young and old, who can enjoy a pleasant adventure.'
+	'this_activity_is_an_alternative_of' => 'This activity is an alternative of excitement and entertainment, which is not more dangerous and is suitable for children, young and old, who can enjoy a pleasant adventure.',
+
+	'by_car_or_bus' => 'By car or bus',
+	'cultural_tour' => 'Cultural tour',
+	'pukon_walking' => 'Conhcer Pucón walking. ? Main streets and attractions of the city',
+	'tracks_and_routes' => 'Tracks and routes that can pedal and conhcer cool things',
+	'traditional_tours' => 'The traditional tours that most tourists do',
+	'meet_pukon_mapuches' => 'Meet Pucón through the Mapuches An unforgettable experience',
+
+	'close' => 'Close',
+
+	'we_prepared_small_guide' => 'We prepared a small guide of what you can do in Pucón.',
+	'at_least_one_day_is_necessary' => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'click_on_the_icons_for_more_info' => 'Click on the icons for more information',
+	'a_small_circuit' => 'A small circuit',
+	'which_you_can_do_to_know_main_streets' => 'Which you can do to know the main streets and places where you can take a photo and enjoy the Villarrica Volcano',
+	'the_main_streets' => 'The main streets',
+	'where_there_are_businesses_shops' => 'Where there are businesses, shops, restaurants and casino. The other streets are usually houses.',
+	'viewpoints_praia_grande' => 'Viewpoints Praia Grande and La Poza',
+	'from_this_two_viewpoints' => 'From these two viewpoints, you can see the Villarrica Volcano and Praia Grande Pucón. These are two scenarios worth seeing. They are the classics to be visited and enjoyed. Below are some photos of these two places.',
+	'main_streets' => 'Main streets',
+	'here_we_present_the_most_visited' => 'Here we present the most visited attractions of the streets of Pucón.',
+	'the_main_street_of_pucon' => 'The main street of Pucón. You can find tourist agencies. The city hall, restaurants and bars.',
+	'restaurants' => 'Restaurants',
+	'pastas' => 'Pastas',
+	'local_and_international_food' => 'Local and international food',
+	'stores' => 'Stores',
+	'electronics_and_clothing' => 'Electronics and clothing',
+	'outdoor_clothing' => 'Outdoor clothing',
+	'one_of_the_main_streets_of_pukon' => 'One of the main streets of Pucón. Where you can find many restaurants and shops. We highlight the main businesses:',
+	'restaurant_and_cafeteria' => 'Restaurant and Cafeteria',
+	'sushi' => 'Sushi',
+	'street_where_is_the_casino_of_pukon' => 'Street where is the Casino of Pucon',
+	'instagram_pictures' => 'Instagram pictures'
 ];

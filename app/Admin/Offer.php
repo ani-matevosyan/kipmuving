@@ -6,7 +6,7 @@ use App\Offer;
 
 AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 
-//	$model->enableAccessCheck();
+	$model->enableAccessCheck();
 
 	$model->setTitle('Offers');
 
