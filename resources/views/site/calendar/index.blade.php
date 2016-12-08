@@ -2,12 +2,6 @@
 
 {{-- Content --}}
 @section('content')
-	<link href='/plugins/fullcalendar/fullcalendar.css' rel='stylesheet'/>
-	<link href='/plugins/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print'/>
-	<script src='/plugins/fullcalendar/lib/moment.min.js'></script>
-	<script src='/plugins/fullcalendar/fullcalendar.min.js'></script>
-	<script src='/plugins/fullcalendar/es.js'></script>
-
 	<main id="main">
 		<div class="container">
 			<div class="row">
@@ -38,7 +32,7 @@
 								al otro, o simplesmente eliminarla.
 							</div>
 							<br>
-							<div id='calendar'></div>
+							<div id='calendar' data-date="{{ $viewDate }}"></div>
 							<br>
 						</div>
 						<div class="col-md-3 col-sm-12 col-xs-12">
@@ -72,7 +66,7 @@
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
-								<a class="btn-reservar reserve" href="{{ action('ReservationController@index') }}">Reservar este panorama</a>
+								<a class="btn-reservar reserve">Reservar este panorama</a>
 								<div class="note">
 									* valor aproximado
 								</div>
@@ -116,84 +110,6 @@
 
        jQuery(document).ready(function () {
 
-           jQuery('#calendar').fullCalendar({
-               header: {
-                   left: 'prev,next today',
-                   center: 'title',
-                   right: ''
-               },
-               defaultView: 'agendaFourDay',
-               views: {
-                   agendaFourDay: {
-                       type: 'agenda',
-                       duration: {days: 5},
-                       buttonText: '5 days',
-                       columnFormat: 'ddd D/M'
-                   }
-               },
-               allDaySlot: false,
-               defaultDate: '{{ $viewDate }}',
-               editable: false,
-               // titleFormat: 'D MMM',
-
-               eventLimit: true, // allow "more" link when too many events
-               events: '/calendar/data',
-               eventRender: function (event, element) {
-                   // console.log(element);
-                   // event.overlap = true;
-                   $(element).data('duplicate', event.duplicate);
-                   element.append('<br>');
-                   element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
-                   element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
-                   element.append('<br>');
-                   element.append('<div class="agency-name">' + event.agency_name + '</div>');
-                   element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.hours_start + ' a ' + event.hours_end + ')</div>');
-                   // element.append('<div class="hours-duration">' + + '</div>');
-                   element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persona + ' persona</div>');
-                   // element.append('<div class="price"> $ ' + event.price + '</div>');
-                   element.append('<br>');
-
-                   element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
-               },
-               eventAfterAllRender: function (view) {
-                   jQuery('.btn-reservar').attr("href", '/reservar');
-                   jQuery('.alert-overlap').hide();
-                   $.each(jQuery('.fc-event'), function (index, value) {
-                       if (jQuery(value).data('duplicate')) {
-                           jQuery('.alert-overlap').show();
-                           $('.btn-reservar').removeAttr('href');
-                       }
-                   });
-               }
-           });
-
-           jQuery(document).on("click", ".fc-event.cal-offer .move", function () {
-               var oid = jQuery(this).data('oid');
-               var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
-               $.ajax({
-                   url: "/calendar/process?a=" + dir + "&oid=" + oid,
-						 success: function (result) {
-                       jQuery('#calendar').fullCalendar('refetchEvents');
-                   }
-               });
-           });
-
-           jQuery(document).on("click", ".fc-event.cal-offer .delete", function () {
-               var oid = jQuery(this).data('oid');
-               $('#delete-modal .btn-confirm').data('oid', oid);
-               $('#delete-modal').modal('show');
-           });
-
-           jQuery('#delete-modal .btn-confirm').on("click", function () {
-               var oid = jQuery(this).data('oid');
-               $('#delete-modal').modal('hide');
-               $.ajax({
-                   url: "/calendar/process?a=del&oid=" + oid,
-						 success: function (result) {
-                       jQuery('#calendar').fullCalendar('refetchEvents');
-                   }
-               });
-           });
 
        });
 	</script>

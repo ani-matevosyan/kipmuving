@@ -131,6 +131,16 @@ jQuery(document).ready(function(){
 			return false;
 	});
 
+    function calendarCalc(){
+        var totalcost = 0;
+        var totaldisc;
+        $( ".offers-list li" ).each( function(){
+            totalcost += parseInt($(this).find("a").find("span").text());
+        });
+        $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
+        totaldisc = totalcost * 0.9;
+        $(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
+    }
 
 	jQuery('.offers-list').on("click", "a", function(){
         var oid = $(this).parent().prevAll().length;
@@ -149,14 +159,8 @@ jQuery(document).ready(function(){
                     $("section.widget.summary").slideUp();
                 }
                 if (window.location.pathname === '/calendar'){
-                    var totalcost = 0;
-                    var totaldisc;
-                    $( ".offers-list li" ).each( function(){
-                        totalcost += parseInt($(this).find("a").find("span").text());
-                    });
-                    $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
-					totaldisc = totalcost * 0.9;
-					$(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
+                    calendarCalc();
+                    jQuery('#calendar').fullCalendar('refetchEvents');
 				}
             },
             error: function(){
@@ -165,6 +169,98 @@ jQuery(document).ready(function(){
         });
 		return false;
 	});
+
+
+    //-------------------CALENDAR PLUGIN --------------
+    var viewdate = $("#calendar").attr("data-date");
+    jQuery('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: ''
+        },
+        defaultView: 'agendaFourDay',
+        views: {
+            agendaFourDay: {
+                type: 'agenda',
+                duration: {days: 5},
+                buttonText: '5 days',
+                columnFormat: 'ddd D/M'
+            }
+        },
+        allDaySlot: false,
+        defaultDate: viewdate,
+        editable: false,
+        eventLimit: true,
+        events: '/calendar/data',
+        eventRender: function (event, element) {
+//                    event.overlap = true;
+            $(element).data('duplicate', event.duplicate);
+            element.append('<br>');
+            element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
+            element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
+            element.append('<br>');
+            element.append('<div class="agency-name">' + event.agency_name + '</div>');
+            element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.start_time + ' a ' + event.end_time+ ')</div>');
+            element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persons + ' persona</div>');
+            element.append('<br>');
+
+            element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
+        },
+        eventAfterAllRender: function (view) {
+            jQuery('.btn-reservar').attr("href", '/reservar');
+            jQuery('.alert-overlap').hide();
+            $.each(jQuery('.fc-event'), function (index, value) {
+                if (jQuery(value).data('duplicate')) {
+                    jQuery('.alert-overlap').show();
+                    $('.btn-reservar').removeAttr('href');
+                }
+            });
+        }
+    });
+
+    jQuery(document).on("click", ".fc-event.cal-offer .move", function () {
+        var oid = jQuery(this).data('oid');
+        var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
+        $.ajax({
+            url: "/calendar/process?a=" + dir + "&oid=" + oid,
+            success: function (result) {
+                jQuery('#calendar').fullCalendar('refetchEvents');
+            }
+        });
+    });
+
+    jQuery(document).on("click", ".fc-event.cal-offer .delete", function () {
+        var oid = jQuery(this).data('oid');
+        $('#delete-modal .btn-confirm').data('oid', oid);
+        $('#delete-modal').modal('show');
+    });
+
+    jQuery('#delete-modal .btn-confirm').on("click", function () {
+        var oid = jQuery(this).data('oid');
+        $('#delete-modal').modal('hide');
+        $.ajax({
+            type: 'POST',
+            url: "/offer/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: function(){
+                jQuery('#calendar').fullCalendar('refetchEvents');
+                getsuprogram();
+                $( ".offers-list li" ).each( function(index){
+                    if(index === oid){
+                        $(this).remove();
+                    }
+                });
+                calendarCalc();
+            }
+        });
+    });
+
+
+    //------------------- END CALENDAR PLUGIN --------------
 
 	function numberWithDots(x) {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

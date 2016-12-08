@@ -1,4 +1,3 @@
-<script type="text/javascript" src="{{ asset('/js/jquery-1.11.2.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/jquery.main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/instafeed/instafeed.min.js') }}"></script>
@@ -9,3 +8,6 @@
 <script type="text/javascript" src="{{ asset('/js/main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/instafeed/guia-instafeed.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/product.tour.js') }}"></script>
+
+
+

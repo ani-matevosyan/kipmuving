@@ -62,25 +62,25 @@
 			<div class="col-xs-12">
 				<div id="cpa-slider-1">
 					<div class="item">
-						<a href="/activity/2">
+						<a href="/activity/3">
 							<img src="/uploads/activity/ GmaWx-VolcánVillarrica_mini.jpg" alt="Trekking Volcán Villarrica"/>
 							<h2>Trekking Volcán Villarrica</h2>
 						</a>
 					</div>
 					<div class="item">
-						<a href="/activity/4">
+						<a href="/activity/5">
 							<img src="/uploads/activity/ zNYN9-2.jpg" alt="Rafting Alto"/>
 							<h2>Rafting Alto</h2>
 						</a>
 					</div>
 					<div class="item">
-						<a href="/activity/1">
+						<a href="/activity/2">
 							<img src="/uploads/activity/ kpEoA-2.jpg" alt="Rafting Bajo"/>
 							<h2>Rafting Bajo</h2>
 						</a>
 					</div>
 					<div class="item">
-						<a href="/activity/3">
+						<a href="/activity/4">
 							<img src="/uploads/activity/ ERPJI-2.jpg" alt="Tour por la zona + Termas"/>
 							<h2>Tour por la zona + Termas</h2>
 						</a>
