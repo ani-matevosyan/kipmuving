@@ -207,7 +207,7 @@ jQuery(document).ready(function(){
             element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
         },
         eventAfterAllRender: function (view) {
-            jQuery('.btn-reservar').attr("href", '/reservar');
+            jQuery('.btn-reservar').attr("href", '/reserve');
             jQuery('.alert-overlap').hide();
             $.each($('.fc-event'), function (index, value) {
                 if ($(value).data('duplicate')) {

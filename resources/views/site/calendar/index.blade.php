@@ -50,9 +50,7 @@
 												<span>{{$offer['price_offer'] * $offer['persons']}}</span>
 											</a>
 										</li>
-										<?php
-										$total_cost += $offer['price_offer'] * $offer['persons'];
-										?>
+										<?php $total_cost += $offer['price_offer'] * $offer['persons']; ?>
 									@endforeach
 								</ul>
 								<div class="total">
@@ -60,7 +58,7 @@
 										<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 										<span>total em pesos</span>
 									</div>
-									<?php $total_discount = ($total_cost/0.9) - $total_cost ?>
+									<?php $total_discount = ($total_cost / 0.9) - $total_cost ?>
 									<div class="discount">
 										<span>está economizando</span>
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
