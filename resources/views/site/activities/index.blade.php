@@ -2,8 +2,7 @@
 
 {{-- Content --}}
 @section('content')
-	{{--<section class="visual activities-all" style="background-image: url(/images/top{{$img_index}}.jpg);">--}}
-	<section class="visual activities-all" style="background-image: url({{ url('/images/img01.jpg') }})">
+	<section class="visual activities-all" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
 	</section>
 
 	<script
@@ -33,8 +32,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="breadcrumb">
-						<li><a href="#">HOME</a></li>
-						<li><a href="#">ACTIVIDADES</a></li>
+						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+						<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
 					</ul>
 					<div class="your-reservation activity add" style="padding-bottom: 0px;">
 						@include('site.offers.offers_quickinfo')
@@ -43,9 +42,8 @@
 			</div>
 			<div class="all-activities new all-activities-header">
 				<header>
-					<h1>Todas las actividades en Pucón</h1>
-					<p>Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para
-						facilitar su búsqueda, separamos por estilos.</p>
+					<h1>{{ trans('main.all_activities_in_pucon') }}</h1>
+					<p>{{ trans('main.below_you_will_find_all_the_activities') }}</p>
 				</header>
 			</div>
 		</div>
@@ -55,11 +53,10 @@
 		<div class="container">
 			<div class="col-xs-12">
 				<div class="col-md-4">
-					<h1>Os mais pedidos</h1>
+					<h1>{{ trans('main.the_most_requested') }}</h1>
 				</div>
 				<div class="col-md-8 row">
-					<p>Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más
-						hacen. </p>
+					<p>{{ trans('main.below_are_the_activities') }}</p>
 				</div>
 			</div>
 			<div class="col-xs-12">
@@ -112,7 +109,7 @@
 														  width="33" height="33"
 														  onerror="this.onerror=null; this.src='/images/ico16.png'">
 												</div>
-												<strong>Trekking</strong>
+												<strong>{{ trans('main.trekking') }}</strong>
 											</a>
 										</li>
 										<li>
@@ -122,7 +119,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico17.png'">
 												</div>
-												<strong>Río</strong>
+												<strong>{{ trans('main.river') }}</strong>
 											</a>
 										</li>
 										<li>
@@ -132,7 +129,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico18.png'">
 												</div>
-												<strong>Acción</strong>
+												<strong>{{ trans('main.action') }}</strong>
 											</a>
 										</li>
 										<li>
@@ -142,7 +139,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico19.png'">
 												</div>
-												<strong>Relax</strong>
+												<strong>{{ trans('main.relax') }}</strong>
 											</a>
 										</li>
 										<li>
@@ -152,7 +149,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico20.png'">
 												</div>
-												<strong>Nieve</strong>
+												<strong>{{ trans('main.snow') }}</strong>
 											</a>
 										</li>
 										<li>
@@ -162,14 +159,14 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico30.png'">
 												</div>
-												<strong>Cultural</strong>
+												<strong>{{ trans('main.cultural') }}</strong>
 											</a>
 										</li>
 									</ul>
 								</div>
 
 								<div class="activities-info">
-									<p><strong>Iconografia</strong></p>
+									<p><strong>{{ trans('main.iconography') }}</strong></p>
 									<ul>
 										<li class="active">
 											<a href="#">
@@ -178,7 +175,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico16.png'">
 												</div>
-												<p>Actividad Diurna</p>
+												<p>{{ trans('main.day_activity') }}</p>
 											</a>
 										</li>
 										<li>
@@ -188,7 +185,7 @@
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico17.png'">
 												</div>
-												<p>Actividad Noturna</p>
+												<p>{{ trans('main.night_activity') }}</p>
 											</a>
 										</li>
 										<li>
@@ -198,7 +195,7 @@
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico18.png'">
 												</div>
-												<p>Baja: de marzo a noviembre</p>
+												<p>{{ trans('main.march_to_november') }}</p>
 											</a>
 										</li>
 										<li>
@@ -208,7 +205,7 @@
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico19.png'">
 												</div>
-												<p>Alta: de diciembre a marzo</p>
+												<p>{{ trans('main.december_to_march') }}</p>
 											</a>
 										</li>
 									</ul>
@@ -235,7 +232,7 @@
 										  height="40"
 										  onerror="this.onerror=null; this.src='/images/ico21.png'">
 								</span>
-								Trekking
+								{{ trans('main.trekking') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
@@ -267,7 +264,7 @@
 										  height="40"
 										  onerror="this.onerror=null; this.src='/images/ico22.png'">
 								</span>
-								Rio
+								{{ trans('main.river') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
@@ -299,7 +296,7 @@
 										  height="33"
 										  onerror="this.onerror=null; this.src='/images/ico23.png'">
 								</span>
-								Acción
+								{{ trans('main.action') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
@@ -331,7 +328,7 @@
 										  height="33"
 										  onerror="this.onerror=null; this.src='/images/ico24.png'">
 								</span>
-								Relax
+								{{ trans('main.relax') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
@@ -363,7 +360,7 @@
 										  height="33"
 										  onerror="this.onerror=null; this.src='/images/ico25.png'">
 								</span>
-								Nieve
+								{{ trans('main.snow') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
@@ -395,7 +392,7 @@
 										  height="33"
 										  onerror="this.onerror=null; this.src='/images/ico25.png'">
 								</span>
-								Cultural
+								{{ trans('main.cultural') }}
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>

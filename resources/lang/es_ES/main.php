@@ -59,5 +59,28 @@ return [
 
 
 	'where_we_are' => 'Donde Estamos',
-	'contact_us' => 'Contactese con nosotros'
+	'contact_us' => 'Contactese con nosotros',
+
+
+
+	'home' => 'Home-es',
+	'all_activities_in_pucon' => 'Todas las actividades en Pucón',
+	'below_you_will_find_all_the_activities' => 'Abajo encontrarás todas las actidades disponibiles en Pucón hechas por las agencias. Para facilitar su búsqueda, separamos por estilos.',
+	'the_most_requested' => 'Os mais pedidos',
+	'below_are_the_activities' => 'Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más hacen.',
+
+	'trekking' => 'Trekking',
+	'river' => 'Río',
+	'action' => 'Acción',
+	'relax' => 'Relax',
+	'snow' => 'Nieve',
+	'cultural' => 'Cultural',
+
+	'iconography' => 'Iconografia',
+	'day_activity' => 'Actividad Diurna',
+	'night_activity' => 'Actividad Noturna',
+	'march_to_november' => 'Baja: de marzo a noviembre',
+	'december_to_march' => 'Alta: de diciembre a marzo',
+
+	'this_activity_is_an_alternative_of' => 'Esta actividad es una alternativa de emoción y entretención, que no reviste mayor peligro y es apta para niños, jóvenes y adultos mayores, los cuales pueden disfrutar de una agradable Aventura.'
 ];

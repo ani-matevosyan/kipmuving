@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">GUIA</a></li> 
+                    <li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+                    <li><a href="{{ action('GuiaController@index') }}">{{ trans('main.guide') }}</a></li>
                 </ul>
                 <div class="your-reservation activity">
                     <div class="container your-reservation activity custom_add">
