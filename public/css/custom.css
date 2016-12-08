@@ -175,7 +175,8 @@ body.home2 .all-activities .btn-success {
 }
 @media (max-width: 767px) {
   .your-reservation.activity.add .program-schedule {
-    margin-top: -200px;
+    margin-top: -180px;
+    margin-right: 10px;
   }
 }
 .carrito-bar {
