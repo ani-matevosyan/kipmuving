@@ -129,11 +129,81 @@
 .all-activities .img-holder {
     margin: 0 0 10px; }
 
-.icons {
+.icons{
     margin-bottom: 10px; }
 
 .icons img {
     margin-left: 5px; }
+
+.activity-icons{
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.activity-icons img{
+    width: 100%;
+}
+
+.activity-icons ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.activity-icons li{
+    display: inline-block;
+    margin-right: 6px;
+}
+.activity-icons .ico {
+    width: 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.activity-icons .ico p{
+    position: absolute;
+    background: #f5f2f2;
+    color: #656363;
+    left: 0;
+    width: calc(100% + 102px);
+    margin-left: -51px;
+    text-align: center;
+    padding: 2px 15px;
+    border: 1px solid #d0cbcb;
+    border-radius: 6px;
+    font-size: 12px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    bottom: 60px;
+}
+
+.activity-icons .ico:hover p{
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 30px;
+    visibility: visible;
+}
+
+.activity-icons .ico p span{
+    position: absolute;
+    color: #f5f2f2;
+    text-shadow: 0px 1px 0px #d0cbcb;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: -14px;
+    font-size: 20px;
+}
 
 .tooltip > .tooltip-inner {
     background-color: #ffeedb;

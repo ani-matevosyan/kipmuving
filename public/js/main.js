@@ -138,7 +138,7 @@ jQuery(document).ready(function(){
             totalcost += parseInt($(this).find("a").find("span").text());
         });
         $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
-        totaldisc = totalcost * 0.9;
+        totaldisc = parseInt((totalcost/0.9) - totalcost);
         $(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
     }
 

@@ -60,7 +60,7 @@
 										<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 										<span>total em pesos</span>
 									</div>
-									<?php $total_discount = $total_cost * 0.9 ?>
+									<?php $total_discount = ($total_cost/0.9) - $total_cost ?>
 									<div class="discount">
 										<span>está economizando</span>
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
