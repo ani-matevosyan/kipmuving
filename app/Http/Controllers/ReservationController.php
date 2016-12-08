@@ -18,7 +18,7 @@ class ReservationController extends Controller
 		$total_cost = 0;
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
-			$total_cost += $offer['price_offer'];
+			$total_cost += $offer['price_offer'] * $selectedOffer['persons'];
 			$results[] = [
 				'offerData' => [
 					'id' => $offer['offer_id'],
