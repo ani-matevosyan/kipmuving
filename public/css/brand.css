@@ -865,7 +865,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 @media (max-width: 767px) {
   #header.new .animated-logo {
-    top: 2px;
+    top: 10px;
     width: 40px;
     height: auto;
   }
@@ -5338,12 +5338,6 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 767px) {
-  .your-reservation.activity {
-    padding: 20px 0 0;
-  }
-}
-
 .your-reservation.activity .head {
   border: 0;
   position: relative;
@@ -7766,23 +7760,24 @@ body.home2 .roteros-options .raised-form .text-field {
         height: 70px; }
         .s_guia ul li svg path {
           fill: #474747; }
-  .s_guia .section_title h1, .s_guia .section_title h2, .s_guia .section_title h3, .s_guia .section_title h4 {
+  .s_guia .section_title h2 span{
     color: #000000;
     text-align: center;
     margin: 0;
     line-height: 0.97em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: bold; }
-  .s_guia .section_title h1 {
+    font-weight: bold;
+    display: block}
+  .s_guia .section_title h2 .size1 {
     font-size: 117px;
     font-family: "Lato-Bold", sans-serif;
     color: #ffb400; }
-  .s_guia .section_title h2 {
+  .s_guia .section_title h2 .size2 {
     font-size: 84px; }
-  .s_guia .section_title h3 {
+  .s_guia .section_title h2 .size3 {
     font-size: 58px; }
-  .s_guia .section_title h4 {
+  .s_guia .section_title h2 .size4 {
     font-size: 53px; }
   .s_guia .go-to-guide {
     text-align: center;
@@ -7844,6 +7839,10 @@ body.home2 .roteros-options .raised-form .text-field {
     width: 43%;
     justify-content: center; } }
 @media(max-width: 421px) {
+   .s_guia .go-to-guide .btn-orange{
+       padding: 18px 26px;
+       font-size: 23px;
+   }
   .s_guia ul li {
     display: -webkit-box;
     display: -moz-box;
@@ -7853,14 +7852,14 @@ body.home2 .roteros-options .raised-form .text-field {
     display: -ms-flexbox;
     display: flex;
     width: 100%; }
-  .s_guia .section_title h1 {
-    font-size: 102px; }
-  .s_guia .section_title h2 {
-    font-size: 69px; }
-  .s_guia .section_title h3 {
-    font-size: 43px; }
-  .s_guia .section_title h4 {
-    font-size: 38px; } }
+  .s_guia .section_title h2 .size1 {
+    font-size: 85px; }
+  .s_guia .section_title h2 .size2 {
+    font-size: 60px; }
+  .s_guia .section_title h2 .size3 {
+    font-size: 40px; }
+  .s_guia .section_title h2 .size4 {
+    font-size: 30px; } }
 .s_howitworks {
   background: #17cab1;
   position: relative;

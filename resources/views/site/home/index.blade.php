@@ -62,7 +62,20 @@
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">
 					<div class="section_title">
-					@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
+						<h2>
+						@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
+							<span class="size1">{{ trans('main.guide') }}</span>
+							<span class="size4">{{ trans('main.complete') }}</span>
+							<span class="size2">pucon</span>
+							<span class="size3">{{ trans('main.free') }}</span>
+						@elseif(App::getLocale() == 'en')
+							<span class="size4">{{ trans('main.complete') }}</span>
+							<span class="size2">pucon</span>
+							<span class="size1">{{ trans('main.guide') }}</span>
+							<span class="size3">{{ trans('main.free') }}</span>
+						@endif
+						</h2>
+					{{--@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
 						<h1>{{ trans('main.guide') }}</h1>
 						<h4>{{ trans('main.complete') }}</h4>
 						<h2>pucon</h2>
@@ -72,7 +85,7 @@
 						<h2>pucon</h2>
 						<h1>{{ trans('main.guide') }}</h1>
 						<h3>{{ trans('main.free') }}</h3>
-					@endif
+					@endif--}}
 					</div>
 				</div>
 				<div class="col-md-2 col-md-pull-5">

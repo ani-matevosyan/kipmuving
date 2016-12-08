@@ -19,7 +19,6 @@ class ReservationController extends Controller
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
 			$total_cost += $offer['price_offer'];
-//			dd($offer);
 			$results[] = [
 				'offerData' => [
 					'id' => $offer['offer_id'],
@@ -43,13 +42,11 @@ class ReservationController extends Controller
 			];
 
 		}
-//		dd($results);
 		$data = [
 			'total_cost' => $total_cost,
 			'user' => Auth::user(),
 			'offers' => $results
 		];
-//		dd($data);
 		return view('site.reservar.su-reservar', $data);
 	}
 }
