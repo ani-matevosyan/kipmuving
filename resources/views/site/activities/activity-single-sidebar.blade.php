@@ -1,6 +1,6 @@
 <section class="widget select-box">
-	<h2>Seleccione</h2>
-	<p>la actividad que quiera cambiar</p>
+	<h2>{{ trans('main.select') }}</h2>
+	<p>{{ trans('main.the_activity_you_want_to_change') }}</p>
 	<div class="text-field">
 		<select class="form-control" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;">
 			@foreach ($activitiesList as $item)
@@ -12,8 +12,8 @@
 	</div>
 </section>
 <section class="widget the-day">
-	<h2>El día</h2>
-	<p>de esta actividad</p>
+	<h2>{{ trans('main.the_day') }}</h2>
+	<p>{{ trans('main.of_this_activity') }}</p>
 	<form action="#" class="raised-form-x" style="max-width:150px;">
 		<div class="text-field has-ico calender">
 			<input id="reserve-date-sd" type="text"
@@ -25,7 +25,7 @@
 </section>
 @if($offers['selected'])
 	<section class="widget summary">
-		<h2>Resumen de su panorama:</h2>
+		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
 		<ul class="offers-list">
 			@foreach ($offers['selected'] as $offer)
 				<li><a href="#">{{ $offer['date'] }}
@@ -35,29 +35,34 @@
 	</section>
 @else
     <section class="widget summary" style="display:none">
-        <h2>Resumen de su panorama:</h2>
+        <h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
         <ul class="offers-list">
         </ul>
     </section>
 @endif
 <section class="important-block">
 	<div class="box alert">
-		<h2>Importante</h2>
-		<strong class="sub-title">sobre esta actividad</strong>
-		<strong class="title">Edad mínima: {{ $activity['min_age'] }} años</strong>
+		<h2>{{ trans('main.important') }}</h2>
+		<strong class="sub-title">{{ trans('main.about_this_activity') }}</strong>
+		<strong class="title">{{ trans('main.minimum_age') }}: {{ $activity['min_age'] }} {{ trans('main.years') }}</strong>
 	</div>
+	@if(count($activity['carry']) > 0)
 	<div class="box bring">
-		<strong class="title">Que sugerimos llevar:</strong>
+		<strong class="title">{{ trans('main.what_to_bring') }}:</strong>
 		<ul>
 			{!! $activity['carry'] !!}
 		</ul>
 	</div>
+	@endif
+
+	@if($activity['restrictions'])
 	<div class="box rest">
-		<strong class="title">Restriciones:</strong>
+		<strong class="title">{{ trans('main.restrictions') }}:</strong>
 		<ul>
 			{!! $activity['restrictions'] !!}
 		</ul>
 	</div>
+	@endif
 	<div class="img-tour">
 		@if (count($activity->images) > 0)
 			<div class="row">
@@ -79,8 +84,8 @@
 		</div>
 	</div>
 	<div class="location">
-		<h3>Donde es</h3>
-		<p>Ubicación de esta actividad</p>
+		<h3>{{ trans('main.where_is') }}</h3>
+		<p>{{ trans('main.location_of_this_activity') }}</p>
 		<div class="map-holder">
 			<div id="map" style="width: 100%; height: 300px"></div>
 			<script type="text/javascript">

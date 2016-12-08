@@ -15,7 +15,7 @@
 		<div class="col-md-5 col-sm-5 col-xs-12">
 			@if($offer['offer_includes'])
 				<div class="list-box">
-					<strong class="title">Que incluye:</strong>
+					<strong class="title">{{ trans('main.what_includes') }}:</strong>
 					<ul>
 						@foreach ($offer['offer_includes'] as $include)
 							<li>{{ $include }}</li>
@@ -30,17 +30,17 @@
 					<ul class="timing1">
 						<li class="time">
 							@if($offer['hours'])
-								<strong><span>Duración:</span> {{ $offer['hours'] }}hrs </strong>
+								<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
 							@endif
 							@if($offer['start_time'] && $offer['end_time'])
-								<strong><span>Horario:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
+								<strong><span>{{ trans('main.schedule') }}:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
 									- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
 							@endif
 						</li>
 						@if($offer['price_offer'])
 							<li class="profile">
 								<select class="persona">
-									<option value="">Persona #</option>
+									<option value="">{{ trans('main.persons') }}</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -66,7 +66,7 @@
 						<strong class="price"
 								  data-unit-price="{{ $offer['price_offer'] }}"><sub>$</sub> {{ number_format($offer['price_offer'], 0, '.', '.') }}
 						</strong>
-						<a href="#" class="btn btn-primary btn-reserve-ag" data-offer-id="{{ $offer['id'] }}">AGREGAR</a>
+						<a href="#" class="btn btn-primary btn-reserve-ag" data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
 					</div>
 				</div>
 				@endif
@@ -90,9 +90,9 @@
 		<!-- <div class="trip-adv"></div> -->
 		<strong class="more-detail">
 			<a href="#" class="opener">
-				<span class="more">Mas</span>
-				<span class="less">Menos</span>
-				detalles
+				<span class="more">{{ trans('main.more') }}</span>
+				<span class="less">{{ trans('main.less') }}</span>
+				{{ trans('main.details') }}
 			</a>
 		</strong>
 	@endif

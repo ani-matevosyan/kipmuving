@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\HomeMail;
 use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -36,11 +37,18 @@ class HomeController extends Controller
 			'email' => $request['email'],
 			'message' => $request['message']
 		];
+
+		$homeMail = new HomeMail();
+		$homeMail->name = $data['name'];
+		$homeMail->email = $data['email'];
+		$homeMail->message = $data['message'];
+		$homeMail->user_ip = $request->ip();
+		$homeMail->save();
+
 		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
 			$message->from('info@kipmuving.com', 'Kipmuving team');
 			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
 		});
-//		dd($request);
 		return Redirect::to('/')->with('info', 'Your message is successfully send.');
 	}
 }

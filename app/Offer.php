@@ -41,7 +41,9 @@ class Offer extends Model
 
 	private function includesToArray($includes)
 	{
-		return explode('; ', $includes);
+		if ($includes)
+			return explode('; ', $includes);
+		return null;
 	}
 
 	public function getActivityAttribute()

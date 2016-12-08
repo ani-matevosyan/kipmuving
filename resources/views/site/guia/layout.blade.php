@@ -22,8 +22,8 @@
                                 <a href="{{ action('GuiaController@index') }}" id="box-1">
                                 <div class="map-box-1 click-tab">
                                         <div class="map-heading">
-                                            <h2>Caminhando</h2>
-                                            <p>Conhcer Pucón caminhando.Principais ruas e atrativos da cidade,</p>
+                                            <h2>{{ trans('main.walking') }}</h2>
+                                            <p>{{ trans('main.pukon_walking') }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -32,9 +32,8 @@
                                 <a href="{{ action('GuiaController@getBicicleta') }}" id="box-2">
                                     <div class="map-box-2 click-tab">
                                         <div class="map-heading">
-                                            <h2>Bicicleta</h2>
-                                            <p>Trilhas e roteiros que pode pedalar
-                                                e conhcer coisas bacanas</p>
+                                            <h2>{{ trans('main.bicycle') }}</h2>
+                                            <p>{{ trans('main.tracks_and_routes') }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -43,9 +42,8 @@
                                 <a href="{{ action('GuiaController@getDecarro') }}" id="box-3">
                                 <div class="map-box-3 click-tab">
                                         <div class="map-heading">
-                                            <h2>De Carro ou Ônibus</h2>
-                                            <p>Os passeios tradicionais que a 
-                                                maioria dos turistas fazem</p>
+                                            <h2>{{ trans('main.by_car_or_bus') }}</h2>
+                                            <p>{{ trans('main.traditional_tours') }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -54,9 +52,8 @@
                                 <a href="{{ action('GuiaController@getTourcultural') }}" id="box-4">
                                 <div class="map-box-4 click-tab">
                                         <div class="map-heading">
-                                            <h2>Tour Cultural</h2>
-                                            <p>Conheça Pucón pelos Mapuches
-                                                Uma experiencia inesquecível</p>
+                                            <h2>{{ trans('main.cultural_tour') }}</h2>
+                                            <p>{{ trans('main.meet_pukon_mapuches') }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -80,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
                                 </div>
                             </div>
                         </div>
