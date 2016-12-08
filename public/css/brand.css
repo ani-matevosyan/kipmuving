@@ -7866,12 +7866,14 @@ body.home2 .roteros-options .raised-form .text-field {
   position: relative;
   padding: 37px 0 56px;
   color: #172824;
-  font-family: "Lato-Medium", sans-serif; }
+  font-family: "Lato-Medium", sans-serif;
+  text-align: center;}
   .s_howitworks:before {
     content: "";
     position: absolute;
     pointer-events: none;
     top: -18px;
+    left: 0;
     width: 100%;
     height: 100%;
     background: url(../images/howitworks_bg.png) no-repeat;
@@ -7879,49 +7881,48 @@ body.home2 .roteros-options .raised-form .text-field {
   .s_howitworks span {
     color: #f3f9f7;
     font-family: "Lato-Bold", sans-serif; }
-  .s_howitworks .row {
-    text-align: center; }
-    .s_howitworks .row h1 {
+    .s_howitworks .section_title h2 {
       font-size: 46px;
       margin-bottom: 0; }
-    .s_howitworks .row:first-child {
+    .s_howitworks .section_title {
       margin-bottom: 68px; }
-      .s_howitworks .row:first-child p {
+      .s_howitworks .section_title p {
         font-size: 20px;
         color: #000; }
-    .s_howitworks .row img {
+    .s_howitworks .howitworks_block img {
       margin-bottom: 25px;
       height: 72px }
-    .s_howitworks .row .col-md-3 {
+    .s_howitworks .howitworks_block {
       margin-right: 25px;
-      font-size: 15px; }
-      .s_howitworks .row .col-md-3:after {
+      font-size: 15px;
+      position: relative;}
+      .s_howitworks .howitworks_block:after {
         content: "";
         position: absolute;
         top: 20px;
-        right: -21px;
+        right: -38px;
         height: 35px;
         width: 19px;
         background: url(../images/arrow.png);
         background-size: cover; }
-      .s_howitworks .row .col-md-3:last-child:after {
+      .s_howitworks .howitworks_block.last-child:after {
         background: none; }
 @media(max-width: 991px) {
-  .s_howitworks .row .col-md-3 {
+  .s_howitworks .howitworks_block {
     margin-right: 0;
     padding: 0 125px;
     margin-bottom: 35px; }
-    .s_howitworks .row .col-md-3:after {
+    .s_howitworks .howitworks_block:after {
       display: none; } }
 @media(max-width: 853px) {
   .s_howitworks:before {
     display: none; } }
 @media(max-width: 615px) {
-  .s_howitworks .row .col-md-3 {
+  .s_howitworks .howitworks_block {
     padding: 0 20px; }
-  .s_howitworks .row h1 {
+  .s_howitworks .section_title h2 {
     font-size: 39px; }
-  .s_howitworks .row:first-child p {
+  .s_howitworks .section_title p {
     font-size: 18px; } }
 .s_viagem {
   background: #ffb400;

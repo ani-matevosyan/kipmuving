@@ -256,8 +256,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9">
-						<h1>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h1>
-						<p>{{ trans('main.best_deals') }}</p>
+						<div class="section_title">
+							<h2>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h2>
+							<p>{{ trans('main.best_deals') }}</p>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -278,7 +280,7 @@
 						</div>
 					</div>
 					<div class="col-md-3">
-						<div class="howitworks_block">
+						<div class="howitworks_block last-child">
 							<img src="{{ asset('images/broken-link.svg') }}" alt="">
 							<p>{{ trans('main.we_make') }} <span>{{ trans('main.your_union_with_the_agency') }}</span>
 								{{ trans('main.you_pay_your_tours') }}</p>
