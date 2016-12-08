@@ -60,7 +60,8 @@
 		</div>
 		<section id="guia" class="s_guia">
 			<div class="container">
-				<div class="col-md-3 col-md-push-3">
+				<div class="col-md-5 col-md-push-2">
+					<div class="section_title">
 					@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
 						<h1>{{ trans('main.guide') }}</h1>
 						<h4>{{ trans('main.complete') }}</h4>
@@ -72,8 +73,9 @@
 						<h1>{{ trans('main.guide') }}</h1>
 						<h3>{{ trans('main.free') }}</h3>
 					@endif
+					</div>
 				</div>
-				<div class="col-md-3 col-md-pull-3">
+				<div class="col-md-2 col-md-pull-5">
 					<ul>
 						<li><a href="#">
 								<svg xmlns="http://www.w3.org/2000/svg"
@@ -237,14 +239,16 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-md-6">
-					<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
-					</p>
-					<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
-					<a href="#" class="btn-orange">
-						<img src="{{ asset('images/arrow.png') }}" alt="">
-						{{ trans('button-links.go_to_guide') }}
-					</a>
+				<div class="col-md-5">
+					<div class="go-to-guide">
+						<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
+						</p>
+						<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
+						<a href="#" class="btn-orange">
+							<img src="{{ asset('images/arrow.png') }}" alt="">
+							{{ trans('button-links.go_to_guide') }}
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -258,21 +262,27 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<img src="{{ asset('images/10.svg') }}" alt="">
-						<p><span>KipMuving</span> {{ trans('main.has_an_agreement') }}
-							<span>{{ trans('main.preferential_prices') }}</span></p>
+						<div class="howitworks_block">
+							<img src="{{ asset('images/10.svg') }}" alt="">
+							<p><span>KipMuving</span> {{ trans('main.has_an_agreement') }}
+								<span>{{ trans('main.preferential_prices') }}</span></p>
+						</div>
 					</div>
 					<div class="col-md-3">
-						<img src="{{ asset('images/umbrella.svg') }}" alt="">
-						<p>
-							<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
-							<span>U$ 5</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
-						</p>
+						<div class="howitworks_block">
+							<img src="{{ asset('images/umbrella.svg') }}" alt="">
+							<p>
+								<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
+								<span>U$ 5</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
+							</p>
+						</div>
 					</div>
 					<div class="col-md-3">
-						<img src="{{ asset('images/broken-link.svg') }}" alt="">
-						<p>{{ trans('main.we_make') }} <span>{{ trans('main.your_union_with_the_agency') }}</span>
-							{{ trans('main.you_pay_your_tours') }}</p>
+						<div class="howitworks_block">
+							<img src="{{ asset('images/broken-link.svg') }}" alt="">
+							<p>{{ trans('main.we_make') }} <span>{{ trans('main.your_union_with_the_agency') }}</span>
+								{{ trans('main.you_pay_your_tours') }}</p>
+						</div>
 					</div>
 				</div>
 			</div>
