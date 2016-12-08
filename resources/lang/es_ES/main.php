@@ -115,5 +115,43 @@ return [
 	'restaurant_and_cafeteria' => 'Restaurante e Cafeteria',
 	'sushi' => 'Sushi',
 	'street_where_is_the_casino_of_pukon' => 'Rua onde está o Cassino de Pucon',
-	'instagram_pictures' => 'Fotos de Instagram'
+	'instagram_pictures' => 'Fotos de Instagram',
+
+
+
+	'activity_depends_on_the_weather' => 'Actividad depende del clima',
+	'this_activity_is_subject_to_weather' => 'Esta atividad está sujeta al clima. Si llueve, muchas nubes o viento, la actividad no se realiza. Puedes percibir como estará el clima en una semana para que te programe cual es el mejor día para hacer esta actividad. Eliga de preferencia un dia que tenga sol.',
+	'sort_by' => 'Ordenar por',
+	'recommendation' => 'Recomendacion',
+	'lowest_price' => 'Precio más bajo',
+	'includes_more_services' => 'Incluye más servicios',
+	'more_information' => 'Más información',
+	'about_the_agency' => 'Sobre a agencia',
+	'show_map' => 'Mostrar mapa',
+	'what_includes' => 'Que incluye',
+	'duration' => 'Duración',
+	'schedule' => 'Horario',
+	'amount_of_people' => 'Cantidad de Personas',
+	'add' => 'Agregar',
+	'select' => 'Seleccione',
+	'the_activity_you_want_to_change' => 'la actividad que quiera cambiar',
+	'the_day' => 'El día',
+	'of_this_activity' => 'de esta actividad',
+	'summary_of_your_panorama' => 'Resumen de su panorama',
+	'important' => 'Importante',
+	'about_this_activity' => 'sobre esta actividad',
+	'minimum_age' => 'Edad mínima',
+	'years' => 'años',
+	'what_to_bring' => 'Que sugerimos llevar',
+	'restrictions' => 'Restriciones',
+	'where_is' => 'Donde es',
+	'location_of_this_activity' => 'Ubicación de esta actividad',
+
+
+
+	'realized_activities' => 'Actividades que realiza',
+	'activities_that_this_agency_performs' => 'Estas son las actividades que esta agencia realiza. Para hacer una reserva, seleciona el número de personas y después la fecha.',
+	'more' => 'Mas',
+	'less' => 'Menos',
+	'details' => 'detalles'
 ];

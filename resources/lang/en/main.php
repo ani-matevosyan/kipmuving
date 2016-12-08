@@ -113,5 +113,43 @@ return [
 	'restaurant_and_cafeteria' => 'Restaurant and Cafeteria',
 	'sushi' => 'Sushi',
 	'street_where_is_the_casino_of_pukon' => 'Street where is the Casino of Pucon',
-	'instagram_pictures' => 'Instagram pictures'
+	'instagram_pictures' => 'Instagram pictures',
+
+
+
+	'activity_depends_on_the_weather' => 'Activity depends on the weather',
+	'this_activity_is_subject_to_weather' => 'This activity is subject to weather. If it rains, many clouds or wind, activity is not done. You can perceive how the weather will be in a week so that you can schedule what is the best day to do this activity. Choose preferably a day that has sun.',
+	'sort_by' => 'Sort by',
+	'recommendation' => 'Recommendation',
+	'lowest_price' => 'Lowest price',
+	'includes_more_services' => 'Includes more services',
+	'more_information' => 'More information',
+	'about_the_agency' => 'About the agency',
+	'show_map' => 'Show map',
+	'what_includes' => 'What includes',
+	'duration' => 'Duration',
+	'schedule' => 'Schedule',
+	'amount_of_people' => 'Amount of people',
+	'add' => 'Add',
+	'select' => 'Select',
+	'the_activity_you_want_to_change' => 'The activity you want to change',
+	'the_day' => 'The day',
+	'of_this_activity' => 'Of this activity',
+	'summary_of_your_panorama' => 'Summary of your panorama',
+	'important' => 'Important',
+	'about_this_activity' => 'about this activity',
+	'minimum_age' => 'Minimum age',
+	'years' => 'years',
+	'what_to_bring' => 'What to bring',
+	'restrictions' => 'Restrictions',
+	'where_is' => 'Where is',
+	'location_of_this_activity' => 'Location of this activity',
+
+
+
+	'realized_activities' => 'Realized activities',
+	'activities_that_this_agency_performs' => 'These are the activities that this agency performs. To make a reservation, select the number of people and then the date.',
+	'more' => 'More',
+	'less' => 'Less',
+	'details' => 'details'
 ];

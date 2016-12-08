@@ -13,7 +13,7 @@
 			<li>
 				<div class="ico">
 					<img src="images/day.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico16.png'">
-					<p>Actividad Diurna <span class="glyphicon glyphicon-triangle-bottom"></span></p>
+					<p>{{ trans('main.day_activity') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
 			@endif
@@ -21,7 +21,7 @@
 			<li>
 				<div class="ico">
 					<img src="images/night.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico17.png'">
-					<p>Actividad Noturna <span class="glyphicon glyphicon-triangle-bottom"></span></p>
+					<p>{{ trans('main.night_activity') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
 			@endif
@@ -29,7 +29,7 @@
 			<li>
 				<div class="ico">
 					<img src="images/down-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico18.png'">
-					<p>Baja: de marzo a noviembre <span class="glyphicon glyphicon-triangle-bottom"></span></p>
+					<p>{{ trans('main.march_to_november') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
 			@endif
@@ -37,7 +37,7 @@
 			<li>
 				<div class="ico">
 					<img src="images/up-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico19.png'">
-					<p>Alta: de diciembre a marzo <span class="glyphicon glyphicon-triangle-bottom"></span></p>
+					<p>{{ trans('main.december_to_march') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
 			@endif
@@ -53,7 +53,7 @@
 		<p>{{ $activity['short_description'] }}<p>
 	@endif
 	@if($activity['price'])
-	<strong class="price"><span>Desde de</span> <sub>$</sub>{{ $activity['price'] }}</strong>
+	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ $activity['price'] }}</strong>
 	@endif
-	<a href="{{ action('ActivityController@getActivity', $activity['id']) }}" class="btn-primary">VISUALIZAR</a>
+	<a href="{{ action('ActivityController@getActivity', $activity['id']) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>

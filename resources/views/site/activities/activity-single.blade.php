@@ -18,8 +18,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="breadcrumb">
-						<li><a href="{{ action('HomeController@index') }}">HOME</a></li>
-						<li><a href="{{ action('ActivityController@index') }}">ACTIVIDADES</a></li>
+						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+						<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
 						@if($activity['name'])
 							<li>{{ strtoupper($activity['name']) }}</li>
 						@endif
@@ -47,13 +47,8 @@
 										<br><br/>
 										@if ($activity['weather_embed'])
 											<div class="weather-box">
-												<h2>Actividad depende del clima</h2>
-												<p>Esta atividad está sujeta al clima. Si llueve, muchas nubes o viento, la
-													actividad
-													no se realiza. Puedes percibir como estará el clima en una semana para que te
-													programe cual es el mejor día para hacer esta actividad. Eliga de preferencia un
-													dia
-													que tenga sol.</p>
+												<h2>{{ trans('main.activity_depends_on_the_weather') }}</h2>
+												<p>{{ trans('main.this_activity_is_subject_to_weather') }}</p>
 												{!! $activity['weather_embed'] !!}
 											</div>
 										@endif
@@ -70,10 +65,10 @@
 												</div>
 											</div>
 											<ul role="tablist">
-												<li>Ordenar por</li>
-												<li class="active"><a href="#tab2" data-toggle="tab">Recomendacion</a></li>
-												<li><a href="#tab3" data-toggle="tab">Precio más bajo</a></li>
-												<li><a href="#tab4" data-toggle="tab">Incluye más servicios</a></li>
+												<li>{{ trans('main.sort_by') }}</li>
+												<li class="active"><a href="#tab2" data-toggle="tab">{{ trans('main.recommendation') }}</a></li>
+												<li><a href="#tab3" data-toggle="tab">{{ trans('main.lowest_price') }}</a></li>
+												<li><a href="#tab4" data-toggle="tab">{{ trans('main.includes_more_services') }}</a></li>
 											</ul>
 										</nav>
 									</div>

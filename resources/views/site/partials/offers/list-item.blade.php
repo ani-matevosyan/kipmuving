@@ -40,8 +40,7 @@
 								<hr>
 								{{ $offer['offerAgency']['description'] }}
 								<br>
-								<a href='/agencias/{{ $offer['offerAgency']['id'] }}'>Más información...</a>">Sobre a
-							agencia</a>
+								<a href='/agencias/{{ $offer['offerAgency']['id'] }}'>{{ trans('main.more_information') }}...</a>">{{ trans('main.about_the_agency') }}</a>
 					@endif
 				</li>
 				<li>
@@ -51,7 +50,7 @@
 							data-toggle="modal"
 							data-lat="{{ $offer['offerAgency']['latitude'] }}"
 							data-lng="{{ $offer['offerAgency']['longitude'] }}"
-							data-title="{{ $offer['offerAgency']['name'] }}">Mostrar mapa</a>
+							data-title="{{ $offer['offerAgency']['name'] }}">{{ trans('main.show_map') }}</a>
 					@endif
 				</li>
 			<!-- <li><a href="/agency/{{ $offer['offerAgency']['id'] }}">Condiciones</a></li> -->
@@ -59,18 +58,16 @@
 		</header>
 	@endif
 	<div class="row">
-		@if($offer['includes'])
+		@if(count($offer['includes']) > 0)
 			<div class="col-md-5 col-sm-5 col-xs-12">
 				<div class="list-box">
-					<strong class="title">Que incluye:</strong>
+					<strong class="title">{{ trans('main.what_includes') }}:</strong>
 					<ul>
 						{{--{!! dd($offer['includes']) !!}--}}
 						@if(is_array($offer['includes']))
 							@foreach ($offer['includes'] as $include)
 								<li>{{ $include }}</li>
 							@endforeach
-						@else
-							<li>{{ $offer['includes'] }}</li>
 						@endif
 					</ul>
 				<!-- <br />
@@ -85,14 +82,15 @@
 					<ul class="timing1">
 						@if($offer['hours'] && $offer['start_time'] && $offer['end_time'])
 							<li>
-								<strong><span>Duración:</span> {{ $offer['hours'] }}hrs </strong>
-								<strong><span>Horario:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
+								<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
+								<strong><span>{{ trans('main.schedule') }}
+										:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
 									- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
 							</li>
 						@endif
 						<li class="profile">
 							<select class="persona">
-								<option value="">Cantidad de Personas</option>
+								<option value="">{{ trans('main.amount_of_people') }}</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -116,7 +114,8 @@
 								@endif
 								<sub>$</sub>{{ number_format($offer['price_offer'], 0, '.', '.') }}
 							</strong>
-							<a href="#" class="btn btn-primary btn-reserve" data-offer-id="{{ $offer['id'] }}">AGREGAR</a>
+							<a href="#" class="btn btn-primary btn-reserve"
+								data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
 						</div>
 					</div>
 				@endif
