@@ -194,7 +194,7 @@ jQuery(document).ready(function(){
         eventLimit: true,
         events: '/calendar/data',
         eventRender: function (event, element) {
-//                    event.overlap = true;
+            // event.overlap = true;
             $(element).data('duplicate', event.duplicate);
             element.append('<br>');
             element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
@@ -204,15 +204,14 @@ jQuery(document).ready(function(){
             element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.start_time + ' a ' + event.end_time+ ')</div>');
             element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persons + ' persona</div>');
             element.append('<br>');
-
             element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
         },
         eventAfterAllRender: function (view) {
             jQuery('.btn-reservar').attr("href", '/reservar');
             jQuery('.alert-overlap').hide();
-            $.each(jQuery('.fc-event'), function (index, value) {
-                if (jQuery(value).data('duplicate')) {
-                    jQuery('.alert-overlap').show();
+            $.each($('.fc-event'), function (index, value) {
+                if ($(value).data('duplicate')) {
+                    $('.alert-overlap').show();
                     $('.btn-reservar').removeAttr('href');
                 }
             });
