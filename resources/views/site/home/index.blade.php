@@ -89,7 +89,8 @@
 				</div>
 				<div class="col-md-2 col-md-pull-5">
 					<ul>
-						<li><a href="#">
+						<li>
+							<a href="#">
 								<svg xmlns="http://www.w3.org/2000/svg"
 									  xmlns:xlink="http://www.w3.org/1999/xlink"
 									  version="1.1" x="0px" y="0px" viewBox="0 0 459.486 459.486"
@@ -108,7 +109,8 @@
 							</a>
 							{{ trans('main.bicycle') }}
 						</li>
-						<li><a href="#">
+						<li>
+							<a href="#">
 								<svg version="1.1"
 									  xmlns="http://www.w3.org/2000/svg"
 									  x="0px"
@@ -151,7 +153,8 @@
 							</a>
 							{{ trans('main.bus') }}
 						</li>
-						<li><a href="#">
+						<li>
+							<a href="#">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									version="1.1"
@@ -177,7 +180,8 @@
 							</a>
 							{{ trans('main.car') }}
 						</li>
-						<li><a href="#">
+						<li>
+							<a href="#">
 								<svg version="1.1"
 									  xmlns="http://www.w3.org/2000/svg"
 									  x="0px"
@@ -256,7 +260,7 @@
 						<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
 						</p>
 						<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
-						<a href="#" class="btn-orange">
+						<a href="{{ action('GuiaController@index') }}" class="btn-orange">
 							<img src="{{ asset('images/arrow.png') }}" alt="">
 							{{ trans('button-links.go_to_guide') }}
 						</a>

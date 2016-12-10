@@ -46,7 +46,7 @@
 										<li>
 											<a href="#">
 												<h4>{{ $offer['name'] }}</h4>
-												<span>{{$offer['price_offer'] * $offer['persons']}}</span>
+												<span>{{ number_format($offer['price_offer'] * $offer['persons'], 0, '.', '.') }}</span>
 											</a>
 										</li>
 										<?php $total_cost += $offer['price_offer'] * $offer['persons']; ?>
