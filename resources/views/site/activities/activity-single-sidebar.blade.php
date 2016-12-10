@@ -34,34 +34,39 @@
 		</ul>
 	</section>
 @else
-    <section class="widget summary" style="display:none">
-        <h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
-        <ul class="offers-list">
-        </ul>
-    </section>
+	<section class="widget summary" style="display:none">
+		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
+		<ul class="offers-list">
+		</ul>
+	</section>
 @endif
 <section class="important-block">
 	<div class="box alert">
 		<h2>{{ trans('main.important') }}</h2>
 		<strong class="sub-title">{{ trans('main.about_this_activity') }}</strong>
-		<strong class="title">{{ trans('main.minimum_age') }}: {{ $activity['min_age'] }} {{ trans('main.years') }}</strong>
+		<strong class="title">{{ trans('main.minimum_age') }}
+			: {{ $activity['min_age'] }} {{ trans('main.years') }}</strong>
 	</div>
-	@if(count($activity['carry']) > 0)
-	<div class="box bring">
-		<strong class="title">{{ trans('main.what_to_bring') }}:</strong>
-		<ul>
-			{!! $activity['carry'] !!}
-		</ul>
-	</div>
+	@if($activity['carry'])
+		<div class="box bring">
+			<strong class="title">{{ trans('main.what_to_bring') }}:</strong>
+			<ul>
+				@foreach($activity['carry'] as $item)
+					<li>{{ $item }}</li>
+				@endforeach
+			</ul>
+		</div>
 	@endif
 
 	@if($activity['restrictions'])
-	<div class="box rest">
-		<strong class="title">{{ trans('main.restrictions') }}:</strong>
-		<ul>
-			{!! $activity['restrictions'] !!}
-		</ul>
-	</div>
+		<div class="box rest">
+			<strong class="title">{{ trans('main.restrictions') }}:</strong>
+			<ul>
+				@foreach($activity['restrictions'] as $item)
+					<li>{{ $item }}</li>
+				@endforeach
+			</ul>
+		</div>
 	@endif
 	<div class="img-tour">
 		@if (count($activity->images) > 0)

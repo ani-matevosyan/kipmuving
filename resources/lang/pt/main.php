@@ -26,6 +26,7 @@ return [
 	'all_answers_here' => 'Todas as respostas estão aquí.-pt',
 	'what_you_need_to_know_to_enjoy' => 'O que você precisa saber para aproveitar seus dias em Pucón no melhor estilo.-pt',
 	'maps_guides_addresses_suggestions' => 'Mapas, Guias, Endereços, Sugestões-pt',
+	'go_to_guide' => 'Ir ao guía',
 	'guide' => 'Guia-pt',
 	'complete' => 'Completo-pt',
 	'free' => 'Gratuito-pt',
@@ -151,5 +152,26 @@ return [
 	'activities_that_this_agency_performs' => 'Estas son las actividades que esta agencia realiza. Para hacer una reserva, seleciona el número de personas y después la fecha.',
 	'more' => 'Mas',
 	'less' => 'Menos',
-	'details' => 'detalles'
+	'details' => 'detalles',
+
+	#New
+
+	'your_agenda' => 'Su agenda',
+	'your_panorama_in_pucon' => 'Su panorama en Pucón',
+	'here_is_your_schedule' => 'Aquí está su agenda.',
+	'panorama_your_vacation' => 'Este es el panorama que estás creando en sus vacaciones en Pucón.',
+	'you_can_include_activities' => 'Puede seguir incluyendo actividades o finalizar con la reserva. Para esto, precione en el botón',
+	'reserve' => 'Reservar',
+	'include_more_activities' => 'INCLUIR MÁS ACTIVIDADES',
+	'the_are_activities_of_the_same_day' => 'Hay actividades en el mismo día, por favor, deje apenas una actividad por día antes de seguir con su reserva. Puedes mover la actividad de un día al otro, o simplesmente eliminarla.',
+	'activities' => 'actividades',
+	'total_in_pesos' => 'total em pesos',
+	'you_save' => 'está economizando',
+	'reserve_this_panorama' => 'Reservar este panorama',
+	'approximate_value' => 'valor aproximado',
+	'agreement_with_local_agencies' => 'Acordo realizado com as agencias locais',
+	'support' => 'Apoianos',
+	'pay_for_website_maintenance' => 'pagar a manutenção do site, etc.',
+	'we_make_your_union_with_agency' => 'Fazemos a união sua com a agencia. Você paga seus passeios diretamente com eles.',
+	'you_can_use' => 'Pode usar'
 ];

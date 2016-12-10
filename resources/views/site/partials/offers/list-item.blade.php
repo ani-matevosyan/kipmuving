@@ -13,7 +13,7 @@
 			<div class="text">
 				@if($offer['agency_id'] && $offer['offerAgency']['name'])
 					<h2>
-						<a href="/agencias/{{ $offer['agency_id'] }}">{{ $offer['offerAgency']['name'] }}</a>
+						<a href="{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}">{{ $offer['offerAgency']['name'] }}</a>
 					</h2>
 				@endif
 				@if($offer['offerAgency']['address'])
@@ -32,7 +32,7 @@
 							data-placement="bottom"
 							data-container="body"
 							data-trigger="focus"
-							data-content="<a href='/agencias/{{ $offer['offerAgency']['id'] }}'>
+							data-content="{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>
 										<img src='/{{ $offer['offerAgency']['image'] }}'>
 										</a>
 										<br>

@@ -26,6 +26,7 @@ return [
 	'all_answers_here' => 'All the answers are here.',
 	'what_you_need_to_know_to_enjoy' => 'What you need to know to enjoy your days in Pucón in the best style.',
 	'maps_guides_addresses_suggestions' => 'Maps, Guides, Addresses, Suggestions',
+	'go_to_guide' => 'Go to guide',
 	'guide' => 'Guide',
 	'complete' => 'Complete',
 	'free' => 'Free',
@@ -151,5 +152,26 @@ return [
 	'activities_that_this_agency_performs' => 'These are the activities that this agency performs. To make a reservation, select the number of people and then the date.',
 	'more' => 'More',
 	'less' => 'Less',
-	'details' => 'details'
+	'details' => 'details',
+
+	#New
+
+	'your_agenda' => 'Your agenda',
+	'your_panorama_in_pucon' => 'Your panorama in Pucon',
+	'here_is_your_schedule' => 'Here\'s your schedule.',
+	'panorama_your_vacation' => 'This is the panorama you are creating on your vacation in Pucón.',
+	'you_can_include_activities' => 'You can continue to include activities or end with the reservation. To do this, click on the button',
+	'reserve' => 'Reserve',
+	'include_more_activities' => 'INCLUDE MORE ACTIVITIES',
+	'the_are_activities_of_the_same_day' => 'There are activities on the same day, please leave only one activity per day before continuing with your reservation. You can move the activity from one day to the next, or simply delete it.',
+	'activities' => 'activities',
+	'total_in_pesos' => 'total in pesos',
+	'you_save' => 'you save',
+	'reserve_this_panorama' => 'Reserve this panorama',
+	'approximate_value' => 'approximate value',
+	'agreement_with_local_agencies' => 'Agreement with local agencies',
+	'support' => 'Support',
+	'pay_for_website_maintenance' => 'pay for website maintenance, etc.',
+	'we_make_your_union_with_agency' => 'We make your union with the agency. You pay your rides directly with them.',
+	'you_can_use' => 'You can use'
 ];

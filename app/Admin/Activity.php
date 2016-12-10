@@ -48,7 +48,14 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 						AdminFormElement::text('longitude', 'Longitude')->required()
 					], 4)
 					->addColumn([
-						AdminFormElement::text('styles', 'Style')->required(),
+						AdminFormElement::select('styles', 'Style')->required()->setOptions([
+							'Trekking' => 'Trekking',
+							'Rio' => 'Rio',
+							'Aire' => 'Aire',
+							'Relax' => 'Relax',
+							'Familia' => 'Familia',
+							'Nieve' => 'Nieve'
+						]),
 						AdminFormElement::number('min_age', 'Min age')->required()
 					], 4),
 
