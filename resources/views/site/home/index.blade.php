@@ -22,7 +22,6 @@
 								<div class="col">
 									<div class="sub-col">
 										<div class="text-field has-ico calender">
-											{{--TODO--}}
 											<input id="activity_date"
 													 type="text"
 													 name="activity_date"
