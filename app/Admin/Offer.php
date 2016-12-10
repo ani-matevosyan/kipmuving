@@ -38,12 +38,12 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					->addColumn([
 						AdminFormElement::select('agency_id', 'Agency')
 							->setModelForOptions('App\Agency')
-							->setDisplay('id'),
+							->setDisplay('name'),
 					], 6)
 					->addColumn([
 						AdminFormElement::select('activity_id', 'Activity')
 							->setModelForOptions('App\Activity')
-							->setDisplay('id'),
+							->setDisplay('name'),
 					], 6),
 				AdminFormElement::textarea('description', 'Description')
 					->required(),
