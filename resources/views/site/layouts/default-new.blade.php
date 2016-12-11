@@ -17,19 +17,9 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="logo-block">
-							<div class="animated-logo">
-								<img src="{{ asset('/images/vivesimples.svg') }}" alt="image description">
-							</div>
-							<div class="logo-pucon">
-								<img src="{{ asset('/images/pucon.svg') }}"
-									  alt="image description"
-									  width="71"
-									  height="30"
-									  onerror="this.onerror=null; this.src='{{ asset('/images/logo-pucon.png') }}'">
-							</div>
 							<div class="logo">
 								<a href="{{ action('HomeController@index') }}">
-									<img src="{{ asset('/images/KipMuving.svg') }}"
+									<img src="{{ asset('/images/logo-new.png') }}"
 										  alt="image description"
 										  width="220" height="56"
 										  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">

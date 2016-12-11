@@ -706,10 +706,6 @@ body.home2 .roteros-options .raised-form .text-field {
   transition: right, 0.5s, linear;
 }
 
-#header.new {
-  background: #133939;
-}
-
 @media (max-width: 992px) {
   #header.new {
     padding: 0;
@@ -822,11 +818,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header.new .logo-block {
   float: left;
-  width: 490px;
-  height: 91px;
   position: relative;
-  padding-left: 91px;
-  background: url(../images/bg-logo.png) no-repeat 100% 0;
 }
 
 @media (max-width: 1279px) {
@@ -915,9 +907,11 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #header {
-  z-index: 20;
-  position: relative;
-  background: #133939;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 @media (max-width: 992px) {
@@ -1247,7 +1241,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .visual .caption {
-  padding: 66px 0;
+  padding: 175px 0;
   position: absolute;
   left: 0;
   top: 0;
@@ -1356,9 +1350,9 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .activity-form {
-  width: 610px;
+  width: 547px;
   float: right;
-  padding: 7px 44px 19px;
+  padding: 7px 17px 19px;
   background: rgba(255, 188, 0, 0.88);
 }
 
@@ -1404,12 +1398,15 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .activity-form .title {
-  color: #fff;
-  display: block;
-  margin: 0 0 20px;
-  font-size: 30px;
-  line-height: 34px;
-  font-weight: 400;
+    color: #46350d;
+    display: block;
+    margin: 10px 0 9px;
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: normal;
+    text-align: center;
+    font-family: "Lato-Bold", sans-serif;
+    text-transform: uppercase;
 }
 
 @media (max-width: 992px) {
@@ -1477,10 +1474,14 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .activity-form .col {
-  width: 48.5%;
+  width: 54.5%;
   margin: 0 0.5% 0;
   display: inline-block;
   vertical-align: top;
+}
+
+.activity-form .col.col-second{
+    width: 42%
 }
 
 @media (max-width: 992px) {
@@ -1495,16 +1496,21 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .activity-form .sub-col {
-  width: 47.3%;
+  width: 54.3%;
   margin: 0 1% 0;
   display: inline-block;
   vertical-align: top;
 }
 
+.activity-form .sub-col.sub-col-second{
+    width: 40%;
+}
+
 .activity-form .btn-primary {
-  font-size: 10px;
-  line-height: 18px;
-  font-weight: 400;
+    font-size: 10px;
+    line-height: 18px;
+    font-weight: 400;
+    width: 100%;
 }
 
 .activity-bar {
@@ -7709,32 +7715,6 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@font-face {
-  font-family: "Lato-Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Lato-Bold.ttf") format("truetype"); }
-@font-face {
-  font-family: "Lato-Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Lato-Medium.ttf") format("truetype"); }
-@font-face {
-  font-family: "Lato-Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Lato-Regular.ttf") format("truetype"); }
-@font-face {
-  font-family: "Lato-Heavy";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Lato-Heavy.ttf") format("truetype"); }
- @font-face {
-  font-family: "Lato-Black";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Lato-Black.ttf") format("truetype"); }
-
 .s_guia {
   background: #ededed;
   padding: 53px 0 64px; }
@@ -7990,11 +7970,12 @@ body.home2 .roteros-options .raised-form .text-field {
       font-size: 14px; } }
 
 .form_under_p{
-	margin: 8px 7px 0;
+	margin: 11px 0 0;
     text-transform: uppercase;
-    color: #544011;
+    color: #fff;
     font-family: 'Lato-Bold', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .form_under_p span{
