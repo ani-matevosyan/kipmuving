@@ -11,7 +11,6 @@ return [
 	'agencies' => 'agencies',
 
 	'what_activities_search' => 'What activities do you want to do?',
-	'less' => 'Menos',
 	'in_all_activities' => 'en todas las actividades',
 
 	'program' => 'Program',
@@ -174,5 +173,20 @@ return [
 	'support' => 'Support',
 	'pay_for_website_maintenance' => 'pay for website maintenance, etc.',
 	'we_make_your_union_with_agency' => 'We make your union with the agency. You pay your rides directly with them.',
-	'you_can_use' => 'You can use'
+	'you_can_use' => 'You can use',
+
+	'rio_turbio_waterfall' => 'Rio Turbio Waterfall',
+	'eyes_of_caburgua' => 'Eyes of Caburgua',
+	'jump_the_light' => 'Jump The Light',
+	'gps_route' => 'GPS route',
+	'download_this_route' => 'Download this route',
+	'estimated_time_round_trip' => 'Estimated time round trip',
+	'hours' => 'hours',
+
+	'to_visit' => 'To visit',
+	'and_take_photo' => 'And take photo',
+	'best_spa' => 'Best spa',
+	'to_relax' => 'To relax',
+	'national_parks' => 'National parks',
+	'incredible_parks' => 'Incredible parks'
 ];

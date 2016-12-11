@@ -6,32 +6,30 @@
 <div class="detail-box active-tab" id="m-box-3">
 <div class="all-activities custom_title custom_title">
     <header class="light-blue">
-        <h1>De Carro ou de Ônibus</h1>
-        <p>Preparamos uma pequenha guia do que pode fazer em Pucón. </p>
+        <h1>{{ trans('main.by_car_or_bus') }}</h1>
+        <p>{{ trans('main.we_prepared_small_guide') }}</p>
     </header>
 </div>
 <div class="infor-bar">
     <div class="row">
         <div class="col-md-5 right-border">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley.</p>
+            <p>{{ trans('main.at_least_one_day_is_necessary') }}</p>
             <div class="play-info">
                 <img src="../images/play-button.svg" alt="play description" width="33" height="33">
-                <p><strong>Clique em cima dos ícones para ter mais informações</strong></p>
+                <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
             </div> 
         </div>
         <div class="col-md-7">
             <div class="placeholder-info">
-                <p>Iconografia</p>
+                <p>{{ trans('main.iconography') }}</p>
                 <ul> 
                     <li class="active">
                         <a href="#">
                             <div class="ico">
                                 <img src="../images/placeholder.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
-                            <strong>Para visitar </strong>
-                            <p>e tirar foto</p>
+                            <strong>{{ trans('main.to_visit') }}</strong>
+                            <p>{{ trans('main.and_take_photo') }}</p>
                         </a>
                     </li> 
                     <li>
@@ -39,8 +37,8 @@
                             <div class="ico">
                                 <img src="../images/placeholder2.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
-                            <strong>Melhores termas: </strong>
-                            <p>Para relaixar</p>
+                            <strong>{{ trans('main.best_spa') }}: </strong>
+                            <p>{{ trans('main.to_relax') }}</p>
                         </a>
                     </li> 
                     <li>
@@ -48,8 +46,8 @@
                             <div class="ico">
                                 <img src="../images/placeholder3.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
-                            <strong>Parques Nacionais</strong>
-                            <p>Increíveis parques</p>
+                            <strong>{{ trans('main.national_parks') }}</strong>
+                            <p>{{ trans('main.incredible_parks') }}</p>
                         </a>
                     </li> 
 
