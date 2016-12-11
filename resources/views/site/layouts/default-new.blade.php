@@ -15,21 +15,20 @@
 		<header id="header" class="new">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12">
-						<div class="logo-block">
-							<div class="logo">
-								<a href="{{ action('HomeController@index') }}">
-									<img src="{{ asset('/images/logo-new.png') }}"
-										  alt="image description"
-										  width="220" height="56"
-										  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
-								</a>
-							</div>
-						</div>
+					<div class="col-md-3">
+                        <div class="logo">
+                            <a href="{{ action('HomeController@index') }}">
+                                <img src="{{ asset('/images/logo-new.png') }}"
+                                      alt="image description"
+                                      width="220" height="56"
+                                      onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-push-6">
 						<a href="#" class="nav-opener">
 							<span></span>
 						</a>
-						<div class="right-block">
 							<div class="topbar">
 								<div class="login-panel">
 									<div class="login-box">
@@ -72,31 +71,26 @@
 										</div>
 									</div>
 								</div>
-								<div class="top-holder">
-									<nav id="nav">
-										<ul>
-											<li><a
-													href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
-											</li>
-											<li><a
-													href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
-											</li>
-											<li><a
-													href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
-											</li>
-											<!--<li><a href="/ofertas">Ofertas</a></li> -->
-										</ul>
-									</nav>
-									<div class="compare-price">
-										<p>{{ trans('main.compare_prices_between') }}
-											<strong>30 {{ trans('main.agencies') }}</strong></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-pull-3">
+                            <nav id="nav">
+                                <ul>
+                                    <li><a
+                                            href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
+                                    </li>
+                                    <li><a
+                                            href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
+                                    </li>
+                                    <li><a
+                                            href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
+                                    </li>
+                                    <!--<li><a href="/ofertas">Ofertas</a></li> -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
 				</div>
-			</div>
 		</header>
 
 		@yield('content')

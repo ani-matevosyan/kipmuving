@@ -39,7 +39,7 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} 10% {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">{{ trans('main.less') }} <span>10%</span>  {{ trans('main.in_all_activities') }}</p>
 						</form>
 					</div>
 				</div>

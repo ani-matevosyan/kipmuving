@@ -742,10 +742,6 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-#header.new .top-holder {
-  overflow: hidden;
-}
-
 #header.new .login-box {
   float: right;
   width: 135px;
@@ -793,7 +789,6 @@ body.home2 .roteros-options .raised-form .text-field {
 #header.new #nav {
   text-align: right;
   padding: 8px 0 10px;
-  border-bottom: 1px solid #0f2e2e;
 }
 
 @media (max-width: 992px) {
@@ -814,36 +809,6 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header.new .compare-price p {
   margin: 0;
-}
-
-#header.new .logo-block {
-  float: left;
-  position: relative;
-}
-
-@media (max-width: 1279px) {
-  #header.new .logo-block {
-    width: 470px;
-  }
-}
-
-@media (max-width: 767px) {
-  #header.new .logo-block {
-    width: 250px;
-    height: 45px;
-    padding-left: 45px;
-    background: url(../images/bg-logo1.png) no-repeat 100% 0;
-  }
-}
-
-#header.new .logo-block:after {
-  content: '';
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  right: 100%;
-  bottom: 0;
-  background: #0a1f1f url(../images/divider.png) repeat-x;
 }
 
 #header.new .animated-logo {
@@ -973,7 +938,6 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #header .logo {
-  float: left;
   width: 340px;
   height: auto;
   margin: 9px 0 4px;
@@ -1037,7 +1001,6 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header .login-panel {
   float: right;
-  background: #0f2e2e;
   margin: 0 -9999px 0 0;
   padding: 7px 9999px 6px 15px;
 }
@@ -1193,7 +1156,10 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #nav ul a {
-  color: #fff;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Lato-Medium", sans-serif;
+    font-weight: normal;
 }
 
 @media (max-width: 992px) {
