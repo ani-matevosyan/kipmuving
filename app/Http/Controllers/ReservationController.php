@@ -49,4 +49,9 @@ class ReservationController extends Controller
 		];
 		return view('site.reservar.su-reservar', $data);
 	}
+
+	public function reserve(Request $request)
+	{
+		dd($request);
+	}
 }
