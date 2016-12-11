@@ -191,7 +191,7 @@
                                 name: "Kipmuving",
                                 description: "Kipmuving Adventures",
                                 allowRememberMe: false,
-                                amount: "500",
+                                amount: "{{(((count($offers))*$persons)*5)*100}}",
                                 token: function (token) {
                                     var stripeToken = token.id;
                                     var url = window.location.href = "/reserve";
@@ -219,7 +219,7 @@
                             <input type='hidden' name='item_name' value='Kipmuving Activities Reservation'>
                             <input type='hidden' name='custom' value='{{ count($offers) }}'>
                             <input type='hidden' name='amount'
-                                   value='500'>
+                                   value='{{(((count($offers))*$persons)*5)*100}}'>
                             <input type='hidden' name='no_shipping' value='1'>
                             <input type='hidden' name='rm' value='2'>
                             <input type='hidden' name='return' value='{{ URL::to('/reserve') }}'>

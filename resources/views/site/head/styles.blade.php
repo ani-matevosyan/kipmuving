@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" media="print" href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" >
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/product-tour.min.css') }}" >
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/prettyPhoto.css') }}" >
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/fonts.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/brand.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/custom.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/style.css') }}">

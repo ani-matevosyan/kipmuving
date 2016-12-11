@@ -164,12 +164,13 @@ jQuery(document).ready(function(){
                     jQuery('#calendar').fullCalendar('refetchEvents');
 				}
 				if(window.location.pathname === '/reserve'){
-                    calendarCalc();
-                    $(".accordion .accordion-li").each(function(index){
-                        if(index===oid){
-                            $(this).remove();
-                        }
-                    });
+                    // calendarCalc();
+                    // $(".accordion .accordion-li").each(function(index){
+                    //     if(index===oid){
+                    //         $(this).remove();
+                    //     }
+                    // });
+                    location.reload();
                 }
             },
             error: function(){
@@ -280,6 +281,22 @@ jQuery(document).ready(function(){
 
 		priceElem.html('<sub>$</sub>' + numberWithDots($(this).val() * unit_price));
 	});
+
+    if(window.location.pathname === '/reserve'){
+        $(".btn-reservar").click(function(){
+           $.ajax({
+               type: "POST",
+               url: "/reserve",
+               data: {
+                   '_token': $('meta[name="csrf-token"]').attr('content'),
+                   payment: true
+               },
+               error: function(err){
+                   console.log(err.statusText);
+               }
+           })
+        });
+    }
 
 });
 

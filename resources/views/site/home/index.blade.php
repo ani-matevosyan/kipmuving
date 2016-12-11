@@ -2,8 +2,9 @@
 
 {{-- Content --}}
 @section('content')
-	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
-		<!-- <img src="images/img28.jpg" alt="image description"> -->
+	{{--<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">--}}
+	<section class="visual home" style="background-image: url(/images/DSC_3680.jpg)">
+	<!-- <img src="images/img28.jpg" alt="image description"> -->
 		<div class="caption">
 			<div class="container">
 				<div class="row">
@@ -19,7 +20,7 @@
 										@endforeach
 									</select>
 								</div>
-								<div class="col">
+								<div class="col col-second">
 									<div class="sub-col">
 										<div class="text-field has-ico calender">
 											<input id="activity_date"
@@ -32,13 +33,13 @@
 										</div>
 										<!-- <div class="text-field has-ico date"><input type="text" placeholder="Dia en Pucon" class="form-control"></div> -->
 									</div>
-									<div class="sub-col">
+									<div class="sub-col sub-col-second">
 										<!-- <div class="text-field has-ico person"><input type="text" placeholder="Personas" class="form-control"></div> -->
 										<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} 10% {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">{{ trans('main.less') }} <span>10%</span>  {{ trans('main.in_all_activities') }}</p>
 						</form>
 					</div>
 				</div>
@@ -49,12 +50,6 @@
 		<div class="line-box">
 			<div class="line-wrap">
 				<p>{{ trans('main.all_activities_in_single_place') }}</p>
-			</div>
-		</div>
-
-		<div class="container your-reservation activity add" style="padding-bottom: 0px;">
-			<div id="id="home-tour-step-2" class="clearfix">
-				@include('site.offers.offers_quickinfo')
 			</div>
 		</div>
 		<section id="guia" class="s_guia">
