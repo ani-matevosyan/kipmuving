@@ -170,6 +170,7 @@ return [
 		Zizaco\Entrust\EntrustServiceProvider::class,
 		SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 		Dimsav\Translatable\TranslatableServiceProvider::class,
+		'Scriptixru\SypexGeo\SypexGeoServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -228,7 +229,7 @@ return [
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View' => Illuminate\Support\Facades\View::class,
 		'Entrust' => Zizaco\Entrust\EntrustFacade::class,
-
+		'SypexGeo' => Scriptixru\SypexGeo\SypexGeoFacade::class,
 	],
 
 ];
