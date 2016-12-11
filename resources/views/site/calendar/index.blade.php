@@ -7,29 +7,28 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="breadcrumb">
-						<li><a href="#">HOME</a></li>
-						<li>SU AGENDA</li>
+						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+						<li>{{ trans('main.your_agenda') }}</li>
 					</ul>
 					<div class="row">
 
 						<header class="head">
-							<h1>Su panorama en Pucón</h1>
+							<h1>{{ trans('main.your_panorama_in_pucon') }}</h1>
 							<p>
 								<span>
-									<strong class="sub-title">Aquí está su agenda.</strong> Este es el panorama que estás creando en sus vacaciones en Pucón. <Br/>
-									Puede seguir incluyendo actividades o finalizar con la reserva. Para esto, precione en el botón <strong>RESERVAR</strong>.
+									<strong class="sub-title">{{ trans('main.here_is_your_schedule') }}</strong> {{ trans('main.panorama_your_vacation') }}<Br/>
+									{{ trans('main.you_can_include_activities') }} <strong>{{ trans('main.reserve') }}</strong>.
 								</span>
 							</p>
 							<br/>
 							<a href="{{ action('ActivityController@index') }}"
-								class="calendarbtnactividades">INCLUIR MÁS ACTIVIDADES</a>
+								class="calendarbtnactividades">{{ trans('main.include_more_activities') }}</a>
 							<Br/><Br/>
 						</header>
 
 						<div class="col-md-9 col-sm-12 col-xs-12">
-							<div class="alert alert-danger alert-overlap ">Hay actividades en el mismo día, por favor, deje
-								apenas una actividad por día antes de seguir con su reserva. Puedes mover la actividad de un día
-								al otro, o simplesmente eliminarla.
+							<div class="alert alert-danger alert-overlap ">
+								{{ trans('main.the_are_activities_of_the_same_day') }}
 							</div>
 							<br>
 							<div id='calendar' data-date="{{ $viewDate }}"></div>
@@ -38,8 +37,8 @@
 						<div class="col-md-3 col-sm-12 col-xs-12">
 							<section class="s_suprogram">
 								<header>
-									<h3>Su programa</h3>
-									<p><span id="count_activities">{{ $count['offers'] }}</span> actividades</p>
+									<h3>{{ trans('main.program') }}</h3>
+									<p><span id="count_activities">{{ $count['offers'] }}</span> {{ trans('main.activities') }}</p>
 								</header>
 								<ul class="offers-list">
 									<?php $total_cost = 0; ?>
@@ -47,7 +46,7 @@
 										<li>
 											<a href="#">
 												<h4>{{ $offer['name'] }}</h4>
-												<span>{{$offer['price_offer'] * $offer['persons']}}</span>
+												<span>{{ number_format($offer['price_offer'] * $offer['persons'], 0, '.', '.') }}</span>
 											</a>
 										</li>
 										<?php $total_cost += $offer['price_offer'] * $offer['persons']; ?>
@@ -56,39 +55,39 @@
 								<div class="total">
 									<div class="totalprice">
 										<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
-										<span>total em pesos</span>
+										<span>{{ trans('main.total_in_pesos') }}</span>
 									</div>
-									<?php $total_discount = ($total_cost / 0.9) - $total_cost ?>
+									<?php $total_discount = $total_cost * 0.1 ?>
 									<div class="discount">
-										<span>está economizando</span>
+										<span>{{ trans('main.you_save') }}</span>
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
-								<a class="btn-reservar reserve">Reservar este panorama</a>
+								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 								<div class="note">
-									* valor aproximado
+									* {{ trans('main.approximate_value') }}
 								</div>
 							</section>
 							<section class="s_howitworks_sidebar">
 								<div class="section-container">
 									<header>
-										<h3>Como funciona <span>KipMuving</span></h3>
+										<h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
 									</header>
 									<div class="item percent">
 										<img src="images/10-grey.svg" alt="10%">
-										<p>Acordo realizado com as agencias locais</p>
+										<p>{{ trans('main.agreement_with_local_agencies') }}</p>
 									</div>
 									<div class="item umbrella">
 										<img src="images/umbrella-grey.svg" alt="umbrella">
-										<p><span>Apoianos</span> com um pequena comissão de <span>U$ 5 </span> pagar a manutenção do site, etc.</p>
+										<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>U$ 5 </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 									</div>
 									<div class="item broklink">
 										<img src="images/broken-link-grey.svg" alt="broken-link">
-										<p>Fazemos a união sua com a agencia. Você paga seus passeios diretamente com eles.</p>
+										<p>{{ trans('main.we_make_your_union_with_agency') }}</p>
 									</div>
 								</div>
 								<div class="payment">
-									<span>Pode usar:</span>
+									<span>{{ trans('main.you_can_use') }}:</span>
 									<a href="#">
 										<img src="images/stripe.png" alt="Stripe">
 									</a>

@@ -39,10 +39,10 @@ class Offer extends Model
 		return $agency;
 	}
 
-	private function includesToArray($includes)
+	private function dataToArray($data)
 	{
-		if ($includes)
-			return explode('; ', $includes);
+		if ($data)
+			return explode(";\r\n", $data);
 		return null;
 	}
 
@@ -72,9 +72,9 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->includesToArray($offer['includes']);
+			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
-
 		return $offers;
 	}
 
@@ -88,6 +88,8 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 
 		return $offers;
@@ -103,6 +105,8 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 
 		return $offers;
@@ -169,7 +173,7 @@ class Offer extends Model
 			)
 			->get();
 		foreach ($offers as $offer) {
-			$offer['offer_includes'] = $this->includesToArray($offer['offer_includes']);
+			$offer['offer_includes'] = $this->dataToArray($offer['offer_includes']);
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 		}
 //		dd($offers[0]['price_offer']);
@@ -195,7 +199,7 @@ class Offer extends Model
 		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 		$offer['offerActivity'] = Activity::where('activities.id', $offer['activity_id'])
 			->first();
-		$offer['offerIncludes'] = $this->includesToArray($offer['offerIncludes']);
+		$offer['offerIncludes'] = $this->dataToArray($offer['offerIncludes']);
 
 //		dd($result);
 		return $offer;

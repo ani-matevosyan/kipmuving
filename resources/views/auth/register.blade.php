@@ -38,7 +38,7 @@
 										<div class="col">
 											<label for="email">{{ trans('form.email') }}</label>
 											<div class="text-field">
-												<input class="form-control" value="{{ old('first_name') }}" type="email"
+												<input class="form-control" value="{{ old('email') }}" type="email"
 														 name="email" id="email" placeholder="{{ trans('form.email_placeholder') }}">
 											</div>
 										</div>
@@ -54,10 +54,11 @@
 										<div class="col">
 											<label for="birthday" class="birth">{{ trans('form.birthday') }}</label>
 											<div class="select-field month">
+												{{--<p>{{ old('month') }}</p>--}}
 												<select id="month" name="month">
 													<option disabled selected value="">{{ trans('form.month') }}</option>
 													@for ($i = 1; $i <= 12; $i++)
-														<option value="{{ $i }}"> {{ $i }}</option>
+														<option value="{{ $i }}" @if(old('month') == $i) selected @endif> {{ $i }}</option>
 													@endfor
 													{{--<option>Jan</option>--}}
 													{{--<option>Feb</option>--}}
@@ -68,7 +69,7 @@
 												<select id="day" name="day">
 													<option disabled selected value="">{{ trans('form.day') }}</option>
 													@for ($i = 1; $i <= 31; $i++)
-														<option value="{{ $i }}"> {{ $i }}</option>
+														<option value="{{ $i }}" @if(old('day') == $i) selected @endif> {{ $i }}</option>
 													@endfor
 												</select>
 											</div>
@@ -76,13 +77,13 @@
 												<select id="year" name="year">
 													<option disabled selected value="">{{ trans('form.year') }}</option>
 													@for ($i = 1960; $i < 2000; $i++)
-														<option value="{{ $i }}"> {{ $i }}</option>
+														<option value="{{ $i }}" @if(old('year') == $i) selected @endif> {{ $i }}</option>
 													@endfor
 												</select>
 											</div>
 										</div>
 										<div class="col add">
-											<input type="checkbox" id="chk1" name="subscribe">
+											<input type="checkbox" id="chk1" name="subscribe" @if(old('subscribe') == 'on') checked @endif>
 											<div class="text">
 												<label for="chk1">{{ trans('form.news_subscribe') }}</label>
 											</div>
@@ -93,7 +94,7 @@
 											<label for="key">{{ trans('form.phone') }}</label>
 											<div class="text-field">
 												<input class="form-control" type="text" name="phone" id="phone"
-														 placeholder="{{ trans('form.phone_placeholder') }}">
+														 placeholder="{{ trans('form.phone_placeholder') }}" value="{{ old('phone') }}">
 											</div>
 										</div>
 									</div>

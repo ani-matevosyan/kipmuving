@@ -33,6 +33,13 @@ class Activity extends Model
 //		'image_icon' => 'image'
 //	];
 
+	private function dataToArray($data)
+	{
+		if ($data)
+			return explode(";\r\n", $data);
+		return null;
+	}
+
 	public function images()
 	{
 		return $this->hasMany('App\ActivityImage', 'activity_id', 'id');
@@ -97,19 +104,33 @@ class Activity extends Model
 
 	public function getActivity($id)
 	{
-		$activity = Activity::where('id', $id)->first();
-
+		$activity = Activity::where('id', $id)
+			->first();
+		$activity['carry'] = $this->dataToArray($activity['carry']);
+		$activity['restrictions'] = $this->dataToArray($activity['restrictions']);
 		return $activity;
 	}
 
 	public function getAllActivities()
 	{
-		$activities['trekking'] = Activity::where('styles', 'like', '%trekking%')->get();
-		$activities['rio'] = Activity::where('styles', 'like', '%rio%')->get();
-		$activities['aire'] = Activity::where('styles', 'like', '%aire%')->get();
-		$activities['relax'] = Activity::where('styles', 'like', '%relax%')->get();
-		$activities['nieve'] = Activity::where('styles', 'like', '%nieve%')->get();
-		$activities['familia'] = Activity::where('styles', 'like', '%familia%')->get();
+		$activities['trekking'] = Activity::where('styles', 'like', '%trekking%')
+			->inRandomOrder()
+			->get();
+		$activities['rio'] = Activity::where('styles', 'like', '%rio%')
+			->inRandomOrder()
+			->get();
+		$activities['aire'] = Activity::where('styles', 'like', '%aire%')
+			->inRandomOrder()
+			->get();
+		$activities['relax'] = Activity::where('styles', 'like', '%relax%')
+			->inRandomOrder()
+			->get();
+		$activities['nieve'] = Activity::where('styles', 'like', '%nieve%')
+			->inRandomOrder()
+			->get();
+		$activities['familia'] = Activity::where('styles', 'like', '%familia%')
+			->inRandomOrder()
+			->get();
 		foreach ($activities as $activity) {
 			foreach ($activity as $item) {
 				$offer = Offer::where('activity_id', $item['id'])

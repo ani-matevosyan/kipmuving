@@ -53,7 +53,7 @@
 		<p>{{ $activity['short_description'] }}<p>
 	@endif
 	@if($activity['price'])
-	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ $activity['price'] }}</strong>
+	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ number_format($activity['price'], 0, ".", ".") }} </strong>
 	@endif
 	<a href="{{ action('ActivityController@getActivity', $activity['id']) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>
