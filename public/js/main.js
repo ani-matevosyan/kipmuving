@@ -162,6 +162,9 @@ jQuery(document).ready(function(){
                     calendarCalc();
                     jQuery('#calendar').fullCalendar('refetchEvents');
 				}
+				if(window.location.pathname === '/reserve'){
+                    calendarCalc();
+                }
             },
             error: function(){
                 location.reload();
