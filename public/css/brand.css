@@ -8000,3 +8000,107 @@ body.home2 .roteros-options .raised-form .text-field {
 .form_under_p span{
 	font-family: 'Lato-Black', sans-serif;
 }
+
+/*---- RESERVATION PAGE UPDATE ---*/
+
+.s_reservar{
+    margin-top: 30px
+}
+
+.s_reservar .your-reservation .accordion .ico {
+    margin: 2px 10px 0 0;
+}
+
+
+.s_reservar .your-reservation .head{
+    padding: 0 16px;
+    margin-right: -12%;
+}
+
+.s_reservar .your-reservation .head p{
+    font-size: 14px;
+    font-family:  'Lato-Regular', sans-serif;
+    margin:  0 0 10px;
+}
+
+.s_reservar .your-reservation .head p a{
+    font-family: 'Lato-Bold', sans-serif;
+    color:  #000;
+}
+
+.s_reservar .activity_description{
+    position: relative;
+}
+
+.s_reservar .your-reservation .list-box{
+    margin: 0 0 15px 10px;
+}
+
+.s_reservar .your-reservation .timing{
+    overflow: visible;
+    display: inline-block;
+}
+
+.s_reservar .your-reservation .timing li{
+    padding: 0 0 10px;
+}
+
+.s_reservar .your-reservation .timing li.person{
+    padding-top: 5px;
+}
+
+.s_reservar .your-reservation .timing li:after{
+    top:  2px;
+    left:  -27px;
+}
+
+.s_reservar .your-reservation .price{
+    padding: 0;
+    position: absolute;
+    bottom: 5px;
+    right:  0;
+}
+
+.s_moredetails header {
+    border: none;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px; }
+.s_moredetails header:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    top: 1px;
+    left: 42%;
+    background: url(../images/plus.png); }
+.s_moredetails header h3 {
+    text-transform: uppercase;
+    color: #19a614;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    padding-left: 18px; }
+.s_moredetails header h3:before {
+    content: "";
+    position: absolute;
+    right: 106%;
+    top: 7px;
+    height: 2px;
+    width: 2000%;
+    background: #19a614; }
+.s_moredetails header h3:after {
+    content: "";
+    position: absolute;
+    left: 106%;
+    top: 7px;
+    height: 2px;
+    width: 2000%;
+    background: #19a614; }
+.s_moredetails header i {
+    font-size: 16px; }
+
+
+/*---- END RESERVATION PAGE UPDATE ---*/
