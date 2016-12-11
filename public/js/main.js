@@ -165,6 +165,11 @@ jQuery(document).ready(function(){
 				}
 				if(window.location.pathname === '/reserve'){
                     calendarCalc();
+                    $(".accordion .accordion-li").each(function(index){
+                        if(index===oid){
+                            $(this).remove();
+                        }
+                    });
                 }
             },
             error: function(){
