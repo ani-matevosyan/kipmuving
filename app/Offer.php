@@ -46,6 +46,20 @@ class Offer extends Model
 		return null;
 	}
 
+	private function getIncludes($includes)
+	{
+		if (!$includes)
+			return null;
+
+		$result = $this->dataToArray($includes);
+		$result = preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
+			return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
+		}, $result);
+		$result[count($result) - 1] = str_replace(';', '', $result[count($result) - 1]);
+
+		return $result;
+	}
+
 	public function getActivityAttribute()
 	{
 		$activity = Activity::where('id', $this['activity_id'])
@@ -72,7 +86,7 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['includes'] = $this->getIncludes($offer['includes']);
 			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 		return $offers;
@@ -88,7 +102,7 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['includes'] = $this->getIncludes($offer['includes']);
 			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 
@@ -105,7 +119,7 @@ class Offer extends Model
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->dataToArray($offer['includes']);
+			$offer['includes'] = $this->getIncludes($offer['includes']);
 			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 
