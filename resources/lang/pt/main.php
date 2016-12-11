@@ -11,7 +11,6 @@ return [
 	'agencies' => 'agencias-pt',
 
 	'what_activities_search' => '¿Que actividades quieres hacer?',
-	'less' => 'Less',
 	'in_all_activities' => 'in all activities',
 
 	'program' => 'Su programa-pt',
@@ -174,5 +173,20 @@ return [
 	'support' => 'Apoianos',
 	'pay_for_website_maintenance' => 'pagar a manutenção do site, etc.',
 	'we_make_your_union_with_agency' => 'Fazemos a união sua com a agencia. Você paga seus passeios diretamente com eles.',
-	'you_can_use' => 'Pode usar'
+	'you_can_use' => 'Pode usar',
+
+	'rio_turbio_waterfall' => 'Cachoeira Rio Turbio',
+	'eyes_of_caburgua' => 'Ojos de Caburgua',
+	'jump_the_light' => 'Salto El Claro',
+	'gps_route' => 'Ruta em GPS',
+	'download_this_route' => 'Faça download dessa ruta',
+	'estimated_time_round_trip' => 'Tempo estimado ida e volta',
+	'hours' => 'horas',
+
+	'to_visit' => 'Para visitar',
+	'and_take_photo' => 'E tirar foto',
+	'best_spa' => 'Melhores termas',
+	'to_relax' => 'Para relaixar',
+	'national_parks' => 'Parques Nacionais',
+	'incredible_parks' => 'Increíveis parques'
 ];

@@ -20,10 +20,10 @@ class SetLocale
 
 		if (!$currentLocale) {
 			$location = \SypexGeo::get(request()->ip());
-			if ($location['country']['iso'] == 'ES') {
+			if ($location['country']['iso'] == 'ES' || $location['country']['iso'] == 'CL') {
 				app()->setLocale('es_ES');
 				Session::put('currentLocale', 'es_ES');
-			} elseif ($location['country']['iso'] == 'PT') {
+			} elseif ($location['country']['iso'] == 'PT' || $location['country']['iso'] == 'BR') {
 				app()->setLocale('pt');
 				Session::put('currentLocale', 'pt');
 			} else {
