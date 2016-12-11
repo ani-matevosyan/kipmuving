@@ -11,7 +11,8 @@ return [
 	'agencies' => 'agencies',
 
 	'what_activities_search' => 'What activities do you want to do?',
-	'less_in_all_activities' => 'Less :percent in all activities',
+	'less' => 'Menos',
+	'in_all_activities' => 'en todas las actividades',
 
 	'program' => 'Program',
 	'activities_for' => 'activities for',
