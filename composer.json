@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "zizaco/entrust": "dev-master",
         "laravelrus/sleepingowl": "4.*@dev",
-        "dimsav/laravel-translatable": "^6.0"
+        "dimsav/laravel-translatable": "^6.0",
+        "scriptixru/sypexgeo": " 0.2.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

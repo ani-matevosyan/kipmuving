@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ed1eabfde368ddeb4fce70a2a68d6c3",
-    "content-hash": "b6f6f29980a8e0c0be78ffff10ec4060",
+    "hash": "aa8881f31f6feb8e674fd3b57abec5a8",
+    "content-hash": "e16cc20eacb09ae274f8e373135bfc04",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1781,6 +1781,54 @@
                 "uuid"
             ],
             "time": "2016-11-22 19:21:44"
+        },
+        {
+            "name": "scriptixru/sypexgeo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scriptixru/sypexgeo.git",
+                "reference": "2c34009a44c4f61b1af5906f0892c40bb475cc0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scriptixru/sypexgeo/zipball/2c34009a44c4f61b1af5906f0892c40bb475cc0a",
+                "reference": "2c34009a44c4f61b1af5906f0892c40bb475cc0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Scriptixru\\SypexGeo\\": "src/Scriptixru/SypexGeo"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Varchak Valery",
+                    "email": "scriptixru@gmail.com"
+                }
+            ],
+            "description": "Supports GeoIP services (sypexgeo.net).",
+            "keywords": [
+                "geoip",
+                "geolocation",
+                "laravel",
+                "laravel 5",
+                "location"
+            ],
+            "time": "2015-04-11 22:59:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4309,7 +4357,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "zizaco/entrust": 20,
-        "laravelrus/sleepingowl": 20
+        "laravelrus/sleepingowl": 20,
+        "scriptixru/sypexgeo": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
