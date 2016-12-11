@@ -163,7 +163,8 @@ class Offer extends Model
 		$selectedOffers = $this->getSelectedOffers();
 		if ($selectedOffers)
 			foreach ($selectedOffers as $offer) {
-				$countPersons += $offer['persons'];
+				if ($countPersons < $offer['persons'])
+					$countPersons = $offer['persons'];
 			}
 
 		return $countPersons;
@@ -213,7 +214,7 @@ class Offer extends Model
 		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 		$offer['offerActivity'] = Activity::where('activities.id', $offer['activity_id'])
 			->first();
-		$offer['offerIncludes'] = $this->dataToArray($offer['offerIncludes']);
+		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
 
 //		dd($result);
 		return $offer;
