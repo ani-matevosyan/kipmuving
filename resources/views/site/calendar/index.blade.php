@@ -57,7 +57,7 @@
 										<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 										<span>{{ trans('main.total_in_pesos') }}</span>
 									</div>
-									<?php $total_discount = $total_cost * 0.1 ?>
+									<?php $total_discount = ($total_cost / 0.9) - $total_cost ?>
 									<div class="discount">
 										<span>{{ trans('main.you_save') }}</span>
 										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>

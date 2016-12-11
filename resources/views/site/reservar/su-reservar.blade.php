@@ -243,8 +243,8 @@
 											<li>
 												<a href="#">
 													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{$offer['offerData']['price'] * $offer['offerData']['persons']}}</span>
-												</a>
+													<span>{{number_format($offer['offerData']['price'] * $offer['offerData']['persons'], 0, '.', '.')}}</span>
+                                                </a>
 											</li>
 										@endforeach
 									</ul>
