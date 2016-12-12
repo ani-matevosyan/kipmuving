@@ -41,6 +41,7 @@ Route::get('/calendar/data', 'CalendarController@getData');
 
 #Reservation
 Route::get('/reserve', 'ReservationController@index');
+Route::post('/reserve', 'ReservationController@reserve');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');

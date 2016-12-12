@@ -170,7 +170,8 @@ return [
 		Zizaco\Entrust\EntrustServiceProvider::class,
 		SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 		Dimsav\Translatable\TranslatableServiceProvider::class,
-		'Scriptixru\SypexGeo\SypexGeoServiceProvider',
+		Scriptixru\SypexGeo\SypexGeoServiceProvider::class,
+		Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -230,6 +231,7 @@ return [
 		'View' => Illuminate\Support\Facades\View::class,
 		'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 		'SypexGeo' => Scriptixru\SypexGeo\SypexGeoFacade::class,
+		'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 	],
 
 ];
