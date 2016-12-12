@@ -208,7 +208,8 @@ class Offer extends Model
 				'offers.end_time',
 				'offers.price_offer',
 				'offer_translations.includes as offerIncludes',
-				'offer_translations.important as offerImportant'
+				'offer_translations.important as offerImportant',
+				'offer_translations.carry as offerCarry'
 			)
 			->first();
 		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
