@@ -29,68 +29,75 @@
 						<a href="#" class="nav-opener">
 							<span></span>
 						</a>
-							<div class="topbar">
-								<div class="login-panel">
-									<div class="login-box">
-										<div class="country">
-											<div class="img-flag pick-lang">
-												<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.png') }}"
-													  alt="image description" class="current-lang">
-												<ul class="choose-lang">
-													@foreach($locales as $locale)
-														<li>
-															<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
-																<img src="{{ asset('/images/'.$locale['code'].'-flag.png') }}"
-																	  alt="image description">
-															</a>
-														</li>
-													@endforeach
-												</ul>
-											</div>
-											<a href="#" data-target="#" data-toggle="dropdown" aria-expanded="true">CLP $</a>
-										</div>
-										<div class="btn-holder">
-											@if (!Auth::guest())
-												<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
-													title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
-													{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
-												</a>
-												<a href="{{ url('/logout') }}" class="btn btn-primary"
-													onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-													title="SALIR">SALIR</a>
-												<form id="logout-form" action="{{ url('/logout') }}" method="POST"
-														style="display: none;">
-													{{ csrf_field() }}
-												</form>
-											@else
-												<a href="{{ url('/register') }}"
-													class="btn btn-primary">{{ trans('button-links.register') }}</a>
-												<a href="{{ url('/login') }}"
-													class="btn btn-primary">{{ trans('button-links.login') }}</a>
-											@endif
-										</div>
-									</div>
-								</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-md-pull-3">
-                            <nav id="nav">
-                                <ul>
-                                    <li><a
-                                            href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
-                                    </li>
-                                    <li><a
-                                            href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
-                                    </li>
-                                    <li><a
-                                            href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
-                                    </li>
-                                    <!--<li><a href="/ofertas">Ofertas</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+						<div class="country">
+							<div class="img-flag pick-lang">
+								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
+									  alt="image description" class="current-lang">
+								<span class="glyphicon glyphicon-triangle-top"></span>
+								<ul class="choose-lang">
+									@foreach($locales as $locale)
+										<li>
+											<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
+												<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"
+													  alt="image description">
+											</a>
+										</li>
+									@endforeach
+								</ul>
+							</div>
+							<div class="pick-curr">
+								<span class="current-curr">CLP $</span>
+								{{--<span class="glyphicon glyphicon-triangle-top"></span>--}}
+								{{--<ul class="choose-curr">--}}
+									{{--<li>--}}
+										{{--<a href="#">--}}
+											{{----}}
+										{{--</a>--}}
+									{{--</li>--}}
+								{{--</ul>--}}
+							</div>
+						</div>
+						<div class="btn-holder">
+							<div class="avatar-wrapp">
+								<img src="{{ asset('/images/img-profile.jpg') }}" alt="Account name">
+							</div>
+							@if (!Auth::guest())
+								<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
+									title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
+									{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
+								</a>
+								<a href="{{ url('/logout') }}" class="btn btn-primary"
+									onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+									title="SALIR">SALIR</a>
+								<form id="logout-form" action="{{ url('/logout') }}" method="POST"
+										style="display: none;">
+									{{ csrf_field() }}
+								</form>
+							@else
+								<a href="{{ url('/register') }}"
+									class="btn btn-primary">{{ trans('button-links.register') }}</a>
+								<a href="{{ url('/login') }}"
+									class="btn btn-primary">{{ trans('button-links.login') }}</a>
+							@endif
+						</div>
+					</div>
+					<div class="col-md-6 col-md-pull-3">
+						<nav id="nav">
+							<ul>
+								<li><a
+										href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
+								</li>
+								<li><a
+										href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
+								</li>
+								<li><a
+										href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
 				</div>
+			</div>
 		</header>
 
 		@yield('content')

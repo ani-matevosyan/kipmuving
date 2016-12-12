@@ -126,7 +126,7 @@
 											<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 											<span>total em pesos</span>
 										</div>
-										<?php $total_discount = ($total_cost / 0.9) - $total_cost ?>
+										<?php $total_discount = $total_cost * 0.1 ?>
 										<div class="discount">
 											<span>está economizando</span>
 											<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
@@ -186,20 +186,34 @@
                         <script src="https://checkout.stripe.com/checkout.js"></script>
                         <script>
                             var handler = StripeCheckout.configure({
-                                key: "{{ config('app.stripe_publishable_key') }}",
-                                image: "/images/logo-pucon.png",
+                                key: "pk_test_SY9XPD8FBeX9vy6h0QHJ8nwT",
+                                image: "/images/logo-tent.png",
                                 name: "Kipmuving",
                                 description: "Kipmuving Adventures",
                                 allowRememberMe: false,
                                 amount: "{{(((count($offers))*$persons)*5)*100}}",
                                 token: function (token) {
-                                    var stripeToken = token.id;
-                                    var url = window.location.href = "/reserve";
-                                    var form = $('<form action="' + url + '" method="post">' +
-                                            '<input type="text" name="stripeToken" value="' + stripeToken + '" />' +
-                                            '</form>');
-                                    $('body').append(form);
-                                    form.submit();
+//                                    var stripeToken = token.id;
+//                                    var url = window.location.href = "/reserve";
+//                                    var form = $('<form action="' + url + '" method="post">' +
+//                                            '<input type="text" name="stripeToken" value="' + stripeToken + '" />' +
+//                                            '</form>');
+//                                    $('body').append(form);
+//                                    form.submit();
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/reserve",
+                                        data: {
+                                            '_token': $('meta[name="csrf-token"]').attr('content'),
+                                            token: token
+                                        },
+                                        success: function(){
+                                            alert("Your payment has been accepted");
+                                        },
+                                        error: function(err){
+                                            console.log(err);
+                                        }
+                                    })
                                 }
                             });
                             document.getElementById('stripe-pay').addEventListener('click', function (e) {

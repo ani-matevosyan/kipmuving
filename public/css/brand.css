@@ -60,7 +60,7 @@
   list-style: none;
 }
 
-#header.new .topbar:after, #header:after, #header .topbar:after, #header .login-panel:after, #main:after, .activites-bar:after, .activities-list:after, .your-reservation:after, .your-reservation.activity .accordion header:after, .your-reservation .you-add .list li:after, .your-reservation .important-block .box:after {
+#header:after, #main:after, .activites-bar:after, .activities-list:after, .your-reservation:after, .your-reservation.activity .accordion header:after, .your-reservation .you-add .list li:after, .your-reservation .important-block .box:after {
   clear: both;
   content: '';
   display: block;
@@ -742,53 +742,54 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-#header.new .login-box {
-  float: right;
-  width: 135px;
-}
-
-@media (max-width: 992px) {
-  #header.new .login-box {
-    float: none;
-    width: auto;
-  }
-}
-
 #header.new .country {
-  float: left;
-  padding: 3px 10px 0 0;
+  padding: 6px 10px 9px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 #header.new .country > a {
   color: #fff;
   display: block;
-  margin-top: 3px;
+  font-family: 'Lato-Bold', sans-serif;
+  font-size: 12px;
 }
 
 #header.new .btn-holder {
-  width: 75px;
-  float: right;
+  text-align: right;
 }
 
 #header.new .btn-primary {
-  margin: 0 0 5px;
-  display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding: 6px 12px;
 }
 
-#header.new .img-flag {
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  margin: 0 auto;
+#header.new .avatar-wrapp{
+  width: 31px;
+  height: 31px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+#header.new .avatar-wrapp img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 2px solid #aaaaaa;
   border-radius: 50%;
 }
 
+
 #header.new #nav {
-  text-align: right;
-  padding: 8px 0 10px;
+  text-align: center;
+  padding: 23px 0;
 }
 
 @media (max-width: 992px) {
@@ -796,11 +797,6 @@ body.home2 .roteros-options .raised-form .text-field {
     border: 0;
     padding: 0;
   }
-}
-
-#header.new .topbar {
-  border: 0;
-  text-align: center;
 }
 
 #header.new .compare-price {
@@ -872,11 +868,12 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #header {
-    z-index: 20;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 9px 0;
 }
 
 @media (max-width: 992px) {
@@ -994,46 +991,31 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-#header .topbar {
-  min-height: 40px;
-  border-bottom: 1px solid #0f2e2e;
-}
-
-#header .login-panel {
-  float: right;
-  margin: 0 -9999px 0 0;
-  padding: 7px 9999px 6px 15px;
-}
-
-@media (max-width: 992px) {
-  #header .login-panel {
-    margin: 0;
-    float: none;
-    padding: 10px;
-  }
-}
-
 #header .btn-primary {
-  color: #133a3a;
-  margin-left: 11px;
-  background: #f0f0d8;
+  color: #fff;
+  background: #6b5216;
   text-transform: uppercase;
+  font-family: "Lato-Bold", sans-serif;
+  font-size: 12px;
 }
 
 #header .btn-primary:hover {
-  color: #fff;
-  background: #eab011;
+  background: #ffb400;
 }
 
 #header .country {
   padding: 3px 0 0;
   position: relative;
-  display: inline-block;
   vertical-align: top;
 }
 
 #header .country img {
-  width: 26px;
+  width: 25px;
+  height: 16px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: bottom right;
+  object-position: bottom right;
   margin: 0 5px 0 0;
   display: inline-block;
   vertical-align: middle;
@@ -1136,15 +1118,13 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #nav ul li {
-  margin: 0 12% 0 0;
+  margin: 0 8% 0 0;
   display: inline-block;
   vertical-align: top;
 }
 
-@media (max-width: 1150px) {
-  #nav ul li {
-    margin: 0 8% 0 0;
-  }
+#nav ul li:last-child{
+  margin: 0;
 }
 
 @media (max-width: 992px) {

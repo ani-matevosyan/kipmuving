@@ -556,49 +556,89 @@ body.home2 .all-activities.custom_title header {
 /*--------------PICK LANGUAGE MENU------------*/
 
 #header.new .pick-lang{
-  position: relative;
-  overflow: visible;
-  width: auto;
-  height: 26px;
+    overflow: visible;
+    width: auto;
+    margin-left: 15px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
 }
 
-.pick-lang.pressed:before{
-  content: '';
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 14px);
-  background: #002a2a;
-  outline: 3px solid #133939;
+#header.new .pick-lang .glyphicon{
+    position: absolute;
+    top: 50px;
+    right: 12px;
+    color: #ffb400;
+    z-index: 1;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
+#header.new .pick-lang:hover{
+    box-shadow: 2px 2px 0 0 #6b5216;
+}
 
 #header .country .pick-lang img{
   margin: 0;
 }
 
 .choose-lang{
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  top: 36px;
-  left: -8px;
-  list-style: none;
-  background: #184242;
-  border: 3px solid #002a2a;
-  border-bottom-width: 0;
-  display: none;
-}
-
-.pick-lang.pressed .choose-lang{
-  display: block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 32px;
+    right: -50px;
+    list-style: none;
+    border-bottom-width: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: #ffb400;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
 
 .choose-lang li{
-  margin-bottom: 0;
-  padding: 11px;
-  border-bottom: 3px solid #002a2a;
+    margin-bottom: 0;
+    display: inline-block;
+    padding: 10px 9px;
+}
+
+#header .country .choose-lang li img{
+    -webkit-transition: all .2s cubic-bezier(.35,-0.62,.64,1.73);
+    transition: all .2s cubic-bezier(.35,-0.62,.64,1.73);
+}
+
+#header .country .choose-lang li:hover img{
+    transform: scale(1.2);
+}
+
+#header .country .choose-lang li:hover img{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+#header.new .pick-lang.pressed{
+    box-shadow: 2px 2px 0 0 #6b5216;
+}
+
+#header.new .pick-lang.pressed .glyphicon{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    top: 21px;
+
+}
+
+.pick-lang.pressed .choose-lang{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    right: 0;
 }
 
 .current-lang{

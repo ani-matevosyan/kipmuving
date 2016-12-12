@@ -139,7 +139,7 @@ jQuery(document).ready(function(){
             totalcost += parseInt(totalcostprep.split('.').join(""));
         });
         $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
-        totaldisc = parseInt((totalcost/0.9) - totalcost);
+        totaldisc = parseInt(totalcost * 0.1);
         $(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
     }
 
@@ -164,12 +164,6 @@ jQuery(document).ready(function(){
                     jQuery('#calendar').fullCalendar('refetchEvents');
 				}
 				if(window.location.pathname === '/reserve'){
-                    // calendarCalc();
-                    // $(".accordion .accordion-li").each(function(index){
-                    //     if(index===oid){
-                    //         $(this).remove();
-                    //     }
-                    // });
                     location.reload();
                 }
             },
@@ -281,22 +275,6 @@ jQuery(document).ready(function(){
 
 		priceElem.html('<sub>$</sub>' + numberWithDots($(this).val() * unit_price));
 	});
-
-    if(window.location.pathname === '/reserve'){
-        $(".btn-reservar").click(function(){
-           $.ajax({
-               type: "POST",
-               url: "/reserve",
-               data: {
-                   '_token': $('meta[name="csrf-token"]').attr('content'),
-                   payment: true
-               },
-               error: function(err){
-                   console.log(err.statusText);
-               }
-           })
-        });
-    }
 
 });
 
