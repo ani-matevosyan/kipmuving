@@ -34,7 +34,7 @@
 								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
 									  alt="image description" class="current-lang">
 								<span class="glyphicon glyphicon-triangle-top"></span>
-								<ul class="choose-lang">
+								<ul class="choose-menu choose-lang">
 									@foreach($locales as $locale)
 										<li>
 											<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
@@ -47,14 +47,19 @@
 							</div>
 							<div class="pick-curr">
 								<span class="current-curr">CLP $</span>
-								{{--<span class="glyphicon glyphicon-triangle-top"></span>--}}
-								{{--<ul class="choose-curr">--}}
-									{{--<li>--}}
-										{{--<a href="#">--}}
-											{{----}}
-										{{--</a>--}}
-									{{--</li>--}}
-								{{--</ul>--}}
+								<span class="glyphicon glyphicon-triangle-top"></span>
+								<ul class="choose-menu choose-curr">
+									<li>
+										<a href="#">
+											BRL
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											USD
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<div class="btn-holder">

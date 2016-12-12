@@ -51,15 +51,25 @@ $(document).ready(function () {
     });
 
     var langPressed = false;
+    var currPressed = false;
 
     $(".current-lang, .choose-lang").click(function(e){
+        $(".pick-curr").removeClass("pressed");
         $(".pick-lang").addClass("pressed");
         langPressed = true;
         e.stopPropagation();
     });
 
+    $(".current-curr, .choose-curr").click(function(e){
+        $(".pick-lang").removeClass("pressed");
+        $(".pick-curr").addClass("pressed");
+        currPressed = true;
+        e.stopPropagation();
+    });
+
     $(document).click(function(){
         $(".pick-lang").removeClass("pressed");
+        $(".pick-curr").removeClass("pressed");
     });
 
 
