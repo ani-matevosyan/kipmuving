@@ -2,7 +2,6 @@
 jQuery(window).load(function () {
     initCustomForms();
     initAccordion();
-    initMobileNav();
     initSameHeight();
     initDatepicker();
     jQuery('input, textarea').placeholder();
@@ -11,6 +10,29 @@ jQuery(window).load(function () {
 
 jQuery(document).ready(function () {
     jQuery("a[rel^='prettyPhoto']").prettyPhoto();
+
+
+    //BURGER
+    $(".burger-menu").click(function () {
+        $(this).toggleClass("menu-on");
+        $("#header.new #nav").addClass("active").css("visibility", "visible");
+        $(".nav-cover").addClass("active");
+        $("body").css("overflow-y", "hidden");
+    });
+    $(".nav-cover").click(function(){
+        $(".burger-menu").toggleClass("menu-on");
+        $(this).removeClass("active");
+        $("#header.new #nav").removeClass("active");
+        setTimeout(function(){
+            $("#header.new #nav").css("visibility", "hidden");
+        },500);
+        $("body").css("overflow-y", "visible");
+    });
+
+    if(!($("section.visual").length)){
+        $("#header").addClass("header-v2");
+    }
+
 });
 function initDatepicker() {
     jQuery('[data-datepicker]').uiDatepicker();
@@ -58,25 +80,6 @@ function initAccordion() {
         opener: 'a.opener',
         slider: 'div.slide',
         animSpeed: 300
-    });
-}
-
-// mobile menu init
-function initMobileNav() {
-    jQuery('body').mobileNav({
-        menuActiveClass: 'nav-active',
-        menuOpener: '.nav-opener'
-    });
-
-    jQuery('body').mobileNav({
-        hideOnClickOutside: true,
-        menuActiveClass: 'overlay-active',
-        menuOpener: '.overlay-opener',
-        menuDrop: '.your-reservation .date-time .text-field'
-    });
-
-    jQuery('.overlay-opener').click(function (e) {
-        e.preventDefault();
     });
 }
 

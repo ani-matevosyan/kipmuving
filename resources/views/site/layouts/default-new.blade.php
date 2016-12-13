@@ -15,7 +15,7 @@
 		<header id="header" class="new">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-3 col-xs-6">
                         <div class="logo">
                             <a href="{{ action('HomeController@index') }}">
                                 <img src="{{ asset('/images/logo-new.png') }}"
@@ -25,11 +25,11 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-3 col-md-push-6">
-						<a href="#" class="nav-opener">
-							<span></span>
-						</a>
-						<div class="country">
+                    <div class="col-md-3 col-md-push-6 col-xs-6">
+                        <div class="burger-menu">
+                            <div class="burger"></div>
+                        </div>
+                        <div class="country">
 							<div class="img-flag pick-lang">
 								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
 									  alt="image description" class="current-lang">
@@ -63,12 +63,14 @@
 							</div>
 						</div>
 						<div class="btn-holder">
-							@if (!Auth::guest())
-								<div class="avatar-wrapp">
-									<img src="{{ asset($currentUser['avatar']) }}"
-										  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-										  alt="Account name">
-								</div>
+                            <div class="avatar-wrapp">
+                                @if (!Auth::guest())
+                                    <img src="{{ asset($currentUser['avatar']) }}"
+                                          onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
+                                          alt="Account name">
+                                @endif
+                            </div>
+                            @if (!Auth::guest())
 								<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
 									title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 									{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
@@ -88,7 +90,7 @@
 							@endif
 						</div>
 					</div>
-					<div class="col-md-6 col-md-pull-3">
+					<div class="col-md-6 col-md-pull-3 col-xs-12">
 						<nav id="nav">
 							<ul>
 								<li><a
@@ -102,6 +104,7 @@
 								</li>
 							</ul>
 						</nav>
+                        <div class="nav-cover"></div>
 					</div>
 				</div>
 			</div>

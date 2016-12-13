@@ -422,43 +422,6 @@ body.home-sin {
   background: url(../images/bg-body.jpg) no-repeat;
   background-size: cover;
 }
-body.nav-active{
-  overflow: hidden;
-}
-
-body.nav-active .w1 {
-  right: 260px;
-}
-
-body.nav-active #header .right-block {
-  right: 0;
-}
-
-body.nav-active #header .nav-opener {
-  border-color: #eab011;
-}
-
-body.nav-active #header .nav-opener:after, body.nav-active #header .nav-opener:before {
-  left: 5px;
-  right: 5px;
-  background: #eab011;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top: 70%;
-}
-
-body.nav-active #header .nav-opener:after {
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-body.nav-active #header .nav-opener span {
-  opacity: 0;
-}
 
 body.home1 .activity-bar {
   background: #133939;
@@ -706,41 +669,6 @@ body.home2 .roteros-options .raised-form .text-field {
   transition: right, 0.5s, linear;
 }
 
-@media (max-width: 992px) {
-  #header.new {
-    padding: 0;
-  }
-  #header.new .nav-opener {
-    margin: 28px 0 0;
-  }
-}
-
-@media (max-width: 767px) {
-  #header.new {
-    padding: 0;
-  }
-  #header.new .nav-opener {
-    margin: 6px 0 0;
-  }
-}
-
-#header.new .right-block {
-  width: 48%;
-  padding: 8px 0;
-}
-
-@media(max-width: 1150px){
-  #header.new .right-block{
-    width: 49%;
-  }
-}
-
-@media (max-width: 992px) {
-  #header.new .right-block {
-    width: 260px;
-    padding: 0;
-  }
-}
 
 #header.new .country {
   padding: 6px 10px 9px 0;
@@ -781,89 +709,131 @@ body.home2 .roteros-options .raised-form .text-field {
 #header.new .avatar-wrapp img{
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
   border: 2px solid #aaaaaa;
   border-radius: 50%;
 }
 
+@media (max-width: 505px){
+    #header.new .btn-holder {
+        max-width: 100px;
+        margin-left: auto;
+    }
+    #header.new .avatar-wrapp{
+        margin: 0 0 0 19px;
+        display: block;
+    }
+    #header.new .btn-primary{
+        display: block;
+        font-size: 11px;
+        margin: 4px 0px;
+    }
+}
 
 #header.new #nav {
   text-align: center;
   padding: 23px 0;
 }
 
-@media (max-width: 992px) {
-  #header.new #nav {
-    border: 0;
-    padding: 0;
+@media(min-width: 992px){
+  #header.new #nav{
+    visibility: visible !important;
   }
 }
 
-#header.new .compare-price {
-  color: #a9b182;
-}
-
-#header.new .compare-price p {
-  margin: 0;
-}
-
-#header.new .animated-logo {
-  width: 78px;
-  position: absolute;
-  left: 0;
-  top: 21px;
-  right: auto;
-  bottom: auto;
-}
-
-@media (max-width: 767px) {
-  #header.new .animated-logo {
-    top: 10px;
-    width: 40px;
-    height: auto;
+@media (max-width: 991px) {
+  #header.new #nav{
+    padding: 50px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #ffb400;
+    border-radius: 50%;
+    width: 235px;
+    height: 225px;
+    border: 1px solid #af8d3c;
+    margin: auto;
+    z-index: 999;
+    visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: transform .4s cubic-bezier(.35,-0.62,.64,1.73);
+    transition: transform .4s cubic-bezier(.35,-0.62,.64,1.73);
   }
-}
 
-#header.new .animated-logo img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
-
-#header.new .logo-pucon {
-  width: 78px;
-  height: 63px;
-  position: absolute;
-  left: auto;
-  top: 30px;
-  right: 30px;
-  bottom: auto;
-}
-
-@media (max-width: 767px) {
-  #header.new .logo-pucon {
-    top: 14px;
-    right: 14px;
-    width: 40px;
-    height: auto;
+  #header.new #nav.active{
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
+
+  .nav-cover{
+    z-index: 998;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .nav-cover.active{
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+
 }
 
-#header.new .logo-pucon img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
+
 
 #header.new .logo {
   width: 220px;
   margin: 17px 0 4px;
 }
 
-@media (max-width: 767px) {
-  #header.new .logo {
-    width: 120px;
-    margin: 9px 0 4px;
+@media (max-width: 505px) {
+    #header.new .logo {
+        width: 137px;
+        margin: 53px 0 4px;
+    }
+    #header.new #nav {
+      position: absolute;
+      padding: 133px 47px 47px 145px;
+      top: -470px;
+      left: -344px;
+      bottom: auto;
+      right: auto;
+      width: auto;
+      height: auto;
+      margin: 0;
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+      -webkit-transition: top 0.5s ease-out, left 0.5s ease-out;
+      transition: top 0.5s ease-out, left 0.5s ease-out;
+    }
+
+  #header.new #nav ul{
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out 0.5s;
+    transition: all 0.3s ease-out 0.5s;
+  }
+
+  #header.new #nav.active{
+    top: -270px;
+    left: -144px;
+  }
+  #header.new #nav.active ul{
+    opacity: 1;
   }
 }
 
@@ -876,62 +846,15 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 9px 0;
 }
 
-@media (max-width: 992px) {
+#header.header-v2{
+  position: relative;
+  background: #184848;
+}
+
+@media (max-width: 991px) {
   #header {
     padding: 10px 0;
   }
-}
-
-#header .nav-opener {
-  width: 34px;
-  float: right;
-  height: 34px;
-  display: none;
-  margin: 4px 0 0;
-  position: relative;
-  border: 2px solid #fff;
-  -webkit-transition: all, 0.2s, linear;
-  -o-transition: all, 0.2s, linear;
-  transition: all, 0.2s, linear;
-}
-
-@media (max-width: 992px) {
-  #header .nav-opener {
-    display: block;
-  }
-}
-
-#header .nav-opener:hover {
-  border-color: #eab011;
-}
-
-#header .nav-opener:hover:after, #header .nav-opener:hover:before,
-#header .nav-opener:hover span {
-  background: #eab011;
-}
-
-#header .nav-opener:before, #header .nav-opener:after,
-#header .nav-opener span {
-  top: 69%;
-  left: 7px;
-  right: 7px;
-  height: 2px;
-  display: block;
-  margin-top: -7px;
-  position: absolute;
-  background: #fff;
-  -webkit-transition: all, 0.2s, linear;
-  -o-transition: all, 0.2s, linear;
-  transition: all, 0.2s, linear;
-}
-
-#header .nav-opener:before, #header .nav-opener:after {
-  top: 49%;
-  content: '';
-}
-
-#header .nav-opener:after {
-  top: 92%;
 }
 
 #header .logo {
@@ -946,7 +869,7 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #header .logo {
     margin: 0;
     width: 250px;
@@ -974,7 +897,7 @@ body.home2 .roteros-options .raised-form .text-field {
   width: 56%;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #header .right-block {
     top: 0;
     width: 260px;
@@ -1061,7 +984,7 @@ body.home2 .roteros-options .raised-form .text-field {
   text-transform: uppercase;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #header .compare-price {
     padding: 10px 20px;
   }
@@ -1104,7 +1027,7 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 8px 0 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #nav {
     padding: 0;
   }
@@ -1127,11 +1050,10 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #nav ul li {
     margin: 0;
     display: block;
-    border-top: 1px solid #0f2e2e;
   }
 }
 
@@ -1142,7 +1064,7 @@ body.home2 .roteros-options .raised-form .text-field {
     font-weight: normal;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #nav ul a {
     display: block;
     padding: 10px 20px;
@@ -1153,10 +1075,9 @@ body.home2 .roteros-options .raised-form .text-field {
   color: #eab011;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #nav ul a:hover {
-    color: #fff;
-    background: #0f2e2e;
+    color: #46350d;
   }
 }
 
@@ -1199,7 +1120,14 @@ body.home2 .roteros-options .raised-form .text-field {
   .visual .caption {
     padding: 10px 0;
     position: static;
+    margin-top: 20%;
   }
+}
+
+@media (max-width: 505px) {
+    .visual .caption {
+        margin-top: 47%;
+    }
 }
 
 .visual .offer-block {
@@ -1231,7 +1159,7 @@ body.home2 .roteros-options .raised-form .text-field {
   overflow: hidden;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .visual .offer-block .box {
     width: 270px;
   }
@@ -1250,7 +1178,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .visual .offer-block .title {
     font-size: 26px;
     line-height: 30px;
@@ -1267,7 +1195,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .visual .offer-block .sub-title {
     font-size: 20px;
     line-height: 24px;
@@ -1302,7 +1230,7 @@ body.home2 .roteros-options .raised-form .text-field {
   background: rgba(255, 188, 0, 0.88);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activity-form {
     width: 400px;
   }
@@ -1323,7 +1251,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-radius: 4px;
 }
 
-@media (max-width: 992px){
+@media (max-width: 991px){
 	.activity-form .jcf-select {
 		margin-bottom: 15px;
 	}
@@ -1355,7 +1283,7 @@ body.home2 .roteros-options .raised-form .text-field {
     text-transform: uppercase;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activity-form .title {
     margin: 0 0 10px;
     font-size: 24px;
@@ -1430,7 +1358,7 @@ body.home2 .roteros-options .raised-form .text-field {
     width: 42%
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activity-form .col {
     width: auto;
     display: block;
@@ -1480,7 +1408,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 700;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activity-bar .col-left {
     margin: 0;
     padding: 8px 0 0 50px;
@@ -1637,7 +1565,7 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .raised-form .col {
     width: 47.5%;
     margin: 0 1%;
@@ -1664,7 +1592,7 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .raised-form .col:first-child {
     width: 47.5%;
   }
@@ -1686,7 +1614,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #b2b2b2;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns {
     padding: 20px 0 10px;
   }
@@ -1711,7 +1639,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns .head .sub-title {
     font-size: 20px;
     line-height: 24px;
@@ -1736,7 +1664,7 @@ body.home2 .roteros-options .raised-form .text-field {
   text-transform: uppercase;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns h1 {
     margin: 0 0 10px;
     font-size: 36px;
@@ -1762,7 +1690,7 @@ body.home2 .roteros-options .raised-form .text-field {
   background: #006060;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns .box {
     margin: 0 0 20px;
   }
@@ -1814,7 +1742,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns h2 {
     font-size: 26px;
     line-height: 30px;
@@ -1834,7 +1762,7 @@ body.home2 .roteros-options .raised-form .text-field {
   background: url(../images/sprite.png) no-repeat 0 -72px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .two-columns h2:after {
     top: 0;
   }
@@ -1936,7 +1864,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #b2b2b2;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .services {
     text-align: center;
   }
@@ -1970,7 +1898,7 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .services .ico {
     display: block;
     max-width: 50px;
@@ -2197,7 +2125,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #b2b2b2;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities {
     padding: 30px 0;
   }
@@ -2209,7 +2137,7 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0 auto 30px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities .head {
     max-width: 500px;
   }
@@ -2222,7 +2150,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities .head .sub-title {
     font-size: 20px;
     line-height: 24px;
@@ -2249,7 +2177,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #d5d5d5;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities h2 {
     font-size: 30px;
     line-height: 34px;
@@ -2289,7 +2217,7 @@ body.home2 .roteros-options .raised-form .text-field {
   vertical-align: top;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities .list li {
     width: 31.3%;
     margin: 0 1% 12px;
@@ -2352,7 +2280,7 @@ body.home2 .roteros-options .raised-form .text-field {
   text-align: center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .packages {
     padding: 30px 0 10px;
   }
@@ -2365,7 +2293,7 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0 auto 40px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .packages .head {
     max-width: 400px;
     min-height: inherit;
@@ -2379,7 +2307,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .packages .head .sub-title {
     font-size: 20px;
     line-height: 24px;
@@ -2406,7 +2334,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #d5d5d5;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .packages h2 {
     font-size: 30px;
     line-height: 34px;
@@ -2621,7 +2549,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border: 1px solid #e6e6e6;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities-list {
     border: 0;
     float: none;
@@ -2644,7 +2572,7 @@ body.home2 .roteros-options .raised-form .text-field {
   background: #6ba45f;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .activities-list a {
     width: 91px;
   }
@@ -3475,7 +3403,7 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 30px 0 22px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   #footer .box {
     margin-bottom: 20px;
   }
@@ -4038,14 +3966,14 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 20px 0 50px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .registration {
     max-width: inherit;
     padding: 20px 0 0;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .registration.reser {
     margin: 0 0 50px;
   }
@@ -4499,7 +4427,7 @@ body.home2 .roteros-options .raised-form .text-field {
   position: relative;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .social-likes {
     height: auto;
     padding: 30px 0;
@@ -4520,7 +4448,7 @@ body.home2 .roteros-options .raised-form .text-field {
   bottom: auto;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .social-likes .divider {
     display: none;
   }
@@ -4547,7 +4475,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border-left: 1px solid #b2b2b2;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .social-likes .box {
     border: 0;
     padding: 0;
@@ -4562,7 +4490,7 @@ body.home2 .roteros-options .raised-form .text-field {
   vertical-align: middle;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .social-likes ul {
     display: block;
   }
@@ -4640,7 +4568,7 @@ body.home2 .roteros-options .raised-form .text-field {
   height: auto;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .social-likes.add {
     border: 0;
   }
@@ -4916,7 +4844,7 @@ body.home2 .roteros-options .raised-form .text-field {
   max-width: 713px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .your-reservation .accordion {
     margin-bottom: 20px;
   }
@@ -5903,7 +5831,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .your-reservation .your-search h2 {
     margin: 0 0 10px;
     font-size: 24px;
@@ -6029,7 +5957,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .your-reservation .you-add h2 {
     margin: 0 0 10px;
     font-size: 24px;
@@ -6537,7 +6465,7 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0 20px 0 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .main-post .align-left {
     float: none;
     width: auto;
@@ -7097,7 +7025,7 @@ body.home2 .roteros-options .raised-form .text-field {
   vertical-align: top;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .profile-block .item-list > li {
     width: 100%;
     display: block;
@@ -7192,7 +7120,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 500;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .profile-block .item-list h2 {
     font-size: 18px;
     line-height: 22px;
@@ -7215,7 +7143,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .profile-block .item-list .sub-title {
     font-size: 16px;
     line-height: 20px;
@@ -7442,7 +7370,7 @@ body.home2 .roteros-options .raised-form .text-field {
   border: 1px solid #ccc;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .all-activities .subnav {
     float: none;
     margin: 0;
