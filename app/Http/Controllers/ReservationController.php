@@ -160,7 +160,7 @@ class ReservationController extends Controller
 						$message->from('info@kipmuving.com', 'Kipmuving team');
 						$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
 					});
-					
+
 					#Send emails about reservation to agencies
 					foreach ($agencyData as $agency_email => $item) {
 						Mail::send('emails.reservar.agencia', [
@@ -176,17 +176,15 @@ class ReservationController extends Controller
 							$message->to($user['email'])->subject('Kipmuving.com reservation');
 						});
 					}
-                    dd("one");
-//                    $message = 'Success :)';
-//
-//					return $message;
+                    $message = 'Success :)';
+
+					return $message;
 				}
 			}
 		}
 
-		dd("two");
-//		$message = 'Failure :(';
-//
-//		return $message;
+		$message = 'Failure :(';
+
+		return $message;
 	}
 }
