@@ -114,10 +114,9 @@
 									<ul class="offers-list">
 										@foreach ($offers as $offer)
 											<li>
-												<a href="#">
-													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{number_format($offer['offerData']['price'] * $offer['offerData']['persons'], 0, '.', '.')}}</span>
-                                                </a>
+												<a href="#"></a>
+                                                <h4>{{ $offer['activityData']['name'] }}</h4>
+                                                <span>{{number_format($offer['offerData']['price'] * $offer['offerData']['persons'], 0, '.', '.')}}</span>
 											</li>
 										@endforeach
 									</ul>
