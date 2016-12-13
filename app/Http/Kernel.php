@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
 		\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 		\App\Http\Middleware\SetLocale::class,
 		\App\Http\Middleware\SetDate::class,
+		\App\Http\Middleware\SetCurrency::class,
 		\App\Http\Middleware\VerifyCsrfToken::class,
 	];
 
