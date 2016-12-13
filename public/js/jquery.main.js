@@ -11,6 +11,12 @@ jQuery(window).load(function () {
 
 jQuery(document).ready(function () {
     jQuery("a[rel^='prettyPhoto']").prettyPhoto();
+
+    //BURGER
+    $(".burger-menu").click(function () {
+        $(this).toggleClass("menu-on");
+    });
+
 });
 function initDatepicker() {
     jQuery('[data-datepicker]').uiDatepicker();

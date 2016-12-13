@@ -15,7 +15,7 @@
 		<header id="header" class="new">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-3 col-xs-6">
                         <div class="logo">
                             <a href="{{ action('HomeController@index') }}">
                                 <img src="{{ asset('/images/logo-new.png') }}"
@@ -25,11 +25,11 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-3 col-md-push-6">
-						<a href="#" class="nav-opener">
-							<span></span>
-						</a>
-						<div class="country">
+                    <div class="col-md-3 col-md-push-6 col-xs-6">
+                        <div class="burger-menu">
+                            <div class="burger"></div>
+                        </div>
+                        <div class="country">
 							<div class="img-flag pick-lang">
 								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
 									  alt="image description" class="current-lang">
@@ -86,7 +86,7 @@
 							@endif
 						</div>
 					</div>
-					<div class="col-md-6 col-md-pull-3">
+					<div class="col-md-6 col-md-pull-3 visible-md-block visible-lg-block visible-xl-block">
 						<nav id="nav">
 							<ul>
 								<li><a
