@@ -74,56 +74,71 @@ class ReservationController extends Controller
 	public function reserve(Request $request, Offer $offer)
 	{
 		if ($user = Auth::user()) {
-			if ($request['payment']) {
+
+			if ($request['token']) {
 				$sessionOffers = session('selectedOffers');
 				$offers = [];
 				$offersTotalCost = 0;
+				$persons = 0;
 				foreach ($sessionOffers as $key => $sessionOffer) {
 					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
 					$offersTotalCost += $offers[$key]['price'] * $sessionOffer['persons'];
+					$persons += $sessionOffer['persons'];
 				}
-				$batch = $this->GUID();
-				foreach ($offers as $key => $offer) {
-					$reservation = new Reservation();
-					$reservation->user_id = $user['id'];
-					$reservation->offer_id = $sessionOffers[$key]['offer_id'];
-					$reservation->reserve_date = Carbon::parse($sessionOffers[$key]['date'])->toDateString();
-					$reservation->batch_id = $batch;
-					$reservation->persons = $sessionOffers[$key]['persons'];
-					$reservation->save();
-				}
+
+				$stripe = Stripe::make(config('services.stripe.secret'));
+				$customer = $stripe->customers()->create(['email' => $request['token']['email']]);
+				$card = $stripe->cards()->create($customer['id'], $request['token']['id']);
+				$charge = $stripe->charges()->create([
+					'customer' => $customer['id'],
+					'currency' => 'USD',
+					'amount' => $persons * 5,
+				]);
+
+				if ($charge['status'] == 'succeeded') {
+					$batch = $this->GUID();
+					foreach ($offers as $key => $offer) {
+						$reservation = new Reservation();
+						$reservation->user_id = $user['id'];
+						$reservation->offer_id = $sessionOffers[$key]['offer_id'];
+						$reservation->reserve_date = Carbon::parse($sessionOffers[$key]['date'])->toDateString();
+						$reservation->batch_id = $batch;
+						$reservation->persons = $sessionOffers[$key]['persons'];
+						$reservation->save();
+					}
 //				dd($offers);
-				foreach ($offers as $key => $offer) {
+					foreach ($offers as $key => $offer) {
 //					dd($offer);
-					$activity = Activity::find($offer['activity_id']);
-					$userData['activities'][$key]['id'] = $activity['id'];
-					$userData['activities'][$key]['name'] = $activity['name'];
-					$userData['activities'][$key]['icon'] = $activity['image_icon'];
+						$activity = Activity::find($offer['activity_id']);
+						$userData['activities'][$key]['id'] = $activity['id'];
+						$userData['activities'][$key]['name'] = $activity['name'];
+						$userData['activities'][$key]['icon'] = $activity['image_icon'];
 
-					$agency = Agency::find($offer['agency_id']);
-					$userData['agencies'][$key]['id'] = $agency['id'];
-					$userData['agencies'][$key]['name'] = $agency['name'];
+						$agency = Agency::find($offer['agency_id']);
+						$userData['agencies'][$key]['id'] = $agency['id'];
+						$userData['agencies'][$key]['name'] = $agency['name'];
 
-					$userData['offers'][$key]['id'] = $offer['offer_id'];
-					$userData['offers'][$key]['start_time'] = $offer['start_time'];
-					$userData['offers'][$key]['end_time'] = $offer['end_time'];
-					//TODO!
-					$userData['offers'][$key]['carry'] = $offer['offerCarry'];
-					//TODO?
-					$userData['offers'][$key]['persons'] = $sessionOffers[$key]['persons'];
-					$userData['offers'][$key]['date'] = $sessionOffers[$key]['date'];
+						$userData['offers'][$key]['id'] = $offer['offer_id'];
+						$userData['offers'][$key]['start_time'] = $offer['start_time'];
+						$userData['offers'][$key]['end_time'] = $offer['end_time'];
+						//TODO!
+						$userData['offers'][$key]['carry'] = $offer['offerCarry'];
+						//TODO?
+						$userData['offers'][$key]['persons'] = $sessionOffers[$key]['persons'];
+						$userData['offers'][$key]['date'] = $sessionOffers[$key]['date'];
+					}
+
+					$userData['total_cost'] = $offersTotalCost;
+					$userData['user']['first_name'] = $user['first_name'];
+					$userData['user']['last_name'] = $user['last_name'];
+
+					Mail::send('emails.reservar.user', ['userData' => $userData], function ($message) use ($user) {
+						$message->from('info@kipmuving.com', 'Kipmuving team');
+						$message->to($user['email'], $user['first_name'] . ' ' . $user['last_name'])->subject('Your Kipmuving.com reservations');
+					});
+
+					dd('ok');
 				}
-
-				$userData['total_cost'] = $offersTotalCost;
-				$userData['user']['first_name'] = $user['first_name'];
-				$userData['user']['last_name'] = $user['last_name'];
-
-				Mail::send('emails.reservar.user', ['userData' => $userData], function ($message) use ($user) {
-					$message->from('info@kipmuving.com', 'Kipmuving team');
-					$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
-				});
-
-				dd('ok');
 			}
 		}
 	}
