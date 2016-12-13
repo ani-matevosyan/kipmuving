@@ -14,15 +14,15 @@
                     <section class="s_reservar">
 					<div class="your-reservation">
                         <div class="row">
-                            <div class="col-md-8 col-sm-12 col-xs-12">
-						@if (! empty($message))
-							<header class="head">
-								<h1>{{ $message }}</h1>
-								<p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de
-									textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno
-									en documentos electrónicos,.</p>
-							</header>
-						@else
+                            <div class="col-md-8 col-sm-12 col-xs-12">@if (! empty($message))
+									<header class="head">
+										<h1>{{ $message }}</h1>
+										<p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de
+											textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno
+											en documentos electrónicos,.</p>
+									</header>
+								@else
+
 							<header class="head">
 								<h1>Estas son sus actividades</h1>
                                 <p>Por favor <a href="#">{{ $user['username'] ? $user['username'] : $user['first_name'] }}</a> confirme abajo las actividades que hará en Pucón los días seleccionados</p>
@@ -199,8 +199,8 @@
                                             '_token': $('meta[name="csrf-token"]').attr('content'),
                                             token: token
                                         },
-                                        success: function(){
-                                            alert("Your payment has been accepted");
+                                        success: function(data){
+                                            console.log("SUCCESS!");
                                         },
                                         error: function(err){
                                             console.log(err);

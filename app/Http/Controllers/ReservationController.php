@@ -176,16 +176,17 @@ class ReservationController extends Controller
 							$message->to($user['email'])->subject('Kipmuving.com reservation');
 						});
 					}
-					
-					$message = 'Success :)';
-					
+                    dd("one");
+//                    $message = 'Success :)';
+//
 //					return $message;
 				}
 			}
 		}
-		
-		$message = 'Failure :(';
-		
+
+		dd("two");
+//		$message = 'Failure :(';
+//
 //		return $message;
 	}
 }
