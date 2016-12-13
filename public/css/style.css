@@ -135,6 +135,8 @@
 .icons img {
     margin-left: 5px; }
 
+/*---------------ACTIVITY ICONS---------------*/
+
 .activity-icons{
     margin-bottom: 10px;
     display: -webkit-box;
@@ -142,7 +144,6 @@
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
 }
 
 .activity-icons img{
@@ -159,7 +160,7 @@
     margin-right: 6px;
 }
 .activity-icons .ico {
-    width: 25px;
+    width: 21px;
     position: relative;
     cursor: pointer;
 }
@@ -204,6 +205,28 @@
     bottom: -14px;
     font-size: 20px;
 }
+
+
+@media (max-width: 850px){
+    .activity-icons .ico p span{
+        font-size: 15px;
+        bottom: -11px;
+    }
+    .activity-icons li:nth-child(1) p{
+        left: 42px;
+    }
+    .activity-icons li:nth-child(1) p span{
+        left: -83px;
+    }
+    .activity-icons li:nth-child(2) p{
+        left: 17px;
+    }
+    .activity-icons li:nth-child(2) p span{
+        left: -38px;
+    }
+}
+
+/*---------------END ACTIVITY ICONS---------------*/
 
 .tooltip > .tooltip-inner {
     background-color: #ffeedb;

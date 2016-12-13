@@ -44,10 +44,9 @@
 									<?php $total_cost = 0; ?>
 									@foreach ($selectedOffers as $offer)
 										<li>
-											<a href="#">
+											<a href="#"></a>
 												<h4>{{ $offer['name'] }}</h4>
                                                     <span>{{ number_format($offer['price_offer'] * $offer['persons'], 0, '.', '.') }}</span>
-											</a>
 										</li>
 										<?php $total_cost += $offer['price_offer'] * $offer['persons']; ?>
 									@endforeach
