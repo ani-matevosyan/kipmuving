@@ -193,13 +193,6 @@
                                 allowRememberMe: false,
                                 amount: "{{(((count($offers))*$persons)*5)*100}}",
                                 token: function (token) {
-//                                    var stripeToken = token.id;
-//                                    var url = window.location.href = "/reserve";
-//                                    var form = $('<form action="' + url + '" method="post">' +
-//                                            '<input type="text" name="stripeToken" value="' + stripeToken + '" />' +
-//                                            '</form>');
-//                                    $('body').append(form);
-//                                    form.submit();
                                     $.ajax({
                                         type: "POST",
                                         url: "/reserve",

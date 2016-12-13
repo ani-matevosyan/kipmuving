@@ -563,28 +563,45 @@ body.home2 .all-activities.custom_title header {
     transition: all .3s ease;
 }
 
-#header.new .pick-lang .glyphicon{
-    position: absolute;
-    top: 50px;
+
+#header.new .country .glyphicon{
+  position: absolute;
+  top: 50px;
+  color: #ffb400;
+  z-index: 1;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#header.new .country .pick-lang .glyphicon{
     right: 12px;
-    color: #ffb400;
-    z-index: 1;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+}
+
+#header.new .country .pick-curr .glyphicon{
+  right: 57px;
 }
 
 #header.new .pick-lang:hover{
     box-shadow: 2px 2px 0 0 #6b5216;
 }
 
+#header.new .pick-curr .current-curr{
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#header.new .pick-curr:hover .current-curr{
+  text-shadow: 3px 2px 1px #000;
+}
+
 #header .country .pick-lang img{
   margin: 0;
 }
 
-.choose-lang{
+.choose-menu{
     position: absolute;
     margin: 0;
     padding: 0;
@@ -602,7 +619,7 @@ body.home2 .all-activities.custom_title header {
     z-index: 2;
 }
 
-.choose-lang li{
+.choose-menu li{
     margin-bottom: 0;
     display: inline-block;
     padding: 10px 9px;
@@ -614,19 +631,33 @@ body.home2 .all-activities.custom_title header {
 }
 
 #header .country .choose-lang li:hover img{
-    transform: scale(1.2);
-}
-
-#header .country .choose-lang li:hover img{
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
 
 #header.new .pick-lang.pressed{
-    box-shadow: 2px 2px 0 0 #6b5216;
+  box-shadow: 2px 2px 0 0 #6b5216;
 }
 
-#header.new .pick-lang.pressed .glyphicon{
+#header.new .pick-curr.pressed .current-curr{
+  text-shadow: 3px 2px 1px #000;
+}
+
+#header .country .choose-curr li{
+  padding: 9px;
+}
+
+#header .country .choose-curr li a{
+  color: #46350d;
+  font-size: 12px;
+}
+
+#header .country .choose-curr li a:hover{
+  color: #fff;
+}
+
+#header.new .country .pick-lang.pressed .glyphicon,
+#header.new .country .pick-curr.pressed .glyphicon{
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -634,16 +665,23 @@ body.home2 .all-activities.custom_title header {
 
 }
 
+.pick-curr.pressed .choose-curr,
 .pick-lang.pressed .choose-lang{
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-    right: 0;
+}
+.pick-lang.pressed .choose-lang{
+  right: 0;
 }
 
-.current-lang{
+.pick-curr.pressed .choose-curr{
+  right: 38px;
+}
+
+.current-lang,
+.current-curr{
   cursor: pointer;
-  position: relative;
 }
 
 
