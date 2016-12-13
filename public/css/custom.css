@@ -680,12 +680,6 @@ body.home2 .all-activities.custom_title header {
   right: 38px;
 }
 
-@media(max-width: 505px){
-  .pick-curr.pressed .choose-curr{
-    right: 0;
-  }
-}
-
 .current-lang,
 .current-curr{
   cursor: pointer;
@@ -705,15 +699,6 @@ body.home2 .all-activities.custom_title header {
   right: 15px;
   top: 4px;
   display: none;
-}
-
-@media(max-width: 991px){
-  .burger-menu{
-    display: block;
-  }
-  #header.new .country{
-    margin-right: 30px;
-  }
 }
 
 .burger {
@@ -763,3 +748,28 @@ body.home2 .all-activities.custom_title header {
 
 /*--------------END BURGER MENU------------*/
 
+/*--------------RESPONSIVE PART---------------*/
+
+@media(max-width: 991px){
+    .burger-menu{
+        display: block;
+    }
+    #header.new .country{
+        margin-right: 30px;
+    }
+}
+
+@media(max-width: 505px){
+    #header.new .country{
+        margin-right: 0;
+    }
+    .burger-menu{
+        display: block;
+        right: 22px;
+        top: 35px;
+    }
+
+
+}
+
+/*--------------END RESPONSIVE PART---------------*/
