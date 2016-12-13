@@ -19,7 +19,7 @@
 			<input id="reserve-date-sd" type="text"
 					 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 					 placeholder="Fecha" class="form-control"
-					 value="{{ \Carbon\Carbon::parse(Session::get('selectedDate'))->format('d/m/Y') }}">
+					 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
 		</div>
 	</form>
 </section>

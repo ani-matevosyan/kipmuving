@@ -27,6 +27,7 @@ class Offer extends Model
 			->select(
 				'agencies.id',
 				'agencies.address',
+				'agencies.email',
 				'agencies.latitude',
 				'agencies.longitude',
 				'agencies.image',
@@ -217,7 +218,6 @@ class Offer extends Model
 			->first();
 		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
 
-//		dd($result);
 		return $offer;
 	}
 }

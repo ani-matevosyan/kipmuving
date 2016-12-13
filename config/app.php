@@ -13,6 +13,8 @@ return [
 	*/
 
 	'name' => 'Laravel',
+	#TODO change email
+	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------

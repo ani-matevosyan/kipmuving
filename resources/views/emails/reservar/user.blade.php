@@ -30,7 +30,7 @@
 								<td class="intro"
 									 style="font-size:16px; line-height:20px; color:#000000; padding-top:30px; padding-bottom:30px; border-bottom:1px solid #cccccc;">
 									<strong
-										style="display:block; font-weight:bold;">Hola {{ $userData['user']['first_name'] }} {{ $userData['user']['last_name'] }}</strong>,
+										style="font-weight:bold;">Hola {{ $data['user_first_name'] }} {{ $data['user_last_name'] }}</strong>,
 									muchas gracias por reservar con Kipmuving. Sigue abajo la confirmación de su reserva.<br><br>
 									<p>¿Qué haremos ahora? Vamos a confirmar todos los paseos con las agencias. Sabemos que
 										algunas están sujetas a disponibilidad por la cantidad de personas y también del clima.
@@ -39,11 +39,9 @@
 									<strong style="display:block; font-weight:bold;">Actividades que reservaste:</strong>
 								</td>
 							</tr>
-							@foreach($userData['offers'] as $key => $offer)
-								{{ dd($userData['activities'][$key]) }}
+							@foreach($data['offers'] as $offer)
 								<tr>
-									<td
-										style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
+									<td style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
 										<table cellpadding="0" cellspacing="0" width="100%">
 											<tr>
 												<td style="padding-bottom:20px;" colspan="2">
@@ -51,15 +49,15 @@
 														<tr>
 															<td width="51" height="39" valign="middle"
 																 style="font-size:0; line-height:0; padding-right:20px;">
-																<img src="{{ url($userData['activities'][$key]['icon']) }}"
+																<img src="{{ url($offer['activity_icon']) }}"
 																	  alt="activity image" align="left" vspace="0" hspace="0">
 															</td>
 															<td>
 																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:31px; line-height:35px; color:#089f02;">{{ $userData['activities'][$key]['name'] }}</span>
+																		style="font-size:31px; line-height:35px; color:#089f02;">{{ $offer['activity_name'] }}</span>
 																</h2>
 																<strong
-																	style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $userData['agencies'][$key]['name'] }}</strong>
+																	style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $offer['agency_name'] }}</strong>
 															</td>
 														</tr>
 													</table>
@@ -69,13 +67,19 @@
 												<td style="width:50%; padding-bottom:20px;" valign="top">
 													<strong style="display:block; font-weight:bold; padding-left:10px;">Debes
 														llevar:</strong>
-													<p>{{ $offer['carry'] }}</p>
+													<p>{{ $offer['offer_carry'] }}</p>
 												</td>
 												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<strong style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">Día: {{ $offer['date'] }}</strong>
-													<span style="display:block; margin-left:25px;"><strong>Duracion:</strong> {{ max(0, $offer['start_time'] - $offer['end_time']) }} hrs</span>
-{{--													<span style="display:block; border-bottom:1px solid #cccccc; padding-bottom:10px; margin-left:25px;"><strong>Horario:</strong> {{ $offer['offer']['start_hour'] }}:{{ $offer['offer']['start_min'] }} a {{ $offer['offer']['end_hour'] }}:{{ $offer['offer']['end_min'] }}</span>--}}
-{{--																										<span style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer['persona'] }}</strong> Persona</span>--}}
+													<strong style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">Día: {{ $offer['offer_date'] }}</strong>
+													<span style="display:block; margin-left:25px;"><strong>Duracion:</strong> {{ max(0, $offer['offer_end_time'] - $offer['offer_start_time']) }}
+														hrs</span>
+													<span
+														style="display:block;
+														border-bottom:1px solid #cccccc;
+														padding-bottom:10px;
+														margin-left:25px;"><strong>Horario:</strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }} a {{ date('H:i', strtotime($offer['offer_end_time'])) }}
+													</span>
+													<span style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer['offer_persons'] }}</strong> Persona</span>
 												</td>
 											</tr>
 											<tr>
@@ -98,7 +102,7 @@
 					<td id="footer" valign="top"
 						 style="padding-left:20px; padding-top:20px; padding-right:20px; padding-bottom:20px;">
 						Total a pagar en la agencia es de <span
-							style="color:#980e25; font-weight:bold;">$ {{ $userData['total_cost'] }} pesos.</span> Cada agencia
+							style="color:#980e25; font-weight:bold;">$ {{ $data['total_cost'] }} pesos.</span> Cada agencia
 						tiene su política de cancelación, esté atento a ellas en el momento de su reserva. Pero normalmente
 						puedes cancelar hasta 1 día antes de su actividad. En este caso, te devolveremos los 10% cancelado.
 						<br>
@@ -120,8 +124,7 @@
 						<br>
 						<br>
 						<br>
-						<span style="display:block; text-align:center;"><a href="#"
-																							style="color:#000000; text-decoration:none;">www.kipmuving.com</a></span>
+						<span style="display:block; text-align:center;"><a href="#" style="color:#000000; text-decoration:none;">www.kipmuving.com</a></span>
 					</td>
 				</tr>
 			</table>
