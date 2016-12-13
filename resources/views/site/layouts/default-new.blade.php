@@ -63,10 +63,12 @@
 							</div>
 						</div>
 						<div class="btn-holder">
-							<div class="avatar-wrapp">
-								<img src="{{ asset('/images/img-profile.jpg') }}" alt="Account name">
-							</div>
 							@if (!Auth::guest())
+								<div class="avatar-wrapp">
+									<img src="{{ asset($currentUser['avatar']) }}"
+										  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
+										  alt="Account name">
+								</div>
 								<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
 									title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 									{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}

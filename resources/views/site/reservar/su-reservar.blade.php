@@ -186,7 +186,7 @@
                         <script src="https://checkout.stripe.com/checkout.js"></script>
                         <script>
                             var handler = StripeCheckout.configure({
-                                key: "pk_test_SY9XPD8FBeX9vy6h0QHJ8nwT",
+                                key: "pk_test_Ozq7fWW5gnapw15qY6HmkQvs",
                                 image: "/images/logo-tent.png",
                                 name: "Kipmuving",
                                 description: "Kipmuving Adventures",
