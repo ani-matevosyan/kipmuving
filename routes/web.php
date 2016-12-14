@@ -60,3 +60,6 @@ Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
 
 #Locales
 Route::get('/locale/{code}', 'LocaleController@setLocale');
+
+#Currencies
+Route::get('/currency/{code}', 'CurrencyController@setCurrency');

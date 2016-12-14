@@ -14,7 +14,7 @@ class Activity extends Model
 //		Upload::setAttribute as setUploadAttribute;
 //	}
 	use Translatable;
-
+	
 	public $translationModel = 'App\ActivityTranslation';
 	public $translatedAttributes = [
 		'name',
@@ -24,7 +24,7 @@ class Activity extends Model
 		'carry',
 		'restrictions'
 	];
-
+	
 	protected $table = 'activities';
 
 //	protected $casts = [
@@ -32,19 +32,20 @@ class Activity extends Model
 //		'image_thumb' => 'image',
 //		'image_icon' => 'image'
 //	];
-
+	
 	private function dataToArray($data)
 	{
 		if ($data)
 			return explode(";\r\n", $data);
+		
 		return null;
 	}
-
+	
 	public function images()
 	{
 		return $this->hasMany('App\ActivityImage', 'activity_id', 'id');
 	}
-
+	
 	public function getImagesAttribute()
 	{
 		$images = ActivityImage::where('activity_id', $this['id'])->get();
@@ -52,9 +53,10 @@ class Activity extends Model
 		foreach ($images as $image) {
 			$imagesUrls[] = $image['image_url'];
 		}
+		
 		return $imagesUrls;
 	}
-
+	
 	public function setImagesAttribute($images)
 	{
 		$images = array_unique($images);
@@ -68,7 +70,7 @@ class Activity extends Model
 			$activity->images()->save($activityImage);
 		}
 	}
-
+	
 	public function getHomePageActivities()
 	{
 		$currentDate = session('selectedDate');
@@ -84,10 +86,10 @@ class Activity extends Model
 				->first();
 			$offer['price'] ? $activity['price'] = $offer['price'] : $activity['price'] = 0.00;
 		}
-
+		
 		return $activities;
 	}
-
+	
 	public function getActivitiesList()
 	{
 		$currentDate = session('selectedDate');
@@ -98,19 +100,20 @@ class Activity extends Model
 			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')
 			->get();
-
+		
 		return $activitiesList;
 	}
-
+	
 	public function getActivity($id)
 	{
 		$activity = Activity::where('id', $id)
 			->first();
 		$activity['carry'] = $this->dataToArray($activity['carry']);
 		$activity['restrictions'] = $this->dataToArray($activity['restrictions']);
+		
 		return $activity;
 	}
-
+	
 	public function getAllActivities()
 	{
 		$activities['trekking'] = Activity::where('styles', 'like', '%trekking%')
@@ -140,6 +143,7 @@ class Activity extends Model
 				$offer['price'] ? $item['price'] = $offer['price'] : $item['price'] = 0.00;
 			}
 		}
+		
 		return $activities;
 	}
 }
