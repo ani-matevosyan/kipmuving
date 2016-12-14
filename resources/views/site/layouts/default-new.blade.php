@@ -43,19 +43,15 @@
 						</ul>
 					</div>
 					<div class="pick-curr">
-						<span class="current-curr">CLP $</span>
+						<span class="current-curr">{{ session('currency.type') }} $</span>
 						<span class="glyphicon glyphicon-triangle-top"></span>
 						<ul class="choose-menu choose-curr">
-							<li>
-								<a href="#">
-									BRL
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									USD
-								</a>
-							</li>
+							@foreach(session('currencies') as $currency)
+								@continue($currency == session('currency.type'))
+								<li><a
+											href="{{ action('CurrencyController@setCurrency', $currency) }}">{{ $currency }}</a>
+								</li>
+							@endforeach
 						</ul>
 					</div>
 				</div>
