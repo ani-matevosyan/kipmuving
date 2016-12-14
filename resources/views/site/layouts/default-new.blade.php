@@ -16,20 +16,20 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-xs-6">
-                        <div class="logo">
-                            <a href="{{ action('HomeController@index') }}">
-                                <img src="{{ asset('/images/logo-new.png') }}"
-                                      alt="image description"
-                                      width="220" height="56"
-                                      onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-md-push-6 col-xs-6">
-                        <div class="burger-menu">
-                            <div class="burger"></div>
-                        </div>
-                        <div class="country">
+						<div class="logo">
+							<a href="{{ action('HomeController@index') }}">
+								<img src="{{ asset('/images/logo-new.png') }}"
+									  alt="image description"
+									  width="220" height="56"
+									  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-3 col-md-push-6 col-xs-6">
+						<div class="burger-menu">
+							<div class="burger"></div>
+						</div>
+						<div class="country">
 							<div class="img-flag pick-lang">
 								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
 									  alt="image description" class="current-lang">
@@ -46,31 +46,27 @@
 								</ul>
 							</div>
 							<div class="pick-curr">
-								<span class="current-curr">CLP $</span>
+								<span class="current-curr">{{ session('currency.type') }} $</span>
 								<span class="glyphicon glyphicon-triangle-top"></span>
 								<ul class="choose-menu choose-curr">
-									<li>
-										<a href="#">
-											BRL
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											USD
-										</a>
-									</li>
+									@foreach(session('currencies') as $currency)
+										@continue($currency == session('currency.type'))
+										<li><a
+												href="{{ action('CurrencyController@setCurrency', $currency) }}">{{ $currency }}</a>
+										</li>
+									@endforeach
 								</ul>
 							</div>
 						</div>
 						<div class="btn-holder">
-                            <div class="avatar-wrapp">
-                                @if (!Auth::guest())
-                                    <img src="{{ asset($currentUser['avatar']) }}"
-                                          onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-                                          alt="Account name">
-                                @endif
-                            </div>
-                            @if (!Auth::guest())
+							<div class="avatar-wrapp">
+								@if (!Auth::guest())
+									<img src="{{ asset($currentUser['avatar']) }}"
+										  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
+										  alt="Account name">
+								@endif
+							</div>
+							@if (!Auth::guest())
 								<a href="{{ action('UserController@getUser', $currentUser['id']) }}" class="btn btn-primary"
 									title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 									{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
@@ -104,7 +100,7 @@
 								</li>
 							</ul>
 						</nav>
-                        <div class="nav-cover"></div>
+						<div class="nav-cover"></div>
 					</div>
 				</div>
 			</div>
@@ -172,7 +168,8 @@
 								<div class="sub-row">
 									<label for="message">{{ trans('form.message') }}</label>
 									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters"></textarea>
+										<textarea rows="5" cols="5" class="form-control" id="message" name="message"
+													 placeholder="min 5 letters"></textarea>
 									</div>
 								</div>
 								<input type="submit" value="OK" class="btn btn-success">
