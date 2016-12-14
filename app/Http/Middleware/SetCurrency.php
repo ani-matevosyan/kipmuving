@@ -70,7 +70,7 @@ class setCurrency
 			
 			$data = [
 				'type'       => $currencyType,
-				'value'      => $values,
+				'values'      => $values,
 				'updated_at' => Carbon::now()->toDateTimeString()
 			];
 			session()->put('currency', $data);

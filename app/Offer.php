@@ -60,6 +60,28 @@ class Offer extends Model
 
 		return $result;
 	}
+	
+	public function getPriceAttribute(){
+		$price = $this->attributes['price'];
+		
+		if (session('currency.type') == 'USD')
+			$price = round($price / session('currency.values.USDCLP'));
+		elseif (session('currency.type') == 'BRL')
+			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
+		
+		return $price;
+	}
+	
+	public function getPriceOfferAttribute(){
+		$price = $this->attributes['price_offer'];
+		
+		if (session('currency.type') == 'USD')
+			$price = round($price / session('currency.values.USDCLP'));
+		elseif (session('currency.type') == 'BRL')
+			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
+		
+		return $price;
+	}
 
 	public function getActivityAttribute()
 	{

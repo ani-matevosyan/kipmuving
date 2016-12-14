@@ -25,7 +25,7 @@ class CurrencyController extends Controller
 			
 			$data = [
 				'type'  => $code,
-				'value' => $values,
+				'values' => $values,
 				'updated_at' => Carbon::now()->toDateTimeString()
 			];
 		} else
