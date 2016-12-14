@@ -701,6 +701,14 @@ tooltip fade top in {
     position: relative;
     text-align: left;
     background: transparent; }
+.placeholder-info a strong{
+    line-height: 31px;
+}
+
+.placeholder-info a p{
+    margin-left: 35px;
+}
+
 .placeholder-info a img {
     margin-right: 5px;
     width: 40px;
@@ -960,6 +968,9 @@ tooltip fade top in {
 
 #m-box-3 .placeholder-info a {
   width: 170px; }
+
+#m-box-3 .placeholder-info a strong {
+    line-height: normal; }
 
 .fancy-button {
   color: #ffffff; }

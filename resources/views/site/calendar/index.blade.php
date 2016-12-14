@@ -22,7 +22,7 @@
 							</p>
 							<br/>
 							<a href="{{ action('ActivityController@index') }}"
-								class="calendarbtnactividades">{{ trans('main.include_more_activities') }}</a>
+								class="btn btn-success btn-success-cal">{{ trans('main.include_more_activities') }}</a>
 							<Br/><Br/>
 						</header>
 

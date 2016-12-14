@@ -17,23 +17,27 @@
 						<article class="main-post">
 							<header>
 								<h1>{{ $agency['name'] }}</h1>
-								<!-- <strong class="sub-title">O`Higgins Nº211-C </strong> -->
+								<strong class="sub-title">O`Higgins Nº211-C </strong>
 							</header>
 							<div class="post-holder">
-								<div class="align-left">
-									<img src="/{{ $agency['image'] }}" alt="image description">
-								</div>
-								<!-- <div class="align-right"><img src="images/img16.jpg" alt="image description"></div> -->
-								<div class="text">
-									<!-- <div class="rating">
-										<div class="star"><img alt="image description" src="images/img-star.png"></div>
-										<span>120 comentarios</span>
-									</div> -->
-									<div class="text-holder">
-										<p>{{ $agency['description'] }}</p>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="agency-photo-wrapp">
+											<img src="/{{ $agency['image'] }}" alt="image description">
+										</div>
 									</div>
-									<div class="trip-adv">
+									<div class="col-md-8">
+										<div class="text">
+											<p>{{ $agency['description'] }}</p>
+										</div>
+                                        <div class="row">
+                                            <div class="col-xs-9">
+                                                <div id="instafeed4" class="instafeed"></div>
+                                            </div>
+                                            <div class="col-xs-3">
 
+                                            </div>
+                                        </div>
 									</div>
 								</div>
 							</div>
@@ -124,4 +128,25 @@
 			</div>
 		</div>
 	</main>
+    <div id="myModalX" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <!-- <h4 class="modal-title">Confirmation</h4> -->
+                </div>
+                <div class="modal-body">
+                    <div id="the-image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
+    <div id="data"> <!-- Keep this div for instafeed information -->
+    </div>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 @stop

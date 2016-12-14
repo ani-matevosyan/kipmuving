@@ -90,6 +90,6 @@
         </div>
     </div>
 </main>
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/guia-instafeed.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/tripadvisor.css') }}">
 @stop

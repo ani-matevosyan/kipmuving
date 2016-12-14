@@ -66,7 +66,8 @@
   font-size: 13px;
 }
 .offers-list li a:hover {
-  text-decoration: line-through;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
 }
 /* Calendar Customization */
 .fc-time-grid .fc-event,
@@ -284,9 +285,11 @@ body.home2 .all-activities.custom_title header {
         top: 0;
         left: 12px;
         bottom: 0;
-        background: url(../images/minus.png);
+        background: url(../images/minus.svg);
+        background-size: 13px;
         margin: auto;
       }
+
       .s_suprogram ul li h4 {
         margin: 0; }
       .s_suprogram ul li span {

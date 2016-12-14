@@ -35,11 +35,12 @@ class ReservationController extends Controller
 		$selectedOffers = session('selectedOffers');
 		$results = [];
 		$total_cost = 0;
+        $topay = 0;
 		$persons = $offer->getSelectedOffersPersons();
-		
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
 			$total_cost += $offer['price_offer'] * $selectedOffer['persons'];
+            $topay += $selectedOffer['persons']*5;
 			$results[] = [
 				'offerData'    => [
 					'id'         => $offer['offer_id'],
@@ -67,7 +68,8 @@ class ReservationController extends Controller
 			'total_cost' => $total_cost,
 			'user'       => Auth::user(),
 			'offers'     => $results,
-			'persons'    => $persons
+			'persons'    => $persons,
+            'topay'      => $topay
 		];
 		
 		return view('site.reservar.su-reservar', $data);
