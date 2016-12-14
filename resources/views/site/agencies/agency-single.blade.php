@@ -30,12 +30,12 @@
 										<div class="text">
 											<p>{{ $agency['description'] }}</p>
 										</div>
-                                        <div class="row">
-                                            <div class="col-xs-9">
-                                                <div id="instafeed4" class="instafeed"></div>
-                                            </div>
-                                            <div class="col-xs-3">
-
+                                        <div class="agency-gallery">
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <div id="instafeed4" class="instafeed"></div>
+                                                </div>
+                                                <span class="agency-tag">aguaventura</span>
                                             </div>
                                         </div>
 									</div>
@@ -43,55 +43,11 @@
 							</div>
 						</article>
 						<div class="row">
-							<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-7 col-sm-12 col-xs-12">
 								<section class="post-box">
 									<div class="performed-act">
 										<h2>{{ trans('main.realized_activities') }}</h2>
 										<p>{{ trans('main.activities_that_this_agency_performs') }}</p>
-										<!-- <div class="activites-bar">
-											<ul class="activities-list">
-												<li class="active">
-													<a href="#" class="green">
-														<div class="ico">
-															<img src="/images/ico-treking.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='/images/ico16.png'">
-														</div>
-														<strong>Trekking</strong>
-													</a>
-												</li>
-												<li>
-													<a href="#" class="orange">
-														<div class="ico">
-															<img src="/images/ico-rio.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='/images/ico17.png'">
-														</div>
-														<strong>Río</strong>
-													</a>
-												</li>
-												<li>
-													<a href="#" class="yellow">
-														<div class="ico">
-															<img src="/images/ico-tour.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='/images/ico18.png'">
-														</div>
-														<strong>Tour</strong>
-													</a>
-												</li>
-												<li>
-													<a href="#" class="sky-blue">
-														<div class="ico">
-															<img src="/images/ico-relax.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='/images/ico19.png'">
-														</div>
-														<strong>Relax</strong>
-													</a>
-												</li>
-												<li>
-													<a href="#" class="violet">
-														<div class="ico">
-															<img src="/images/ico-nieve.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='/images/ico20.png'">
-														</div>
-														<strong>Nieve</strong>
-													</a>
-												</li>
-											</ul>
-										</div> -->
 									</div>
 									<ul class="accordion">
 										@foreach ($offers as $offer)
@@ -100,7 +56,7 @@
 									</ul>
 								</section>
 							</div>
-							<div class="col-md-4 col-sm-12 col-xs-12">
+							<div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
 								<div class="map-block">
 									<div id="map" style="width: 100%; height: 300px"></div>
 									<script type="text/javascript">
