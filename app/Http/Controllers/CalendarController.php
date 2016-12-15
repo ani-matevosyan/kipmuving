@@ -41,7 +41,7 @@ class CalendarController extends Controller
 				->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 				->join('agencies', 'agencies.id', 'offers.agency_id')
 				->join('agency_translations', 'agencies.id', 'agency_translations.agency_id')
-				->where('activity_translations.locale', app()->getLocale())
+//				->where('activity_translations.locale', app()->getLocale())
 				->select(
 					'offers.start_time',
 					'offers.end_time',

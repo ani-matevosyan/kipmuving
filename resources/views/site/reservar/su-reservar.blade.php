@@ -16,6 +16,7 @@
 							<div class="row">
 								<div class="col-md-8 col-sm-12 col-xs-12">
 									@if (! empty($message))
+										{{--TODO translate--}}
 										<header class="head">
 											<h1>{{ $message }}</h1>
 											<p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
@@ -76,11 +77,13 @@
 																		{{ trans('form.day') }}: {{ $offer['offerData']['date'] }}
 																	</strong>
 																	<strong>
-																		<span>{{ trans('main.duration') }}:</span> {{ $offer['offerData']['end_time'] - $offer['offerData']['start_time'] }}
+																		<span>{{ trans('main.duration') }}
+																			:</span> {{ $offer['offerData']['end_time'] - $offer['offerData']['start_time'] }}
 																		hrs
 																	</strong>
 																	<strong>
-																		<span>{{ trans('main.schedule') }}:</span> {{ \Carbon\Carbon::parse($offer['offerData']['start_time'])->format('H:i') }}
+																		<span>{{ trans('main.schedule') }}
+																			:</span> {{ \Carbon\Carbon::parse($offer['offerData']['start_time'])->format('H:i') }}
 																		a {{ \Carbon\Carbon::parse($offer['offerData']['end_time'])->format('H:i') }}
 																	</strong>
 																</li>
@@ -106,21 +109,16 @@
 									@if (empty($message))
 										<section class="s_moredetails">
 											<header>
-												<h3><i class="fa fa-plus-circle" aria-hidden="true"></i> Más detalles</h3>
+												<h3><i class="fa fa-plus-circle"
+														 aria-hidden="true"></i> {{ trans('main.more_details') }}</h3>
 											</header>
-											<p>Para confirmar suas atividades, pressione o botõe <strong>RESERVAR ESTE
-													PANORAMA.</strong>Faça a confirmação com o pagamento da taxa de serviço de apenas
-												<strong>U$ 5 dólares.</strong> Em seguida te chegará um email com os detalhes da
-												reserva.</p>
-											<p class="carrio-heading">Para cancelar su reserva</p>
-											<p>Chegará ao seu email os dados da agencia e deverá entrar em contato com ela para
-												cancelar qualquer reserva,
-												também adiantar datas ou ter mais informações.</p>
-											<p class="carrio-heading">Información general</p>
-											<p>Tenga en cuenta que está contratando las agencias no a KipMuving.com. KipMuving.com
-												facilita su contrato con el proveedor de actividades en Pucón a través del uso de su
-												sistema de reserva. Imprima una copia de este formulario de reserva y de los
-												Términos y condiciones y guárdelos como referencia.</p>
+											<p>{{ trans('main.to_confirm_your_activities') }}
+												<strong>{{ trans('main.reserve_this_panorama') }}. </strong>{{ trans('main.confirm_with_payment_of_service') }}
+												<strong>5 USD</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
+											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
+											<p class="carrio-heading">{{ trans('main.general_information') }}</p>
+											<p>{{ trans('main.please_note_that_you_are_hiring') }}</p>
 										</section>
 									@endif
 
@@ -128,8 +126,8 @@
 								<div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
 									<section class="s_suprogram">
 										<header>
-											<h3>Su programa</h3>
-											<p><span id="count_activities">{{ count($offers) }}</span> actividades</p>
+											<h3>{{ trans('main.program') }}</h3>
+											<p><span id="count_activities">{{ count($offers) }}</span> {{ trans('main.activities') }}</p>
 										</header>
 										<ul class="offers-list">
 											@foreach ($offers as $offer)
@@ -143,48 +141,42 @@
 										<div class="total">
 											<div class="totalprice">
 												<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
-												<span>total em pesos</span>
+												<span>{{ trans('main.total') }}</span>
 											</div>
 											<?php $total_discount = $total_cost * 0.1 ?>
 											<div class="discount">
-												<span>está economizando</span>
+												<span>{{ trans('main.you_save') }}</span>
 												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 											</div>
 										</div>
-										<a href="#" class="btn-reservar reserve" data-toggle="modal" data-target="#PaymentModal">Reservar
-											este panorama</a>
+										<a href="#" class="btn-reservar reserve" data-toggle="modal"
+											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
 										<div class="note">
-											* valor aproximado
+											* {{ trans('main.approximate_value') }}
 										</div>
 									</section>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">
 											<header>
-												<h3>Como funciona <span>KipMuving</span></h3>
+												<h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
 											</header>
 											<div class="item percent">
 												<img src="images/10-grey.svg" alt="10%">
-												<p>Acordo realizado com as agencias locais</p>
+												<p>{{ trans('main.agreement_with_local_agencies') }}</p>
 											</div>
 											<div class="item umbrella">
 												<img src="images/umbrella-grey.svg" alt="umbrella">
-												<p><span>Apoianos</span> com um pequena comissão de <span>U$ 5 </span> pagar a
-													manutenção do site, etc.</p>
+												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>U$ 5 </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 											</div>
 											<div class="item broklink">
 												<img src="images/broken-link-grey.svg" alt="broken-link">
-												<p>Fazemos a união sua com a agencia. Você paga seus passeios diretamente com
-													eles.</p>
+												<p>{{ trans('main.we_make_your_union_with_agency') }}</p>
 											</div>
 										</div>
 										<div class="payment">
-											<span>Pode usar:</span>
-											<a href="#">
-												<img src="images/stripe.png" alt="Stripe">
-											</a>
-											<a href="#">
-												<img src="images/paypal.png" alt="PayPal">
-											</a>
+											<span>{{ trans('main.you_can_use') }}:</span>
+											<a href="#"><img src="images/stripe.png" alt="Stripe"></a>
+											<a href="#"><img src="images/paypal.png" alt="PayPal"></a>
 										</div>
 									</section>
 								</div>
@@ -199,12 +191,12 @@
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">Como quer confirmar su reserva?</h4>
+					<h4 class="modal-title" id="myModalLabel">{{ trans('main.how_do_you_want_to_confirm_reservation') }}</h4>
 				</div>
 				<div class="modal-body">
 					<div class="payment-way stripe-way">
 						<img src="images/stripe.png" alt="Stripe">
-						<button id="stripe-pay" type="button">CONFIRMAR TARJETA</button>
+						<button id="stripe-pay" type="button">{{ trans('main.confirm_card') }}</button>
 						<script src="https://checkout.stripe.com/checkout.js"></script>
 						<script>
                       var handler = StripeCheckout.configure({
@@ -213,7 +205,7 @@
                           name: "Kipmuving",
                           description: "Kipmuving Adventures",
                           allowRememberMe: false,
-                          amount: {{number_format($topay)*100}},
+                          amount: {{ number_format($topay) * 100 }},
                           token: function (token) {
                               $.ajax({
                                   type: "POST",
@@ -240,7 +232,7 @@
 					</div>
 					<div class="payment-way paypal-way">
 						<img src="images/paypal.png" alt="PayPal">
-						<button id="paypal-pay" type="button">CONFIRMAR PAYPAL</button>
+						<button id="paypal-pay" type="button">{{ trans('main.confirm_paypal') }}</button>
 						<form name='_xclick' action='{{	config('app.paypal_url') }}' method='post'>
 							<input type='hidden' name='cmd' value='_xclick'>
 							<input type='hidden' name='business'
@@ -249,7 +241,7 @@
 							<input type='hidden' name='item_name' value='Kipmuving Activities Reservation'>
 							<input type='hidden' name='custom' value='{{ count($offers) }}'>
 							<input type='hidden' name='amount'
-									 value='{{(((count($offers))*$persons)*5)*100}}'>
+									 value='{{ $topay }}'>
 							<input type='hidden' name='no_shipping' value='1'>
 							<input type='hidden' name='rm' value='2'>
 							<input type='hidden' name='return' value='{{ URL::to('/reserve') }}'>

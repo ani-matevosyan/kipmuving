@@ -33,6 +33,10 @@ class ReservationController extends Controller
 			return view('site.reservar.reservar');
 		
 		$selectedOffers = session('selectedOffers');
+		
+		if(!$selectedOffers)
+			return redirect()->to(action('HomeController@index'));
+		
 		$results = [];
 		$total_cost = 0;
 		$topay = 0;
@@ -178,6 +182,9 @@ class ReservationController extends Controller
 							$message->to($user['email'])->subject('Kipmuving.com reservation');
 						});
 					}
+					
+					session()->forget('selectedOffers');
+					
 					$message = 'Success :)';
 					
 					return $message;
