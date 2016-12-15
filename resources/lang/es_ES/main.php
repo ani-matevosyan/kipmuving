@@ -188,5 +188,10 @@ return [
 	'best_spa' => 'Melhores termas',
 	'to_relax' => 'Para relaixar',
 	'national_parks' => 'Parques Nacionais',
-	'incredible_parks' => 'Increíveis parques'
+	'incredible_parks' => 'Increíveis parques',
+	
+	'to_confirm_reservation' => 'Para confirmar la reserva, por favor, registrase en Kipmuving o si ya eres registrado, haga login con su email y clave.',
+	'sign_up_using_your_email' => 'Regístrate utilizando tu dirección de correo eletrónico',
+	'reservation' => 'Reserva',
+	'you_must_take' => 'Debes llevar'
 ];

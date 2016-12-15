@@ -14,8 +14,8 @@ class Agency extends Model
 
 	public function getAgencies()
 	{
-		$agencies = AgencyTranslation::where('agency_translations.locale', app()->getLocale())
-			->join('agencies', 'agency_translations.agency_id', 'agencies.id')
+		$agencies = AgencyTranslation::join('agencies', 'agency_translations.agency_id', 'agencies.id')
+//			->where('agency_translations.locale', app()->getLocale())
 			->select(
 				'agencies.id',
 				'agencies.image',

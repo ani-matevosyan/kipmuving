@@ -93,9 +93,9 @@ class Activity extends Model
 	public function getActivitiesList()
 	{
 		$currentDate = session('selectedDate');
-		$activitiesList = Activity::where('activity_translations.locale', app()->getLocale())
-			->whereDate('activities.available_start', '<', $currentDate)
+		$activitiesList = Activity::whereDate('activities.available_start', '<', $currentDate)
 			->whereDate('activities.available_end', '>', $currentDate)
+//			->where('activity_translations.locale', app()->getLocale())
 			->join('activity_translations', 'activity_translations.activity_id', 'activities.id')
 			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')

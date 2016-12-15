@@ -188,5 +188,11 @@ return [
 	'best_spa' => 'Best spa',
 	'to_relax' => 'To relax',
 	'national_parks' => 'National parks',
-	'incredible_parks' => 'Incredible parks'
+	'incredible_parks' => 'Incredible parks',
+	
+	'to_confirm_reservation' => 'To confirm the reservation, please register in Kipmuving or if you are already registered, login with your email and password.',
+	'sign_up_using_your_email' => 'Sign up using your email address',
+	'reservation' => 'Reservation',
+	'you_must_take' => 'You must take'
+	
 ];

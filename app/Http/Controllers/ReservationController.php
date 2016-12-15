@@ -30,17 +30,17 @@ class ReservationController extends Controller
 	public function index(Offer $offer, $message = null)
 	{
 		if (Auth::guest())
-			return redirect()->to(action('HomeController@index'));
+			return view('site.reservar.reservar');
 		
 		$selectedOffers = session('selectedOffers');
 		$results = [];
 		$total_cost = 0;
-        $topay = 0;
+		$topay = 0;
 		$persons = $offer->getSelectedOffersPersons();
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
 			$total_cost += $offer['price_offer'] * $selectedOffer['persons'];
-            $topay += $selectedOffer['persons']*5;
+			$topay += $selectedOffer['persons'] * 5;
 			$results[] = [
 				'offerData'    => [
 					'id'         => $offer['offer_id'],
@@ -69,7 +69,7 @@ class ReservationController extends Controller
 			'user'       => Auth::user(),
 			'offers'     => $results,
 			'persons'    => $persons,
-            'topay'      => $topay
+			'topay'      => $topay
 		];
 		
 		return view('site.reservar.su-reservar', $data);
@@ -130,9 +130,9 @@ class ReservationController extends Controller
 						
 						$agencyData[$offer['offerAgency']['email']][] = [
 							'activity_name' => $offer['offerActivity']['name'],
-							'offer_date' => $sessionOffers[$key]['date'],
+							'offer_date'    => $sessionOffers[$key]['date'],
 							'offer_persons' => $sessionOffers[$key]['persons'],
-							'offer_price' => $offer['price_offer']
+							'offer_price'   => $offer['price_offer']
 						];
 						
 						#Collect offers data
@@ -156,21 +156,21 @@ class ReservationController extends Controller
 						$message->from('info@kipmuving.com', 'Kipmuving team');
 						$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
 					});
-
+					
 					#Send email about reservation to admin
 					Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
 						$message->from('info@kipmuving.com', 'Kipmuving team');
 						$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
 					});
-
+					
 					#Send emails about reservation to agencies
 					foreach ($agencyData as $agency_email => $item) {
 						Mail::send('emails.reservar.agencia', [
 							'data' => [
-								'offers' => $item,
+								'offers'          => $item,
 								'user_first_name' => $data['user_first_name'],
-								'user_last_name' => $data['user_last_name'],
-								'user_email' => $data['user_email'],
+								'user_last_name'  => $data['user_last_name'],
+								'user_email'      => $data['user_email'],
 							]
 						], function ($message) use ($user) {
 							$message->from('info@kipmuving.com', 'Kipmuving team');
@@ -178,15 +178,15 @@ class ReservationController extends Controller
 							$message->to($user['email'])->subject('Kipmuving.com reservation');
 						});
 					}
-                    $message = 'Success :)';
-
+					$message = 'Success :)';
+					
 					return $message;
 				}
 			}
 		}
-
+		
 		$message = 'Failure :(';
-
+		
 		return $message;
 	}
 }
