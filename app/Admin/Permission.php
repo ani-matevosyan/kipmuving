@@ -30,5 +30,5 @@ AdminSection::registerModel(Permission::class, function (ModelConfiguration $mod
     });
 
 })
-    ->addMenuPage(Permission::class, 1)
+    ->addMenuPage(Permission::class, 5)
     ->setIcon('fa fa-key');

@@ -22,5 +22,5 @@ AdminSection::registerModel(HomeMail::class, function (ModelConfiguration $model
 	});
 
 })
-	->addMenuPage(HomeMail::class, 0)
+	->addMenuPage(HomeMail::class, 4)
 	->setIcon('fa fa-envelope-o');

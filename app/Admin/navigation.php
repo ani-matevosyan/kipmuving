@@ -35,11 +35,11 @@ return [
 //	],
 
 	[
-		'title' => 'Activities',
-		'icon' => 'fa fa-tree',
-		(new Page(\App\Activity::class))
-			->setIcon('fa fa-chevron-right')
-			->setPriority(0)
+//		'title' => 'Activities',
+//		'icon' => 'fa fa-tree',
+//		(new Page(\App\Activity::class))
+//			->setIcon('fa fa-chevron-right')
+//			->setPriority(0)
 //		'model' => '\App\Activity',
 //		'pages' => [
 //			'title' => 'Styles',

@@ -60,5 +60,5 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 	});
 
 })
-	->addMenuPage(Agency::class, 0)
+	->addMenuPage(Agency::class, 1)
 	->setIcon('fa fa-university');
