@@ -11,7 +11,7 @@ return [
 	'agencies'               => 'agencies',
 	
 	'what_activities_search' => 'What activities do you want to do?',
-	'in_all_activities'      => 'en todas las actividades',
+	'in_all_activities'      => 'in all activities',
 	
 	'program'        => 'Program',
 	'activities_for' => 'activities for',
@@ -202,6 +202,6 @@ return [
 	'please_note_that_you_are_hiring'        => 'Please note that you are hiring the agencies not at KipMuving.com. KipMuving.com facilitates your contract with the activities provider in Pucón through the use of its reservation system. Print a copy of this booking form and the Terms and Conditions and keep them for reference.',
 	'total'                                  => 'Total',
 	'how_do_you_want_to_confirm_reservation' => 'How do you want to confirm your reservation?',
-	'confirm_card' => 'Confirm card',
-	'confirm_paypal' => 'Confirm PayPal'
+	'confirm_card'                           => 'Confirm card',
+	'confirm_paypal'                         => 'Confirm PayPal'
 ];

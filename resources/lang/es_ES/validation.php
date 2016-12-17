@@ -1,17 +1,6 @@
 <?php
 
-return array(
-	/*
-	|--------------------------------------------------------------------------
-	| Validation Language Lines
-	|--------------------------------------------------------------------------
-	|
-	| El following language lines contain the default error messages used by
-	| the validator class. Some of these rules have multiple versions such
-	| such as the size rules. Feel free to tweak each of these messages.
-	|
-	*/
-
+return [
 	"accepted"         => "El campo :attribute debe ser aceptado.",
 	"active_url"       => "El campo :attribute no es una URL válida.",
 	"after"            => "El campo :attribute debe ser una fecha posterior a :date.",
@@ -62,31 +51,16 @@ return array(
 	],
 	"unique"           => "El campo :attribute ya ha sido tomado.",
 	"url"              => "El formato del campo :attribute es inválido.",
-
-	/*
-	|--------------------------------------------------------------------------
-	| Custom Validation Language Lines
-	|--------------------------------------------------------------------------
-	|
-	| Here you may specify custom validation messages for attributes using the
-	| convention "attribute.rule" to name the lines. This makes it quick to
-	| specify a specific custom language line for a given attribute rule.
-	|
-	*/
-
-	'custom' => [],
-
-	/*
-	|--------------------------------------------------------------------------
-	| Custom Validation Attributes
-	|--------------------------------------------------------------------------
-	|
-	| El following language lines are used to swap attribute place-holders
-	| with something more reader friendly such as E-Mail Address instead
-	| of "email". This simply helps us make messages a little cleaner.
-	|
-	*/
-
-	'attributes' => [],
-
-);
+	
+	
+	#Custom Validation Language Lines
+	'custom'           => [
+		'attribute-name' => [
+			'rule-name' => 'custom-message',
+		],
+	],
+	
+	
+	#Custom Validation Attributes
+	'attributes'       => [],
+];
