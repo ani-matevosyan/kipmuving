@@ -533,7 +533,7 @@
 													@endforeach
 													<span style="color:#980e25">
 														<span style="font-size:16px">
-															<strong>Total a pagar de ${{ $total_cost }}</strong>
+															<strong>Total a pagar de ${{ $total_cost }} CLP</strong>
 														</span>
 													</span>
 												</td>

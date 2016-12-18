@@ -203,6 +203,19 @@ return [
 	'total'                                  => 'Total',
 	'how_do_you_want_to_confirm_reservation' => 'Como quer confirmar su reserva?',
 	'confirm_card'                           => 'Confirmar tarjeta',
-	'confirm_paypal'                         => 'Confirmar PayPal'
+	'confirm_paypal'                         => 'Confirmar PayPal',
+	
+	'my_account' => 'Mi cuenta',
+	'my_profile' => 'Mi Perfil',
+	'my_adventures' => 'Mis Aventuras',
+	'here_your_personal_info' => 'Aquí están sus informaciones personales. Puedes actualizarla a cualquier momento.',
+	'the_frontal_photos' => 'Las fotos frontales son muy importantes para que los anfitriones y huespedes peudan conocerse mejor. Hospedar a un paisaje no us muy divertido que digamos! Por favor, sube una foto en la que se vea claramente tu cara.',
+	'i_am' => 'Soy',
+	'sex' => 'Sexo',
+	'man' => 'Hombre',
+	'woman' => 'Mujer',
+	'we_will_not_share_email' => 'No compartimremos tu direction de correo electronico personal con otros usarios',
+	'update' => 'ACTUALIZAR',
+	'here_you_will_find_adventures' => 'Aquí encontrarás todas sus aventuras.',
 
 ];

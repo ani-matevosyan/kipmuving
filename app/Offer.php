@@ -102,6 +102,11 @@ class Offer extends Model
 		return $agency['name'];
 	}
 	
+	public function getRealPriceAttribute()
+	{
+		return $this->attributes['price_offer'];
+	}
+	
 	public function getRecommendOffers($activityId)
 	{
 		$offers = Offer::join('agencies', 'offers.agency_id', 'agencies.id')

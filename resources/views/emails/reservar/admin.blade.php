@@ -527,11 +527,11 @@
 															Email: <a href="#"
 																		 style="color:#000; text-decoration:none;"><span>{{ $data['user_email'] }}</span></a><br>
 															Persona: {{ $offer['offer_persons'] }}<br>
-															Price: {{ $offer['offer_price'] }}<br>
+															Price: {{ $offer['offer_price'] }} CLP<br>
 															&nbsp;
 														</address>
 													@endforeach
-													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $data['total_cost'] }}</strong></span></span>
+													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $data['total_cost'] }} CLP</strong></span></span>
 												</td>
 											</tr>
 											</tbody>

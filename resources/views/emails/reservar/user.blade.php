@@ -18,9 +18,10 @@
 					<td class="header" bgcolor="#133939"
 						 style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
 						<span width="340" valign="top" height:"82" style="display:block;" style="width:250px !important;
-						height:auto !important; overflow:hidden;"><img src="{{ url('/images/logo1.png') }}" alt=""
-																					  align="left" vspace="0" hspace="0"
-																					  class="width:250px !important;"></span>
+						height:auto !important; overflow:hidden;">
+						<img src="{{ url('/images/logo1.png') }}" alt="" align="left" vspace="0" hspace="0"
+							  class="width:250px !important;">
+						</span>
 					</td>
 				</tr>
 				<tr>
@@ -30,18 +31,17 @@
 								<td class="intro"
 									 style="font-size:16px; line-height:20px; color:#000000; padding-top:30px; padding-bottom:30px; border-bottom:1px solid #cccccc;">
 									<strong
-										style="font-weight:bold;">Hola {{ $data['user_first_name'] }} {{ $data['user_last_name'] }}</strong>,
-									muchas gracias por reservar con Kipmuving. Sigue abajo la confirmación de su reserva.<br><br>
-									<p>¿Qué haremos ahora? Vamos a confirmar todos los paseos con las agencias. Sabemos que
-										algunas están sujetas a disponibilidad por la cantidad de personas y también del clima.
-										Caso alguna actividad no suceda, volveremos a comunicar contigo para ofrecer otra opción.
+										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $data['user_first_name'] }} {{ $data['user_last_name'] }}</strong>,
+									{{ trans('emails.many_thanks_for_booking') }}<br><br>
+									<p>{{ trans('emails.what_will_we_do_now') }}
 										<br><br></p>
-									<strong style="display:block; font-weight:bold;">Actividades que reservaste:</strong>
+									<strong style="display:block; font-weight:bold;">{{ trans('emails.activities_you_booked') }}:</strong>
 								</td>
 							</tr>
 							@foreach($data['offers'] as $offer)
 								<tr>
-									<td style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
+									<td
+										style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
 										<table cellpadding="0" cellspacing="0" width="100%">
 											<tr>
 												<td style="padding-bottom:20px;" colspan="2">
@@ -65,30 +65,33 @@
 											</tr>
 											<tr>
 												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<strong style="display:block; font-weight:bold; padding-left:10px;">Debes
-														llevar:</strong>
+													<strong style="display:block; font-weight:bold; padding-left:10px;">{{ trans('emails.you_must_take') }}:</strong>
 													<p>{{ $offer['offer_carry'] }}</p>
 												</td>
 												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<strong style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">Día: {{ $offer['offer_date'] }}</strong>
-													<span style="display:block; margin-left:25px;"><strong>Duracion:</strong> {{ max(0, $offer['offer_end_time'] - $offer['offer_start_time']) }}
+													<strong
+														style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">{{ trans('emails.day') }}: {{ $offer['offer_date'] }}</strong>
+													<span
+														style="display:block; margin-left:25px;"><strong>{{ trans('emails.duration') }}:</strong> {{ max(0, $offer['offer_end_time'] - $offer['offer_start_time']) }}
 														hrs</span>
 													<span
 														style="display:block;
 														border-bottom:1px solid #cccccc;
 														padding-bottom:10px;
-														margin-left:25px;"><strong>Horario:</strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }} a {{ date('H:i', strtotime($offer['offer_end_time'])) }}
+														margin-left:25px;"><strong>{{ trans('emails.schedule') }}:</strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }}
+														{{ trans('emails.to') }} {{ date('H:i', strtotime($offer['offer_end_time'])) }}
 													</span>
-													<span style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer['offer_persons'] }}</strong> Persona</span>
+													<span
+														style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer['offer_persons'] }}</strong> {{ trans('emails.persons') }}</span>
 												</td>
 											</tr>
 											<tr>
 												<td colspan="2" bgcolor="#913b49"
 													 style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:40px; color:#ffffff; background:url(ico3.png) no-repeat; background-color:#913b49; background-position:10px 14px;">
 													<strong
-														style="display:block; font-size:16px; line-height:20px; font-weight:bold;">Importante:</strong>
-													Deberá presentarte 1 dia antes en la dirección de la agencia<br>
-													O’Higgins 221 para probar sapatos.
+														style="display:block; font-size:16px; line-height:20px; font-weight:bold;">{{ trans('emails.important') }}:</strong>
+													{{ trans('emails.you_must_present') }}<br>
+													O’Higgins 221 {{ trans('emails.to_try_shoes') }}.
 												</td>
 											</tr>
 										</table>
@@ -101,30 +104,30 @@
 				<tr>
 					<td id="footer" valign="top"
 						 style="padding-left:20px; padding-top:20px; padding-right:20px; padding-bottom:20px;">
-						Total a pagar en la agencia es de <span
-							style="color:#980e25; font-weight:bold;">$ {{ $data['total_cost'] }} pesos.</span> Cada agencia
-						tiene su política de cancelación, esté atento a ellas en el momento de su reserva. Pero normalmente
-						puedes cancelar hasta 1 día antes de su actividad. En este caso, te devolveremos los 10% cancelado.
+						{{ trans('emails.total_to_pay') }} <span
+							style="color:#980e25; font-weight:bold;">$ {{ $data['total_cost'] }} CLP
+							.</span> {{ trans('emails.each_agency_has_cancellation_policy') }}
 						<br>
 						<br>
-						Caso no apareazca en el día de su aventura, será cobrado un valor de <span
-							style="color:#980e25; font-weight:bold;">10% como multa.</span>
+						{{ trans('emails.if_you_do_not_appear_on_the_day') }} <span
+							style="color:#980e25; font-weight:bold;">{{ trans('emails.as_a_fine') }}</span>
 						<br>
 						<br>
-						Cualquier duda por favor, escribíamos. Estaremos
-						atentos a lo que necesites. Nuestro correo es
-						<a href="mailto:contacto@kipmuving.com">contacto@kipmuving.com</a> y también por el teléfono
-						+56 45 2444035. O por el whatsapp +56962266304
+						{{ trans('emails.any_questions') }}
+						<a href="mailto:contacto@kipmuving.com">contacto@kipmuving.com</a> {{ trans('emails.and_also_by_phone') }}
+						+56 45 2444035. {{ trans('emails.or_whatsapp') }} +56962266304
 						<br>
 						<br>
-						Saludos.
+						{{ trans('emails.with_regards') }}
 						<br>
 						<br>
-						Equipo Kipmuving
+						{{ trans('emails.kipmuving_team') }}
 						<br>
 						<br>
 						<br>
-						<span style="display:block; text-align:center;"><a href="#" style="color:#000000; text-decoration:none;">www.kipmuving.com</a></span>
+						<span style="display:block; text-align:center;">
+							<a href="#" style="color:#000000; text-decoration:none;">{{ url('/') }}</a>
+						</span>
 					</td>
 				</tr>
 			</table>

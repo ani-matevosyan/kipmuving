@@ -7,27 +7,25 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="breadcrumb">
-						<li><a href="#">HOME</a></li>
-						<li>Mi cuenta</li>
+						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+						<li>{{ trans('main.my_account') }}</li>
 					</ul>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="profile-block">
 								<ul class="tablist" role="tablist">
 									<li>
-										<a data-toggle="tab" href="#tab1" aria-expanded="true">Mi Perfil</a>
+										<a data-toggle="tab" href="#tab1" aria-expanded="true">{{ trans('main.my_profile') }}</a>
 									</li>
 									<li>
-										<a data-toggle="tab" href="#tab2" class="my-adv" aria-expanded="true">Mis Aventuras</a>
+										<a data-toggle="tab" href="#tab2" class="my-adv" aria-expanded="true">{{ trans('main.my_adventures') }}</a>
 									</li>
 								</ul>
-								{{--							{{dd($user)}}--}}
 								<div class="tab-content">
 									<div id="tab1" class="tab-pane active">
 										<header>
-											<h2>Mi cuenta</h2>
-											<p>Aquí están sus informaciones personales. Puedes actualizarla a cualquier
-												momento.</p>
+											<h2>{{ trans('main.my_account') }}</h2>
+											<p>{{ trans('main.here_your_personal_info') }}</p>
 										</header>
 										<form class="profile-form form-horizontal" method="post"
 												action="{{ action('UserController@updateUser', $user['id']) }}"
@@ -41,35 +39,33 @@
 													<input class="form-control" name="image" type="file">
 												</div>
 												<div class="text">
-													<p>Las fotos frontales son muy importantes para que los anfitriones y huespedes
-														peudan conocerse mejor. Hospedar a un paisaje no us muy divertido que digamos!
-														por favor, sube una foto en la que se vea claramente tu cara.</p>
+													<p>{{ trans('main.the_frontal_photos') }}</p>
 												</div>
 											</div>
 											<div class="sub-row">
-												<label for="number">Nombre</label>
+												<label for="number">{{ trans('form.first_name') }}</label>
 												<div class="text-field">
 													<input type="text" placeholder="" class="form-control" id="number"
 															 name="first_name" value="{{ $user['first_name'] }}">
 												</div>
 											</div>
 											<div class="sub-row">
-												<label for="lname">Apellido</label>
+												<label for="lname">{{ trans('form.last_name') }}</label>
 												<div class="text-field">
 													<input type="text" placeholder="Lostarum" class="form-control" id="lname"
 															 name="last_name" value="{{ $user['last_name'] }}">
 												</div>
 											</div>
 											<div class="sub-row">
-												<label>Soy</label>
+												<label>{{ trans('main.i_am') }}</label>
 												<div class="select-box">
 													<div class="select-field">
 														<select name="gender">
-															<option value="">Sexo</option>
-															<option value="m" @if ($user['gender'] == "m") selected @endif>Hombre
+															<option value="">{{ trans('main.sex') }}</option>
+															<option value="m" @if ($user['gender'] == "m") selected @endif>{{ trans('main.man') }}
 															</option>
 															<option value="w" @if ($user['gender'] == "w") selected @endif>
-																Mujer
+																{{ trans('main.woman') }}
 															</option>
 														</select>
 													</div>
@@ -77,13 +73,12 @@
 												</div>
 											</div>
 											<div class="sub-row">
-												<label>Fecha de nacimiento</label>
+												<label>{{ trans('form.birthday') }}</label>
 												<div class="select-box">
 													<?php $bday = strtotime($user['birthday']); ?>
-
 													<div class="select-field">
 														<select id="day" name="day">
-															<option>Dia</option>
+															<option>{{ trans('form.day') }}</option>
 															@for ($i = 1; $i <= 31; $i++)
 																<option value="{{ $i }}"
 																		  @if ($i == date('d', $bday)) selected @endif> {{ $i }}</option>
@@ -92,7 +87,7 @@
 													</div>
 													<div class="select-field day">
 														<select id="month" name="month">
-															<option value="">Mes</option>
+															<option value="">{{ trans('form.month') }}</option>
 															@for ($i = 1; $i <= 12; $i++)
 																<option value="{{ $i }}"
 																		  @if ($i == date('m', $bday)) selected @endif> {{ $i }}</option>
@@ -101,7 +96,7 @@
 													</div>
 													<div class="select-field year">
 														<select id="year" name="year">
-															<option>Ano</option>
+															<option>{{ trans('form.year') }}</option>
 															@for ($i = 1960; $i < 2000; $i++)
 																<option value="{{ $i }}"
 																		  @if ($i == date('Y', $bday)) selected @endif> {{ $i }}</option>
@@ -112,16 +107,15 @@
 												</div>
 											</div>
 											<div class="sub-row">
-												<label for="email">Correo electronico</label>
+												<label for="email">{{ trans('form.email') }}</label>
 												<div class="text-field">
 													<input type="email" placeholder="" class="form-control" id="email" name="email"
 															 value="{{ $user['email'] }}">
-													<p>No compartimremos tu direction de correo electronico personal con otros
-														usarios</p>
+													<p>{{ trans('main.we_will_not_share_email') }}</p>
 												</div>
 											</div>
 											<div class="sub-row">
-												<label for="phone">Teléfono</label>
+												<label for="phone">{{ trans('form.phone') }}</label>
 												<div class="text-field">
 													<input type="text" placeholder="" class="form-control" id="phone" name="phone"
 															 value="{{ $user['phone'] }}">
@@ -130,7 +124,7 @@
 											<div class="sub-row">
 												<label for=""></label>
 												<div class="text-field">
-													<button type="submit" class="btn btn-success">ACTUALIZAR</button>
+													<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>
 												</div>
 											</div>
 											<!-- Form Actions -->
@@ -186,42 +180,47 @@
 									</div>
 									<div id="tab2" class="tab-pane">
 										<header>
-											<h2>Mis Aventuras</h2>
-											<p>Aquí encontrarás todas sus aventuras.</p>
+											<h2>{{ trans('main.my_adventures') }}</h2>
+											<p>{{ trans('main.here_you_will_find_adventures') }}</p>
 										</header>
 										<ul class="item-list">
-											{{--@foreach ($reservations as $reservation)--}}
-											{{--<li>--}}
-											{{--<ul class="timing">--}}
-											{{--<header>--}}
-											{{--<div class="ico"><img alt="image description"--}}
-											{{--src="{{ $reservation->offer['activity']['image_icon'] }}">--}}
-											{{--</div>--}}
-											{{--<div class="text">--}}
-											{{--<h2><a href="#" data-toggle="modal"--}}
-											{{--data-target="#myModal">{{ $reservation->offer['activity']['name'] }}</a>--}}
-											{{--</h2>--}}
-											{{--<strong class="sub-title">{{ $reservation->offer['agency']['name'] }}--}}
-											{{--<span>{{ $reservation->offer['agency']['address'] }} </span></strong>--}}
-											{{--</div>--}}
-											{{--</header>--}}
-											{{--<li class="time">--}}
-											{{--<strong--}}
-											{{--class="title">Día: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>--}}
-											{{--<strong><span>Duracion:</span> {{ $reservation->offer['end_hour'] - $reservation->offer['start_hour'] }}--}}
-											{{--hrs</strong>--}}
-											{{--<strong><span>Horario:</span> {{ $reservation->offer['start_hour'] }}--}}
-											{{--:{{ $reservation->offer['start_min'] }}--}}
-											{{--a {{ $reservation->offer['end_hour'] }}--}}
-											{{--:{{ $reservation->offer['end_min'] }}</strong>--}}
-											{{--</li>--}}
-											{{--<li class="person">--}}
-											{{--<strong><span>{{ $reservation->persona }}</span> persona</strong>--}}
-											{{--</li>--}}
-											{{--</ul>--}}
-											{{--<!-- <a href="#" class="remove"><span>cancelar</span></a> -->--}}
-											{{--</li>--}}
-											{{--@endforeach--}}
+											@foreach ($reservations as $reservation)
+												<li>
+													<ul class="timing">
+														<header>
+															<div class="ico">
+																<img alt="image description"
+																	  src="{{ asset($reservation['activity_image_icon']) }}"
+																	  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+															</div>
+															<div class="text">
+																<h2>
+																	<a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
+																</h2>
+																<strong class="sub-title">{{ $reservation['agency_name'] }}
+																	<span>{{ $reservation['agency_address'] }} </span>
+																</strong>
+															</div>
+														</header>
+														<li class="time">
+															<strong class="title">{{ trans('emails.day') }}: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
+															<strong>
+																<span>{{ trans('main.duration') }}:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
+															</strong>
+															<strong>
+																<span>{{ trans('main.schedule') }}:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
+																{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
+															</strong>
+														</li>
+														<li class="person">
+															<strong>
+																<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
+															</strong>
+														</li>
+													</ul>
+													<!-- <a href="#" class="remove"><span>cancelar</span></a> -->
+												</li>
+											@endforeach
 										</ul>
 									</div>
 								</div>

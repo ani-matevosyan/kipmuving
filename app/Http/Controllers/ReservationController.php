@@ -29,13 +29,10 @@ class ReservationController extends Controller
 	
 	public function index(Offer $offer, $message = null)
 	{
-		if (Auth::guest())
-			return view('site.reservar.reservar');
-		
 		$selectedOffers = session('selectedOffers');
 		
-		if(!$selectedOffers)
-			return redirect()->to(action('HomeController@index'));
+		if (Auth::guest() || !$selectedOffers)
+			return view('site.reservar.reservar');
 		
 		$results = [];
 		$total_cost = 0;
@@ -90,7 +87,7 @@ class ReservationController extends Controller
 				
 				foreach ($sessionOffers as $key => $sessionOffer) {
 					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-					$offersTotalCost += $offers[$key]['price_offer'] * $sessionOffer['persons'];
+					$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
 					$persons += $sessionOffer['persons'];
 				}
 				
@@ -136,7 +133,7 @@ class ReservationController extends Controller
 							'activity_name' => $offer['offerActivity']['name'],
 							'offer_date'    => $sessionOffers[$key]['date'],
 							'offer_persons' => $sessionOffers[$key]['persons'],
-							'offer_price'   => $offer['price_offer']
+							'offer_price'   => $offer['real_price']
 						];
 						
 						#Collect offers data
@@ -145,7 +142,7 @@ class ReservationController extends Controller
 						$data['offers'][$key]['offer_end_time'] = $offer['end_time'];
 						$data['offers'][$key]['offer_carry'] = $offer['offerCarry'];
 						$data['offers'][$key]['offer_persons'] = $sessionOffers[$key]['persons'];
-						$data['offers'][$key]['offer_price'] = $offer['price_offer'];
+						$data['offers'][$key]['offer_price'] = $offer['real_price'];
 						$data['offers'][$key]['offer_date'] = $sessionOffers[$key]['date'];
 						
 					}

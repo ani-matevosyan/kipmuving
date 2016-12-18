@@ -203,5 +203,19 @@ return [
 	'total'                                  => 'Total',
 	'how_do_you_want_to_confirm_reservation' => 'How do you want to confirm your reservation?',
 	'confirm_card'                           => 'Confirm card',
-	'confirm_paypal'                         => 'Confirm PayPal'
+	'confirm_paypal'                         => 'Confirm PayPal',
+	
+	'my_account' => 'My account',
+	'my_profile' => 'My profile',
+	'my_adventures' => 'My adventures',
+	'here_your_personal_info' => 'Here are your personal information. You can update it at any time.',
+	'the_frontal_photos' => 'The frontal photos are very important so that the hosts and guests get to know each other better. Host a landscape not us much fun to say! Please upload a photo that clearly shows your face.',
+	'i_am' => 'I am',
+	'sex' => 'Sex',
+	'man' => 'Man',
+	'woman' => 'Woman',
+	'we_will_not_share_email' => 'We will not share your personal email address with other users',
+	'update' => 'UPDATE',
+	'here_you_will_find_adventures' => 'Here you will find all your adventures.',
+	
 ];
