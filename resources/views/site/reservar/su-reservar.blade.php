@@ -204,7 +204,7 @@
                           name: "Kipmuving",
                           description: "Kipmuving Adventures",
                           allowRememberMe: false,
-                          amount: {{ number_format($topay) * 100 }},
+                          amount: {{$topay * 100}},
                           token: function (token) {
                               $.ajax({
                                   type: "POST",
