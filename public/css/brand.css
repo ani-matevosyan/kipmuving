@@ -926,14 +926,14 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header .btn-primary {
   color: #fff;
-  background: #6b5216;
+  background: #46350d;
   text-transform: uppercase;
   font-family: "Lato-Bold", sans-serif;
   font-size: 12px;
 }
 
 #header .btn-primary:hover {
-  background: #ffb400;
+  background: #ce8902;
 }
 
 #header .country {
