@@ -26,7 +26,8 @@
                     <li class="active">
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/placeholder.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="../images/placeholder.svg" alt="image description" width="33" height="33"
+                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
                             <strong>{{ trans('main.to_visit') }}</strong>
                             <p>{{ trans('main.and_take_photo') }}</p>
@@ -35,7 +36,8 @@
                     <li>
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/placeholder2.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="../images/placeholder2.svg" alt="image description" width="33" height="33"
+                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
                             <strong>{{ trans('main.best_spa') }}: </strong>
                             <p>{{ trans('main.to_relax') }}</p>
@@ -44,7 +46,8 @@
                     <li>
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/placeholder3.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="../images/placeholder3.svg" alt="image description" width="33" height="33"
+                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
                             </div>
                             <strong>{{ trans('main.national_parks') }}</strong>
                             <p>{{ trans('main.incredible_parks') }}</p>
@@ -100,8 +103,8 @@
                     <a data-toggle="pill" href="#home">
                         <img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
                         <div class="link-info">                                                                
-                            <strong>Como chegar de ônibus</strong>
-                            <p>Desde o centro de Pucón</p>
+                            <strong>{{ trans('main.how_to_get_there_by_bus') }}</strong>
+                            <p>{{ trans('main.from_the_center_of_pucon') }}</p>
                         </div>
                     </a>
                 </li> 
@@ -109,8 +112,8 @@
                     <a data-toggle="pill" href="#menu1">
                         <img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
                         <div class="link-info">                                                                
-                            <strong>Como chegar de carro</strong>
-                            <p>Caminho pelo Google Maps</p>
+                            <strong>{{ trans('main.how_to_get_there_by_car') }}</strong>
+                            <p>{{ trans('main.path_through_google_maps') }}</p>
                         </div>
                     </a>
                 </li> 
@@ -121,20 +124,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="tab-detail">
-                                <p>Deve tomar o ônibus locais que está na rua 
-                                    Palguin até Catripulli. O ônibus custa $ 1.000
-                                    pesos por pessoa e sai nos horários indicados 
-                                    abaixo. Em Catripulli deve tomar um taxi
-                                    até as temas Menetue.</p>
+                                <p>{{ trans('main.you_should_take_bus') }}</p>
                             </div>
                             <div class="info-icons">
                                 <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                <p>Tempo estimado:  <strong>1 hora</strong></p>
+                                <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
                             </div>
                             <div class="info-icons">
                                 <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                <p>Gasto estimado:  <strong>$ 2.000 por pessoa</strong></p>
-                                <span>Valor das termas:  <strong>$ 17.000 por pessoa </strong></span>
+                                <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
+                                <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -148,20 +147,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="tab-detail">
-                                <p>Deve tomar o ônibus locais que está na rua 
-                                    Palguin até Catripulli. O ônibus custa $ 1.000
-                                    pesos por pessoa e sai nos horários indicados 
-                                    abaixo. Em Catripulli deve tomar um taxi
-                                    até as temas Menetue.</p>
+                                <p>{{ trans('main.you_should_take_bus') }}</p>
                             </div>
                             <div class="info-icons">
                                 <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                <p>Tempo estimado:  <strong>1 hora</strong></p>
+                                <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
                             </div>
                             <div class="info-icons">
                                 <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                <p>Gasto estimado:  <strong>$ 2.000 por pessoa</strong></p>
-                                <span>Valor das termas:  <strong>$ 17.000 por pessoa </strong></span>
+                                <p>{{ trans('main.estimated_expenditure') }}: <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
+                                <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -173,7 +168,7 @@
                 </div>  
             </div>
             <div class="col-md-12 text-center">                                                    
-                <a href="#" class="yello-button">INCLUIR NO MEU PANORAMA</a>
+                <a href="#" class="yello-button">{{ trans('main.include_in_my_panorama') }}</a>
             </div> 
         </div>
 
@@ -181,7 +176,7 @@
     </div>
     <div class="col-md-5 right-col" style="overflow: hidden; height: 650px;">
         <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
-        <h4>Fotos de Instagram</h4><strong>#termasmenetue</strong>
+        <h4>{{ trans('main.instagram_pictures') }}</h4><strong>#termasmenetue</strong>
  
             <div id="instafeed3" class="instafeed">
 

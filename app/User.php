@@ -39,9 +39,9 @@ class User extends Authenticatable
 		'password', 'remember_token',
 	];
 
-	public function getUser($id)
-	{
-		$user = User::find($id);
-		return $user;
-	}
+//	public function getUser($id)
+//	{
+//		$user = User::find($id);
+//		return $user;
+//	}
 }

@@ -9,6 +9,7 @@ use App\Reservation;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -64,13 +65,12 @@ class UserController extends Controller
 		return Redirect::to('/login')->with('info', 'On your email was send email message');
 	}
 	
-	public function getUser($id, User $user)
+	public function getUser(User $user)
 	{
-		$currentUser = $user->getUser($id);
-		if (!$currentUser)
+		if (!$user = Auth::user())
 			abort(404);
 		
-		$reservations = Reservation::where('user_id', $id)
+		$reservations = Reservation::where('user_id', $user['id'])
 			->get();
 		
 		$result = [];
@@ -91,7 +91,7 @@ class UserController extends Controller
 			];
 		}
 		$data = [
-			'user' => $currentUser,
+			'user' => $user,
 			'reservations' => $result
 		];
 		

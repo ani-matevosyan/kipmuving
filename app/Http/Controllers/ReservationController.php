@@ -181,14 +181,14 @@ class ReservationController extends Controller
 					}
 					
 					session()->forget('selectedOffers');
-					
+					#TODO translate
 					$message = 'Success :)';
 					
 					return $message;
 				}
 			}
 		}
-		
+		#TODO translate
 		$message = 'Failure :(';
 		
 		return $message;

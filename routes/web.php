@@ -47,8 +47,7 @@ Route::post('/reserve', 'ReservationController@reserve');
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
 Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
-Route::get('/user/{id}', 'UserController@getUser')
-	->where('id', '[0-9]+');
+Route::get('/user', 'UserController@getUser');
 Route::post('/user/{id}/edit', 'UserController@updateUser')
 	->where('id', '[0-9]+');
 

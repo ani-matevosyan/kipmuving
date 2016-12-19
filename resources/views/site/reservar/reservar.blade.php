@@ -8,7 +8,7 @@
 			<div class="col-xs-12">
 				<ul class="breadcrumb">
 					<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-					<li>{{ trans('main.your_agenda') }}</li>
+					<li><a href="{{ action('CalendarController@index') }}">{{ trans('main.your_agenda') }}</a></li>
 					<li>{{ trans('main.reservation') }}</li>
 				</ul>
 				<div class="row">
