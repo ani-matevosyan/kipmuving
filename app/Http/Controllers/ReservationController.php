@@ -41,7 +41,7 @@ class ReservationController extends Controller
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
 			$total_cost += $offer['price_offer'] * $selectedOffer['persons'];
-			$topay += $selectedOffer['persons'] * 5;
+			$topay += $selectedOffer['persons'] * 3.5;
 			$results[] = [
 				'offerData'    => [
 					'id'         => $offer['offer_id'],
@@ -98,7 +98,7 @@ class ReservationController extends Controller
 				$charge = $stripe->charges()->create([
 					'customer' => $customer['id'],
 					'currency' => 'USD',
-					'amount'   => $persons * 5,
+					'amount'   => $persons * 3.5,
 				]);
 				
 				if ($charge['status'] == 'succeeded') {
