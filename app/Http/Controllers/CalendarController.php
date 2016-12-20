@@ -14,19 +14,19 @@ class CalendarController extends Controller
 		$selectedOffers = $offer->getSelectedOffers();
 		if (count($selectedOffers) <= 0)
 			return redirect()->to(action('ActivityController@index'));
-
+		
 		$data = [
 			'selectedOffers' => $selectedOffers,
-			'viewDate' => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
-			'count' => [
-				'offers' => count($offer->getSelectedOffers()),
+			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
+			'count'          => [
+				'offers'  => count($offer->getSelectedOffers()),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
-
+		
 		return view('site.calendar.index', $data);
 	}
-
+	
 	public function getData(Offer $offer)
 	{
 		$selectedOffers = session('selectedOffers');
@@ -34,7 +34,7 @@ class CalendarController extends Controller
 			abort(404);
 		$colors = ['#28975d', '#afa318', '#4a8b8d', '#ebb414'];
 		$results = [];
-
+		
 		foreach ($selectedOffers as $key => $offer) {
 			$currentOffer = Offer::where('offers.id', $offer['offer_id'])
 				->join('activities', 'activities.id', 'offers.activity_id')
@@ -54,37 +54,59 @@ class CalendarController extends Controller
 					'agency_translations.name as agency_name'
 				)
 				->first();
-
+			
 			$selectedOffers[$key]['offer'] = $currentOffer;
 			$start = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['offer']['start_time'])->toDateTimeString();
 			$end = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['offer']['end_time'])->toDateTimeString();
 			$results[] = [
-				'id' => $key,
-				'className' => 'cal-offer',
-				'backgroundColor' => $colors[$key % count($colors)],
-				'borderColor' => $colors[$key % count($colors)],
+				'id'               => $key,
+				'className'        => 'cal-offer',
+				'backgroundColor'  => $colors[$key % count($colors)],
+				'borderColor'      => $colors[$key % count($colors)],
 				// 'startEditable' => false,
 				// 'endEditable' => false,
 				'durationEditable' => false,
-                'offer_id' => $offer['offer_id'],
-                'persons' => $offer['persons'],
-                'date' => $offer['date'],
-                'start' => $start,
-                'end' => $end,
-                'start_time' => Carbon::parse($selectedOffers[$key]['offer']['start_time'])->format('H:i'),
-                'end_time' => Carbon::parse($selectedOffers[$key]['offer']['end_time'])->format('H:i'),
-                'hours' => $selectedOffers[$key]['offer']['end_time'] - $selectedOffers[$key]['offer']['start_time'],
-                'break_start' => $selectedOffers[$key]['offer']['break_start'],
-                'break_close' => $selectedOffers[$key]['offer']['break_close'],
-                'price' => $selectedOffers[$key]['offer']['price'] * $offer['persons'],
-                'activity_id' => $selectedOffers[$key]['offer']['activity_id'],
-                'title' => $selectedOffers[$key]['offer']['activity_name'],
-                'agency_id' => $selectedOffers[$key]['offer']['agency_id'],
-                'agency_name' => $selectedOffers[$key]['offer']['agency_name']
+				'offer_id'         => $offer['offer_id'],
+				'persons'          => $offer['persons'],
+				'date'             => $offer['date'],
+				'start'            => $start,
+				'end'              => $end,
+				'start_time'       => Carbon::parse($selectedOffers[$key]['offer']['start_time'])->format('H:i'),
+				'end_time'         => Carbon::parse($selectedOffers[$key]['offer']['end_time'])->format('H:i'),
+				'hours'            => $selectedOffers[$key]['offer']['end_time'] - $selectedOffers[$key]['offer']['start_time'],
+				'break_start'      => $selectedOffers[$key]['offer']['break_start'],
+				'break_close'      => $selectedOffers[$key]['offer']['break_close'],
+				'price'            => $selectedOffers[$key]['offer']['price'] * $offer['persons'],
+				'activity_id'      => $selectedOffers[$key]['offer']['activity_id'],
+				'title'            => $selectedOffers[$key]['offer']['activity_name'],
+				'agency_id'        => $selectedOffers[$key]['offer']['agency_id'],
+				'agency_name'      => $selectedOffers[$key]['offer']['agency_name']
 			];
 		}
-
-        return response()->json($results);
+		
+		return response()->json($results);
 	}
-
+	
+	public function getProcess(Request $request)
+	{
+		$offers = session('selectedOffers');
+		$action = $request['a'];
+		$oid = $request['oid'];
+		
+		if ($action == 'prev')
+			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->subDay()->format('d/m/Y');
+		elseif ($action == 'next')
+			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->addDay()->format('d/m/Y');
+		elseif ($action == 'del')
+			array_splice($offers, $oid, 1);
+		
+		session()->put('selectedOffers', $offers);
+		
+		$data = [
+			'selectedOffers' => $offers
+		];
+		
+		return response()->json($data);
+	}
+	
 }
