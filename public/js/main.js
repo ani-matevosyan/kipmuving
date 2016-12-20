@@ -138,7 +138,7 @@ jQuery(document).ready(function(){
         var totalcost = 0;
         var totaldisc;
         $( ".offers-list li" ).each( function(){
-            var totalcostprep = ($(this).find("a").find("span").text());
+            var totalcostprep = ($(this).find("span").text());
             totalcost += parseInt(totalcostprep.split('.').join(""));
         });
         $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
