@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/bootstrap.css') }}">
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/jquery-ui.min.css') }}" >
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/plugins/fullcalendar/fullcalendar.css') }}" >
 <link rel="stylesheet" type="text/css" media="print" href="{{ asset('/plugins/fullcalendar/fullcalendar.print.css') }}" >

@@ -90,7 +90,7 @@ class CalendarController extends Controller
 	public function getProcess(Request $request)
 	{
 		$offers = session('selectedOffers');
-		$action = $request['a'];
+		$action = $request['dir'];
 		$oid = $request['oid'];
 		
 		if ($action == 'prev')

@@ -38,7 +38,7 @@ Route::get('/agency/{id}', 'AgencyController@getAgency')
 #Calendar
 Route::get('/calendar', 'CalendarController@index');
 Route::get('/calendar/data', 'CalendarController@getData');
-Route::get('calendar/process', 'CalendarController@getProcess');
+Route::post('calendar/process', 'CalendarController@getProcess');
 
 #Reservation
 Route::get('/reserve', 'ReservationController@index');

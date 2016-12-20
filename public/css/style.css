@@ -753,6 +753,17 @@ tooltip fade top in {
     .detail-desc {
         padding-left: 10px; } }
 
+
+
+.map-tab{
+    display: none;
+}
+
+.map-tab.active{
+    display: block;
+}
+
+
 .left-col {
     padding-left: 0px;
     margin-top: 20px; }

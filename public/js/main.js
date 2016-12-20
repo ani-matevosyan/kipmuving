@@ -225,18 +225,26 @@ jQuery(document).ready(function(){
         }
     });
 
-    jQuery(document).on("click", ".fc-event.cal-offer .move", function () {
+    jQuery(document).on("click", ".fc-event.cal-offer .move", function (e) {
+        e.preventDefault();
         var oid = jQuery(this).data('oid');
         var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
         $.ajax({
-            url: "/calendar/process?a=" + dir + "&oid=" + oid,
+            type: "POST",
+            url: "/calendar/process",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid,
+                dir: dir
+            },
             success: function (result) {
                 jQuery('#calendar').fullCalendar('refetchEvents');
             }
         });
     });
 
-    jQuery(document).on("click", ".fc-event.cal-offer .delete", function () {
+    jQuery(document).on("click", ".fc-event.cal-offer .delete", function (e) {
+        e.preventDefault();
         var oid = jQuery(this).data('oid');
         $('#delete-modal .btn-confirm').data('oid', oid);
         $('#delete-modal').modal('show');
