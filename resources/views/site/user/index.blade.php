@@ -4,230 +4,192 @@
 @section('content')
 	<main id="main">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="breadcrumb">
-						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-						<li>{{ trans('main.my_account') }}</li>
-					</ul>
+			<ul class="breadcrumb">
+				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
+				<li>{{ trans('main.my_account') }}</li>
+			</ul>
+			<div class="profile-block">
+				<div class="my_profile">
 					<div class="row">
-						<div class="col-xs-12">
-							<div class="profile-block">
-								<ul class="tablist" role="tablist">
-									<li>
-										<a data-toggle="tab" href="#tab1" aria-expanded="true">{{ trans('main.my_profile') }}</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#tab2" class="my-adv" aria-expanded="true">{{ trans('main.my_adventures') }}</a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div id="tab1" class="tab-pane active">
-										<header>
-											<h2>{{ trans('main.my_account') }}</h2>
-											<p>{{ trans('main.here_your_personal_info') }}</p>
-										</header>
-										<form class="profile-form form-horizontal" method="post"
-												action="{{ action('UserController@updateUser', $user['id']) }}"
-												autocomplete="off"
-												enctype="multipart/form-data">
-											{{ csrf_field() }}
-											<div class="my-intro">
-												<div class="img-holder">
-													<img src="/{{ $user['avatar'] }}" alt="your photo"
-														  onerror="this.src='/images/image-none.jpg';">
-													<input class="form-control" name="image" type="file">
-												</div>
-												<div class="text">
-													<p>{{ trans('main.the_frontal_photos') }}</p>
-												</div>
+						<div class="col-md-8">
+							<header>
+								<h2>{{ trans('main.my_account') }}</h2>
+								<p>{{ trans('main.here_your_personal_info') }}</p>
+							</header>
+							<form class="profile-form form-horizontal" method="post"
+								  action="{{ action('UserController@updateUser', $user['id']) }}"
+								  autocomplete="off"
+								  enctype="multipart/form-data">
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="my-intro">
+											<div class="img-holder">
+												<img src="/{{ $user['avatar'] }}" alt="your photo"
+													 onerror="this.src='/images/image-none.jpg';">
+												{{--<input class="form-control" name="image" type="file">--}}
 											</div>
-											<div class="sub-row">
-												<label for="number">{{ trans('form.first_name') }}</label>
-												<div class="text-field">
-													<input type="text" placeholder="" class="form-control" id="number"
-															 name="first_name" value="{{ $user['first_name'] }}">
-												</div>
-											</div>
-											<div class="sub-row">
-												<label for="lname">{{ trans('form.last_name') }}</label>
-												<div class="text-field">
-													<input type="text" placeholder="Lostarum" class="form-control" id="lname"
-															 name="last_name" value="{{ $user['last_name'] }}">
-												</div>
-											</div>
-											<div class="sub-row">
-												<label>{{ trans('main.i_am') }}</label>
-												<div class="select-box">
-													<div class="select-field">
-														<select name="gender">
-															<option value="">{{ trans('main.sex') }}</option>
-															<option value="m" @if ($user['gender'] == "m") selected @endif>{{ trans('main.man') }}
-															</option>
-															<option value="w" @if ($user['gender'] == "w") selected @endif>
-																{{ trans('main.woman') }}
-															</option>
-														</select>
-													</div>
-
-												</div>
-											</div>
-											<div class="sub-row">
-												<label>{{ trans('form.birthday') }}</label>
-												<div class="select-box">
-													<?php $bday = strtotime($user['birthday']); ?>
-													<div class="select-field">
-														<select id="day" name="day">
-															<option>{{ trans('form.day') }}</option>
-															@for ($i = 1; $i <= 31; $i++)
-																<option value="{{ $i }}"
-																		  @if ($i == date('d', $bday)) selected @endif> {{ $i }}</option>
-															@endfor
-														</select>
-													</div>
-													<div class="select-field day">
-														<select id="month" name="month">
-															<option value="">{{ trans('form.month') }}</option>
-															@for ($i = 1; $i <= 12; $i++)
-																<option value="{{ $i }}"
-																		  @if ($i == date('m', $bday)) selected @endif> {{ $i }}</option>
-															@endfor
-														</select>
-													</div>
-													<div class="select-field year">
-														<select id="year" name="year">
-															<option>{{ trans('form.year') }}</option>
-															@for ($i = 1960; $i < 2000; $i++)
-																<option value="{{ $i }}"
-																		  @if ($i == date('Y', $bday)) selected @endif> {{ $i }}</option>
-															@endfor
-														</select>
-													</div>
-
-												</div>
-											</div>
-											<div class="sub-row">
-												<label for="email">{{ trans('form.email') }}</label>
-												<div class="text-field">
-													<input type="email" placeholder="" class="form-control" id="email" name="email"
-															 value="{{ $user['email'] }}">
-													<p>{{ trans('main.we_will_not_share_email') }}</p>
-												</div>
-											</div>
-											<div class="sub-row">
-												<label for="phone">{{ trans('form.phone') }}</label>
-												<div class="text-field">
-													<input type="text" placeholder="" class="form-control" id="phone" name="phone"
-															 value="{{ $user['phone'] }}">
-												</div>
-											</div>
-											<div class="sub-row">
-												<label for=""></label>
-												<div class="text-field">
-													<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>
-												</div>
-											</div>
-											<!-- Form Actions -->
-										</form>
-										@if($errors->has('first_name'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('first_name') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('last_name'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('last_name') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('gender'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('gender') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('email'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('email') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('month'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('month') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('day'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('day') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('year'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('year') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('phone'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('phone') }}</strong>
-											</div>
-										@endif
-										@if($errors->has('image'))
-											<div class="alert alert-error alert-danger">
-												<strong>{{ $errors->first('image') }}</strong>
-											</div>
-										@endif
-										@if (Session::get('success'))
-											<div class="alert info">{{ Session::get('success') }}</div>
-										@endif
+										</div>
 									</div>
-									<div id="tab2" class="tab-pane">
-										<header>
-											<h2>{{ trans('main.my_adventures') }}</h2>
-											<p>{{ trans('main.here_you_will_find_adventures') }}</p>
-										</header>
-										<ul class="item-list">
-											@foreach ($reservations as $reservation)
-												<li>
-													<ul class="timing">
-														<header>
-															<div class="ico">
-																<img alt="image description"
-																	  src="{{ asset($reservation['activity_image_icon']) }}"
-																	  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
-															</div>
-															<div class="text">
-																<h2>
-																	<a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
-																</h2>
-																<strong class="sub-title">{{ $reservation['agency_name'] }}
-																	<span>{{ $reservation['agency_address'] }} </span>
-																</strong>
-															</div>
-														</header>
-														<li class="time">
-															<strong class="title">{{ trans('emails.day') }}: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
-															<strong>
-																<span>{{ trans('main.duration') }}:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
-															</strong>
-															<strong>
-																<span>{{ trans('main.schedule') }}:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
-																{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
-															</strong>
-														</li>
-														<li class="person">
-															<strong>
-																<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
-															</strong>
-														</li>
-													</ul>
-													<!-- <a href="#" class="remove"><span>cancelar</span></a> -->
-												</li>
-											@endforeach
-										</ul>
+									<div class="col-sm-10">
+										<div class="sub-row">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="number">{{ trans('form.first_name') }}</label>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <div class="text-field">
+                                                        <input type="text" placeholder="" class="form-control" id="number"
+                                                               name="first_name" value="{{ $user['first_name'] }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										<div class="sub-row">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="lname">{{ trans('form.last_name') }}</label>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <div class="text-field">
+                                                        <input type="text" placeholder="Lostarum" class="form-control" id="lname"
+                                                               name="last_name" value="{{ $user['last_name'] }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+										</div>
+										<div class="sub-row">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="email">{{ trans('form.email') }}</label>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <div class="text-field">
+                                                        <input type="email" placeholder="" class="form-control" id="email" name="email"
+                                                               value="{{ $user['email'] }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+										</div>
+										<div class="sub-row">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="phone">{{ trans('form.phone') }}</label>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <div class="text-field">
+                                                        <input type="text" placeholder="" class="form-control" id="phone" name="phone"
+                                                               value="{{ $user['phone'] }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+										</div>
+										{{--<div class="sub-row">--}}
+											{{--<label for=""></label>--}}
+											{{--<div class="text-field">--}}
+												{{--<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>--}}
+											{{--</div>--}}
+										{{--</div>--}}
+										<!-- Form Actions -->
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
+				@if($errors->has('first_name'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('first_name') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('last_name'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('last_name') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('gender'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('gender') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('email'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('email') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('month'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('month') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('day'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('day') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('year'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('year') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('phone'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('phone') }}</strong>
+					</div>
+				@endif
+				@if($errors->has('image'))
+					<div class="alert alert-error alert-danger">
+						<strong>{{ $errors->first('image') }}</strong>
+					</div>
+				@endif
+				@if (Session::get('success'))
+					<div class="alert info">{{ Session::get('success') }}</div>
+				@endif
+                <div class="my_adventures">
+                    <header>
+                        <h2>{{ trans('main.my_adventures') }}</h2>
+                        <p>{{ trans('main.here_you_will_find_adventures') }}</p>
+                    </header>
+                    <ul class="item-list">
+                        @foreach ($reservations as $reservation)
+                            <li>
+                                <ul class="timing">
+                                    <header>
+                                        <div class="ico">
+                                            <img alt="image description"
+                                                  src="{{ asset($reservation['activity_image_icon']) }}"
+                                                  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+                                        </div>
+                                        <div class="text">
+                                            <h2>
+                                                <a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
+                                            </h2>
+                                            <strong class="sub-title">
+                                                {{ $reservation['agency_name'] }}
+                                            </strong>
+                                        </div>
+                                    </header>
+                                    <li class="time">
+                                        <strong class="title">{{ trans('emails.day') }}: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
+                                        <strong>
+                                            <span>{{ trans('main.duration') }}:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
+                                        </strong>
+                                        <strong>
+                                            <span>{{ trans('main.schedule') }}:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
+                                            {{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
+                                        </strong>
+                                    </li>
+                                    <li class="person">
+                                        <strong>
+                                            <span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
+                                        </strong>
+                                    </li>
+                                    <div class="delete_offer"></div>
+                                </ul>
+                                <!-- <a href="#" class="remove"><span>cancelar</span></a> -->
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
 			</div>
 		</div>
 	</main>

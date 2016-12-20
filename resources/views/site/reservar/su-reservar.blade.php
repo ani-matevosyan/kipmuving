@@ -113,7 +113,7 @@
 											</header>
 											<p>{{ trans('main.to_confirm_your_activities') }}
 												<strong>{{ trans('main.reserve_this_panorama') }}. </strong>{{ trans('main.confirm_with_payment_of_service') }}
-												<strong>5 USD</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+												<strong>3.5 USD</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
 											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
 											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
 											<p class="carrio-heading">{{ trans('main.general_information') }}</p>

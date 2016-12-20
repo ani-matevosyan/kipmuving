@@ -6818,10 +6818,11 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .profile-block h2 {
   color: #000;
-  margin: 0 0 10px;
+  margin: 20px 0 7px;
   font-size: 34px;
   line-height: 38px;
-  font-weight: 700;
+  font-weight: normal;
+  font-family: 'Lato-Bold', sans-serif;
 }
 
 @media (max-width: 767px) {
@@ -6912,11 +6913,10 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block header {
-  overflow: hidden;
   margin: 0 0 40px;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
   .profile-block header {
     text-align: center;
   }
@@ -6926,7 +6926,6 @@ body.home2 .roteros-options .raised-form .text-field {
   color: #45484a;
   margin: 0 0 30px;
   font-weight: 500;
-  overflow: hidden;
 }
 
 @media (max-width: 639px) {
@@ -6936,16 +6935,13 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .my-intro .img-holder {
-  float: left;
   width: 116px;
   margin: 0 30px 0 0;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
   .profile-block .my-intro .img-holder {
-    float: none;
     margin: 0 auto;
-    overflow: hidden;
   }
 }
 
@@ -6972,10 +6968,10 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .profile-form label {
-  float: left;
-  width: 150px;
+  width: 100%;
   text-align: right;
   margin: 6px 10px 0 0;
+  color: #46494b;
 }
 
 @media (max-width: 639px) {
@@ -6998,11 +6994,12 @@ body.home2 .roteros-options .raised-form .text-field {
   font-size: 14px;
   line-height: 26px;
   font-weight: 600;
+  color: #46494b;
 }
 
 .profile-block .profile-form .sub-row {
   overflow: hidden;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
 }
 
 .profile-block .profile-form .select-box {
@@ -7045,17 +7042,25 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .profile-block .item-list {
   overflow: hidden;
-  max-width: 900px;
   border-top: 1px solid #e5e5e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .profile-block .item-list > li {
-  width: 49.8%;
-  padding: 20px;
+  width: 33%;
+  padding: 8px 0;
   position: relative;
   border-bottom: 1px solid #e5e5e5;
   display: inline-block;
   vertical-align: top;
+}
+
+.profile-block .item-list > li:nth-child(3n-3) > .timing{
+  border-right: transparent;
 }
 
 @media (max-width: 991px) {
@@ -7065,11 +7070,6 @@ body.home2 .roteros-options .raised-form .text-field {
   }
 }
 
-@media (max-width: 639px) {
-  .profile-block .item-list > li {
-    padding: 20px 60px 20px 0;
-  }
-}
 
 .profile-block .item-list .remove {
   width: 55px;
@@ -7114,12 +7114,11 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .item-list header {
-  margin: 0 0 10px;
-  overflow: hidden;
+  margin: 0 0 3px;
   position: relative;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
   .profile-block .item-list header {
     margin: 0;
     text-align: left;
@@ -7129,7 +7128,7 @@ body.home2 .roteros-options .raised-form .text-field {
 .profile-block .item-list .ico {
   float: left;
   width: 51px;
-  margin: 10px 10px 0 0;
+  margin: 0 10px 0 -35px;
 }
 
 @media (max-width: 767px) {
@@ -7205,19 +7204,35 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .timing {
-  overflow: hidden;
-  padding-left: 25px;
+  padding: 13px 0 13px 37px;
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
+  border-right: 1px solid #e5e5e5;
+}
+
+@media(max-width: 991px){
+  .profile-block .timing{
+    border-right: transparent;
+  }
 }
 
 .profile-block .timing li {
-  padding: 10px 0;
   position: relative;
   padding: 10px 30px;
   display: inline-block;
   vertical-align: top;
+}
+
+@media(max-width: 460px){
+  .profile-block .timing li{
+    display: block;
+    margin-left: 20px;
+  }
+
+  .profile-block .timing li:after{
+    left: -9px;
+  }
 }
 
 .profile-block .timing li:first-child {

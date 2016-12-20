@@ -57,6 +57,9 @@ jQuery(document).ready(function(){
         });
     }
 
+    $(".overlay-opener").click(function(e){
+        e.preventDefault();
+    });
 	jQuery('.btn-reserve').click(function(){
 		var dt = $("#reserve-date").val();
 		if (dt == '') {
