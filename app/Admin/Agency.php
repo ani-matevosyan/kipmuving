@@ -38,6 +38,8 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 					->addColumn([
 						AdminFormElement::text('longitude', 'Longitude')->required()
 					], 6),
+				
+				AdminFormElement::text('instagram_id', 'Instagram user ID'),
 
 				AdminFormElement::columns()
 					->addColumn([
