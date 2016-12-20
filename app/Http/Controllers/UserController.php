@@ -65,7 +65,7 @@ class UserController extends Controller
 		return Redirect::to('/login')->with('info', 'On your email was send email message');
 	}
 	
-	public function getUser(User $user)
+	public function getUser()
 	{
 		if (!$user = Auth::user())
 			abort(404);

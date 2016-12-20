@@ -167,9 +167,9 @@
                     </div>
                 </div>  
             </div>
-            <div class="col-md-12 text-center">                                                    
+            <!--div class="col-md-12 text-center">
                 <a href="#" class="yello-button">{{ trans('main.include_in_my_panorama') }}</a>
-            </div> 
+            </div-->
         </div>
 
 
