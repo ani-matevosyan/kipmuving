@@ -23,14 +23,16 @@
 											<label for="first_name">{{ trans('form.first_name') }}</label>
 											<div class="text-field">
 												<input class="form-control" type="text" value="{{ old('first_name') }}"
-														 name="first_name" id="first_name" placeholder="{{ trans('form.first_name_placeholder') }}">
+														 name="first_name" id="first_name" placeholder="{{ trans('form.first_name_placeholder') }}"
+													   onfocus="this.placeholder = ''" onblur="this.placeholder = '{{ trans('form.first_name_placeholder') }}'">
 											</div>
 										</div>
 										<div class="col">
 											<label for="last_name">{{ trans('form.last_name') }}</label>
 											<div class="text-field">
 												<input class="form-control" type="text" value="{{ old('last_name') }}"
-														 name="last_name" id="last_name" placeholder="{{ trans('form.last_name_placeholder') }}">
+														 name="last_name" id="last_name" placeholder="{{ trans('form.last_name_placeholder') }}"
+													   onfocus="this.placeholder = ''" onblur="this.placeholder = '{{ trans('form.last_name_placeholder') }}'">
 											</div>
 										</div>
 									</div>
@@ -39,14 +41,16 @@
 											<label for="email">{{ trans('form.email') }}</label>
 											<div class="text-field">
 												<input class="form-control" value="{{ old('email') }}" type="email"
-														 name="email" id="email" placeholder="{{ trans('form.email_placeholder') }}">
+														 name="email" id="email" placeholder="{{ trans('form.email_placeholder') }}"
+													   onfocus="this.placeholder = ''" onblur="this.placeholder = '{{ trans('form.email_placeholder') }}'">
 											</div>
 										</div>
 										<div class="col">
 											<label for="password">{{ trans('form.password') }}</label>
 											<div class="text-field">
 												<input class="form-control" type="password" name="password"
-														 id="password" placeholder="{{ trans('form.password_placeholder') }}">
+														 id="password" placeholder="{{ trans('form.password_placeholder') }}"
+													   onfocus="this.placeholder = ''" onblur="this.placeholder = '{{ trans('form.password_placeholder') }}'">
 											</div>
 										</div>
 									</div>
@@ -94,7 +98,8 @@
 											<label for="key">{{ trans('form.phone') }}</label>
 											<div class="text-field">
 												<input class="form-control" type="text" name="phone" id="phone"
-														 placeholder="{{ trans('form.phone_placeholder') }}" value="{{ old('phone') }}">
+														 placeholder="{{ trans('form.phone_placeholder') }}" value="{{ old('phone') }}"
+													   onfocus="this.placeholder = ''" onblur="this.placeholder = '{{ trans('form.phone_placeholder') }}'">
 											</div>
 										</div>
 									</div>
