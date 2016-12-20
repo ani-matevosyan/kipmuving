@@ -174,10 +174,19 @@ body.home2 .all-activities .btn-success {
 .your-reservation.activity.add .program-schedule {
   margin-top: -170px;
 }
+
+.your-reservation.activity.add.main .program-schedule{
+  margin-top: -130px;
+}
 @media (max-width: 767px) {
   .your-reservation.activity.add .program-schedule {
     margin-top: -180px;
     margin-right: 10px;
+  }
+
+  .your-reservation.activity.add.main .program-schedule{
+    margin-top: -137px;
+    margin-right: 0;
   }
 }
 .carrito-bar {
@@ -683,6 +692,22 @@ body.home2 .all-activities.custom_title header {
   cursor: pointer;
 }
 
+.info-tour{
+  width: 14px;
+  height: 14px;
+  background: url("../images/information-symbol.svg") no-repeat;
+  background-size: contain;
+  margin-top: 2px;
+  margin-right: 10px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.info-tour:hover{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
 
 
 /*--------------END PICK LANGUAGE MENU------------*/

@@ -130,6 +130,8 @@
 
 .btn-success.btn-success-cal{
     font-size: 14px;
+    font-family: "Lato-Bold", sans-serif;
+    padding: 9px 15px;
 }
 
 a {
@@ -151,7 +153,7 @@ a:hover, a:focus, a:active {
   overflow: hidden;
   min-width: 150px;
   position: relative;
-  background: #963d4c;
+  background: #fff;
   border-radius: 2px;
   border: 1px solid #cdcdcd;
   display: inline-block;
@@ -165,7 +167,7 @@ a:hover, a:focus, a:active {
 }
 
 .jcf-select .jcf-select-text {
-  color: #fff;
+  color: #000;
   display: block;
   cursor: default;
   overflow: hidden;
@@ -177,7 +179,7 @@ a:hover, a:focus, a:active {
 .jcf-select .jcf-select-opener {
   position: absolute;
   text-align: center;
-  background: #963d4c;
+  background: transparent;
   width: 26px;
   bottom: 0;
   right: 0;
@@ -190,7 +192,7 @@ a:hover, a:focus, a:active {
   content: '';
   border-style: solid;
   border-width: 4px 4px 0;
-  border-color: #fff transparent transparent;
+  border-color: #000 transparent transparent;
   position: absolute;
   left: auto;
   top: 14px;
@@ -924,14 +926,14 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header .btn-primary {
   color: #fff;
-  background: #6b5216;
+  background: #46350d;
   text-transform: uppercase;
   font-family: "Lato-Bold", sans-serif;
   font-size: 12px;
 }
 
 #header .btn-primary:hover {
-  background: #ffb400;
+  background: #ce8902;
 }
 
 #header .country {
@@ -1278,7 +1280,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .activity-form .form-control{
-	padding: 4px 10px 5px 13px;
+	padding: 4px 0 5px 13px;
 }
 
 .activity-form .title {
@@ -4858,7 +4860,6 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .accordion {
-  overflow: hidden;
   max-width: 713px;
 }
 
@@ -4869,7 +4870,6 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .accordion > li {
-  overflow: hidden;
   padding: 20px 0 0;
 }
 
@@ -5385,7 +5385,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.activity .price {
-  padding: 30px 10px 10px;
+    padding: 30px 0 10px;
+    text-align: center;
 }
 
 @media (max-width: 767px) {
