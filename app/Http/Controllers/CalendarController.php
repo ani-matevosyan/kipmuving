@@ -87,4 +87,26 @@ class CalendarController extends Controller
 		return response()->json($results);
 	}
 	
+	public function getProcess(Request $request)
+	{
+		$offers = session('selectedOffers');
+		$action = $request['a'];
+		$oid = $request['oid'];
+		
+		if ($action == 'prev')
+			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->subDay()->format('d/m/Y');
+		elseif ($action == 'next')
+			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->addDay()->format('d/m/Y');
+		elseif ($action == 'del')
+			array_splice($offers, $oid, 1);
+		
+		session()->put('selectedOffers', $offers);
+		
+		$data = [
+			'selectedOffers' => $offers
+		];
+		
+		return response()->json($data);
+	}
+	
 }
