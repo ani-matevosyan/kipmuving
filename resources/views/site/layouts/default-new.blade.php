@@ -54,6 +54,7 @@
 							@endforeach
 						</ul>
 					</div>
+                    <div class="info-tour"></div>
 				</div>
 				<div class="btn-holder">
 					@if (!Auth::guest())

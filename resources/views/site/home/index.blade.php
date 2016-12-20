@@ -46,6 +46,11 @@
 		</div>
 	</section>
 	<main id="main">
+		<div class="container">
+			<div class="your-reservation activity add main" style="padding-bottom: 0px;">
+				@include('site.offers.offers_quickinfo')
+			</div>
+		</div>
 		<div class="line-box">
 			<div class="line-wrap">
 				<p>{{ trans('main.all_activities_in_single_place') }}</p>
