@@ -214,11 +214,12 @@
                                       token: token
                                   },
                                   success: function (data) {
-                                      $(".reserveMessage").text(data);
-                                      $(".reserveMessageHeader").slideDown();
+										$("#payment_status").text(data);
+									  $('#myModal').modal('show');
                                   },
                                   error: function (err) {
-                                      console.log(err);
+									  $(".error-payment").append(err);
+									  $(".error-payment").slideDown();
                                   }
                               })
                           }
@@ -249,16 +250,36 @@
 						</form>
 						<script>
                       $(document).ready(function () {
-                          $('.btn-pay.paypal').click(function (event) {
+                          $('#paypal-pay').click(function (event) {
                               event.preventDefault();
                               document._xclick.submit();
-                              return false;
+							  return false;
                           });
                       });
 						</script>
 					</div>
+					<div class="error-payment"><span>Error: </span></div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+	<div class="payment-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="payment_status">Unknown</h4>
+				</div>
+				<div class="modal-body">
+					<a href="{{ action('HomeController@index') }}" class="btn btn-success btn-success-cal">To home page</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 @stop

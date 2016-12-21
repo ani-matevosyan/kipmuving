@@ -1,6 +1,6 @@
 .visual {
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 .visual.home {
@@ -179,7 +179,7 @@ body.home2 .all-activities .btn-success {
   border-radius: 4px;
 }
 .your-reservation.activity.add .program-schedule {
-  margin-top: -170px;
+  margin-top: -120px;
 }
 
 .your-reservation.activity.add.main .program-schedule{
@@ -187,7 +187,7 @@ body.home2 .all-activities .btn-success {
 }
 @media (max-width: 767px) {
   .your-reservation.activity.add .program-schedule {
-    margin-top: -180px;
+    margin-top: -160px;
     margin-right: 10px;
   }
 
@@ -240,11 +240,11 @@ body.home2 .all-activities .btn-success {
 }
 
 .your-reservation.activity.custom_add .program-schedule{
-  margin: -150px 0 0;
+  margin: -120px 0 0;
 }
 @media(max-width: 470px){
   .your-reservation.activity.custom_add .program-schedule{
-    margin: -197px 0 0;
+    margin: -160px 0 0;
   }
 }
 .your-reservation.custom_add{
@@ -565,6 +565,18 @@ body.home2 .all-activities.custom_title header {
 
 .modal-backdrop {
   background: #545353; }
+
+.error-payment{
+    padding: 0 25px;
+    font-family: 'Lato-Bold', sans-serif;
+    color: #ff1b01;
+    display: none;
+}
+
+.error-payment span{
+    font-family: 'Lato-Black', sans-serif;
+}
+
 /*--------------END MODAL WIDNOW "RESERVE"------------*/
 
 /*--------------PICK LANGUAGE MENU------------*/

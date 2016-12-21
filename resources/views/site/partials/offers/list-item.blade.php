@@ -77,48 +77,50 @@
 			</div>
 		@endif
 		<div class="col-md-7 col-sm-7 col-xs-12">
-			<div class="row">
-				<div class="col-md-8 col-sm-8 col-xs-12">
-					<ul class="timing1">
-						@if($offer['hours'] && $offer['start_time'] && $offer['end_time'])
-							<li>
-								<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
-								<strong><span>{{ trans('main.schedule') }}
-										:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
-									- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
+			<div class="select-activity">
+				<div class="row">
+					<div class="col-md-8 col-sm-8 col-xs-12">
+						<ul class="timing1">
+							@if($offer['hours'] && $offer['start_time'] && $offer['end_time'])
+								<li>
+									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
+									<strong><span>{{ trans('main.schedule') }}
+											:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
+										- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
+								</li>
+							@endif
+							<li class="profile">
+								<select class="persona">
+									<option value="">{{ trans('main.amount_of_people') }}</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
 							</li>
-						@endif
-						<li class="profile">
-							<select class="persona">
-								<option value="">{{ trans('main.amount_of_people') }}</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</li>
-					</ul>
-				</div>
-				@if($offer['price'] && $offer['price_offer'])
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div><strong class="price" data-unit-price="{{ $offer['price_offer'] }}">
-								@if ($offer['price'] != $offer['price_offer'])
-									<del>
-										<small>
-											<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
-										</small>
-									</del>
-									<br>
-								@endif
-								<sub>$</sub>{{ number_format($offer['price_offer'], 0, '.', '.') }}
-							</strong>
-							<a href="#" class="btn btn-primary btn-reserve"
-								data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
-						</div>
+						</ul>
 					</div>
-				@endif
+					@if($offer['price'] && $offer['price_offer'])
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<div><strong class="price" data-unit-price="{{ $offer['price_offer'] }}">
+									@if ($offer['price'] != $offer['price_offer'])
+										<del>
+											<small>
+												<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
+											</small>
+										</del>
+										<br>
+									@endif
+									<sub>$</sub>{{ number_format($offer['price_offer'], 0, '.', '.') }}
+								</strong>
+								<a href="#" class="btn btn-primary btn-reserve"
+									data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
+							</div>
+						</div>
+					@endif
+				</div>
 			</div>
 			@if($offer['description'])
 				<div style="color: #006b33; margin: 10px ; font-size: 13px;">

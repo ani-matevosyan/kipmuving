@@ -4734,6 +4734,15 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #d9d9d9;
 }
 
+.select-activity{
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .select-activity .timing1{
+  border: none;
+  margin: 0;
+}
+
 .your-reservation.new .timing1 li {
   overflow: hidden;
   position: relative;
@@ -4755,6 +4764,20 @@ body.home2 .roteros-options .raised-form .text-field {
   bottom: auto;
   background: url(../images/sprite.png) no-repeat -57px -137px;
 }
+
+.your-reservation.new .timing1 li.profile .jcf-select,
+.jcf-select-persona.jcf-select-drop .jcf-hover{
+  background: #963d4c;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
+  color: #fff;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
+  border-color: #fff transparent transparent;
+}
+
 
 .your-reservation.new .timing1 li.cal:after {
   width: 18px;
@@ -5385,7 +5408,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.activity .price {
-    padding: 30px 0 10px;
+    padding: 12px 0 10px;
     text-align: center;
 }
 
@@ -5406,6 +5429,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
+  border-radius: 0;
 }
 
 @media (max-width: 767px) {
@@ -5434,7 +5458,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation.activity .program-schedule h2 {
   color: #fff;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   font-size: 15px;
   line-height: 18px;
   font-weight: 700;
@@ -5445,13 +5469,12 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.activity .program-schedule .sub-title {
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 
 .your-reservation.activity .program-schedule .btn-primary {
   float: right;
   color: #000;
-  border-radius: 3px;
   padding: 3px 10px;
   text-align: center;
   background: #fff;
@@ -5627,7 +5650,6 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .title-box {
-  overflow: hidden;
   font-size: 13px;
   line-height: 16px;
   font-weight: 400;
@@ -5653,11 +5675,37 @@ body.home2 .roteros-options .raised-form .text-field {
 .your-reservation .title-box p {
   margin: 0 0 20px;
 }
+.your-reservation .tenprocent_wrapp{
+  text-align: right;
+  margin-bottom: 12px;
+}
+
+.your-reservation .tenprocent{
+  display: inline-block;
+  font-family: "Lato-Bold", sans-serif;
+  font-size: 15px;
+  color: #d9a91c;
+  padding-left: 47px;
+  background: url("../images/10-orange.svg") no-repeat;
+  background-size: 45px 27px;
+  background-position: left center;
+  line-height: 14px;
+}
 
 .your-reservation .subnav {
-  overflow: hidden;
   background: #ededed;
   border: 1px solid #ccc;
+  position: relative;
+}
+
+.your-reservation .subnav:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #089f02;
 }
 
 @media (max-width: 767px) {

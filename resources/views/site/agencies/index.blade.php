@@ -21,21 +21,23 @@
 							<h1>{{ trans('button-links.agencies') }}</h1>
 							<p>{{ trans('main.this_activity_is_an_alternative_of') }}</p>
 						</header>
-						<?php $col = 0; ?>
-						@foreach ($agencies as $agency)
-							@if ($col == 0)
-								<div class="row">
-									@endif
-									<?php $col++; ?>
-									<div class="col-md-3 col-sm-6 col-xs-12 col">
-										@include('site.partials.agencies.all-list-item')
-									</div>
-									@if ($col == 4)
-										<?php $col = 0; ?>
+						<div class="row">
+							<?php $key = 0; ?>
+							@foreach($agencies as $agency)
+								<div class="col-md-3 col-sm-6 col-xs-12 col">
+									@include('site.partials.agencies.all-list-item')
 								</div>
-							@endif
-						@endforeach
-
+								<?php ++$key?>
+								@if($key === 2)
+									<div class="clearfix visible-sm-block"></div>
+								@elseif($key===4)
+									<div class="clearfix visible-md-block"></div>
+									<div class="clearfix visible-lg-block"></div>
+									<div class="clearfix visible-sm-block"></div>
+									<?php $key = 0; ?>
+								@endif
+							@endforeach
+						</div>
 					</div>
 				</div>
 			</div>

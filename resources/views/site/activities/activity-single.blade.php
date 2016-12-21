@@ -52,6 +52,12 @@
 												{!! $activity['weather_embed'] !!}
 											</div>
 										@endif
+										<div class="tenprocent_wrapp">
+											<div class="tenprocent">
+												em todos <br>
+												os precos
+											</div>
+										</div>
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">
