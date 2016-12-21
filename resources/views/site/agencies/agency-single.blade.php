@@ -33,7 +33,7 @@
                                         <div class="agency-gallery">
                                             <div class="row">
                                                 <div class="col-xs-9">
-                                                    <div id="instafeed4" class="instafeed"></div>
+                                                    <div id="instafeed4" class="instafeed" data-instagram-id="{{ $agency['instagram_id'] }}"></div>
                                                 </div>
                                                 <span class="agency-tag">aguaventura</span>
                                             </div>

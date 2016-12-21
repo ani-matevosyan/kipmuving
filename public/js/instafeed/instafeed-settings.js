@@ -161,10 +161,10 @@ $(document).ready(function(){
 	}
 
 	if($("#instafeed4").length){
-		var agencyTag ;
+		var agencyId  = $("#instafeed4").attr("data-instagram-id");
 		var feed4 = new Instafeed({
 			get: 'user',
-            userId: '1476086823',
+            userId: agencyId,
 			target: 'instafeed4',
 			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
 			template: '<div class="col-sm-2 col-xs-3 in-image-agency"><a href="{{link}}"><img style="width: 86px !important; height: 86px !important;" src="{{image}}"/></a></div>',

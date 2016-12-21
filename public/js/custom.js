@@ -75,11 +75,8 @@ $(document).ready(function () {
 
     //----------------------MAP-----------------------------
 
-    // create the markers
     if (window.location.pathname === '/guia/decarro'){
-
         var geoJson;
-
         $.ajax({
            url: "../js/features.json",
             dataType: "json",
@@ -89,37 +86,28 @@ $(document).ready(function () {
             }
         });
 
-        // create the map
         var map = L.mapbox.map('map', 'rafaelzarro.1c6j5igk').setView([-39.266018, -71.71772], 10);
 
         map.scrollWheelZoom.disable();
         map.featureLayer.on('layeradd', function(e) {
             var marker = e.layer;
-            // custom popup content
             var popupContent =  getTitle(marker);
             marker.bindPopup(popupContent,{
                 closeButton: false
             });
-            // customize click event
             marker.on('click', function(e) {
-                // zoom on the marker
-                if(map.getZoom() > marker.feature.properties.zoom) {
-                    map.setView(e.latlng, map.getZoom());
-                } else {
-                    map.setView(e.latlng, marker.feature.properties.zoom);
-                }
                 var thisId = this.feature.id;
-                if($("#map-tab-"+thisId).length === 1){
+                var pickedPlace = $("#map-tab-"+thisId);
+                if(pickedPlace.length === 1){
                     $(".map-tab").each(function(){
                        $(this).removeClass("active");
                     });
-                    $("#map-tab-"+thisId).addClass("active");
+                    pickedPlace.addClass("active");
+                    $('body, html').animate({ scrollTop: pickedPlace.offset().top }, 300);
                 }
             });
         });
-        // load the markers in the map
         map.featureLayer.setGeoJSON(geoJson);
-        // popup behaviour on marker mouseover event
         map.featureLayer.on('mouseover', function(e) {
             e.layer.openPopup();
         });
@@ -138,6 +126,7 @@ $(document).ready(function () {
             }
         }
     }
+
     //----------------------END MAP-----------------------------
 
 
