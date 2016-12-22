@@ -51,6 +51,9 @@ Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
 Route::get('/user', 'UserController@getUser');
 Route::post('/user/{id}/edit', 'UserController@updateUser')
 	->where('id', '[0-9]+');
+Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
+    ->where('id', '[0-9]+');
+Route::get('/user/getAvatar', 'UserController@getAvatar');
 
 #Guiae
 Route::get('/guia', 'GuiaController@index');

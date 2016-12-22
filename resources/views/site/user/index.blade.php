@@ -16,20 +16,26 @@
 								<h2>{{ trans('main.my_account') }}</h2>
 								<p>{{ trans('main.here_your_personal_info') }}</p>
 							</header>
-							<form class="profile-form form-horizontal" method="post"
-								  action="{{ action('UserController@updateUser', $user['id']) }}"
-								  autocomplete="off"
-								  enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-sm-2">
 										<div class="my-intro">
 											<div class="img-holder">
 												<img src="/{{ $user['avatar'] }}" alt="your photo"
-													 onerror="this.src='/images/image-none.jpg';">
-												{{--<input class="form-control" name="image" type="file">--}}
+													 onerror="this.src='/images/image-none.jpg';" id="youravatar">
+                                                <form enctype="multipart/form-data" action="{{ action('UserController@updateUsersAvatar', $user['id']) }}" method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
+                                                    {{ csrf_field() }}
+                                                    <input id="image" name="image" type="file" >
+                                                    <label for="image">Upload avatar</label>
+                                                </form>
+                                                <iframe id="hiddenframe" name="hiddenframe" style="width:0px; height:0px; border:0px"></iframe>
 											</div>
 										</div>
 									</div>
+                                    <form class="profile-form form-horizontal" method="post"
+                                          action="{{ action('UserController@updateUser', $user['id']) }}"
+                                          autocomplete="off"
+                                          enctype="multipart/form-data">
+                                        {{ csrf_field() }}
 									<div class="col-sm-10">
 										<div class="sub-row">
                                             <div class="row">

@@ -135,4 +135,35 @@ class UserController extends Controller
 		
 		return Redirect::to(action('UserController@getUser', $id))->with('success', 'Your data is updated');
 	}
+
+    public function updateUsersAvatar($id, Request $request)
+    {
+        $this->validate($request, [
+            'image'      => 'image'
+        ]);
+
+        $user = User::find($id);
+
+        if (Input::hasFile('image')) {
+            $image = Input::file('image');
+            $destination_path = public_path('uploads/users/');
+            $file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
+            $image->move($destination_path, $file_path);
+            $user->avatar = $file_path;
+        }
+
+        $user->save();
+    }
+
+    public function getAvatar(){
+
+        if (!$user = Auth::user())
+            abort(404);
+
+
+        $avatarPath = $user['avatar'];
+
+        return $avatarPath;
+
+    }
 }

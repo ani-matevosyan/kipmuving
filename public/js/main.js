@@ -287,6 +287,24 @@ jQuery(document).ready(function(){
 		priceElem.html('<sub>$</sub>' + numberWithDots($(this).val() * unit_price));
 	});
 
+    //-----------AVATAR LOADING--------------
+
+    $('#image').change(function(){
+        this.form.submit();
+        $("#hiddenframe").on('load', function(){
+            $.ajax({
+                type: "GET",
+                url: "/user/getAvatar",
+                data: "",
+                success: function(data){
+                    $("#youravatar").attr('src', data);
+                }
+            })
+        });
+    });
+
+    //----------END AVATAR LOADING---------------
+
 });
 
 //TRIPADVISOR WIDGET CUSTOMIZE
