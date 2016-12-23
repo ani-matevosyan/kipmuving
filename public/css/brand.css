@@ -7387,15 +7387,19 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .timing .delete_offer a{
-    color: #972639;
-    font-size: 12px;
-    font-family: 'Lato-Medium', sans-serif;
-    text-transform: uppercase;
-    position: relative;
-    padding-left: 31px;
-    display: inline-block;
-    overflow: hidden;
-    line-height: 23px;
+  color: #972639;
+  font-size: 12px;
+  font-family: 'Lato-Medium', sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 31px;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 23px;
+  white-space: nowrap;
+  text-align: left;
+  max-width: 0;
+  transition: max-width 0.7s ease;
 }
 
 .profile-block .timing .delete_offer a:before{
@@ -7407,6 +7411,10 @@ body.home2 .roteros-options .raised-form .text-field {
     height: 23px;
     background: url(../images/cancel-button.svg) no-repeat;
     background-size: contain;
+}
+
+.profile-block .timing .delete_offer a:hover{
+  max-width: 100%;
 }
 
 @media(max-width: 460px){
