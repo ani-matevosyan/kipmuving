@@ -97,7 +97,7 @@ jQuery(document).ready(function(){
                     if($(".offers-list li").length === 0){
                         $("section.widget.summary").slideDown();
                     }
-                    $(".offers-list").append("<li><a href='#'>"+ lastel.date + " - "+ lastel.name + " ["+lastel.persons + " pers.]</a>");
+                    $(".offers-list").append("<li><a href='#'>"+ lastel.date + " - "+ lastel.name+"</a>");
                 },
                 error: function(){
                     location.reload();

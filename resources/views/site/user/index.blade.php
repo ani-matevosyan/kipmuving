@@ -89,12 +89,11 @@
                                                 </div>
                                             </div>
 										</div>
-										{{--<div class="sub-row">--}}
-											{{--<label for=""></label>--}}
-											{{--<div class="text-field">--}}
-												{{--<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>--}}
-											{{--</div>--}}
-										{{--</div>--}}
+										<div class="sub-row">
+											<div class="text-field">
+												<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>
+											</div>
+										</div>
 										<!-- Form Actions -->
 									</div>
 								</div>
@@ -189,9 +188,10 @@
                                             <span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
                                         </strong>
                                     </li>
-                                    <div class="delete_offer"></div>
+                                    <div class="delete_offer">
+                                        <a href="#">Cancelar ACTIVIDAD</a>
+                                    </div>
                                 </ul>
-                                <!-- <a href="#" class="remove"><span>cancelar</span></a> -->
                             </li>
                         @endforeach
                     </ul>

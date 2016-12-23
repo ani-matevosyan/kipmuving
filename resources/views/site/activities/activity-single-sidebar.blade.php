@@ -29,7 +29,7 @@
 		<ul class="offers-list">
 			@foreach ($offers['selected'] as $offer)
 				<li><a href="#">{{ $offer['date'] }}
-						- {{ $offer['name'] }} [{{ $offer['persons'] }} pers.]</a></li>
+						- {{ $offer['name'] }}</a></li>
 			@endforeach
 		</ul>
 	</section>
@@ -42,10 +42,9 @@
 @endif
 <section class="important-block">
 	<div class="box alert">
-		<h2>{{ trans('main.important') }}</h2>
-		<strong class="sub-title">{{ trans('main.about_this_activity') }}</strong>
+		<p>{{ trans('main.important') }} {{ trans('main.about_this_activity') }}</p>
 		<strong class="title">{{ trans('main.minimum_age') }}
-			: {{ $activity['min_age'] }} {{ trans('main.years') }}</strong>
+			: <span>{{ $activity['min_age'] }} {{ trans('main.years') }}</span></strong>
 	</div>
 	@if($activity['carry'])
 		<div class="box bring">
@@ -89,8 +88,10 @@
 		</div>
 	</div>
 	<div class="location">
-		<h3>{{ trans('main.where_is') }}</h3>
-		<p>{{ trans('main.location_of_this_activity') }}</p>
+		<header>
+			<h3>{{ trans('main.where_is') }}</h3>
+			<p>{{ trans('main.location_of_this_activity') }}</p>
+		</header>
 		<div class="map-holder">
 			<div id="map" style="width: 100%; height: 300px"></div>
 			<script type="text/javascript">

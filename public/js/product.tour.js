@@ -75,7 +75,18 @@ $(window).load(function(){
             title: 'Reserve',
             content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             image: '../images/tour/activity-tour-2.jpg'
-        }]);
+        }, {
+            element: '#program-schedule',
+            title: 'Program schedule',
+            content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
+            image: '../images/tour/home-tour-2.jpg'
+        }, {
+            element: '#reserve-date',
+            title: 'Reserve date',
+            content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
+            image: '../images/tour/activity-tour-4.jpg'
+        }
+        ]);
         productTour_activity.startTour();
         localStorage.activitytour = "visited";
     }

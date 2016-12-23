@@ -33,6 +33,10 @@
 							@if($activity['subtitle'])
 								<strong class="sub-title">{{ $activity['subtitle'] }}</strong>
 							@endif
+							<div class="tenprocent">
+								em todos <br>
+								os precos
+							</div>
 						</header>
 						<div class="row">
 							<div id="activity-single-sidebar" class="col-md-4 col-sm-12 col-xs-12">
@@ -52,12 +56,6 @@
 												{!! $activity['weather_embed'] !!}
 											</div>
 										@endif
-										<div class="tenprocent_wrapp">
-											<div class="tenprocent">
-												em todos <br>
-												os precos
-											</div>
-										</div>
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">

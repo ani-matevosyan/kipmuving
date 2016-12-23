@@ -104,24 +104,15 @@ class UserController extends Controller
 			'first_name' => 'required|max:255',
 			'last_name'  => 'required|max:255',
 			'email'      => 'required|email|max:255',
-			'phone'      => 'required|min:9|max:18',
-			'day'        => 'required|digits_between:1,2',
-			'month'      => 'required|digits_between:1,2',
-			'year'       => 'required|digits:4',
-			'gender'     => 'required|size:1',
-			'image'      => 'image',
+			'phone'      => 'required|min:9|max:18'
 		]);
-		
-		$day = ($request['day'] < 10) ? '0'.$request['day'] : $request['day'];
-		$month = ($request['day'] < 10) ? '0'.$request['day'] : $request['day'];
-		
+
+
 		$user = User::find($id);
 		$user->first_name = $request['first_name'];
 		$user->last_name = $request['last_name'];
 		$user->email = $request['email'];
 		$user->phone = $request['phone'];
-		$user->birthday = Carbon::parse($request['year'].'-'.$month.'-'.$day)->toDateString();
-		$user->gender = $request['gender'];
 		
 		if (Input::hasFile('image')) {
 			$image = Input::file('image');
