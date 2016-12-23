@@ -1,3 +1,3 @@
-<a style="color: white" href="{{ action('LocaleController@setLocale', 'en') }}">EN</a>
-<a style="color: white" href="{{ action('LocaleController@setLocale', 'es_ES') }}">ES</a>
-<a style="color: white" href="{{ action('LocaleController@setLocale', 'pt') }}">PT</a>
+<a style="color: white" class="admin_lang" href="{{ action('LocaleController@setLocale', 'en') }}"><img src="/images/en-flag.svg" alt="EN"></a>
+<a style="color: white" class="admin_lang" href="{{ action('LocaleController@setLocale', 'es_ES') }}"><img src="/images/es_ES-flag.svg" alt="EN"></a>
+<a style="color: white" class="admin_lang" href="{{ action('LocaleController@setLocale', 'pt') }}"><img src="/images/pt-flag.svg" alt="EN"></a>

@@ -200,9 +200,10 @@ jQuery(document).ready(function(){
         editable: false,
         eventLimit: true,
         events: '/calendar/data',
+        eventOverlap: false,
         eventRender: function (event, element) {
             // event.overlap = true;
-            $(element).data('duplicate', event.duplicate);
+            element.data('duplicate', event.duplicate);
             element.append('<br>');
             element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
             element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
