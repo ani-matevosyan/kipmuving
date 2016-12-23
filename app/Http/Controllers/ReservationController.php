@@ -44,18 +44,19 @@ class ReservationController extends Controller
 			$topay += $selectedOffer['persons'] * 3.5;
 			$results[] = [
 				'offerData'    => [
-					'id'         => $offer['offer_id'],
-					'date'       => $selectedOffer['date'],
-					'start_time' => $offer['start_time'],
-					'end_time'   => $offer['end_time'],
-					'persons'    => $selectedOffer['persons'],
-					'price'      => $offer['price_offer'],
-					'includes'   => $offer['offerIncludes'],
-					'important'  => $offer['offerImportant']
+					'id'          => $offer['offer_id'],
+					'date'        => $selectedOffer['date'],
+					'start_time'  => $offer['start_time'],
+					'end_time'    => $offer['end_time'],
+					'persons'     => $selectedOffer['persons'],
+					'price'       => $offer['price_offer'],
+					'includes'    => $offer['offerIncludes'],
+					'important'   => $offer['offerImportant']
 				],
 				'agencyData'   => [
-					'id'   => $offer['agency_id'],
-					'name' => $offer['offerAgency']['name']
+					'id'          => $offer['agency_id'],
+					'name'        => $offer['offerAgency']['name'],
+                    'description' => $offer['offerAgency']['description']
 				],
 				'activityData' => [
 					'id'         => $offer['activity_id'],

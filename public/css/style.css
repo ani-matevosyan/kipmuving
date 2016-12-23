@@ -723,6 +723,10 @@ tooltip fade top in {
 .your-reservation .active-tab {
     display: block; }
 
+.opiniones{
+    visibility: hidden;
+}
+
 .termas .opiniones {
     display: block;
     font-size: 13px;
