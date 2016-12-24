@@ -3994,7 +3994,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .registration {
   overflow: hidden;
-  max-width: 650px;
+  max-width: 440px;
   padding: 20px 0 50px;
 }
 
@@ -4063,6 +4063,15 @@ body.home2 .roteros-options .raised-form .text-field {
     line-height: 30px;
     font-weight: 700;
   }
+}
+
+.registration .rememberme{
+    text-align: right;
+    margin-top: -10px;
+}
+
+.registration .rememberme label{
+    display: inline-block;
 }
 
 .registration label {
@@ -4189,12 +4198,11 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .registration .btn-primary {
-  float: left;
-  color: #000;
+  color: #fff;
   min-width: 175px;
   padding: 8px 10px;
-  background: #ebb414;
-  font-size: 19px;
+  background: #089f02;
+  font-size: 13px;
   line-height: 24px;
   font-weight: 400;
 }

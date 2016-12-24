@@ -63,9 +63,6 @@
 									</div>
 								</div>
 								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
-								<div class="note">
-									* {{ trans('main.approximate_value') }}
-								</div>
 							</section>
 							<section class="s_howitworks_sidebar">
 								<div class="section-container">
