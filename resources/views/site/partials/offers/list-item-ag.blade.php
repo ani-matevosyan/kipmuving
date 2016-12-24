@@ -5,8 +5,8 @@
 			<!-- <span>120 comentarios</span> -->
 		</div>
 		<div class="text">
-			<h2><a
-					href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>
+			<h2>
+				<a href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>
 			</h2>
 			<strong class="sub-title"><span>{{-- $offer->location --}}</span></strong>
 		</div>
@@ -33,7 +33,8 @@
 								<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
 							@endif
 							@if($offer['start_time'] && $offer['end_time'])
-								<strong><span>{{ trans('main.schedule') }}:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
+								<strong><span>{{ trans('main.schedule') }}
+										:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
 									- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
 							@endif
 						</li>
@@ -66,7 +67,8 @@
 						<strong class="price"
 								  data-unit-price="{{ $offer['price_offer'] }}"><sub>$</sub> {{ number_format($offer['price_offer'], 0, '.', '.') }}
 						</strong>
-						<a href="#" class="btn btn-primary btn-reserve-ag" data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
+						<a href="#" class="btn btn-primary btn-reserve-ag"
+							data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
 					</div>
 				</div>
 				@endif

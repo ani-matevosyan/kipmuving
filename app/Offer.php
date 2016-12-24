@@ -212,6 +212,7 @@ class Offer extends Model
 //			->where('activity_translations.locale', app()->getLocale())
 //			->where('offer_translations.locale', app()->getLocale())
 			->select(
+				'activities.id as activity_id',
 				'activity_translations.name as activity_name',
 				'offer_translations.includes as offer_includes',
 				'offers.id',
