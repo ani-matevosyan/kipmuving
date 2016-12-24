@@ -221,7 +221,7 @@ class Offer extends Model
 			)
 			->get();
 		foreach ($offers as $offer) {
-			$offer['offer_includes'] = $this->dataToArray($offer['offer_includes']);
+			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 		}
 		
