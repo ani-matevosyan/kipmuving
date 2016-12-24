@@ -18,8 +18,8 @@ class CreateActivitiesTable extends Migration
 			$table->timestamps();
 			$table->text('styles');
 			$table->boolean('availability')->default(true);
-			$table->date('available_start');
-			$table->date('available_end');
+//			$table->date('available_start');
+//			$table->date('available_end');
 			$table->boolean('visibility')->default(false);
 			$table->string('image');
 			$table->string('image_thumb');
