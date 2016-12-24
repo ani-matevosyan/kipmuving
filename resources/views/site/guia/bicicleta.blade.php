@@ -7,13 +7,13 @@
 		<div class="all-activities custom_title">
 			<header class="light-blue">
 				<h1>{{ trans('main.bicycle') }}</h1>
-				<p>{{ trans('main.we_prepared_small_guide') }}</p>
+				<p>{{ trans('main.bicycle_small_text') }}</p>
 			</header>
 		</div>
 		<div class="infor-bar">
 			<div class="row">
 				<div class="col-md-5 right-border">
-					<p>{{ trans('main.at_least_one_day_is_necessary') }}</p>
+					<p>{{ trans('main.bicycle_big_text') }}</p>
 					<div class="play-info">
 						<img src="../images/play-button.svg" alt="play description" width="33" height="33">
 						<p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
@@ -97,12 +97,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text ever since the 1500s, when an unknown
-							printer took a galley of type and scrambled it to make a type specimen book. It has surv
-							ived not only five centuries, but also the leap into electronic typesetting, remaining essen
-							tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con
-							taining Lorem Ipsum passages, and more recently with desktop publish</p>
+						<p>{{ trans('main.rio_turbio_waterfall_text') }}</p>
 
 						<div class="bottom-tab-links">
 							<div class="row">
@@ -152,12 +147,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text ever since the 1500s, when an unknown
-							printer took a galley of type and scrambled it to make a type specimen book. It has surv
-							ived not only five centuries, but also the leap into electronic typesetting, remaining essen
-							tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con
-							taining Lorem Ipsum passages, and more recently with desktop publish</p>
+						<p>{{ trans('main.eyes_of_caburgua_text') }}</p>
 
 						<div class="bottom-tab-links">
 							<div class="row">
@@ -207,12 +197,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-							has been the industry's standard dummy text ever since the 1500s, when an unknown
-							printer took a galley of type and scrambled it to make a type specimen book. It has surv
-							ived not only five centuries, but also the leap into electronic typesetting, remaining essen
-							tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con
-							taining Lorem Ipsum passages, and more recently with desktop publish</p>
+						<p>{{ trans('main.jump_the_light_text') }}</p>
 						<div class="bottom-tab-links">
 							<div class="row">
 								<div class="col-md-5">

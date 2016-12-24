@@ -7,13 +7,13 @@
 <div class="all-activities custom_title">
     <header class="light-blue">
         <h1>{{ trans('main.cultural_tour') }}</h1>
-        <p>{{ trans('main.we_prepared_small_guide') }}</p>
+        <p>{{ trans('main.cultural_small_text') }}</p>
     </header>
 </div>
 <div class="infor-bar">
     <div class="row">
         <div class="col-md-5 right-border">
-            <p>{{ trans('main.at_least_one_day_is_necessary') }}</p>
+            <p>{{ trans('main.cultural_big_text') }}</p>
             <div class="play-info">
                 <img src="../images/play-button.svg" alt="play description" width="33" height="33">
                 <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>

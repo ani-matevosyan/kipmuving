@@ -89,10 +89,11 @@ return [
 	'traditional_tours'   => 'The traditional tours that most tourists do',
 	'meet_pukon_mapuches' => 'Meet Pucón through the Mapuches An unforgettable experience',
 	
-	'close' => 'Close',
-	
+	'close'                                 => 'Close',
+	#TODO DEL
 	'we_prepared_small_guide'               => 'We prepared a small guide of what you can do in Pucón.',
 	'at_least_one_day_is_necessary'         => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	#TODO END
 	'click_on_the_icons_for_more_info'      => 'Click on the icons for more information',
 	'a_small_circuit'                       => 'A small circuit',
 	'which_you_can_do_to_know_main_streets' => 'Which you can do to know the main streets and places where you can take a photo and enjoy the Villarrica Volcano',
@@ -237,8 +238,22 @@ return [
 	'please'                       => 'Please',
 	'confirm_below_the_activities' => 'Confirm below the activities that will be done in Pucón on selected days',
 	
-	'museum' => 'Museum',
-	'crafts' => 'Crafts',
-	'restaurant' => 'Restaurant',
+	'museum'         => 'Museum',
+	'crafts'         => 'Crafts',
+	'restaurant'     => 'Restaurant',
 	'mapuche_museum' => 'Mapuche museum',
+	
+	#New 2
+	
+	'rio_turbio_waterfall_text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'eyes_of_caburgua_text'     => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'jump_the_light_text'       => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'bicycle_small_text'        => 'We prepared a small guide of what you can do in Pucón.',
+	'bicycle_big_text'          => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'walking_small_text'        => 'We prepared a small guide of what you can do in Pucón.',
+	'walking_big_text'          => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'car_small_text'            => 'We prepared a small guide of what you can do in Pucón.',
+	'car_big_text'              => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'cultural_small_text'       => 'We prepared a small guide of what you can do in Pucón.',
+	'cultural_big_text'         => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
 ];

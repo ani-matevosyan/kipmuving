@@ -237,8 +237,22 @@ return [
 	'please'                       => 'Por favor',
 	'confirm_below_the_activities' => 'confirme abajo las actividades que hará en Pucón los días seleccionados',
 	
-	'museum' => 'Museu',
-	'crafts' => 'Artesanias',
-	'restaurant' => 'Restaurante',
+	'museum'         => 'Museu',
+	'crafts'         => 'Artesanias',
+	'restaurant'     => 'Restaurante',
 	'mapuche_museum' => 'Museu Mapuche',
+	
+	#New 2
+	
+	'rio_turbio_waterfall_text' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'eyes_of_caburgua_text'     => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'jump_the_light_text'       => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv ived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets con taining Lorem Ipsum passages, and more recently with desktop publish',
+	'bicycle_small_text'        => 'We prepared a small guide of what you can do in Pucón.',
+	'bicycle_big_text'          => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'walking_small_text'        => 'We prepared a small guide of what you can do in Pucón.',
+	'walking_big_text'          => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'car_small_text'            => 'We prepared a small guide of what you can do in Pucón.',
+	'car_big_text'              => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'cultural_small_text'       => 'We prepared a small guide of what you can do in Pucón.',
+	'cultural_big_text'         => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
 ];
