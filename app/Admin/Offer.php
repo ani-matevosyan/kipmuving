@@ -5,35 +5,36 @@ use SleepingOwl\Admin\Model\ModelConfiguration;
 use App\Offer;
 
 AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
-
+	
 	$model->enableAccessCheck();
-
+	
 	$model->setTitle('Offers');
-
+	
 	$model->onDisplay(function () {
-		$display = AdminDisplay::table()->setColumns([
+		$display = AdminDisplay::datatables()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('activity')->setLabel('Activity'),
 			AdminColumn::text('agency')->setLabel('Agency'),
 			AdminColumn::text('price')->setLabel('Price'),
 			AdminColumn::text('persons')->setLabel('Persons'),
 			AdminColumn::text('min_age')->setLabel('Min age'),
-			AdminColumn::datetime('available_start')->setLabel('Start'),
-			AdminColumn::datetime('available_end')->setLabel('End'),
+			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('Y-m-d'),
+			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('Y-m-d'),
 			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
 			})
 		]);
 		$display->paginate(10);
+		
 		return $display;
 	});
-
+	
 	$model->onCreateAndEdit(function () {
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
-
+		
 		$tabs = AdminDisplay::tabbed([
-			'Activity' => new \SleepingOwl\Admin\Form\FormElements([
-
+			'Activity'     => new \SleepingOwl\Admin\Form\FormElements([
+				
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::select('agency_id', 'Agency')
@@ -49,7 +50,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					->required(),
 				AdminFormElement::text('cancellation_rules', 'Cancellation rules')
 					->required(),
-
+				
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::timestamp('available_start', 'Start date')
@@ -79,7 +80,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 						AdminFormElement::text('break_close', 'Break close')
 							->required()
 					], 3),
-
+				
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::number('min_age', 'Min age')
@@ -95,24 +96,25 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
-			'Includes' => new \SleepingOwl\Admin\Form\FormElements([
+			'Includes'     => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('includes', 'Includes')->required()
 			]),
 			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('restrictions', 'Restrictions')
 			]),
-			'Important' => new \SleepingOwl\Admin\Form\FormElements([
+			'Important'    => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()
 			]),
-			'Carry' => new \SleepingOwl\Admin\Form\FormElements([
+			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('carry', 'Carry')
 			])
 		]);
-
+		
 		$form->addElement($tabs);
+		
 		return $form;
 	});
-
+	
 })
 	->addMenuPage(Offer::class, 2)
 	->setIcon('fa fa-star');
