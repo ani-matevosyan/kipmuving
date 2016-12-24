@@ -89,11 +89,11 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
-					], 3)
-					->addColumn([
-						AdminFormElement::number('includes_count', 'Includes count')
-							->required()
 					], 3),
+//					->addColumn([
+//						AdminFormElement::number('includes_count', 'Includes count')
+//							->required()
+//					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([

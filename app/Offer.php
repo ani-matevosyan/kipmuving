@@ -143,8 +143,15 @@ class Offer extends Model
 	{
 		$offers = Offer::where('activity_id', $activityId)
 			->where('availability', true)
-			->orderBy('includes_count', 'DESC')
 			->get();
+		
+		foreach ($offers as $offer) {
+			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
+		}
+		
+		$offers = array_reverse(array_sort($offers, function ($value) {
+			return $value['includes_count'];
+		}));
 		
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
