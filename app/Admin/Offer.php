@@ -17,9 +17,9 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 			AdminColumn::text('agency')->setLabel('Agency'),
 			AdminColumn::text('price')->setLabel('Price'),
 			AdminColumn::text('persons')->setLabel('Persons'),
-			AdminColumn::text('min_age')->setLabel('Min age'),
-			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('Y-m-d'),
-			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('Y-m-d'),
+//			AdminColumn::text('min_age')->setLabel('Min age'),
+			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
+			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m/y'),
 			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
 			})
@@ -82,10 +82,10 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					], 3),
 				
 				AdminFormElement::columns()
-					->addColumn([
-						AdminFormElement::number('min_age', 'Min age')
-							->required()
-					], 3)
+//					->addColumn([
+//						AdminFormElement::number('min_age', 'Min age')
+//							->required()
+//					], 3)
 					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
