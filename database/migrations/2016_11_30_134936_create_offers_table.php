@@ -36,9 +36,9 @@ class CreateOffersTable extends Migration
 
 			$table->text('includes');
 			$table->string('cancellation_rules');
-			$table->text('restrictions');
+//			$table->text('restrictions');
 			$table->text('important');
-			$table->text('carry');
+//			$table->text('carry');
 			$table->text('description');
 
 			$table->unique(['offer_id', 'locale']);

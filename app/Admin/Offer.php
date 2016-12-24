@@ -33,7 +33,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$tabs = AdminDisplay::tabbed([
-			'Activity'     => new \SleepingOwl\Admin\Form\FormElements([
+			'Offer'     => new \SleepingOwl\Admin\Form\FormElements([
 				
 				AdminFormElement::columns()
 					->addColumn([
@@ -96,18 +96,18 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
-			'Includes'     => new \SleepingOwl\Admin\Form\FormElements([
+			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('includes', 'Includes')->required()
 			]),
-			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('restrictions', 'Restrictions')
-			]),
-			'Important'    => new \SleepingOwl\Admin\Form\FormElements([
+//			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
+//				AdminFormElement::textarea('restrictions', 'Restrictions')
+//			]),
+			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()
 			]),
-			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('carry', 'Carry')
-			])
+//			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
+//				AdminFormElement::textarea('carry', 'Carry')
+//			])
 		]);
 		
 		$form->addElement($tabs);

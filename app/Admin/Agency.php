@@ -25,7 +25,7 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 
 		$tabs = AdminDisplay::tabbed([
-			'Activity' => new \SleepingOwl\Admin\Form\FormElements([
+			'Agency' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::text('name', 'Agency name')->required(),
 				AdminFormElement::text('email', 'Email')->required(),
 				AdminFormElement::text('address', 'Address')->required(),

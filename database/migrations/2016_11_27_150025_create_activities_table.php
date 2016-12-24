@@ -24,7 +24,7 @@ class CreateActivitiesTable extends Migration
 			$table->string('image');
 			$table->string('image_thumb');
 			$table->string('image_icon');
-			$table->integer('min_age');
+//			$table->integer('min_age');
 			$table->decimal('latitude', 9, 5);
 			$table->decimal('longitude', 9, 5);
 		});
