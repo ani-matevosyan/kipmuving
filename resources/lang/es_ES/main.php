@@ -255,4 +255,5 @@ return [
 	'car_big_text'              => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
 	'cultural_small_text'       => 'We prepared a small guide of what you can do in Pucón.',
 	'cultural_big_text'         => 'At least one day is necessary to walk and know all the attractions that this beautiful city has. Pucon is small, in 20 minutes you can know all its charm.',
+	'cancel_activity'           => 'Cancelar actividad'
 ];

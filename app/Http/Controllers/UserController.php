@@ -84,6 +84,7 @@ class UserController extends Controller
 				'activity_image_icon' => $activity['image_icon'],
 				'agency_name' => $agency['name'],
 				'agency_address' => $agency['address'],
+				'reservation_id' => $reservation['id'],
 				'reservation_date' => $reservation['reserve_date'],
 				'reservation_persons' => $reservation['persons'],
 				'offer_start_time' => $offer['start_time'],

@@ -44,19 +44,19 @@ class ReservationController extends Controller
 			$topay += $selectedOffer['persons'] * 3.5;
 			$results[] = [
 				'offerData'    => [
-					'id'          => $offer['offer_id'],
-					'date'        => $selectedOffer['date'],
-					'start_time'  => $offer['start_time'],
-					'end_time'    => $offer['end_time'],
-					'persons'     => $selectedOffer['persons'],
-					'price'       => $offer['price_offer'],
-					'includes'    => $offer['offerIncludes'],
-					'important'   => $offer['offerImportant']
+					'id'         => $offer['offer_id'],
+					'date'       => $selectedOffer['date'],
+					'start_time' => $offer['start_time'],
+					'end_time'   => $offer['end_time'],
+					'persons'    => $selectedOffer['persons'],
+					'price'      => $offer['price_offer'],
+					'includes'   => $offer['offerIncludes'],
+					'important'  => $offer['offerImportant']
 				],
 				'agencyData'   => [
 					'id'          => $offer['agency_id'],
 					'name'        => $offer['offerAgency']['name'],
-                    'description' => $offer['offerAgency']['description']
+					'description' => $offer['offerAgency']['description']
 				],
 				'activityData' => [
 					'id'         => $offer['activity_id'],
@@ -152,7 +152,7 @@ class ReservationController extends Controller
 					$data['user_first_name'] = $user['first_name'];
 					$data['user_last_name'] = $user['last_name'];
 					$data['user_email'] = $user['email'];
-					
+
 //					#Send email about reservation to user
 //					Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
 //						$message->from('info@kipmuving.com', 'Kipmuving team');
@@ -193,5 +193,17 @@ class ReservationController extends Controller
 		$message = 'Failure :(';
 		
 		return $message;
+	}
+	
+	public function cancelReservation($id)
+	{
+		$reservation = Reservation::find($id);
+		if ($reservation > Carbon::now()->addDay()->toDateString()) {
+			$reservation->delete();
+			
+			return redirect()->back();
+		}
+		
+		return abort(404);
 	}
 }
