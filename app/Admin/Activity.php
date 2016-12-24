@@ -14,8 +14,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		$display = AdminDisplay::table()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('name')->setLabel('Name'),
-			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d.m.Y'),
-			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d.m.Y'),
+			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
+			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m/y'),
 			AdminColumn::text('min_age')->setLabel('Min. age'),
 			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
@@ -92,6 +92,9 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 			]),
 			'Weather' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('weather_embed', 'Weather embed'),
+			]),
+			'Tripadvisor' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code'),
 			]),
 			'Gallery' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::images('images', 'Images'),
