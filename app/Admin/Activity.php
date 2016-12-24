@@ -14,8 +14,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		$display = AdminDisplay::table()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('name')->setLabel('Name'),
-			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
-			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m/y'),
+//			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
+//			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m/y'),
 			AdminColumn::text('min_age')->setLabel('Min. age'),
 			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
