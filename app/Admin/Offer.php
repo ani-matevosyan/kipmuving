@@ -53,11 +53,11 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::timestamp('available_start', 'Start date')
-							->setFormat('Y-m-d H:i:s')
+						AdminFormElement::date('available_start', 'Start date')
+							->setFormat('Y-m-d')
 							->required(),
-						AdminFormElement::timestamp('available_end', 'End date')
-							->setFormat('Y-m-d H:i:s')
+						AdminFormElement::date('available_end', 'End date')
+							->setFormat('Y-m-d')
 							->required()
 					], 3)
 					->addColumn([
