@@ -202,6 +202,7 @@ jQuery(document).ready(function(){
         events: '/calendar/data',
         eventOverlap: false,
         eventRender: function (event, element) {
+            console.log(isOverlapping(event));
             // event.overlap = true;
             element.data('duplicate', event.duplicate);
             element.append('<br>');
@@ -273,6 +274,18 @@ jQuery(document).ready(function(){
             }
         });
     });
+
+    function isOverlapping(event){
+        var array = $("#calendar").fullCalendar('clientEvents');
+        for(i in array){
+            if(array[i].id != event.id){
+                if(!(Date(array[i].start) >= Date(event.end) || Date(array[i].end) <= Date(event.start))){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
     //------------------- END CALENDAR PLUGIN --------------

@@ -16,7 +16,7 @@
             <div class="page-header">
                 <h1><strong>{{ trans('main.login') }}</strong></h1>
                 <p>{{ trans('main.login_to_modify') }}</p>
-                <form class="form-horizontal registration " method="POST" action="/login" accept-charset="UTF-8">
+                <form class="form-horizontal registration registration-login " method="POST" action="/login" accept-charset="UTF-8">
                     {{ csrf_field() }}
                     <fieldset>
                         <div class="form-group">
@@ -57,7 +57,10 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button tabindex="3" type="submit" class="btn btn-primary">{{ trans('button-links.login') }}</button>
+                                <div class="confirmlogin">
+                                    <a href="{{ url('/register') }}">¿No tienes una cuenta?</a>
+                                    <button tabindex="3" type="submit" class="btn btn-primary">{{ trans('button-links.login') }}</button>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
