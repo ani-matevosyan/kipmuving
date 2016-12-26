@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
 		var title = jQuery(this).data('title');
 		var latLng = new google.maps.LatLng(lat, lng);
 		var myOptions = {
-			zoom: 8,
+			zoom: 15,
 			center: latLng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
