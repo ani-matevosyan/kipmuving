@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Illuminate\Support\Facades\View;
 
 class ReservationController extends Controller
 {
@@ -152,7 +153,10 @@ class ReservationController extends Controller
 					$data['user_first_name'] = $user['first_name'];
 					$data['user_last_name'] = $user['last_name'];
 					$data['user_email'] = $user['email'];
-
+					
+					#TODO delete this after testing
+					return View::make('emails.reservar.user', ['data' => $data])->render();
+					
 //					#Send email about reservation to user
 //					Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
 //						$message->from('info@kipmuving.com', 'Kipmuving team');
