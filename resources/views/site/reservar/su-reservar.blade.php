@@ -160,9 +160,9 @@
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
-										<div class="note">
-											* {{ trans('main.approximate_value') }}
-										</div>
+										{{--<div class="note">--}}
+											{{--* {{ trans('main.approximate_value') }}--}}
+										{{--</div>--}}
 									</section>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">
