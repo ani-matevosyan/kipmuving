@@ -171,6 +171,7 @@ class Offer extends Model
 				$offers[] = Offer::where('offers.id', $sessionOffer['offer_id'])
 					->join('activities', 'activities.id', 'offers.activity_id')
 					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
+					->where('activity_translations.locale', app()->getLocale())
 					->select('offers.persons', 'offers.price_offer', 'activity_translations.name')
 					->first();
 			}
@@ -208,6 +209,8 @@ class Offer extends Model
 			->join('offer_translations', 'offers.id', 'offer_translations.offer_id')
 			->join('activities', 'activities.id', 'offers.activity_id')
 			->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
+			->where('activity_translations.locale', app()->getLocale())
+			->where('offer_translations.locale', app()->getLocale())
 			->select(
 				'activities.id as activity_id',
 				'activity_translations.name as activity_name',
@@ -230,6 +233,7 @@ class Offer extends Model
 	{
 		$offer = Offer::where('offers.id', $offerId)
 			->join('offer_translations', 'offer_translations.offer_id', 'offers.id')
+			->where('offer_translations.locale', app()->getLocale())
 			->select(
 				'offers.id as offer_id',
 				'offers.agency_id',
