@@ -36,15 +36,6 @@ class GuiaController extends Controller
 
 	public function getDecarro(Offer $offer)
 	{
-		$JSON_points = json_decode(file_get_contents(asset('/js/features.json')), true);
-		foreach ($JSON_points['features'] as $key => $feature) {
-			if ($point = GuidePoint::where('point_id', $feature['id'])->first()){
-				$JSON_points['features'][$key]['properties']['description'] = $point['description'];
-				$JSON_points['features'][$key]['properties']['tripadvisor_code'] = $point['tripadvisor_code'];
-			}
-		}
-		
-//		dd($JSON_points);
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
@@ -56,6 +47,18 @@ class GuiaController extends Controller
 		];
 		return view('site.guia.decarro', $data);
 	}
+
+    public function getMapPoints(){
+        $JSON_points = json_decode(file_get_contents(asset('/js/features.json')), true);
+        foreach ($JSON_points['features'] as $key => $feature) {
+            if ($point = GuidePoint::where('point_id', $feature['id'])->first()){
+                $JSON_points['features'][$key]['properties']['description'] = $point['description'];
+                $JSON_points['features'][$key]['properties']['tripadvisor_code'] = $point['tripadvisor_code'];
+            }
+        }
+//        dd($JSON_points);
+        return $JSON_points;
+    }
 
 	public function getTourcultural(Offer $offer)
 	{
