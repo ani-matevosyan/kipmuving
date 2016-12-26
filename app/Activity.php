@@ -90,7 +90,7 @@ class Activity extends Model
 	public function getActivitiesList()
 	{
 		$activitiesList = Activity::join('activity_translations', 'activity_translations.activity_id', 'activities.id')
-//			->where('activity_translations.locale', app()->getLocale())
+			->where('activity_translations.locale', app()->getLocale())
 			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')
 			->get();

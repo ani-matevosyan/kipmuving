@@ -32,7 +32,7 @@
 							data-placement="bottom"
 							data-container="body"
 							data-trigger="focus"
-							data-content="{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>
+							data-content="
 										<img src='/{{ $offer['offerAgency']['image'] }}'>
 										</a>
 										<br>
@@ -40,7 +40,7 @@
 								<hr>
 								{{ $offer['offerAgency']['description'] }}
 								<br>
-								<a href='/agencias/{{ $offer['offerAgency']['id'] }}'>{{ trans('main.more_information') }}...</a>">{{ trans('main.about_the_agency') }}</a>
+								<a href='{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>
 					@endif
 				</li>
 				<li>

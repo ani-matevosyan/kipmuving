@@ -44,7 +44,7 @@ class GuiaController extends Controller
 			}
 		}
 		
-		dd($JSON_points);
+//		dd($JSON_points);
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
