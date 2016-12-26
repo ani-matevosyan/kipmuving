@@ -93,6 +93,32 @@
 												</div>
 											</div>
 										</div>
+										{{--TODO password--}}
+										<div class="sub-row">
+											<div class="row">
+												<div class="col-xs-3">
+													<label for="phone">{{ trans('form.password') }}</label>
+												</div>
+												<div class="col-xs-9">
+													<div class="text-field">
+														<input type="text" placeholder="todo" class="form-control" id="phone" name="phone">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="sub-row">
+											<div class="row">
+												<div class="col-xs-3">
+													<label for="phone">{{ trans('form.password') }}</label>
+												</div>
+												<div class="col-xs-9">
+													<div class="text-field">
+														<input type="text" placeholder="todo" class="form-control" id="phone" name="phone">
+													</div>
+												</div>
+											</div>
+										</div>
+										{{--TODO end--}}
 										<div class="sub-row">
 											<div class="text-field">
 												<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>
@@ -100,7 +126,7 @@
 										</div>
 										<!-- Form Actions -->
 									</div>
-							</div>
+							{{--</div>--}}
 							</form>
 						</div>
 					</div>
