@@ -89,7 +89,7 @@
 				<div class="col-md-2 col-md-pull-5">
 					<ul>
 						<li>
-							<a href="#">
+							<a href="{{ action('GuiaController@getBicicleta') }}">
 								<svg xmlns="http://www.w3.org/2000/svg"
 									  xmlns:xlink="http://www.w3.org/1999/xlink"
 									  version="1.1" x="0px" y="0px" viewBox="0 0 459.486 459.486"
@@ -109,7 +109,7 @@
 							{{ trans('main.bicycle') }}
 						</li>
 						<li>
-							<a href="#">
+							<a href="{{ action('GuiaController@getTourcultural') }}">
 								<svg version="1.1"
 									  xmlns="http://www.w3.org/2000/svg"
 									  x="0px"
@@ -153,7 +153,7 @@
 							{{ trans('main.bus') }}
 						</li>
 						<li>
-							<a href="#">
+							<a href="{{ action('GuiaController@getDecarro') }}">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									version="1.1"
@@ -180,7 +180,7 @@
 							{{ trans('main.car') }}
 						</li>
 						<li>
-							<a href="#">
+							<a href="{{ action('GuiaController@index') }}">
 								<svg version="1.1"
 									  xmlns="http://www.w3.org/2000/svg"
 									  x="0px"
