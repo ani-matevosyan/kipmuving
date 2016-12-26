@@ -11,7 +11,7 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 	$model->setTitle('Activities');
 
 	$model->onDisplay(function () {
-		$display = AdminDisplay::table()->setColumns([
+		$display = AdminDisplay::datatables()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('name')->setLabel('Name'),
 //			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
