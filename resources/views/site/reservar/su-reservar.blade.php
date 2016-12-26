@@ -37,7 +37,7 @@
 											<h1>{{ trans('main.these_are_your_activities') }}</h1>
 											<p>{{ trans('please') }} <a
 													href="#">{{ $user['username'] ? $user['username'] : $user['first_name'] }}</a>
-												{{ trans('confirm_below_the_activities') }}</p>
+												{{ trans('main.confirm_below_the_activities') }}</p>
 										</header>
 									@endif
 									<ul class="accordion">
