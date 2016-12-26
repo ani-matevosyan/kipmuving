@@ -57,11 +57,12 @@ Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
 	->where('id', '[0-9]+');
 Route::get('/user/getAvatar', 'UserController@getAvatar');
 
-#Guiae
+#Guia
 Route::get('/guia', 'GuiaController@index');
 Route::get('/guia/bicicleta', 'GuiaController@getBicicleta');
 Route::get('/guia/decarro', 'GuiaController@getDecarro');
 Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
+Route::get('/guia/getmappoints', 'GuiaController@getMapPoints');
 
 #Locales
 Route::get('/locale/{code}', 'LocaleController@setLocale');

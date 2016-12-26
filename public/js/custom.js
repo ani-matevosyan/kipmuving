@@ -76,53 +76,57 @@ $(document).ready(function () {
     //----------------------MAP-----------------------------
 
     if (window.location.pathname === '/guia/decarro'){
+
         var geoJson;
+
         $.ajax({
-           url: "../js/features.json",
-            dataType: "json",
-            async: false,
+            type: "GET",
+            url: "/guia/getmappoints",
             success: function(data){
-               geoJson = data;
+                geoJson = data;
+                mapInitializate();
             }
         });
 
-        var map = L.mapbox.map('map', 'rafaelzarro.1c6j5igk').setView([-39.266018, -71.71772], 10);
+        function mapInitializate(){
+            var map = L.mapbox.map('map', 'rafaelzarro.1c6j5igk').setView([-39.266018, -71.71772], 10);
 
-        map.scrollWheelZoom.disable();
-        map.featureLayer.on('layeradd', function(e) {
-            var marker = e.layer;
-            var popupContent =  getTitle(marker);
-            marker.bindPopup(popupContent,{
-                closeButton: false
+            map.scrollWheelZoom.disable();
+            map.featureLayer.on('layeradd', function(e) {
+                var marker = e.layer;
+                var popupContent =  getTitle(marker);
+                marker.bindPopup(popupContent,{
+                    closeButton: false
+                });
+                marker.on('click', function(e) {
+                    var thisId = this.feature.id;
+                    var pickedPlace = $("#map-tab-"+thisId);
+                    if(pickedPlace.length === 1){
+                        $(".map-tab").each(function(){
+                            $(this).removeClass("active");
+                        });
+                        pickedPlace.addClass("active");
+                        $('body, html').animate({ scrollTop: pickedPlace.offset().top }, 300);
+                    }
+                });
             });
-            marker.on('click', function(e) {
-                var thisId = this.feature.id;
-                var pickedPlace = $("#map-tab-"+thisId);
-                if(pickedPlace.length === 1){
-                    $(".map-tab").each(function(){
-                       $(this).removeClass("active");
-                    });
-                    pickedPlace.addClass("active");
-                    $('body, html').animate({ scrollTop: pickedPlace.offset().top }, 300);
+            map.featureLayer.setGeoJSON(geoJson);
+            map.featureLayer.on('mouseover', function(e) {
+                e.layer.openPopup();
+            });
+            map.featureLayer.on('mouseout', function(e) {
+                e.layer.closePopup();
+            });
+
+            // language
+            var lang = document.documentElement.lang;
+            // by default english language
+            function getTitle(marker) {
+                if(lang == 'fr') {
+                    return marker.feature.properties.title;
+                } else {
+                    return marker.feature.properties.title;
                 }
-            });
-        });
-        map.featureLayer.setGeoJSON(geoJson);
-        map.featureLayer.on('mouseover', function(e) {
-            e.layer.openPopup();
-        });
-        map.featureLayer.on('mouseout', function(e) {
-            e.layer.closePopup();
-        });
-
-        // language
-        var lang = document.documentElement.lang;
-        // by default english language
-        function getTitle(marker) {
-            if(lang == 'fr') {
-                return marker.feature.properties.title;
-            } else {
-                return marker.feature.properties.title;
             }
         }
     }
