@@ -30,14 +30,15 @@
 										<div class="text">
 											<p>{{ $agency['description'] }}</p>
 										</div>
-                                        <div class="agency-gallery">
-                                            <div class="row">
-                                                <div class="col-xs-9">
-                                                    <div id="instafeed4" class="instafeed" data-instagram-id="{{ $agency['instagram_id'] }}"></div>
-                                                </div>
-                                                <span class="agency-tag">aguaventura</span>
-                                            </div>
-                                        </div>
+										<div class="agency-gallery">
+											<div class="row">
+												<div class="col-xs-9">
+													<div id="instafeed4" class="instafeed"
+														  data-instagram-id="{{ $agency['instagram_id'] }}"></div>
+												</div>
+												<span class="agency-tag">aguaventura</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -84,25 +85,25 @@
 			</div>
 		</div>
 	</main>
-    <div id="myModalX" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <!-- <h4 class="modal-title">Confirmation</h4> -->
-                </div>
-                <div class="modal-body">
-                    <div id="the-image">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- MODAL END -->
-    <div id="data"> <!-- Keep this div for instafeed information -->
-    </div>
-    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
+	<div id="myModalX" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<!-- <h4 class="modal-title">Confirmation</h4> -->
+				</div>
+				<div class="modal-body">
+					<div id="the-image">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MODAL END -->
+	<div id="data"> <!-- Keep this div for instafeed information -->
+	</div>
+	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 @stop

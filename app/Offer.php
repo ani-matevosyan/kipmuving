@@ -12,9 +12,7 @@ class Offer extends Model
 	public $translatedAttributes = [
 		'includes',
 		'cancellation_rules',
-		'restrictions',
 		'important',
-		'carry',
 		'description'
 	];
 	protected $table = 'offers';
@@ -120,7 +118,6 @@ class Offer extends Model
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 		
 		return $offers;
@@ -137,7 +134,6 @@ class Offer extends Model
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 		
 		return $offers;
@@ -147,14 +143,20 @@ class Offer extends Model
 	{
 		$offers = Offer::where('activity_id', $activityId)
 			->where('availability', true)
-			->orderBy('includes_count', 'DESC')
 			->get();
+		
+		foreach ($offers as $offer) {
+			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
+		}
+		
+		$offers = array_reverse(array_sort($offers, function ($value) {
+			return $value['includes_count'];
+		}));
 		
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['carry'] = $this->dataToArray($offer['carry']);
 		}
 		
 		return $offers;
@@ -169,14 +171,11 @@ class Offer extends Model
 				$offers[] = Offer::where('offers.id', $sessionOffer['offer_id'])
 					->join('activities', 'activities.id', 'offers.activity_id')
 					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
-//					->where('activity_translations.locale', app()->getLocale())
 					->select('offers.persons', 'offers.price_offer', 'activity_translations.name')
 					->first();
 			}
 			if (count($offers) > 0)
 				foreach ($offers as $key => $offer) {
-//					if ($sessionOffers[$key]['persons'] > $offer['persons'])
-//						$sessionOffers[$key]['persons'] = $offer['persons'];
 					$sessionOffers[$key]['name'] = $offer['name'];
 					$sessionOffers[$key]['price_offer'] = $offer['price_offer'];
 				}
@@ -209,9 +208,8 @@ class Offer extends Model
 			->join('offer_translations', 'offers.id', 'offer_translations.offer_id')
 			->join('activities', 'activities.id', 'offers.activity_id')
 			->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
-//			->where('activity_translations.locale', app()->getLocale())
-//			->where('offer_translations.locale', app()->getLocale())
 			->select(
+				'activities.id as activity_id',
 				'activity_translations.name as activity_name',
 				'offer_translations.includes as offer_includes',
 				'offers.id',
@@ -232,7 +230,6 @@ class Offer extends Model
 	{
 		$offer = Offer::where('offers.id', $offerId)
 			->join('offer_translations', 'offer_translations.offer_id', 'offers.id')
-//			->where('offer_translations.locale', app()->getLocale())
 			->select(
 				'offers.id as offer_id',
 				'offers.agency_id',
@@ -241,14 +238,14 @@ class Offer extends Model
 				'offers.end_time',
 				'offers.price_offer',
 				'offer_translations.includes as offerIncludes',
-				'offer_translations.important as offerImportant',
-				'offer_translations.carry as offerCarry'
+				'offer_translations.important as offerImportant'
 			)
 			->first();
 		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 		$offer['offerActivity'] = Activity::where('activities.id', $offer['activity_id'])
 			->first();
 		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
+		$offer['offerCarry'] = $offer['offerActivity']['carry'];
 		
 		return $offer;
 	}

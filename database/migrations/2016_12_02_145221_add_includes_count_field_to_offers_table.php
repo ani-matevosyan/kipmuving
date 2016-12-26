@@ -15,7 +15,7 @@ class AddIncludesCountFieldToOffersTable extends Migration
     {
         Schema::table('offers', function (Blueprint $table) {
             //
-			  $table->integer('includes_count')->default(0);
+//			  $table->integer('includes_count')->default(0);
         });
     }
 
@@ -28,7 +28,7 @@ class AddIncludesCountFieldToOffersTable extends Migration
     {
         Schema::table('offers', function (Blueprint $table) {
             //
-			  $table->removeColumn('includes_count');
+//			  $table->removeColumn('includes_count');
         });
     }
 }

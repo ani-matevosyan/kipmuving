@@ -33,7 +33,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$tabs = AdminDisplay::tabbed([
-			'Activity'     => new \SleepingOwl\Admin\Form\FormElements([
+			'Offer'     => new \SleepingOwl\Admin\Form\FormElements([
 				
 				AdminFormElement::columns()
 					->addColumn([
@@ -53,19 +53,15 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::timestamp('available_start', 'Start date')
-							->setFormat('Y-m-d H:i:s')
+						AdminFormElement::date('available_start', 'Start date')
 							->required(),
-						AdminFormElement::timestamp('available_end', 'End date')
-							->setFormat('Y-m-d H:i:s')
+						AdminFormElement::date('available_end', 'End date')
 							->required()
 					], 3)
 					->addColumn([
 						AdminFormElement::time('start_time', 'Start time')
-//							->setFormat('Y-m-d H:i:s')
 							->required(),
 						AdminFormElement::time('end_time', 'End time')
-//							->setFormat('Y-m-d H:i:s')
 							->required()
 					], 3)
 					->addColumn([
@@ -89,25 +85,25 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
-					], 3)
-					->addColumn([
-						AdminFormElement::number('includes_count', 'Includes count')
-							->required()
 					], 3),
+//					->addColumn([
+//						AdminFormElement::number('includes_count', 'Includes count')
+//							->required()
+//					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
-			'Includes'     => new \SleepingOwl\Admin\Form\FormElements([
+			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('includes', 'Includes')->required()
 			]),
-			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('restrictions', 'Restrictions')
-			]),
-			'Important'    => new \SleepingOwl\Admin\Form\FormElements([
+//			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
+//				AdminFormElement::textarea('restrictions', 'Restrictions')
+//			]),
+			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()
 			]),
-			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('carry', 'Carry')
-			])
+//			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
+//				AdminFormElement::textarea('carry', 'Carry')
+//			])
 		]);
 		
 		$form->addElement($tabs);

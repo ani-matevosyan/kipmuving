@@ -21,8 +21,8 @@ class CreateOffersTable extends Migration
 			$table->integer('price_offer');
 			$table->integer('persons');
 			$table->integer('min_age');
-			$table->dateTime('available_start');
-			$table->dateTime('available_end');
+			$table->date('available_start');
+			$table->date('available_end');
 			$table->boolean('availability');
 			$table->decimal('break_start', 5, 2);
 			$table->decimal('break_close', 5, 2);
@@ -36,9 +36,9 @@ class CreateOffersTable extends Migration
 
 			$table->text('includes');
 			$table->string('cancellation_rules');
-			$table->text('restrictions');
+//			$table->text('restrictions');
 			$table->text('important');
-			$table->text('carry');
+//			$table->text('carry');
 			$table->text('description');
 
 			$table->unique(['offer_id', 'locale']);

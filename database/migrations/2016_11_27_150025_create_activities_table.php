@@ -18,13 +18,13 @@ class CreateActivitiesTable extends Migration
 			$table->timestamps();
 			$table->text('styles');
 			$table->boolean('availability')->default(true);
-			$table->date('available_start');
-			$table->date('available_end');
+//			$table->date('available_start');
+//			$table->date('available_end');
 			$table->boolean('visibility')->default(false);
 			$table->string('image');
 			$table->string('image_thumb');
 			$table->string('image_icon');
-			$table->integer('min_age');
+//			$table->integer('min_age');
 			$table->decimal('latitude', 9, 5);
 			$table->decimal('longitude', 9, 5);
 		});

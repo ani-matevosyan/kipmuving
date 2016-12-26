@@ -43,6 +43,8 @@ Route::post('calendar/process', 'CalendarController@getProcess');
 #Reservation
 Route::get('/reserve', 'ReservationController@index');
 Route::post('/reserve', 'ReservationController@reserve');
+Route::get('/reservation/{id}/cancel', 'ReservationController@cancelReservation')
+	->where('id', '[0-9]+');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
@@ -52,7 +54,7 @@ Route::get('/user', 'UserController@getUser');
 Route::post('/user/{id}/edit', 'UserController@updateUser')
 	->where('id', '[0-9]+');
 Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
-    ->where('id', '[0-9]+');
+	->where('id', '[0-9]+');
 Route::get('/user/getAvatar', 'UserController@getAvatar');
 
 #Guiae
