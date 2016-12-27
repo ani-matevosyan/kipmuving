@@ -224,7 +224,7 @@
                                       token: token
                                   },
                                   success: function (data) {
-										$("#payment_status").text(data);
+										$("#payment_status .iframetest").html(data);
 									  $('#myModal').modal('show');
                                   },
                                   error: function (err) {
@@ -283,7 +283,9 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="payment_status">Unknown</h4>
+					<h4 class="modal-title" id="payment_status">
+						<iframe frameborder="0" class="iframetest"></iframe>
+					</h4>
 				</div>
 				<div class="modal-body">
 					<a href="{{ action('HomeController@index') }}" class="btn btn-success btn-success-cal">To home page</a>

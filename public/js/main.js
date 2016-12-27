@@ -323,9 +323,16 @@ jQuery(document).ready(function(){
 
 //TRIPADVISOR WIDGET CUSTOMIZE
 $(window).load(function(){
-    $(".opiniones").css("visibility", "visible");
-    $("#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div").each(function(){
-       var tripadvisorsubtext = $(this).html();
-        $(this).html(tripadvisorsubtext.replace("de viajeros", ""));
-    });
+
+    if (window.location.pathname.indexOf('/guia/') === 0){
+        $(".opiniones").css("visibility", "visible");
+        $("#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div").each(function(){
+           var tripadvisorsubtext = $(this).html();
+            $(this).html(tripadvisorsubtext.replace("de viajeros", ""));
+        });
+    }
+
+    if (window.location.pathname.indexOf('/activity/') === 0){
+        $("#CDSWIDSSP .widSSPData .widSSPBranding dt a img, #CDSWIDSSP .widSSPData .widSSPBranding dt a:link img").attr("src", "/images/logo-trip.png");
+    }
 });
