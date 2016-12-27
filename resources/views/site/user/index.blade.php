@@ -60,7 +60,7 @@
 												</div>
 												<div class="col-xs-9">
 													<div class="text-field">
-														<input type="text" placeholder="Lostarum" class="form-control" id="lname"
+														<input type="text" placeholder="" class="form-control" id="lname"
 																 name="last_name" value="{{ $user['last_name'] }}">
 													</div>
 												</div>
