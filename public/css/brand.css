@@ -4752,7 +4752,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.new .list-box {
-  margin: 0 0 20px;
+    margin: 0 0 20px;
+    font-size: 13px;
 }
 
 .your-reservation.new .main-post {
@@ -4769,6 +4770,10 @@ body.home2 .roteros-options .raised-form .text-field {
   border-bottom: 1px solid #d9d9d9;
 }
 
+.your-reservation.adventure .select-activity{
+  border-bottom: 0;
+}
+
 .your-reservation.new .select-activity .timing1{
   border: none;
   margin: 0;
@@ -4778,6 +4783,10 @@ body.home2 .roteros-options .raised-form .text-field {
   overflow: hidden;
   position: relative;
   padding: 0 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.time{
+  min-height: 40px;
 }
 
 .your-reservation.new .timing1 li.profile {
@@ -5615,7 +5624,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.adventure .price {
-  padding: 30px 0 10px;
+  padding: 50px 0 10px;
+  text-align: center;
 }
 
 @media (max-width: 767px) {
@@ -5631,6 +5641,7 @@ body.home2 .roteros-options .raised-form .text-field {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
+  border-radius: 0;
 }
 
 @media (max-width: 767px) {
@@ -5843,7 +5854,6 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .trip-adv {
-  padding: 20px 0;
   overflow: hidden;
   border-top: 1px solid #e5e5e5;
 }
@@ -6386,6 +6396,28 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation .important-block .box.alert .title span{
     font-family: 'Lato-Bold', sans-serif;
+}
+
+.your-reservation .important-block .box.tripadvisor{
+  margin: 0;
+  padding: 10px 0 22px;
+  border-bottom: 0;
+}
+
+.your-reservation .important-block .box.tripadvisor #CDSWIDSSP{
+  margin: auto;
+}
+
+.your-reservation .important-block .box.tripadvisor #CDSWIDSSP .widSSPData{
+  background-color: transparent;
+}
+
+.your-reservation .important-block .box.tripadvisor #CDSWIDSSP .widSSPData sup{
+  top: 0;
+}
+
+.your-reservation .important-block .box.tripadvisor #CDSWIDSSP img{
+  background-color: transparent;
 }
 
 .your-reservation .important-block h2 {

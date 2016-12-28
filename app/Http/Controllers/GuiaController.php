@@ -56,7 +56,6 @@ class GuiaController extends Controller
                 $JSON_points['features'][$key]['properties']['tripadvisor_code'] = $point['tripadvisor_code'];
             }
         }
-//        dd($JSON_points);
         return $JSON_points;
     }
 

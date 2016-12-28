@@ -17,9 +17,9 @@
 				<tr>
 					<td class="header" bgcolor="#133939"
 						 style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
-						<span width="340" valign="top" height:"82" style="display:block;" style="width:250px !important;
+						<span width="340" valign="top" height="""82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
-						<img src="{{ url('/images/logo1.png') }}" alt="" align="left" vspace="0" hspace="0"
+						<img src="{{ url('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
 							  class="width:250px !important;">
 						</span>
 					</td>

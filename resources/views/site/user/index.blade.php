@@ -60,7 +60,7 @@
 												</div>
 												<div class="col-xs-9">
 													<div class="text-field">
-														<input type="text" placeholder="Lostarum" class="form-control" id="lname"
+														<input type="text" placeholder="" class="form-control" id="lname"
 																 name="last_name" value="{{ $user['last_name'] }}">
 													</div>
 												</div>
@@ -179,58 +179,60 @@
 				@if (Session::get('success'))
 					<div class="alert info">{{ Session::get('success') }}</div>
 				@endif
-				<div class="my_adventures">
-					<header>
-						<h2>{{ trans('main.my_adventures') }}</h2>
-						<p>{{ trans('main.here_you_will_find_adventures') }}</p>
-					</header>
-					<ul class="item-list">
-						@foreach ($reservations as $reservation)
-							<li>
-								<ul class="timing">
-									<header>
-										<div class="ico">
-											<img alt="image description"
-												  src="{{ asset($reservation['activity_image_icon']) }}"
-												  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
-										</div>
-										<div class="text">
-											<h2>
-												<a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
-											</h2>
-											<strong class="sub-title">
-												{{ $reservation['agency_name'] }}
+				@if($reservations)
+					<div class="my_adventures">
+						<header>
+							<h2>{{ trans('main.my_adventures') }}</h2>
+							<p>{{ trans('main.here_you_will_find_adventures') }}</p>
+						</header>
+						<ul class="item-list">
+							@foreach ($reservations as $reservation)
+								<li>
+									<ul class="timing">
+										<header>
+											<div class="ico">
+												<img alt="image description"
+													  src="{{ asset($reservation['activity_image_icon']) }}"
+													  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+											</div>
+											<div class="text">
+												<h2>
+													<a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
+												</h2>
+												<strong class="sub-title">
+													{{ $reservation['agency_name'] }}
+												</strong>
+											</div>
+										</header>
+										<li class="time">
+											<strong class="title">{{ trans('emails.day') }}
+												: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
+											<strong>
+												<span>{{ trans('main.duration') }}
+													:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
 											</strong>
-										</div>
-									</header>
-									<li class="time">
-										<strong class="title">{{ trans('emails.day') }}
-											: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
-										<strong>
-											<span>{{ trans('main.duration') }}
-												:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
-										</strong>
-										<strong>
-											<span>{{ trans('main.schedule') }}
-												:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
-											{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
-										</strong>
-									</li>
-									<li class="person">
-										<strong>
-											<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
-										</strong>
-									</li>
-									@if(\Carbon\Carbon::parse($reservation['reservation_date']) > \Carbon\Carbon::now()->addDay())
-										<div class="delete_offer">
-											<a href="{{ action('ReservationController@cancelReservation', $reservation['reservation_id']) }}">{{ trans('main.cancel_activity') }}</a>
-										</div>
-									@endif
-								</ul>
-							</li>
-						@endforeach
-					</ul>
-				</div>
+											<strong>
+												<span>{{ trans('main.schedule') }}
+													:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
+												{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
+											</strong>
+										</li>
+										<li class="person">
+											<strong>
+												<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
+											</strong>
+										</li>
+										@if(\Carbon\Carbon::parse($reservation['reservation_date']) > \Carbon\Carbon::now()->addDay())
+											<div class="delete_offer">
+												<a href="{{ action('ReservationController@cancelReservation', $reservation['reservation_id']) }}">{{ trans('main.cancel_activity') }}</a>
+											</div>
+										@endif
+									</ul>
+								</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
 			</div>
 		</div>
 	</main>
