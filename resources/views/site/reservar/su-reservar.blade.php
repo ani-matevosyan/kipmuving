@@ -102,20 +102,6 @@
 													<strong class="title">{{ trans('main.important') }}:</strong>
 													<p>{{ $offer['offerData']['important'] }}</p>
 												</div>
-												@if($offer['agencyData']['description'])
-													<div class="slide">
-														<div class="note">
-															<p>{{ $offer['agencyData']['description'] }}</p>
-														</div>
-													</div>
-													<strong class="more-detail">
-														<a href="#" class="opener">
-															<span class="more">{{ trans('main.more') }}</span>
-															<span class="less">{{ trans('main.less') }}</span>
-															{{ trans('main.details') }}
-														</a>
-													</strong>
-												@endif
 											</li>
 										@endforeach
 									</ul>

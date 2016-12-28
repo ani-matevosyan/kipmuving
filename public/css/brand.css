@@ -3477,25 +3477,16 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #footer .address span {
-  margin-right: 5%;
+  margin-right: 3%;
 }
 
 #footer .address span:last-child {
   margin-right: 0
 }
 
-@media(max-width: 1199px) and (min-width: 992px){
-  #footer .address span:first-child {
-    display: block;
-    margin-right: 0;
-  }
-}
-
-@media(max-width: 470px){
-    #footer .address span:first-child {
-        display: block;
-        margin-right: 0;
-    }
+#footer .address span:first-child {
+  display: block;
+  margin-right: 0;
 }
 
 #footer .address .tel {
