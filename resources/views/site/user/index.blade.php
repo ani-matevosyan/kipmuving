@@ -16,6 +16,65 @@
 								<h2>{{ trans('main.my_account') }}</h2>
 								<p>{{ trans('main.here_your_personal_info') }}</p>
 							</header>
+
+							@if($errors->has('first_name'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('first_name') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('last_name'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('last_name') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('gender'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('gender') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('email'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('email') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('month'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('month') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('day'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('day') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('year'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('year') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('phone'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('phone') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('image'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('image') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('password'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('password') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('confirm_password'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('confirm_password') }}</strong>
+								</div>
+							@endif
+							@if (Session::get('success'))
+								<div class="alert alert-info">{{ Session::get('success') }}</div>
+							@endif
 							<div class="row">
 								<div class="col-sm-2">
 									<div class="my-intro">
@@ -93,15 +152,14 @@
 												</div>
 											</div>
 										</div>
-										{{--TODO password--}}
 										<div class="sub-row">
 											<div class="row">
 												<div class="col-xs-3">
-													<label for="phone">{{ trans('form.password') }}</label>
+													<label for="phone">{{ trans('form.new_password') }}</label>
 												</div>
 												<div class="col-xs-9">
 													<div class="text-field">
-														<input type="text" placeholder="todo" class="form-control" id="phone" name="phone">
+														<input type="password" class="form-control" id="password" name="password">
 													</div>
 												</div>
 											</div>
@@ -109,16 +167,15 @@
 										<div class="sub-row">
 											<div class="row">
 												<div class="col-xs-3">
-													<label for="phone">{{ trans('form.password') }}</label>
+													<label for="phone">{{ trans('form.new_password_confirm') }}</label>
 												</div>
 												<div class="col-xs-9">
 													<div class="text-field">
-														<input type="text" placeholder="todo" class="form-control" id="phone" name="phone">
+														<input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
 													</div>
 												</div>
 											</div>
 										</div>
-										{{--TODO end--}}
 										<div class="sub-row">
 											<div class="text-field">
 												<button type="submit" class="btn btn-success">{{ trans('main.update') }}</button>
@@ -131,54 +188,6 @@
 						</div>
 					</div>
 				</div>
-				@if($errors->has('first_name'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('first_name') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('last_name'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('last_name') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('gender'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('gender') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('email'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('email') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('month'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('month') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('day'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('day') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('year'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('year') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('phone'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('phone') }}</strong>
-					</div>
-				@endif
-				@if($errors->has('image'))
-					<div class="alert alert-error alert-danger">
-						<strong>{{ $errors->first('image') }}</strong>
-					</div>
-				@endif
-				@if (Session::get('success'))
-					<div class="alert info">{{ Session::get('success') }}</div>
-				@endif
 				@if($reservations)
 					<div class="my_adventures">
 						<header>

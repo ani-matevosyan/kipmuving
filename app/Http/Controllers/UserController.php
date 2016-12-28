@@ -79,20 +79,20 @@ class UserController extends Controller
 			$activity = Activity::find($offer['activity_id']);
 			$agency = Agency::find($offer['agency_id']);
 			$result[] = [
-				'activity_id' => $activity['id'],
-				'activity_name' => $activity['name'],
+				'activity_id'         => $activity['id'],
+				'activity_name'       => $activity['name'],
 				'activity_image_icon' => $activity['image_icon'],
-				'agency_name' => $agency['name'],
-				'agency_address' => $agency['address'],
-				'reservation_id' => $reservation['id'],
-				'reservation_date' => $reservation['reserve_date'],
+				'agency_name'         => $agency['name'],
+				'agency_address'      => $agency['address'],
+				'reservation_id'      => $reservation['id'],
+				'reservation_date'    => $reservation['reserve_date'],
 				'reservation_persons' => $reservation['persons'],
-				'offer_start_time' => $offer['start_time'],
-				'offer_end_time' => $offer['end_time'],
+				'offer_start_time'    => $offer['start_time'],
+				'offer_end_time'      => $offer['end_time'],
 			];
 		}
 		$data = [
-			'user' => $user,
+			'user'         => $user,
 			'reservations' => $result
 		];
 		
@@ -105,15 +105,17 @@ class UserController extends Controller
 			'first_name' => 'required|max:255',
 			'last_name'  => 'required|max:255',
 			'email'      => 'required|email|max:255',
-			'phone'      => 'required|min:9|max:18'
+			'phone'      => 'required|min:9|max:18',
+			'password'   => 'min:6|confirmed'
 		]);
-
-
+		
+		
 		$user = User::find($id);
 		$user->first_name = $request['first_name'];
 		$user->last_name = $request['last_name'];
 		$user->email = $request['email'];
 		$user->phone = $request['phone'];
+		$user->password = bcrypt($request['password']);
 		
 		if (Input::hasFile('image')) {
 			$image = Input::file('image');
@@ -127,35 +129,36 @@ class UserController extends Controller
 		
 		return Redirect::to(action('UserController@getUser', $id))->with('success', 'Your data is updated');
 	}
-
-    public function updateUsersAvatar($id, Request $request)
-    {
-        $this->validate($request, [
-            'image'      => 'image'
-        ]);
-
-        $user = User::find($id);
-
-        if (Input::hasFile('image')) {
-            $image = Input::file('image');
-            $destination_path = public_path('uploads/users/');
-            $file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
-            $image->move($destination_path, $file_path);
-            $user->avatar = $file_path;
-        }
-
-        $user->save();
-    }
-
-    public function getAvatar(){
-
-        if (!$user = Auth::user())
-            abort(404);
-
-
-        $avatarPath = $user['avatar'];
-
-        return $avatarPath;
-
-    }
+	
+	public function updateUsersAvatar($id, Request $request)
+	{
+		$this->validate($request, [
+			'image' => 'image'
+		]);
+		
+		$user = User::find($id);
+		
+		if (Input::hasFile('image')) {
+			$image = Input::file('image');
+			$destination_path = public_path('uploads/users/');
+			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
+			$image->move($destination_path, $file_path);
+			$user->avatar = $file_path;
+		}
+		
+		$user->save();
+	}
+	
+	public function getAvatar()
+	{
+		
+		if (!$user = Auth::user())
+			abort(404);
+		
+		
+		$avatarPath = $user['avatar'];
+		
+		return $avatarPath;
+		
+	}
 }
