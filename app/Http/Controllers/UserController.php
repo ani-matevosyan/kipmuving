@@ -132,7 +132,8 @@ class UserController extends Controller
 		$user = User::find($id);
 		
 		if (Input::hasFile('image')) {
-			File::delete(public_path($user['avatar']));
+			if ($user['avatar'])
+				File::delete(public_path($user['avatar']));
 			$image = Input::file('image');
 			$destination_path = public_path('uploads/users/');
 			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
