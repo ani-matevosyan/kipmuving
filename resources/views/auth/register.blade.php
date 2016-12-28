@@ -13,6 +13,55 @@
 					<div class="page-header">
 						<h1><strong>{{ trans('main.register') }}</strong></h1>
 						<p>{{ trans('main.welcome_to_site') }}</p>
+
+						@if($errors->has('first_name'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('first_name') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('last_name'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('last_name') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('email'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('email') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('password'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('password') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('password_confirmation'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('password_confirmation') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('phone'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('phone') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('subscribe'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('subscribe') }}</strong>
+							</div>
+						@endif
+
+
+						@if (Session::get('error'))
+							<div class="alert alert-error alert-danger">
+								@if (is_array(Session::get('error')))
+									{{ head(Session::get('error')) }}
+								@endif
+							</div>
+						@endif
+
+						@if (Session::get('notice'))
+							<div class="alert">{{ Session::get('notice') }}</div>
+						@endif
 						<form class="form-horizontal registration registration-login " method="POST" action="{{ url('/register') }}" accept-charset="UTF-8">
 							{{ csrf_field() }}
 							<fieldset>
@@ -80,12 +129,12 @@
 								<div class="form-group">
 									<div class="col-md-4">
 										<label class="control-label" for="phone">
-											{{ trans('form.password') }}
+											{{ trans('form.confirm_password') }}
 										</label>
 									</div>
 									<div class="col-md-8">
 										<div class="text-field">
-											<input class="form-control" tabindex="5" type="password" name="password" id="password">
+											<input class="form-control" tabindex="5" type="password" name="password_confirmation" id="password_confirmation">
 										</div>
 										<div class="checkbox">
 											<div class="subscribe_check">
@@ -106,49 +155,6 @@
 								</div>
 							</fieldset>
 						</form>
-						@if($errors->has('first_name'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('first_name') }}</strong>
-							</div>
-						@endif
-						@if($errors->has('last_name'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('last_name') }}</strong>
-							</div>
-						@endif
-						@if($errors->has('email'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('email') }}</strong>
-							</div>
-						@endif
-						@if($errors->has('password'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('password') }}</strong>
-							</div>
-						@endif
-						@if($errors->has('phone'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('phone') }}</strong>
-							</div>
-						@endif
-						@if($errors->has('subscribe'))
-							<div class="alert alert-error alert-danger">
-								<strong>{{ $errors->first('subscribe') }}</strong>
-							</div>
-						@endif
-
-
-						@if (Session::get('error'))
-							<div class="alert alert-error alert-danger">
-								@if (is_array(Session::get('error')))
-									{{ head(Session::get('error')) }}
-								@endif
-							</div>
-						@endif
-
-						@if (Session::get('notice'))
-							<div class="alert">{{ Session::get('notice') }}</div>
-						@endif
 					</div>
 				</div>
 			</div>
