@@ -11,7 +11,7 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 	$model->setTitle('Agencies');
 
 	$model->onDisplay(function () {
-		$display = AdminDisplay::table()->setColumns([
+		$display = AdminDisplay::datatables()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('name')->setLabel('Name'),
 			AdminColumn::text('address')->setLabel('Address'),
