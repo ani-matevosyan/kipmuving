@@ -58,9 +58,9 @@ class RegisterController extends Controller
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|confirmed|min:6',
 			'phone' => 'required|min:9|max:18',
-			'day' => 'required|digits_between:1,2',
-			'month' => 'required|digits_between:1,2',
-			'year' => 'required|digits:4'
+//			'day' => 'required|digits_between:1,2',
+//			'month' => 'required|digits_between:1,2',
+//			'year' => 'required|digits:4'
 		]);
 	}
 
@@ -84,8 +84,8 @@ class RegisterController extends Controller
 	 */
 	protected function create(array $data)
 	{
-		$day = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
-		$month = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
+//		$day = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
+//		$month = ($data['day'] < 10) ? '0'.$data['day'] : $data['day'];
 
 		$confirmation_code = str_random(30);
 		$user = User::create([
@@ -93,7 +93,7 @@ class RegisterController extends Controller
 			'first_name' => $data['first_name'],
 			'last_name' => $data['last_name'],
 			'phone' => $data['phone'],
-			'birthday' => Carbon::parse($data['year'].'-'.$month.'-'.$day)->toDateString(),
+//			'birthday' => Carbon::parse($data['year'].'-'.$month.'-'.$day)->toDateString(),
 			'confirmation_code' => $confirmation_code,
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
