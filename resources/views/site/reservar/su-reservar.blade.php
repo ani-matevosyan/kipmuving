@@ -160,9 +160,6 @@
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
-										{{--<div class="note">--}}
-											{{--* {{ trans('main.approximate_value') }}--}}
-										{{--</div>--}}
 									</section>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">
@@ -224,7 +221,7 @@
                                       token: token
                                   },
                                   success: function (data) {
-										$("#payment_status .iframetest").html(data);
+									  $("#payment_status").text(data);
 									  $('#myModal').modal('show');
                                   },
                                   error: function (err) {
@@ -283,9 +280,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="payment_status">
-						<iframe frameborder="0" class="iframetest"></iframe>
-					</h4>
+					<h4 class="modal-title" id="payment_status"></h4>
 				</div>
 				<div class="modal-body">
 					<a href="{{ action('HomeController@index') }}" class="btn btn-success btn-success-cal">To home page</a>
