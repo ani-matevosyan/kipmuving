@@ -45,14 +45,15 @@ class ReservationController extends Controller
 			$topay += $selectedOffer['persons'] * 3.5;
 			$results[] = [
 				'offerData'    => [
-					'id'         => $offer['offer_id'],
-					'date'       => $selectedOffer['date'],
-					'start_time' => $offer['start_time'],
-					'end_time'   => $offer['end_time'],
-					'persons'    => $selectedOffer['persons'],
-					'price'      => $offer['price_offer'],
-					'includes'   => $offer['offerIncludes'],
-					'important'  => $offer['offerImportant']
+					'id'                 => $offer['offer_id'],
+					'date'               => $selectedOffer['date'],
+					'start_time'         => $offer['start_time'],
+					'end_time'           => $offer['end_time'],
+					'persons'            => $selectedOffer['persons'],
+					'price'              => $offer['price_offer'],
+					'includes'           => $offer['offerIncludes'],
+					'important'          => $offer['offerImportant'],
+					'cancellation_rules' => $offer['offerCancellationRules']
 				],
 				'agencyData'   => [
 					'id'          => $offer['agency_id'],
@@ -156,7 +157,7 @@ class ReservationController extends Controller
 					
 					#TODO delete this after testing
 					return View::make('emails.reservar.user', ['data' => $data])->render();
-					
+
 //					#Send email about reservation to user
 //					Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
 //						$message->from('info@kipmuving.com', 'Kipmuving team');

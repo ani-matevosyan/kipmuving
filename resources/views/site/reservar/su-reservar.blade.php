@@ -102,6 +102,9 @@
 													<strong class="title">{{ trans('main.important') }}:</strong>
 													<p>{{ $offer['offerData']['important'] }}</p>
 												</div>
+												<div>
+													<p>{{ $offer['offerData']['cancellation_rules'] }}</p>
+												</div>
 												@if($offer['agencyData']['description'])
 													<div class="slide">
 														<div class="note">
