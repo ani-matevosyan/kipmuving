@@ -4065,6 +4065,14 @@ body.home2 .roteros-options .raised-form .text-field {
     margin-top: -10px;
 }
 
+.registration .subscribe_check{
+    margin-top: 1px;
+}
+
+.registration .subscribe_check label{
+    padding: 0
+}
+
 .registration .rememberme label{
     display: inline-block;
 }
@@ -4072,6 +4080,10 @@ body.home2 .roteros-options .raised-form .text-field {
 .registration .confirmlogin{
     text-align: right;
     margin-top: -15px;
+}
+
+.registration .confirmregistration{
+    text-align: right;
 }
 
 .registration .confirmlogin a{
@@ -4083,7 +4095,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .registration label {
-  color: #67696b;
+  color: #000;
   display: block;
   margin: 0 0 3px;
   position: relative;
@@ -4255,7 +4267,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .registration p {
-  margin: 0 0 30px;
+  margin: 3px 0 0;
+  font-size: 12px;
 }
 
 .program-schedule {
@@ -7108,7 +7121,9 @@ body.home2 .roteros-options .raised-form .text-field {
 .profile-block .my-intro .img-holder img {
   width: 100%;
   display: block;
-  height: auto;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .profile-block .my-intro .text {

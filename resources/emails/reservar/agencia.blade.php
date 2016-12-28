@@ -423,7 +423,7 @@
 												<table class="mcnImageContentContainer" style="min-width:100%;" align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
 													<tbody>
 														<tr>
-															<td class="mcnImageContent" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;" valign="top"><img alt="" src="{{ url('/images/logo1.png') }}" style="max-width:340px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage" align="left" width="340"></td>
+															<td class="mcnImageContent" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;" valign="top"><img alt="" src="{{ url('/images/logo-new.svg') }}" style="max-width:340px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage" align="left" width="340"></td>
 														</tr>
 													</tbody>
 												</table>

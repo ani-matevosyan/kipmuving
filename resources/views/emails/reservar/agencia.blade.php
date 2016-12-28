@@ -451,7 +451,7 @@
 											<tr>
 												<td class="mcnImageContent"
 													 style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;"
-													 valign="top"><img alt="" src="{{ url('/images/logo1.png') }}"
+													 valign="top"><img alt="" src="{{ url('/images/logo-new.svg') }}"
 																			 style="max-width:340px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
 																			 class="mcnImage" align="left" width="340"></td>
 											</tr>
