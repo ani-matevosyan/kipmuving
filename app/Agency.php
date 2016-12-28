@@ -22,6 +22,7 @@ class Agency extends Model
 				'agency_translations.name',
 				'agency_translations.description'
 			)
+			->orderBy('agency_translations.name')
 			->get();
 
 		return $agencies;
