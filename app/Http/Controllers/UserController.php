@@ -10,6 +10,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -117,14 +118,6 @@ class UserController extends Controller
 		$user->phone = $request['phone'];
 		$user->password = bcrypt($request['password']);
 		
-		if (Input::hasFile('image')) {
-			$image = Input::file('image');
-			$destination_path = public_path('uploads/users/');
-			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
-			$image->move($destination_path, $file_path);
-			$user->avatar = $file_path;
-		}
-		
 		$user->save();
 		
 		return Redirect::to(action('UserController@getUser', $id))->with('success', 'Your data is updated');
@@ -139,6 +132,7 @@ class UserController extends Controller
 		$user = User::find($id);
 		
 		if (Input::hasFile('image')) {
+			File::delete(public_path($user['avatar']));
 			$image = Input::file('image');
 			$destination_path = public_path('uploads/users/');
 			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
