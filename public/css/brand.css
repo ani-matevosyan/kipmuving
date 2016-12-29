@@ -5207,7 +5207,9 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .timing li.time:after {
-  background-position: -34px -137px;
+  background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 
 .your-reservation .timing li.person:after {
@@ -7915,6 +7917,13 @@ body.home2 .roteros-options .raised-form .text-field {
         height: 70px; }
         .s_guia ul li svg path {
           fill: #474747; }
+    .s_guia ul li img {
+        margin-right: 15px;
+        width: 80px;
+        height: 70px;
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
   .s_guia .section_title h2 span{
     color: #000000;
     text-align: center;
