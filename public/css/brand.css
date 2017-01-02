@@ -4803,10 +4803,12 @@ body.home2 .roteros-options .raised-form .text-field {
   height: 18px;
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 17px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -57px -137px;
+  background: url(../images/happy.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 .your-reservation.new .timing1 li.profile .jcf-select,
@@ -4832,7 +4834,9 @@ body.home2 .roteros-options .raised-form .text-field {
   top: 8px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat;
+  background: url(../images/calendar.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 .your-reservation.new .timing1 strong {
@@ -5099,13 +5103,12 @@ body.home2 .roteros-options .raised-form .text-field {
 .your-reservation .important {
   color: #fff;
   overflow: hidden;
-  margin: 0 0 10px;
   position: relative;
   background: #963d4c;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 18px;
-  font-weight: 400;
-  padding: 8px 20px 10px 50px;
+  font-weight: normal;
+  padding: 8px 10px 10px 50px;
 }
 
 .your-reservation .important:after {
@@ -5121,13 +5124,26 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .important .title {
-  display: block;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Lato-Heavy', sans-serif;
 }
 
 .your-reservation .important p {
   margin: 0;
+}
+
+.your-reservation .cancellation_rules{
+  background: #78313d;
+  color: #fff;
+  padding: 11px 0 16px 50px;
+  font-size: 13px;
+}
+
+.your-reservation .cancellation_rules p{
+  margin: 0;
+}
+
+.your-reservation .cancellation_rules p span{
+  font-family: "Lato-Heavy", sans-serif;
 }
 
 .your-reservation .more-detail {
@@ -5213,7 +5229,9 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .timing li.person:after {
-  background-position: -57px -137px;
+  background: url(../images/happy.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 .your-reservation .timing strong {

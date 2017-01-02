@@ -23,22 +23,24 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="agency-photo-wrapp">
-											<img src="/{{ $agency['image'] }}" alt="image description">
+											<img src="/{{ $agency['image'] }}" alt="image description" onerror="this.src='/images/image-none.jpg';">
 										</div>
 									</div>
 									<div class="col-md-8">
 										<div class="text">
 											<p>{{ $agency['description'] }}</p>
 										</div>
-										<div class="agency-gallery">
-											<div class="row">
-												<div class="col-xs-9">
-													<div id="instafeed4" class="instafeed"
-														  data-instagram-id="{{ $agency['instagram_id'] }}"></div>
+										@if($agency['instagram_id'])
+											<div class="agency-gallery">
+												<div class="row">
+													<div class="col-xs-9">
+														<div id="instafeed4" class="instafeed"
+															 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
+													</div>
+													<span class="agency-tag">aguaventura</span>
 												</div>
-												<span class="agency-tag">aguaventura</span>
 											</div>
-										</div>
+										@endif
 									</div>
 								</div>
 							</div>
