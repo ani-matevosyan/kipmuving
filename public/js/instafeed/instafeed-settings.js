@@ -1,10 +1,13 @@
 $(document).ready(function(){
+
+	var accessToken = '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68';
+
 	if($("#instafeed1").length){
 		var feed1 = new Instafeed({
 			get: 'tagged',
 			tagName: 'pucon',
 			target: 'instafeed1',
-			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken : accessToken,
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 14,
 			after: function(){
@@ -36,7 +39,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'rioturbio',
 			target: 'instafeed2_1',
-			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken : accessToken,
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 5,
 			after: function(){
@@ -68,7 +71,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'ojosdelcaburgua',
 			target: 'instafeed2_2',
-			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken : accessToken,
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 5,
 			after: function(){
@@ -100,7 +103,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'saltodelclaro',
 			target: 'instafeed2_3',
-			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken : accessToken,
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 4,
 			after: function(){
@@ -132,7 +135,7 @@ $(document).ready(function(){
 			get: 'tagged',
 			tagName: 'termasmenetue',
 			target: 'instafeed3',
-			accessToken: '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken: accessToken,
 			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
 			limit: 14,
 			after: function () {
@@ -166,7 +169,7 @@ $(document).ready(function(){
 			get: 'user',
             userId: agencyId,
 			target: 'instafeed4',
-			accessToken : '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68',
+			accessToken : accessToken,
 			template: '<div class="col-sm-2 col-xs-3 in-image-agency"><a href="{{link}}"><img style="width: 86px !important; height: 86px !important;" src="{{image}}"/></a></div>',
 			limit: 12,
 			after: function(){
@@ -192,5 +195,21 @@ $(document).ready(function(){
 			}
 		});
 		feed4.run();
+		$.ajax({
+			type: "GET",
+			url: "https://api.instagram.com/v1/users/"+agencyId,
+			data: {
+				access_token: accessToken
+			},
+			success: function(data){
+				console.log(data);
+			}
+		});
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://api.instagram.com/v1/users/"+agencyId +"/?"+accessToken, true);
+		xhr.onload = function () {
+			console.log(xhr.responseText);
+		};
+		xhr.send();
 	}
-})
+});

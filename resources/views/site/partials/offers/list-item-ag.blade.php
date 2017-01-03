@@ -1,18 +1,66 @@
 <li class="offer-item">
-	<header>
-		<div class="rating">
-			<!-- <div class="star"><img src="images/img-star.png" alt="image description"></div> -->
-			<!-- <span>120 comentarios</span> -->
-		</div>
-		<div class="text">
-			<h2>
-				<a href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>
-			</h2>
-			<strong class="sub-title"><span>{{-- $offer->location --}}</span></strong>
-		</div>
-	</header>
+	{{--<header>--}}
+		{{--<div class="rating">--}}
+			{{--<!-- <div class="star"><img src="images/img-star.png" alt="image description"></div> -->--}}
+			{{--<!-- <span>120 comentarios</span> -->--}}
+		{{--</div>--}}
+		{{--<div class="text">--}}
+			{{--<h2>--}}
+				{{--<a href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>--}}
+			{{--</h2>--}}
+			{{--<strong class="sub-title"><span>--}}{{-- $offer->location --}}{{--</span></strong>--}}
+		{{--</div>--}}
+	{{--</header>--}}
+    <header>
+        <div class="ico">
+            <img src="/{{ $offer['offerActivity']['image_icon'] }}"
+                 onerror="this.src='/images/image-none.jpg';"
+                 alt="agency image">
+        </div>
+        <div class="rating">
+            <!-- <div class="star"><img src="images/img-star.png" alt="image description"></div> -->
+            <!-- <span>120 comentarios</span> -->
+        </div>
+        <div class="text">
+            <h2>
+                <a href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>
+            </h2>
+            <strong class="sub-title">
+                <span>Avenida O´higgins 592</span>
+            </strong>
+        </div>
+        <ul class="links">
+            <li>
+                    <a href="javascript:void(0)"
+                       data-toggle="popover"
+                       title="Trekking Volcán Villarrica"
+                       data-html="true"
+                       data-placement="bottom"
+                       data-container="body"
+                       data-trigger="focus"
+                       data-content="
+										<img src='/images/uploads/472cd9cc3701c1873885aa5b70caa02e.jpg'>
+										</a>
+										<br>
+										VIVIR LA EXPERIENCIA DEL ASCENSO AL VOLCÁN VILLARICA, EL MÁS ACTIVO DE SUDAMÉRICA
+                               <hr>
+                              Vivir la experiencia del ascenso al Volcán Villarica, el más activo de Sudamérica, es un clásico amado por los turistas. No se necesita ser profesional para lograrlo, pero lo que sí es indispensable son las ganas de disfrutar, trabajar en equipo, auto motivarte y superarte en conexión con la naturaleza. Es una experiencia que puede durar entre 4 y 9 horas y comienza desde la base del volcán donde se pueden ver 5 espectaculares lagos de la región como el Caburgua. Luego en la cumbre  ( a 2847m) puedes deleitarte con la vista de otros volcanes como el Quetrupillán, Lanín, Llaima, Lonquimay, Sierra Nevada, Chohuenco, Osorno, Tolhuaca. El ascenso al Volcán se hace todo el año, en invierno como en verano, acompañado de guías expertos.
+                               <br>
+                               <a href='/activity/3'>info...</a>">{{ trans('main.about_the_agency') }}</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"
+                   class="btn-map"
+                   data-toggle="modal"
+                   data-lat="-39.42011"
+                   data-lng="-71.94189"
+                   data-title="Trekking Volcán Villarrica">{{ trans('main.show_map') }}</a>
+            </li>
+        <!-- <li><a href="/agency/{{ $offer['offerAgency']['id'] }}">Condiciones</a></li> -->
+        </ul>
+    </header>
 	<div class="row">
-		<div class="col-md-5 col-sm-5 col-xs-12">
+		<div class="col-md-4 col-sm-5 col-xs-12">
 			@if($offer['offer_includes'])
 				<div class="list-box">
 					<strong class="title">{{ trans('main.what_includes') }}:</strong>
@@ -24,7 +72,7 @@
 				</div>
 			@endif
 		</div>
-		<div class="col-md-7 col-sm-4 col-xs-12">
+		<div class="col-md-8 col-sm-4 col-xs-12">
 			<div class="select-activity">
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12">
@@ -75,21 +123,12 @@
 					@endif
 				</div>
 			</div>
+			@if($offer['description'])
+				<div style="color: #006b33; margin: 10px ; font-size: 13px;">
+					<p>{{ $offer['description'] }}</p>
+				</div>
+			@endif
 		</div>
 	</div>
-	@if($offer['description'])
-		<div class="slide">
-			<div class="note">
-				<p>{{ $offer['description'] }}</p>
-			</div>
-		</div>
-		<!-- <div class="trip-adv"></div> -->
-		<strong class="more-detail">
-			<a href="#" class="opener">
-				<span class="more">{{ trans('main.more') }}</span>
-				<span class="less">{{ trans('main.less') }}</span>
-				{{ trans('main.details') }}
-			</a>
-		</strong>
-	@endif
+	<div class="trip-adv"></div>
 </li>

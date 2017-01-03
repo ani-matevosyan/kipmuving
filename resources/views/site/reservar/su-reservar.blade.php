@@ -99,11 +99,10 @@
 													</strong>
 												</div>
 												<div class="important">
-													<strong class="title">{{ trans('main.important') }}:</strong>
-													<p>{{ $offer['offerData']['important'] }}</p>
+													<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer['offerData']['important'] }}</p>
 												</div>
-												<div>
-													<p>{{ $offer['offerData']['cancellation_rules'] }}</p>
+												<div class="cancellation_rules">
+													<p><span>Costos para cancelar: </span>{{ $offer['offerData']['cancellation_rules'] }}</p>
 												</div>
 											</li>
 										@endforeach
