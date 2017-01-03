@@ -54,8 +54,10 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::date('available_start', 'Start date')
+							->setPickerFormat('d.m')
 							->required(),
 						AdminFormElement::date('available_end', 'End date')
+							->setPickerFormat('d.m')
 							->required()
 					], 3)
 					->addColumn([

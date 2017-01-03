@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -60,6 +61,14 @@ class Offer extends Model
 		return $result;
 	}
 	
+	private function checkOffersAvailability($offers){
+		return $offers->filter(function ($value, $key) {
+			return Carbon::now()->toDateString() >= $value->available_start_date.'.'.Carbon::now()->year
+				&& Carbon::now()->toDateString() <= $value->available_end_date.'.'.Carbon::now()->year
+				&& $value->availability == true;
+		});
+	}
+	
 	public function getPriceAttribute()
 	{
 		$price = $this->attributes['price'];
@@ -70,6 +79,20 @@ class Offer extends Model
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		
 		return $price;
+	}
+	
+	public function getAvailableStartDateAttribute()
+	{
+		$start = Carbon::parse($this->attributes['available_start'])->format('d.m');
+		
+		return $start;
+	}
+	
+	public function getAvailableEndDateAttribute()
+	{
+		$end = Carbon::parse($this->attributes['available_end'])->format('d.m');
+		
+		return $end;
 	}
 	
 	public function getPriceOfferAttribute()
@@ -114,6 +137,8 @@ class Offer extends Model
 			->select('offers.*')
 			->get();
 		
+		$offers = $this->checkOffersAvailability($offers);
+		
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
@@ -130,6 +155,8 @@ class Offer extends Model
 			->orderBy('price_offer', 'ASC')
 			->get();
 		
+		$offers = $this->checkOffersAvailability($offers);
+		
 		foreach ($offers as $offer) {
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
@@ -144,6 +171,8 @@ class Offer extends Model
 		$offers = Offer::where('activity_id', $activityId)
 			->where('availability', true)
 			->get();
+		
+		$offers = $this->checkOffersAvailability($offers);
 		
 		foreach ($offers as $offer) {
 			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
@@ -216,11 +245,17 @@ class Offer extends Model
 				'activity_translations.name as activity_name',
 				'offer_translations.includes as offer_includes',
 				'offers.id',
+				'offers.available_start',
+				'offers.available_end',
+				'offers.availability',
 				'offers.start_time',
 				'offers.end_time',
 				'offers.price_offer'
 			)
 			->get();
+		
+		$offers = $this->checkOffersAvailability($offers);
+		
 		foreach ($offers as $offer) {
 			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
