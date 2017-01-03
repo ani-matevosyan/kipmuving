@@ -130,7 +130,26 @@ class Offer extends Model
 	
 	public function getRealPriceAttribute()
 	{
+		return $this->attributes['price'];
+	}
+	
+	public function getRealPriceOfferAttribute()
+	{
 		return $this->attributes['price_offer'];
+	}
+	
+	public function setRealPriceAttribute($price)
+	{
+		$offer = Offer::find($this['id']);
+		$offer['price'] = $price;
+		$offer->save();
+	}
+	
+	public function setRealPriceOfferAttribute($price_offer)
+	{
+		$offer = Offer::find($this['id']);
+		$offer['price_offer'] = $price_offer;
+		$offer->save();
 	}
 	
 	public function getRecommendOffers($activityId)

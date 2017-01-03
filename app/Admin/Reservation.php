@@ -19,6 +19,7 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 			AdminColumn::text('agency')->setLabel('Agency'),
 			AdminColumn::datetime('reserve_date')->setLabel('Date')->setFormat('d.m.Y'),
 			AdminColumn::text('persons')->setLabel('Persons'),
+			AdminColumn::text('price')->setLabel('Price'),
 			AdminColumn::text('sum')->setLabel('Sum')
 		]);
 		$display->paginate(10);

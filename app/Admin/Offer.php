@@ -15,11 +15,11 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 			AdminColumn::text('id')->setLabel('#'),
 			AdminColumn::text('activity')->setLabel('Activity'),
 			AdminColumn::text('agency')->setLabel('Agency'),
-			AdminColumn::text('price')->setLabel('Price'),
-			AdminColumn::text('persons')->setLabel('Persons'),
+			AdminColumn::text('real_price')->setLabel('Price'),
+//			AdminColumn::text('persons')->setLabel('Persons'),
 //			AdminColumn::text('min_age')->setLabel('Min age'),
-			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m/y'),
-			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m/y'),
+			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m'),
+			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m'),
 			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
 			})
@@ -56,56 +56,41 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 						AdminFormElement::date('available_start', 'Start date')
 							->setPickerFormat('d.m')
 							->required(),
-						AdminFormElement::time('start_time', 'Start time')
-							->required(),
-					], 3)
-					->addColumn([
 						AdminFormElement::date('available_end', 'End date')
 							->setPickerFormat('d.m')
 							->required(),
-						AdminFormElement::time('end_time', 'End time')
-							->required()
+//						AdminFormElement::time('start_time', 'Start time')
+//							->required(),
 					], 3)
 					->addColumn([
-						AdminFormElement::text('price', 'Price')
+						AdminFormElement::text('real_price', 'Price')
 							->required(),
-						AdminFormElement::text('price_offer', 'Offer price')
+						AdminFormElement::text('real_price_offer', 'Offer price')
 							->required()
+//						AdminFormElement::time('end_time', 'End time')
+//							->required()
 					], 3)
 					->addColumn([
 						AdminFormElement::text('break_start', 'Break start')
 							->required(),
 						AdminFormElement::text('break_close', 'Break close')
 							->required()
-					], 3),
-				
-				AdminFormElement::columns()
-//					->addColumn([
-//						AdminFormElement::number('min_age', 'Min age')
-//							->required()
-//					], 3)
+					], 3)
 					->addColumn([
 						AdminFormElement::number('persons', 'Persons')
 							->required()
 					], 3),
-//					->addColumn([
-//						AdminFormElement::number('includes_count', 'Includes count')
-//							->required()
-//					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
+			]),
+			'Time'  => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::textarea('available_time', 'Time')->required()
 			]),
 			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('includes', 'Includes')->required()
 			]),
-//			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
-//				AdminFormElement::textarea('restrictions', 'Restrictions')
-//			]),
 			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()
 			]),
-//			'Carry'        => new \SleepingOwl\Admin\Form\FormElements([
-//				AdminFormElement::textarea('carry', 'Carry')
-//			])
 		]);
 		
 		$form->addElement($tabs);

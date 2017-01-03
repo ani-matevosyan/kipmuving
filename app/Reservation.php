@@ -36,6 +36,13 @@ class Reservation extends Model
 	{
 		$offer = Offer::find($this['offer_id']);
 		
-		return ($offer['price_offer'] * $this['persons']).' '.session('currency.type');
+		return $offer['real_price_offer'] * $this['persons'];
+	}
+	
+	public function getPriceAttribute()
+	{
+		$offer = Offer::find($this['offer_id']);
+		
+		return $offer['real_price_offer'];
 	}
 }
