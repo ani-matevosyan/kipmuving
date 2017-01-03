@@ -61,11 +61,16 @@ class Offer extends Model
 		return $result;
 	}
 	
-	private function checkOffersAvailability($offers){
+	private function checkOffersAvailability($offers)
+	{
 		return $offers->filter(function ($value, $key) {
-			return Carbon::now()->toDateString() >= $value->available_start_date.'.'.Carbon::now()->year
-				&& Carbon::now()->toDateString() <= $value->available_end_date.'.'.Carbon::now()->year;
-//				&& $value->availability == true;
+			$startDate = Carbon::createFromFormat('d.m.Y', $value->available_start_date.'.'.Carbon::now()->year)->toDateString();
+			$endDate = Carbon::createFromFormat('d.m.Y', $value->available_end_date.'.'.Carbon::now()->year)->toDateString();
+			
+			if ($endDate > $startDate)
+				return session('selectedDate') >= $startDate
+					&& session('selectedDate') <= $endDate;
+//					&& $value->availability == true;
 		});
 	}
 	
