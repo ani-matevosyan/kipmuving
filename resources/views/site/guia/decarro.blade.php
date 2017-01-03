@@ -69,9 +69,11 @@
 <div class="row">
     <div class="col-sm-7">
         <div class="left-col">
+            <?php $countVisible = 0; ?>
             @foreach($mappoints['features'] as $mappoint)
                 @if($mappoint['properties']['description'])
-                    <div class="map-tab @if($loop->first) active @endif" id="map-tab-{{ $mappoint['id'] }}">
+                    <div class="map-tab @if($countVisible === 0) active @endif" id="map-tab-{{ $mappoint['id'] }}">
+                        <?php $countVisible++ ?>
                         <div class="termas">
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
