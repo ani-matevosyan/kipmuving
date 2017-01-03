@@ -34,6 +34,7 @@ class GuiaController extends Controller
 		return view('site.guia.bicicleta', $data);
 	}
 
+
 	public function getDecarro(Offer $offer)
 	{
 		
@@ -43,7 +44,8 @@ class GuiaController extends Controller
 			'count' => [
 				'offers' => count($offer->getSelectedOffers()),
 				'persons' => $offer->getSelectedOffersPersons()
-			]
+			],
+            'mappoints' => $this->getMapPoints()
 		];
 		return view('site.guia.decarro', $data);
 	}
