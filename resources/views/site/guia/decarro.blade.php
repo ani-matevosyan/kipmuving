@@ -71,7 +71,7 @@
         <div class="left-col">
             @foreach($mappoints['features'] as $mappoint)
                 @if($mappoint['properties']['description'])
-                    <div class="map-tab active" id="map-tab-{{ $mappoint['id'] }}">
+                    <div class="map-tab @if($loop->first) active @endif" id="map-tab-{{ $mappoint['id'] }}">
                         <div class="termas">
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
