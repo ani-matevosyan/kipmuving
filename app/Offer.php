@@ -61,6 +61,24 @@ class Offer extends Model
 		return $result;
 	}
 	
+	private function getTime($time)
+	{
+		$time = $this->dataToArray($time);
+		
+		if ($time) {
+			$result = [];
+			foreach ($time as $key => $item) {
+				$item = explode('-', $item);
+				$result[$key]['start'] = $item[0];
+				$result[$key]['end'] = $item[1];
+			}
+			
+			return $result;
+		}
+		
+		return null;
+	}
+	
 	private function checkOffersAvailability($offers)
 	{
 		return $offers->filter(function ($value, $key) {
@@ -167,6 +185,9 @@ class Offer extends Model
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
+			$this->getTime($offer['available_time'])
+				? $offer['available_time'] = $this->getTime($offer['available_time'])
+				: $offer = array_except($offer, 'available_time');
 		}
 		
 		return $offers;
