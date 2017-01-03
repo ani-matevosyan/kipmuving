@@ -64,8 +64,8 @@ class Offer extends Model
 	private function checkOffersAvailability($offers){
 		return $offers->filter(function ($value, $key) {
 			return Carbon::now()->toDateString() >= $value->available_start_date.'.'.Carbon::now()->year
-				&& Carbon::now()->toDateString() <= $value->available_end_date.'.'.Carbon::now()->year
-				&& $value->availability == true;
+				&& Carbon::now()->toDateString() <= $value->available_end_date.'.'.Carbon::now()->year;
+//				&& $value->availability == true;
 		});
 	}
 	
