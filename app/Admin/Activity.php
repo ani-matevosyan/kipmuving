@@ -39,15 +39,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 				AdminFormElement::textarea('description', 'Description')->required(),
 
 				AdminFormElement::columns()
-//					->addColumn([
-//						AdminFormElement::date('available_start', 'Start date')->required(),
-//						AdminFormElement::date('available_end', 'End date')->required()
-//					], 4)
 					->addColumn([
 						AdminFormElement::text('latitude', 'Latitude')->required(),
-						AdminFormElement::text('longitude', 'Longitude')->required()
-					], 4)
-					->addColumn([
 						AdminFormElement::select('styles', 'Style')->required()->setOptions([
 							'Trekking' => 'Trekking',
 							'Rio' => 'Rio',
@@ -56,6 +49,11 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 							'Familia' => 'Familia',
 							'Nieve' => 'Nieve'
 						]),
+					], 4)
+					->addColumn([
+						AdminFormElement::text('longitude', 'Longitude')->required()
+					], 4)
+					->addColumn([
 						AdminFormElement::number('min_age', 'Min age')->required()
 					], 4),
 

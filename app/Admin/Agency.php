@@ -34,13 +34,14 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('latitude', 'Latitude')->required()
-					], 6)
+					], 4)
 					->addColumn([
 						AdminFormElement::text('longitude', 'Longitude')->required()
-					], 6),
+					], 4)
+					->addColumn([
+						AdminFormElement::text('instagram_id', 'Instagram user ID'),
+					], 4),
 				
-				AdminFormElement::text('instagram_id', 'Instagram user ID'),
-
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::image('image', 'Image'),
