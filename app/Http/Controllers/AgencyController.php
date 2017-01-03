@@ -29,7 +29,7 @@ class AgencyController extends Controller
 			'agency' => $agency->getAgency($id),
 			'offers' => $offer->getAgencyOffers($id)
 		];
-		
+
 		return view('site.agencies.agency-single', $data);
 	}
 }

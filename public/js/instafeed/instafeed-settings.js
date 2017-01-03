@@ -195,15 +195,21 @@ $(document).ready(function(){
 			}
 		});
 		feed4.run();
-		// $.ajax({
-		// 	type: "GET",
-		// 	url: "https://api.instagram.com/v1/users/"+agencyId,
-		// 	data: {
-		// 		access_token: accessToken
-		// 	},
-		// 	success: function(data){
-		// 		console.log(data);
-		// 	}
-		// })
+		$.ajax({
+			type: "GET",
+			url: "https://api.instagram.com/v1/users/"+agencyId,
+			data: {
+				access_token: accessToken
+			},
+			success: function(data){
+				console.log(data);
+			}
+		});
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "https://api.instagram.com/v1/users/"+agencyId +"/?"+accessToken, true);
+		xhr.onload = function () {
+			console.log(xhr.responseText);
+		};
+		xhr.send();
 	}
 });
