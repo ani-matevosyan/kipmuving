@@ -168,6 +168,9 @@
                                                 });
                                             }
                                             initMap();
+                                            $(".termas-tabs li").on('click', function(){
+                                                alert("ok");
+                                            });
                                         </script>
                                     </div>
                                 </div>
