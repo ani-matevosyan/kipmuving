@@ -93,7 +93,7 @@
                         </div>
                         <div class="termas-tabs">
                             <ul class="nav nav-pills">
-                                <li class="active">
+                                <li>
                                     <a data-toggle="pill" href="#home">
                                         <img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
                                         <div class="link-info">
@@ -102,7 +102,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a data-toggle="pill" href="#menu1">
                                         <img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
                                         <div class="link-info">
@@ -114,7 +114,7 @@
                             </ul>
 
                             <div class="tab-content">
-                                <div id="home" class="tab-pane well fade in active">
+                                <div id="home" class="tab-pane well fade ">
                                     <div class="tab-detail">
                                         <p>{{ trans('main.you_should_take_bus') }}</p>
                                     </div>
@@ -128,24 +128,46 @@
                                         <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
                                     </div>
                                 </div>
-                                <div id="menu1" class="tab-pane well fade">
+                                <div id="menu1" class="tab-pane well fade in active">
                                     <div class="map-holder">
-                                        <div id="map" style="width: 100%; height: 300px"></div>
+                                        <div id="map{{$countVisible}}" style="width: 100%; height: 300px"></div>
                                         <script type="text/javascript">
                                             function initMap(){
-                                                var latLng = new google.maps.LatLng({{ $mappoint['geometry']['coordinates'][1] }}, {{ $mappoint['geometry']['coordinates'][0] }});
+                                                var pucon = {lat: -39.279351, lng: -71.968676};
+                                                var thispoint = {lat: {{ $mappoint['geometry']['coordinates'][1] }}, lng: {{ $mappoint['geometry']['coordinates'][0] }} };
+                                                var latLng = new google.maps.LatLng(thispoint);
                                                 var myOptions = {
                                                     zoom: 10,
                                                     center: latLng,
                                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                                 };
-                                                var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                                                var map = new google.maps.Map(document.getElementById("map{{$countVisible}}"), myOptions);
+
+                                                var directionsDisplay = new google.maps.DirectionsRenderer({
+                                                    map: map
+                                                });
+
+                                                var request = {
+                                                    destination: thispoint,
+                                                    origin: pucon,
+                                                    travelMode: 'DRIVING'
+                                                };
+
+                                                var directionsService = new google.maps.DirectionsService();
+                                                directionsService.route(request, function(response, status) {
+                                                    if (status == 'OK') {
+                                                        // Display the route on the map.
+                                                        directionsDisplay.setDirections(response);
+                                                    }
+                                                });
+
                                                 var marker = new google.maps.Marker({
                                                     position: latLng,
                                                     map: map,
                                                     title: '{{ $mappoint['properties']['title'] }}'
                                                 });
                                             }
+                                            initMap();
                                         </script>
                                     </div>
                                 </div>
