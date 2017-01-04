@@ -70,7 +70,7 @@
 	@if($activity['tripadvisor_code'])
 	<div class="box tripadvisor">
 		<?php app()->getLocale() == 'es_ES' ? $language = 'es_CL' : $language = app()->getLocale(); ?>
-		{!! $activity['tripadvisor_code'] !!}lang={{ $language }}&amp;rating=true&amp;nreviews=0&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
+		{!! $activity['tripadvisor_code'].'lang='.$language.'&amp;rating=true&amp;nreviews=0&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>' !!}
 	</div>
 	@endif
 	<div class="img-tour">
@@ -78,7 +78,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<a href="/{{ $activity->images[0] }}" rel="prettyPhoto[gallery1]">
-						<img src="/{{ $activity->images[0] }}"/>
+						<img src="/{{ $activity->images[0] }}" onerror="this.src='/images/image-none.jpg';">
 					</a>
 				</div>
 			</div>
@@ -87,7 +87,7 @@
 			@for($i = 1; $i < count($activity->images); $i++)
 				<div class="col-sm-6">
 					<a href="/{{ $activity->images[$i] }}" rel="prettyPhoto[gallery1]">
-						<img src="/{{ $activity->images[$i] }}"/>
+						<img src="/{{ $activity->images[$i] }}" onerror="this.src='/images/image-none.jpg';">
 					</a>
 				</div>
 			@endfor
