@@ -54,7 +54,7 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 					], 4)
 			]),
 			'Tripadvisor' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code')
+				AdminFormElement::textarea('real_tripadvisor_code', 'Tripadvisor code')
 			])
 		]);
 

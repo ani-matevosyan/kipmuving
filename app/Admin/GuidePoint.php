@@ -28,7 +28,7 @@ AdminSection::registerModel(GuidePoint::class, function (ModelConfiguration $mod
 				AdminFormElement::text('point_id', 'Point ID')
 					->required(),
 				AdminFormElement::textarea('description', 'Description')->required(),
-				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code')->required(),
+				AdminFormElement::textarea('real_tripadvisor_code', 'Tripadvisor code')->required(),
 
 //				AdminFormElement::columns()
 //					->addColumn([
