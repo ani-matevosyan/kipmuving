@@ -11,6 +11,11 @@ class Agency extends Model
 	public $translationModel = 'App\AgencyTranslation';
 	public $translatedAttributes = ['name', 'description'];
 	protected $table = 'agencies';
+	
+	public function getTripadvisorCodeAttribute()
+	{
+		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
+	}
 
 	public function getAgencies()
 	{

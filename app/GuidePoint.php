@@ -14,4 +14,9 @@ class GuidePoint extends Model
 	];
 	protected $table = 'guide_points';
 	public $timestamps = false;
+	
+	public function getTripadvisorCodeAttribute()
+	{
+		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
+	}
 }

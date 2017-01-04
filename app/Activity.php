@@ -57,6 +57,11 @@ class Activity extends Model
 		return $imagesUrls;
 	}
 	
+	public function getTripadvisorCodeAttribute()
+	{
+		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
+	}
+	
 	public function setImagesAttribute($images)
 	{
 		$images = array_unique($images);

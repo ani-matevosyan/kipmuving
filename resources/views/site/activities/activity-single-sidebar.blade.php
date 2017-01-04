@@ -68,10 +68,9 @@
 		</div>
 	@endif
 	@if($activity['tripadvisor_code'])
-	<div class="box tripadvisor">
-		<?php app()->getLocale() == 'es_ES' ? $language = 'es_CL' : $language = app()->getLocale(); ?>
-		{!! $activity['tripadvisor_code'].'lang='.$language.'&amp;rating=true&amp;nreviews=0&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>' !!}
-	</div>
+		<div class="box tripadvisor">
+			{!! $activity['tripadvisor_code'] !!}
+		</div>
 	@endif
 	<div class="img-tour">
 		@if (count($activity->images) > 0)
