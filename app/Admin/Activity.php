@@ -92,7 +92,7 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 				AdminFormElement::textarea('weather_embed', 'Weather embed'),
 			]),
 			'Tripadvisor' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code'),
+				AdminFormElement::textarea('real_tripadvisor_code', 'Tripadvisor code'),
 			]),
 			'Gallery' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::images('images', 'Images'),

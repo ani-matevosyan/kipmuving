@@ -19,4 +19,16 @@ class GuidePoint extends Model
 	{
 		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
 	}
+	
+	public function getRealTripadvisorCodeAttribute()
+	{
+		return $this->attributes['tripadvisor_code'];
+	}
+	
+	public function setRealTripadvisorCodeAttribute($code)
+	{
+		$agency = GuidePoint::find($this['id']);
+		$agency['tripadvisor_code'] = $code;
+		$agency->save();
+	}
 }
