@@ -4794,9 +4794,9 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.new .timing1 li.profile:after {
-  width: 18px;
+  width: 20px;
   content: '';
-  height: 18px;
+  height: 20px;
   position: absolute;
   left: 0;
   top: 17px;
@@ -4805,6 +4805,19 @@ body.home2 .roteros-options .raised-form .text-field {
   background: url(../images/happy.svg) no-repeat;
   background-size: contain;
   background-position: center center;
+}
+
+.your-reservation.new .timing1 li.profile.hours:after{
+  width: 22px;
+  height: 22px;
+  background: url(../images/clock.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
+  top: 37px;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
+  display: none;
 }
 
 .your-reservation.new .timing1 li.profile .jcf-select,
@@ -4820,6 +4833,14 @@ body.home2 .roteros-options .raised-form .text-field {
   border-color: #fff transparent transparent;
 }
 
+.your-reservation.new .timing1 li.profile.hours .jcf-select{
+  max-width: 85px;
+  min-width: 0;
+}
+
+.your-reservation.new .timing1 li.profile.hours strong{
+  margin-bottom: 3px;
+}
 
 .your-reservation.new .timing1 li.cal:after {
   width: 18px;

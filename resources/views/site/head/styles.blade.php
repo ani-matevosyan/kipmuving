@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}" type="image/x-icon">
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&sensor=false"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8"></script>
 <script type="text/javascript" src="{{ asset('/js/jquery-1.11.2.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugins/fullcalendar/lib/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugins/fullcalendar/fullcalendar.min.js') }}"></script>

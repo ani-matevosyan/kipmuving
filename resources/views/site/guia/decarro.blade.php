@@ -115,49 +115,38 @@
 
                             <div class="tab-content">
                                 <div id="home" class="tab-pane well fade in active">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="tab-detail">
-                                                <p>{{ trans('main.you_should_take_bus') }}</p>
-                                            </div>
-                                            <div class="info-icons">
-                                                <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                                <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
-                                            </div>
-                                            <div class="info-icons">
-                                                <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                                <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
-                                                <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="map-holder">
-                                                <iframe frameBorder="0" src="https://a.tiles.mapbox.com/v4/rafaelzarro.1cdljp85.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw"></iframe>
-                                            </div>
-                                        </div>
+                                    <div class="tab-detail">
+                                        <p>{{ trans('main.you_should_take_bus') }}</p>
+                                    </div>
+                                    <div class="info-icons">
+                                        <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
+                                        <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
+                                    </div>
+                                    <div class="info-icons">
+                                        <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
+                                        <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
+                                        <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
                                     </div>
                                 </div>
                                 <div id="menu1" class="tab-pane well fade">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="tab-detail">
-                                                <p>{{ trans('main.you_should_take_bus') }}</p>
-                                            </div>
-                                            <div class="info-icons">
-                                                <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                                <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
-                                            </div>
-                                            <div class="info-icons">
-                                                <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                                <p>{{ trans('main.estimated_expenditure') }}: <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
-                                                <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="map-holder">
-                                                <iframe frameBorder="0" src="https://a.tiles.mapbox.com/v4/rafaelzarro.1cdljp85.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw"></iframe>
-                                            </div>
-                                        </div>
+                                    <div class="map-holder">
+                                        <div id="map" style="width: 100%; height: 300px"></div>
+                                        <script type="text/javascript">
+                                            function initMap(){
+                                                var latLng = new google.maps.LatLng({{ $mappoint['geometry']['coordinates'][1] }}, {{ $mappoint['geometry']['coordinates'][0] }});
+                                                var myOptions = {
+                                                    zoom: 10,
+                                                    center: latLng,
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                                                var marker = new google.maps.Marker({
+                                                    position: latLng,
+                                                    map: map,
+                                                    title: '{{ $mappoint['properties']['title'] }}'
+                                                });
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                             </div>
