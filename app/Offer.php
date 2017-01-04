@@ -206,6 +206,9 @@ class Offer extends Model
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
+			$this->getTime($offer['available_time'])
+				? $offer['available_time'] = $this->getTime($offer['available_time'])
+				: $offer = array_except($offer, 'available_time');
 		}
 		
 		return $offers;
@@ -231,6 +234,9 @@ class Offer extends Model
 			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
+			$this->getTime($offer['available_time'])
+				? $offer['available_time'] = $this->getTime($offer['available_time'])
+				: $offer = array_except($offer, 'available_time');
 		}
 		
 		return $offers;

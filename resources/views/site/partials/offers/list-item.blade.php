@@ -100,18 +100,19 @@
 									<option value="6">6</option>
 								</select>
 							</li>
-							<li class="profile hours">
-								<strong><span>Elija la opcion de horario</span></strong>
-								<select class="hours">
-									<option value="">Horario</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-								</select>
-							</li>
+							@if($offer['available_time'])
+								<li class="profile hours">
+									<strong><span>Elija la opcion de horario</span></strong>
+									<select class="hours">
+										<option disabled selected>{{ trans('main.schedule') }}</option>
+										@if(is_array($offer['available_time']))
+											@foreach($offer['available_time'] as $time)
+												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
+											@endforeach
+										@endif
+									</select>
+								</li>
+							@endif
 						</ul>
 					</div>
 					@if($offer['price'] && $offer['price_offer'])
