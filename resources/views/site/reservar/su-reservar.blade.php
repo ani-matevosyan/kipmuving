@@ -244,14 +244,14 @@
 							{{--<input type='hidden' name='cancel_return' value='{{ URL::to('/reserve') }}'>--}}
 							{{--<input type='hidden' name='notify_url' value='{{ URL::to('/paypal/notify') }}'>--}}
 						{{--</form>--}}
-						<form name='_xclick' action='https://www.paypal.com/cgi-bin/webscr' method='post'>
+						<form name='_xclick' action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post'>
 							{{ csrf_field() }}
 							<input type='hidden' name='cmd' value='_xclick'>
 							<input type='hidden' name='business' value='sanek.solodovnikov.94-facilitator@gmail.com'>
 							<input type='hidden' name='currency_code' value='USD'>
 							<input type='hidden' name='item_name' value='Kipmuving Activities Reservation'>
-							<input type='hidden' name='custom' value='1'>
-							<input type='hidden' name='amount' value='5'>
+							<input type='hidden' name='custom' value='{{ count($offers) }}'>
+							<input type='hidden' name='amount' value='{{ $topay }}'>
 							<input type='hidden' name='no_shipping' value='1'>
 							<input type='hidden' name='rm' value='2'>
 							<input type='hidden' name='return' value='{{ URL::to('/reserve') }}'>
