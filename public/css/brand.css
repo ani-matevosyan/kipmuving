@@ -4793,6 +4793,10 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 10px 0 3px 30px;
 }
 
+.your-reservation.new .timing1 li.profile.hours{
+  padding: 4px 0 13px 30px;
+}
+
 .your-reservation.new .timing1 li.profile:after {
   width: 20px;
   content: '';
@@ -4813,7 +4817,7 @@ body.home2 .roteros-options .raised-form .text-field {
   background: url(../images/clock.svg) no-repeat;
   background-size: contain;
   background-position: center center;
-  top: 37px;
+  top: 31px;
 }
 
 .your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
@@ -4834,8 +4838,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.new .timing1 li.profile.hours .jcf-select{
-  max-width: 85px;
   min-width: 0;
+  width: auto;
 }
 
 .your-reservation.new .timing1 li.profile.hours strong{
@@ -5669,7 +5673,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.adventure .price {
-  padding: 50px 0 10px;
+  padding: 13px 0 10px;
   text-align: center;
 }
 

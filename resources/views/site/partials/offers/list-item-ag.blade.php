@@ -99,6 +99,19 @@
 										<option value="6">6</option>
 									</select>
 								</li>
+								@if($offer['available_time'])
+									<li class="profile hours">
+										<strong><span>Elija la opcion de horario</span></strong>
+										<select class="hours">
+											<option disabled selected>{{ trans('main.schedule') }}</option>
+											@if(is_array($offer['available_time']))
+												@foreach($offer['available_time'] as $time)
+													<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
+												@endforeach
+											@endif
+										</select>
+									</li>
+								@endif
 								<li class="cal">
 									<!-- <a href="#" class="btn btn-primary">Cantidad de personas</a> -->
 									<!-- <a href="#" class="overlay-opener"> -->
