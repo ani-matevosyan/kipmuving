@@ -6323,6 +6323,23 @@ body.home2 .roteros-options .raised-form .text-field {
   width: 80%;
 }
 
+.your-reservation .widget.select-box .chosen-container-single .chosen-single{
+    background: #fff;
+    border-color: transparent;
+    padding: 1px 0 2px 11px;
+    height: auto;
+}
+
+.your-reservation .widget.select-box .chosen-container .chosen-results li{
+    padding: 5px 9px;
+    color: #656565;
+}
+
+.your-reservation .widget.select-box .chosen-container .chosen-results li.highlighted{
+    background: #eab011;
+    color: #fff;
+}
+
 .your-reservation .widget.the-day {
   background: #963d4c;
 }
