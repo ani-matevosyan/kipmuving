@@ -4989,6 +4989,10 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0 0 20px;
 }
 
+.your-reservation.adventure .accordion header {
+    margin: 0 0 50px;
+}
+
 .your-reservation .accordion .ico {
   float: left;
   width: 51px;
