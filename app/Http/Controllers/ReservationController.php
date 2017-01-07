@@ -211,4 +211,8 @@ class ReservationController extends Controller
 		
 		return abort(404);
 	}
+
+	public function testpaypal(){
+	    dd("Hello");
+    }
 }
