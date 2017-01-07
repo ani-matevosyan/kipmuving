@@ -82,7 +82,7 @@ class ReservationController extends Controller
 	public function reserve(Request $request, Offer $offer)
 	{
 		if ($user = Auth::user()) {
-			if ($request['token']) {
+			if ($request['token'] || $request['payment_status']) {
 				$sessionOffers = session('selectedOffers');
 				$offers = [];
 				$offersTotalCost = 0;
@@ -94,17 +94,20 @@ class ReservationController extends Controller
 					$persons += $sessionOffer['persons'];
 				}
 				
-				#Stripe create charge
-				$stripe = Stripe::make(config('services.stripe.secret'));
-				$customer = $stripe->customers()->create(['email' => $request['token']['email']]);
-				$card = $stripe->cards()->create($customer['id'], $request['token']['id']);
-				$charge = $stripe->charges()->create([
-					'customer' => $customer['id'],
-					'currency' => 'USD',
-					'amount'   => $persons * 3.5,
-				]);
+				$charge['status'] = null;
+				if ($request['token']){
+					#Stripe create charge
+					$stripe = Stripe::make(config('services.stripe.secret'));
+					$customer = $stripe->customers()->create(['email' => $request['token']['email']]);
+					$card = $stripe->cards()->create($customer['id'], $request['token']['id']);
+					$charge = $stripe->charges()->create([
+						'customer' => $customer['id'],
+						'currency' => 'USD',
+						'amount'   => $persons * 3.5,
+					]);
+				}
 				
-				if ($charge['status'] == 'succeeded') {
+				if ($charge['status'] == 'succeeded' || $request['payment_status'] == 'Completed') {
 					$batch = $this->GUID();
 					
 					#Add data about reservation to DB
@@ -193,6 +196,11 @@ class ReservationController extends Controller
 					return $message;
 				}
 			}
+			#Paypal payment
+//			elseif ($request['payment_status']){
+//				if ($request['payment_status'] === 'Completed')
+//				dd($request['payment_status']);
+//			}
 		}
 		#TODO translate
 		$message = 'Failure :(';
@@ -211,8 +219,28 @@ class ReservationController extends Controller
 		
 		return abort(404);
 	}
-
-	public function testpaypal(){
-	    dd("Hello");
-    }
+	
+	public function testpaypal(Offer $offer, Request $request)
+	{
+		if (Auth::user()) {
+			if ($request['payment_status'] === 'Completed') {
+//				$sessionOffers = session('selectedOffers');
+//				$offers = [];
+//				$offersTotalCost = 0;
+//				$persons = 0;
+//
+//				foreach ($sessionOffers as $key => $sessionOffer) {
+//					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
+//					$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
+//					$persons += $sessionOffer['persons'];
+//				}
+//
+//				$batch = $this->GUID();
+//
+				
+				dd($request);
+			}
+		}
+		dd("end");
+	}
 }
