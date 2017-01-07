@@ -327,6 +327,7 @@ class Offer extends Model
 				'offers.start_time',
 				'offers.end_time',
 				'offers.price_offer',
+				'offers.price',
 				'offer_translations.includes as offerIncludes',
 				'offer_translations.important as offerImportant',
 				'offer_translations.cancellation_rules as offerCancellationRules'
