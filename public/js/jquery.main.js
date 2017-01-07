@@ -1,6 +1,7 @@
 // page init
 jQuery(window).load(function () {
     initCustomForms();
+    initChosenSelect();
     initAccordion();
     initSameHeight();
     initDatepicker();
@@ -94,6 +95,16 @@ function initDatepicker() {
         });
     });
 }
+// initialize chosen.js select
+function initChosenSelect(){
+    var yourSelect = $(".form-control.select-activity");
+    var notFoundText = yourSelect.attr("data-noresulttext");
+    yourSelect.chosen({
+        disable_search_threshold: 10,
+        no_results_text: notFoundText
+    });
+}
+
 
 // initialize custom form elements
 function initCustomForms() {
@@ -102,7 +113,7 @@ function initCustomForms() {
         wrapNativeOnMobile: false,
         maxVisibleItems: 5
     });
-    jcf.replaceAll();
+    jcf.replace('select:not(.select-activity)');
 }
 
 // accordion menu init

@@ -2,11 +2,9 @@
 	<h2>{{ trans('main.select') }}</h2>
 	<p>{{ trans('main.the_activity_you_want_to_change') }}</p>
 	<div class="text-field">
-		<select class="form-control" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;">
+		<select class="form-control select-activity" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;" data-noresulttext="There is no activity ">
 			@foreach ($activitiesList as $item)
-				<option value="{{ $item['id'] }}" @if($item['id'] == $activity['id']) selected @endif>
-					{{ $item['name'] }}
-				</option>
+				<option value="{{ $item['id'] }}" @if($item['id'] == $activity['id']) selected @endif>{{ $item['name'] }}</option>
 			@endforeach
 		</select>
 	</div>

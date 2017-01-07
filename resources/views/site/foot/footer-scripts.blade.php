@@ -1,5 +1,6 @@
 <script type="text/javascript" src="{{ asset('/js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/jquery.main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/chosen.jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/instafeed/instafeed.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/moment.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/mapbox.js') }}"></script>

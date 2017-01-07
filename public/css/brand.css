@@ -6306,7 +6306,6 @@ body.home2 .roteros-options .raised-form .text-field {
 .your-reservation .widget {
   color: #fff;
   padding: 20px;
-  overflow: hidden;
   font-size: 13px;
   line-height: 16px;
   font-weight: 500;
@@ -6316,9 +6315,12 @@ body.home2 .roteros-options .raised-form .text-field {
   background: #c78933;
 }
 
+.your-reservation .widget.select-box .chosen-container-single .chosen-search input[type=text]{
+  color: #000;
+}
+
 .your-reservation .widget.select-box .text-field {
   width: 80%;
-  overflow: hidden;
 }
 
 .your-reservation .widget.the-day {
@@ -6331,10 +6333,6 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation .widget.summary {
   background: #5e2f46;
-}
-
-.your-reservation .widget ul {
-  overflow: hidden;
 }
 
 .your-reservation .widget ul li {
@@ -6352,6 +6350,10 @@ body.home2 .roteros-options .raised-form .text-field {
   right: auto;
   bottom: auto;
   background: url(../images/sprite.png) no-repeat -88px -230px;
+}
+
+.your-reservation .widget ul.chosen-results li:after{
+  display: none;
 }
 
 .your-reservation .widget h2 {
