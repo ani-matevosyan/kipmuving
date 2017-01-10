@@ -11,7 +11,6 @@
 						<li>{{ trans('main.your_agenda') }}</li>
 					</ul>
 					<div class="row">
-
 						<header class="head">
 							<h1>{{ trans('main.your_panorama_in_pucon') }}</h1>
 							<p>
@@ -31,7 +30,7 @@
 								{{ trans('main.the_are_activities_of_the_same_day') }}
 							</div>
 							<br>
-							<div id='calendar' data-date="{{ $viewDate }}"></div>
+							<div id='calendar' data-date="{{ $viewDate }}" data-lang="{{ app()->getLocale() }}"></div>
 							<br>
 						</div>
 						<div class="col-md-3 col-sm-12 col-xs-12">
