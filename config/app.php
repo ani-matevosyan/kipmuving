@@ -12,7 +12,7 @@ return [
 	| any other location as required by the application or its packages.
 	*/
 
-	'name' => 'Laravel',
+	'name' => 'Kipmuving',
 	#TODO change email
 	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 
@@ -174,6 +174,7 @@ return [
 		Dimsav\Translatable\TranslatableServiceProvider::class,
 		Scriptixru\SypexGeo\SypexGeoServiceProvider::class,
 		Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+		Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -234,6 +235,7 @@ return [
 		'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 		'SypexGeo' => Scriptixru\SypexGeo\SypexGeoFacade::class,
 		'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+		'PayPal' => Srmklive\PayPal\Facades\PayPal::class
 	],
 
 ];

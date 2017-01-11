@@ -11,7 +11,9 @@
         "laravelrus/sleepingowl": "4.*@dev",
         "dimsav/laravel-translatable": "^6.0",
         "scriptixru/sypexgeo": " 0.2.*@dev",
-        "cartalyst/stripe-laravel": "5.0.*"
+        "cartalyst/stripe-laravel": "5.0.*",
+        "psr/log": "1.0.0",
+        "srmklive/paypal": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

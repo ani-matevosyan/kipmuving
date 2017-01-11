@@ -46,7 +46,7 @@ Route::get('/reserve', 'ReservationController@index');
 Route::post('/reserve', 'ReservationController@reserve');
 Route::get('/reservation/{id}/cancel', 'ReservationController@cancelReservation')
 	->where('id', '[0-9]+');
-Route::post('/reserve/testpaypal', 'ReservationController@testpaypal');
+Route::get('/reserve/paypal', 'ReservationController@paymentPaypal');
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
