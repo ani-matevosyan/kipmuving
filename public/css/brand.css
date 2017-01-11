@@ -4989,6 +4989,10 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 0 0 20px;
 }
 
+.your-reservation.adventure .accordion header {
+    margin: 0 0 50px;
+}
+
 .your-reservation .accordion .ico {
   float: left;
   width: 51px;
@@ -6321,6 +6325,23 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation .widget.select-box .text-field {
   width: 80%;
+}
+
+.your-reservation .widget.select-box .chosen-container-single .chosen-single{
+    background: #fff;
+    border-color: transparent;
+    padding: 1px 0 2px 11px;
+    height: auto;
+}
+
+.your-reservation .widget.select-box .chosen-container .chosen-results li{
+    padding: 5px 9px;
+    color: #656565;
+}
+
+.your-reservation .widget.select-box .chosen-container .chosen-results li.highlighted{
+    background: #eab011;
+    color: #fff;
 }
 
 .your-reservation .widget.the-day {

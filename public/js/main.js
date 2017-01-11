@@ -74,6 +74,7 @@ jQuery(document).ready(function(){
 			$('#message-modal').modal('show');
 			return false;
 		}
+		var hours = $(this).parents('.offer-item').find('select.hours').val();
 		$.ajax({
 			type: "POST",
 			url: "/offer/reserve",
@@ -81,7 +82,8 @@ jQuery(document).ready(function(){
 				'_token': $('meta[name="csrf-token"]').attr('content'),
 				offer_id: offer_id,
 			 	persons: persona,
-			 	date: dt
+			 	date: dt,
+                timeRange: hours
 			},
             error: function(){
                 location.reload();
@@ -122,16 +124,21 @@ jQuery(document).ready(function(){
 			$('#message-modal').modal('show');
 			return false;
 		}
-		// $.post( "/offer/reserve", { '_token': $('meta[name="csrf-token"]').attr('content'), offer_id: offer_id, persona: persona, date: dt })
-        $.post( "/offer/reserve", {
-            '_token': $('meta[name="csrf-token"]').attr('content'),
-            offer_id: offer_id,
-            persons: persona,
-            date: dt
-        })
-	  	.done(function( response ) {
-				 location.reload();
-  		});
+        var hours = $(this).parents('.offer-item').find('select.hours').val();
+        $.ajax({
+            type: "POST",
+            url: "/offer/reserve",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                offer_id: offer_id,
+                persons: persona,
+                date: dt,
+                timeRange: hours
+            },
+            error: function(){
+                location.reload();
+            }
+        });
 			return false;
 	});
 
@@ -181,6 +188,8 @@ jQuery(document).ready(function(){
 
     //-------------------CALENDAR PLUGIN --------------
     var viewdate = $("#calendar").attr("data-date");
+    var calendarLang = $("#calendar").attr("data-lang");
+    if (calendarLang === 'es_ES'){ calendarLang = 'es' }
     jQuery('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',

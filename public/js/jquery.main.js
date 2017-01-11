@@ -97,7 +97,7 @@ function initDatepicker() {
 }
 // initialize chosen.js select
 function initChosenSelect(){
-    var yourSelect = $(".form-control.select-activity");
+    var yourSelect = $(".dropdown-activity");
     var notFoundText = yourSelect.attr("data-noresulttext");
     yourSelect.chosen({
         disable_search_threshold: 10,
@@ -113,7 +113,8 @@ function initCustomForms() {
         wrapNativeOnMobile: false,
         maxVisibleItems: 5
     });
-    jcf.replace('select:not(.select-activity)');
+    jcf.replace('select:not(.dropdown-activity)');
+    // jcf.replaceAll();
 }
 
 // accordion menu init

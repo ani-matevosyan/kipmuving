@@ -127,7 +127,7 @@
                                         <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
                                     </div>
                                 </div>
-                                <div id="menu{{$countVisible}}" class="tab-pane well fade">
+                                <div id="menu{{$countVisible}}" class="tab-pane map-tab well fade">
                                     <div class="map-holder">
                                         <div id="map{{$countVisible}}" style="width: 100%; height: 300px"></div>
                                         <script type="text/javascript">
