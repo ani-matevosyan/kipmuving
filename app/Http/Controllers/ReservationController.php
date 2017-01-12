@@ -45,16 +45,18 @@ class ReservationController extends Controller
 			$data['offers'][$key]['agency_email'] = $offer['offerAgency']['email'];
 			
 			$agencyData[$offer['offerAgency']['email']][] = [
-				'activity_name' => $offer['offerActivity']['name'],
-				'offer_date'    => $sessionOffers[$key]['date'],
-				'offer_persons' => $sessionOffers[$key]['persons'],
-				'offer_price'   => $offer['real_price']
+				'activity_name'    => $offer['offerActivity']['name'],
+				'offer_date'       => $sessionOffers[$key]['date'],
+				'offer_start_time' => $sessionOffers[$key]['time']['start'],
+				'offer_end_time'   => $sessionOffers[$key]['time']['end'],
+				'offer_persons'    => $sessionOffers[$key]['persons'],
+				'offer_price'      => $offer['real_price']
 			];
 			
 			#Collect offers data
 			$data['offers'][$key]['offer_id'] = $offer['offer_id'];
-			$data['offers'][$key]['offer_start_time'] = $offer['start_time'];
-			$data['offers'][$key]['offer_end_time'] = $offer['end_time'];
+			$data['offers'][$key]['offer_start_time'] = $sessionOffers[$key]['time']['start'];
+			$data['offers'][$key]['offer_end_time'] = $sessionOffers[$key]['time']['end'];
 			$data['offers'][$key]['offer_carry'] = $offer['offerCarry'];
 			$data['offers'][$key]['offer_persons'] = $sessionOffers[$key]['persons'];
 			$data['offers'][$key]['offer_price'] = $offer['real_price'];
@@ -115,8 +117,8 @@ class ReservationController extends Controller
 				'offerData'    => [
 					'id'                 => $offer['offer_id'],
 					'date'               => $selectedOffer['date'],
-					'start_time'         => $offer['start_time'],
-					'end_time'           => $offer['end_time'],
+					'start_time'         => $selectedOffer['time']['start'],
+					'end_time'           => $selectedOffer['time']['end'],
 					'persons'            => $selectedOffer['persons'],
 					'price'              => $offer['price_offer'],
 					'includes'           => $offer['offerIncludes'],

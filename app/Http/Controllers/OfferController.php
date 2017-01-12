@@ -8,29 +8,45 @@ use Illuminate\Support\Facades\Session;
 
 class OfferController extends Controller
 {
+	private function getTime($timeString)
+	{
+		if (!$timeString)
+			return null;
+		
+		$tmp = explode('-', $timeString);
+		
+		$result = [
+			'start' => $tmp[0].':00',
+			'end'   => $tmp[1].':00'
+		];
+		
+		return $result;
+	}
+	
 	public function setDate(Request $request)
 	{
 		Session::set('selectedDate', Carbon::createFromFormat('d/m/Y', $request['date'])->toDateString());
 	}
-
+	
 	public function reserve(Request $request)
 	{
 		$offers = session('selectedOffers');
 		$offers[] = [
 			'offer_id' => $request['offer_id'],
-			'date' => $request['date'],
-			'persons' => $request['persons']
+			'date'     => $request['date'],
+			'persons'  => $request['persons'],
+			'time'     => $this->getTime($request['timeRange'])
 		];
-
+		
 		session()->put('selectedOffers', $offers);
 	}
-
+	
 	public function remove(Request $request)
 	{
 		$offers = session('selectedOffers');
 		array_splice($offers, $request['oid'], 1);
-
+		
 		session()->put('selectedOffers', $offers);
 	}
-
+	
 }

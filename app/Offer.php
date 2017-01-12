@@ -182,12 +182,10 @@ class Offer extends Model
 		$offers = $this->checkOffersAvailability($offers);
 		
 		foreach ($offers as $offer) {
-			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$this->getTime($offer['available_time'])
-				? $offer['available_time'] = $this->getTime($offer['available_time'])
-				: $offer = array_except($offer, 'available_time');
+			$this->getTime($offer['available_time']) ? $offer['available_time'] = $this->getTime($offer['available_time']) : $offer = array_except($offer, 'available_time');
+			$offer['hours'] = ($offer['available_time'][0]['end'] != '00:00' ? $offer['available_time'][0]['end'] : '24:00') - $offer['available_time'][0]['start'];
 		}
 		
 		return $offers;
@@ -203,12 +201,10 @@ class Offer extends Model
 		$offers = $this->checkOffersAvailability($offers);
 		
 		foreach ($offers as $offer) {
-			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$this->getTime($offer['available_time'])
-				? $offer['available_time'] = $this->getTime($offer['available_time'])
-				: $offer = array_except($offer, 'available_time');
+			$this->getTime($offer['available_time']) ? $offer['available_time'] = $this->getTime($offer['available_time']) : $offer = array_except($offer, 'available_time');
+			$offer['hours'] = ($offer['available_time'][0]['end'] != '00:00' ? $offer['available_time'][0]['end'] : '24:00') - $offer['available_time'][0]['start'];
 		}
 		
 		return $offers;
@@ -231,12 +227,10 @@ class Offer extends Model
 		}));
 		
 		foreach ($offers as $offer) {
-			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$this->getTime($offer['available_time'])
-				? $offer['available_time'] = $this->getTime($offer['available_time'])
-				: $offer = array_except($offer, 'available_time');
+			$this->getTime($offer['available_time']) ? $offer['available_time'] = $this->getTime($offer['available_time']) : $offer = array_except($offer, 'available_time');
+			$offer['hours'] = ($offer['available_time'][0]['end'] != '00:00' ? $offer['available_time'][0]['end'] : '24:00') - $offer['available_time'][0]['start'];
 		}
 		
 		return $offers;
@@ -298,6 +292,7 @@ class Offer extends Model
 				'offers.id',
 				'offers.available_start',
 				'offers.available_end',
+				'offers.available_time',
 				'offers.availability',
 				'offers.start_time',
 				'offers.end_time',
@@ -309,7 +304,8 @@ class Offer extends Model
 		
 		foreach ($offers as $offer) {
 			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
-			$offer['hours'] = $offer['end_time'] - $offer['start_time'];
+			$this->getTime($offer['available_time']) ? $offer['available_time'] = $this->getTime($offer['available_time']) : $offer = array_except($offer, 'available_time');
+			$offer['hours'] = ($offer['available_time'][0]['end'] != '00:00' ? $offer['available_time'][0]['end'] : '24:00') - $offer['available_time'][0]['start'];
 		}
 		
 		return $offers;

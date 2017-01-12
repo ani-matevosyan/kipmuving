@@ -81,12 +81,12 @@
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12">
 						<ul class="timing1">
-							@if($offer['hours'] && $offer['start_time'] && $offer['end_time'])
+							@if($offer['hours'])
 								<li>
 									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
-									<strong><span>{{ trans('main.schedule') }}
-											:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
-										- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
+									{{--<strong><span>{{ trans('main.schedule') }}--}}
+											{{--:</span> {{ date('H:i', strtotime($offer['start_time'])) }}--}}
+										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
 								</li>
 							@endif
 							<li class="profile">

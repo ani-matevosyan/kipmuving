@@ -514,6 +514,8 @@
 														</h2>
 														<span style="font-size:14px">Date: {{ $offer['offer_date'] }}</span>
 														<br>
+														<span style="font-size:14px">Time: {{ date('H:i', strtotime($offer['offer_start_time'])) }}-{{ date('H:i', strtotime($offer['offer_end_time'])) }}</span>
+														<br>
 														&nbsp;
 														<address style="font-style:normal">
 															<strong>Agency Information</strong><br>

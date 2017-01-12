@@ -56,8 +56,8 @@ class CalendarController extends Controller
 				->first();
 			
 			$selectedOffers[$key]['offer'] = $currentOffer;
-			$start = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['offer']['start_time'])->toDateTimeString();
-			$end = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['offer']['end_time'])->toDateTimeString();
+			$start = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['time']['start'])->toDateTimeString();
+			$end = Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'].' '.$selectedOffers[$key]['time']['end'])->toDateTimeString();
 			$results[] = [
 				'id'               => $key,
 				'className'        => 'cal-offer',
@@ -71,9 +71,9 @@ class CalendarController extends Controller
 				'date'             => $offer['date'],
 				'start'            => $start,
 				'end'              => $end,
-				'start_time'       => Carbon::parse($selectedOffers[$key]['offer']['start_time'])->format('H:i'),
-				'end_time'         => Carbon::parse($selectedOffers[$key]['offer']['end_time'])->format('H:i'),
-				'hours'            => $selectedOffers[$key]['offer']['end_time'] - $selectedOffers[$key]['offer']['start_time'],
+				'start_time'       => Carbon::parse($selectedOffers[$key]['time']['start'])->format('H:i'),
+				'end_time'         => Carbon::parse($selectedOffers[$key]['time']['end'])->format('H:i'),
+				'hours'            => $selectedOffers[$key]['time']['end'] - $selectedOffers[$key]['time']['start'],
 				'break_start'      => $selectedOffers[$key]['offer']['break_start'],
 				'break_close'      => $selectedOffers[$key]['offer']['break_close'],
 				'price'            => $selectedOffers[$key]['offer']['price'] * $offer['persons'],

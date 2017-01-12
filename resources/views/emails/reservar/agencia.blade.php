@@ -518,6 +518,8 @@
 														</h2>
 														<span style="font-size:14px">Date:<strong> {{ $offer['offer_date'] }}</strong></span>
 														<br>
+														<span style="font-size:14px">Time:<strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }}-{{ date('H:i', strtotime($offer['offer_end_time'])) }}</strong></span>
+														<br>
 														&nbsp;
 														<address style="font-style:normal">
 															Guest Information<br>
