@@ -191,6 +191,7 @@ jQuery(document).ready(function(){
     var calendarLang = $("#calendar").attr("data-lang");
     if (calendarLang === 'es_ES'){ calendarLang = 'es' }
     jQuery('#calendar').fullCalendar({
+        lang: calendarLang,
         header: {
             left: 'prev,next today',
             center: 'title',
