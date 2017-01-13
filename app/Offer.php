@@ -305,8 +305,8 @@ class Offer extends Model
 				'offers.available_end',
 				'offers.available_time',
 				'offers.availability',
-				'offers.start_time',
-				'offers.end_time',
+//				'offers.start_time',
+//				'offers.end_time',
 				'offers.price_offer'
 			)
 			->get();
@@ -331,9 +331,9 @@ class Offer extends Model
 				'offers.id as offer_id',
 				'offers.agency_id',
 				'offers.activity_id',
-				'offers.start_time',
+//				'offers.start_time',
 				'offers.available_time',
-				'offers.end_time',
+//				'offers.end_time',
 				'offers.price_offer',
 				'offers.price',
 				'offer_translations.includes as offerIncludes',
