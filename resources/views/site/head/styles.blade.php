@@ -21,4 +21,5 @@
 <script type="text/javascript" src="{{ asset('/plugins/fullcalendar/lib/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/plugins/fullcalendar/es.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/plugins/fullcalendar/pt.js') }}"></script>
 {{--<link rel="icon" href="/images/favicon.ico" type="image/x-icon">--}}

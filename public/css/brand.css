@@ -4838,7 +4838,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.new .timing1 li.profile.hours .jcf-select{
-  min-width: 0;
+  min-width: 100px;
   width: auto;
 }
 
