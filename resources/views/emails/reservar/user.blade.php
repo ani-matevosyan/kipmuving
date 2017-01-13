@@ -72,7 +72,7 @@
 													<strong
 														style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">{{ trans('emails.day') }}: {{ $offer['offer_date'] }}</strong>
 													<span
-														style="display:block; margin-left:25px;"><strong>{{ trans('emails.duration') }}:</strong> {{ max(0, $offer['offer_end_time'] - $offer['offer_start_time']) }}
+														style="display:block; margin-left:25px;"><strong>{{ trans('emails.duration') }}:</strong> {{ $offer['offer_hours'] }}
 														hrs</span>
 													<span
 														style="display:block;

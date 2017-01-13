@@ -77,7 +77,7 @@
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.duration') }}
-																			:</span> {{ $offer['offerData']['end_time'] - $offer['offerData']['start_time'] }}
+																			:</span> {{ $offer['offerData']['hours'] }}
 																		hrs
 																	</strong>
 																	<strong>

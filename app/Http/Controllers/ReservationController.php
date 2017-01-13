@@ -57,6 +57,7 @@ class ReservationController extends Controller
 			$data['offers'][$key]['offer_id'] = $offer['offer_id'];
 			$data['offers'][$key]['offer_start_time'] = $sessionOffers[$key]['time']['start'];
 			$data['offers'][$key]['offer_end_time'] = $sessionOffers[$key]['time']['end'];
+			$data['offers'][$key]['offer_hours'] = $offer['hours'];
 			$data['offers'][$key]['offer_carry'] = $offer['offerCarry'];
 			$data['offers'][$key]['offer_persons'] = $sessionOffers[$key]['persons'];
 			$data['offers'][$key]['offer_price'] = $offer['real_price'];
@@ -120,6 +121,7 @@ class ReservationController extends Controller
 					'start_time'         => $selectedOffer['time']['start'],
 					'end_time'           => $selectedOffer['time']['end'],
 					'persons'            => $selectedOffer['persons'],
+					'hours'              => $offer['hours'],
 					'price'              => $offer['price_offer'],
 					'includes'           => $offer['offerIncludes'],
 					'important'          => $offer['offerImportant'],
@@ -136,7 +138,7 @@ class ReservationController extends Controller
 					'image_icon' => $offer['offerActivity']['image_icon']
 				]
 			];
-			
+//			dd($results);
 		}
 		$data = [
 			'total_cost' => $total_cost,

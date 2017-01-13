@@ -332,6 +332,7 @@ class Offer extends Model
 				'offers.agency_id',
 				'offers.activity_id',
 				'offers.start_time',
+				'offers.available_time',
 				'offers.end_time',
 				'offers.price_offer',
 				'offers.price',
@@ -345,6 +346,8 @@ class Offer extends Model
 			->first();
 		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
 		$offer['offerCarry'] = $offer['offerActivity']['carry'];
+		$offer['available_time'] = $this->getTime($offer['available_time']);
+		$offer['hours'] = $this->getDuration($offer['available_time']);
 		
 		return $offer;
 	}

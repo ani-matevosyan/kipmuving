@@ -37,11 +37,11 @@
 								@if($offer['hours'])
 									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
 								@endif
-								@if($offer['start_time'] && $offer['end_time'])
-									<strong><span>{{ trans('main.schedule') }}
-											:</span> {{ date('H:i', strtotime($offer['start_time'])) }}
-										- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>
-								@endif
+								{{--@if($offer['start_time'] && $offer['end_time'])--}}
+									{{--<strong><span>{{ trans('main.schedule') }}--}}
+											{{--:</span> {{ date('H:i', strtotime($offer['start_time'])) }}--}}
+										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
+								{{--@endif--}}
 							</li>
 							@if($offer['price_offer'])
 								<li class="profile">
