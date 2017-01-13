@@ -71,32 +71,32 @@ class ReservationController extends Controller
 		$data['user_email'] = $user['email'];
 		
 		#Send email about reservation to user
-		Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
-			$message->from('info@kipmuving.com', 'Kipmuving team');
-			$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
-		});
-		
-		#Send email about reservation to admin
-		Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
-			$message->from('info@kipmuving.com', 'Kipmuving team');
-			$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
-		});
-		
-		#Send emails about reservation to agencies
-		foreach ($agencyData as $agency_email => $item) {
-			Mail::send('emails.reservar.agencia', [
-				'data' => [
-					'offers'          => $item,
-					'user_first_name' => $data['user_first_name'],
-					'user_last_name'  => $data['user_last_name'],
-					'user_email'      => $data['user_email'],
-				]
-			], function ($message) use ($user) {
-				$message->from('info@kipmuving.com', 'Kipmuving team');
-				#TODO change agency email
-				$message->to($user['email'])->subject('Kipmuving.com reservation');
-			});
-		}
+//		Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
+//			$message->from('info@kipmuving.com', 'Kipmuving team');
+//			$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
+//		});
+//
+//		#Send email about reservation to admin
+//		Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
+//			$message->from('info@kipmuving.com', 'Kipmuving team');
+//			$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
+//		});
+//
+//		#Send emails about reservation to agencies
+//		foreach ($agencyData as $agency_email => $item) {
+//			Mail::send('emails.reservar.agencia', [
+//				'data' => [
+//					'offers'          => $item,
+//					'user_first_name' => $data['user_first_name'],
+//					'user_last_name'  => $data['user_last_name'],
+//					'user_email'      => $data['user_email'],
+//				]
+//			], function ($message) use ($user) {
+//				$message->from('info@kipmuving.com', 'Kipmuving team');
+//				#TODO change agency email
+//				$message->to($user['email'])->subject('Kipmuving.com reservation');
+//			});
+//		}
 	}
 	
 	public function index(Offer $offer, $message = null)
