@@ -30,7 +30,8 @@ class HomeController extends Controller
 		$this->validate($request, [
 			'email' => 'email|required|max:128',
 			'name' => 'alpha|required|max:128',
-			'message' => 'required|min:5|max:1000'
+			'message' => 'required|min:5|max:1000',
+			'g-recaptcha-response' => 'required|recaptcha'
 		]);
 		$data = [
 			'name' => $request['name'],

@@ -150,23 +150,49 @@
 								<div class="sub-row">
 									<label for="name">{{ trans('form.name') }}</label>
 									<div class="text-field">
-										<input type="text" class="form-control" id="name" name="name">
+										<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
 									</div>
 								</div>
 								<div class="sub-row">
 									<label for="email">{{ trans('form.email') }}</label>
 									<div class="text-field">
-										<input type="email" class="form-control" id="email" name="email">
+										<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
 									</div>
 								</div>
 								<div class="sub-row">
 									<label for="message">{{ trans('form.message') }}</label>
 									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters"></textarea>
+										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters">{{ old('message') }}</textarea>
+									</div>
+								</div>
+								<div class="sub-row">
+									<label for="captcha">captcha</label>
+									<div class="text-field">
+										{!! Recaptcha::render(['lang' => app()->getLocale()]) !!}
 									</div>
 								</div>
 								<input type="submit" value="OK" class="btn btn-success">
 							</form>
+							@if($errors->has('text'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('text') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('email'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('email') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('message'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('message') }}</strong>
+								</div>
+							@endif
+							@if($errors->has('g-recaptcha-response'))
+								<div class="alert alert-error alert-danger">
+									<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+								</div>
+							@endif
 						</div>
 					</div>
 				</div>

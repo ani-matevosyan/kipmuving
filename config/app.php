@@ -175,6 +175,7 @@ return [
 		Scriptixru\SypexGeo\SypexGeoServiceProvider::class,
 		Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 		Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+		Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -235,7 +236,8 @@ return [
 		'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 		'SypexGeo' => Scriptixru\SypexGeo\SypexGeoFacade::class,
 		'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
-		'PayPal' => Srmklive\PayPal\Facades\PayPal::class
+		'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+		'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
 	],
 
 ];
