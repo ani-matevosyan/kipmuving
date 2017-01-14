@@ -37,7 +37,9 @@
 														<div id="instafeed4" class="instafeed"
 															 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
 													</div>
-													<span class="agency-tag">aguaventura</span>
+													@if($agency['instagram_name'])
+														<span class="agency-tag">{{ $agency['instagram_name'] }}</span>
+													@endif
 												</div>
 											</div>
 										@endif

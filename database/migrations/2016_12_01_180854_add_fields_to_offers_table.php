@@ -13,11 +13,11 @@ class AddFieldsToOffersTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('offers', function (Blueprint $table) {
-			//
-			$table->time('start_time')->default('00:00:00');
-			$table->time('end_time')->default('00:00:00');
-		});
+//		Schema::table('offers', function (Blueprint $table) {
+//			//
+//			$table->time('start_time')->default('00:00:00');
+//			$table->time('end_time')->default('00:00:00');
+//		});
 	}
 
 	/**
@@ -27,12 +27,12 @@ class AddFieldsToOffersTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('offers', function (Blueprint $table) {
-			//
-			$table->dropColumn([
-				'start_time',
-				'end_time'
-			]);
-		});
+//		Schema::table('offers', function (Blueprint $table) {
+//			//
+//			$table->dropColumn([
+//				'start_time',
+//				'end_time'
+//			]);
+//		});
 	}
 }

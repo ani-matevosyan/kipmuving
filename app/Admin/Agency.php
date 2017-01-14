@@ -26,21 +26,27 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 
 		$tabs = AdminDisplay::tabbed([
 			'Agency' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::text('name', 'Agency name')->required(),
-				AdminFormElement::text('email', 'Email')->required(),
-				AdminFormElement::text('address', 'Address')->required(),
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::text('name', 'Agency name')->required()
+					], 4)
+					->addColumn([
+						AdminFormElement::text('email', 'Email')->required()
+					], 4)
+					->addColumn([
+						AdminFormElement::text('address', 'Address')->required()
+					], 4),
 				AdminFormElement::textarea('description', 'Description')->required(),
 
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::text('latitude', 'Latitude')->required()
-					], 4)
-					->addColumn([
+						AdminFormElement::text('latitude', 'Latitude')->required(),
 						AdminFormElement::text('longitude', 'Longitude')->required()
-					], 4)
+					], 6)
 					->addColumn([
 						AdminFormElement::text('instagram_id', 'Instagram user ID'),
-					], 4),
+						AdminFormElement::text('instagram_name', 'Instagram user nickname'),
+					], 6),
 				
 				AdminFormElement::columns()
 					->addColumn([
