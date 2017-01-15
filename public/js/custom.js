@@ -217,7 +217,6 @@ $(document).ready(function () {
                         $('body, html').animate({ scrollTop: pickedPlace.offset().top }, 300);
 
                         if(instafeeds[currentInstaId] === undefined){
-                            console.log(instafeeds[currentInstaId] === undefined);
                             instafeeds[currentInstaId] = $("#instafeed3").detach();
                         }else{
                             $("#instafeed3").detach();
