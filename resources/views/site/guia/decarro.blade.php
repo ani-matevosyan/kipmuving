@@ -69,9 +69,17 @@
 <div class="row">
     <div class="col-sm-7">
         <div class="left-col">
-            <?php $countVisible = 0; ?>
+            <?php $countVisible = 0; $gencount = -1; $firstVisibleIndex = null; $firstVisibleId; ?>
             @foreach($mappoints['features'] as $mappoint)
+                <?php $gencount++ ?>
                 @if($mappoint['properties']['description'])
+                    <?php
+                        if($firstVisibleIndex === null)
+                        {
+                            $firstVisibleIndex = $gencount;
+                            $firstVisibleId = $mappoint['id'];
+                        }
+                    ?>
                     <div class="map-tab @if($countVisible === 0) active @endif" id="map-tab-{{ $mappoint['id'] }}">
                         <div class="termas">
                             <div class="row">
@@ -181,7 +189,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <?php $countVisible++ ?>
                 @endif
@@ -190,11 +197,9 @@
     </div>
     <div class="col-md-5 right-col" style="overflow: hidden; height: 650px;">
         <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
-        <h4>{{ trans('main.instagram_pictures') }}</h4><strong>#termasmenetue</strong>
+        <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
  
-            <div id="instafeed3" class="instafeed">
-
-            </div>
+            <div id="instafeed3" class="instafeed" data-instaid="{{ $firstVisibleId }}" data-instatag="{{ $mappoints['features'][$firstVisibleIndex]['properties']['title'] }}"></div>
         </div> 
     </div>
 </div>
