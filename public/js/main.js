@@ -3,11 +3,6 @@
 // page init
 jQuery(document).ready(function(){
 
-	// jQuery('.activity-form').submit(function(e) {
-	// 	e.preventDefault();
-	// 	window.location.href="/activities/" + jQuery('#activity_id').val() + "?dt=" + jQuery('#activity_date').val();
-	// 	return false;
-	// });
 
 	jQuery('.raised-form').submit(function(e) {
 		e.preventDefault();
@@ -300,6 +295,21 @@ jQuery(document).ready(function(){
 
 
     //------------------- END CALENDAR PLUGIN --------------
+
+
+    //------------------- DISPLAYING CAPTCHA--------------------
+
+    var contactMessage = $(".contact-form textarea[name='message']");
+    var displayCaptcha = false;
+    contactMessage.on('input', function(){
+       if(contactMessage.val().length > 2 && !displayCaptcha){
+           $(".captcha-row").slideDown();
+           displayCaptcha = true;
+       }
+    });
+
+    //------------------- END DISPLAYING CAPTCHA--------------------
+
 
 	function numberWithDots(x) {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

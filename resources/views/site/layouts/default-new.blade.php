@@ -165,10 +165,10 @@
 										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters">{{ old('message') }}</textarea>
 									</div>
 								</div>
-								<div class="sub-row">
+								<div class="sub-row captcha-row" style="display:none;">
 									<label for="captcha">captcha</label>
-									<div class="text-field">
-										{!! Recaptcha::render(['lang' => app()->getLocale()]) !!}
+									<div class="text-field captcha-field">
+										{!! Recaptcha::render(['lang' => app()->getLocale(), 'theme' => 'dark']) !!}
 									</div>
 								</div>
 								<input type="submit" value="OK" class="btn btn-success">

@@ -3541,6 +3541,10 @@ body.home2 .roteros-options .raised-form .text-field {
   overflow: hidden;
 }
 
+#footer .contact-form .text-field.captcha-field{
+    height: 62px;
+}
+
 #footer .contact-form .form-control {
   height: 26px;
   color: #fff;
@@ -3592,6 +3596,11 @@ body.home2 .roteros-options .raised-form .text-field {
   top: auto;
   right: 0;
   bottom: 0;
+}
+
+#footer .contact-form .g-recaptcha{
+    transform: scale(0.79);
+    transform-origin: 0 0 0;
 }
 
 @media (max-width: 767px) {
