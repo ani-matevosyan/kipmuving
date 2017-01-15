@@ -5,9 +5,7 @@
 	<section class="visual activities-all" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
 	</section>
 
-	<script
-		type="text/javascript"
-		src="http://www.kipmuving.com/js/floating-1.12.js">
+	<script type="text/javascript" src="{{ asset('/js/floating-1.12.js') }}">
 	</script>
 
 	<script type="text/javascript">
