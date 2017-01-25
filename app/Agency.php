@@ -22,9 +22,10 @@ class Agency extends Model
 	}
 	public function setRealTripadvisorCodeAttribute($code)
 	{
-		$agency = Agency::find($this['id']);
-		$agency['tripadvisor_code'] = $code;
-		$agency->save();
+//		$agency = Agency::find($this['id']);
+//		$agency['tripadvisor_code'] = $code;
+//		$agency->save();
+		$this->attributes['tripadvisor_code'] = $code;
 	}
 
 	public function getAgencies()

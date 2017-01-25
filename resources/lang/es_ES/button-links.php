@@ -10,7 +10,7 @@ return [
 	'agencies'           => 'Agencias',
 	'guide'              => 'Guia Pucon',
 	'my_agenda'          => 'Mi agenda',
-	'go_to_guide'        => 'Ir a la guía',
+	'go_to_guide'        => 'Ir al guía',
 	'view'               => 'Visualizar',
 	'see_all_activities' => 'Ver todas las actividades'
 ];

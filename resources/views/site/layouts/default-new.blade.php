@@ -27,21 +27,21 @@
 					<div class="burger"></div>
 				</div>
 				<div class="country">
-					<div class="img-flag pick-lang">
-						<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
-							  alt="image description" class="current-lang">
-						<span class="glyphicon glyphicon-triangle-top"></span>
-						<ul class="choose-menu choose-lang">
-							@foreach($locales as $locale)
-								<li>
-									<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
-										<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"
-											  alt="image description">
-									</a>
-								</li>
-							@endforeach
-						</ul>
-					</div>
+					{{--<div class="img-flag pick-lang">--}}
+						{{--<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"--}}
+							  {{--alt="image description" class="current-lang">--}}
+						{{--<span class="glyphicon glyphicon-triangle-top"></span>--}}
+						{{--<ul class="choose-menu choose-lang">--}}
+							{{--@foreach($locales as $locale)--}}
+								{{--<li>--}}
+									{{--<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">--}}
+										{{--<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"--}}
+											  {{--alt="image description">--}}
+									{{--</a>--}}
+								{{--</li>--}}
+							{{--@endforeach--}}
+						{{--</ul>--}}
+					{{--</div>--}}
 					<div class="pick-curr">
 						<span class="current-curr">{{ session('currency.type') }} $</span>
 						<span class="glyphicon glyphicon-triangle-top"></span>

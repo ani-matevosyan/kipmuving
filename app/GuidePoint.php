@@ -27,8 +27,9 @@ class GuidePoint extends Model
 	
 	public function setRealTripadvisorCodeAttribute($code)
 	{
-		$agency = GuidePoint::find($this['id']);
-		$agency['tripadvisor_code'] = $code;
-		$agency->save();
+//		$agency = GuidePoint::find($this['id']);
+//		$agency['tripadvisor_code'] = $code;
+//		$agency->save();
+		$this->attributes['tripadvisor_code'] = $code;
 	}
 }

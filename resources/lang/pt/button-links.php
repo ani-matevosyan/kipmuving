@@ -2,15 +2,15 @@
 
 return [
 	'edit'               => 'Editar',
-	'delete'             => 'Apagar',
+	'delete'             => 'Borrar',
 	'register'           => 'Registrar',
-	'login'              => 'Entrada',
+	'login'              => 'Entrar',
 	'search'             => 'Buscar',
-	'activities'         => 'Atividades',
+	'activities'         => 'Actividades',
 	'agencies'           => 'Agencias',
 	'guide'              => 'Guia Pucon',
-	'my_agenda'          => 'Minha agenda',
-	'go_to_guide'        => 'Ir ao guía',
+	'my_agenda'          => 'Mi agenda',
+	'go_to_guide'        => 'Ir a la guía',
 	'view'               => 'Visualizar',
-	'see_all_activities' => 'Ver todas las atividades'
+	'see_all_activities' => 'Ver todas las actividades'
 ];
