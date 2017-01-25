@@ -150,7 +150,7 @@
 							<img src="{{ asset('images/umbrella.svg') }}" alt="">
 							<p>
 								<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
-								<span>U$ 3.5</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
+								<span>5%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
 							</p>
 						</div>
 					</div>

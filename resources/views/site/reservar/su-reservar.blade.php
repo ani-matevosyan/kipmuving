@@ -111,7 +111,7 @@
 										<section class="s_moredetails">
 											<p>{{ trans('main.to_confirm_your_activities') }}
 												<strong>{{ trans('main.reserve_this_panorama') }}. </strong>{{ trans('main.confirm_with_payment_of_service') }}
-												<strong>3.5 USD</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+												<strong>5%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
 											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
 											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
 											<p class="carrio-heading">{{ trans('main.general_information') }}</p>
@@ -160,7 +160,7 @@
 											</div>
 											<div class="item umbrella">
 												<img src="images/umbrella-grey.svg" alt="umbrella">
-												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>U$ 3.5 </span> {{ trans('main.pay_for_website_maintenance') }}</p>
+												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>5% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 											</div>
 											<div class="item broklink">
 												<img src="images/broken-link-grey.svg" alt="broken-link">

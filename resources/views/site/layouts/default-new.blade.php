@@ -162,7 +162,7 @@
 								<div class="sub-row">
 									<label for="message">{{ trans('form.message') }}</label>
 									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message" placeholder="min 5 letters">{{ old('message') }}</textarea>
+										<textarea rows="5" cols="5" class="form-control" id="message" name="message">{{ old('message') }}</textarea>
 									</div>
 								</div>
 								<div class="sub-row captcha-row" style="display:none;">

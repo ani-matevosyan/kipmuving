@@ -16,45 +16,45 @@
 						<a href="{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}">{{ $offer['offerAgency']['name'] }}</a>
 					</h2>
 				@endif
-				@if($offer['offerAgency']['address'])
-					<strong class="sub-title">
-						<span>{{ $offer['offerAgency']['address'] }}</span>
-					</strong>
-				@endif
+				{{--@if($offer['offerAgency']['address'])--}}
+					{{--<strong class="sub-title">--}}
+						{{--<span>{{ $offer['offerAgency']['address'] }}</span>--}}
+					{{--</strong>--}}
+				{{--@endif--}}
 			</div>
-			<ul class="links">
-				<li>
-					@if($offer['offerAgency']['name'] && $offer['offerAgency']['id'] && $offer['offerAgency']['image'] && $offer['offerAgency']['address'] && $offer['offerAgency']['description'])
-						<a href="javascript:void(0)"
-							data-toggle="popover"
-							title="{{ $offer['offerAgency']['name'] }}"
-							data-html="true"
-							data-placement="bottom"
-							data-container="body"
-							data-trigger="focus"
-							data-content="
-										<img src='/{{ $offer['offerAgency']['image'] }}'>
-										</a>
-										<br>
-										{{ $offer['offerAgency']['address'] }}
-								<hr>
-								{{ $offer['offerAgency']['description'] }}
-								<br>
-								<a href='{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>
-					@endif
-				</li>
-				<li>
-					@if($offer['offerAgency']['latitude'] && $offer['offerAgency']['longitude'] && $offer['offerAgency']['name'])
-						<a href="javascript:void(0)"
-							class="btn-map"
-							data-toggle="modal"
-							data-lat="{{ $offer['offerAgency']['latitude'] }}"
-							data-lng="{{ $offer['offerAgency']['longitude'] }}"
-							data-title="{{ $offer['offerAgency']['name'] }}">{{ trans('main.show_map') }}</a>
-					@endif
-				</li>
-			<!-- <li><a href="/agency/{{ $offer['offerAgency']['id'] }}">Condiciones</a></li> -->
-			</ul>
+			{{--<ul class="links">--}}
+				{{--<li>--}}
+					{{--@if($offer['offerAgency']['name'] && $offer['offerAgency']['id'] && $offer['offerAgency']['image'] && $offer['offerAgency']['address'] && $offer['offerAgency']['description'])--}}
+						{{--<a href="javascript:void(0)"--}}
+							{{--data-toggle="popover"--}}
+							{{--title="{{ $offer['offerAgency']['name'] }}"--}}
+							{{--data-html="true"--}}
+							{{--data-placement="bottom"--}}
+							{{--data-container="body"--}}
+							{{--data-trigger="focus"--}}
+							{{--data-content="--}}
+										{{--<img src='/{{ $offer['offerAgency']['image'] }}'>--}}
+										{{--</a>--}}
+										{{--<br>--}}
+										{{--{{ $offer['offerAgency']['address'] }}--}}
+								{{--<hr>--}}
+								{{--{{ $offer['offerAgency']['description'] }}--}}
+								{{--<br>--}}
+								{{--<a href='{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>--}}
+					{{--@endif--}}
+				{{--</li>--}}
+				{{--<li>--}}
+					{{--@if($offer['offerAgency']['latitude'] && $offer['offerAgency']['longitude'] && $offer['offerAgency']['name'])--}}
+						{{--<a href="javascript:void(0)"--}}
+							{{--class="btn-map"--}}
+							{{--data-toggle="modal"--}}
+							{{--data-lat="{{ $offer['offerAgency']['latitude'] }}"--}}
+							{{--data-lng="{{ $offer['offerAgency']['longitude'] }}"--}}
+							{{--data-title="{{ $offer['offerAgency']['name'] }}">{{ trans('main.show_map') }}</a>--}}
+					{{--@endif--}}
+				{{--</li>--}}
+			{{--<!-- <li><a href="/agency/{{ $offer['offerAgency']['id'] }}">Condiciones</a></li> -->--}}
+			{{--</ul>--}}
 		</header>
 	@endif
 	<div class="row">

@@ -77,7 +77,7 @@
 									</div>
 									<div class="item umbrella">
 										<img src="images/umbrella-grey.svg" alt="umbrella">
-										<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>U$ 3.5 </span> {{ trans('main.pay_for_website_maintenance') }}</p>
+										<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>5% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 									</div>
 									<div class="item broklink">
 										<img src="images/broken-link-grey.svg" alt="broken-link">
