@@ -115,18 +115,20 @@
 							@endif
 						</ul>
 					</div>
-					@if($offer['price'] && $offer['price_offer'])
+					{{--@if($offer['price'] && $offer['price_offer'])--}}
+					@if($offer['price'])
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div><strong class="price" data-unit-price="{{ $offer['price_offer'] }}">
-									@if ($offer['price'] != $offer['price_offer'])
+							<div>
+								<strong class="price" data-unit-price="{{ $offer['price_offer'] }}">
+{{--									@if ($offer['price'] != $offer['price_offer'])--}}
 										<del>
 											<small>
 												<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
 											</small>
 										</del>
 										<br>
-									@endif
-									<sub>$</sub>{{ number_format($offer['price_offer'], 0, '.', '.') }}
+									{{--@endif--}}
+									<sub>$</sub>{{ number_format($offer['price'] * 0.95, 0, '.', '.') }}
 								</strong>
 								<a href="#" class="btn btn-primary btn-reserve"
 									data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>

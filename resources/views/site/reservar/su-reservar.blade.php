@@ -95,7 +95,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'], 0, '.', '.') }}
+														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.service_fee')), 0, '.', '.') }}
 													</strong>
 												</div>
 												<div class="important">
@@ -131,7 +131,7 @@
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{number_format($offer['offerData']['price'] * $offer['offerData']['persons'], 0, '.', '.')}}</span>
+													<span>{{number_format($offer['offerData']['price'] * (1 - config('kipmuving.service_fee')) * $offer['offerData']['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
@@ -140,7 +140,7 @@
 												<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<?php $total_discount = $total_cost * 0.1 ?>
+											<?php $total_discount = $total_cost * config('kipmuving.service_fee') ?>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
 												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>

@@ -43,7 +43,7 @@
 										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
 								{{--@endif--}}
 							</li>
-							@if($offer['price_offer'])
+							@if($offer['price'])
 								<li class="profile">
 									<select class="persona">
 										<option value="">{{ trans('main.persons') }}</option>
@@ -83,7 +83,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div>
 							<strong class="price"
-									  data-unit-price="{{ $offer['price_offer'] }}"><sub>$</sub> {{ number_format($offer['price_offer'], 0, '.', '.') }}
+									  data-unit-price="{{ $offer['price'] }}"><sub>$</sub> {{ number_format($offer['price'] * (1 - config('kipmuving.service_fee')), 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
 								data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>

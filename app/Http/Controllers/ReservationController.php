@@ -15,6 +15,24 @@ class ReservationController extends Controller
 {
 	private $pricePerPerson = 3.5;
 	
+	private function getPriceInUSD($price, $currency)
+	{
+		$result = 0;
+		switch ($currency) {
+			case 'BRL':
+				$result = $price / session('currency.values.USDBRL');
+				break;
+			case 'CLP':
+				$result = $price / session('currency.values.USDCLP');
+				break;
+			case 'USD':
+				$result = $price;
+				break;
+		}
+		
+		return round($result, 2);
+	}
+	
 	private function GUID()
 	{
 		return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X',
@@ -108,12 +126,14 @@ class ReservationController extends Controller
 		
 		$results = [];
 		$total_cost = 0;
-		$topay = 0;
+		$total_cost_CLP = 0;
+//		$topay = 0;
 		$persons = $offer->getSelectedOffersPersons();
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
-			$total_cost += $offer['price_offer'] * $selectedOffer['persons'];
-			$topay += $selectedOffer['persons'] * $this->pricePerPerson;
+			$total_cost += $offer['price'] * (1 - config('kipmuving.service_fee')) * $selectedOffer['persons'];
+			$total_cost_CLP += $offer['real_price'] * (1 - config('kipmuving.service_fee')) * $selectedOffer['persons'];
+//			$topay += $selectedOffer['persons'] * $this->pricePerPerson;
 			$results[] = [
 				'offerData'    => [
 					'id'                 => $offer['offer_id'],
@@ -138,16 +158,15 @@ class ReservationController extends Controller
 					'image_icon' => $offer['offerActivity']['image_icon']
 				]
 			];
-//			dd($results);
 		}
 		$data = [
 			'total_cost' => $total_cost,
 			'user'       => Auth::user(),
 			'offers'     => $results,
 			'persons'    => $persons,
-			'topay'      => $topay
+			'topay'      => $this->getPriceInUSD($total_cost_CLP, 'CLP') * config('kipmuving.service_fee')
 		];
-		
+//		dd($data['topay']);
 		return view('site.reservar.su-reservar', $data);
 	}
 	
@@ -163,9 +182,11 @@ class ReservationController extends Controller
 				
 				foreach ($sessionOffers as $key => $sessionOffer) {
 					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-					$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
+					$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.service_fee')) * $sessionOffer['persons'];
 					$persons += $sessionOffer['persons'];
 				}
+				
+				$topay = round($this->getPriceInUSD($offersTotalCost, 'CLP') * config('kipmuving.service_fee'), 2);
 				
 				#Stripe create charge
 				$stripe = Stripe::make(config('services.stripe.secret'));
@@ -174,10 +195,12 @@ class ReservationController extends Controller
 				$charge = $stripe->charges()->create([
 					'customer' => $customer['id'],
 					'currency' => 'USD',
-					'amount'   => $persons * $this->pricePerPerson,
+					'amount'   => $topay,
 				]);
 				
 				if ($charge['status'] == 'succeeded') {
+					
+					dd($request['token']);
 					$batch = $this->GUID();
 					
 					#Add data about reservation to DB
@@ -236,9 +259,12 @@ class ReservationController extends Controller
 			
 			foreach ($sessionOffers as $key => $sessionOffer) {
 				$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-				$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
+//				$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
+				$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.service_fee')) * $sessionOffer['persons'];
 				$persons += $sessionOffer['persons'];
 			}
+			
+			$topay = round($this->getPriceInUSD($offersTotalCost, 'CLP') * config('kipmuving.service_fee'), 2);
 			
 			$provider = new ExpressCheckout();
 			
@@ -250,7 +276,8 @@ class ReservationController extends Controller
 			$data['items'] = [
 				[
 					'name'  => 'Kipmuving.com - reservation',
-					'price' => $persons * $this->pricePerPerson,
+//					'price' => $persons * $this->pricePerPerson,
+					'price' => $topay,
 					'qty'   => 1
 				]
 			];
@@ -258,7 +285,7 @@ class ReservationController extends Controller
 			$data['invoice_description'] = "Kipmuving.com - reservation";
 			$data['return_url'] = action('ReservationController@paymentPaypal');
 			$data['cancel_url'] = action('ReservationController@reserve');
-			$data['total'] = $persons * $this->pricePerPerson;
+			$data['total'] = $topay;
 			
 			if ($request['token']) {
 				$response = $provider->doExpressCheckoutPayment($data, $request['token'], $request['PayerID']);

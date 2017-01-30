@@ -259,13 +259,14 @@ class Offer extends Model
 					->join('activities', 'activities.id', 'offers.activity_id')
 					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 					->where('activity_translations.locale', app()->getLocale())
-					->select('offers.price_offer', 'activity_translations.name')
+					->select('offers.price_offer', 'offers.price', 'activity_translations.name')
 					->first();
 			}
 			if (count($offers) > 0)
 				foreach ($offers as $key => $offer) {
 					$sessionOffers[$key]['name'] = $offer['name'];
 					$sessionOffers[$key]['price_offer'] = $offer['price_offer'];
+					$sessionOffers[$key]['price'] = $offer['price'];
 				}
 			else
 				$sessionOffers = null;
@@ -309,7 +310,8 @@ class Offer extends Model
 				'offers.availability',
 //				'offers.start_time',
 //				'offers.end_time',
-				'offers.price_offer'
+				'offers.price_offer',
+				'offers.price'
 			)
 			->get();
 		
