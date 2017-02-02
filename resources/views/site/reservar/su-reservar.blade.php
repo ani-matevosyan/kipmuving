@@ -98,11 +98,13 @@
 														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.service_fee')), 0, '.', '.') }}
 													</strong>
 												</div>
-												<div class="important">
-													<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer['offerData']['important'] }}</p>
-												</div>
-												<div class="cancellation_rules">
-													<p><span>Costos para cancelar: </span>{{ $offer['offerData']['cancellation_rules'] }}</p>
+												<div id="reservetour1">
+													<div class="important">
+														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer['offerData']['important'] }}</p>
+													</div>
+													<div class="cancellation_rules">
+														<p><span>Costos para cancelar: </span>{{ $offer['offerData']['cancellation_rules'] }}</p>
+													</div>
 												</div>
 											</li>
 										@endforeach

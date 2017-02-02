@@ -70,6 +70,11 @@ jQuery(document).ready(function(){
 			return false;
 		}
 		var hours = $(this).parents('.offer-item').find('select.hours').val();
+        if (hours == '') {
+            $('#message-modal #message').text('Seleccione primero la cantidad de horario de esta actividad.');
+            $('#message-modal').modal('show');
+            return false;
+        }
 		$.ajax({
 			type: "POST",
 			url: "/offer/reserve",

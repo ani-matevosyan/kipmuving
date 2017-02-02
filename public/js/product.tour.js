@@ -16,6 +16,11 @@ $(window).load(function(){
                 activitytour();
             }
         }
+        if (window.location.pathname === '/reserve') {
+            if(localStorage.reservationtour !== "visited"){
+                reservationtour();
+            }
+        }
     }
 
     function homeTour(){
@@ -102,6 +107,26 @@ $(window).load(function(){
         localStorage.activitytour = "visited";
     }
 
+    function reservationtour(){
+        var productTour_activity = new ProductTour({
+            overlay: true
+        });
+        productTour_activity.steps([{
+            element: '#reservetour1',
+            title: 'Atento a las condiciones de las agencias',
+            content: 'Cada actividad y agencia tiene sus propias condiciones. Esté atento cuales son.',
+            image: '../images/tour/reserve-tour-1.jpg'
+        },{
+            element: '.btn-reservar.reserve',
+            title: 'Reservar',
+            content: 'Para confirmar sus actividades, presione el botón y pague la tarifa de reserva.',
+            image: '../images/tour/reserve-tour-2.jpg'
+        }
+        ]);
+        productTour_activity.startTour();
+        localStorage.reservationtour = "visited";
+    }
+
     $(".info-tour").click(function(){
         if (window.location.pathname === '/home' || window.location.pathname === '/'){
             homeTour();
@@ -109,6 +134,8 @@ $(window).load(function(){
             activitiesTour();
         }else if(window.location.pathname.indexOf('/activity/') === 0){
             activitytour();
+        }else if(window.location.pathname === '/reserve'){
+            reservationtour();
         }
     })
 });
