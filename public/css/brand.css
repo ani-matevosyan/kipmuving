@@ -5073,6 +5073,10 @@ body.home2 .roteros-options .raised-form .text-field {
   overflow: hidden;
 }
 
+.your-reservation.adventure .accordion .text{
+  margin-top: 12px;
+}
+
 .your-reservation .list-box {
   margin: 0 0 15px;
 }
@@ -5786,7 +5790,7 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 15px;
     color: #d9a91c;
     padding-left: 47px;
-    background: url("../images/10-orange.svg") no-repeat;
+    background: url("../images/05-orange.svg") no-repeat;
     background-size: 45px 27px;
     background-position: left center;
     line-height: 14px;

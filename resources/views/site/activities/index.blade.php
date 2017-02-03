@@ -98,7 +98,6 @@
 
 							<div style="position:relative; height:60px; z-index:100">
 								<div id="floatdiv" style="position:absolute;">
-
 									<ul class="activities-list">
 										<li class="active">
 											<a href="#trekking" class="green">
@@ -162,8 +161,7 @@
 										</li>
 									</ul>
 								</div>
-
-								<div class="activities-info">
+								<div class="activities-info" id="activities-info">
 									<p><strong>{{ trans('main.iconography') }}</strong></p>
 									<ul>
 										<li class="active">

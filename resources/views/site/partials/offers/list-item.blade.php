@@ -104,7 +104,7 @@
 								<li class="profile hours">
 									<strong><span>Elija la opcion de horario</span></strong>
 									<select class="hours">
-										<option disabled selected>{{ trans('main.schedule') }}</option>
+										<option value="">{{ trans('main.schedule') }}</option>
 										@if(is_array($offer['available_time']))
 											@foreach($offer['available_time'] as $time)
 												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>

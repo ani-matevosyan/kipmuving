@@ -38,9 +38,9 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} <span>10%</span>  {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">{{ trans('main.less') }} <span>5%</span>  {{ trans('main.in_all_activities') }}</p>
 						</form>
-					</div>
+					</div>10%
 				</div>
 			</div>
 		</div>
@@ -140,7 +140,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="howitworks_block">
-							<img src="{{ asset('images/10.svg') }}" alt="">
+							<img src="{{ asset('images/05.svg') }}" alt="">
 							<p><span>KipMuving</span> {{ trans('main.has_an_agreement') }}
 								<span>{{ trans('main.preferential_prices') }}</span></p>
 						</div>
