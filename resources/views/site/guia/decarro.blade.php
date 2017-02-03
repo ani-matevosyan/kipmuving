@@ -121,20 +121,28 @@
                             </ul>
 
                             <div class="tab-content">
+                                @if($mappoint['properties']['bus_description'])
                                 <div id="home{{$countVisible}}" class="tab-pane well fade in active">
                                     <div class="tab-detail">
-                                        <p>{{ trans('main.you_should_take_bus') }}</p>
+                                        <p>{!! $mappoint['properties']['bus_description'] !!}</p>
                                     </div>
+                                    @if($mappoint['properties']['bus_estimated_time'])
                                     <div class="info-icons">
                                         <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                        <p>{{ trans('main.estimated_time') }}: <strong>1 {{ trans('main.hour') }}</strong></p>
+                                        <p>{{ trans('main.estimated_time') }}: <strong>{{ $mappoint['properties']['bus_estimated_time'] }} {{ trans('main.hour') }}</strong></p>
                                     </div>
+                                    @endif
+                                    @if($mappoint['properties']['bus_estimated_expenditure'])
                                     <div class="info-icons">
                                         <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                        <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ 2.000 {{ trans('main.per_person') }}</strong></p>
-                                        <span>{{ trans('main.spa_value') }}: <strong>$ 17.000 {{ trans('main.per_person') }}</strong></span>
+                                        <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ {{ number_format($mappoint['properties']['bus_estimated_expenditure'], 0, ".", ".") }} {{ trans('main.per_person') }}</strong></p>
+                                        @if($mappoint['properties']['bus_estimated_service'])
+                                            <span>{{ trans('main.spa_value') }}: <strong>$ {{ number_format($mappoint['properties']['bus_estimated_service'], 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
+                                        @endif
                                     </div>
+                                    @endif
                                 </div>
+                                @endif
                                 <div id="menu{{$countVisible}}" class="tab-pane map-tab well fade">
                                     <div class="map-holder">
                                         <div id="map{{$countVisible}}" style="width: 100%; height: 300px"></div>

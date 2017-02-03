@@ -13,10 +13,10 @@ class AddAvailableTimeFieldToOffersTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('offers', function (Blueprint $table) {
-			//
-			$table->text('available_time')->nullable();
-		});
+//		Schema::table('offers', function (Blueprint $table) {
+//			//
+//			$table->text('available_time')->nullable();
+//		});
 	}
 	
 	/**
@@ -26,9 +26,9 @@ class AddAvailableTimeFieldToOffersTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('offers', function (Blueprint $table) {
-			//
-			$table->removeColumn('available_time');
-		});
+//		Schema::table('offers', function (Blueprint $table) {
+//			//
+//			$table->removeColumn('available_time');
+//		});
 	}
 }

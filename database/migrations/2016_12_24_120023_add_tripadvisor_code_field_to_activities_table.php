@@ -13,10 +13,10 @@ class AddTripadvisorCodeFieldToActivitiesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('activities', function (Blueprint $table) {
-			//
-			$table->text('tripadvisor_code')->nullable();
-		});
+//		Schema::table('activities', function (Blueprint $table) {
+//			//
+//			$table->text('tripadvisor_code')->nullable();
+//		});
 	}
 	
 	/**
@@ -26,9 +26,9 @@ class AddTripadvisorCodeFieldToActivitiesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('activities', function (Blueprint $table) {
-			//
-			$table->removeColumn('tripadvisor_code');
-		});
+//		Schema::table('activities', function (Blueprint $table) {
+//			//
+//			$table->removeColumn('tripadvisor_code');
+//		});
 	}
 }

@@ -13,10 +13,10 @@ class AddInstagramIdFieldToAgenciesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('agencies', function (Blueprint $table) {
-			//
-			$table->char('instagram_id', 15)->nullable();
-		});
+//		Schema::table('agencies', function (Blueprint $table) {
+//			//
+//			$table->char('instagram_id', 15)->nullable();
+//		});
 	}
 	
 	/**
@@ -26,9 +26,9 @@ class AddInstagramIdFieldToAgenciesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('agencies', function (Blueprint $table) {
-			//
-			$table->removeColumn('instagram_id');
-		});
+//		Schema::table('agencies', function (Blueprint $table) {
+//			//
+//			$table->removeColumn('instagram_id');
+//		});
 	}
 }

@@ -22,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
 		\App\Offer::class => \App\Policies\OfferPolicy::class,
 		\App\HomeMail::class => \App\Policies\MailPolicy::class,
 		\App\Reservation::class => \App\Policies\ReservationPolicy::class,
+		\App\GuidePoint::class => \App\Policies\GuidePointsPolicy::class,
 	];
 
 	/**

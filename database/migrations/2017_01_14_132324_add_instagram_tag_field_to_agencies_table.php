@@ -13,10 +13,10 @@ class AddInstagramTagFieldToAgenciesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('agencies', function (Blueprint $table) {
-			//
-			$table->string('instagram_name')->default('');
-		});
+//		Schema::table('agencies', function (Blueprint $table) {
+//			//
+//			$table->string('instagram_name')->default('');
+//		});
 	}
 	
 	/**
@@ -26,9 +26,9 @@ class AddInstagramTagFieldToAgenciesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('agencies', function (Blueprint $table) {
-			//
-			$table->removeColumn('instagram_name');
-		});
+//		Schema::table('agencies', function (Blueprint $table) {
+//			//
+//			$table->removeColumn('instagram_name');
+//		});
 	}
 }
