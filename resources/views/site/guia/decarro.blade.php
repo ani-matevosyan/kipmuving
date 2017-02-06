@@ -207,7 +207,7 @@
         <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
         <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
  
-            <div id="instafeed3" class="instafeed" data-instaid="{{ $firstVisibleId }}" data-instatag="{{ $mappoints['features'][$firstVisibleIndex]['properties']['title'] }}"></div>
+            {{--<div id="instafeed3" class="instafeed" data-instaid="{{ $firstVisibleId }}" data-instatag="{{ $mappoints['features'][$firstVisibleIndex]['properties']['title'] }}"></div>--}}
         </div> 
     </div>
 </div>

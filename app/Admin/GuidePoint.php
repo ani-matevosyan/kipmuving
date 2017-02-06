@@ -13,6 +13,7 @@ AdminSection::registerModel(GuidePoint::class, function (ModelConfiguration $mod
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
 			AdminColumn::text('id')->setLabel('#'),
+			AdminColumn::text('point_id')->setLabel('Point ID'),
 //			AdminColumn::text('name')->setLabel('Name'),
 //			AdminColumn::text('address')->setLabel('Address'),
 //			AdminColumn::text('email')->setLabel('Email'),
@@ -37,6 +38,7 @@ AdminSection::registerModel(GuidePoint::class, function (ModelConfiguration $mod
 //						AdminFormElement::text('address', 'Address')->required()
 //					], 4),
 				AdminFormElement::text('point_id', 'Point ID')->required(),
+				AdminFormElement::textarea('description', 'Description')->required(),
 				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisorrrr code')
 
 //				AdminFormElement::columns()
@@ -71,4 +73,4 @@ AdminSection::registerModel(GuidePoint::class, function (ModelConfiguration $mod
 
 })
 	->addMenuPage(GuidePoint::class, 5)
-	->setIcon('fa fa-university');
+	->setIcon('fa fa-map-marker');
