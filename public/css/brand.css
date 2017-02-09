@@ -2687,6 +2687,26 @@ body.home2 .roteros-options .raised-form .text-field {
   line-height: 28px;
 }
 
+.activity-instagram{
+  text-align: right;
+  margin-bottom: 7px;
+}
+
+.activity-instagram .activity-tag{
+  padding-left: 27px;
+  background-image: url("../images/instagram.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 19px;
+  line-height: 19px;
+  color: #e12570;
+  display: inline-block;
+}
+
+.activity-instagram .activity-tag:before{
+  content: "#";
+}
+
 .important-txt {
   font-size: 14px;
   overflow: hidden;
