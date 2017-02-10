@@ -83,7 +83,13 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div>
 							<strong class="price"
-									  data-unit-price="{{ $offer['price'] }}"><sub>$</sub> {{ number_format($offer['price'] * (1 - config('kipmuving.service_fee')), 0, '.', '.') }}
+									  data-unit-price="{{ $offer['price'] }}"><sub>$</sub> {{ number_format($offer['price'] * 0.9, 0, '.', '.') }}
+								<br>
+								<del>
+									<small>
+										<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
+									</small>
+								</del>
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
 								data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
