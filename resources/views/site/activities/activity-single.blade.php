@@ -56,11 +56,14 @@
 												{!! $activity['weather_embed'] !!}
 											</div>
 										@endif
+
+										@if ($activity['instagram_name'])
 										<div class="activity-instagram">
 											<span class="activity-tag">{{ $activity['instagram_name'] }}</span>
 											<div id="instafeed5" class="instafeed" data-tag="termashuife"></div>
 											<div class="clearfix"></div>
 										</div>
+										@endif
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">
