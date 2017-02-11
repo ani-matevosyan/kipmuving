@@ -51,7 +51,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 						]),
 					], 4)
 					->addColumn([
-						AdminFormElement::text('longitude', 'Longitude')->required()
+						AdminFormElement::text('longitude', 'Longitude')->required(),
+						AdminFormElement::text('instagram_name', 'Instagram')
 					], 4)
 					->addColumn([
 						AdminFormElement::number('min_age', 'Min age')->required()

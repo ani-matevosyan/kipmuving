@@ -57,7 +57,7 @@
 											</div>
 										@endif
 										<div class="activity-instagram">
-											<span class="activity-tag">Some tag</span>
+											<span class="activity-tag">{{ $activity['instagram_name'] }}</span>
 											<div id="instafeed5" class="instafeed" data-tag="termashuife"></div>
 											<div class="clearfix"></div>
 										</div>
