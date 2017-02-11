@@ -2687,6 +2687,26 @@ body.home2 .roteros-options .raised-form .text-field {
   line-height: 28px;
 }
 
+.activity-instagram{
+  text-align: right;
+  margin-bottom: 7px;
+}
+
+.activity-instagram .activity-tag{
+  padding-left: 27px;
+  background-image: url("../images/instagram.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 19px;
+  line-height: 19px;
+  color: #e12570;
+  display: inline-block;
+}
+
+.activity-instagram .activity-tag:before{
+  content: "#";
+}
+
 .important-txt {
   font-size: 14px;
   overflow: hidden;
@@ -5293,7 +5313,7 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 90px 0 0;
   text-align: right;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 16px;
   font-weight: 700;
 }
 
@@ -5311,6 +5331,18 @@ body.home2 .roteros-options .raised-form .text-field {
   bottom: 0;
   font-size: 16px;
   vertical-align: middle;
+    margin-right: 5px;
+}
+
+.your-reservation .price del{
+    font-size: 14px;
+    color: #a3a3a3;
+    margin-right: 6px;
+}
+
+.your-reservation .price del sub{
+    font-size: 10px;
+    margin-right: 2px;
 }
 
 .your-reservation .note {
@@ -5515,9 +5547,11 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation.activity .price {
-    padding: 12px 0 10px;
-    text-align: center;
+    padding: 12px 0;
+    text-align: right;
 }
+
+
 
 @media (max-width: 767px) {
   .your-reservation.activity .price {
@@ -5691,7 +5725,10 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation.adventure .price {
   padding: 13px 0 10px;
-  text-align: center;
+  text-align: right;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
@@ -5790,7 +5827,7 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 15px;
     color: #d9a91c;
     padding-left: 47px;
-    background: url("../images/05-orange.svg") no-repeat;
+    background: url("../images/10-orange.svg") no-repeat;
     background-size: 45px 27px;
     background-position: left center;
     line-height: 14px;

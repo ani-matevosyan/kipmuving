@@ -72,7 +72,7 @@
 										<h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
 									</header>
 									<div class="item percent">
-										<img src="images/05-grey.svg" alt="10%">
+										<img src="images/10-grey.svg" alt="10%">
 										<p>{{ trans('main.agreement_with_local_agencies') }}</p>
 									</div>
 									<div class="item umbrella">

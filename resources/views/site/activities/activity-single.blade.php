@@ -56,6 +56,11 @@
 												{!! $activity['weather_embed'] !!}
 											</div>
 										@endif
+										<div class="activity-instagram">
+											<span class="activity-tag">Some tag</span>
+											<div id="instafeed5" class="instafeed" data-tag="termashuife"></div>
+											<div class="clearfix"></div>
+										</div>
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">
@@ -107,4 +112,6 @@
 			</div>
 		</div>
 	</main>
+	<div id="data"> <!-- Keep this div for instafeed information -->
+	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 @stop
