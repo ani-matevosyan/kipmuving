@@ -1,7 +1,7 @@
 <li class="offer-item">
     <header>
         <div class="ico">
-            <img src="/{{ $offer['offerActivity']['image_icon'] }}"
+            <img src="/{{ $offer['activity_icon'] }}"
                  onerror="this.src='/images/image-none.jpg';"
                  alt="agency image">
         </div>
