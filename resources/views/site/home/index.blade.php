@@ -38,7 +38,7 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} <span>10%</span>  {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">{{ trans('main.less') }} <span>{{ config('kipmuving.discount') * 100 }}%</span>  {{ trans('main.in_all_activities') }}</p>
 						</form>
 					</div>
 				</div>
@@ -150,7 +150,7 @@
 							<img src="{{ asset('images/umbrella.svg') }}" alt="">
 							<p>
 								<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
-								<span>5%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
+								<span>{{ config('kipmuving.service_fee') * 100 }}%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
 							</p>
 						</div>
 					</div>

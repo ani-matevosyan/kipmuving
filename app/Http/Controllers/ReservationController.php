@@ -127,12 +127,14 @@ class ReservationController extends Controller
 		$results = [];
 		$total_cost = 0;
 		$total_cost_CLP = 0;
+		$total_cost_without_discount = 0;
 //		$topay = 0;
 		$persons = $offer->getSelectedOffersPersons();
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = $offer->getOffer($selectedOffer['offer_id']);
-			$total_cost += $offer['price'] * (1 - config('kipmuving.service_fee')) * $selectedOffer['persons'];
-			$total_cost_CLP += $offer['real_price'] * (1 - config('kipmuving.service_fee')) * $selectedOffer['persons'];
+			$total_cost += $offer['price'] * (1 - config('kipmuving.discount')) * $selectedOffer['persons'];
+			$total_cost_without_discount += $offer['price'] * $selectedOffer['persons'];
+			$total_cost_CLP += $offer['real_price'] * (1 - config('kipmuving.discount')) * $selectedOffer['persons'];
 //			$topay += $selectedOffer['persons'] * $this->pricePerPerson;
 			$results[] = [
 				'offerData'    => [
@@ -160,12 +162,14 @@ class ReservationController extends Controller
 			];
 		}
 		$data = [
-			'total_cost' => $total_cost,
-			'user'       => Auth::user(),
-			'offers'     => $results,
-			'persons'    => $persons,
-			'topay'      => $this->getPriceInUSD($total_cost_CLP, 'CLP') * config('kipmuving.service_fee')
+			'total_cost'                  => $total_cost,
+			'total_cost_without_discount' => $total_cost_without_discount,
+			'user'                        => Auth::user(),
+			'offers'                      => $results,
+			'persons'                     => $persons,
+			'topay'                       => $this->getPriceInUSD($total_cost_CLP, 'CLP') * config('kipmuving.service_fee')
 		];
+
 //		dd($data['topay']);
 		return view('site.reservar.su-reservar', $data);
 	}

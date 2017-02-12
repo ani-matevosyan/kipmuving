@@ -95,7 +95,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.service_fee')), 0, '.', '.') }}
+														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 													</strong>
 												</div>
 												<div id="reservetour1">
@@ -113,7 +113,7 @@
 										<section class="s_moredetails">
 											<p>{{ trans('main.to_confirm_your_activities') }}
 												<strong>{{ trans('main.reserve_this_panorama') }}. </strong>{{ trans('main.confirm_with_payment_of_service') }}
-												<strong>5%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+												<strong>{{ config('kipmuving.service_fee') * 100 }}%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
 											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
 											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
 											<p class="carrio-heading">{{ trans('main.general_information') }}</p>
@@ -133,7 +133,7 @@
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{number_format($offer['offerData']['price'] * (1 - config('kipmuving.service_fee')) * $offer['offerData']['persons'], 0, '.', '.')}}</span>
+													<span>{{number_format($offer['offerData']['price'] * (1 - config('kipmuving.discount')) * $offer['offerData']['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
@@ -142,7 +142,7 @@
 												<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<?php $total_discount = $total_cost * config('kipmuving.service_fee') ?>
+											<?php $total_discount = $total_cost_without_discount * config('kipmuving.discount') ?>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
 												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
@@ -157,12 +157,12 @@
 												<h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
 											</header>
 											<div class="item percent">
-												<img src="images/10-grey.svg" alt="10%">
+												<img src="images/10-grey.svg" alt="{{ config('kipmuving.discount') * 100 }}%">
 												<p>{{ trans('main.agreement_with_local_agencies') }}</p>
 											</div>
 											<div class="item umbrella">
 												<img src="images/umbrella-grey.svg" alt="umbrella">
-												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>5% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
+												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>{{ config('kipmuving.service_fee') * 100 }}% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 											</div>
 											<div class="item broklink">
 												<img src="images/broken-link-grey.svg" alt="broken-link">
