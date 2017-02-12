@@ -299,6 +299,7 @@ class Offer extends Model
 			->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
 			->where('activity_translations.locale', app()->getLocale())
 			->where('offer_translations.locale', app()->getLocale())
+			->where('activities.visibility', true)
 			->select(
 				'activities.id as activity_id',
 				'activities.image_icon as activity_icon',

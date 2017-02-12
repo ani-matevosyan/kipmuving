@@ -60,7 +60,7 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::checkbox('availability', 'Available'),
+//						AdminFormElement::checkbox('availability', 'Available'),
 						AdminFormElement::checkbox('visibility', 'Visible')
 					], 4)
 					->addColumn([
