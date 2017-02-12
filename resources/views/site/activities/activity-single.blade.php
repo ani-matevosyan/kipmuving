@@ -60,7 +60,7 @@
 										@if ($activity['instagram_name'])
 										<div class="activity-instagram">
 											<span class="activity-tag">{{ $activity['instagram_name'] }}</span>
-											<div id="instafeed5" class="instafeed" data-tag="termashuife"></div>
+											<div id="instafeed5" class="instafeed" data-tag="{{ $activity['instagram_name'] }}"></div>
 											<div class="clearfix"></div>
 										</div>
 										@endif
