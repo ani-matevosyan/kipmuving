@@ -68,7 +68,7 @@ class ReservationController extends Controller
 				'offer_start_time' => $sessionOffers[$key]['time']['start'],
 				'offer_end_time'   => $sessionOffers[$key]['time']['end'],
 				'offer_persons'    => $sessionOffers[$key]['persons'],
-				'offer_price'      => $offer['real_price']
+				'offer_price'      => $offer['real_price'] * (1 - config('kipmuving.discount'))
 			];
 			
 			#Collect offers data
@@ -78,7 +78,7 @@ class ReservationController extends Controller
 			$data['offers'][$key]['offer_hours'] = $offer['hours'];
 			$data['offers'][$key]['offer_carry'] = $offer['offerCarry'];
 			$data['offers'][$key]['offer_persons'] = $sessionOffers[$key]['persons'];
-			$data['offers'][$key]['offer_price'] = $offer['real_price'];
+			$data['offers'][$key]['offer_price'] = $offer['real_price'] * (1 - config('kipmuving.discount'));
 			$data['offers'][$key]['offer_date'] = $sessionOffers[$key]['date'];
 			
 		}
@@ -89,32 +89,31 @@ class ReservationController extends Controller
 		$data['user_email'] = $user['email'];
 		
 		#Send email about reservation to user
-//		Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
-//			$message->from('info@kipmuving.com', 'Kipmuving team');
-//			$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
-//		});
-//
-//		#Send email about reservation to admin
-//		Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
-//			$message->from('info@kipmuving.com', 'Kipmuving team');
-//			$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
-//		});
-//
-//		#Send emails about reservation to agencies
-//		foreach ($agencyData as $agency_email => $item) {
-//			Mail::send('emails.reservar.agencia', [
-//				'data' => [
-//					'offers'          => $item,
-//					'user_first_name' => $data['user_first_name'],
-//					'user_last_name'  => $data['user_last_name'],
-//					'user_email'      => $data['user_email'],
-//				]
-//			], function ($message) use ($user) {
-//				$message->from('info@kipmuving.com', 'Kipmuving team');
-//				#TODO change agency email
-//				$message->to($user['email'])->subject('Kipmuving.com reservation');
-//			});
-//		}
+		Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
+			$message->from('info@kipmuving.com', 'Kipmuving team');
+			$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
+		});
+		
+		#Send email about reservation to admin
+		Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
+			$message->from('info@kipmuving.com', 'Kipmuving team');
+			$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
+		});
+		
+		#Send emails about reservation to agencies
+		foreach ($agencyData as $agency_email => $item) {
+			Mail::send('emails.reservar.agencia', [
+				'data' => [
+					'offers'          => $item,
+					'user_first_name' => $data['user_first_name'],
+					'user_last_name'  => $data['user_last_name'],
+					'user_email'      => $data['user_email'],
+				]
+			], function ($message) use ($agency_email) {
+				$message->from('info@kipmuving.com', 'Kipmuving team');
+				$message->to($agency_email)->subject('Kipmuving.com reservation');
+			});
+		}
 	}
 	
 	public function index(Offer $offer, $message = null)
@@ -182,11 +181,13 @@ class ReservationController extends Controller
 				$sessionOffers = session('selectedOffers');
 				$offers = [];
 				$offersTotalCost = 0;
+				$offersTotalCostWithoutDiscount = 0;
 				$persons = 0;
 				
 				foreach ($sessionOffers as $key => $sessionOffer) {
 					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-					$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.service_fee')) * $sessionOffer['persons'];
+					$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.discount')) * $sessionOffer['persons'];
+					$offersTotalCostWithoutDiscount += $offers[$key]['real_price'] * $sessionOffer['persons'];
 					$persons += $sessionOffer['persons'];
 				}
 				
@@ -204,7 +205,6 @@ class ReservationController extends Controller
 				
 				if ($charge['status'] == 'succeeded') {
 					
-					dd($request['token']);
 					$batch = $this->GUID();
 					
 					#Add data about reservation to DB
@@ -259,12 +259,14 @@ class ReservationController extends Controller
 				return redirect()->action('ActivityController@index');
 			$offers = [];
 			$offersTotalCost = 0;
+			$offersTotalCostWithoutDiscount = 0;
 			$persons = 0;
 			
 			foreach ($sessionOffers as $key => $sessionOffer) {
 				$offers[] = $offer->getOffer($sessionOffer['offer_id']);
 //				$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
-				$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.service_fee')) * $sessionOffer['persons'];
+				$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.discount')) * $sessionOffer['persons'];
+				$offersTotalCostWithoutDiscount += $offers[$key]['real_price'] * $sessionOffer['persons'];
 				$persons += $sessionOffer['persons'];
 			}
 			

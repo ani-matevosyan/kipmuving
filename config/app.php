@@ -13,8 +13,7 @@ return [
 	*/
 
 	'name' => 'Kipmuving',
-	#TODO change email
-	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
+	'admin_email' => 'rafaelzarro@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
