@@ -90,6 +90,8 @@ class UserController extends Controller
 				'reservation_persons' => $reservation['persons'],
 				'offer_start_time'    => $offer['start_time'],
 				'offer_end_time'      => $offer['end_time'],
+//				'offer_price'         => $offer['price'] * (1 - config('kipmuving.discount')),
+				'offer_summary_price' => $offer['price'] * (1 - config('kipmuving.discount')) * $reservation['persons']
 			];
 		}
 		$data = [

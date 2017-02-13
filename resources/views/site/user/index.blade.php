@@ -225,6 +225,9 @@
 													:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
 												{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
 											</strong>
+											<strong>
+												<span>Summary: </span>{{ number_format($reservation['offer_summary_price'], 0, ".", ".") }}$
+											</strong>
 										</li>
 										<li class="person">
 											<strong>
