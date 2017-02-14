@@ -4,6 +4,7 @@
 @section('content')
 	<section class="visual activity-single"
 				@if ($activity['image']) style="background-image: url('/{{ $activity['image'] }}')" @endif>
+		<div class="gradoverlay"></div>
 	</section>
 
 	<style>

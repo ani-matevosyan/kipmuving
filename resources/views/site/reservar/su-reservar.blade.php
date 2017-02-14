@@ -291,7 +291,7 @@
 					<h4 class="modal-title" id="payment_status"></h4>
 				</div>
 				<div class="modal-body">
-					<a href="{{ action('HomeController@index') }}" class="btn btn-success btn-success-cal">To home page</a>
+					<a href="{{ action('UserController@getUser') }}" class="btn btn-success btn-success-cal">To user page</a>
 				</div>
 			</div>
 		</div>

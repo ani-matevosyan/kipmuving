@@ -3,6 +3,7 @@
 {{-- Content --}}
 @section('content')
 	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
+		<div class="gradoverlay"></div>
 	<!-- <img src="images/img28.jpg" alt="image description"> -->
 		<div class="caption">
 			<div class="container">

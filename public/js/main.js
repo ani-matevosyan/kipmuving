@@ -101,6 +101,8 @@ jQuery(document).ready(function(){
                     }
                     var formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
                     $(".offers-list").append("<li><a href='#'>"+ formattedDate   + " - "+ lastel.name+"</a>");
+
+                    $('html, body').animate({scrollTop: '0px'}, 800);
                 },
                 error: function(){
                     location.reload();
@@ -324,7 +326,7 @@ jQuery(document).ready(function(){
 		var priceElem = $(this).parents('.offer-item').find('.price');
 		var unit_price = 0 + priceElem.data('unit-price');
 
-		priceElem.html('<sub>$</sub>' + numberWithDots($(this).val() * unit_price));
+		priceElem.html('<del> <small><sub>$</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>$</sub>' + numberWithDots($(this).val() * unit_price * 0.9));
 	});
 
     //-----------AVATAR LOADING--------------

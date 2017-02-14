@@ -3,6 +3,7 @@
 {{-- Content --}}
 @section('content')
 	<section class="visual activities-all" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
+		<div class="gradoverlay"></div>
 	</section>
 
 	<script type="text/javascript" src="{{ asset('/js/floating-1.12.js') }}">
@@ -61,25 +62,25 @@
 				<div id="cpa-slider-1">
 					<div class="item">
 						<a href="/activity/3">
-							<img src="/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg" alt="Trekking Volcán Villarrica"/>
+							<img src="/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
 							<h2>Trekking Volcán Villarrica</h2>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/5">
-							<img src="/uploads/activity/_zNYN9-2.jpg" alt="Rafting Alto"/>
+							<img src="/uploads/activity/_zNYN9-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
 							<h2>Rafting Alto</h2>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/2">
-							<img src="/uploads/activity/_kpEoA-2.jpg" alt="Rafting Bajo"/>
+							<img src="/uploads/activity/_kpEoA-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
 							<h2>Rafting Bajo</h2>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/4">
-							<img src="/uploads/activity/_ERPJI-2.jpg" alt="Tour por la zona + Termas"/>
+							<img src="/uploads/activity/_ERPJI-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
 							<h2>Tour por la zona + Termas</h2>
 						</a>
 					</div>
