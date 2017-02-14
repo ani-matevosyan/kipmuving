@@ -243,7 +243,7 @@ class ReservationController extends Controller
 	public function cancelReservation($id)
 	{
 		$reservation = Reservation::find($id);
-		if ($reservation > Carbon::now()->addDay()->toDateString()) {
+		if ($reservation > Carbon::now()->toDateString()) {
 			$reservation->delete();
 			
 			return redirect()->back();
