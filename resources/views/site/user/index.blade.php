@@ -234,7 +234,7 @@
 												<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
 											</strong>
 										</li>
-										@if(\Carbon\Carbon::parse($reservation['reservation_date']) > \Carbon\Carbon::now()->addDay())
+										@if(\Carbon\Carbon::parse($reservation['reservation_date']) > \Carbon\Carbon::now())
 											<div class="delete_offer">
 												<a href="{{ action('ReservationController@cancelReservation', $reservation['reservation_id']) }}">{{ trans('main.cancel_activity') }}</a>
 											</div>
