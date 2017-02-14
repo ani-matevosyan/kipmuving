@@ -187,6 +187,18 @@ jQuery(document).ready(function(){
 		return false;
 	});
 
+    var cancel_offer_id;
+    $(".delete_offer a").click(function(e){
+        cancel_offer_id = $(this).attr('href');
+        e.preventDefault();
+        $("#myModal").modal();
+    });
+
+    $("#confirm_cancel").click(function(e){
+        e.preventDefault();
+        window.location.href = cancel_offer_id;
+    });
+
 
     //-------------------CALENDAR PLUGIN --------------
     var viewdate = $("#calendar").attr("data-date");

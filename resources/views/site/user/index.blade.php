@@ -248,7 +248,7 @@
 			</div>
 		</div>
 	</main>
-	<!-- <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -259,10 +259,10 @@
 					<p>Usted tiene 2 días para cancelar sin que la agencia le cobre una multa de 10%.</p>
 				</div>
 				<div class="modal-footer">
-					<a href="#" class="btn btn-success">CONFIRMAR</a>
-					<a href="#" class="btn btn-warning">CANCELAR</a>
+					<a href="#" class="btn btn-success" id="confirm_cancel">CONFIRMAR</a>
+					<a href="#" class="btn btn-warning" data-dismiss="modal">CANCELAR</a>
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 @stop
