@@ -59,7 +59,7 @@
 												</header>
 												<div class="activity_description">
 													<div class="row">
-														<div class="col-md-4 col-sm-4 col-xs-12">
+														<div class="col-sm-7 col-xs-12">
 															<div class="list-box">
 																<strong class="title">{{ trans('main.you_must_take') }}</strong>
 																<ul class="list">
@@ -69,7 +69,7 @@
 																</ul>
 															</div>
 														</div>
-														<div class="col-md-8 col-sm-8 col-xs-12">
+														<div class="col-sm-5 col-xs-12">
 															<ul class="timing">
 																<li class="time">
 																	<strong class="title">
@@ -95,7 +95,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.discount')), 0, '.', '.')* 0.9 }}
 													</strong>
 												</div>
 												<div id="reservetour1">

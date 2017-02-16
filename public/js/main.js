@@ -338,7 +338,7 @@ jQuery(document).ready(function(){
 		var priceElem = $(this).parents('.offer-item').find('.price');
 		var unit_price = 0 + priceElem.data('unit-price');
 
-		priceElem.html('<del> <small><sub>$</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>$</sub>' + numberWithDots($(this).val() * unit_price * 0.9));
+		priceElem.html('<del> <small><sub>$</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>$</sub>' + Math.round($(this).val() * unit_price * 0.9));
 	});
 
     //-----------AVATAR LOADING--------------

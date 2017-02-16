@@ -116,6 +116,24 @@
 			</div>
 		</div>
 	</main>
+    <div id="myModalX" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <!-- <h4 class="modal-title">Confirmation</h4> -->
+                </div>
+                <div class="modal-body">
+                    <div id="the-image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
 	<div id="data"> <!-- Keep this div for instafeed information -->
 	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 @stop
