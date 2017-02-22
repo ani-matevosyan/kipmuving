@@ -544,7 +544,7 @@ body.home2 .all-activities.custom_title header {
     .payment-modal .payment-way img {
       width: 85px;
       margin-right: 10px; }
-    .payment-modal .payment-way button {
+    .payment-modal .payment-way .btn-payment {
       font-family: "Lato-Bold", sans-serif;
       font-size: 15px;
       color: #fff;
@@ -554,14 +554,16 @@ body.home2 .all-activities.custom_title header {
       width: 186px;
       -webkit-transition: all 0.2s ease;
       -moz-transition: all 0.2s ease;
-      transition: all 0.2s ease; }
-    .payment-modal .payment-way.stripe-way button {
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .payment-modal .payment-way.stripe-way .btn-payment {
       background: #408cff; }
-      .payment-modal .payment-way.stripe-way button:hover {
+      .payment-modal .payment-way.stripe-way .btn-payment:hover {
         background: #76acff; }
-    .payment-modal .payment-way.paypal-way button {
+    .payment-modal .payment-way.paypal-way .btn-payment {
       background: #fba630; }
-      .payment-modal .payment-way.paypal-way button:hover {
+      .payment-modal .payment-way.paypal-way .btn-payment:hover {
         background: #ffc16c; }
 
 .modal-backdrop {

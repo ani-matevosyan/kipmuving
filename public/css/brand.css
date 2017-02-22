@@ -7643,11 +7643,15 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .profile-block .timing li.time:after {
-  background-position: -34px -137px;
+    background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 
 .profile-block .timing li.person:after {
-  background-position: -57px -137px;
+    background: url(../images/happy.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 
 .profile-block .timing strong {
@@ -8327,6 +8331,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .s_reservar .activity_description{
     position: relative;
+  padding-bottom: 15px;
 }
 
 .s_reservar .your-reservation .list-box{

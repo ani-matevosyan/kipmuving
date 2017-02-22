@@ -192,7 +192,7 @@
 				<div class="modal-body">
 					<div class="payment-way stripe-way">
 						<img src="images/stripe.png" alt="Stripe">
-						<button id="stripe-pay" type="button">{{ trans('main.confirm_card') }}</button>
+						<button id="stripe-pay" class="btn-payment" type="button">{{ trans('main.confirm_card') }}</button>
 						<script src="https://checkout.stripe.com/checkout.js"></script>
 						<script>
                       var handler = StripeCheckout.configure({
@@ -229,7 +229,7 @@
 					</div>
 					<div class="payment-way paypal-way">
 						<img src="images/paypal.png" alt="PayPal">
-						<button id="paypal-pay" type="button">{{ trans('main.confirm_paypal') }}</button>
+						<div id="paypal-pay" class="btn-payment">{{ trans('main.confirm_paypal') }}</div>
 						{{--<form name='_xclick' action='{{	config('app.paypal_url') }}' method='post'>--}}
 							{{--{{ csrf_field() }}--}}
 							{{--<input type='hidden' name='cmd' value='_xclick'>--}}
@@ -259,18 +259,47 @@
 							{{--<input type='hidden' name='cancel_return' value='{{ URL::to('reserve') }}'>--}}
 							{{--<input type='hidden' name='notify_url' value='{{ URL::to('reserve') }}'>--}}
 						{{--</form>--}}
-						<form name='_xclick' action='{{ action('ReservationController@paymentPaypal') }}' method='get'>
+						{{--<form name='_xclick' action='{{ action('ReservationController@paymentPaypal') }}' method='get'>--}}
 							{{--<input type='hidden' name='cmd' value='_xclick'>--}}
-							<input type='hidden' name='paymentType' value='paypal'>
-						</form>
+							{{--<input type='hidden' name='paymentType' value='paypal'>--}}
+						{{--</form>--}}
+						<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 						<script>
-                      $(document).ready(function () {
-                          $('#paypal-pay').click(function (event) {
-                              event.preventDefault();
-                              document._xclick.submit();
-							  return false;
-                          });
-                      });
+//                      $(document).ready(function () {
+//                          $('#paypal-pay').click(function (event) {
+//                              event.preventDefault();
+//                              document._xclick.submit();
+//							  return false;
+//                          });
+//                      });
+//							paypal.Button.render({
+//
+//								env: 'sandbox', // Specify 'sandbox' for the test environment
+//
+//                                locale: 'es_ES',
+//
+//                                style : {
+//                                  shape: 'rect'
+//                                },
+//
+//								payment: function(resolve, reject) {
+//									// Set up the payment here, when the buyer clicks on the button
+//								},
+//
+//								onAuthorize: function(data, actions) {
+//									// Execute the payment here, when the buyer approves the transaction
+//
+//                                    if (error === '10486'){
+//                                        actions.restart();
+//                                    }
+//								},
+//
+//                                onError: function(err){
+//								    console.log('ERROR:');
+//								    console.log(err);
+//                                }
+//
+//							}, '#paypal-pay');
 						</script>
 					</div>
 					<div class="error-payment"><span>Error: </span></div>
