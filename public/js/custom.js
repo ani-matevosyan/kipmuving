@@ -204,12 +204,13 @@ $(document).ready(function () {
                 marker.on('click', function(e) {
                     var thisId = this.feature.id;
                     var pickedPlace = $("#map-tab-"+thisId);
-                    var currentInstaId = $("#instafeed3").attr("data-instaid");
-                    var thisTag = this.feature.properties.title;
-                    thisTag = thisTag.replace(/\s/g, '');
-                    thisTag = removeDiacritics(thisTag);
-                    $(".instagramtag").text("#"+ thisTag);
                     if(pickedPlace.length === 1){
+                        var currentInstaId = $("#instafeed3").attr("data-instaid");
+                        var thisTag = this.feature.properties.title;
+                        thisTag = thisTag.replace(/\s/g, '');
+                        var thisTag2 = thisTag;
+                        thisTag = removeDiacritics(thisTag);
+                        $(".instagramtag").text("#"+ thisTag);
                         $(".map-tab").each(function(){
                             $(this).removeClass("active");
                         });
@@ -222,8 +223,10 @@ $(document).ready(function () {
                             $("#instafeed3").detach();
                         }
 
-                        $("<div id='instafeed3' class='instafeed' data-instaid='" + thisId + "'></div>").appendTo(".right-col");
+
+
                         if(instafeeds[thisId] === undefined) {
+                            $("<div id='instafeed3' class='instafeed' data-instaid='" + thisId + "'></div>").appendTo(".right-col");
                             var feed3 = new Instafeed({
                                 get: 'tagged',
                                 tagName: thisTag,
@@ -255,7 +258,7 @@ $(document).ready(function () {
                             });
                             feed3.run();
                         }else{
-                            $(instafeeds[thisId]).appendTo("#instafeed3");
+                            $(instafeeds[thisId]).appendTo(".right-col");
                         }
 
                     }
