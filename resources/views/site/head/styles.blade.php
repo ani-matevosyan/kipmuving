@@ -6,10 +6,11 @@
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/product-tour.min.css') }}" >
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/prettyPhoto.css') }}" >
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/chosen/chosen.min.css') }}" >
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.min.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/fonts.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/brand.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/custom.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/style.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/brand.min.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/custom.min.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/style.min.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/owl-carousel/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('/owl-carousel/owl.theme.css') }}">
 <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' >

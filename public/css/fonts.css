@@ -1,25 +1,5 @@
-@font-face {
-    font-family: "Lato-Bold";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/Lato-Bold.ttf") format("truetype"); }
-@font-face {
-    font-family: "Lato-Medium";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/Lato-Medium.ttf") format("truetype"); }
-@font-face {
-    font-family: "Lato-Regular";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/Lato-Regular.ttf") format("truetype"); }
-@font-face {
-    font-family: "Lato-Heavy";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/Lato-Heavy.ttf") format("truetype"); }
-@font-face {
-    font-family: "Lato-Black";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/Lato-Black.ttf") format("truetype"); }
+@font-face{font-family:"Lato-Bold";font-style:normal;font-weight:normal;src:url("../fonts/Lato-Bold.ttf") format("truetype");}
+@font-face{font-family:"Lato-Medium";font-style:normal;font-weight:normal;src:url("../fonts/Lato-Medium.ttf") format("truetype");}
+@font-face{font-family:"Lato-Regular";font-style:normal;font-weight:normal;src:url("../fonts/Lato-Regular.ttf") format("truetype");}
+@font-face{font-family:"Lato-Heavy";font-style:normal;font-weight:normal;src:url("../fonts/Lato-Heavy.ttf") format("truetype");}
+@font-face{font-family:"Lato-Black";font-style:normal;font-weight:normal;src:url("../fonts/Lato-Black.ttf") format("truetype");}

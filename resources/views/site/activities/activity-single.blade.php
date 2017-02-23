@@ -135,5 +135,4 @@
     </div>
     <!-- MODAL END -->
 	<div id="data"> <!-- Keep this div for instafeed information -->
-	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('/css/instafeed/instafeed.css') }}">
 @stop
