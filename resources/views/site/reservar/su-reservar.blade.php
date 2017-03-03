@@ -150,6 +150,31 @@
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
+										<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
+											<input name="merchantId" type="hidden"  value="630645">
+											{{--<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">--}}
+											<input name="accountId" type="hidden"  value="632993">
+											<input name="description" type="hidden"  value="Test PAYU">
+											<input name="referenceCode" type="hidden"  value="TESTTESTOS" >
+											<input name="amount" type="hidden"  value="10">
+											<input name="tax" type="hidden"  value="0">
+											<input name="taxReturnBase" type="hidden"  value="0">
+											<input name="currency" type="hidden"  value="USD">
+											<input name="signature" type="hidden"  value="a7661a80834abc20c1a5bbe5eb87b3e4">
+											<input name="test" type="hidden"  value="1">
+											<input name="buyerEmail" type="hidden"  value="testt@test.com">
+											<input name="responseUrl" type="hidden"  value="/user" >
+											<input name="confirmationUrl" type="hidden"  value="/reserve" >
+										</form>
+										<script>
+											$(document).ready(function () {
+												$('.btn-reservar').click(function (event) {
+												  event.preventDefault();
+												  document.payuform.submit();
+												  return false;
+												});
+											});
+										</script>
 									</section>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">
@@ -183,53 +208,53 @@
 			</div>
 		</div>
 	</main>
-	<div class="payment-modal modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">{{ trans('main.how_do_you_want_to_confirm_reservation') }}</h4>
-				</div>
-				<div class="modal-body">
-					<div class="payment-way stripe-way">
-						<img src="images/stripe.png" alt="Stripe">
-						<button id="stripe-pay" class="btn-payment" type="button">{{ trans('main.confirm_card') }}</button>
-						<script src="https://checkout.stripe.com/checkout.js"></script>
-						<script>
-                      var handler = StripeCheckout.configure({
-                          key: "pk_test_Ozq7fWW5gnapw15qY6HmkQvs",
-                          image: "/images/logo-tent.png",
-                          name: "Kipmuving",
-                          description: "Kipmuving Adventures",
-                          allowRememberMe: false,
-                          amount: {{$topay * 100}},
-                          token: function (token) {
-                              $.ajax({
-                                  type: "POST",
-                                  url: "/reserve",
-                                  data: {
-                                      '_token': $('meta[name="csrf-token"]').attr('content'),
-                                      token: token
-                                  },
-                                  success: function (data) {
-									  $("#payment_status").text(data);
-									  $('#myModal').modal('show');
-                                  },
-                                  error: function (err) {
-									  $(".error-payment").append(err);
-									  $(".error-payment").slideDown();
-                                  }
-                              })
-                          }
-                      });
-                      document.getElementById('stripe-pay').addEventListener('click', function (e) {
-                          handler.open();
-                          e.preventDefault();
-                      });
-						</script>
-					</div>
-					<div class="payment-way paypal-way">
-						<img src="images/paypal.png" alt="PayPal">
-						<div id="paypal-pay" class="btn-payment">{{ trans('main.confirm_paypal') }}</div>
+	{{--<div class="payment-modal modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--}}
+		{{--<div class="modal-dialog modal-sm" role="document">--}}
+			{{--<div class="modal-content">--}}
+				{{--<div class="modal-header">--}}
+					{{--<h4 class="modal-title" id="myModalLabel">{{ trans('main.how_do_you_want_to_confirm_reservation') }}</h4>--}}
+				{{--</div>--}}
+				{{--<div class="modal-body">--}}
+					{{--<div class="payment-way stripe-way">--}}
+						{{--<img src="images/stripe.png" alt="Stripe">--}}
+						{{--<button id="stripe-pay" class="btn-payment" type="button">{{ trans('main.confirm_card') }}</button>--}}
+						{{--<script src="https://checkout.stripe.com/checkout.js"></script>--}}
+						{{--<script>--}}
+                      {{--var handler = StripeCheckout.configure({--}}
+                          {{--key: "pk_test_Ozq7fWW5gnapw15qY6HmkQvs",--}}
+                          {{--image: "/images/logo-tent.png",--}}
+                          {{--name: "Kipmuving",--}}
+                          {{--description: "Kipmuving Adventures",--}}
+                          {{--allowRememberMe: false,--}}
+                          {{--amount: {{$topay * 100}},--}}
+                          {{--token: function (token) {--}}
+                              {{--$.ajax({--}}
+                                  {{--type: "POST",--}}
+                                  {{--url: "/reserve",--}}
+                                  {{--data: {--}}
+                                      {{--'_token': $('meta[name="csrf-token"]').attr('content'),--}}
+                                      {{--token: token--}}
+                                  {{--},--}}
+                                  {{--success: function (data) {--}}
+									  {{--$("#payment_status").text(data);--}}
+									  {{--$('#myModal').modal('show');--}}
+                                  {{--},--}}
+                                  {{--error: function (err) {--}}
+									  {{--$(".error-payment").append(err);--}}
+									  {{--$(".error-payment").slideDown();--}}
+                                  {{--}--}}
+                              {{--})--}}
+                          {{--}--}}
+                      {{--});--}}
+                      {{--document.getElementById('stripe-pay').addEventListener('click', function (e) {--}}
+                          {{--handler.open();--}}
+                          {{--e.preventDefault();--}}
+                      {{--});--}}
+						{{--</script>--}}
+					{{--</div>--}}
+					{{--<div class="payment-way paypal-way">--}}
+						{{--<img src="images/paypal.png" alt="PayPal">--}}
+						{{--<div id="paypal-pay" class="btn-payment">{{ trans('main.confirm_paypal') }}</div>--}}
 						{{--<form name='_xclick' action='{{	config('app.paypal_url') }}' method='post'>--}}
 							{{--{{ csrf_field() }}--}}
 							{{--<input type='hidden' name='cmd' value='_xclick'>--}}
@@ -263,67 +288,67 @@
 							{{--<input type='hidden' name='cmd' value='_xclick'>--}}
 							{{--<input type='hidden' name='paymentType' value='paypal'>--}}
 						{{--</form>--}}
-						<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-						<script>
-//                      $(document).ready(function () {
-//                          $('#paypal-pay').click(function (event) {
-//                              event.preventDefault();
-//                              document._xclick.submit();
-//							  return false;
-//                          });
-//                      });
-//							paypal.Button.render({
-//
-//								env: 'sandbox', // Specify 'sandbox' for the test environment
-//
-//                                locale: 'es_ES',
-//
-//                                style : {
-//                                  shape: 'rect'
-//                                },
-//
-//								payment: function(resolve, reject) {
-//									// Set up the payment here, when the buyer clicks on the button
-//								},
-//
-//								onAuthorize: function(data, actions) {
-//									// Execute the payment here, when the buyer approves the transaction
-//
-//                                    if (error === '10486'){
-//                                        actions.restart();
-//                                    }
-//								},
-//
-//                                onError: function(err){
-//								    console.log('ERROR:');
-//								    console.log(err);
-//                                }
-//
-//							}, '#paypal-pay');
-						</script>
-					</div>
-					<div class="error-payment"><span>Error: </span></div>
-				</div>
-			</div>
-		</div>
-	</div>
+						{{--<script src="https://www.paypalobjects.com/api/checkout.js"></script>--}}
+						{{--<script>--}}
+{{--//                      $(document).ready(function () {--}}
+{{--//                          $('#paypal-pay').click(function (event) {--}}
+{{--//                              event.preventDefault();--}}
+{{--//                              document._xclick.submit();--}}
+{{--//							  return false;--}}
+{{--//                          });--}}
+{{--//                      });--}}
+{{--//							paypal.Button.render({--}}
+{{--//--}}
+{{--//								env: 'sandbox', // Specify 'sandbox' for the test environment--}}
+{{--//--}}
+{{--//                                locale: 'es_ES',--}}
+{{--//--}}
+{{--//                                style : {--}}
+{{--//                                  shape: 'rect'--}}
+{{--//                                },--}}
+{{--//--}}
+{{--//								payment: function(resolve, reject) {--}}
+{{--//									// Set up the payment here, when the buyer clicks on the button--}}
+{{--//								},--}}
+{{--//--}}
+{{--//								onAuthorize: function(data, actions) {--}}
+{{--//									// Execute the payment here, when the buyer approves the transaction--}}
+{{--//--}}
+{{--//                                    if (error === '10486'){--}}
+{{--//                                        actions.restart();--}}
+{{--//                                    }--}}
+{{--//								},--}}
+{{--//--}}
+{{--//                                onError: function(err){--}}
+{{--//								    console.log('ERROR:');--}}
+{{--//								    console.log(err);--}}
+{{--//                                }--}}
+{{--//--}}
+{{--//							}, '#paypal-pay');--}}
+						{{--</script>--}}
+					{{--</div>--}}
+					{{--<div class="error-payment"><span>Error: </span></div>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</div>--}}
+	{{--</div>--}}
 
 
 
-	<div class="payment-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="payment_status"></h4>
-				</div>
-				<div class="modal-body">
-					<a href="{{ action('UserController@getUser') }}" class="btn btn-success btn-success-cal">To user page</a>
-				</div>
-			</div>
-		</div>
-	</div>
+	{{--<div class="payment-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--}}
+		{{--<div class="modal-dialog" role="document">--}}
+			{{--<div class="modal-content">--}}
+				{{--<div class="modal-header">--}}
+					{{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+						{{--<span aria-hidden="true">&times;</span>--}}
+					{{--</button>--}}
+					{{--<h4 class="modal-title" id="payment_status"></h4>--}}
+				{{--</div>--}}
+				{{--<div class="modal-body">--}}
+					{{--<a href="{{ action('UserController@getUser') }}" class="btn btn-success btn-success-cal">To user page</a>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</div>--}}
+	{{--</div>--}}
 
 @stop
