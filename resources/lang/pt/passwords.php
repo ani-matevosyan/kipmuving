@@ -1,9 +1,9 @@
 <?php
 
 return [
-	'password' => 'Las contraseñas deben tener al menos seis caracteres y coincidir con la confirmación.',
-	'reset'    => 'Tu contraseña ha sido restablecida!',
-	'sent'     => 'Hemos enviado su enlace de restablecimiento de contraseña por correo electrónico!',
-	'token'    => 'Este token de restablecimiento de contraseña no es válido',
-	'user'     => "No podemos encontrar un usuario con esa dirección de correo electrónico.",
+	'password' => 'As senhas devem ter pelo menos seis caracteres e corresponder à confirmação.',
+	'reset'    => 'Sua senha foi redefinida!',
+	'sent'     => 'Nós enviamos seu link de redefinição de senha por e-mail!',
+	'token'    => 'Este token de redefinição de senha é inválido.',
+	'user'     => "Não é possível encontrar um usuário com esse endereço de e-mail.",
 ];

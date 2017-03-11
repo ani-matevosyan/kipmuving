@@ -1,16 +1,16 @@
 <?php
 
 return [
-	'edit'               => 'Editar',
-	'delete'             => 'Borrar',
-	'register'           => 'Registrar',
-	'login'              => 'Entrar',
-	'search'             => 'Buscar',
-	'activities'         => 'Actividades',
-	'agencies'           => 'Agencias',
-	'guide'              => 'Guia Pucon',
-	'my_agenda'          => 'Mi agenda',
-	'go_to_guide'        => 'Ir a la guía',
-	'view'               => 'Visualizar',
-	'see_all_activities' => 'Ver todas las actividades'
+	'edit'               => 'Edit',
+	'delete'             => 'Delete',
+	'register'           => 'Register',
+	'login'              => 'Login',
+	'search'             => 'Search',
+	'activities'         => 'Activities',
+	'agencies'           => 'Agencies',
+	'guide'              => 'Pucon guide',
+	'my_agenda'          => 'My agenda',
+	'go_to_guide'        => 'Go to guide',
+	'view'               => 'View',
+	'see_all_activities' => 'See all activities'
 ];

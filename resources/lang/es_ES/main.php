@@ -164,7 +164,7 @@ return [
 	'activities'                         => 'actividades',
 	'total_in_pesos'                     => 'total em pesos',
 	'you_save'                           => 'está economizando',
-	'reserve_this_panorama'              => 'RESERVAR ESTE PANORAMA',
+	'reserve_this_panorama'              => 'CONFIRMAR',
 	'approximate_value'                  => 'valor aproximado',
 	'agreement_with_local_agencies'      => 'Acordo realizado com as agencias locais',
 	'support'                            => 'Apoianos',
