@@ -13,7 +13,8 @@ return [
 	*/
 
 	'name' => 'Kipmuving',
-	'admin_email' => 'rafaelzarro@gmail.com',
+//	'admin_email' => 'rafaelzarro@gmail.com',
+	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -175,6 +176,8 @@ return [
 		Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 		Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 		Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+//		Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
+		laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -232,11 +235,14 @@ return [
 		'URL' => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View' => Illuminate\Support\Facades\View::class,
+		'Input' => Illuminate\Support\Facades\Input::class,
 		'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 		'SypexGeo' => Scriptixru\SypexGeo\SypexGeoFacade::class,
 		'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 		'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
 		'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+//		'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
+		'PagSeguro' => laravel\pagseguro\Platform\Laravel5\PagSeguro::class
 	],
 
 ];

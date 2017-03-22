@@ -14,7 +14,12 @@
         "cartalyst/stripe-laravel": "5.0.*",
         "psr/log": "1.0.0",
         "srmklive/paypal": "^1.4",
-        "greggilbert/recaptcha": "dev-master"
+        "greggilbert/recaptcha": "dev-master",
+        "symfony/event-dispatcher": "^2.8",
+        "ignited/laravel-omnipay": "2.*",
+        "omnipay/paypal": "~2.0@dev",
+        "omnipay/stripe": "~2.0@dev",
+        "michael/laravelpagseguro": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -112,7 +112,7 @@ class Offer extends Model
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		
-		return $price;
+		return round($price, 2);
 	}
 	
 	public function getAvailableStartDateAttribute()
@@ -138,7 +138,7 @@ class Offer extends Model
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		
-		return $price;
+		return round($price, 2);
 	}
 	
 	public function getActivityAttribute()

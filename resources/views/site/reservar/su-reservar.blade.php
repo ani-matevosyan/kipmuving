@@ -95,7 +95,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.discount')), 0, '.', '.')* 0.9 }}
+														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'], 0, '.', '.')* 0.9 }}
 													</strong>
 												</div>
 												<div id="reservetour1">
@@ -150,21 +150,34 @@
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
-										<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
-											<input name="merchantId" type="hidden"  value="630645">
+										<a href="{{ $pagseguro_link }}">Pay with Pagseguro</a>
+										<?php $uid = uniqid() ?>
+										<?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?>
+										<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">
+											<input name="merchantId" type="hidden"  value="508029">
 											{{--<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">--}}
-											<input name="accountId" type="hidden"  value="632993">
+											<input name="accountId" type="hidden" value="512326">
 											<input name="description" type="hidden"  value="Test PAYU">
-											<input name="referenceCode" type="hidden"  value="TESTTESTOS" >
-											<input name="amount" type="hidden"  value="10">
+											<input name="referenceCode" type="hidden"  value="{{ $uid }}" >
+											<input name="amount" type="hidden"  value="3">
 											<input name="tax" type="hidden"  value="0">
 											<input name="taxReturnBase" type="hidden"  value="0">
 											<input name="currency" type="hidden"  value="USD">
-											<input name="signature" type="hidden"  value="a7661a80834abc20c1a5bbe5eb87b3e4">
+											<input name="signature" type="hidden"  value="{{ $signature }}">
+
+											{{--<input type="hidden" name="totalAmount" value="15">--}}
+											{{--<input type="hidden" name="OpenPayu-Signature" value="sender=508029;algorithm=md5;signature={{ $signature }}">--}}
 											<input name="test" type="hidden"  value="1">
 											<input name="buyerEmail" type="hidden"  value="testt@test.com">
-											<input name="responseUrl" type="hidden"  value="/user" >
-											<input name="confirmationUrl" type="hidden"  value="/reserve" >
+											<input name="responseUrl" type="hidden"  value="http://kipmuving.lo/user" >
+											<input name="confirmationUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="continueUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="notifyUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="returnUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="surl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="furl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="sUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="fUrl" type="hidden" value="http://kipmuving.lo/user">
 										</form>
 										<script>
 											$(document).ready(function () {
