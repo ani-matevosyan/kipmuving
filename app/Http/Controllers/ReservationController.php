@@ -9,7 +9,6 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use laravel\pagseguro\Platform\Laravel5\PagSeguro;
-use V3labs\PayUbiz\PayUbiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -24,7 +23,7 @@ class ReservationController extends Controller
 	private $total_without_discount = 0;
 	private $persons = 0;
 	private $price_per_person = 3.5;
-	private $to_pay = 0;
+	private $to_pay = 1.00;
 	
 	#Get offers data
 	public function __construct(Offer $offer)
@@ -45,7 +44,8 @@ class ReservationController extends Controller
 				$this->total_without_discount += $this->offers[$key]['real_price'] * $sessionOffer['persons'];
 				$this->persons += $sessionOffer['persons'];
 			}
-			$this->to_pay = round($this->getPriceInUSD($this->total, 'CLP') * config('kipmuving.service_fee'), 2);
+//			TODO change
+//			$this->to_pay = round($this->getPriceInUSD($this->total, 'CLP') * config('kipmuving.service_fee'), 2);
 		} else
 			return redirect()->action('ActivityController@index')->send();
 		
@@ -306,10 +306,19 @@ class ReservationController extends Controller
 	{
 		if ($user = Auth::user()) {
 			$gateway = Omnipay::create('PayPal_Express');
-			$gateway->setUsername('sanek.solodovnikov.94-facilitator_api1.gmail.com');
-			$gateway->setPassword('65J9SF8SVX2QYJDV');
-			$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31A8X8liG7tjU97y2UpyEUu6x-HSKJ');
-			$gateway->setTestMode(true);
+			
+			//TEST
+//			$gateway->setUsername('contacto-facilitator_api1.kipmuving.com');
+//			$gateway->setPassword('2JZSH53Q4JY79H3U');
+//			$gateway->setSignature('A9frNSjdg56YUh3IOj8EoShIiMclAq9C.MaTyUJSoP-kp8lV4eYmPPhD');
+//			$gateway->setTestMode(true);
+			
+			//LIVE
+			$gateway->setUsername('contacto_api1.kipmuving.com');
+			$gateway->setPassword('DGC72LTKNP4T3P69');
+			$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AuhHvXFexATZ1S0YcGK5mBl9vDLM');
+			$gateway->setTestMode(false);
+			
 			$gateway->setBrandName(config('app.name'));
 			
 			#PayPal (Express)
@@ -321,8 +330,15 @@ class ReservationController extends Controller
 			} else {
 				$response = $gateway->purchase([
 					'amount'      => $this->to_pay,
-					'returnUrl'   => 'http://kipmuving.lo/reserve/paypal',
-					'cancelUrl'   => 'http://kipmuving.lo/reserve',
+					
+					//TEST
+//					'returnUrl'   => 'http://kipmuving.lo/reserve/paypal',
+//					'cancelUrl'   => 'http://kipmuving.lo/reserve',
+				
+					//LIVE
+					'returnUrl'   => 'http://kipmuving.com/reserve/paypal',
+					'cancelUrl'   => 'http://kipmuving.com/reserve',
+					
 					'currency'    => 'USD',
 					'description' => 'Kipmuving.com reservation',
 				])->send();
@@ -435,6 +451,7 @@ class ReservationController extends Controller
 		if ($status = $information->getStatus()->getName()) {
 			if ($status == 'Paga') {
 				//TODO booking
+				$reservation = Reservation::where()->get();
 				Log::debug('good, send mails');
 				
 			} else
