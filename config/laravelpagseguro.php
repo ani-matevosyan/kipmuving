@@ -24,7 +24,7 @@ return [
      */
     'routes' => [
         'redirect' => [
-            'route-name' => 'pagseguro.redirect', // Criar uma rota com este nome
+            'route-name' => 'pagseguro.redirect.get', // Criar uma rota com este nome
         ],
         'notification' => [
             'callback' => ['\App\Http\Controllers\ReservationController', 'paymentPagseguro'], // Callable callback to Notification function (notificationInfo) : void {}

@@ -23,7 +23,7 @@ class ReservationController extends Controller
 	private $total_without_discount = 0;
 	private $persons = 0;
 	private $price_per_person = 3.5;
-	private $to_pay = 1.00;
+	private $to_pay = 0.05;
 	
 	#Get offers data
 	public function __construct(Offer $offer)
@@ -133,26 +133,26 @@ class ReservationController extends Controller
 	#Generate Pagseguro link
 	private function generatePagseguroLink()
 	{
-//		$data = [
-//			'items'    => [
-//				[
-//					'id'          => uniqid(),
-//					'description' => 'Kipmuving reservation',
-//					'quantity'    => 1,
-//					'amount'      => '10.00'
-//				]
-//			],
-//			'currency' => 'BRL'
-//		];
-//
-//		$checkout = PagSeguro::checkout()->createFromArray($data);
-//		$credentials = PagSeguro::credentials()->get();
-//		$information = $checkout->send($credentials);
+		$data = [
+			'items'    => [
+				[
+					'id'          => uniqid(),
+					'description' => 'Kipmuving reservation',
+					'quantity'    => 1,
+					'amount'      => '10.00'
+				]
+			],
+			'currency' => 'BRL'
+		];
+
+		$checkout = PagSeguro::checkout()->createFromArray($data);
+		$credentials = PagSeguro::credentials()->get();
+		$information = $checkout->send($credentials);
 //		dd($information);
-//
-//		return $information->getLink();
+
+		return $information->getLink();
 		
-		return 'pagsegurolink+'.$this->getPriceInBRL().'BRL+'.$this->to_pay.'USD';
+//		return 'pagsegurolink+'.$this->getPriceInBRL().'BRL+'.$this->to_pay.'USD';
 	}
 	
 	#Sending emails
@@ -231,6 +231,8 @@ class ReservationController extends Controller
 	#Display reservations (/reserve)
 	public function index(Offer $offer)
 	{
+//		print_r(session(), 1);
+//		dd(session('currencies'));
 		$selectedOffers = session('selectedOffers');
 		
 		if (Auth::guest() || !$selectedOffers)
@@ -451,16 +453,26 @@ class ReservationController extends Controller
 		if ($status = $information->getStatus()->getName()) {
 			if ($status == 'Paga') {
 				//TODO booking
-				$reservation = Reservation::where()->get();
+//				$reservation = Reservation::where()->get();
 				Log::debug('good, send mails');
+//				Log::debug('---session--');
+//				Log::debug(print_r(session(), 1));
+				Log::debug('---cookie--');
+				Log::debug(print_r(cookie(), 1));
 				
-			} else
-				Log::debug($status);
+			} else {
+				Log::debug(print_r($information, 1));
+				Log::debug('---session--');
+				Log::debug(print_r(session('selectedOffers'), 1));
+				Log::debug('---cookie--');
+				Log::debug(print_r(cookie(), 1));
+			}
 		}
 	}
 	
-	public function paymentPagseguroRedirect(Request $request)
+	public function paymentPagseguroRedirectGet(Request $request)
 	{
+		dd('REDIRECT PAGSEGURO', $request);
 		//TODO информация что платеж принят на рассмотрение
 		Log::debug('redirect - get');
 		Log::info($request);

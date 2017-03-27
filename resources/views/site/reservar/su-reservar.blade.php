@@ -151,7 +151,7 @@
 										<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 										{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
 											{{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
-										{{--<a href="{{ $pagseguro_link }}">Pay with Pagseguro</a>--}}
+										<a href="{{ $pagseguro_link }}">Pay with Pagseguro</a>
 										<!--?php $uid = uniqid() ?-->
 										<!--?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?-->
 										{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}

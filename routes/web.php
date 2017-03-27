@@ -57,7 +57,7 @@ Route::get('/reserve/test', 'ReservationController@test');
 Route::get('/reserve/pagseguro', 'ReservationController@paymentPagseguro');
 Route::get('/reserve/pagseguro/redirect', [
 	'uses' => 'ReservationController@paymentPagseguroRedirectGet',
-	'as' => 'pagseguro.redirect'
+	'as' => 'pagseguro.redirect.get'
 ]);
 Route::post('/pagseguro/notification', [
 	'uses' => '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification',
