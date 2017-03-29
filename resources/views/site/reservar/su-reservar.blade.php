@@ -41,20 +41,20 @@
 										</header>
 									@endif
 									<ul class="accordion">
-										@foreach ($offers as $offer)
+										@foreach ($reservations as $reservation)
 											<li class="accordion-li">
 												<header>
 													<div class="ico">
-														<img src="/{{ $offer['activityData']['image_icon'] }}"
+														<img src="/{{ $reservation['activityData']['image_icon'] }}"
 															  onerror="this.src='/images/image-none.jpg';"
 															  alt="agency image">
 													</div>
 													<div class="text">
 														<h2>
-															<a href="#">{{ $offer['activityData']['name'] }}</a>
+															<a href="{{ action('ActivityController@getActivity', $reservation['activityData']['id']) }}">{{ $reservation['activityData']['name'] }}</a>
 														</h2>
 														<strong
-															class="sub-title">{{ $offer['agencyData']['name'] }} <!--<span>O`Higgins Nº211-C </span>--></strong>
+															class="sub-title">{{ $reservation['agencyData']['name'] }} <!--<span>O`Higgins Nº211-C </span>--></strong>
 													</div>
 												</header>
 												<div class="activity_description">
@@ -63,7 +63,7 @@
 															<div class="list-box">
 																<strong class="title">{{ trans('main.you_must_take') }}</strong>
 																<ul class="list">
-																	@foreach ($offer['offerData']['includes'] as $include)
+																	@foreach ($reservation['offerData']['includes'] as $include)
 																		<li>{{ $include }}</li>
 																	@endforeach
 																</ul>
@@ -73,37 +73,37 @@
 															<ul class="timing">
 																<li class="time">
 																	<strong class="title">
-																		{{ trans('form.day') }}: {{ $offer['offerData']['date'] }}
+																		{{ trans('form.day') }}: {{ $reservation['offerData']['date'] }}
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.duration') }}
-																			:</span> {{ $offer['offerData']['hours'] }}
+																			:</span> {{ $reservation['offerData']['hours'] }}
 																		hrs
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.schedule') }}
-																			:</span> {{ \Carbon\Carbon::parse($offer['offerData']['start_time'])->format('H:i') }}
-																		a {{ \Carbon\Carbon::parse($offer['offerData']['end_time'])->format('H:i') }}
+																			:</span> {{ \Carbon\Carbon::parse($reservation['offerData']['start_time'])->format('H:i') }}
+																		a {{ \Carbon\Carbon::parse($reservation['offerData']['end_time'])->format('H:i') }}
 																	</strong>
 																</li>
 																<li class="person">
 																	<strong>
-																		<span>{{ $offer['offerData']['persons'] }}</span> {{ trans('main.persons') }}
+																		<span>{{ $reservation['offerData']['persons'] }}</span> {{ trans('main.persons') }}
 																	</strong>
 																</li>
 															</ul>
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'], 0, '.', '.')* 0.9 }}
+														<sub>$</sub> {{ number_format($reservation['offerData']['persons'] * $reservation['offerData']['price'], 0, '.', '.')* 0.9 }}
 													</strong>
 												</div>
 												<div id="reservetour1">
 													<div class="important">
-														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer['offerData']['important'] }}</p>
+														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $reservation['offerData']['important'] }}</p>
 													</div>
 													<div class="cancellation_rules">
-														<p><span>Costos para cancelar: </span>{{ $offer['offerData']['cancellation_rules'] }}</p>
+														<p><span>Costos para cancelar: </span>{{ $reservation['offerData']['cancellation_rules'] }}</p>
 													</div>
 												</div>
 											</li>
@@ -126,23 +126,23 @@
 									<section class="s_suprogram">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
-											<p><span id="count_activities">{{ count($offers) }}</span> {{ trans('main.activities') }}</p>
+											<p><span id="count_activities">{{ count($reservations) }}</span> {{ trans('main.activities') }}</p>
 										</header>
 										<ul class="offers-list">
-											@foreach ($offers as $offer)
+											@foreach ($reservations as $reservation)
 												<li>
 													<a href="#"></a>
-													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{number_format($offer['offerData']['price'] * (1 - config('kipmuving.discount')) * $offer['offerData']['persons'], 0, '.', '.')}}</span>
+													<h4>{{ $reservation['activityData']['name'] }}</h4>
+													<span>{{number_format($reservation['offerData']['price'] * (1 - config('kipmuving.discount')) * $reservation['offerData']['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
+												<p>{{ number_format($total, 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<?php $total_discount = $total_cost_without_discount * config('kipmuving.discount') ?>
+											<?php $total_discount = $total_without_discount * config('kipmuving.discount') ?>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
 												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
@@ -151,7 +151,7 @@
 										<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 										{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
 											{{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
-										<a href="{{ $pagseguro_link }}">Pay with Pagseguro</a>
+										<a href="/reserve/pagseguro">Pay with Pagseguro</a>
 										<!--?php $uid = uniqid() ?-->
 										<!--?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?-->
 										{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}

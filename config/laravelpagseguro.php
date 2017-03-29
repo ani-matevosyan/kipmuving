@@ -27,7 +27,7 @@ return [
             'route-name' => 'pagseguro.redirect.get', // Criar uma rota com este nome
         ],
         'notification' => [
-            'callback' => ['\App\Http\Controllers\ReservationController', 'paymentPagseguro'], // Callable callback to Notification function (notificationInfo) : void {}
+            'callback' => ['\App\Http\Controllers\ReservationController', 'paymentPagseguroReturn'], // Callable callback to Notification function (notificationInfo) : void {}
             'credential' => 'default', // Callable resolve credential function (notificationCode) : Credentials {}
             'route-name' => 'pagseguro.notification', // Criar uma rota com este nome
         ],

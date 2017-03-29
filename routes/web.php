@@ -52,7 +52,7 @@ Route::get('/reserve/paypal', 'ReservationController@paymentPaypal');
 Route::post('/reserve/payu', 'ReservationController@postPayU');
 Route::get('/reserve/payu', 'ReservationController@getPayU');
 
-Route::get('/reserve/test', 'ReservationController@test');
+
 
 Route::get('/reserve/pagseguro', 'ReservationController@paymentPagseguro');
 Route::get('/reserve/pagseguro/redirect', [
@@ -63,6 +63,8 @@ Route::post('/pagseguro/notification', [
 	'uses' => '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification',
 	'as' => 'pagseguro.notification',
 ]);
+
+
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
