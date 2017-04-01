@@ -33,6 +33,15 @@ class Activity extends Model
 //		'image_icon' => 'image'
 //	];
 	
+	
+	public function offers() {
+		return $this->hasMany('App\Offer', 'activity_id', 'id');
+	}
+
+
+
+
+
 	private function dataToArray($data)
 	{
 		if ($data)
@@ -92,19 +101,13 @@ class Activity extends Model
 	public function getHomePageActivities()
 	{
 		$activities = Activity::limit(8)
-			->join('offers', 'offers.activity_id', 'activities.id')
+			->whereHas('offers', function ($query) {
+				$query->where('price', '>', 0);
+			})
 			->where('activities.visibility', true)
 			->select('activities.*')
 			->inRandomOrder()
 			->get();
-		
-		foreach ($activities as $activity) {
-			$offer = Offer::where('activity_id', $activity['id'])
-				->orderby('price')
-				->select('price')
-				->first();
-			$offer['price'] ? $activity['price'] = $offer['price'] : $activity['price'] = 0.00;
-		}
 		
 		return $activities;
 	}

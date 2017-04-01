@@ -18,6 +18,20 @@ class Offer extends Model
 	];
 	protected $table = 'offers';
 	
+	
+	public function activity() {
+		return $this->hasOne('App\Activity', 'id', 'activity_id');
+	}
+	
+	public function agency() {
+		return $this->hasOne('App\Agency', 'id', 'agency_id');
+	}
+	
+	
+	
+	
+	
+	
 	private function getAgency($agencyId)
 	{
 		$agency = AgencyTranslation::where('agencies.id', $agencyId)
@@ -141,21 +155,21 @@ class Offer extends Model
 		return round($price, 2);
 	}
 	
-	public function getActivityAttribute()
-	{
-		$activity = Activity::where('id', $this['activity_id'])
-			->first();
-		
-		return $activity['name'];
-	}
+//	public function getActivityAttribute()
+//	{
+//		$activity = Activity::where('id', $this['activity_id'])
+//			->first();
+//
+//		return $activity['name'];
+//	}
 	
-	public function getAgencyAttribute()
-	{
-		$agency = Agency::where('id', $this['agency_id'])
-			->first();
-		
-		return $agency['name'];
-	}
+//	public function getAgencyAttribute()
+//	{
+//		$agency = Agency::where('id', $this['agency_id'])
+//			->first();
+//
+//		return $agency['name'];
+//	}
 	
 	public function getRealPriceAttribute()
 	{

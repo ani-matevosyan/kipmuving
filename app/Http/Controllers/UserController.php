@@ -72,6 +72,7 @@ class UserController extends Controller
 			abort(404);
 		
 		$reservations = Reservation::where('user_id', $user['id'])
+			->where('status', '=', true)
 			->get();
 		
 		$result = [];

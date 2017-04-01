@@ -8,7 +8,7 @@ return [
 	'search'             => 'Search',
 	'activities'         => 'Activities',
 	'agencies'           => 'Agencies',
-	'guide'              => 'Pucon guide',
+	'guide'              => 'Pucon Free Guide',
 	'my_agenda'          => 'My agenda',
 	'go_to_guide'        => 'Go to guide',
 	'view'               => 'View',

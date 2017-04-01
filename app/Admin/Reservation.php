@@ -39,8 +39,8 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 //				->setHtmlAttribute('class', 'text-center'),
 			AdminColumn::text('sum', 'Sum')
 				->setHtmlAttribute('class', 'text-center'),
-			AdminColumn::text('payment_uid', 'Payment UID')
-				->setWidth(50)
+//			AdminColumn::text('payment_uid', 'Payment UID')
+//				->setWidth(50)
 		]);
 		$display->paginate(10);
 		return $display;

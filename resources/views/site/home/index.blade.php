@@ -16,7 +16,7 @@
 								<div class="col">
 									<select class="form-control" id="activity_id" name="activity_id">
 										@foreach ($activitiesList as $item)
-											<option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+											<option value="{{ $item->id }}">{{ $item->name }}</option>
 										@endforeach
 									</select>
 								</div>

@@ -10,8 +10,7 @@ class Reservation extends Model
 	
 	public function getUserAttribute()
 	{
-		$user = User::find($this['user_id'])
-			->first();
+		$user = User::find($this['user_id']);
 		
 		return $user['first_name'].' '.$user['last_name'];
 	}

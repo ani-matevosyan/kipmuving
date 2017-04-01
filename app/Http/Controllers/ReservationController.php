@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Offer;
 use App\Reservation;
-use App\ReservationNew;
 use App\User;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -46,6 +45,7 @@ class ReservationController extends Controller
 	}
 	
 	#Generate unique id
+	#TODO delete
 	private function GUID()
 	{
 		return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X',
@@ -59,16 +59,17 @@ class ReservationController extends Controller
 			mt_rand(0, 65535));
 	}
 	
-	#Get price in USD from different currencies
-	private function getPriceInUSD($price, $currency)
+	#Get price in currencies from USD
+	private function getPriceInCurrency($price, $currency = 'USD')
 	{
 		$result = 0;
+		
 		switch ($currency) {
-			case 'BRL':
-				$result = $price / session('currency.values.USDBRL');
-				break;
 			case 'CLP':
-				$result = $price / session('currency.values.USDCLP');
+				$result = $price * session('currency.values.USDCLP');
+				break;
+			case 'BRL':
+				$result = $price * session('currency.values.USDBRL');
 				break;
 			case 'USD':
 				$result = $price;
@@ -76,12 +77,6 @@ class ReservationController extends Controller
 		}
 		
 		return round($result, 2);
-	}
-	
-	#Get price in BRL from price in USD
-	private function getPriceInBRL()
-	{
-		return round($this->to_pay * session('currency.values.USDBRL'), 2);
 	}
 	
 	#Create reservation and save to DB
@@ -214,17 +209,15 @@ class ReservationController extends Controller
 	#Display reservations (/reserve)
 	public function index()
 	{
+		$this->getPriceInCurrency($this->to_pay, 'BRL');
+		
 		if (!($user = Auth::user()))
 			return redirect('/login');
 		
 		if (!($selected_offers = session('selectedOffers')))
 			return redirect()->action('ActivityController@index');
-
-//		dd($selected_offers);
 		
 		$reservations = $this->getReservationData($selected_offers);
-
-//		$this->sendMails($reservations, $user);
 		
 		$data = [
 			'user'                   => $user,
@@ -276,7 +269,11 @@ class ReservationController extends Controller
 	{
 		$reservation = Reservation::find($id);
 		if ($reservation > Carbon::now()->toDateString()) {
-			$reservation->delete();
+			$reservation->status = false;
+			$reservation->status_code = 'canceled';
+			$reservation->save();
+			
+			//todo send emails
 			
 			return redirect()->back();
 		}
@@ -442,7 +439,7 @@ class ReservationController extends Controller
 						'id'          => uniqid(),
 						'description' => 'Kipmuving reservation',
 						'quantity'    => 1,
-						'amount'      => $this->getPriceInBRL()
+						'amount'      => $this->getPriceInCurrency($this->to_pay, 'BRL')
 					]
 				],
 				'currency' => 'BRL'
@@ -454,7 +451,9 @@ class ReservationController extends Controller
 			
 			$this->createReservation($this->offers, $user, 'pagseguro', $data['items'][0]['id'], 'none', false);
 			
-			return redirect()->to($information->getLink());
+			session()->forget('selectedOffers');
+			
+			return redirect()->to($information->getLink().'&shippingAddressRequired=false');
 		}
 		
 		return redirect('/login');
@@ -474,23 +473,30 @@ class ReservationController extends Controller
 		$selected_offers = [];
 		
 		foreach ($reservations as $reservation) {
-			if ($status == 'Paga') {
-				$reservation->payment_uid = $information->getCode();
-				$reservation->status = true;
-				
-				$time = explode('-', $reservation->time_range);
-				$selected_offers[] = [
-					'offer_id' => $reservation->offer_id,
-					'date'     => Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y'),
-					'persons'  => $reservation->persons,
-					'time'     => [
-						'start' => $time[0],
-						'end'   => $time[1]
-					]
-				];
+			if ($reservation->status) { #reserved
+				if (!($status == 'Paga')) {
+					ReservationController::cancelReservation($reservation->id);
+					$reservation->status = false;
+					$reservation->payment_uid = $item->getId();
+				}
 			} else {
-				$reservation->status = false;
-				$reservation->payment_uid = $item->getId();
+				if ($status == 'Paga') {
+					$reservation->payment_uid = $information->getCode();
+					$reservation->status = true;
+					
+					$time = explode('-', $reservation->time_range);
+					$selected_offers[] = [
+						'offer_id' => $reservation->offer_id,
+						'date'     => Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y'),
+						'persons'  => $reservation->persons,
+						'time'     => [
+							'start' => $time[0],
+							'end'   => $time[1]
+						]
+					];
+				} else {
+					$reservation->payment_uid = $item->getId();
+				}
 			}
 			$reservation->status_code = $status;
 			$reservation->save();
@@ -506,10 +512,10 @@ class ReservationController extends Controller
 	
 	public function paymentPagseguroRedirectGet(Request $request)
 	{
-		dd('REDIRECT PAGSEGURO', $request);
+		dd('Pagseguro redirect information');
 		//TODO информация что платеж принят на рассмотрение
-		Log::debug('redirect - get');
-		Log::info($request);
+//		Log::debug('redirect - get');
+//		Log::info($request);
 	}
 	
 	#--------------------------------------------------------------------\Payment Stripe
@@ -530,7 +536,7 @@ class ReservationController extends Controller
 					$persons += $sessionOffer['persons'];
 				}
 				
-				$topay = round($this->getPriceInUSD($offersTotalCost, 'CLP') * config('kipmuving.service_fee'), 2);
+				$topay = round($this->getPriceInCurrency($offersTotalCost) * config('kipmuving.service_fee'), 2);
 				
 				#Stripe create charge
 				$stripe = Stripe::make(config('services.stripe.secret'));
