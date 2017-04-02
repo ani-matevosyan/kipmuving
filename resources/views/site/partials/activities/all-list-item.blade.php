@@ -1,15 +1,15 @@
 <div class="img-holder">
-	<a href="{{ action('ActivityController@getActivity', $activity['id'] ? $activity['id'] : 0) }}">
-		<img src="{{ $activity['image_thumb'] }}"
+	<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
+		<img src="{{ $activity->image_thumb }}"
 			  onerror="this.src='/images/image-none.jpg';"
 			  alt="image description">
 	</a>
 </div>
 <div class="caption">
-	@if($activity['available_night'] || $activity['available_day'] || $activity['available_high'] || $activity['available_low'] )
+	@if($activity->available_night || $activity->available_day || $activity->available_high || $activity->available_low)
 	<div class="activity-icons">
 		<ul>
-			@if($activity['available_day'])
+			@if($activity->available_day)
 			<li>
 				<div class="ico">
 					<img src="images/day.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico16.png'">
@@ -17,7 +17,7 @@
 				</div>
 			</li>
 			@endif
-			@if($activity['available_night'])
+			@if($activity->available_night)
 			<li>
 				<div class="ico">
 					<img src="images/night.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico17.png'">
@@ -25,7 +25,7 @@
 				</div>
 			</li>
 			@endif
-			@if($activity['available_high'])
+			@if($activity->available_high)
 			<li>
 				<div class="ico">
 					<img src="images/down-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico18.png'">
@@ -33,7 +33,7 @@
 				</div>
 			</li>
 			@endif
-			@if($activity['available_low'])
+			@if($activity->available_low)
 			<li>
 				<div class="ico">
 					<img src="images/up-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico19.png'">
@@ -44,16 +44,16 @@
 		</ul>
 	</div>
 	@endif
-	@if($activity['id'] && $activity['name'])
+	@if($activity->id && $activity->name)
 		<h2>
-			<a href="{{ action('ActivityController@getActivity', $activity['id']) }}">{{ $activity['name'] }}</a>
+			<a href="{{ action('ActivityController@getActivity', $activity->id) }}">{{ $activity->name }}</a>
 		</h2>
 	@endif
-	@if($activity['short_description'])
-		<p>{{ $activity['short_description'] }}<p>
+	@if($activity->short_description)
+		<p>{{ $activity->short_description }}<p>
 	@endif
-	@if($activity['price'])
-	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ number_format($activity['price'] * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
+	@if($activity->offers->min('price'))
+	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
 	@endif
-	<a href="{{ action('ActivityController@getActivity', $activity['id']) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
+	<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>

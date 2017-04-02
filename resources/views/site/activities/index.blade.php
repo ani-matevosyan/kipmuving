@@ -219,7 +219,7 @@
 							</nav> -->
 						</div>
 
-						@if(count($activities['trekking']) > 0)
+						@if(count($activities->where('styles', 'Trekking')) > 0)
 						<section class="activity-block" id="trekking">
 							<strong class="heading">
 								<span>
@@ -233,7 +233,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['trekking'] as $activity)
+								@foreach ($activities->where('styles', 'Trekking') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>
@@ -251,7 +251,7 @@
 							</div>
 						</section>
 						@endif
-						@if(count($activities['rio']) > 0)
+						@if(count($activities->where('styles', 'Rio')) > 0)
 						<section class="activity-block rio" id="rio">
 							<strong class="heading">
 								<span>
@@ -265,7 +265,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['rio'] as $activity)
+								@foreach ($activities->where('styles', 'Rio') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>
@@ -283,7 +283,7 @@
 							</div>
 						</section>
 						@endif
-						@if(count($activities['aire']) > 0)
+						@if(count($activities->where('styles', 'Aire')) > 0)
 						<section class="activity-block aire" id="aire">
 							<strong class="heading">
 								<span>
@@ -297,7 +297,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['aire'] as $activity)
+								@foreach ($activities->where('styles', 'Aire') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>
@@ -315,7 +315,7 @@
 							</div>
 						</section>
 						@endif
-						@if(count($activities['relax']) > 0)
+						@if(count($activities->where('styles', 'Relax')) > 0)
 						<section class="activity-block relax" id="relax">
 							<strong class="heading">
 								<span>
@@ -329,7 +329,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['relax'] as $activity)
+								@foreach ($activities->where('styles', 'Relax') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>
@@ -347,7 +347,7 @@
 							</div>
 						</section>
 						@endif
-						@if(count($activities['nieve']) > 0)
+						@if(count($activities->where('styles', 'Nieve')) > 0)
 						<section class="activity-block nieve" id="nieve">
 							<strong class="heading">
 								<span>
@@ -361,7 +361,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['nieve'] as $activity)
+								@foreach ($activities->where('styles', 'Nieve') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>
@@ -379,7 +379,7 @@
 							</div>
 						</section>
 						@endif
-						@if(count($activities['familia']) > 0)
+						@if(count($activities->where('styles', 'Familia')) > 0)
 						<section class="activity-block familia" id="familia">
 							<strong class="heading">
 								<span>
@@ -393,7 +393,7 @@
 							</strong>
 							<div class="row">
 								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities['familia'] as $activity)
+								@foreach ($activities->where('styles', 'Familia') as $activity)
 									<div class="col-md-3 col-sm-4 col-xs-12 col">
 										@include('site.partials.activities.all-list-item')
 									</div>

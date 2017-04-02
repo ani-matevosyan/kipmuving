@@ -23,7 +23,7 @@
 						</header>
 						<div class="row">
 							<?php $key = 0; ?>
-							@foreach($agencies as $agency)
+							@foreach($agencies->sortBy('name') as $agency)
 								<div class="col-md-3 col-sm-6 col-xs-12 col">
 									@include('site.partials.agencies.all-list-item')
 								</div>

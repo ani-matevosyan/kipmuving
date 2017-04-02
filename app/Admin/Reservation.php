@@ -27,20 +27,23 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 				->setHtmlAttribute('class', 'text-center'),
 			AdminColumn::text('status_code', 'Code')
 				->setHtmlAttribute('class', 'text-center'),
-			AdminColumn::text('user', 'User'),
-			AdminColumn::text('activity', 'Activity'),
-			AdminColumn::text('agency', 'Agency'),
+			AdminColumn::text('name', 'User')
+				->setHtmlAttribute('class', 'text-center'),
+			AdminColumn::text('offer.activity.name', 'Activity')
+				->setHtmlAttribute('class', 'text-center'),
+			AdminColumn::text('offer.agency.name', 'Agency')
+				->setHtmlAttribute('class', 'text-center'),
 			AdminColumn::datetime('reserve_date', 'Date')
 				->setFormat('d.m.Y')
 				->setHtmlAttribute('class', 'text-center'),
+			AdminColumn::text('time_range', 'Time')
+				->setHtmlAttribute('class', 'text-center'),
 			AdminColumn::text('persons', 'Persons')
 				->setHtmlAttribute('class', 'text-center'),
-//			AdminColumn::text('price', 'Price')
-//				->setHtmlAttribute('class', 'text-center'),
-			AdminColumn::text('sum', 'Sum')
+			AdminColumn::text('offer.real_price', 'Price')
 				->setHtmlAttribute('class', 'text-center'),
-//			AdminColumn::text('payment_uid', 'Payment UID')
-//				->setWidth(50)
+			AdminColumn::text('sum', 'Sum')
+				->setHtmlAttribute('class', 'text-center')
 		]);
 		$display->paginate(10);
 		return $display;

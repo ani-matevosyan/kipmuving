@@ -88,10 +88,10 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Time'  => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('available_time', 'Time')->required()
+				AdminFormElement::textarea('real_available_time', 'Time')->required()
 			]),
 			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('includes', 'Includes')->required()
+				AdminFormElement::textarea('real_includes', 'Includes')->required()
 			]),
 			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()

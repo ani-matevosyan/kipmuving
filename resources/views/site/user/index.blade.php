@@ -79,10 +79,10 @@
 								<div class="col-sm-2">
 									<div class="my-intro">
 										<div class="img-holder">
-											<img src="/{{ $user['avatar'] }}" alt="your photo"
+											<img src="/{{ $user->avatar }}" alt="your photo"
 												  onerror="this.src='/images/image-none.jpg';" id="youravatar">
 											<form enctype="multipart/form-data"
-													action="{{ action('UserController@updateUsersAvatar', $user['id']) }}"
+													action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
 													method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
 												{{ csrf_field() }}
 												<input id="image" name="image" type="file">
@@ -94,7 +94,7 @@
 									</div>
 								</div>
 								<form class="profile-form form-horizontal" method="post"
-										action="{{ action('UserController@updateUser', $user['id']) }}"
+										action="{{ action('UserController@updateUser', $user->id) }}"
 										autocomplete="off"
 										enctype="multipart/form-data">
 									{{ csrf_field() }}
@@ -107,7 +107,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="number"
-																 name="first_name" value="{{ $user['first_name'] }}">
+																 name="first_name" value="{{ $user->first_name }}">
 													</div>
 												</div>
 											</div>
@@ -120,7 +120,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="lname"
-																 name="last_name" value="{{ $user['last_name'] }}">
+																 name="last_name" value="{{ $user->last_name }}">
 													</div>
 												</div>
 											</div>
@@ -134,7 +134,7 @@
 													<div class="text-field">
 														<input type="email" placeholder="" class="form-control" id="email"
 																 name="email"
-																 value="{{ $user['email'] }}">
+																 value="{{ $user->email }}">
 													</div>
 												</div>
 											</div>
@@ -147,7 +147,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="phone" name="phone"
-																 value="{{ $user['phone'] }}">
+																 value="{{ $user->phone }}">
 													</div>
 												</div>
 											</div>
@@ -188,55 +188,57 @@
 						</div>
 					</div>
 				</div>
-				@if($reservations)
+				@if($user->reservations)
 					<div class="my_adventures">
 						<header>
 							<h2>{{ trans('main.my_adventures') }}</h2>
 							<p>{{ trans('main.here_you_will_find_adventures') }}</p>
 						</header>
 						<ul class="item-list">
-							@foreach ($reservations as $reservation)
+							@foreach ($user->reservations->where('status', true) as $reservation)
 								<li>
 									<ul class="timing">
 										<header>
 											<div class="ico">
 												<img alt="image description"
-													  src="{{ asset($reservation['activity_image_icon']) }}"
+													  src="{{ asset($reservation->offer->activity['image_icon']) }}"
 													  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
 											</div>
 											<div class="text">
 												<h2>
-													<a href="{{ action('ActivityController@getActivity', $reservation['activity_id']) }}" {{--data-toggle="modal" data-target="#myModal"--}}>{{ $reservation['activity_name'] }}</a>
+													<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal" data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
 												</h2>
 												<strong class="sub-title">
-													{{ $reservation['agency_name'] }}
+													{{ $reservation->offer->agency->name }}
 												</strong>
 											</div>
 										</header>
 										<li class="time">
 											<strong class="title">{{ trans('emails.day') }}
-												: {{ date("d/m/Y", strtotime($reservation['reservation_date'])) }}</strong>
+												: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
 											<strong>
 												<span>{{ trans('main.duration') }}
-													:</span> {{ $reservation['offer_end_time'] - $reservation['offer_start_time'] }} hrs
+													:</span> {{ $reservation->offer->duration }} hrs
 											</strong>
+											@if ($reservation->time)
 											<strong>
 												<span>{{ trans('main.schedule') }}
-													:</span> {{ date("H:i", strtotime($reservation['offer_start_time'])) }}
-												{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation['offer_end_time'])) }}
+													:</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
+												{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
 											</strong>
+											@endif
 											<strong>
-												<span>Summary: </span>{{ number_format($reservation['offer_summary_price'], 0, ".", ".") }}$
+												<span>Summary: </span>{{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}$
 											</strong>
 										</li>
 										<li class="person">
 											<strong>
-												<span>{{ $reservation['reservation_persons'] }}</span> {{ trans('persons') }}
+												<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
 											</strong>
 										</li>
-										@if(\Carbon\Carbon::parse($reservation['reservation_date']) > \Carbon\Carbon::now())
+										@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
 											<div class="delete_offer">
-												<a href="{{ action('ReservationController@cancelReservation', $reservation['reservation_id']) }}">{{ trans('main.cancel_activity') }}</a>
+												<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
 											</div>
 										@endif
 									</ul>

@@ -1,8 +1,8 @@
 <li class="offer-item">
-	@if($offer['offerAgency'])
+	@if($offer->agency)
 		<header>
 			<div class="ico">
-				<img src="/{{ $offer['offerAgency']['image_icon'] }}"
+				<img src="/{{ $offer->image_icon }}"
 					  onerror="this.src='/images/image-none.jpg';"
 					  alt="agency image">
 			</div>
@@ -11,61 +11,60 @@
 				<!-- <span>120 comentarios</span> -->
 			</div>
 			<div class="text">
-				@if($offer['agency_id'] && $offer['offerAgency']['name'])
+				@if($offer->agency->id && $offer->agency->name)
 					<h2>
-						<a href="{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}">{{ $offer['offerAgency']['name'] }}</a>
+						<a href="{{ action('AgencyController@getAgency', $offer->agency->id) }}">{{ $offer->agency->name }}</a>
 					</h2>
 				@endif
-				@if($offer['offerAgency']['address'])
+				@if($offer->agency->address)
 					<strong class="sub-title">
-						<span>{{ $offer['offerAgency']['address'] }}</span>
+						<span>{{ $offer->agency->address }}</span>
 					</strong>
 				@endif
 			</div>
 			<ul class="links">
 				<li>
-					@if($offer['offerAgency']['name'] && $offer['offerAgency']['id'] && $offer['offerAgency']['image'] && $offer['offerAgency']['address'] && $offer['offerAgency']['description'])
+					@if($offer->agency->name && $offer->agency->id && $offer->agency->image && $offer->agency->address && $offer->agency->description)
 						<a href="javascript:void(0)"
 							data-toggle="popover"
-							title="{{ $offer['offerAgency']['name'] }}"
+							title="{{ $offer->agency->name }}"
 							data-html="true"
 							data-placement="bottom"
 							data-container="body"
 							data-trigger="focus"
 							data-content="
-										<img src='/{{ $offer['offerAgency']['image'] }}'>
+										<img src='/{{ $offer->agency->image }}'>
 										</a>
 										<br>
-										{{ $offer['offerAgency']['address'] }}
+										{{ $offer->agency->address }}
 								<hr>
-								{{ $offer['offerAgency']['description'] }}
+								{{ $offer->agency->description }}
 								<br>
-								<a href='{{ action('AgencyController@getAgency', $offer['offerAgency']['id']) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>
+								<a href='{{ action('AgencyController@getAgency', $offer->agency->id) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>
 					@endif
 				</li>
 				<li>
-					@if($offer['offerAgency']['latitude'] && $offer['offerAgency']['longitude'] && $offer['offerAgency']['name'])
+					@if($offer->agency->latitude && $offer->agency->longitude && $offer->agency->name)
 						<a href="javascript:void(0)"
 							class="btn-map"
 							data-toggle="modal"
-							data-lat="{{ $offer['offerAgency']['latitude'] }}"
-							data-lng="{{ $offer['offerAgency']['longitude'] }}"
-							data-title="{{ $offer['offerAgency']['name'] }}">{{ trans('main.show_map') }}</a>
+							data-lat="{{ $offer->agency->latitude }}"
+							data-lng="{{ $offer->agency->longitude }}"
+							data-title="{{ $offer->agency->name }}">{{ trans('main.show_map') }}</a>
 					@endif
 				</li>
-			<!-- <li><a href="/agency/{{ $offer['offerAgency']['id'] }}">Condiciones</a></li> -->
+			<!-- <li><a href="/agency/{{ $offer->agency->id }}">Condiciones</a></li> -->
 			</ul>
 		</header>
-	@endif
 	<div class="row">
-		@if(count($offer['includes']) > 0)
+		@if(count($offer->includes) > 0)
 			<div class="col-md-5 col-sm-5 col-xs-12">
 				<div class="list-box">
 					<strong class="title">{{ trans('main.what_includes') }}:</strong>
 					<ul>
 						{{--{!! dd($offer['includes']) !!}--}}
-						@if(is_array($offer['includes']))
-							@foreach ($offer['includes'] as $include)
+						@if(is_array($offer->includes))
+							@foreach ($offer->includes as $include)
 								<li>{{ $include }}</li>
 							@endforeach
 						@endif
@@ -81,9 +80,9 @@
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12">
 						<ul class="timing1">
-							@if($offer['hours'])
+							@if($offer->duration)
 								<li>
-									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
+									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer->duration }}hrs </strong>
 									{{--<strong><span>{{ trans('main.schedule') }}--}}
 											{{--:</span> {{ date('H:i', strtotime($offer['start_time'])) }}--}}
 										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
@@ -100,13 +99,13 @@
 									<option value="6">6</option>
 								</select>
 							</li>
-							@if($offer['available_time'])
+							@if($offer->available_time)
 								<li class="profile hours">
 									<strong><span>Elija la opcion de horario</span></strong>
 									<select class="hours">
 										<option value="">{{ trans('main.schedule') }}</option>
-										@if(is_array($offer['available_time']))
-											@foreach($offer['available_time'] as $time)
+										@if(is_array($offer->available_time))
+											@foreach($offer->available_time as $time)
 												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
 											@endforeach
 										@endif
@@ -145,6 +144,7 @@
       <a href="#" class="btn btn-primary btn-reserve" data-offer-id="{{ $offer->id }}">AGREGAR</a>
     </div> -->
 	</div>
+	@endif
 
 
 	<div class="trip-adv"></div>

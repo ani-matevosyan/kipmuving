@@ -36,25 +36,25 @@
 										<header class="head">
 											<h1>{{ trans('main.these_are_your_activities') }}</h1>
 											<p>{{ trans('please') }} <a
-													href="#">{{ $user['username'] ? $user['username'] : $user['first_name'] }}</a>
+													href="#">{{ $user->username ? $user->username : $user->first_name }}</a>
 												{{ trans('main.confirm_below_the_activities') }}</p>
 										</header>
 									@endif
 									<ul class="accordion">
-										@foreach ($reservations as $reservation)
+										@foreach ($reservation->offers as $offer)
 											<li class="accordion-li">
 												<header>
 													<div class="ico">
-														<img src="/{{ $reservation['activityData']['image_icon'] }}"
+														<img src="/{{ $offer->activity->image_icon }}"
 															  onerror="this.src='/images/image-none.jpg';"
 															  alt="agency image">
 													</div>
 													<div class="text">
 														<h2>
-															<a href="{{ action('ActivityController@getActivity', $reservation['activityData']['id']) }}">{{ $reservation['activityData']['name'] }}</a>
+															<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
 														</h2>
 														<strong
-															class="sub-title">{{ $reservation['agencyData']['name'] }} <!--<span>O`Higgins Nº211-C </span>--></strong>
+															class="sub-title">{{ $offer->agency->name }} <!--<span>O`Higgins Nº211-C </span>--></strong>
 													</div>
 												</header>
 												<div class="activity_description">
@@ -63,7 +63,7 @@
 															<div class="list-box">
 																<strong class="title">{{ trans('main.you_must_take') }}</strong>
 																<ul class="list">
-																	@foreach ($reservation['offerData']['includes'] as $include)
+																	@foreach ($offer->includes as $include)
 																		<li>{{ $include }}</li>
 																	@endforeach
 																</ul>
@@ -73,37 +73,37 @@
 															<ul class="timing">
 																<li class="time">
 																	<strong class="title">
-																		{{ trans('form.day') }}: {{ $reservation['offerData']['date'] }}
+																		{{ trans('form.day') }}: {{ $offer->reservation['date'] }}
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.duration') }}
-																			:</span> {{ $reservation['offerData']['hours'] }}
+																			:</span> {{ $offer->duration }}
 																		hrs
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.schedule') }}
-																			:</span> {{ \Carbon\Carbon::parse($reservation['offerData']['start_time'])->format('H:i') }}
-																		a {{ \Carbon\Carbon::parse($reservation['offerData']['end_time'])->format('H:i') }}
+																			:</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}
+																		a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
 																	</strong>
 																</li>
 																<li class="person">
 																	<strong>
-																		<span>{{ $reservation['offerData']['persons'] }}</span> {{ trans('main.persons') }}
+																		<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
 																	</strong>
 																</li>
 															</ul>
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($reservation['offerData']['persons'] * $reservation['offerData']['price'], 0, '.', '.')* 0.9 }}
+														<sub>$</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.')* 0.9 }}
 													</strong>
 												</div>
 												<div id="reservetour1">
 													<div class="important">
-														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $reservation['offerData']['important'] }}</p>
+														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
 													</div>
 													<div class="cancellation_rules">
-														<p><span>Costos para cancelar: </span>{{ $reservation['offerData']['cancellation_rules'] }}</p>
+														<p><span>Costos para cancelar: </span>{{ $offer->cancellation_rules }}</p>
 													</div>
 												</div>
 											</li>
@@ -126,26 +126,25 @@
 									<section class="s_suprogram">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
-											<p><span id="count_activities">{{ count($reservations) }}</span> {{ trans('main.activities') }}</p>
+											<p><span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</p>
 										</header>
 										<ul class="offers-list">
-											@foreach ($reservations as $reservation)
+											@foreach ($reservation->offers as $offer)
 												<li>
 													<a href="#"></a>
-													<h4>{{ $reservation['activityData']['name'] }}</h4>
-													<span>{{number_format($reservation['offerData']['price'] * (1 - config('kipmuving.discount')) * $reservation['offerData']['persons'], 0, '.', '.')}}</span>
+													<h4>{{ $offer->activity->name }}</h4>
+													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 1, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($total, 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_in_currency, 1, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<?php $total_discount = $total_without_discount * config('kipmuving.discount') ?>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 1, ".", ".") }}</p>
 											</div>
 										</div>
 										<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>

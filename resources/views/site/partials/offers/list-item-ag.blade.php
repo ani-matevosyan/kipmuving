@@ -1,7 +1,7 @@
 <li class="offer-item">
     <header>
         <div class="ico">
-            <img src="/{{ $offer['activity_icon'] }}"
+            <img src="/{{ $offer->activity->image_icon }}"
                  onerror="this.src='/images/image-none.jpg';"
                  alt="agency image">
         </div>
@@ -11,17 +11,17 @@
         </div>
         <div class="text">
             <h2>
-                <a href="{{ action('ActivityController@getActivity', $offer['activity_id']) }}">{{ $offer['activity_name'] }}</a>
+                <a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
             </h2>
         </div>
     </header>
 	<div class="row">
 		<div class="col-md-4 col-sm-5 col-xs-12">
-			@if($offer['offer_includes'])
+			@if($offer->includes)
 				<div class="list-box">
 					<strong class="title">{{ trans('main.what_includes') }}:</strong>
 					<ul>
-						@foreach ($offer['offer_includes'] as $include)
+						@foreach ($offer->includes as $include)
 							<li>{{ $include }}</li>
 						@endforeach
 					</ul>
@@ -34,8 +34,8 @@
 					<div class="col-md-8 col-sm-8 col-xs-12">
 						<ul class="timing1">
 							<li class="time">
-								@if($offer['hours'])
-									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer['hours'] }}hrs </strong>
+								@if($offer->duration)
+									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer->duration }}hrs </strong>
 								@endif
 								{{--@if($offer['start_time'] && $offer['end_time'])--}}
 									{{--<strong><span>{{ trans('main.schedule') }}--}}
@@ -43,7 +43,7 @@
 										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
 								{{--@endif--}}
 							</li>
-							@if($offer['price'])
+							@if($offer->price)
 								<li class="profile">
 									<select class="persona">
 										<option value="">{{ trans('main.persons') }}</option>
@@ -55,13 +55,13 @@
 										<option value="6">6</option>
 									</select>
 								</li>
-								@if($offer['available_time'])
+								@if($offer->available_time)
 									<li class="profile hours">
 										<strong><span>Elija la opcion de horario</span></strong>
 										<select class="hours">
 											<option disabled selected>{{ trans('main.schedule') }}</option>
-											@if(is_array($offer['available_time']))
-												@foreach($offer['available_time'] as $time)
+											@if(is_array($offer->available_time))
+												@foreach($offer->available_time as $time)
 													<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
 												@endforeach
 											@endif
@@ -82,25 +82,25 @@
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div>
-							<strong class="price" data-unit-price="{{ $offer['price'] }}">
+							<strong class="price" data-unit-price="{{ $offer->price }}">
 								<del>
 									<small>
-										<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
+										<sub>$</sub>{{ number_format($offer->price, 0, '.', '.') }}
 									</small>
 								</del>
 								<br>
-								<sub>$</sub> {{ number_format($offer['price'] * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+								<sub>$</sub> {{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
-								data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
+								data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>
 						</div>
 					</div>
 					@endif
 				</div>
 			</div>
-			@if($offer['description'])
+			@if($offer->description)
 				<div style="color: #006b33; margin: 10px ; font-size: 13px;">
-					<p>{{ $offer['description'] }}</p>
+					<p>{{ $offer->description }}</p>
 				</div>
 			@endif
 		</div>

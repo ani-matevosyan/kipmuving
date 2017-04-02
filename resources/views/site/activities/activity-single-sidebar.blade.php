@@ -4,7 +4,7 @@
 	<div class="text-field">
 		<select class="form-control dropdown-activity" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;" data-noresulttext="There is no activity ">
 			@foreach ($activitiesList as $item)
-				<option value="{{ $item['id'] }}" @if($item['id'] == $activity['id']) selected @endif>{{ $item['name'] }}</option>
+				<option value="{{ $item->id }}" @if($item->id == $activity->id) selected @endif>{{ $item->name }}</option>
 			@endforeach
 		</select>
 	</div>
@@ -44,30 +44,30 @@
 		<strong class="title">{{ trans('main.minimum_age') }}
 			: <span>{{ $activity['min_age'] }} {{ trans('main.years') }}</span></strong>
 	</div>
-	@if($activity['carry'])
+	@if($activity->carry)
 		<div class="box bring">
 			<strong class="title">{{ trans('main.what_to_bring') }}:</strong>
 			<ul>
-				@foreach($activity['carry'] as $item)
+				@foreach($activity->carry as $item)
 					<li>{{ $item }}</li>
 				@endforeach
 			</ul>
 		</div>
 	@endif
 
-	@if($activity['restrictions'])
+	@if($activity->restrictions)
 		<div class="box rest">
 			<strong class="title">{{ trans('main.restrictions') }}:</strong>
 			<ul>
-				@foreach($activity['restrictions'] as $item)
+				@foreach($activity->restrictions as $item)
 					<li>{{ $item }}</li>
 				@endforeach
 			</ul>
 		</div>
 	@endif
-	@if($activity['tripadvisor_code'])
+	@if($activity->tripadvisor_code)
 		<div class="box tripadvisor">
-			{!! $activity['tripadvisor_code'] !!}
+			{!! $activity->tripadvisor_code !!}
 		</div>
 	@endif
 	<div class="img-tour">
@@ -98,7 +98,7 @@
 		<div class="map-holder">
 			<div id="map" style="width: 100%; height: 300px"></div>
 			<script type="text/javascript">
-             var latLng = new google.maps.LatLng({{ $activity['latitude'] }}, {{ $activity['longitude'] }});
+             var latLng = new google.maps.LatLng({{ $activity->latitude }}, {{ $activity->longitude }});
              var myOptions = {
                  zoom: 10,
                  center: latLng,
@@ -108,7 +108,7 @@
              var marker = new google.maps.Marker({
                  position: latLng,
                  map: map,
-                 title: '{{ $activity['name'] }}'
+                 title: '{{ $activity->name }}'
              });
 			</script>
 		</div>

@@ -21,8 +21,10 @@ class Activity extends Model
 		'subtitle',
 		'description',
 		'short_description',
-		'carry',
-		'restrictions'
+		'carries',
+		'real_carries',
+		'restrictions',
+		'real_restrictions'
 	];
 	
 	protected $table = 'activities';
@@ -34,14 +36,11 @@ class Activity extends Model
 //	];
 	
 	
-	public function offers() {
+	public function offers()
+	{
 		return $this->hasMany('App\Offer', 'activity_id', 'id');
 	}
-
-
-
-
-
+	
 	private function dataToArray($data)
 	{
 		if ($data)
@@ -98,6 +97,10 @@ class Activity extends Model
 		}
 	}
 	
+//	public function getCarriesAttribute() {
+//		return $this->attributes['carry'];
+//	}
+	
 	public function getHomePageActivities()
 	{
 		$activities = Activity::limit(8)
@@ -126,49 +129,24 @@ class Activity extends Model
 	
 	public function getActivity($id)
 	{
-		if (!$activity = Activity::where('id', $id)->where('visibility', true)->first())
-			abort(404);
-		$activity['carry'] = $this->dataToArray($activity['carry']);
-		$activity['restrictions'] = $this->dataToArray($activity['restrictions']);
+		$activity = Activity::where('id', $id)
+			->whereHas('offers', function ($query) {
+				$query->where('price', '>', 0);
+			})
+			->where('visibility', true)
+			->first();
 		
 		return $activity;
 	}
 	
 	public function getAllActivities()
 	{
-		$activities['trekking'] = Activity::where('styles', 'like', '%trekking%')
-			->where('activities.visibility', true)
+		$activities = Activity::where('visibility', true)
+			->whereHas('offers', function ($query) {
+				$query->where('price', '>', 0);
+			})
 			->inRandomOrder()
 			->get();
-		$activities['rio'] = Activity::where('styles', 'like', '%rio%')
-			->where('activities.visibility', true)
-			->inRandomOrder()
-			->get();
-		$activities['aire'] = Activity::where('styles', 'like', '%aire%')
-			->where('activities.visibility', true)
-			->inRandomOrder()
-			->get();
-		$activities['relax'] = Activity::where('styles', 'like', '%relax%')
-			->where('activities.visibility', true)
-			->inRandomOrder()
-			->get();
-		$activities['nieve'] = Activity::where('styles', 'like', '%nieve%')
-			->where('activities.visibility', true)
-			->inRandomOrder()
-			->get();
-		$activities['familia'] = Activity::where('styles', 'like', '%familia%')
-			->where('activities.visibility', true)
-			->inRandomOrder()
-			->get();
-		foreach ($activities as $activity) {
-			foreach ($activity as $item) {
-				$offer = Offer::where('activity_id', $item['id'])
-					->orderby('price')
-					->select('price')
-					->first();
-				$offer['price'] ? $item['price'] = $offer['price'] : $item['price'] = 0.00;
-			}
-		}
 		
 		return $activities;
 	}

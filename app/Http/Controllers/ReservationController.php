@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Omnipay\Omnipay;
 use Srmklive\PayPal\Services\ExpressCheckout;
+use Illuminate\Support\Facades\View;
 
 class ReservationController extends Controller
 {
@@ -42,21 +43,6 @@ class ReservationController extends Controller
 		$this->to_pay = $data->to_pay;
 		
 		return 0;
-	}
-	
-	#Generate unique id
-	#TODO delete
-	private function GUID()
-	{
-		return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X',
-			mt_rand(0, 65535),
-			mt_rand(0, 65535),
-			mt_rand(0, 65535),
-			mt_rand(16384, 20479),
-			mt_rand(32768, 49151),
-			mt_rand(0, 65535),
-			mt_rand(0, 65535),
-			mt_rand(0, 65535));
 	}
 	
 	#Get price in currencies from USD
@@ -88,10 +74,10 @@ class ReservationController extends Controller
 			$reservation->status = $status;
 			$reservation->status_code = $status_code;
 			$reservation->user_id = $user->id;
-			$reservation->offer_id = $offer['offer_id'];
-			$reservation->persons = $offer['reservation']['persons'];
-			$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $offer['reservation']['date'])->toDateString();
-			$reservation->time_range = $offer['reservation']['time']['start'].'-'.$offer['reservation']['time']['end'];
+			$reservation->offer_id = $offer->id;
+			$reservation->persons = $offer->reservation['persons'];
+			$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->toDateString();
+			$reservation->time_range = $offer->reservation['time']['start'].'-'.$offer->reservation['time']['end'];
 			$reservation->payment_uid = $uid;
 			$reservation->save();
 		}
@@ -100,67 +86,27 @@ class ReservationController extends Controller
 	#Sending emails
 	private static function sendMails($reservations, $user)
 	{
-		$data = [];
-		$agencyData = [];
-		foreach ($reservations->offers as $key => $offer) {
-			
-			#Collect activities data
-			$data['offers'][$key]['activity_id'] = $offer['offerActivity']['id'];
-			$data['offers'][$key]['activity_name'] = $offer['offerActivity']['name'];
-			$data['offers'][$key]['activity_icon'] = $offer['offerActivity']['image_icon'];
-			
-			#Collect agencies data
-			$data['offers'][$key]['agency_id'] = $offer['offerAgency']['id'];
-			$data['offers'][$key]['agency_name'] = $offer['offerAgency']['name'];
-			$data['offers'][$key]['agency_email'] = $offer['offerAgency']['email'];
-			
-			$agencyData[$offer['offerAgency']['email']][] = [
-				'activity_name'    => $offer['offerActivity']['name'],
-				'offer_date'       => $offer['reservation']['date'],
-				'offer_start_time' => $offer['reservation']['time']['start'],
-				'offer_end_time'   => $offer['reservation']['time']['end'],
-				'offer_persons'    => $offer['reservation']['persons'],
-				'offer_price'      => $offer['real_price'] * (1 - config('kipmuving.discount'))
-			];
-			
-			#Collect offers data
-			$data['offers'][$key]['offer_id'] = $offer['offer_id'];
-			$data['offers'][$key]['offer_start_time'] = $offer['reservation']['time']['start'];
-			$data['offers'][$key]['offer_end_time'] = $offer['reservation']['time']['end'];
-			$data['offers'][$key]['offer_hours'] = $offer['hours'];
-			$data['offers'][$key]['offer_carry'] = $offer['offerCarry'];
-			$data['offers'][$key]['offer_persons'] = $offer['reservation']['persons'];
-			$data['offers'][$key]['offer_price'] = $offer['real_price'] * (1 - config('kipmuving.discount'));
-			$data['offers'][$key]['offer_date'] = $offer['reservation']['date'];
-			
-		}
-		#Collect other data
-		$data['total_cost'] = $reservations->total;
-		$data['user_first_name'] = $user['first_name'];
-		$data['user_last_name'] = $user['last_name'];
-		$data['user_email'] = $user['email'];
-		
 		#Send email about reservation to user
-		Mail::send('emails.reservar.user', ['data' => $data], function ($message) use ($user) {
+		Mail::send('emails.reservar.user', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user) {
 			$message->from('info@kipmuving.com', 'Kipmuving team');
-			$message->to($user['email'], $user['first_name'].' '.$user['last_name'])->subject('Your Kipmuving.com reservations');
+			$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('Your Kipmuving.com reservations');
 		});
 		
 		#Send email about reservation to admin
-		Mail::send('emails.reservar.admin', ['data' => $data], function ($message) use ($user, $data) {
+		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
 			$message->from('info@kipmuving.com', 'Kipmuving team');
-			$message->to(config('app.admin_email'))->subject(count($data['offers']).' Kipmuving.com reservations');
+			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Kipmuving.com reservations');
 		});
 		
+		$agency_reservations = $reservations;
+		$agency_reservations->offers = $reservations->offers->groupBy('agency.email');
+		
 		#Send emails about reservation to agencies
-		foreach ($agencyData as $agency_email => $item) {
+		foreach ($agency_reservations->offers as $agency_email => $item) {
 			Mail::send('emails.reservar.agencia', [
-				'data' => [
-					'offers'          => $item,
-					'user_first_name' => $data['user_first_name'],
-					'user_last_name'  => $data['user_last_name'],
-					'user_email'      => $data['user_email'],
-				]
+				'reservations' => $item,
+				'user'         => $user,
+				'total'        => $item->sum('real_price')
 			], function ($message) use ($agency_email) {
 				$message->from('info@kipmuving.com', 'Kipmuving team');
 //				$message->to($agency_email)->subject('Kipmuving.com reservation');
@@ -173,18 +119,18 @@ class ReservationController extends Controller
 	#Collect reservation data from selected offers
 	private static function getReservationData($selected_offers)
 	{
-		$offer = new Offer();
-		
 		$data = collect();
 		$data->total = 0;
+		$data->total_in_currency = 0;
 		$data->total_without_discount = 0;
+		$data->total_without_discount_in_currency = 0;
 		$data->persons = 0;
 		$data->to_pay = 0;
 		
-		$data->offers = [];
+		$data->offers = collect();
 		
 		foreach ($selected_offers as $key => $selected_offer) {
-			$data->offers[$key] = $offer->getOffer($selected_offer['offer_id']);
+			$data->offers->push(Offer::find($selected_offer['offer_id']));
 			
 			$reservation = [
 				'date'    => $selected_offer['date'],
@@ -194,8 +140,10 @@ class ReservationController extends Controller
 			];
 			
 			$data->offers[$key]['reservation'] = $reservation;
-			$data->total += $data->offers[$key]['real_price'] * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
-			$data->total_without_discount += $data->offers[$key]['real_price'] * $selected_offer['persons'];
+			$data->total += $data->offers[$key]->real_price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
+			$data->total_in_currency += $data->offers[$key]->price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
+			$data->total_without_discount += $data->offers[$key]->real_price * $selected_offer['persons'];
+			$data->total_without_discount_in_currency += $data->offers[$key]->price * $selected_offer['persons'];
 			$data->persons += $selected_offer['persons'];
 		}
 		
@@ -218,48 +166,12 @@ class ReservationController extends Controller
 			return redirect()->action('ActivityController@index');
 		
 		$reservations = $this->getReservationData($selected_offers);
+		$this->createReservation($reservations->offers, $user, 'paypal', 'ololo_uid_code', 'status bad :)', true);
 		
 		$data = [
-			'user'                   => $user,
-			'persons'                => $reservations->persons,
-			'total'                  => 0,
-			'total_without_discount' => 0,
-			'to_pay'                 => $reservations->to_pay
+			'user'        => $user,
+			'reservation' => $reservations
 		];
-		
-		$results = [];
-		
-		foreach ($reservations->offers as $offer) {
-			$data['total'] += $offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'];
-			$data['total_without_discount'] += $offer->price * $offer->reservation['persons'];
-			
-			$results[] = [
-				'offerData'    => [
-					'id'                 => $offer->offer_id,
-					'date'               => $offer->reservation['date'],
-					'start_time'         => $offer->reservation['time']['start'],
-					'end_time'           => $offer->reservation['time']['end'],
-					'persons'            => $offer->reservation['persons'],
-					'hours'              => $offer->hours,
-					'price'              => $offer->price_offer,
-					'includes'           => $offer->offerIncludes,
-					'important'          => $offer->offerImportant,
-					'cancellation_rules' => $offer->offerCancellationRules
-				],
-				'agencyData'   => [
-					'id'          => $offer->offerAgency->id,
-					'name'        => $offer->offerAgency->name,
-					'description' => $offer->offerAgency->description
-				],
-				'activityData' => [
-					'id'         => $offer->offerActivity->id,
-					'name'       => $offer->offerActivity->name,
-					'image_icon' => $offer->offerActivity->image_icon
-				]
-			];
-		}
-		
-		$data['reservations'] = $results;
 		
 		return view('site.reservar.su-reservar', $data);
 	}
@@ -348,85 +260,7 @@ class ReservationController extends Controller
 			return redirect()->action('ReservationController@reserve')->with($message);
 		}
 		
-		
-		#Old PayPal
-
-//		if ($user = Auth::user()) {
-//			if (!$sessionOffers = session('selectedOffers'))
-//				return redirect()->action('ActivityController@index');
-//			$offers = [];
-//			$offersTotalCost = 0;
-//			$offersTotalCostWithoutDiscount = 0;
-//			$persons = 0;
-//
-//			foreach ($sessionOffers as $key => $sessionOffer) {
-//				$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-////				$offersTotalCost += $offers[$key]['real_price'] * $sessionOffer['persons'];
-//				$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.discount')) * $sessionOffer['persons'];
-//				$offersTotalCostWithoutDiscount += $offers[$key]['real_price'] * $sessionOffer['persons'];
-//				$persons += $sessionOffer['persons'];
-//			}
-//
-//			$topay = round($this->getPriceInUSD($offersTotalCost, 'CLP') * config('kipmuving.service_fee'), 2);
-//
-//			$provider = new ExpressCheckout();
-//
-//			$options = [
-//				'BRANDNAME' => config('app.name')
-//			];
-//
-//			$data = [];
-//			$data['items'] = [
-//				[
-//					'name'  => 'Kipmuving.com - reservation',
-////					'price' => $persons * $this->pricePerPerson,
-//					'price' => $topay,
-//					'qty'   => 1
-//				]
-//			];
-//			$data['invoice_id'] = time().str_random(5);
-//			$data['invoice_description'] = "Kipmuving.com - reservation";
-//			$data['return_url'] = action('ReservationController@paymentPaypal');
-//			$data['cancel_url'] = action('ReservationController@reserve');
-//			$data['total'] = $topay;
-//
-//			if ($request['token']) {
-//				$response = $provider->doExpressCheckoutPayment($data, $request['token'], $request['PayerID']);
-//				#Completed payment
-//				if ($response['PAYMENTINFO_0_PAYMENTSTATUS'] == 'Completed') {
-//					$batch = $this->GUID();
-//					#Save reservations to DB
-//					foreach ($offers as $key => $offer) {
-//						$reservation = new Reservation();
-//						$reservation->user_id = $user['id'];
-//						$reservation->offer_id = $sessionOffers[$key]['offer_id'];
-//						$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $sessionOffers[$key]['date'])->toDateString();
-//						$reservation->batch_id = $batch;
-//						$reservation->persons = $sessionOffers[$key]['persons'];
-//						$reservation->save();
-//					}
-//
-//					#Send emails
-//					$this->sendMails($offers, $user);
-//
-//					#Clear selected offers
-//					session()->forget('selectedOffers');
-//
-//					return redirect()->action('UserController@getUser');
-//				} else {
-//					$message = 'Failure :(';
-//
-//					return redirect()->action('ReservationController@reserve')->with($message);
-//				}
-//			}
-//
-//			$response = $provider->addOptions($options);
-//			$response = $provider->setExpressCheckout($data);
-//
-//			return redirect($response['paypal_link']);
-//		}
-//
-//		return abort(403);
+		return null;
 	}
 	
 	#--------------------------------------------------------------------\Payment Pagseguro
@@ -512,7 +346,7 @@ class ReservationController extends Controller
 	
 	public function paymentPagseguroRedirectGet(Request $request)
 	{
-		dd('Pagseguro redirect information');
+//		dd('Pagseguro redirect information');
 		//TODO информация что платеж принят на рассмотрение
 //		Log::debug('redirect - get');
 //		Log::info($request);

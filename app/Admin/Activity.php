@@ -84,10 +84,10 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 					], 4)
 			]),
 			'Carry' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('carry', 'Carry')->required()
+				AdminFormElement::textarea('real_carries', 'Carry')->required()
 			]),
 			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('restrictions', 'Restrictions')->required(),
+				AdminFormElement::textarea('real_restrictions', 'Restrictions')->required(),
 			]),
 			'Weather' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('weather_embed', 'Weather embed'),

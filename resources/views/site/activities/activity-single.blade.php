@@ -3,14 +3,14 @@
 {{-- Content --}}
 @section('content')
 	<section class="visual activity-single"
-				@if ($activity['image']) style="background-image: url('/{{ $activity['image'] }}')" @endif>
+				@if ($activity->image) style="background-image: url('/{{ $activity['image'] }}')" @endif>
 		<div class="gradoverlay"></div>
 	</section>
 
 	<style>
-		@if ($activity['image_icon'])
+		@if ($activity->image_icon)
 	.your-reservation.activity .head:after {
-			background-image: url('/{{ $activity['image_icon'] }}')
+			background-image: url('/{{ $activity->image_icon }}')
 		}
 		@endif
 	</style>
@@ -21,18 +21,18 @@
 					<ul class="breadcrumb">
 						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
 						<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
-						@if($activity['name'])
-							<li>{{ strtoupper($activity['name']) }}</li>
+						@if($activity->name)
+							<li>{{ strtoupper($activity->name) }}</li>
 						@endif
 					</ul>
 					<div class="your-reservation activity add new">
 						@include('site.offers.offers_quickinfo')
 						<header class="head">
-							@if($activity['name'])
-								<h1>{{ $activity['name'] }}</h1>
+							@if($activity->name)
+								<h1>{{ $activity->name }}</h1>
 							@endif
-							@if($activity['subtitle'])
-								<strong class="sub-title">{{ $activity['subtitle'] }}</strong>
+							@if($activity->subtitle)
+								<strong class="sub-title">{{ $activity->subtitle }}</strong>
 							@endif
 							<div class="tenprocent">
 								em todos <br>
@@ -46,22 +46,22 @@
 							<div class="col-md-8 col-sm-12 col-xs-12">
 								<section class="post-box">
 									<div class="title-box">
-										@if($activity['description'])
-											<span style="font-size:14px;">{{ $activity['description'] }}</span>
+										@if($activity->description)
+											<span style="font-size:14px;">{{ $activity->description }}</span>
 										@endif
 										<br><br/>
-										@if ($activity['weather_embed'])
+										@if ($activity->weather_embed)
 											<div class="weather-box">
 												<h2>{{ trans('main.activity_depends_on_the_weather') }}</h2>
 												<p>{{ trans('main.this_activity_is_subject_to_weather') }}</p>
-												{!! $activity['weather_embed'] !!}
+												{!! $activity->weather_embed !!}
 											</div>
 										@endif
 
-										@if ($activity['instagram_name'])
+										@if ($activity->instagram_name)
 										<div class="activity-instagram">
-											<span class="activity-tag">{{ $activity['instagram_name'] }}</span>
-											<div id="instafeed5" class="instafeed" data-tag="{{ $activity['instagram_name'] }}"></div>
+											<span class="activity-tag">{{ $activity->instagram_name }}</span>
+											<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>
 											<div class="clearfix"></div>
 										</div>
 										@endif
@@ -86,27 +86,48 @@
 										</nav>
 									</div>
 									<div class="tab-content">
+										{{--<div class="tab-pane active" id="tab2">--}}
+											{{--<ul class="accordion">--}}
+												{{--@foreach ($offers['recommend'] as $offer)--}}
+													{{--@include('site.partials.offers.list-item')--}}
+												{{--@endforeach--}}
+											{{--</ul>--}}
+										{{--</div>--}}
 										<div class="tab-pane active" id="tab2">
 											<ul class="accordion">
-												@foreach ($offers['recommend'] as $offer)
+												@foreach ($activity->offers->sortByDesc('recommendation') as $offer)
 													@include('site.partials.offers.list-item')
 												@endforeach
 											</ul>
 										</div>
 										<div class="tab-pane" id="tab3">
 											<ul class="accordion">
-												@foreach ($offers['price'] as $offer)
+												@foreach ($activity->offers->sortBy('price') as $offer)
 													@include('site.partials.offers.list-item')
 												@endforeach
 											</ul>
 										</div>
 										<div class="tab-pane" id="tab4">
 											<ul class="accordion">
-												@foreach ($offers['includes'] as $offer)
+												@foreach ($activity->offers->sortByDesc('includes') as $offer)
 													@include('site.partials.offers.list-item')
 												@endforeach
 											</ul>
 										</div>
+										{{--<div class="tab-pane" id="tab3">--}}
+											{{--<ul class="accordion">--}}
+												{{--@foreach ($offers['price'] as $offer)--}}
+													{{--@include('site.partials.offers.list-item')--}}
+												{{--@endforeach--}}
+											{{--</ul>--}}
+										{{--</div>--}}
+										{{--<div class="tab-pane" id="tab4">--}}
+											{{--<ul class="accordion">--}}
+												{{--@foreach ($offers['includes'] as $offer)--}}
+													{{--@include('site.partials.offers.list-item')--}}
+												{{--@endforeach--}}
+											{{--</ul>--}}
+										{{--</div>--}}
 									</div>
 								</section>
 							</div>

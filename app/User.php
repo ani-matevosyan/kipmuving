@@ -38,6 +38,10 @@ class User extends Authenticatable
 	protected $hidden = [
 		'password', 'remember_token',
 	];
+	
+	public function reservations() {
+		return $this->hasMany('App\Reservation', 'user_id', 'id');
+	}
 
 //	public function getUser($id)
 //	{

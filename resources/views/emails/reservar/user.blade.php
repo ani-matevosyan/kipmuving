@@ -19,7 +19,7 @@
 						 style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
 						<span width="340" valign="top" height="""82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
-						<img src="{{ url('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
+						<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
 							  class="width:250px !important;">
 						</span>
 					</td>
@@ -31,14 +31,14 @@
 								<td class="intro"
 									 style="font-size:16px; line-height:20px; color:#000000; padding-top:30px; padding-bottom:30px; border-bottom:1px solid #cccccc;">
 									<strong
-										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $data['user_first_name'] }} {{ $data['user_last_name'] }}</strong>,
+										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>,
 									{{ trans('emails.many_thanks_for_booking') }}<br><br>
 									<p>{{ trans('emails.what_will_we_do_now') }}
 										<br><br></p>
 									<strong style="display:block; font-weight:bold;">{{ trans('emails.activities_you_booked') }}:</strong>
 								</td>
 							</tr>
-							@foreach($data['offers'] as $offer)
+							@foreach($reservation->offers as $offer)
 								<tr>
 									<td
 										style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
@@ -49,15 +49,15 @@
 														<tr>
 															<td width="51" height="39" valign="middle"
 																 style="font-size:0; line-height:0; padding-right:20px;">
-																<img src="{{ url($offer['activity_icon']) }}"
+																<img src="{{ url($offer->activity->image_icon) }}"
 																	  alt="activity image" align="left" vspace="0" hspace="0">
 															</td>
 															<td>
 																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:31px; line-height:35px; color:#089f02;">{{ $offer['activity_name'] }}</span>
+																		style="font-size:31px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
 																</h2>
 																<strong
-																	style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $offer['agency_name'] }}</strong>
+																	style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $offer->agency->name }}</strong>
 															</td>
 														</tr>
 													</table>
@@ -66,23 +66,23 @@
 											<tr>
 												<td style="width:50%; padding-bottom:20px;" valign="top">
 													<strong style="display:block; font-weight:bold; padding-left:10px;">{{ trans('emails.you_must_take') }}:</strong>
-													<p>{{ $offer['offer_carry'] }}</p>
+													<p>{{ $offer->carries }}</p>
 												</td>
 												<td style="width:50%; padding-bottom:20px;" valign="top">
 													<strong
-														style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">{{ trans('emails.day') }}: {{ $offer['offer_date'] }}</strong>
+														style="font-size:16px; line-height:20px; color:#963d4c; font-weight:bold; display:block; padding-left:25px; background:url(ico1.png) no-repeat;">{{ trans('emails.day') }}: {{ $offer->reservation['date'] }}</strong>
 													<span
-														style="display:block; margin-left:25px;"><strong>{{ trans('emails.duration') }}:</strong> {{ $offer['offer_hours'] }}
+														style="display:block; margin-left:25px;"><strong>{{ trans('emails.duration') }}:</strong> {{ $offer->duration }}
 														hrs</span>
 													<span
 														style="display:block;
 														border-bottom:1px solid #cccccc;
 														padding-bottom:10px;
-														margin-left:25px;"><strong>{{ trans('emails.schedule') }}:</strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }}
-														{{ trans('emails.to') }} {{ date('H:i', strtotime($offer['offer_end_time'])) }}
+														margin-left:25px;"><strong>{{ trans('emails.schedule') }}:</strong> {{ date('H:i', strtotime($offer->reservation['time']['start'])) }}
+														{{ trans('emails.to') }} {{ date('H:i', strtotime($offer->reservation['time']['end'])) }}
 													</span>
 													<span
-														style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer['offer_persons'] }}</strong> {{ trans('emails.persons') }}</span>
+														style="display:block; padding-left:25px; padding-top:10px; background:url(ico2.png) no-repeat; background-position:0 10px;"><strong>{{ $offer->reservation['persons'] }}</strong> {{ trans('emails.persons') }}</span>
 												</td>
 											</tr>
 											<tr>
@@ -105,7 +105,7 @@
 					<td id="footer" valign="top"
 						 style="padding-left:20px; padding-top:20px; padding-right:20px; padding-bottom:20px;">
 						{{ trans('emails.total_to_pay') }} <span
-							style="color:#980e25; font-weight:bold;">$ {{ $data['total_cost'] }} CLP
+							style="color:#980e25; font-weight:bold;">$ {{ $reservation->total }} CLP
 							.</span> {{ trans('emails.each_agency_has_cancellation_policy') }}
 						<br>
 						<br>

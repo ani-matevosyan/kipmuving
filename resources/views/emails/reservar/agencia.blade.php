@@ -428,6 +428,7 @@
 	</style>
 </head>
 <body>
+{{--{{ dd(count($reservations)) }}--}}
 <center>
 	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
 		<tr>
@@ -482,7 +483,7 @@
 													 valign="top">
 													<br>
 													<strong>Hola,</strong><br>
-													tenemos <span style="color:#980e25">{{ count($data['offers']) }} paseos</span>
+													tenemos <span style="color:#980e25">{{ count($reservations) }} paseos</span>
 													para <span style="color:#980e25"></span><br>&nbsp;
 												</td>
 											</tr>
@@ -508,34 +509,34 @@
 												<td class="mcnTextContent"
 													 style="padding: 9px 18px; font-family: &quot;Trebuchet MS&quot;,&quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,&quot;Lucida Sans&quot;,Tahoma,sans-serif; font-style: normal; font-weight: normal; line-height: 150%;"
 													 valign="top">
-													<?php $total_cost = 0; ?>
-													@foreach ($data['offers'] as $offer)
-														<?php $total_cost += $offer['offer_price'] * $offer['offer_persons']; ?>
+													<!--?php $total = 0; ?-->
+													@foreach ($reservations as $offer)
+														<!--?php $total += $offer->real_price * $offer['offer_persons']; ?-->
 														<h2>
 															<span style="color:#008000">
-																<span style="font-size:24px; line-height:22px">{{ $offer['activity_name'] }}</span>
+																<span style="font-size:24px; line-height:22px">{{ $offer->activity->name }}</span>
 															</span>
 														</h2>
-														<span style="font-size:14px">Date:<strong> {{ $offer['offer_date'] }}</strong></span>
+														<span style="font-size:14px">Date:<strong> {{ $offer->reservation['date'] }}</strong></span>
 														<br>
-														<span style="font-size:14px">Time:<strong> {{ date('H:i', strtotime($offer['offer_start_time'])) }}-{{ date('H:i', strtotime($offer['offer_end_time'])) }}</strong></span>
+														<span style="font-size:14px">Time:<strong> {{ date('H:i', strtotime($offer->reservation['time']['start'])) }}-{{ date('H:i', strtotime($offer->reservation['time']['end'])) }}</strong></span>
 														<br>
 														&nbsp;
 														<address style="font-style:normal">
 															Guest Information<br>
 															Name:
-															<strong>{{ $data['user_first_name'].' '.$data['user_last_name'] }}</strong><br>
+															<strong>{{ $user->first_name.' '.$user->last_name }}</strong><br>
 															Email: <a href="#" style="color:#000; text-decoration:none;">
-																<span>{{ $data['user_email'] }}</span>
+																<span>{{ $user->email }}</span>
 															</a>
 															<br>
-															Persona: {{ $offer['offer_persons'] }}<br>
+															Persona: {{ $offer->reservation['persons'] }}<br>
 															&nbsp;
 														</address>
 													@endforeach
 													<span style="color:#980e25">
 														<span style="font-size:16px">
-															<strong>Total a pagar de ${{ $total_cost }} CLP</strong>
+															<strong>Total a pagar de ${{ $total }} CLP ({{ $total * (1 - config('kipmuving.discount')) }} with 10% discount)</strong>
 														</span>
 													</span>
 												</td>
