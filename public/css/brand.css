@@ -8348,7 +8348,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .s_reservar .your-reservation .timing li.person{
-    padding-top: 5px;
+    padding: 5px 0 0 15px;
 }
 
 .s_reservar .your-reservation .timing li:after{
@@ -8359,7 +8359,7 @@ body.home2 .roteros-options .raised-form .text-field {
 .s_reservar .your-reservation .price{
     padding: 0;
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     right:  0;
 }
 
