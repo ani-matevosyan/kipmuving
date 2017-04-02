@@ -12,6 +12,10 @@ class Agency extends Model
 	public $translatedAttributes = ['name', 'description'];
 	protected $table = 'agencies';
 	
+	public function offers() {
+		return $this->hasMany('App\Offer');
+	}
+	
 	public function getTripadvisorCodeAttribute()
 	{
 		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
@@ -30,6 +34,14 @@ class Agency extends Model
 
 	public function getAgencies()
 	{
+		$agencies = Agency::get();
+		
+		foreach ($agencies->sortBy('name') as $agency) {
+			echo $agency->name.'<br>';
+		}
+		
+		dd($agencies->sortBy('name'));
+		
 		$agencies = AgencyTranslation::join('agencies', 'agency_translations.agency_id', 'agencies.id')
 			->where('agency_translations.locale', app()->getLocale())
 			->select(
@@ -47,6 +59,8 @@ class Agency extends Model
 	public function getAgency($id)
 	{
 		$agency = Agency::where('id', $id)->first();
+		
+//		dd($agency->offers[0]->activity->image_icon);
 
 		return $agency;
 	}

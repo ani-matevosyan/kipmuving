@@ -13,6 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
 	 */
 	protected $except = [
 		'reserve',
-		'reserve/*'
+		'reserve/*',
+		'/pagseguro/notification'
 	];
 }

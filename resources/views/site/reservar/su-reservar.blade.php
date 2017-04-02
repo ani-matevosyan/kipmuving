@@ -36,25 +36,25 @@
 										<header class="head">
 											<h1>{{ trans('main.these_are_your_activities') }}</h1>
 											<p>{{ trans('please') }} <a
-													href="#">{{ $user['username'] ? $user['username'] : $user['first_name'] }}</a>
+													href="#">{{ $user->username ? $user->username : $user->first_name }}</a>
 												{{ trans('main.confirm_below_the_activities') }}</p>
 										</header>
 									@endif
 									<ul class="accordion">
-										@foreach ($offers as $offer)
+										@foreach ($reservation->offers as $offer)
 											<li class="accordion-li">
 												<header>
 													<div class="ico">
-														<img src="/{{ $offer['activityData']['image_icon'] }}"
+														<img src="/{{ $offer->activity->image_icon }}"
 															  onerror="this.src='/images/image-none.jpg';"
 															  alt="agency image">
 													</div>
 													<div class="text">
 														<h2>
-															<a href="#">{{ $offer['activityData']['name'] }}</a>
+															<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
 														</h2>
 														<strong
-															class="sub-title">{{ $offer['agencyData']['name'] }} <!--<span>O`Higgins Nº211-C </span>--></strong>
+															class="sub-title">{{ $offer->agency->name }} <!--<span>O`Higgins Nº211-C </span>--></strong>
 													</div>
 												</header>
 												<div class="activity_description">
@@ -63,7 +63,7 @@
 															<div class="list-box">
 																<strong class="title">{{ trans('main.you_must_take') }}</strong>
 																<ul class="list">
-																	@foreach ($offer['offerData']['includes'] as $include)
+																	@foreach ($offer->includes as $include)
 																		<li>{{ $include }}</li>
 																	@endforeach
 																</ul>
@@ -73,37 +73,37 @@
 															<ul class="timing">
 																<li class="time">
 																	<strong class="title">
-																		{{ trans('form.day') }}: {{ $offer['offerData']['date'] }}
+																		{{ trans('form.day') }}: {{ $offer->reservation['date'] }}
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.duration') }}
-																			:</span> {{ $offer['offerData']['hours'] }}
+																			:</span> {{ $offer->duration }}
 																		hrs
 																	</strong>
 																	<strong>
 																		<span>{{ trans('main.schedule') }}
-																			:</span> {{ \Carbon\Carbon::parse($offer['offerData']['start_time'])->format('H:i') }}
-																		a {{ \Carbon\Carbon::parse($offer['offerData']['end_time'])->format('H:i') }}
+																			:</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}
+																		a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
 																	</strong>
 																</li>
 																<li class="person">
 																	<strong>
-																		<span>{{ $offer['offerData']['persons'] }}</span> {{ trans('main.persons') }}
+																		<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
 																	</strong>
 																</li>
 															</ul>
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer['offerData']['persons'] * $offer['offerData']['price'] * (1 - config('kipmuving.discount')), 0, '.', '.')* 0.9 }}
+														<sub>$</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.')* 0.9 }}
 													</strong>
 												</div>
 												<div id="reservetour1">
 													<div class="important">
-														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer['offerData']['important'] }}</p>
+														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
 													</div>
 													<div class="cancellation_rules">
-														<p><span>Costos para cancelar: </span>{{ $offer['offerData']['cancellation_rules'] }}</p>
+														<p><span>Costos para cancelar: </span>{{ $offer->cancellation_rules }}</p>
 													</div>
 												</div>
 											</li>
@@ -126,55 +126,68 @@
 									<section class="s_suprogram">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
-											<p><span id="count_activities">{{ count($offers) }}</span> {{ trans('main.activities') }}</p>
+											<p><span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</p>
 										</header>
 										<ul class="offers-list">
-											@foreach ($offers as $offer)
+											@foreach ($reservation->offers as $offer)
 												<li>
 													<a href="#"></a>
-													<h4>{{ $offer['activityData']['name'] }}</h4>
-													<span>{{number_format($offer['offerData']['price'] * (1 - config('kipmuving.discount')) * $offer['offerData']['persons'], 0, '.', '.')}}</span>
+													<h4>{{ $offer->activity->name }}</h4>
+													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 1, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($total_cost, 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_in_currency, 1, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<?php $total_discount = $total_cost_without_discount * config('kipmuving.discount') ?>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 1, ".", ".") }}</p>
 											</div>
 										</div>
-										<a href="#" class="btn-reservar reserve" data-toggle="modal"
-											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
-										<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">
-											<input name="merchantId" type="hidden"  value="508029">
-											{{--<input name="ApiKey" type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA">--}}
-											<input name="accountId" type="hidden"  value="512326">
-											<input name="description" type="hidden"  value="adasdasdasdasd34454lfkgkjgjjkk">
-											<input name="referenceCode" type="hidden"  value="adasdasdasdasd34454lfkgkjgjjkk" >
-											<input name="amount" type="hidden"  value="3">
-											<input name="tax" type="hidden"  value="0">
-											<input name="taxReturnBase" type="hidden"  value="0">
-											<input name="currency" type="hidden"  value="USD">
-											<input name="signature" type="hidden"  value="6996edf9c5945541554ad50c75611581">
-											<input name="test" type="hidden"  value="1">
-											<input name="buyerEmail" type="hidden"  value="testt@test.com">
-											<input name="responseUrl" type="hidden"  value="/user" >
-											<input name="confirmationUrl" type="hidden"  value="/reserve" >
-										</form>
-										<script>
-											$(document).ready(function () {
-												$('.btn-reservar').click(function (event) {
-												  event.preventDefault();
-												  document.payuform.submit();
-												  return false;
-												});
-											});
-										</script>
+										<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
+										{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
+											{{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
+										<a href="/reserve/pagseguro">Pay with Pagseguro</a>
+										<!--?php $uid = uniqid() ?-->
+										<!--?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?-->
+										{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}
+											{{--<input name="merchantId" type="hidden"  value="508029">--}}
+											{{--<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">--}}
+											{{--<input name="accountId" type="hidden" value="512326">--}}
+											{{--<input name="description" type="hidden"  value="Test PAYU">--}}
+											{{--<input name="referenceCode" type="hidden"  value="{{ $uid }}" >--}}
+											{{--<input name="amount" type="hidden"  value="3">--}}
+											{{--<input name="tax" type="hidden"  value="0">--}}
+											{{--<input name="taxReturnBase" type="hidden"  value="0">--}}
+											{{--<input name="currency" type="hidden"  value="USD">--}}
+											{{--<input name="signature" type="hidden"  value="{{ $signature }}">--}}
+
+											{{--<input type="hidden" name="totalAmount" value="15">--}}
+											{{--<input type="hidden" name="OpenPayu-Signature" value="sender=508029;algorithm=md5;signature={{ $signature }}">--}}
+											{{--<input name="test" type="hidden"  value="1">--}}
+											{{--<input name="buyerEmail" type="hidden"  value="testt@test.com">--}}
+											{{--<input name="responseUrl" type="hidden"  value="http://kipmuving.lo/user" >--}}
+											{{--<input name="confirmationUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="continueUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="notifyUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="returnUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="surl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="furl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="sUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+											{{--<input name="fUrl" type="hidden" value="http://kipmuving.lo/user">--}}
+										{{--</form>--}}
+										{{--<script>--}}
+											{{--$(document).ready(function () {--}}
+												{{--$('.btn-reservar').click(function (event) {--}}
+												  {{--event.preventDefault();--}}
+												  {{--document.payuform.submit();--}}
+												  {{--return false;--}}
+												{{--});--}}
+											{{--});--}}
+										{{--</script>--}}
 									</section>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">

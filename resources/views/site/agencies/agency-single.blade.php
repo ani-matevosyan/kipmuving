@@ -9,36 +9,36 @@
 					<ul class="breadcrumb">
 						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
 						<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
-						@if($agency['name'])
-							<li>{{ $agency['name'] }}</li>
+						@if($agency->name)
+							<li>{{ $agency->name }}</li>
 						@endif
 					</ul>
 					<div class="your-reservation adventure new">
 						<article class="main-post">
 							<header>
-								<h1>{{ $agency['name'] }}</h1>
+								<h1>{{ $agency->name }}</h1>
 								<strong class="sub-title">O`Higgins Nº211-C </strong>
 							</header>
 							<div class="post-holder">
 								<div class="row">
 									<div class="col-md-4">
 										<div class="agency-photo-wrapp">
-											<img src="/{{ $agency['image'] }}" alt="image description" onerror="this.src='/images/image-none.jpg';">
+											<img src="/{{ $agency->image }}" alt="image description" onerror="this.src='/images/image-none.jpg';">
 										</div>
 									</div>
 									<div class="col-md-8">
 										<div class="text">
-											<p>{{ $agency['description'] }}</p>
+											<p>{{ $agency->description }}</p>
 										</div>
-										@if($agency['instagram_id'])
+										@if($agency->instagram_id)
 											<div class="agency-gallery">
 												<div class="row">
 													<div class="col-xs-9">
 														<div id="instafeed4" class="instafeed"
 															 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
 													</div>
-													@if($agency['instagram_name'])
-														<span class="agency-tag">{{ $agency['instagram_name'] }}</span>
+													@if($agency->instagram_name)
+														<span class="agency-tag">{{ $agency->instagram_name }}</span>
 													@endif
 												</div>
 											</div>
@@ -55,7 +55,7 @@
 										<p>{{ trans('main.activities_that_this_agency_performs') }}</p>
 									</div>
 									<ul class="accordion">
-										@foreach ($offers as $offer)
+										@foreach ($agency->offers as $offer)
 											@include('site.partials.offers.list-item-ag')
 										@endforeach
 									</ul>
@@ -65,7 +65,7 @@
 								<div class="map-block">
 									<div id="map" style="width: 100%; height: 300px"></div>
 									<script type="text/javascript">
-                               var latLng = new google.maps.LatLng({{ $agency['latitude'] }}, {{ $agency['longitude'] }});
+                               var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
                                var myOptions = {
                                    zoom: 15,
                                    center: latLng,
@@ -75,12 +75,12 @@
                                var marker = new google.maps.Marker({
                                    position: latLng,
                                    map: map,
-                                   title: '{{ $agency['name'] }}'
+                                   title: '{{ $agency->name }}'
                                });
 									</script>
 								</div>
 								<div class="ta-code">
-									{!! $agency['tripadvisor_code'] !!}
+									{!! $agency->tripadvisor_code !!}
 								</div>
 							</div>
 						</div>

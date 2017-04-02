@@ -13,10 +13,10 @@ class AddInstagramTagFieldToActivitiesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::table('activities', function (Blueprint $table) {
-			//
-			$table->string('instagram_name')->default('');
-		});
+//		Schema::table('activities', function (Blueprint $table) {
+//			//
+//			$table->string('instagram_name')->default('');
+//		});
 	}
 	
 	/**
@@ -26,9 +26,9 @@ class AddInstagramTagFieldToActivitiesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::table('activities', function (Blueprint $table) {
-			//
-			$table->removeColumn('instagram_name');
-		});
+//		Schema::table('activities', function (Blueprint $table) {
+//			//
+//			$table->removeColumn('instagram_name');
+//		});
 	}
 }

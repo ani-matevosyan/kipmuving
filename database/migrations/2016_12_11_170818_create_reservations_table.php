@@ -14,13 +14,17 @@ class CreateReservationsTable extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('offer_id');
-            $table->date('reserve_date');
-            $table->integer('persons');
-            $table->string('batch_id');
-            $table->timestamps();
+	        $table->increments('id');
+	        $table->string('type', 32)->default(''); #Payment type (for example paypal/pagseguro/payu...)
+	        $table->boolean('status')->default(false); #Payment status. If true - transaction paid and completed
+	        $table->string('status_code', 64)->default(''); #Payment status code (different for payments, for example ok/success/etc.)
+	        $table->integer('user_id');
+	        $table->integer('offer_id');
+	        $table->integer('persons');
+	        $table->date('reserve_date');
+	        $table->string('time_range', 17); #Time of reserved offer from... to (format: HH:mm:ss-HH:mm:ss)
+	        $table->string('payment_uid', 128)->default(''); #Unique code for different payments
+	        $table->timestamps();
         });
     }
 

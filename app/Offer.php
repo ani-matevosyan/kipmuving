@@ -12,32 +12,44 @@ class Offer extends Model
 	public $translationModel = 'App\OfferTranslation';
 	public $translatedAttributes = [
 		'includes',
+		'real_includes',
 		'cancellation_rules',
 		'important',
 		'description'
 	];
 	protected $table = 'offers';
 	
-	private function getAgency($agencyId)
+	
+	public function activity()
 	{
-		$agency = AgencyTranslation::where('agencies.id', $agencyId)
-			->join('agencies', 'agency_translations.agency_id', 'agencies.id')
-			->where('agency_translations.locale', app()->getLocale())
-			->select(
-				'agencies.id',
-				'agencies.address',
-				'agencies.email',
-				'agencies.latitude',
-				'agencies.longitude',
-				'agencies.image',
-				'agencies.image_icon',
-				'agency_translations.name',
-				'agency_translations.description'
-			)
-			->first();
-		
-		return $agency;
+		return $this->hasOne('App\Activity', 'id', 'activity_id');
 	}
+	
+	public function agency()
+	{
+		return $this->hasOne('App\Agency', 'id', 'agency_id');
+	}
+//
+//	private function getAgency($agencyId)
+//	{
+//		$agency = AgencyTranslation::where('agencies.id', $agencyId)
+//			->join('agencies', 'agency_translations.agency_id', 'agencies.id')
+//			->where('agency_translations.locale', app()->getLocale())
+//			->select(
+//				'agencies.id',
+//				'agencies.address',
+//				'agencies.email',
+//				'agencies.latitude',
+//				'agencies.longitude',
+//				'agencies.image',
+//				'agencies.image_icon',
+//				'agency_translations.name',
+//				'agency_translations.description'
+//			)
+//			->first();
+//
+//		return $agency;
+//	}
 	
 	private function dataToArray($data)
 	{
@@ -46,25 +58,11 @@ class Offer extends Model
 		
 		return null;
 	}
-	
-	private function getIncludes($includes)
-	{
-		if (!$includes)
-			return null;
-		
-		$result = $this->dataToArray($includes);
-		$result = preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
-			return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
-		}, $result);
-		$result[count($result) - 1] = str_replace(';', '', $result[count($result) - 1]);
-		
-		return $result;
-	}
-	
+
 	private function getTime($time)
 	{
 		$time = $this->dataToArray($time);
-		
+
 		if ($time) {
 			$result = [];
 			foreach ($time as $key => $item) {
@@ -72,23 +70,64 @@ class Offer extends Model
 				$result[$key]['start'] = $item[0];
 				$result[$key]['end'] = $item[1];
 			}
-			
+
 			return $result;
+		}
+
+		return null;
+	}
+	
+	public function getAvailableTimeAttribute()
+	{
+		$time = $this->dataToArray($this->attributes['available_time']);
+		$time[count($time) - 1] = str_replace(';', '', $time[count($time) - 1]);
+		if ($time) {
+			$result = [];
+			foreach ($time as $key => $item) {
+				$item = explode('-', $item);
+				$result[$key]['start'] = $item[0];
+				$result[$key]['end'] = $item[1];
+			}
+
+			return $result;
+		}
+
+		return null;
+	}
+	
+	public function getRealAvailableTimeAttribute()
+	{
+		return $this->attributes['available_time'];
+	}
+	
+	public function setRealAvailableTimeAttribute($available_time)
+	{
+		$this->attributes['available_time'] = $available_time;
+	}
+	
+	public function getDurationAttribute()
+	{
+		if (count($this->available_time) > 0) {
+			$start = $this->available_time[0]['start'];
+			$end = $this->available_time[0]['end'];
+			
+			return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
 		}
 		
 		return null;
 	}
+
+//	private function getDuration($timeArray)
+//	{
+//		if (!$timeArray)
+//			return null;
+//
+//		$start = $timeArray[0]['start'];
+//		$end = $timeArray[0]['end'];
+//
+//		return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
+//	}
 	
-	private function getDuration($timeArray)
-	{
-		if (!$timeArray)
-			return null;
-		
-		$start = $timeArray[0]['start'];
-		$end = $timeArray[0]['end'];
-		
-		return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
-	}
 	
 	private function checkOffersAvailability($offers)
 	{
@@ -112,7 +151,7 @@ class Offer extends Model
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		
-		return $price;
+		return round($price, 2);
 	}
 	
 	public function getAvailableStartDateAttribute()
@@ -138,24 +177,24 @@ class Offer extends Model
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		
-		return $price;
+		return round($price, 2);
 	}
-	
-	public function getActivityAttribute()
-	{
-		$activity = Activity::where('id', $this['activity_id'])
-			->first();
-		
-		return $activity['name'];
-	}
-	
-	public function getAgencyAttribute()
-	{
-		$agency = Agency::where('id', $this['agency_id'])
-			->first();
-		
-		return $agency['name'];
-	}
+
+//	public function getActivityAttribute()
+//	{
+//		$activity = Activity::where('id', $this['activity_id'])
+//			->first();
+//
+//		return $activity['name'];
+//	}
+
+//	public function getAgencyAttribute()
+//	{
+//		$agency = Agency::where('id', $this['agency_id'])
+//			->first();
+//
+//		return $agency['name'];
+//	}
 	
 	public function getRealPriceAttribute()
 	{
@@ -196,9 +235,9 @@ class Offer extends Model
 		
 		foreach ($offers as $offer) {
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['available_time'] = $this->getTime($offer['available_time']);
-			$offer['hours'] = $this->getDuration($offer['available_time']);
+//			$offer['includes'] = $this->getIncludes($offer['includes']);
+//			$offer['available_time'] = $this->getTime($offer['available_time']);
+//			$offer['hours'] = $this->getDuration($offer['available_time']);
 		}
 		
 		return $offers;
@@ -215,9 +254,9 @@ class Offer extends Model
 		
 		foreach ($offers as $offer) {
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['available_time'] = $this->getTime($offer['available_time']);
-			$offer['hours'] = $this->getDuration($offer['available_time']);
+//			$offer['includes'] = $this->getIncludes($offer['includes']);
+//			$offer['available_time'] = $this->getTime($offer['available_time']);
+//			$offer['hours'] = $this->getDuration($offer['available_time']);
 		}
 		
 		return $offers;
@@ -232,7 +271,7 @@ class Offer extends Model
 		$offers = $this->checkOffersAvailability($offers);
 		
 		foreach ($offers as $offer) {
-			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
+//			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
 		}
 		
 		$offers = array_reverse(array_sort($offers, function ($value) {
@@ -241,9 +280,9 @@ class Offer extends Model
 		
 		foreach ($offers as $offer) {
 			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-			$offer['includes'] = $this->getIncludes($offer['includes']);
-			$offer['available_time'] = $this->getTime($offer['available_time']);
-			$offer['hours'] = $this->getDuration($offer['available_time']);
+//			$offer['includes'] = $this->getIncludes($offer['includes']);
+//			$offer['available_time'] = $this->getTime($offer['available_time']);
+//			$offer['hours'] = $this->getDuration($offer['available_time']);
 		}
 		
 		return $offers;
@@ -320,9 +359,9 @@ class Offer extends Model
 		$offers = $this->checkOffersAvailability($offers);
 		
 		foreach ($offers as $offer) {
-			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
-			$offer['available_time'] = $this->getTime($offer['available_time']);
-			$offer['hours'] = $this->getDuration($offer['available_time']);
+//			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
+//			$offer['available_time'] = $this->getTime($offer['available_time']);
+//			$offer['hours'] = $this->getDuration($offer['available_time']);
 		}
 		
 		return $offers;
@@ -350,10 +389,10 @@ class Offer extends Model
 		$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
 		$offer['offerActivity'] = Activity::where('activities.id', $offer['activity_id'])
 			->first();
-		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
+//		$offer['offerIncludes'] = $this->getIncludes($offer['offerIncludes']);
 		$offer['offerCarry'] = $offer['offerActivity']['carry'];
-		$offer['available_time'] = $this->getTime($offer['available_time']);
-		$offer['hours'] = $this->getDuration($offer['available_time']);
+//		$offer['available_time'] = $this->getTime($offer['available_time']);
+//		$offer['hours'] = $this->getDuration($offer['available_time']);
 		
 		return $offer;
 	}

@@ -12,11 +12,12 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
-			AdminColumn::text('id')->setLabel('#'),
-			AdminColumn::text('name')->setLabel('Name'),
-			AdminColumn::text('address')->setLabel('Address'),
-			AdminColumn::text('email')->setLabel('Email'),
+			AdminColumn::text('id', '#'),
+			AdminColumn::text('name', 'Name'),
+			AdminColumn::text('address', 'Address'),
+			AdminColumn::text('email', 'Email'),
 		]);
+		
 		$display->paginate(10);
 		return $display;
 	});

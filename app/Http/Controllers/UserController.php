@@ -71,32 +71,40 @@ class UserController extends Controller
 		if (!$user = Auth::user())
 			abort(404);
 		
-		$reservations = Reservation::where('user_id', $user['id'])
-			->get();
 		
-		$result = [];
-		foreach ($reservations as $reservation) {
-			$offer = Offer::find($reservation['offer_id']);
-			$activity = Activity::find($offer['activity_id']);
-			$agency = Agency::find($offer['agency_id']);
-			$result[] = [
-				'activity_id'         => $activity['id'],
-				'activity_name'       => $activity['name'],
-				'activity_image_icon' => $activity['image_icon'],
-				'agency_name'         => $agency['name'],
-				'agency_address'      => $agency['address'],
-				'reservation_id'      => $reservation['id'],
-				'reservation_date'    => $reservation['reserve_date'],
-				'reservation_persons' => $reservation['persons'],
-				'offer_start_time'    => $offer['start_time'],
-				'offer_end_time'      => $offer['end_time'],
-//				'offer_price'         => $offer['price'] * (1 - config('kipmuving.discount')),
-				'offer_summary_price' => $offer['price'] * (1 - config('kipmuving.discount')) * $reservation['persons']
-			];
-		}
+//		dd($user->reservations[3]->time);
+//
+//		foreach ($user->reservations as $reservation) {
+//
+//		}
+		
+//		$reservations = Reservation::where('user_id', $user['id'])
+//			->where('status', '=', true)
+//			->get();
+//
+//		$result = [];
+//		foreach ($reservations as $reservation) {
+//			$offer = Offer::find($reservation['offer_id']);
+//			$activity = Activity::find($offer['activity_id']);
+//			$agency = Agency::find($offer['agency_id']);
+//			$result[] = [
+//				'activity_id'         => $activity['id'],
+//				'activity_name'       => $activity['name'],
+//				'activity_image_icon' => $activity['image_icon'],
+//				'agency_name'         => $agency['name'],
+//				'agency_address'      => $agency['address'],
+//				'reservation_id'      => $reservation['id'],
+//				'reservation_date'    => $reservation['reserve_date'],
+//				'reservation_persons' => $reservation['persons'],
+//				'offer_start_time'    => $offer['start_time'],
+//				'offer_end_time'      => $offer['end_time'],
+////				'offer_price'         => $offer['price'] * (1 - config('kipmuving.discount')),
+//				'offer_summary_price' => $offer['price'] * (1 - config('kipmuving.discount')) * $reservation['persons']
+//			];
+//		}
 		$data = [
 			'user'         => $user,
-			'reservations' => $result
+//			'reservations' => $result
 		];
 		
 		return view('site.user.index', $data);

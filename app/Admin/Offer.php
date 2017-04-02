@@ -12,15 +12,20 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
-			AdminColumn::text('id')->setLabel('#'),
-			AdminColumn::text('activity')->setLabel('Activity'),
-			AdminColumn::text('agency')->setLabel('Agency'),
-			AdminColumn::text('real_price')->setLabel('Price'),
-//			AdminColumn::text('persons')->setLabel('Persons'),
-//			AdminColumn::text('min_age')->setLabel('Min age'),
-			AdminColumn::datetime('available_start')->setLabel('Start')->setFormat('d/m'),
-			AdminColumn::datetime('available_end')->setLabel('End')->setFormat('d/m'),
-			AdminColumn::custom()->setLabel('Available')->setCallback(function ($instance) {
+			AdminColumn::text('id', '#'),
+			AdminColumn::text('activity.name', 'Activity'),
+			AdminColumn::text('agency.name', 'Agency'),
+			AdminColumn::text('real_price', 'Price'),
+//			AdminColumn::text('persons', 'Persons'),
+//			AdminColumn::text('min_age', 'Min age'),
+			AdminColumn::datetime('available_start', 'Start')
+				->setFormat('d/m'),
+			AdminColumn::datetime('available_end', 'End')
+				->setFormat('d/m'),
+			AdminColumn::custom()
+				->setLabel('Available')
+				->setHtmlAttribute('class', 'text-center')
+				->setCallback(function ($instance) {
 				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
 			})
 		]);
@@ -83,10 +88,10 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Time'  => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('available_time', 'Time')->required()
+				AdminFormElement::textarea('real_available_time', 'Time')->required()
 			]),
 			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('includes', 'Includes')->required()
+				AdminFormElement::textarea('real_includes', 'Includes')->required()
 			]),
 			'Important' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('important', 'Important')->required()

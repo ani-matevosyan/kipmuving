@@ -8,41 +8,39 @@ class Reservation extends Model
 {
 	protected $table = 'reservations';
 	
-	public function getUserAttribute()
+	public function user()
 	{
-		$user = User::find($this['user_id'])
-			->first();
-		
-		return $user['first_name'].' '.$user['last_name'];
+		return $this->hasOne('App\User', 'id', 'user_id');
 	}
 	
-	public function getActivityAttribute()
+	public function offer()
 	{
-		$offer = Offer::find($this['offer_id']);
-		$activity = Activity::find($offer['activity_id']);
-		
-		return $activity['name'];
+		return $this->hasOne('App\Offer', 'id', 'offer_id');
 	}
 	
-	public function getAgencyAttribute()
+	public function getTimeAttribute()
 	{
-		$offer = Offer::find($this['offer_id']);
-		$agency = Agency::find($offer['agency_id']);
+		if ($this->attributes['time_range']) {
+			$time = explode('-', $this->attributes['time_range']);
+			
+			if (is_array($time))
+				return [
+					'start' => $time[0],
+					'end'   => $time[1]
+				];
+		}
 		
-		return $agency['name'];
+		return null;
 	}
-	
+
 	public function getSumAttribute()
 	{
-		$offer = Offer::find($this['offer_id']);
-		
-		return $offer['real_price_offer'] * $this['persons'];
+		return $this->offer->real_price * $this->attributes['persons'];
 	}
 	
-	public function getPriceAttribute()
+	public function getNameAttribute()
 	{
-		$offer = Offer::find($this['offer_id']);
-		
-		return $offer['real_price_offer'];
+//		dd($this->user);
+		return $this->user->first_name.' '.$this->user->last_name;
 	}
 }

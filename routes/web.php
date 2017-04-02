@@ -48,6 +48,24 @@ Route::get('/reservation/{id}/cancel', 'ReservationController@cancelReservation'
 	->where('id', '[0-9]+');
 Route::get('/reserve/paypal', 'ReservationController@paymentPaypal');
 
+//Route::get('/reserve/payu', 'ReservationController@paymentPayU');
+Route::post('/reserve/payu', 'ReservationController@postPayU');
+Route::get('/reserve/payu', 'ReservationController@getPayU');
+
+
+
+Route::get('/reserve/pagseguro', 'ReservationController@paymentPagseguro');
+Route::get('/reserve/pagseguro/redirect', [
+	'uses' => 'ReservationController@paymentPagseguroRedirectGet',
+	'as' => 'pagseguro.redirect.get'
+]);
+Route::post('/pagseguro/notification', [
+	'uses' => '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification',
+	'as' => 'pagseguro.notification',
+]);
+
+
+
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');

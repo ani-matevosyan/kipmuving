@@ -13,7 +13,7 @@ class AgencyController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'imageIndex' => $imageIndex,
-			'agencies'   => $agency->getAgencies(),
+			'agencies'   => Agency::get(),
 			'count'      => [
 				'offers'  => count($offer->getSelectedOffers()),
 				'persons' => $offer->getSelectedOffersPersons()
@@ -23,11 +23,14 @@ class AgencyController extends Controller
 		return view('site.agencies.index', $data);
 	}
 	
-	public function getAgency($id, Agency $agency, Offer $offer)
+	public function getAgency($id)
 	{
+		$_agency = new Agency();
+		$_offer = new Offer();
+		
 		$data = [
-			'agency' => $agency->getAgency($id),
-			'offers' => $offer->getAgencyOffers($id)
+			'agency' => $_agency->getAgency($id),
+//			'offers' => $_offer->getAgencyOffers($id)
 		];
 
 		return view('site.agencies.agency-single', $data);
