@@ -27,21 +27,6 @@
 					<div class="burger"></div>
 				</div>
 				<div class="country">
-					{{--<div class="img-flag pick-lang">--}}
-						{{--<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"--}}
-							  {{--alt="image description" class="current-lang">--}}
-						{{--<span class="glyphicon glyphicon-triangle-top"></span>--}}
-						{{--<ul class="choose-menu choose-lang">--}}
-							{{--@foreach($locales as $locale)--}}
-								{{--<li>--}}
-									{{--<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">--}}
-										{{--<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"--}}
-											  {{--alt="image description">--}}
-									{{--</a>--}}
-								{{--</li>--}}
-							{{--@endforeach--}}
-						{{--</ul>--}}
-					{{--</div>--}}
 					<div class="pick-curr">
 						<span class="current-curr">{{ session('currency.type') }} $</span>
 						<span class="glyphicon glyphicon-triangle-top"></span>
@@ -106,19 +91,6 @@
 			<aside class="holder">
 				<div class="container">
 					<div class="row">
-						{{--<div class="col-md-3 col-sm-4 col-xs-12 box">--}}
-						{{--<!----}}
-						{{--<strong class="title">Aventura Chile</strong>--}}
-						{{--<nav class="footer-nav">--}}
-						{{--<ul>--}}
-						{{--<li><a href="#">Quien Somos</a></li>--}}
-						{{--<li><a href="#">Time</a></li>--}}
-						{{--<li><a href="#">Trabaje con nosotros</a></li>--}}
-						{{--<li><a href="#">Contacto</a></li>--}}
-						{{--</ul>--}}
-						{{--</nav>--}}
-						{{---->--}}
-						{{--</div>--}}
 						<div class="col-md-3 col-sm-4 col-xs-12 box">
 							<ul class="payment-cards">
 								@for($i = 1; $i <= 6; $i++)
@@ -144,7 +116,6 @@
 						</div>
 						<div class="col-md-4 col-sm-12 col-xs-12 box">
 							<strong class="title">{{ trans('main.contact_us') }}</strong>
-							{{--rafaelzarro@gmail.com--}}
 							<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
 								{{ csrf_field() }}
 								<div class="sub-row">
@@ -222,7 +193,6 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Cerrar</button>
-				<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 			</div>
 		</div>
 	</div>
@@ -259,7 +229,6 @@
 				<div id="map-container" style="width: 100%; height: 500px"></div>
 			</div>
 			<div class="modal-footer">
-				<!-- <a href="#" class="btn btn-success btn-confirm">CONFIRMAR</a> -->
 				<a href="#" class="btn btn-warning" data-dismiss="modal">CERRAR</a>
 			</div>
 		</div>

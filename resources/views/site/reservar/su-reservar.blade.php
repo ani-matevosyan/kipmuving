@@ -150,17 +150,17 @@
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 											data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
-										<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
-											<input name="merchantId" type="hidden"  value="630645">
-											{{--<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">--}}
-											<input name="accountId" type="hidden"  value="632993">
-											<input name="description" type="hidden"  value="Test PAYU">
-											<input name="referenceCode" type="hidden"  value="TESTTESTOS" >
-											<input name="amount" type="hidden"  value="10">
+										<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">
+											<input name="merchantId" type="hidden"  value="508029">
+											{{--<input name="ApiKey" type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA">--}}
+											<input name="accountId" type="hidden"  value="512326">
+											<input name="description" type="hidden"  value="adasdasdasdasd34454lfkgkjgjjkk">
+											<input name="referenceCode" type="hidden"  value="adasdasdasdasd34454lfkgkjgjjkk" >
+											<input name="amount" type="hidden"  value="3">
 											<input name="tax" type="hidden"  value="0">
 											<input name="taxReturnBase" type="hidden"  value="0">
 											<input name="currency" type="hidden"  value="USD">
-											<input name="signature" type="hidden"  value="a7661a80834abc20c1a5bbe5eb87b3e4">
+											<input name="signature" type="hidden"  value="6996edf9c5945541554ad50c75611581">
 											<input name="test" type="hidden"  value="1">
 											<input name="buyerEmail" type="hidden"  value="testt@test.com">
 											<input name="responseUrl" type="hidden"  value="/user" >

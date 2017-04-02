@@ -12,59 +12,62 @@
 </div>
 <div class="infor-bar">
     <div class="row">
-        <div class="col-md-5 right-border">
+        <div class="col-xs-12">
             <p>{{ trans('main.car_big_text') }}</p>
-            <div class="play-info">
-                <img src="../images/play-button.svg" alt="play description" width="33" height="33">
-                <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
-            </div> 
         </div>
-        <div class="col-md-7">
-            <div class="placeholder-info">
-                <p>{{ trans('main.iconography') }}</p>
-                <ul> 
-                    <li class="active">
-                        <a href="#">
-                            <div class="ico">
-                                <img src="../images/placeholder.svg" alt="image description" width="33" height="33"
-                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
-                            </div>
-                            <strong>{{ trans('main.to_visit') }}</strong>
-                            <p>{{ trans('main.and_take_photo') }}</p>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="#">
-                            <div class="ico">
-                                <img src="../images/placeholder2.svg" alt="image description" width="33" height="33"
-                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
-                            </div>
-                            <strong>{{ trans('main.best_spa') }}: </strong>
-                            <p>{{ trans('main.to_relax') }}</p>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="#">
-                            <div class="ico">
-                                <img src="../images/placeholder3.svg" alt="image description" width="33" height="33"
-                                     onerror="this.onerror=null; this.src='../images/ico16.png'">
-                            </div>
-                            <strong>{{ trans('main.national_parks') }}</strong>
-                            <p>{{ trans('main.incredible_parks') }}</p>
-                        </a>
-                    </li> 
-
-                </ul> 
-            </div>
-        </div>
-    </div>
-</div>                                    
-<div class="row">
-    <div class="map-detail" id="map" style="height: 500px; width: 100%">
-        {{--<iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/rafaelzarro.1c6j5igk/attribution,share.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw'></iframe>--}}
     </div>
 </div>
 
+<div class="guide-places-plates-wrapper">
+    <h2>Visual</h2>
+    <div class="guide-places-plates">
+        <div class="guide-places-plate">
+            <figure>
+                <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+            </figure>
+            <div class="descr">
+                <h3>Villarrica</h3>
+                <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+            </div>
+        </div>
+        <div class="guide-places-plate">
+            <figure>
+                <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+            </figure>
+            <div class="descr">
+                <h3>Base del Volcan</h3>
+                <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+            </div>
+        </div>
+        <div class="guide-places-plate">
+            <figure>
+                <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+            </figure>
+            <div class="descr">
+                <h3>Salto Mariman</h3>
+                <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+            </div>
+        </div>
+        <div class="guide-places-plate">
+            <figure>
+                <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+            </figure>
+            <div class="descr">
+                <h3>Saltos Palguin</h3>
+                <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+            </div>
+        </div>
+        <div class="guide-places-plate">
+            <figure>
+                <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+            </figure>
+            <div class="descr">
+                <h3>Caburgua</h3>
+                <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-7">
@@ -195,6 +198,14 @@
                                         </script>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="order-theactivity">
+                                <select>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="4">Four</option>
+                                </select>
                             </div>
                         </div>
                     </div>
