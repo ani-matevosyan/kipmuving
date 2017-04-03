@@ -829,6 +829,7 @@ tooltip fade top in {
 
 .tab-content .well.map-tab{
     padding: 0;
+    height: 300px;
 }
 
 .tab-content .tab-detail {
@@ -851,6 +852,78 @@ tooltip fade top in {
 .tab-pane .info-icons span {
     padding-left: 30px;
     display: block; }
+
+.order-theguide>ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.order-theguide>ul>li{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 30px;
+    position: relative;
+    margin-right: 25px;
+}
+.order-theguide>ul>li:last-child{
+    margin-right: 0;
+}
+.order-theguide>ul>li:before{
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+.order-theguide>ul>li:nth-child(1):before{
+    width: 18px;
+    height: 18px;
+    background: url(../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.order-theguide>ul>li:nth-child(2):before{
+    width: 22px;
+    height: 22px;
+    background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.order-theguide>ul>li>strong{
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.order-theguide input[type=text],
+.order-theguide .jcf-select{
+    background: #963d4c;
+}
+
+.order-theguide input[type=text]{
+    font-size: 14px;
+    height: 34px;
+    width: 120px;
+    color: #fff;
+}
+
+.order-theguide .jcf-select{
+    min-width: 100px;
+    width: auto;
+}
+.order-theguide .jcf-select .jcf-select-text{
+    color: #fff
+}
+.order-theguide .jcf-select .jcf-select-opener{
+    display: none;
+}
+
+.your-reservation.activity .order-theguide .btn-primary{
+    font-size: 14px;
+    position: relative;
+    top: 22px;
+    padding: 7px 10px;
+}
 
 .nav-pills li {
     height: 85px; }
@@ -1048,17 +1121,16 @@ tooltip fade top in {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    margin-right: -10px;
 }
 
 .guide-places-plate{
-    width: calc(100% * (1/5) - 8px);
+    width: calc(100% * (1/5) - 10px);
     text-align: left;
     border: 3px solid #B8DDE3;
     background: #B8DDE3;
     cursor: pointer;
+    margin: 0 10px 15px 0;
 }
 
 .descr{
@@ -1080,35 +1152,35 @@ tooltip fade top in {
     object-position: center;
 }
 
-.guide-places-plate:nth-child(2n){
+.guide-places-plate:nth-child(5n+2){
     background: #D7E5D8;
     border-color: #D7E5D8;
 }
-.guide-places-plate:nth-child(2n) .descr h3{
+.guide-places-plate:nth-child(5n+2) .descr h3{
     color: #569856;
 }
 
-.guide-places-plate:nth-child(3n){
+.guide-places-plate:nth-child(5n+3){
     background: #F2DFA4;
     border-color: #F2DFA4;
 }
-.guide-places-plate:nth-child(3n) .descr h3{
+.guide-places-plate:nth-child(5n+3) .descr h3{
     color: #BD951F;
 }
 
-.guide-places-plate:nth-child(4n){
+.guide-places-plate:nth-child(5n+4){
     background: #FAD7C3;
     border-color: #FAD7C3;
 }
-.guide-places-plate:nth-child(4n) .descr h3{
+.guide-places-plate:nth-child(5n+4) .descr h3{
     color: #CD7351;
 }
 
-.guide-places-plate:nth-child(5n){
+.guide-places-plate:nth-child(5n+5){
     background: #FAD4AF;
     border-color: #FAD4AF;
 }
-.guide-places-plate:nth-child(5n) .descr h3{
+.guide-places-plate:nth-child(5n+5) .descr h3{
     color: #D8954D;
 }
 
