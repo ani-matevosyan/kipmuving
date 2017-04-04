@@ -1340,3 +1340,61 @@ tooltip fade top in {
     display: none;
 }
 
+
+/* About Page */
+
+.s_about_page{
+    padding-top: 100px;
+    padding-bottom: 640px;
+    background: url(/images/about_bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    font-size: 17px;
+}
+
+.about_content{
+    padding-top: 20px;
+}
+
+.about_content p{
+    margin: 37px 0;
+}
+
+.about_content ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about_content li{
+    display: inline-block;
+    position: relative;
+    padding-left: 50px;
+    min-height: 40px;
+    vertical-align: top;
+    margin-right: 30px;
+}
+.about_content li:last-child{
+    margin-right: 0;
+}
+.about_content li:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    height: 100%;
+    width: 1px;
+    background: #000;
+    opacity: 0.2;
+}
+.about_content li:last-child:after{
+    display: none;
+}
+
+.item-icon{
+    opacity: 0.7;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

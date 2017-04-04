@@ -110,7 +110,7 @@
 						<strong class="title">KipMuving</strong>
 						<nav class="footer-nav">
 						<ul>
-						<li><a href="#">Quien Somos</a></li>
+						<li><a href="{{ action('AboutController@index') }}">Quien Somos</a></li>
 						<li><a href="#">Contacto</a></li>
 						</ul>
 						</nav>
