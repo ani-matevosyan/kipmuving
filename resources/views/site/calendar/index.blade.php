@@ -65,10 +65,10 @@
 									</div>
 								</div>
 								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
-								{{--<div class="note">--}}
-								{{--* {{ trans('main.approximate_value') }}--}}
-								{{--</div>--}}
 							</section>
+							<div class="su_program_note">
+								* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.
+							</div>
 							<section class="s_howitworks_sidebar">
 								<div class="section-container">
 									<header>
@@ -90,12 +90,14 @@
 									</div>
 								</div>
 								<div class="payment">
-									<span>{{ trans('main.you_can_use') }}:</span>
 									<a href="#">
-										<img src="images/stripe.png" alt="Stripe">
+										<img src="images/pagseguro_min_logo.png" alt="Pagseguro logo">
 									</a>
 									<a href="#">
-										<img src="images/paypal.png" alt="PayPal">
+										<img src="images/payu_min_logo.png" alt="PayU logo">
+									</a>
+									<a href="#">
+										<img src="images/paypal.png" alt="PayPal logo">
 									</a>
 								</div>
 							</section>

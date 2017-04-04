@@ -559,12 +559,13 @@ tooltip fade top in {
     border: 4px solid #b2c172;
     display: block;
     margin-top: 5px; }
-.map-box-1 .map-heading h2 {
+.map-box-1 .map-heading h3 {
     font-size: 23px;
     color: #ffffff;
     font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    line-height: 32px}
 .map-box-1 .plus-icon {
     display: block;
     position: absolute;
@@ -581,12 +582,13 @@ tooltip fade top in {
     border: 4px solid #4fb46e;
     display: block;
     margin-top: 5px; }
-.map-box-2 .map-heading h2 {
+.map-box-2 .map-heading h3 {
     font-size: 23px;
     color: #ffffff;
     font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    line-height: 32px}
 .map-box-2 .plus-icon {
     display: block;
     position: absolute;
@@ -603,12 +605,13 @@ tooltip fade top in {
     border: 4px solid #238384;
     display: block;
     margin-top: 5px; }
-.map-box-3 .map-heading h2 {
+.map-box-3 .map-heading h3 {
     font-size: 23px;
     color: #ffffff;
     font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    line-height: 32px;}
 .map-box-3 .plus-icon {
     display: block;
     position: absolute;
@@ -625,12 +628,13 @@ tooltip fade top in {
     border: 4px solid #343b4e;
     display: block;
     margin-top: 5px; }
-.map-box-4 .map-heading h2 {
+.map-box-4 .map-heading h3 {
     font-size: 23px;
     color: #ffffff;
     font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    line-height: 32px;}
 .map-box-4 .plus-icon {
     display: block;
     position: absolute;
@@ -798,7 +802,6 @@ tooltip fade top in {
     display: inline-block; }
 
 .termas-tabs {
-    margin-top: 15px;
     text-align: left; }
 .termas-tabs .map-holder {
     height: 270px; }
@@ -826,6 +829,7 @@ tooltip fade top in {
 
 .tab-content .well.map-tab{
     padding: 0;
+    height: 300px;
 }
 
 .tab-content .tab-detail {
@@ -848,6 +852,78 @@ tooltip fade top in {
 .tab-pane .info-icons span {
     padding-left: 30px;
     display: block; }
+
+.order-theguide>ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.order-theguide>ul>li{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 30px;
+    position: relative;
+    margin-right: 25px;
+}
+.order-theguide>ul>li:last-child{
+    margin-right: 0;
+}
+.order-theguide>ul>li:before{
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+.order-theguide>ul>li:nth-child(1):before{
+    width: 18px;
+    height: 18px;
+    background: url(../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.order-theguide>ul>li:nth-child(2):before{
+    width: 22px;
+    height: 22px;
+    background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.order-theguide>ul>li>strong{
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.order-theguide input[type=text],
+.order-theguide .jcf-select{
+    background: #963d4c;
+}
+
+.order-theguide input[type=text]{
+    font-size: 14px;
+    height: 34px;
+    width: 120px;
+    color: #fff;
+}
+
+.order-theguide .jcf-select{
+    min-width: 100px;
+    width: auto;
+}
+.order-theguide .jcf-select .jcf-select-text{
+    color: #fff
+}
+.order-theguide .jcf-select .jcf-select-opener{
+    display: none;
+}
+
+.your-reservation.activity .order-theguide .btn-primary{
+    font-size: 14px;
+    position: relative;
+    top: 22px;
+    padding: 7px 10px;
+}
 
 .nav-pills li {
     height: 85px; }
@@ -988,11 +1064,126 @@ tooltip fade top in {
 .right-col {
   height: 515px; }
 
+.your-reservation.activity #m-box-3 .all-activities header.light-blue h1{
+    display: inline-block;
+    border-right: 1px solid #3eb3b4;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+#m-box-3 header.light-blue p{
+    display: inline-block;
+    vertical-align: middle;
+    color: #3eb3b4;
+}
+
+
 #m-box-3 .placeholder-info a {
   width: 170px; }
 
 #m-box-3 .placeholder-info a strong {
     line-height: normal; }
+
+.guide-places-plates-wrapper{
+    text-align: center;
+}
+
+.your-reservation.activity .guide-places-plates-wrapper>h2{
+    display: inline-block;
+    font-weight: bold;
+    color: #318b8c;
+    margin: 25px 0;
+    position: relative;
+}
+.guide-places-plates-wrapper>h2:before,
+.guide-places-plates-wrapper>h2:after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background: #EAEAEA;
+    top: 16px;
+}
+.guide-places-plates-wrapper>h2:before{
+    right: 125%;
+}
+.guide-places-plates-wrapper>h2:after{
+    left: 125%;
+}
+
+.guide-places-plates{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-right: -10px;
+}
+
+.guide-places-plate{
+    width: calc(100% * (1/5) - 10px);
+    text-align: left;
+    border: 3px solid #B8DDE3;
+    background: #B8DDE3;
+    cursor: pointer;
+    margin: 0 10px 15px 0;
+}
+
+.descr{
+    padding: 0 15px;
+}
+.descr h3{
+    color: #0B6A6E;
+    font-weight: bold;
+    margin: 15px 0 10px;
+}
+.descr p{
+    color: #28373D;
+}
+
+.item-image{
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.guide-places-plate:nth-child(5n+2){
+    background: #D7E5D8;
+    border-color: #D7E5D8;
+}
+.guide-places-plate:nth-child(5n+2) .descr h3{
+    color: #569856;
+}
+
+.guide-places-plate:nth-child(5n+3){
+    background: #F2DFA4;
+    border-color: #F2DFA4;
+}
+.guide-places-plate:nth-child(5n+3) .descr h3{
+    color: #BD951F;
+}
+
+.guide-places-plate:nth-child(5n+4){
+    background: #FAD7C3;
+    border-color: #FAD7C3;
+}
+.guide-places-plate:nth-child(5n+4) .descr h3{
+    color: #CD7351;
+}
+
+.guide-places-plate:nth-child(5n+5){
+    background: #FAD4AF;
+    border-color: #FAD4AF;
+}
+.guide-places-plate:nth-child(5n+5) .descr h3{
+    color: #D8954D;
+}
+
 
 .fancy-button {
   color: #ffffff; }

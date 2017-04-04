@@ -63,7 +63,7 @@
 								  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
 								  alt="Account name">
 					</div>
-						<a href="{{ action('UserController@getUser') }}" class="btn btn-primary"
+						<a href="{{ action('UserController@getUser') }}" class="btn btn-primary orange-btn"
 							title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 							{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
 						</a>
@@ -76,7 +76,7 @@
 						</form>
 					@else
 						<a href="{{ url('/register') }}"
-							class="btn btn-primary register-button">{{ trans('button-links.register') }}</a>
+							class="btn btn-primary orange-btn">{{ trans('button-links.register') }}</a>
 						<a href="{{ url('/login') }}"
 							class="btn btn-primary">{{ trans('button-links.login') }}</a>
 					@endif
@@ -106,31 +106,31 @@
 			<aside class="holder">
 				<div class="container">
 					<div class="row">
-						{{--<div class="col-md-3 col-sm-4 col-xs-12 box">--}}
-						{{--<!----}}
-						{{--<strong class="title">Aventura Chile</strong>--}}
-						{{--<nav class="footer-nav">--}}
-						{{--<ul>--}}
-						{{--<li><a href="#">Quien Somos</a></li>--}}
-						{{--<li><a href="#">Time</a></li>--}}
-						{{--<li><a href="#">Trabaje con nosotros</a></li>--}}
-						{{--<li><a href="#">Contacto</a></li>--}}
-						{{--</ul>--}}
-						{{--</nav>--}}
-						{{---->--}}
-						{{--</div>--}}
-						<div class="col-md-3 col-sm-4 col-xs-12 box">
-							<ul class="payment-cards">
-								@for($i = 1; $i <= 6; $i++)
-									<li>
-										<a href="#">
-											<img src="{{ asset('/images/card'.$i.'.png') }}" alt="image description">
-										</a>
-									</li>
-								@endfor
-							</ul>
+						<div class="col-md-2 col-sm-3 col-xs-12 box">
+						<strong class="title">KipMuving</strong>
+						<nav class="footer-nav">
+						<ul>
+						<li><a href="#">Quien Somos</a></li>
+						<li><a href="#">Contacto</a></li>
+						</ul>
+						</nav>
 						</div>
-						<div class="col-md-5 col-sm-8 col-xs-12 box">
+						<div class="col-md-3 col-sm-4 col-xs-12 box">
+							<div class="payment-cards-wrapper">
+								<ul class="payment-cards">
+									@for($i = 1; $i <= 6; $i++)
+										<li>
+											<a href="#">
+												<img src="{{ asset('/images/card'.$i.'.png') }}" alt="image description">
+											</a>
+										</li>
+									@endfor
+								</ul>
+								<a href="#"><img src="/images/pagseguro_logo.png" alt="Pagseguro logo"></a>
+								<a href="#"><img src="/images/payu_logo.png" alt="PayU logo"></a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-5 col-xs-12 box">
 							<strong class="title">{{ trans('main.where_we_are') }}</strong>
 							<address class="address">
 								<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
@@ -143,56 +143,58 @@
 							</address>
 						</div>
 						<div class="col-md-4 col-sm-12 col-xs-12 box">
-							<strong class="title">{{ trans('main.contact_us') }}</strong>
-							{{--rafaelzarro@gmail.com--}}
-							<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
-								{{ csrf_field() }}
-								<div class="sub-row">
-									<label for="name">{{ trans('form.name') }}</label>
-									<div class="text-field">
-										<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+							<div class="contact-form-wrapper">
+								<strong class="title">{{ trans('main.contact_us') }}</strong>
+								{{--rafaelzarro@gmail.com--}}
+								<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
+									{{ csrf_field() }}
+									<div class="sub-row">
+										<label for="name">{{ trans('form.name') }}</label>
+										<div class="text-field">
+											<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+										</div>
 									</div>
-								</div>
-								<div class="sub-row">
-									<label for="email">{{ trans('form.email') }}</label>
-									<div class="text-field">
-										<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+									<div class="sub-row">
+										<label for="email">{{ trans('form.email') }}</label>
+										<div class="text-field">
+											<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+										</div>
 									</div>
-								</div>
-								<div class="sub-row">
-									<label for="message">{{ trans('form.message') }}</label>
-									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message">{{ old('message') }}</textarea>
+									<div class="sub-row">
+										<label for="message">{{ trans('form.message') }}</label>
+										<div class="text-field">
+											<textarea rows="5" cols="5" class="form-control" id="message" name="message">{{ old('message') }}</textarea>
+										</div>
 									</div>
-								</div>
-								<div class="sub-row captcha-row" style="display:none;">
-									<label for="captcha">captcha</label>
-									<div class="text-field captcha-field">
-										{!! Recaptcha::render(['lang' => app()->getLocale(), 'theme' => 'dark']) !!}
+									<div class="sub-row captcha-row" style="display:none;">
+										<label for="captcha">captcha</label>
+										<div class="text-field captcha-field">
+											{!! Recaptcha::render(['lang' => app()->getLocale(), 'theme' => 'dark']) !!}
+										</div>
 									</div>
-								</div>
-								<input type="submit" value="OK" class="btn btn-success">
-							</form>
-							@if($errors->has('text'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('text') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('email'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('email') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('message'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('message') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('g-recaptcha-response'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-								</div>
-							@endif
+									<input type="submit" value="OK" class="btn btn-success">
+								</form>
+								@if($errors->has('text'))
+									<div class="alert alert-error alert-danger">
+										<strong>{{ $errors->first('text') }}</strong>
+									</div>
+								@endif
+								@if($errors->has('email'))
+									<div class="alert alert-error alert-danger">
+										<strong>{{ $errors->first('email') }}</strong>
+									</div>
+								@endif
+								@if($errors->has('message'))
+									<div class="alert alert-error alert-danger">
+										<strong>{{ $errors->first('message') }}</strong>
+									</div>
+								@endif
+								@if($errors->has('g-recaptcha-response'))
+									<div class="alert alert-error alert-danger">
+										<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+									</div>
+								@endif
+							</div>
 						</div>
 					</div>
 				</div>

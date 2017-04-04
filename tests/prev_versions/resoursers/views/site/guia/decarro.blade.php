@@ -1,177 +1,73 @@
- @extends('site.guia.layout')
+{{--DECCARO PAGE 31.03.2017 12:24--}}
+
+@extends('site.guia.layout')
 
 {{-- Subpage --}}
 @section('subpage')
 
-<div class="detail-box active-tab" id="m-box-3">
-    <div class="all-activities custom_title custom_title">
-        <header class="light-blue">
-            <h1>{{ trans('main.by_car_or_bus') }}</h1>
-            <p>{{ trans('main.car_small_text') }}</p>
-        </header>
-    </div>
-    <div class="infor-bar">
+    <div class="detail-box active-tab" id="m-box-3">
+        <div class="all-activities custom_title custom_title">
+            <header class="light-blue">
+                <h1>{{ trans('main.by_car_or_bus') }}</h1>
+                <p>{{ trans('main.car_small_text') }}</p>
+            </header>
+        </div>
+        <div class="infor-bar">
+            <div class="row">
+                <div class="col-md-5 right-border">
+                    <p>{{ trans('main.car_big_text') }}</p>
+                    <div class="play-info">
+                        <img src="../images/play-button.svg" alt="play description" width="33" height="33">
+                        <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="placeholder-info">
+                        <p>{{ trans('main.iconography') }}</p>
+                        <ul>
+                            <li class="active">
+                                <a href="#">
+                                    <div class="ico">
+                                        <img src="../images/placeholder.svg" alt="image description" width="33" height="33"
+                                             onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                    </div>
+                                    <strong>{{ trans('main.to_visit') }}</strong>
+                                    <p>{{ trans('main.and_take_photo') }}</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="ico">
+                                        <img src="../images/placeholder2.svg" alt="image description" width="33" height="33"
+                                             onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                    </div>
+                                    <strong>{{ trans('main.best_spa') }}: </strong>
+                                    <p>{{ trans('main.to_relax') }}</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="ico">
+                                        <img src="../images/placeholder3.svg" alt="image description" width="33" height="33"
+                                             onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                    </div>
+                                    <strong>{{ trans('main.national_parks') }}</strong>
+                                    <p>{{ trans('main.incredible_parks') }}</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-xs-12">
-                <p>{{ trans('main.car_big_text') }}</p>
+            <div class="map-detail" id="map" style="height: 500px; width: 100%">
+                {{--<iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/rafaelzarro.1c6j5igk/attribution,share.html?access_token=pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw'></iframe>--}}
             </div>
         </div>
-    </div>
 
-    <div class="guide-places-plates-wrapper">
-        <h2>Visual</h2>
-        <div class="guide-places-plates">
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Villarrica</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Base del Volcan</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Salto Mariman</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Saltos Palguin</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Caburgua</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="guide-places-plates-wrapper">
-        <h2>Caminatas</h2>
-        <div class="guide-places-plates">
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>El Cani</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Huerquehue</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>El Caro</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-places-plates-wrapper">
-        <h2>Termas</h2>
-        <div class="guide-places-plates">
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Peumayen</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Huife</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Quimeyco</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Los Pozones</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Palguin</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Geometricas</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Menetue</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-place-plate-details">
         <div class="row">
             <div class="col-sm-7">
                 <div class="left-col">
@@ -302,30 +198,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="order-theguide">
-                                        <ul class="pull-left">
-                                            <li>
-                                                <strong>Elija el dia</strong>
-                                                <div class="text-field has-ico calender">
-                                                    <input id="reserve-date-sd" type="text"
-                                                           data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-                                                           placeholder="Fecha" class="form-control"
-                                                           value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <strong>Elija el opcion de horario</strong>
-                                                <select class="persona">
-                                                    <option value="">{{ trans('main.schedule') }}</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                    <option value="4">Four</option>
-                                                </select>
-                                            </li>
-                                        </ul>
-                                        <a href="#" class="btn btn-primary" data-offer-id="1">Agregar mi agenda</a>
-                                    </div>
                                 </div>
                             </div>
                             <?php $countVisible++ ?>
@@ -341,7 +213,5 @@
             </div>
         </div>
     </div>
-
-</div>
-</div>
+    </div>
 @stop

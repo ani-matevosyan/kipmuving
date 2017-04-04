@@ -705,6 +705,10 @@ body.home2 .roteros-options .raised-form .text-field {
   padding: 6px 12px;
 }
 
+#header.new .btn-holder .btn-primary.orange-btn{
+    background: #ce8902;
+}
+
 #header.new .avatar-wrapp{
   width: 31px;
   height: 31px;
@@ -3492,10 +3496,18 @@ body.home2 .roteros-options .raised-form .text-field {
   color: #eab011;
 }
 
+#footer .payment-cards-wrapper{
+  text-align: center;
+}
+.payment-cards-wrapper>a{
+    display: inline-block;
+    margin-top: 10px;
+}
 #footer .payment-cards {
   overflow: hidden;
   max-width: 240px;
   letter-spacing: -4px;
+  text-align: center;
 }
 
 #footer .payment-cards li {
@@ -3537,7 +3549,9 @@ body.home2 .roteros-options .raised-form .text-field {
 #footer .address .tel:hover {
   color: #eab011;
 }
-
+#footer .contact-form-wrapper{
+  max-width: 400px;
+}
 #footer .contact-form {
   margin: 0;
   position: relative;
@@ -3545,7 +3559,16 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 @media (max-width: 767px) {
-  #footer .contact-form {
+    #footer .payment-cards-wrapper{
+        text-align: left;
+    }
+    .payment-cards-wrapper>a{
+        display: block;
+    }
+    #footer .payment-cards{
+        text-align: left;
+    }
+    #footer .contact-form {
     padding: 0;
   }
 }
@@ -5586,7 +5609,6 @@ body.home2 .roteros-options .raised-form .text-field {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
-  border-radius: 0;
 }
 
 @media (max-width: 767px) {
@@ -5760,7 +5782,6 @@ body.home2 .roteros-options .raised-form .text-field {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
-  border-radius: 0;
 }
 
 @media (max-width: 767px) {
@@ -8348,7 +8369,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .s_reservar .your-reservation .timing li.person{
-    padding-top: 5px;
+    padding: 5px 0 0 15px;
 }
 
 .s_reservar .your-reservation .timing li:after{
@@ -8359,7 +8380,7 @@ body.home2 .roteros-options .raised-form .text-field {
 .s_reservar .your-reservation .price{
     padding: 0;
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     right:  0;
 }
 
