@@ -29,6 +29,9 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 	});
 
 	$model->onCreateAndEdit(function () {
+		$warning_carries = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Zapatillas para mojar;<br>Ropa seca para después del viaje;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+		$warning_restrictions = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Se requiere un buen estado físico para realiza esta actividad;<br>Para realizar esta actividad, hay que saber nadar y no tener algún impedimento físico que le impida ver, oír y nadar;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+		
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 
 		$tabs = AdminDisplay::tabbed([
@@ -84,9 +87,11 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 					], 4)
 			]),
 			'Carry' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::html($warning_carries),
 				AdminFormElement::textarea('real_carries', 'Carry')->required()
 			]),
 			'Restrictions' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::html($warning_restrictions),
 				AdminFormElement::textarea('real_restrictions', 'Restrictions')->required(),
 			]),
 			'Weather' => new \SleepingOwl\Admin\Form\FormElements([
