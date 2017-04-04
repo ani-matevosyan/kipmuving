@@ -35,6 +35,9 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	});
 	
 	$model->onCreateAndEdit(function () {
+		$warning_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>09:00-14:00;<br>10:00-15:00<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+		$warning_includes = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Transporte ida y vuelta;<br>Guieda Profesional;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+		
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$tabs = AdminDisplay::tabbed([
@@ -88,9 +91,11 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
 			'Time'  => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::html($warning_time),
 				AdminFormElement::textarea('real_available_time', 'Time')->required()
 			]),
 			'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::html($warning_includes),
 				AdminFormElement::textarea('real_includes', 'Includes')->required()
 			]),
 			'Important' => new \SleepingOwl\Admin\Form\FormElements([

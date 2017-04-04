@@ -2,7 +2,7 @@
 	@if($offer->agency)
 		<header>
 			<div class="ico">
-				<img src="/{{ $offer->image_icon }}"
+				<img src="/{{ $offer->agency->image_icon }}"
 					  onerror="this.src='/images/image-none.jpg';"
 					  alt="agency image">
 			</div>
@@ -117,17 +117,17 @@
 					@if($offer['price'])
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div>
-								<strong class="price" data-unit-price="{{ $offer['price_offer'] }}">
+								<strong class="price" data-unit-price="{{ $offer->price_offer }}">
 									<del>
 										<small>
-											<sub>$</sub>{{ number_format($offer['price'], 0, '.', '.') }}
+											<sub>$</sub>{{ number_format($offer->price, 0, '.', '.') }}
 										</small>
 									</del>
 									<br>
-									<sub>$</sub>{{ number_format($offer['price'] * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+									<sub>$</sub>{{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 								</strong>
 								<a href="#" class="btn btn-primary btn-reserve"
-									data-offer-id="{{ $offer['id'] }}">{{ trans('main.add') }}</a>
+									data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>
 							</div>
 						</div>
 					@endif

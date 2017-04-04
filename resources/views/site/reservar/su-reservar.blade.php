@@ -147,47 +147,46 @@
 												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 1, ".", ".") }}</p>
 											</div>
 										</div>
-										<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
-										{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
-											{{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
+										{{--<a href="/reserve/paypal" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>--}}
+										<a href="#" class="btn-reservar reserve" data-toggle="modal" data-target="#PaymentModal">PayU</a>
 										<a href="/reserve/pagseguro">Pay with Pagseguro</a>
-										<!--?php $uid = uniqid() ?-->
-										<!--?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?-->
-										{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}
-											{{--<input name="merchantId" type="hidden"  value="508029">--}}
-											{{--<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">--}}
-											{{--<input name="accountId" type="hidden" value="512326">--}}
-											{{--<input name="description" type="hidden"  value="Test PAYU">--}}
-											{{--<input name="referenceCode" type="hidden"  value="{{ $uid }}" >--}}
-											{{--<input name="amount" type="hidden"  value="3">--}}
-											{{--<input name="tax" type="hidden"  value="0">--}}
-											{{--<input name="taxReturnBase" type="hidden"  value="0">--}}
-											{{--<input name="currency" type="hidden"  value="USD">--}}
-											{{--<input name="signature" type="hidden"  value="{{ $signature }}">--}}
+										<?php $uid = uniqid() ?>
+										<?php $signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD') ?>
+										<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">
+											<input name="merchantId" type="hidden"  value="508029">
+											<input name="ApiKey" type="hidden"  value="1wOnbtFLyv6N7v8QwWj5LVXNaw">
+											<input name="accountId" type="hidden" value="512326">
+											<input name="description" type="hidden"  value="Test PAYU">
+											<input name="referenceCode" type="hidden"  value="{{ $uid }}" >
+											<input name="amount" type="hidden"  value="3">
+											<input name="tax" type="hidden"  value="0">
+											<input name="taxReturnBase" type="hidden"  value="0">
+											<input name="currency" type="hidden"  value="USD">
+											<input name="signature" type="hidden"  value="{{ $signature }}">
 
-											{{--<input type="hidden" name="totalAmount" value="15">--}}
-											{{--<input type="hidden" name="OpenPayu-Signature" value="sender=508029;algorithm=md5;signature={{ $signature }}">--}}
-											{{--<input name="test" type="hidden"  value="1">--}}
-											{{--<input name="buyerEmail" type="hidden"  value="testt@test.com">--}}
-											{{--<input name="responseUrl" type="hidden"  value="http://kipmuving.lo/user" >--}}
-											{{--<input name="confirmationUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="continueUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="notifyUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="returnUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="surl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="furl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="sUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-											{{--<input name="fUrl" type="hidden" value="http://kipmuving.lo/user">--}}
-										{{--</form>--}}
-										{{--<script>--}}
-											{{--$(document).ready(function () {--}}
-												{{--$('.btn-reservar').click(function (event) {--}}
-												  {{--event.preventDefault();--}}
-												  {{--document.payuform.submit();--}}
-												  {{--return false;--}}
-												{{--});--}}
-											{{--});--}}
-										{{--</script>--}}
+											<input type="hidden" name="totalAmount" value="15">
+											<input type="hidden" name="OpenPayu-Signature" value="sender=508029;algorithm=md5;signature={{ $signature }}">
+											<input name="test" type="hidden"  value="1">
+											<input name="buyerEmail" type="hidden"  value="testt@test.com">
+											<input name="responseUrl" type="hidden"  value="http://kipmuving.lo/user" >
+											<input name="confirmationUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="continueUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="notifyUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="returnUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="surl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="furl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="sUrl" type="hidden" value="http://kipmuving.lo/user">
+											<input name="fUrl" type="hidden" value="http://kipmuving.lo/user">
+										</form>
+										<script>
+											$(document).ready(function () {
+												$('.btn-reservar').click(function (event) {
+												  event.preventDefault();
+												  document.payuform.submit();
+												  return false;
+												});
+											});
+										</script>
 									</section>
 									<div class="su_program_note">
 										* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.
