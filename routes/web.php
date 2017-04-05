@@ -89,3 +89,6 @@ Route::get('/locale/{code}', 'LocaleController@setLocale');
 
 #Currencies
 Route::get('/currency/{code}', 'CurrencyController@setCurrency');
+
+#About
+Route::get('/about', 'AboutController@index');
