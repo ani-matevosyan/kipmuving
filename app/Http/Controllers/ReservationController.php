@@ -287,7 +287,7 @@ class ReservationController extends Controller
 			
 			session()->forget('selectedOffers');
 			
-			return redirect()->to($information->getLink().'&shippingAddressRequired=false');
+			return redirect()->to($information->getLink());
 		}
 		
 		return redirect('/login');

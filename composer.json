@@ -19,7 +19,7 @@
         "ignited/laravel-omnipay": "2.*",
         "omnipay/paypal": "~2.0@dev",
         "omnipay/stripe": "~2.0@dev",
-        "michael/laravelpagseguro": "dev-master"
+        "michael/laravelpagseguro": "dev-master#f0981fb"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

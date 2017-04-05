@@ -2,6 +2,7 @@
 
 return [
 	/* DEFINE SE SERÁ UTILIZADO O AMBIENTE DE TESTES */
+//	'use-sandbox' => true,
 	'use-sandbox' => false,
 	
 	/*
