@@ -206,16 +206,16 @@ class ReservationController extends Controller
 		$gateway = Omnipay::create('PayPal_Express');
 		
 		//TEST
-		$gateway->setUsername('contacto-facilitator_api1.kipmuving.com');
-		$gateway->setPassword('2JZSH53Q4JY79H3U');
-		$gateway->setSignature('A9frNSjdg56YUh3IOj8EoShIiMclAq9C.MaTyUJSoP-kp8lV4eYmPPhD');
-		$gateway->setTestMode(true);
+//		$gateway->setUsername('contacto-facilitator_api1.kipmuving.com');
+//		$gateway->setPassword('2JZSH53Q4JY79H3U');
+//		$gateway->setSignature('A9frNSjdg56YUh3IOj8EoShIiMclAq9C.MaTyUJSoP-kp8lV4eYmPPhD');
+//		$gateway->setTestMode(true);
 		
 		//LIVE
-//			$gateway->setUsername('contacto_api1.kipmuving.com');
-//			$gateway->setPassword('DGC72LTKNP4T3P69');
-//			$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AuhHvXFexATZ1S0YcGK5mBl9vDLM');
-//			$gateway->setTestMode(false);
+			$gateway->setUsername('contacto_api1.kipmuving.com');
+			$gateway->setPassword('DGC72LTKNP4T3P69');
+			$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AuhHvXFexATZ1S0YcGK5mBl9vDLM');
+			$gateway->setTestMode(false);
 		
 		$gateway->setBrandName(config('app.name'));
 		
@@ -228,14 +228,15 @@ class ReservationController extends Controller
 		} else {
 			$response = $gateway->purchase([
 				'amount'    => $reservations->to_pay,
+				'no_shipping' => 1,
 				
 				//TEST
-				'returnUrl' => 'http://kipmuving.lo/reserve/paypal',
-				'cancelUrl' => 'http://kipmuving.lo/reserve',
+//				'returnUrl' => 'http://kipmuving.lo/reserve/paypal',
+//				'cancelUrl' => 'http://kipmuving.lo/reserve',
 				
 				//LIVE
-//					'returnUrl' => 'http://kipmuving.com/reserve/paypal',
-//					'cancelUrl' => 'http://kipmuving.com/reserve',
+					'returnUrl' => 'http://kipmuving.com/reserve/paypal',
+					'cancelUrl' => 'http://kipmuving.com/reserve',
 				
 				'currency'    => 'USD',
 				'description' => 'Kipmuving.com reservation',
