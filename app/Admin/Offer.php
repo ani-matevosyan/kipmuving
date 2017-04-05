@@ -12,23 +12,35 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
-			AdminColumn::text('id', '#'),
-			AdminColumn::text('activity.name', 'Activity'),
-			AdminColumn::text('agency.name', 'Agency'),
-			AdminColumn::text('real_price', 'Price'),
-//			AdminColumn::text('persons', 'Persons'),
-//			AdminColumn::text('min_age', 'Min age'),
-			AdminColumn::datetime('available_start', 'Start')
-				->setFormat('d/m'),
-			AdminColumn::datetime('available_end', 'End')
-				->setFormat('d/m'),
-			AdminColumn::custom()
-				->setLabel('Available')
+			$id = AdminColumn::text('id', '#')
+				->setHtmlAttribute('class', 'text-center'),
+			$activity_name = AdminColumn::relatedLink('activity.name', 'Activity')
+				->setHtmlAttribute('class', 'text-center'),
+			$agency_name = AdminColumn::relatedLink('agency.name', 'Agency')
+				->setHtmlAttribute('class', 'text-center'),
+			$price = AdminColumn::text('real_price', 'Price')
+				->setHtmlAttribute('class', 'text-center'),
+			$date_start = AdminColumn::datetime('available_start', 'Start')
+				->setFormat('d/m')
+				->setHtmlAttribute('class', 'text-center'),
+			$date_end = AdminColumn::datetime('available_end', 'End')
+				->setFormat('d/m')
+				->setHtmlAttribute('class', 'text-center'),
+			$availability = AdminColumn::custom('Available')
 				->setHtmlAttribute('class', 'text-center')
 				->setCallback(function ($instance) {
-				return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
-			})
+					return $instance->availability ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
+				})
 		]);
+		
+		$id->getHeader()->setHtmlAttribute('class', 'text-center');
+		$activity_name->getHeader()->setHtmlAttribute('class', 'text-center');
+		$agency_name->getHeader()->setHtmlAttribute('class', 'text-center');
+		$price->getHeader()->setHtmlAttribute('class', 'text-center');
+		$date_start->getHeader()->setHtmlAttribute('class', 'text-center');
+		$date_end->getHeader()->setHtmlAttribute('class', 'text-center');
+		$availability->getHeader()->setHtmlAttribute('class', 'text-center');
+		
 		$display->paginate(10);
 		
 		return $display;
@@ -90,7 +102,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 //					], 3),
 				AdminFormElement::checkbox('availability', 'Available'),
 			]),
-			'Time'  => new \SleepingOwl\Admin\Form\FormElements([
+			'Time'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::html($warning_time),
 				AdminFormElement::textarea('real_available_time', 'Time')->required()
 			]),

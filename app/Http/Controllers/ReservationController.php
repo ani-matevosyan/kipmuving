@@ -166,7 +166,6 @@ class ReservationController extends Controller
 			return redirect()->action('ActivityController@index');
 		
 		$reservations = $this->getReservationData($selected_offers);
-		$this->createReservation($reservations->offers, $user, 'paypal', 'ololo_uid_code', 'status bad :)', true);
 		
 		$data = [
 			'user'        => $user,
