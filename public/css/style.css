@@ -1438,8 +1438,7 @@ tooltip fade top in {
 /* About Page */
 
 .s_about_page{
-    padding-top: 100px;
-    padding-bottom: 640px;
+    padding-bottom: 600px;
     background: url(/images/about_bg.jpg) no-repeat;
     background-size: cover;
     background-position: bottom center;
@@ -1491,4 +1490,82 @@ tooltip fade top in {
     position: absolute;
     left: 0;
     top: 0;
+    max-width: 43px;
+    max-height: 42px;
+}
+
+.about_content ul:nth-child(2) li:nth-child(1){
+    width: 19%;
+}
+.about_content ul:nth-child(2) li:nth-child(2){
+    width: 33%;
+}
+.about_content ul:nth-child(2) li:nth-child(3){
+    width: 28%;
+}
+.about_content ul:nth-child(4) li:nth-child(1){
+    width: 17%;
+}
+.about_content ul:nth-child(4) li:nth-child(2){
+    width: 43%;
+}
+.about_content p:nth-child(5){
+    max-width: 720px;
+}
+
+@media screen and (max-width: 1149px){
+    .s_about_page{
+        padding-bottom: 440px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(1){
+        width: 22%;
+    }
+    .about_content ul:nth-child(2) li:nth-child(2){
+        width: 38%;
+    }
+    .about_content ul:nth-child(2) li:nth-child(3){
+        width: 32%;
+    }
+    .about_content ul:nth-child(4) li:nth-child(1){
+        width: 20%;
+    }
+    .about_content ul:nth-child(4) li:nth-child(2){
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .s_about_page{
+        background-position: bottom left;
+    }
+    .about_content li{
+        display: block;
+        margin: 0 0 30px;
+        width: 100% !important;
+    }
+    .about_content li:after{
+        display: none;
+    }
+
+    .about_content ul:nth-child(2) li:nth-child(1){
+        max-width: 220px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(2){
+        max-width: 360px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(3){
+        max-width: 330px;
+    }
+    .about_content ul:nth-child(4) li:nth-child(1){
+        max-width: 195px;
+    }
+    .about_content ul:nth-child(4) li:nth-child(2){
+        max-width: 520px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .s_about_page{
+        padding-bottom: 300px;
+    }
 }
