@@ -136,8 +136,6 @@ class Activity extends Model
 			->where('visibility', true)
 			->first();
 		
-		dd($activity->offers->sortBy('price'));
-		
 		return $activity;
 	}
 	
