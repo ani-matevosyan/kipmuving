@@ -646,20 +646,45 @@ tooltip fade top in {
     position: relative;
     left: -51%; }
 
-@media (min-width: 992px){
-    .flex_wrapper{
-        display: -webkit-box;  
-        display: -ms-flexbox;  
-        display: -webkit-flex; 
-        display: flex;
+.flex_wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin-right: -4px;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex_item {
+    width: calc(100% *(1/4) - 4px);
+    margin: 0 4px 0 0;
+}
+.click-tab {
+    display: block;
+    height: 100%;
+}
+
+@media screen and (max-width: 991px){
+    .flex_item {
+        width: calc(100% *(1/2) - 4px);
+        margin: 0 4px 8px 0;
     }
 }
 
-.click-tab {
-    display: block;
-    margin-right: -9px;
-    margin-left: -9px;
-    height: 100%; }
+@media screen and (max-width: 620px){
+    .flex_wrapper{
+        margin-right: 0;
+    }
+    .flex_item {
+        width: 100%;
+        margin: 0 0 8px 0;
+    }
+}
+
+
+
 
 .all-activities .light-blue {
     margin-top: 20px; }
@@ -745,7 +770,9 @@ tooltip fade top in {
     z-index: 1;}
 @media (max-width: 767px){
     .termas .opiniones{
-        margin-right: 0px;
+        margin-right: 0;
+        display: inline-block;
+        margin-left: 25px;
     }
 }
 .termas .opiniones:before {
@@ -779,13 +806,13 @@ tooltip fade top in {
     margin-top: 20px; }
 @media (max-width: 767px) {
     .left-col .mobile-left .pull-right {
-        float: none !important; } }
+        float: none !important; }
+}
 
 .right-col {
     padding-right: 0px;
     margin-top: 20px;
-    padding-top: 10px;
-    height: 650px; }
+    padding-top: 10px;}
 .right-col img {
     margin-left: 10px;
     display: inline-block;
@@ -853,10 +880,37 @@ tooltip fade top in {
     padding-left: 30px;
     display: block; }
 
+
+@media screen and (max-width:600px){
+    .termas-tabs .nav.nav-pills{
+        margin-bottom: 10px;
+    }
+    .termas-tabs .nav-pills>li.active{
+        background: #eeeeee;
+    }
+    .termas-tabs .nav-pills > li{
+        float: none;
+    }
+    .termas-tabs .nav-pills li:not(:first-child) a{
+        border-left: none;
+    }
+    .termas-tabs .nav-pills li.active:after{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .tab-pane .info-icons strong{
+        display: block;
+    }
+}
+
+
 .order-theguide>ul{
     padding: 0;
     margin: 0;
     list-style: none;
+    float: left;
 }
 .order-theguide>ul>li{
     display: inline-block;
@@ -923,6 +977,25 @@ tooltip fade top in {
     position: relative;
     top: 22px;
     padding: 7px 10px;
+}
+
+@media screen and (max-width: 600px){
+    .order-theguide>ul{
+        float: none
+    }
+    .order-theguide>ul>li{
+        display: block;
+    }
+    .order-theguide>ul>li:first-child{
+        margin-bottom: 10px;
+    }
+    .your-reservation.activity .order-theguide .btn-primary{
+        margin-left: 30px;
+    }
+    .order-theguide .jcf-select,
+    .order-theguide input[type=text]{
+        width: 190px;
+    }
 }
 
 .nav-pills li {
@@ -1061,9 +1134,6 @@ tooltip fade top in {
 #m-box-1 h1 {
   color: #93af1a; }
 
-.right-col {
-  height: 515px; }
-
 .your-reservation.activity #m-box-3 .all-activities header.light-blue h1{
     display: inline-block;
     border-right: 1px solid #3eb3b4;
@@ -1126,6 +1196,7 @@ tooltip fade top in {
 
 .guide-places-plate{
     width: calc(100% * (1/5) - 10px);
+    max-width: 300px;
     text-align: left;
     border: 3px solid #B8DDE3;
     background: #B8DDE3;
@@ -1184,6 +1255,29 @@ tooltip fade top in {
     color: #D8954D;
 }
 
+@media screen and (max-width: 991px){
+    .your-reservation.activity #m-box-3 .all-activities header.light-blue h1{
+        display: block;
+        border-right: none;
+        line-height: 50px;
+    }
+    .guide-places-plate {
+        width: calc(100% * (1 / 3) - 10px);
+    }
+}
+
+@media screen and (max-width: 767px){
+    .guide-places-plates{
+        margin-right: 0;
+    }
+    .guide-places-plate {
+        width: 100%;
+        margin: 0 auto 15px;
+    }
+    .descr h3{
+        font-size: 18px;
+    }
+}
 
 .fancy-button {
   color: #ffffff; }

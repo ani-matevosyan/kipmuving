@@ -1,9 +1,11 @@
 #myModalX .modal-dialog{
     width: 600px;
 }
-.in-image{
-    width:150px;
-    height:150px
+.in-image,
+.in-image>a>img{
+    width:145px;
+    height:145px;
+    margin: 0;
 }
 
 .in-image-agency{
@@ -47,9 +49,28 @@
 }
 @media(max-width:1378px){
     .in-image,
-    .in-image img{
-        width:165px;
-        height:165px
+    .in-image>a>img{
+        width:140px;
+        height:140px
+    }
+}
+@media(max-width:1149px){
+    .in-image,
+    .in-image>a>img{
+        width:125px;
+        height:125px
+    }
+}
+
+@media(max-width:991px){
+    .in-image {
+        width: 25%;
+        height: auto;
+        padding: 0;
+    }
+    .in-image>a>img{
+        width: 100%;
+        height: auto;
     }
 }
 @media(max-width: 768px){
@@ -59,13 +80,26 @@
     }
 }
 @media(max-width: 480px){
+    .in-image {
+        width: 33.333%;
+        height: auto;
+        padding: 0;
+    }
     #myModalX .modal-dialog{
         width: 300px;
     }
 }
 
 .instafeed{
-    float: left;
-    margin: 10px -10px;
+    margin: 10px 0;
     width: 100%;
+}
+
+.instafeed:before,
+.instafeed:after{
+    content:'';
+    display: table;
+}
+.instafeed:after{
+    clear: both;
 }

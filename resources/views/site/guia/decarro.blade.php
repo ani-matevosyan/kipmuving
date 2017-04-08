@@ -171,9 +171,150 @@
         </div>
     </div>
 
+    <div class="guide-places-plates-wrapper">
+        <h2>Test</h2>
+        <div class="guide-places-plates">
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Peumayen</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Huife</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar  necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Quimeyco</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar  necesitas para disfutar necesitas para disfutarcomo damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Los Pozones</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar c necesitas para disfutar necesitas para disfutar necesitas para disfutaromo damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Palguin</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como d necesitas para disfutar necesitas para disfutar necesitas para disfutar necesitas para disfutaramene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Geometricas</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu co necesitas para disfutar necesitas para disfutar necesitas para disfutaratro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Menetue</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Peumayen</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Huife</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Quimeyco</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Los Pozones</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Palguin</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Geometricas</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Menetue</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Menetue</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="guide-place-plate-details">
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-md-7">
                 <div class="left-col">
                     <?php $countVisible = 0; $gencount = -1; $firstVisibleIndex = null; $firstVisibleId; ?>
                     @foreach($mappoints['features'] as $mappoint)
@@ -303,7 +444,7 @@
                                         </div>
                                     </div>
                                     <div class="order-theguide">
-                                        <ul class="pull-left">
+                                        <ul>
                                             <li>
                                                 <strong>Elija el dia</strong>
                                                 <div class="text-field has-ico calender">
@@ -325,6 +466,7 @@
                                             </li>
                                         </ul>
                                         <a href="#" class="btn btn-primary" data-offer-id="1">Agregar mi agenda</a>
+                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
@@ -333,11 +475,14 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-5 right-col" style="overflow: hidden; height: 650px;">
-                <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
-                <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
+            <div class="col-md-5">
+                <div class="right-col">
+                    <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
+                    <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
 
-                <div id="instafeed3" class="instafeed" data-instaid="{{ $firstVisibleId }}" data-instatag="{{ $mappoints['features'][$firstVisibleIndex]['properties']['title'] }}"></div>
+                    <div id="instafeed3" class="instafeed" data-instaid="{{ $firstVisibleId }}" data-instatag="{{ $mappoints['features'][$firstVisibleIndex]['properties']['title'] }}"></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </div>
     </div>
