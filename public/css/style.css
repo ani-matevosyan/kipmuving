@@ -65,7 +65,8 @@
 }
 @media (max-width: 767px) {
     #first-slider-sec {
-        margin-top: -33px;
+        background-color: #104D3E;
+        margin-top: -74px;
     }
     #first-slider-sec, #second-slider-sec {
         padding-top: 10px;
@@ -1218,26 +1219,20 @@ tooltip fade top in {
 }
 
 .guide-places-plates{
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
     margin-right: -10px;
+    text-align: left;
 }
 
 .guide-places-plate{
-    width: calc(100% * (1/5) - 10px);
+    display: inline-block;
+    width: calc(100% * (1/5) - 13px);
     max-width: 300px;
     text-align: left;
     border: 3px solid #B8DDE3;
     background: #B8DDE3;
     cursor: pointer;
     margin: 0 10px 15px 0;
+    vertical-align: top;
 }
 
 .descr{
