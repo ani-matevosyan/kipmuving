@@ -7910,16 +7910,6 @@ body.home2 .roteros-options .raised-form .text-field {
   color: #dc7f3c;
 }
 
-.modal .modal-dialog {
-  width: 400px;
-}
-
-@media (max-width: 639px) {
-  .modal .modal-dialog {
-    width: auto;
-  }
-}
-
 .modal .modal-content {
   padding: 1px;
   border-radius: 0;
