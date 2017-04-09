@@ -71,14 +71,13 @@ $(document).ready(function () {
         $(".pick-lang").removeClass("pressed");
         $(".pick-curr").removeClass("pressed");
     });
-    
-    //Deccaro plates height
 
-    if($(".guide-places-plates").length){
-        $(".guide-places-plates").each(function(wrapIndex){
-            console.log('Group #'+wrapIndex);
+    //Deccaro plates
+
+    function deccaroPlatesHeight(){
+        $(".guide-places-plates").each(function(){
             var maxHeight = 0;
-            $(this).find('.guide-places-plate').each(function(someIndex){
+            $(this).find('.guide-places-plate').each(function(){
                 if($(this).outerHeight() > maxHeight)
                     maxHeight = $(this).outerHeight();
             });
@@ -86,4 +85,38 @@ $(document).ready(function () {
         });
     }
 
+    if($(".guide-places-plates").length){
+        deccaroPlatesHeight();
+    }
+
+    $(".guide-places-plate-wrapper").click(function(){
+       var details_div = $(this).find('.guide-place-plate-details');
+        if($(this).attr('data-opened')==='true'){
+            $(this).attr('data-opened', 'false');
+            $(this).css('margin-bottom', '15px');
+            details_div.css({'display': 'none', 'visibility': 'hidden'});
+        }else{
+            var thisPlate = $(this);
+            $(".guide-places-plate-wrapper").each(function () {
+                if($(this).attr('data-opened')==='true'){
+                    if($(this)!=thisPlate){
+                        $(this).attr('data-opened', 'false');
+                        $(this).css('margin-bottom', '15px');
+                        $(this).find('.guide-place-plate-details').css({'display': 'none', 'visibility': 'hidden'});
+                    }
+                }
+            });
+            $(this).attr('data-opened', 'true');
+            var details_height = details_div.show().outerHeight();
+            $(this).css('margin-bottom', details_height+ 30 + 'px');
+            details_div.css('visibility','visible');
+        }
+    });
+
+    // $(window).resize(function(){
+    //     // console.log('ok');
+    //     deccaroPlatesHeight();
+    // });
+
 });
+

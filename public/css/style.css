@@ -1221,9 +1221,10 @@ tooltip fade top in {
 .guide-places-plates{
     margin-right: -10px;
     text-align: left;
+    position: relative;
 }
 
-.guide-places-plate{
+.guide-places-plate-wrapper{
     display: inline-block;
     width: calc(100% * (1/5) - 13px);
     max-width: 300px;
@@ -1233,6 +1234,7 @@ tooltip fade top in {
     cursor: pointer;
     margin: 0 10px 15px 0;
     vertical-align: top;
+    padding-bottom: 20px;
 }
 
 .descr{
@@ -1254,36 +1256,47 @@ tooltip fade top in {
     object-position: center;
 }
 
-.guide-places-plate:nth-child(5n+2){
+.guide-places-plate-wrapper:nth-child(5n+2){
     background: #D7E5D8;
     border-color: #D7E5D8;
 }
-.guide-places-plate:nth-child(5n+2) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+2) .descr h3{
     color: #569856;
 }
 
-.guide-places-plate:nth-child(5n+3){
+.guide-places-plate-wrapper:nth-child(5n+3){
     background: #F2DFA4;
     border-color: #F2DFA4;
 }
-.guide-places-plate:nth-child(5n+3) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+3) .descr h3{
     color: #BD951F;
 }
 
-.guide-places-plate:nth-child(5n+4){
+.guide-places-plate-wrapper:nth-child(5n+4){
     background: #FAD7C3;
     border-color: #FAD7C3;
 }
-.guide-places-plate:nth-child(5n+4) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+4) .descr h3{
     color: #CD7351;
 }
 
-.guide-places-plate:nth-child(5n+5){
+.guide-places-plate-wrapper:nth-child(5n+5){
     background: #FAD4AF;
     border-color: #FAD4AF;
 }
-.guide-places-plate:nth-child(5n+5) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+5) .descr h3{
     color: #D8954D;
+}
+
+.guide-place-plate-details{
+    position: absolute;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    background: #000;
+    display: none;
+    visibility: hidden;
+    margin-top: 38px;
 }
 
 @media screen and (max-width: 991px){
@@ -1292,7 +1305,7 @@ tooltip fade top in {
         border-right: none;
         line-height: 50px;
     }
-    .guide-places-plate {
+    .guide-places-plate-wrapper {
         width: calc(100% * (1 / 3) - 10px);
     }
 }
@@ -1301,7 +1314,7 @@ tooltip fade top in {
     .guide-places-plates{
         margin-right: 0;
     }
-    .guide-places-plate {
+    .guide-places-plate-wrapper {
         width: 100%;
         margin: 0 auto 15px;
     }
