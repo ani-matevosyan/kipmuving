@@ -1,7 +1,7 @@
 <li class="offer-item">
     <header>
         <div class="ico">
-            <img src="/{{ $offer->activity->image_icon }}"
+            <img src="/{{ $offer->activity['image_icon'] }}"
                  onerror="this.src='/images/image-none.jpg';"
                  alt="agency image">
         </div>
@@ -11,7 +11,7 @@
         </div>
         <div class="text">
             <h2>
-                <a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
+                <a href="{{ action('ActivityController@getActivity', $offer->activity['id']) }}">{{ $offer->activity['name'] }}</a>
             </h2>
         </div>
     </header>
