@@ -5873,6 +5873,15 @@ body.home2 .roteros-options .raised-form .text-field {
     right: 0;
 }
 
+.your-reservation.all-activities .tenprocent{
+  position: static;
+  clear: both;
+  float: right;
+  margin-top: 10px;
+  padding-left: 53px;
+  background-size: 51px 30px;
+}
+
 .your-reservation .subnav {
   background: #ededed;
   border: 1px solid #ccc;
@@ -5890,9 +5899,18 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 @media (max-width: 767px) {
-  .your-reservation .subnav {
-    margin: 0 0 20px;
-  }
+    .your-reservation.all-activities .tenprocent{
+        margin-top: -20px;
+    }
+    .your-reservation .subnav {
+        margin: 0 0 20px;
+    }
+}
+@media screen and (max-width: 540px){
+    .your-reservation.all-activities .tenprocent{
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 .your-reservation .subnav ul {

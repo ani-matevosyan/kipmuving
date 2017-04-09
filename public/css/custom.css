@@ -183,10 +183,17 @@ body.home2 .all-activities .btn-success {
   margin-top: -120px;
 }
 
+.your-reservation.activity.add.all-activities .program-schedule{
+  margin-top: -100px;
+}
+
 .your-reservation.activity.add.main .program-schedule{
   margin-top: -130px;
 }
 @media (max-width: 767px) {
+  .your-reservation.activity.add.all-activities .program-schedule{
+    margin-top: -150px;
+  }
   .your-reservation.activity.add .program-schedule {
     margin-top: -160px;
     margin-right: 10px;
