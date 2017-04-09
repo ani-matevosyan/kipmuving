@@ -1,5 +1,5 @@
-<li class="offer-item">
-	@if($offer->agency)
+@if($offer->agency)
+	<li class="offer-item">
 		<header>
 			<div class="ico">
 				<img src="/{{ $offer->agency->image_icon }}"
@@ -144,9 +144,9 @@
       <a href="#" class="btn btn-primary btn-reserve" data-offer-id="{{ $offer->id }}">AGREGAR</a>
     </div> -->
 	</div>
-	@endif
 
 
 	<div class="trip-adv"></div>
 
 </li>
+@endif
