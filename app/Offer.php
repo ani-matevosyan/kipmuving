@@ -222,71 +222,71 @@ class Offer extends Model
 		$this->attributes['price_offer'] = $price_offer;
 	}
 	
-	public function getRecommendOffers($activityId)
-	{
-		$offers = Offer::join('agencies', 'offers.agency_id', 'agencies.id')
-			->where('offers.activity_id', $activityId)
-			->where('offers.availability', true)
-			->orderBy('agencies.recommendation', 'DESC')
-			->select('offers.*')
-			->get();
-		
-		$offers = $this->checkOffersAvailability($offers);
-		
-		foreach ($offers as $offer) {
-			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-//			$offer['includes'] = $this->getIncludes($offer['includes']);
-//			$offer['available_time'] = $this->getTime($offer['available_time']);
-//			$offer['hours'] = $this->getDuration($offer['available_time']);
-		}
-		
-		return $offers;
-	}
-	
-	public function getPriceOffers($activityId)
-	{
-		$offers = Offer::where('activity_id', $activityId)
-			->where('availability', true)
-			->orderBy('price_offer', 'ASC')
-			->get();
-		
-		$offers = $this->checkOffersAvailability($offers);
-		
-		foreach ($offers as $offer) {
-			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-//			$offer['includes'] = $this->getIncludes($offer['includes']);
-//			$offer['available_time'] = $this->getTime($offer['available_time']);
-//			$offer['hours'] = $this->getDuration($offer['available_time']);
-		}
-		
-		return $offers;
-	}
-	
-	public function getIncludesOffers($activityId)
-	{
-		$offers = Offer::where('activity_id', $activityId)
-			->where('availability', true)
-			->get();
-		
-		$offers = $this->checkOffersAvailability($offers);
-		
-		foreach ($offers as $offer) {
-//			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
-		}
-		
-		$offers = array_reverse(array_sort($offers, function ($value) {
-			return $value['includes_count'];
-		}));
-		
-		foreach ($offers as $offer) {
-			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-//			$offer['includes'] = $this->getIncludes($offer['includes']);
-//			$offer['available_time'] = $this->getTime($offer['available_time']);
-//			$offer['hours'] = $this->getDuration($offer['available_time']);
-		}
-		
-		return $offers;
-	}
+//	public function getRecommendOffers($activityId)
+//	{
+//		$offers = Offer::join('agencies', 'offers.agency_id', 'agencies.id')
+//			->where('offers.activity_id', $activityId)
+//			->where('offers.availability', true)
+//			->orderBy('agencies.recommendation', 'DESC')
+//			->select('offers.*')
+//			->get();
+//
+//		$offers = $this->checkOffersAvailability($offers);
+//
+//		foreach ($offers as $offer) {
+//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+////			$offer['includes'] = $this->getIncludes($offer['includes']);
+////			$offer['available_time'] = $this->getTime($offer['available_time']);
+////			$offer['hours'] = $this->getDuration($offer['available_time']);
+//		}
+//
+//		return $offers;
+//	}
+//
+//	public function getPriceOffers($activityId)
+//	{
+//		$offers = Offer::where('activity_id', $activityId)
+//			->where('availability', true)
+//			->orderBy('price_offer', 'ASC')
+//			->get();
+//
+//		$offers = $this->checkOffersAvailability($offers);
+//
+//		foreach ($offers as $offer) {
+//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+////			$offer['includes'] = $this->getIncludes($offer['includes']);
+////			$offer['available_time'] = $this->getTime($offer['available_time']);
+////			$offer['hours'] = $this->getDuration($offer['available_time']);
+//		}
+//
+//		return $offers;
+//	}
+//
+//	public function getIncludesOffers($activityId)
+//	{
+//		$offers = Offer::where('activity_id', $activityId)
+//			->where('availability', true)
+//			->get();
+//
+//		$offers = $this->checkOffersAvailability($offers);
+//
+//		foreach ($offers as $offer) {
+////			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
+//		}
+//
+//		$offers = array_reverse(array_sort($offers, function ($value) {
+//			return $value['includes_count'];
+//		}));
+//
+//		foreach ($offers as $offer) {
+//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
+////			$offer['includes'] = $this->getIncludes($offer['includes']);
+////			$offer['available_time'] = $this->getTime($offer['available_time']);
+////			$offer['hours'] = $this->getDuration($offer['available_time']);
+//		}
+//
+//		return $offers;
+//	}
 	
 	public function getSelectedOffers()
 	{
