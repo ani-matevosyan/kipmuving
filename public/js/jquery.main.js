@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
         $("body").css("overflow-y", "visible");
     });
 
-    if(!($("section.visual").length)  ){
+    if(!($("section.visual").length)){
         $("#header").addClass("header-v2");
     }
 

@@ -238,8 +238,8 @@ $(document).ready(function(){
 			tagName: thisTag,
 			target: 'instafeed3',
 			accessToken: accessToken,
-			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img style="width: 150px !important; height: 150px !important;" src="{{image}}"/></a></div>',
-			limit: 14,
+			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img src="{{image}}"/></a></div>',
+			limit: 12,
 			after: function () {
 				$('#instafeed3 a').click(function (e) {
 					e.preventDefault();

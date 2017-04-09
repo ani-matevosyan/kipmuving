@@ -52,7 +52,7 @@
 		<div class="container">
 			<div class="col-xs-12">
 				<div class="col-md-4">
-					<h1>{{ trans('main.the_most_requested') }}</h1>
+					<h2>{{ trans('main.the_most_requested') }}</h2>
 				</div>
 				<div class="col-md-8 row">
 					<p>{{ trans('main.below_are_the_activities') }}</p>
@@ -61,27 +61,33 @@
 			<div class="col-xs-12">
 				<div id="cpa-slider-1">
 					<div class="item">
+						<a href="/activity/10">
+							<img src="/uploads/activity/_nAqlH-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
+							<h3>Termas Geométricas</h3>
+						</a>
+					</div>
+					<div class="item">
 						<a href="/activity/3">
 							<img src="/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
-							<h2>Trekking Volcán Villarrica</h2>
+							<h3>Trekking Volcán Villarrica</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/5">
 							<img src="/uploads/activity/_zNYN9-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
-							<h2>Rafting Alto</h2>
+							<h3>Rafting Alto</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/2">
 							<img src="/uploads/activity/_kpEoA-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
-							<h2>Rafting Bajo</h2>
+							<h3>Rafting Bajo</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/4">
 							<img src="/uploads/activity/_ERPJI-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
-							<h2>Tour por la zona + Termas</h2>
+							<h3>Tour por la zona + Termas</h3>
 						</a>
 					</div>
 				</div>

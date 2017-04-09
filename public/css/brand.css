@@ -852,7 +852,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #header {
-  z-index: 20;
+  z-index: 21;
   position: absolute;
   top: 0;
   left: 0;
@@ -6074,6 +6074,27 @@ body.home2 .roteros-options .raised-form .text-field {
   font-weight: 400;
 }
 
+@media screen and (min-width: 992px){
+  .your-reservation.activity.add.new>.row{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .your-reservation.activity #activity-single-sidebar{
+    overflow: hidden;
+    position: relative;
+  }
+  .your-reservation.activity #activity-single-sidebar .important-block:after{
+    content: '';
+    position: absolute;
+    width: calc( 100% - 22px);
+    height: 100%;
+    left: 0;
+    background: #ededed;
+    margin: 0 11px;
+  }
+}
+
 @media (max-width: 991px) {
   .your-reservation .your-search h2 {
     margin: 0 0 10px;
@@ -8044,7 +8065,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 @media (max-width: 767px) {
   #CDSWIDSSP {
-    margin: 0 0 20px !important;
+    margin: 0 0 10px !important;
     width: 100% !important;
   }
 }

@@ -1,30 +1,29 @@
 /* Media query variable*/
 /*First slider*/
 #first-slider-sec {
-    background-color: #333333; }
+    background-color: #104D3E; }
 #first-slider-sec p {
-    color: #FFFFFF; }
-#first-slider-sec h1 {
-    color: #FFFFFF; }
+    color: #D0DBD1; }
+#first-slider-sec h2 {
+    color: #D0DBD1; }
 
 #second-slider-sec {
     background-color: #9bd4d6; }
 #second-slider-sec p {
     color: #0d6777; }
-#second-slider-sec h1 {
+#second-slider-sec h2 {
     color: #0d6777; }
 
 #first-slider-sec, #second-slider-sec {
-    color: #ffffff;
     padding-top: 30px;
     padding-bottom: 4px; }
-#first-slider-sec h1, #second-slider-sec h1 {
+#first-slider-sec h2, #second-slider-sec h2 {
     margin: 0;
     font-size: 36px;
     line-height: 40px;
     font-weight: 700; }
 @media (max-width: 767px) {
-    #first-slider-sec h1, #second-slider-sec h1 {
+    #first-slider-sec h2, #second-slider-sec h2 {
         margin: 0 0 1px;
         font-size: 24px;
         line-height: 30px; } }
@@ -39,21 +38,17 @@
     max-width: 335px;
     height: auto;
     background-color: black; }
-#first-slider-sec .item h2, #second-slider-sec .item h2 {
-    position: absolute;
+#first-slider-sec .item h3, #second-slider-sec .item h3 {
     display: block;
-    bottom: 6%;
-    left: 0px;
-    right: 0px;
-    color: #ffffff;
+    color: #d0dbd1;
     text-align: center;
-    padding: 0 20px 15px;
-    opacity: 90;
-    margin-top: 5px;
-    text-shadow: 1px 3px 1px #38383a;
-    font-weight: bold;}
+    margin: 0;
+    font-size: 24px;
+    background: #0C3E32;
+    padding: 10px 0;
+}
 @media (max-width: 767px) {
-    #first-slider-sec .item h2, #second-slider-sec .item h2 {
+    #first-slider-sec .item h3, #second-slider-sec .item h3 {
         font-size: 25px; } }
 @media (max-width: 767px) {
     #first-slider-sec, #second-slider-sec {
@@ -646,20 +641,45 @@ tooltip fade top in {
     position: relative;
     left: -51%; }
 
-@media (min-width: 992px){
-    .flex_wrapper{
-        display: -webkit-box;  
-        display: -ms-flexbox;  
-        display: -webkit-flex; 
-        display: flex;
+.flex_wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin-right: -4px;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex_item {
+    width: calc(100% *(1/4) - 4px);
+    margin: 0 4px 0 0;
+}
+.click-tab {
+    display: block;
+    height: 100%;
+}
+
+@media screen and (max-width: 991px){
+    .flex_item {
+        width: calc(100% *(1/2) - 4px);
+        margin: 0 4px 8px 0;
     }
 }
 
-.click-tab {
-    display: block;
-    margin-right: -9px;
-    margin-left: -9px;
-    height: 100%; }
+@media screen and (max-width: 620px){
+    .flex_wrapper{
+        margin-right: 0;
+    }
+    .flex_item {
+        width: 100%;
+        margin: 0 0 8px 0;
+    }
+}
+
+
+
 
 .all-activities .light-blue {
     margin-top: 20px; }
@@ -745,7 +765,9 @@ tooltip fade top in {
     z-index: 1;}
 @media (max-width: 767px){
     .termas .opiniones{
-        margin-right: 0px;
+        margin-right: 0;
+        display: inline-block;
+        margin-left: 25px;
     }
 }
 .termas .opiniones:before {
@@ -779,13 +801,13 @@ tooltip fade top in {
     margin-top: 20px; }
 @media (max-width: 767px) {
     .left-col .mobile-left .pull-right {
-        float: none !important; } }
+        float: none !important; }
+}
 
 .right-col {
     padding-right: 0px;
     margin-top: 20px;
-    padding-top: 10px;
-    height: 650px; }
+    padding-top: 10px;}
 .right-col img {
     margin-left: 10px;
     display: inline-block;
@@ -853,10 +875,37 @@ tooltip fade top in {
     padding-left: 30px;
     display: block; }
 
+
+@media screen and (max-width:600px){
+    .termas-tabs .nav.nav-pills{
+        margin-bottom: 10px;
+    }
+    .termas-tabs .nav-pills>li.active{
+        background: #eeeeee;
+    }
+    .termas-tabs .nav-pills > li{
+        float: none;
+    }
+    .termas-tabs .nav-pills li:not(:first-child) a{
+        border-left: none;
+    }
+    .termas-tabs .nav-pills li.active:after{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .tab-pane .info-icons strong{
+        display: block;
+    }
+}
+
+
 .order-theguide>ul{
     padding: 0;
     margin: 0;
     list-style: none;
+    float: left;
 }
 .order-theguide>ul>li{
     display: inline-block;
@@ -923,6 +972,25 @@ tooltip fade top in {
     position: relative;
     top: 22px;
     padding: 7px 10px;
+}
+
+@media screen and (max-width: 600px){
+    .order-theguide>ul{
+        float: none
+    }
+    .order-theguide>ul>li{
+        display: block;
+    }
+    .order-theguide>ul>li:first-child{
+        margin-bottom: 10px;
+    }
+    .your-reservation.activity .order-theguide .btn-primary{
+        margin-left: 30px;
+    }
+    .order-theguide .jcf-select,
+    .order-theguide input[type=text]{
+        width: 190px;
+    }
 }
 
 .nav-pills li {
@@ -1061,9 +1129,6 @@ tooltip fade top in {
 #m-box-1 h1 {
   color: #93af1a; }
 
-.right-col {
-  height: 515px; }
-
 .your-reservation.activity #m-box-3 .all-activities header.light-blue h1{
     display: inline-block;
     border-right: 1px solid #3eb3b4;
@@ -1126,6 +1191,7 @@ tooltip fade top in {
 
 .guide-places-plate{
     width: calc(100% * (1/5) - 10px);
+    max-width: 300px;
     text-align: left;
     border: 3px solid #B8DDE3;
     background: #B8DDE3;
@@ -1184,6 +1250,29 @@ tooltip fade top in {
     color: #D8954D;
 }
 
+@media screen and (max-width: 991px){
+    .your-reservation.activity #m-box-3 .all-activities header.light-blue h1{
+        display: block;
+        border-right: none;
+        line-height: 50px;
+    }
+    .guide-places-plate {
+        width: calc(100% * (1 / 3) - 10px);
+    }
+}
+
+@media screen and (max-width: 767px){
+    .guide-places-plates{
+        margin-right: 0;
+    }
+    .guide-places-plate {
+        width: 100%;
+        margin: 0 auto 15px;
+    }
+    .descr h3{
+        font-size: 18px;
+    }
+}
 
 .fancy-button {
   color: #ffffff; }
@@ -1344,8 +1433,7 @@ tooltip fade top in {
 /* About Page */
 
 .s_about_page{
-    padding-top: 100px;
-    padding-bottom: 640px;
+    padding-bottom: 600px;
     background: url(/images/about_bg.jpg) no-repeat;
     background-size: cover;
     background-position: bottom center;
@@ -1397,4 +1485,82 @@ tooltip fade top in {
     position: absolute;
     left: 0;
     top: 0;
+    max-width: 43px;
+    max-height: 42px;
+}
+
+.about_content ul:nth-child(2) li:nth-child(1){
+    width: 19%;
+}
+.about_content ul:nth-child(2) li:nth-child(2){
+    width: 33%;
+}
+.about_content ul:nth-child(2) li:nth-child(3){
+    width: 28%;
+}
+.about_content ul:nth-child(4) li:nth-child(1){
+    width: 17%;
+}
+.about_content ul:nth-child(4) li:nth-child(2){
+    width: 43%;
+}
+.about_content p:nth-child(5){
+    max-width: 720px;
+}
+
+@media screen and (max-width: 1149px){
+    .s_about_page{
+        padding-bottom: 440px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(1){
+        width: 22%;
+    }
+    .about_content ul:nth-child(2) li:nth-child(2){
+        width: 38%;
+    }
+    .about_content ul:nth-child(2) li:nth-child(3){
+        width: 32%;
+    }
+    .about_content ul:nth-child(4) li:nth-child(1){
+        width: 20%;
+    }
+    .about_content ul:nth-child(4) li:nth-child(2){
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .s_about_page{
+        background-position: bottom left;
+    }
+    .about_content li{
+        display: block;
+        margin: 0 0 30px;
+        width: 100% !important;
+    }
+    .about_content li:after{
+        display: none;
+    }
+
+    .about_content ul:nth-child(2) li:nth-child(1){
+        max-width: 220px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(2){
+        max-width: 360px;
+    }
+    .about_content ul:nth-child(2) li:nth-child(3){
+        max-width: 330px;
+    }
+    .about_content ul:nth-child(4) li:nth-child(1){
+        max-width: 195px;
+    }
+    .about_content ul:nth-child(4) li:nth-child(2){
+        max-width: 520px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .s_about_page{
+        padding-bottom: 300px;
+    }
 }
