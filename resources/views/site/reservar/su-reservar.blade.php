@@ -199,7 +199,7 @@
 				<div class="modal-body">
                     <div class="payment-options">
                         <a href="/reserve/pagseguro" class="pagseguro-btn"><img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo"></a>
-                        <a href="#" class="payu-btn"><img src="/images/payu_logo.png" alt="PayU Logo"></a>
+                        <a href="/reserve/payu" class="payu-btn"><img src="/images/payu_logo.png" alt="PayU Logo"></a>
                         <a href="/reserve/paypal" class="paypal-btn"><img src="/images/paypal_logo_transparent.png" alt="PayPal Logo"></a>
                     </div>
 				</div>
@@ -231,15 +231,15 @@
                     <input name="sUrl" type="hidden" value="http://kipmuving.lo/user">
                     <input name="fUrl" type="hidden" value="http://kipmuving.lo/user">
                 </form>
-                <script>
-                    $(document).ready(function () {
-                        $('.payu-btn').click(function (event) {
-                            event.preventDefault();
-                            document.payuform.submit();
-                            return false;
-                        });
-                    });
-                </script>
+                {{--<script>--}}
+                    {{--$(document).ready(function () {--}}
+                        {{--$('.payu-btn').click(function (event) {--}}
+                            {{--event.preventDefault();--}}
+                            {{--document.payuform.submit();--}}
+                            {{--return false;--}}
+                        {{--});--}}
+                    {{--});--}}
+                {{--</script>--}}
 			</div>
 		</div>
 	</div>

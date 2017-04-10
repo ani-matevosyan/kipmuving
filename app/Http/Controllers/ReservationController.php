@@ -463,9 +463,9 @@ class ReservationController extends Controller
 			'fUrl'            => 'http://kipmuving.com/reserve/payu/notification',
 		];
 		
-		dd($data);
+//		dd($data);
 		
-		return $data;
+		return response()->json($data);
 	}
 	
 	public function postPayU(Request $request)
