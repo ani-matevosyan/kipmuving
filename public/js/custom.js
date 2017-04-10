@@ -71,4 +71,19 @@ $(document).ready(function () {
         $(".pick-lang").removeClass("pressed");
         $(".pick-curr").removeClass("pressed");
     });
+    
+    //Deccaro plates height
+
+    if($(".guide-places-plates").length){
+        $(".guide-places-plates").each(function(wrapIndex){
+            console.log('Group #'+wrapIndex);
+            var maxHeight = 0;
+            $(this).find('.guide-places-plate').each(function(someIndex){
+                if($(this).outerHeight() > maxHeight)
+                    maxHeight = $(this).outerHeight();
+            });
+            $(this).find('.guide-places-plate').height(maxHeight);
+        });
+    }
+
 });

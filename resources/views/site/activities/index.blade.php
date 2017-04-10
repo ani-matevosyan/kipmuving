@@ -28,36 +28,36 @@
 	</script>
 	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="breadcrumb">
-						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-						<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
-					</ul>
-					<div class="your-reservation activity add" style="padding-bottom: 0px;">
+			{{--<div class="row">--}}
+				{{--<div class="col-xs-12">--}}
+					{{--<ul class="breadcrumb">--}}
+						{{--<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>--}}
+						{{--<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>--}}
+					{{--</ul>--}}
+					<div class="your-reservation activity add all-activities" style="padding-bottom: 0px;">
 						@include('site.offers.offers_quickinfo')
+                        <div class="tenprocent">
+                            em todos <br>
+                            os precos
+                        </div>
 					</div>
-				</div>
-			</div>
-			<div class="all-activities new all-activities-header">
-				<header>
-					<h1>{{ trans('main.all_activities_in_pucon') }}</h1>
-					<p>{{ trans('main.below_you_will_find_all_the_activities') }}</p>
-				</header>
-			</div>
+				{{--</div>--}}
+			{{--</div>--}}
+			{{--<div class="all-activities new all-activities-header">--}}
+				{{--<header>--}}
+					{{--<h1>{{ trans('main.all_activities_in_pucon') }}</h1>--}}
+					{{--<p>{{ trans('main.below_you_will_find_all_the_activities') }}</p>--}}
+				{{--</header>--}}
+			{{--</div>--}}
 		</div>
 	</section>
 	<!--Slider section-->
 	<section id="first-slider-sec" class="csHidden">
 		<div class="container">
-			<div class="col-xs-12">
-				<div class="col-md-4">
-					<h2>{{ trans('main.the_most_requested') }}</h2>
-				</div>
-				<div class="col-md-8 row">
-					<p>{{ trans('main.below_are_the_activities') }}</p>
-				</div>
-			</div>
+			<header>
+				<h2>{{ trans('main.the_most_requested') }}</h2>
+				<p>{{ trans('main.below_are_the_activities') }}</p>
+			</header>
 			<div class="col-xs-12">
 				<div id="cpa-slider-1">
 					<div class="item">
@@ -102,8 +102,7 @@
 					<div class="all-activities new">
 
 						<div class="activites-bar">
-
-							<div style="position:relative; height:60px; z-index:100">
+							<div class="activities-panel">
 								<div id="floatdiv" style="position:absolute;">
 									<ul class="activities-list">
 										<li class="active">

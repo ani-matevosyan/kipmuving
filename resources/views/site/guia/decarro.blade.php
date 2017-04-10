@@ -189,7 +189,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Huife</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar  necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que las rutas que necesitas paranecesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -198,7 +198,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Quimeyco</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar  necesitas para disfutar necesitas para disfutarcomo damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que nlas rutas que necesitas paralas rutas que necesitas paraecesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -207,7 +207,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Los Pozones</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar c necesitas para disfutar necesitas para disfutar necesitas para disfutaromo damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitlas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paraas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -216,7 +216,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Palguin</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como d necesitas para disfutar necesitas para disfutar necesitas para disfutar necesitas para disfutaramene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitlas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paraas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -225,7 +225,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Geometricas</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu co necesitas para disfutar necesitas para disfutar necesitas para disfutaratro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitas plas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paraara disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -234,7 +234,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Menetue</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitaslas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas para para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -243,7 +243,34 @@
                 </figure>
                 <div class="descr">
                     <h3>Peumayen</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitas para disfutar comlas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas parao damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Huife</h3>
+                    <p>Tenemos todas las rutas que necesitas para disflas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas parautar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Quimeyco</h3>
+                    <p>Tenemos todas las rutas que necesitas para disflas rutas que necesitas paralas rutas que necesitas parautar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                </div>
+            </div>
+            <div class="guide-places-plate">
+                <figure>
+                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
+                </figure>
+                <div class="descr">
+                    <h3>Peumayen</h3>
+                    <p>Tenemos todas las rutas que necesitas para disfutlas rutas que necesitas paraar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -261,7 +288,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Quimeyco</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitas para disfutalas rutas que necesitas parar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -270,7 +297,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Los Pozones</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitas para disfulas rutas que necesitas paralas rutas que necesitas paratar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
             <div class="guide-places-plate">
@@ -279,34 +306,7 @@
                 </figure>
                 <div class="descr">
                     <h3>Palguin</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Geometricas</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Menetue</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
-                </div>
-            </div>
-            <div class="guide-places-plate">
-                <figure>
-                    <img src="/images/img17.jpg" alt="Villaria" class="item-image">
-                </figure>
-                <div class="descr">
-                    <h3>Menetue</h3>
-                    <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
+                    <p>Tenemos todas las rutas que necesitas para disfutalas rutas que necesitas paralas rutas que necesitas paralas rutas que necesitas parar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                 </div>
             </div>
         </div>
