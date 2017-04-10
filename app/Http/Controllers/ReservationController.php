@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Omnipay\Omnipay;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UriInterface;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Illuminate\Support\Facades\View;
 
@@ -212,10 +215,10 @@ class ReservationController extends Controller
 //		$gateway->setTestMode(true);
 		
 		//LIVE
-			$gateway->setUsername('contacto_api1.kipmuving.com');
-			$gateway->setPassword('DGC72LTKNP4T3P69');
-			$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AuhHvXFexATZ1S0YcGK5mBl9vDLM');
-			$gateway->setTestMode(false);
+		$gateway->setUsername('contacto_api1.kipmuving.com');
+		$gateway->setPassword('DGC72LTKNP4T3P69');
+		$gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AuhHvXFexATZ1S0YcGK5mBl9vDLM');
+		$gateway->setTestMode(false);
 		
 		$gateway->setBrandName(config('app.name'));
 		
@@ -227,7 +230,7 @@ class ReservationController extends Controller
 			])->send();
 		} else {
 			$response = $gateway->purchase([
-				'amount'    => $reservations->to_pay,
+				'amount'      => $reservations->to_pay,
 				'no_shipping' => 1,
 				
 				//TEST
@@ -235,8 +238,8 @@ class ReservationController extends Controller
 //				'cancelUrl' => 'http://kipmuving.lo/reserve',
 				
 				//LIVE
-					'returnUrl' => 'http://kipmuving.com/reserve/paypal',
-					'cancelUrl' => 'http://kipmuving.com/reserve',
+				'returnUrl'   => 'http://kipmuving.com/reserve/paypal',
+				'cancelUrl'   => 'http://kipmuving.com/reserve',
 				
 				'currency'    => 'USD',
 				'description' => 'Kipmuving.com reservation',
@@ -352,198 +355,117 @@ class ReservationController extends Controller
 //		Log::info($request);
 	}
 	
-	#--------------------------------------------------------------------\Payment Stripe
-	public function reserve(Request $request, Offer $offer)
+	#--------------------------------------------------------------------\Payment PayU
+	public function paymentPayURedirect(Request $request)
 	{
-		if ($user = Auth::user()) {
-			if ($request['token']) {
-				$sessionOffers = session('selectedOffers');
-				$offers = [];
-				$offersTotalCost = 0;
-				$offersTotalCostWithoutDiscount = 0;
-				$persons = 0;
-				
-				foreach ($sessionOffers as $key => $sessionOffer) {
-					$offers[] = $offer->getOffer($sessionOffer['offer_id']);
-					$offersTotalCost += $offers[$key]['real_price'] * (1 - config('kipmuving.discount')) * $sessionOffer['persons'];
-					$offersTotalCostWithoutDiscount += $offers[$key]['real_price'] * $sessionOffer['persons'];
-					$persons += $sessionOffer['persons'];
-				}
-				
-				$topay = round($this->getPriceInCurrency($offersTotalCost) * config('kipmuving.service_fee'), 2);
-				
-				#Stripe create charge
-				$stripe = Stripe::make(config('services.stripe.secret'));
-				$customer = $stripe->customers()->create(['email' => $request['token']['email']]);
-				$card = $stripe->cards()->create($customer['id'], $request['token']['id']);
-				$charge = $stripe->charges()->create([
-					'customer' => $customer['id'],
-					'currency' => 'USD',
-					'amount'   => $topay,
-				]);
-				
-				if ($charge['status'] == 'succeeded') {
-					
-					$batch = $this->GUID();
-					
-					#Add data about reservation to DB
-					foreach ($offers as $key => $offer) {
-						$reservation = new Reservation();
-						$reservation->user_id = $user['id'];
-						$reservation->offer_id = $sessionOffers[$key]['offer_id'];
-						$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $sessionOffers[$key]['date'])->toDateString();
-						$reservation->batch_id = $batch;
-						$reservation->persons = $sessionOffers[$key]['persons'];
-						$reservation->save();
-					}
-					
-					$this->sendMails($offers, $user);
-					
-					session()->forget('selectedOffers');
-					
-					#TODO translate
-					$message = 'Success :)';
-					
-					return $message;
-				}
-			}
-			#Paypal payment
-//			elseif ($request['payment_status']){
-//				if ($request['payment_status'] === 'Completed')
-//				dd($request['payment_status']);
-//			}
-		}
-		#TODO translate
-		$message = 'Failure :(';
-		
-		return $message;
+//		Log::debug('Redirect - ok');
+		dd($request->request);
 	}
 	
-	#--------------------------------------------------------------------\Payment PayU
-	public function paymentPayU(Request $request)
+	public function paymentPayUNotifications(Request $request)
 	{
-		$payubiz = new PayUbiz([
-			'merchantId' => 'gtKFFx',
-			'secretKey'  => 'eCwWELxi',
-			'testMode'   => true
-		]);
-		$params = [
-			'txnid'       => uniqid(),
-			'amount'      => 10.50,
-			'productinfo' => 'A book',
-			'firstname'   => 'Peter',
-			'email'       => 'abc@example.com',
-			'phone'       => '1234567890',
-			'surl'        => 'http://kipmuving.lo/reserve/payu',
-			'furl'        => 'http://kipmuving.lo/reserve/payu',
+		$data = [
+			'response_code_pol'       => $request['response_code_pol'],
+			'phone'                   => $request['phone'],
+			'additional_value'        => $request['additional_value'],
+			'test'                    => $request['test'],
+			'transaction_date'        => $request['transaction_date'],
+			'cc_number'               => $request['cc_number'],
+			'cc_holder'               => $request['cc_holder'],
+			'error_code_bank'         => $request['error_code_bank'],
+			'billing_country'         => $request['billing_country'],
+			'bank_referenced_name'    => $request['bank_referenced_name'],
+			'description'             => $request['description'],
+			'administrative_fee_tax'  => $request['administrative_fee_tax'],
+			'value'                   => $request['value'],
+			'administrative_fee'      => $request['administrative_fee'],
+			'payment_method_type'     => $request['payment_method_type'],
+			'office_phone'            => $request['office_phone'],
+			'email_buyer'             => $request['email_buyer'],
+			'response_message_pol'    => $request['response_message_pol'],
+			'error_message_bank'      => $request['error_message_bank'],
+			'shipping_city'           => $request['shipping_city'],
+			'transaction_id'          => $request['transaction_id'],
+			'sign'                    => $request['sign'],
+			'tax'                     => $request['tax'],
+			'transaction_bank_id'     => $request['transaction_bank_id'],
+			'payment_method'          => $request['payment_method'],
+			'billing_address'         => $request['billing_address'],
+			'payment_method_name'     => $request['payment_method_name'],
+			'pse_bank'                => $request['pse_bank'],
+			'state_pol'               => $request['state_pol'],
+			'date'                    => $request['date'],
+			'nickname_buyer'          => $request['nickname_buyer'],
+			'reference_pol'           => $request['reference_pol'],
+			'currency'                => $request['currency'],
+			'risk'                    => $request['risk'],
+			'shipping_address'        => $request['shipping_address'],
+			'bank_id'                 => $request['bank_id'],
+			'payment_request_state'   => $request['payment_request_state'],
+			'customer_number'         => $request['customer_number'],
+			'administrative_fee_base' => $request['administrative_fee_base'],
+			'attempts'                => $request['attempts'],
+			'merchant_id'             => $request['merchant_id'],
+			'exchange_rate'           => $request['exchange_rate'],
+			'shipping_country'        => $request['shipping_country'],
+			'installments_number'     => $request['installments_number'],
+			'franchise'               => $request['franchise'],
+			'payment_method_id'       => $request['payment_method_id'],
+			'extra1'                  => $request['extra1'],
+			'extra2'                  => $request['extra2'],
+			'antifraudMerchantId'     => $request['antifraudMerchantId'],
+			'extra3'                  => $request['extra3'],
+			'commision_pol_currency'  => $request['commision_pol_currency'],
+			'nickname_seller'         => $request['nickname_seller'],
+			'ip'                      => $request['ip'],
+			'commision_pol'           => $request['commision_pol'],
+			'airline_code'            => $request['airline_code'],
+			'billing_city'            => $request['billing_city'],
+			'pse_reference1'          => $request['pse_reference1'],
+			'cus'                     => $request['cus'],
+			'reference_sale'          => $request['reference_sale'],
+			'authorization_code'      => $request['authorization_code'],
+			'pse_reference3'          => $request['pse_reference3'],
+			'pse_reference2'          => $request['pse_reference2'],
+		];
+		Log::debug('Notification - data');
+		Log::debug(print_r($data, 1));
+	}
+	
+	
+	public function paymentPayU()
+	{
+		$uid = uniqid();
+		$signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD');
+		
+		$data = [
+			'merchantId'      => '508029',
+			'ApiKey'          => '1wOnbtFLyv6N7v8QwWj5LVXNaw',
+			'accountId'       => '512326',
+			'description'     => 'Kipmuving.com reservation',
+			'referenceCode'   => $uid,
+			'amount'          => 3,
+			'tax'             => 0,
+			'taxReturnBase'   => 0,
+			'currency'        => 'USD',
+			'signature'       => $signature,
+			'totalAmount'     => 15,
+			'test'            => 1,
+			'buyerEmail'      => 'testt@test.com',
+			'responseUrl'     => 'http://kipmuving.com/reserve/payu/redirect',
+			'confirmationUrl' => 'http://kipmuving.com/reserve/payu/notification',
+			'continueUrl'     => 'http://kipmuving.com/reserve/payu/notification',
+			'notifyUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+			'returnUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+			'surl'            => 'http://kipmuving.com/reserve/payu/notification',
+			'furl'            => 'http://kipmuving.com/reserve/payu/notification',
+			'sUrl'            => 'http://kipmuving.com/reserve/payu/notification',
+			'fUrl'            => 'http://kipmuving.com/reserve/payu/notification',
 		];
 		
-		$payubiz->initializePurchase($params)->send();
-
-
-//		$client = new Client();
-//		$res = $client->post('https://sandbox.gateway.payulatam.com/ppp-web-gateway', [
-//			'merchantId' => '630645',
-//			'accountId' => '632993',
-//			'description' => 'Test PAYU',
-//			'referenceCode' => 'TESTTESTOS',
-//			'amount' => '10',
-//			'currency' => 'USD',
-//			'signature' => 'a7661a80834abc20c1a5bbe5eb87b3e4',
-//			'responseUrl' => '/user',
-//			'confirmationUrl' => '/reserve'
-//		]);
-//
-//		echo $res->getBody();
-//		dd($res->getStatusCode(), 'ok');
-//
-//
-//		$uniqueId = uniqid();
-//		$secret = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uniqueId.'~'.'10.00'.'~'.'USD');
-//		dd($secret);
-
-
-//		$gateway = Omnipay::create('PayUBiz');
-//
-//		$gateway->setKey('508029');
-//		$gateway->setSalt($secret);
-//		$gateway->setTestMode(true);
-//
-//		$params = [
-//			'name' => 'sanek',
-//			'email' => 'email@sanek.com',
-//			'amount' => '10.00',
-//			'product' => 'Product name',
-//			'transactionId' => uniqid(),
-//			'failureUrl' => url('api/v1/checkout/failed'),
-//			'returnUrl' => url('api/v1/checkout/thank-you')
-//		];
-//
-//		$gateway->purchase($params)->send()->redirect();
-//
-//		dd($gateway);
-
-
-//
-//		$gateway = Omnipay::create('PayU');
-//
-//		dd($gateway->getDefaultParameters(), $gateway);
-//		$gateway->setTestMode(true);
-//
-//		$card = [
-//			'billingLastName' => 'sanek',
-//			'number' => '4000015372250142',
-//			'expiryMonth' => '01',
-//			'expiryYear' => '20',
-//			'cvv' => '123'
-//		];
-//
-//		$response = $gateway->purchase([
-//			'amount' => '10.00',
-//			'card' => $card,
-//			'identityType' => 'NCZ'
-//		]);
-//		$response->setMerchantId('630645');
-//		$response->setSecretKey($secret);
-//		dd($secret);
-//		$response->send();
-//		if ($response->isSuccessful())
-//			echo 'success';
-//		elseif ($response->isRedirect())
-//			$response->redirect();
-//		else
-//			echo 'fail<br>'.$response->getMessage();
-//
-//
-//
-//		dd($gateway, $response);
-//
-//		#PayPal (Express)
-//		if ($request->token) {
-//			$response = $gateway->completePurchase([
-//				'token'  => $request->token,
-//				'amount' => '10.00',
-//			])->send();
-//		} else {
-//			$response = $gateway->purchase([
-//				'amount'      => '10.00',
-//				'returnUrl'   => 'http://kipmuving.lo/reserve/paypal',
-//				'cancelUrl'   => 'http://kipmuving.lo/reserve',
-//				'currency'    => 'USD',
-//				'description' => 'Kipmuving.com reservation',
-//			])->send();
-//		}
-//
-//		dd($response);
-//
-//		if ($response->isSuccessful())
-//			echo 'success';
-//		elseif ($response->isRedirect())
-//			$response->redirect();
-//		else
-//			echo 'fail<br>'.$response->getMessage();
-//
-//		dd('end', $gateway);
+		dd($data);
+		
+		return $data;
 	}
 	
 	public function postPayU(Request $request)
