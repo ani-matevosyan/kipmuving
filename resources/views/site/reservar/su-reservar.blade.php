@@ -95,7 +95,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.')* 0.9 }}
+														<sub>$</sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 													</strong>
 												</div>
 												<div id="reservetour1">
@@ -133,18 +133,18 @@
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer->activity->name }}</h4>
-													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 1, '.', '.')}}</span>
+													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($reservation->total_in_currency, 1, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_in_currency, 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 1, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}</p>
 											</div>
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal" data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
