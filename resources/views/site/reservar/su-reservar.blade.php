@@ -194,7 +194,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<p class="modal-title">Estas reservando <strong>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando <strong>$ {{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 1, ".", ".") }}.</strong> <br> Para completar, debera pagar <strong>$ 2.000.</strong> Elija su medio de pago:</p>
+					<p class="modal-title">Estas reservando <strong>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando <strong>$ {{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}.</strong> <br> Para completar, debera pagar <strong>$ {{ number_format($reservation->to_pay_in_currency, 0, ".", ".") }}.</strong> Elija su medio de pago:</p>
 				</div>
 				<div class="modal-body">
                     <div class="payment-options">

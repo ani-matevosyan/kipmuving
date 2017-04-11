@@ -129,6 +129,7 @@ class ReservationController extends Controller
 		$data->total_without_discount_in_currency = 0;
 		$data->persons = 0;
 		$data->to_pay = 0;
+		$data->to_pay_in_currency = 0;
 		
 		$data->offers = collect();
 		
@@ -151,8 +152,11 @@ class ReservationController extends Controller
 		}
 		
 		//todo change
-//		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2);
-		$data->to_pay = 0.05;
+		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2);
+		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2);
+		
+//		$data->to_pay = 0.05;
+//		$data->to_pay_in_currency = 0.05;
 		
 		return $data;
 	}
@@ -174,6 +178,8 @@ class ReservationController extends Controller
 			'user'        => $user,
 			'reservation' => $reservations
 		];
+		
+//		dd($data);
 		
 		return view('site.reservar.su-reservar', $data);
 	}
