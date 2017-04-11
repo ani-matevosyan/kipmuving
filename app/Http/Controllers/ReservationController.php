@@ -179,8 +179,6 @@ class ReservationController extends Controller
 			'reservation' => $reservations
 		];
 		
-//		dd($data);
-		
 		return view('site.reservar.su-reservar', $data);
 	}
 	
@@ -441,21 +439,24 @@ class ReservationController extends Controller
 	
 	public function paymentPayU()
 	{
+		$api_key = '4Vj8eK4rloUd272L48hsrarnUA';
+		$merchant_id = '508029';
+		$account_id = '512326';
 		$uid = uniqid();
-		$signature = md5('4Vj8eK4rloUd272L48hsrarnUA~508029~'.$uid.'~'.'3'.'~'.'USD');
+		$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
 		
 		$data = [
-			'merchantId'      => '508029',
-			'ApiKey'          => '1wOnbtFLyv6N7v8QwWj5LVXNaw',
-			'accountId'       => '512326',
+			'merchantId'      => $merchant_id,
+			'ApiKey'          => $api_key,
+			'accountId'       => $account_id,
 			'description'     => 'Kipmuving.com reservation',
 			'referenceCode'   => $uid,
-			'amount'          => 3,
+			'amount'          => $this->to_pay,
 			'tax'             => 0,
 			'taxReturnBase'   => 0,
 			'currency'        => 'USD',
 			'signature'       => $signature,
-			'totalAmount'     => 15,
+			'totalAmount'     => $this->to_pay,
 			'test'            => 1,
 			'buyerEmail'      => 'testt@test.com',
 			'responseUrl'     => 'http://kipmuving.com/reserve/payu/redirect',
@@ -469,6 +470,8 @@ class ReservationController extends Controller
 			'fUrl'            => 'http://kipmuving.com/reserve/payu/notification',
 		];
 		
+//		TODO save to DB
+
 //		dd($data);
 		
 		return response()->json($data);
