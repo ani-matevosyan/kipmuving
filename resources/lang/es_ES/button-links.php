@@ -8,9 +8,9 @@ return [
 	'search'             => 'Buscar',
 	'activities'         => 'Actividades',
 	'agencies'           => 'Agencias',
-	'guide'              => 'Guia Free Pucon',
+	'guide'              => 'Guia Free Pucón',
 	'my_agenda'          => 'Mi agenda',
-	'go_to_guide'        => 'Ir al guía',
+	'go_to_guide'        => 'Ir a la guía',
 	'view'               => 'Visualizar',
 	'see_all_activities' => 'Ver todas las actividades'
 ];

@@ -26,7 +26,7 @@ return [
 	'each_agency_has_cancellation_policy' => 'Each agency has its cancellation policy, be aware of them at the time of your reservation. But you can usually cancel up to 1 day before your activity. In this case, we will refund the 10% canceled.',
 	'if_you_do_not_appear_on_the_day'     => 'If you do not appear on the day of your adventure, you will be charged a',
 	'as_a_fine'                           => '10% as a fine.',
-	'any_questions'                       => 'Any questions please, we wrote. We will be attentive to what you need. Our mail is',
+	'any_questions'                       => 'Any questions please, write us. We will be attentive to what you need. Our mail is',
 	'and_also_by_phone'                   => 'and also by phone',
-	'or_whatsapp'                         => 'Or because of whatsapp',
+	'or_whatsapp'                         => 'Or by whatsapp',
 ];
