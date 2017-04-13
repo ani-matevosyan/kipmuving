@@ -392,10 +392,60 @@ class ReservationController extends Controller
 	}
 	
 	#--------------------------------------------------------------------\Payment PayU
+	public function paymentPayU()
+	{
+		$this->clearGarbageReservations();
+		
+		if ($user = Auth::user()) {
+			//TEST
+//			$api_key = '4Vj8eK4rloUd272L48hsrarnUA';
+//			$merchant_id = '508029';
+//			$account_id = '512326';
+			//LIVE
+			$api_key = '1wOnbtFLyv6N7v8QwWj5LVXNaw';
+			$merchant_id = '630645';
+			$account_id = '632993';
+			$uid = uniqid();
+//			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
+			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~1~'.'USD');
+			
+			$data = [
+				'merchantId'    => $merchant_id,
+				'ApiKey'        => $api_key,
+				'accountId'     => $account_id,
+				'description'   => 'Kipmuving.com reservation: '.$signature,
+				'referenceCode' => $uid,
+//				'amount'          => $this->to_pay,
+				'currency'      => 'USD',
+				'signature'     => $signature,
+				//TEST
+//				'test'            => 0,
+				//LIVE
+				'test'          => 0,
+				'amount'        => 1,
+				'buyerEmail'    => $user->email,
+				'responseUrl'   => 'http://kipmuving.com/user',
+				
+				'confirmationUrl' => 'http://kipmuving.com/reserve/payu/notification',
+				'continueUrl'     => 'http://kipmuving.com/reserve/payu/notification',
+				'notifyUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+				'returnUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+			];
+			
+			$this->createReservation($this->offers, $user, 'payu', $signature, 'none', false);
+
+//			session()->forget('selectedOffers');
+			
+			return response()->json($data);
+		}
+		
+		return redirect('/login');
+	}
+	
 	public function paymentPayURedirect(Request $request)
 	{
 //		Log::debug('Redirect - ok');
-		dd($request->request);
+//		dd($request->request);
 	}
 	
 	public function paymentPayUNotifications(Request $request)
@@ -447,56 +497,6 @@ class ReservationController extends Controller
 			
 			ReservationController::sendMails($reservations, $user);
 		}
-	}
-	
-	public function paymentPayU()
-	{
-		$this->clearGarbageReservations();
-		
-		if ($user = Auth::user()) {
-			//TEST
-//			$api_key = '4Vj8eK4rloUd272L48hsrarnUA';
-//			$merchant_id = '508029';
-//			$account_id = '512326';
-			//LIVE
-			$api_key = '1wOnbtFLyv6N7v8QwWj5LVXNaw';
-			$merchant_id = '630645';
-			$account_id = '632993';
-			$uid = uniqid();
-//			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
-			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~1~'.'USD');
-			
-			$data = [
-				'merchantId'    => $merchant_id,
-				'ApiKey'        => $api_key,
-				'accountId'     => $account_id,
-				'description'   => 'Kipmuving.com reservation: '.$signature,
-				'referenceCode' => $uid,
-//				'amount'          => $this->to_pay,
-				'currency'      => 'USD',
-				'signature'     => $signature,
-				//TEST
-//				'test'            => 0,
-				//LIVE
-				'test'          => 0,
-				'amount'        => 1,
-				'buyerEmail'    => $user->email,
-				'responseUrl'   => 'http://kipmuving.com/reserve/payu/redirect',
-				
-				'confirmationUrl' => 'http://kipmuving.com/reserve/payu/notification',
-				'continueUrl'     => 'http://kipmuving.com/reserve/payu/notification',
-				'notifyUrl'       => 'http://kipmuving.com/reserve/payu/notification',
-				'returnUrl'       => 'http://kipmuving.com/reserve/payu/notification',
-			];
-			
-			$this->createReservation($this->offers, $user, 'payu', $signature, 'none', false);
-
-//			session()->forget('selectedOffers');
-			
-			return response()->json($data);
-		}
-		
-		return redirect('/login');
 	}
 	
 	public function postPayU(Request $request)
