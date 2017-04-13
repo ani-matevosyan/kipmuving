@@ -203,19 +203,20 @@
                         <a href="/reserve/paypal" class="paypal-btn"><img src="/images/paypal_logo_transparent.png" alt="PayPal Logo"></a>
                     </div>
 				</div>
-				<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">
+				<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway">
+				{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}
 					<input name="merchantId" type="hidden"  value="">
 					<input name="ApiKey" type="hidden"  value="">
 					<input name="accountId" type="hidden" value="">
 					<input name="description" type="hidden"  value="">
 					<input name="referenceCode" type="hidden"  value="" >
 					<input name="amount" type="hidden"  value="">
-					<input name="tax" type="hidden"  value="">
-					<input name="taxReturnBase" type="hidden"  value="">
+					{{--<input name="tax" type="hidden"  value="">--}}
+					{{--<input name="taxReturnBase" type="hidden"  value="">--}}
 					<input name="currency" type="hidden"  value="">
 					<input name="signature" type="hidden"  value="">
-					<input type="hidden" name="totalAmount" value="">
-					<input type="hidden" name="OpenPayu-Signature" value="">
+					{{--<input type="hidden" name="totalAmount" value="">--}}
+					{{--<input type="hidden" name="OpenPayu-Signature" value="">--}}
 					<input name="test" type="hidden"  value="">
 					<input name="buyerEmail" type="hidden"  value="">
 					<input name="responseUrl" type="hidden"  value="" >
@@ -223,10 +224,10 @@
 					<input name="continueUrl" type="hidden" value="">
 					<input name="notifyUrl" type="hidden" value="">
 					<input name="returnUrl" type="hidden" value="">
-					<input name="surl" type="hidden" value="">
-					<input name="furl" type="hidden" value="">
-					<input name="sUrl" type="hidden" value="">
-					<input name="fUrl" type="hidden" value="">
+					{{--<input name="surl" type="hidden" value="">--}}
+					{{--<input name="furl" type="hidden" value="">--}}
+					{{--<input name="sUrl" type="hidden" value="">--}}
+					{{--<input name="fUrl" type="hidden" value="">--}}
 				</form>
                 <script>
                     $(document).ready(function () {
