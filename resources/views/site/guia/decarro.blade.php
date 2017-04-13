@@ -92,7 +92,7 @@
                         <p>Tenemos todas las rutas que necesitas para disfutar como damene sobre tu coatro rued rued as de los principales atractivos de la ciudad, como los ojosd d el Caburgua</p>
                     </div>
                 </div>
-                <div class="guide-place-plate-details" style="height: auto; background: none;">
+                <div class="guide-place-plate-details">
                     <div class="row">
                         <div class="col-md-7">
                             <div class="left-col">
