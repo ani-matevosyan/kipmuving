@@ -11,7 +11,7 @@ return [
 	"between"          => [
 		"numeric" => "El campo :attribute debe estar comprendido entre :min - :max.",
 		"file"    => "El campo :attribute debe tener entre :min - :max kilobytes.",
-		"string"  => "El campo :attribute debe tener entre :min - :max characters.",
+		"string"  => "El campo :attribute debe tener entre :min - :max caracteres.",
 	],
 	"confirmed"        => "El campo :attribute confirmación no coincide.",
 	"date"             => "El campo :attribute no es una fecha válida.",
@@ -21,14 +21,14 @@ return [
 	"digits_between"   => "El campo :attribute debe tener entre :min and :max digits.",
 	"email"            => "El campo :attribute formato no es válido.",
 	"exists"           => "El campo :attribute seleccionado es inválido.",
-	"image"            => "El campo :attribute debe ser una imágen.",
-	"in"               => "El campo :attribute seleccionado es inválido..",
-	"integer"          => "El campo :attribute debe ser un entero.",
+	"image"            => "El campo :attribute debe ser una imagen.",
+	"in"               => "El campo :attribute seleccionado es inválido.",
+	"integer"          => "El campo :attribute debe ser entero.",
 	"ip"               => "El campo :attribute debe ser una dirección IP válida.",
 	"max"              => [
 		"numeric" => "El campo :attribute no debe ser mayor a :max.",
 		"file"    => "El campo :attribute no debe ser mayor a :max kilobytes.",
-		"string"  => "El campo :attribute no debe ser mayor a :max characters.",
+		"string"  => "El campo :attribute no debe ser mayor a :max caracteres.",
 	],
 	"mimes"            => "El campo :attribute debe ser un archivo de tipo :values.",
 	"min"              => [
@@ -47,7 +47,7 @@ return [
 	"size"             => [
 		"numeric" => "El campo :attribute debe ser :size.",
 		"file"    => "El campo :attribute debe ser de :size kilobytes.",
-		"string"  => "El campo :attribute debe ser de :size characters.",
+		"string"  => "El campo :attribute debe ser de :size caracteres.",
 	],
 	"unique"           => "El campo :attribute ya ha sido tomado.",
 	"url"              => "El formato del campo :attribute es inválido.",

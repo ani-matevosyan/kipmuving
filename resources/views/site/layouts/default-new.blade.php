@@ -33,12 +33,14 @@
 						<span class="glyphicon glyphicon-triangle-top"></span>
 						<ul class="choose-menu choose-lang">
 							@foreach($locales as $locale)
+								@if($locale['code'] != 'en')
 								<li>
 									<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
 										<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"
 											  alt="image description">
 									</a>
 								</li>
+								@endif
 							@endforeach
 						</ul>
 					</div>

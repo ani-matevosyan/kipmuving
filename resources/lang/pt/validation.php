@@ -1,13 +1,13 @@
 <?php
 
 return [
-	"accepted"         => "O :attribute deve ser aceite.",
+	"accepted"         => "O :attribute deve ser aceito.",
 	"active_url"       => "O :attribute não é uma URL válida.",
 	"after"            => "O :attribute deve ser uma data após :date.",
 	"alpha"            => "O :attribute só pode conter letras.",
 	"alpha_dash"       => "O :attribute só pode conter letras, números e traços.",
 	"alpha_num"        => "O :attribute só pode conter letras e números.",
-	"before"           => "O :attribute deve ser uma data anterior à :date.",
+	"before"           => "O :attribute deve ser uma data anterior a :date.",
 	"between"          => [
 		"numeric" => "O :attribute deve estar entre :min - :max.",
 		"file"    => "O :attribute deve estar entre :min - :max kilobytes.",
@@ -20,10 +20,10 @@ return [
 	"digits"           => "O :attribute deve ter :digits dígitos.",
 	"digits_between"   => "O :attribute deve ter entre :min e :max dígitos.",
 	"email"            => "O :attribute não é um e-mail válido.",
-	"exists"           => "O :attribute selecionado é inválido.",
+	"exists"           => "O :attribute seleção inválida.",
 	"image"            => "O :attribute deve ser uma imagem.",
-	"in"               => "O :attribute selecionado é inválido.",
-	"integer"          => "O :attribute deve ser um inteiro.",
+	"in"               => "O :attribute seleção inválida.",
+	"integer"          => "O :attribute deve ser inteiro.",
 	"ip"               => "O :attribute deve ser um endereço IP válido.",
 	"max"              => [
 		"numeric" => "O :attribute deve ser inferior a :max.",
@@ -36,7 +36,7 @@ return [
 		"file"    => "O :attribute deve conter pelo menos :min kilobytes.",
 		"string"  => "O campo :attribute deve conter pelo menos :min caracteres.",
 	],
-	"not_in"           => "O :attribute selecionado é inválido.",
+	"not_in"           => "O :attribute seleção inválida.",
 	"numeric"          => "O :attribute deve ser um número.",
 	"regex"            => "O :attribute não é válido.",
 	"required"         => "O campo :attribute deve ser preenchido.",

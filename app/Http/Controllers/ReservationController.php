@@ -119,6 +119,31 @@ class ReservationController extends Controller
 		}
 	}
 	
+	private static function clearGarbageReservations()
+	{
+		$now = Carbon::now();
+		
+		$reservations = Reservation::where([
+			['status', '=', false],
+			['status_code', '=', 'none'],
+			['updated_at', '<', $now->subDays(5)->toDateTimeString()]
+		])
+			->orWhere('status_code', '=', '')
+			->get();
+
+		foreach ($reservations as $reservation) {
+			$reservation->delete();
+		}
+
+//		$reservations = Reservation::where([
+//			['status', '=', false],
+//			['status_code', '<>', 'none'],
+//			['status_code', '<>', ''],
+//			['updated_at', '<', $now->subDays(10)->toDateTimeString()]
+//		])
+//			->get();
+	}
+	
 	#Collect reservation data from selected offers
 	private static function getReservationData($selected_offers)
 	{
@@ -152,9 +177,9 @@ class ReservationController extends Controller
 		}
 		
 		//todo change
-		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2);
-		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2);
-		
+		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+
 //		$data->to_pay = 0.05;
 //		$data->to_pay_in_currency = 0.05;
 		
@@ -199,9 +224,14 @@ class ReservationController extends Controller
 		return abort(404);
 	}
 	
+	
+	
+	
 	#--------------------------------------------------------------------\Payment PayPal
 	public function paymentPaypal(Request $request)
 	{
+		$this->clearGarbageReservations();
+		
 		if (!($user = Auth::user()))
 			return redirect('/login');
 		
@@ -273,6 +303,8 @@ class ReservationController extends Controller
 	#--------------------------------------------------------------------\Payment Pagseguro
 	public function paymentPagseguro()
 	{
+		$this->clearGarbageReservations();
+		
 		if ($user = Auth::user()) {
 			$data = [
 				'items'    => [
@@ -360,121 +392,111 @@ class ReservationController extends Controller
 	}
 	
 	#--------------------------------------------------------------------\Payment PayU
+	public function paymentPayU()
+	{
+		$this->clearGarbageReservations();
+		
+		if ($user = Auth::user()) {
+			//TEST
+//			$api_key = '4Vj8eK4rloUd272L48hsrarnUA';
+//			$merchant_id = '508029';
+//			$account_id = '512326';
+			//LIVE
+			$api_key = '1wOnbtFLyv6N7v8QwWj5LVXNaw';
+			$merchant_id = '630645';
+			$account_id = '632993';
+			$uid = uniqid();
+//			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
+			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~1~'.'USD');
+			
+			$data = [
+				'merchantId'    => $merchant_id,
+				'ApiKey'        => $api_key,
+				'accountId'     => $account_id,
+				'description'   => 'Kipmuving.com reservation: '.$signature,
+				'referenceCode' => $uid,
+//				'amount'          => $this->to_pay,
+				'currency'      => 'USD',
+				'signature'     => $signature,
+				//TEST
+//				'test'            => 0,
+				//LIVE
+				'test'          => 0,
+				'amount'        => 1,
+				'buyerEmail'    => $user->email,
+				'responseUrl'   => 'http://kipmuving.com/user',
+				
+				'confirmationUrl' => 'http://kipmuving.com/reserve/payu/notification',
+				'continueUrl'     => 'http://kipmuving.com/reserve/payu/notification',
+				'notifyUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+				'returnUrl'       => 'http://kipmuving.com/reserve/payu/notification',
+			];
+			
+			$this->createReservation($this->offers, $user, 'payu', $signature, 'none', false);
+
+			session()->forget('selectedOffers');
+			
+			return response()->json($data);
+		}
+		
+		return redirect('/login');
+	}
+	
 	public function paymentPayURedirect(Request $request)
 	{
 //		Log::debug('Redirect - ok');
-		dd($request->request);
+//		dd($request->request);
 	}
 	
 	public function paymentPayUNotifications(Request $request)
 	{
-		$data = [
-			'response_code_pol'       => $request['response_code_pol'],
-			'phone'                   => $request['phone'],
-			'additional_value'        => $request['additional_value'],
-			'test'                    => $request['test'],
-			'transaction_date'        => $request['transaction_date'],
-			'cc_number'               => $request['cc_number'],
-			'cc_holder'               => $request['cc_holder'],
-			'error_code_bank'         => $request['error_code_bank'],
-			'billing_country'         => $request['billing_country'],
-			'bank_referenced_name'    => $request['bank_referenced_name'],
-			'description'             => $request['description'],
-			'administrative_fee_tax'  => $request['administrative_fee_tax'],
-			'value'                   => $request['value'],
-			'administrative_fee'      => $request['administrative_fee'],
-			'payment_method_type'     => $request['payment_method_type'],
-			'office_phone'            => $request['office_phone'],
-			'email_buyer'             => $request['email_buyer'],
-			'response_message_pol'    => $request['response_message_pol'],
-			'error_message_bank'      => $request['error_message_bank'],
-			'shipping_city'           => $request['shipping_city'],
-			'transaction_id'          => $request['transaction_id'],
-			'sign'                    => $request['sign'],
-			'tax'                     => $request['tax'],
-			'transaction_bank_id'     => $request['transaction_bank_id'],
-			'payment_method'          => $request['payment_method'],
-			'billing_address'         => $request['billing_address'],
-			'payment_method_name'     => $request['payment_method_name'],
-			'pse_bank'                => $request['pse_bank'],
-			'state_pol'               => $request['state_pol'],
-			'date'                    => $request['date'],
-			'nickname_buyer'          => $request['nickname_buyer'],
-			'reference_pol'           => $request['reference_pol'],
-			'currency'                => $request['currency'],
-			'risk'                    => $request['risk'],
-			'shipping_address'        => $request['shipping_address'],
-			'bank_id'                 => $request['bank_id'],
-			'payment_request_state'   => $request['payment_request_state'],
-			'customer_number'         => $request['customer_number'],
-			'administrative_fee_base' => $request['administrative_fee_base'],
-			'attempts'                => $request['attempts'],
-			'merchant_id'             => $request['merchant_id'],
-			'exchange_rate'           => $request['exchange_rate'],
-			'shipping_country'        => $request['shipping_country'],
-			'installments_number'     => $request['installments_number'],
-			'franchise'               => $request['franchise'],
-			'payment_method_id'       => $request['payment_method_id'],
-			'extra1'                  => $request['extra1'],
-			'extra2'                  => $request['extra2'],
-			'antifraudMerchantId'     => $request['antifraudMerchantId'],
-			'extra3'                  => $request['extra3'],
-			'commision_pol_currency'  => $request['commision_pol_currency'],
-			'nickname_seller'         => $request['nickname_seller'],
-			'ip'                      => $request['ip'],
-			'commision_pol'           => $request['commision_pol'],
-			'airline_code'            => $request['airline_code'],
-			'billing_city'            => $request['billing_city'],
-			'pse_reference1'          => $request['pse_reference1'],
-			'cus'                     => $request['cus'],
-			'reference_sale'          => $request['reference_sale'],
-			'authorization_code'      => $request['authorization_code'],
-			'pse_reference3'          => $request['pse_reference3'],
-			'pse_reference2'          => $request['pse_reference2'],
-		];
-		Log::debug('Notification - data');
-		Log::debug(print_r($data, 1));
-	}
-	
-	
-	public function paymentPayU()
-	{
-		$api_key = '4Vj8eK4rloUd272L48hsrarnUA';
-		$merchant_id = '508029';
-		$account_id = '512326';
-		$uid = uniqid();
-		$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
+		$status = $request['cc_holder'];
+		$signature = str_replace('Kipmuving.com reservation: ', '', $request['description']);
 		
-		$data = [
-			'merchantId'      => $merchant_id,
-			'ApiKey'          => $api_key,
-			'accountId'       => $account_id,
-			'description'     => 'Kipmuving.com reservation',
-			'referenceCode'   => $uid,
-			'amount'          => $this->to_pay,
-			'tax'             => 0,
-			'taxReturnBase'   => 0,
-			'currency'        => 'USD',
-			'signature'       => $signature,
-			'totalAmount'     => $this->to_pay,
-			'test'            => 1,
-			'buyerEmail'      => 'testt@test.com',
-			'responseUrl'     => 'http://kipmuving.com/reserve/payu/redirect',
-			'confirmationUrl' => 'http://kipmuving.com/reserve/payu/notification',
-			'continueUrl'     => 'http://kipmuving.com/reserve/payu/notification',
-			'notifyUrl'       => 'http://kipmuving.com/reserve/payu/notification',
-			'returnUrl'       => 'http://kipmuving.com/reserve/payu/notification',
-			'surl'            => 'http://kipmuving.com/reserve/payu/notification',
-			'furl'            => 'http://kipmuving.com/reserve/payu/notification',
-			'sUrl'            => 'http://kipmuving.com/reserve/payu/notification',
-			'fUrl'            => 'http://kipmuving.com/reserve/payu/notification',
-		];
+		$reservations = Reservation::where('payment_uid', '=', $signature)
+			->where('type', '=', 'payu')
+			->get();
 		
-//		TODO save to DB
-
-//		dd($data);
+		$user_id = $reservations[0]->user_id;
+		$selected_offers = [];
 		
-		return response()->json($data);
+		foreach ($reservations as $reservation) {
+			if ($reservation->status) { #reserved
+				if ($status != 'APPROVED') {
+					ReservationController::cancelReservation($reservation->id);
+					$reservation->status = false;
+//					$reservation->payment_uid = $item->getId();
+				} else return;
+			} else {
+				if ($status == 'APPROVED') {
+//					$reservation->payment_uid = $information->getCode();
+					$reservation->status = true;
+					
+					$time = explode('-', $reservation->time_range);
+					$selected_offers[] = [
+						'offer_id' => $reservation->offer_id,
+						'date'     => Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y'),
+						'persons'  => $reservation->persons,
+						'time'     => [
+							'start' => $time[0],
+							'end'   => $time[1]
+						]
+					];
+				}
+//				else {
+//					$reservation->payment_uid = $item->getId();
+//				}
+			}
+			$reservation->status_code = $status;
+			$reservation->save();
+		}
+		
+		if ($status == 'APPROVED') {
+			$reservations = ReservationController::getReservationData($selected_offers);
+			$user = User::find($user_id);
+			
+			ReservationController::sendMails($reservations, $user);
+		}
 	}
 	
 	public function postPayU(Request $request)
