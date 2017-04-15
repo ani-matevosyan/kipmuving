@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    {{$mappoints[0]['short_description']}}
+    {{ $mappoints[0]['short_description'] }}
 
     <div class="guide-places-plates-wrapper">
         <h2>Ditch</h2>
@@ -27,39 +27,39 @@
             <div class="guide-places-plate-wrapper">
                 <div class="guide-places-plate">
                     <figure>
-                        <img src="/{{$mappoint['image']}}" alt="{{$mappoint['name']}}" class="item-image">
+                        <img src="/{{ $mappoint->image }}" alt="{{ $mappoint->name }}" class="item-image">
                     </figure>
                     <div class="descr">
-                        <h3>{{$mappoint['name']}}</h3>
-                        <p>{{$mappoint['short_description']}}</p>
+                        <h3>{{ $mappoint->name }}</h3>
+                        <p>{{ $mappoint->short_description }}</p>
                     </div>
                 </div>
                 <div class="guide-place-plate-details">
                     <div class="row">
                         <div class="col-md-7">
                             <div class="left-col">
-                                <div id="map-tab-{{ $mappoint['id'] }}">
+                                <div id="map-tab-{{ $mappoint->id }}">
                                     <div class="termas">
                                         <div class="row">
                                             <div class="col-sm-6 col-xs-12">
-                                                <h2>{{$mappoint['name']}}</h2>
+                                                <h2>{{ $mappoint->name }}</h2>
                                             </div>
                                             <div class="col-sm-6 mobile-left col-xs-12">
                                                 <div class="pull-right">
                                                     <div class="opiniones">
-                                                        {!! $mappoint['tripadvisor_code'] !!}
+                                                        {!! $mappoint->tripadvisor_code !!}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="detail-desc">
-                                        <p>{{$mappoint['description']}}</p>
+                                        <p>{{ $mappoint->description }}</p>
                                     </div>
                                     <div class="termas-tabs">
                                         <ul class="nav nav-pills">
                                             <li class="active">
-                                                <a data-toggle="pill" href="#home{{$mappoint['id']}}">
+                                                <a data-toggle="pill" href="#home{{ $mappoint->id }}">
                                                     <img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
                                                     <div class="link-info">
                                                         <strong>{{ trans('main.how_to_get_there_by_bus') }}</strong>
@@ -68,7 +68,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a data-toggle="pill" href="#menu{{$mappoint['id']}}" id="tomenu{{$mappoint['id']}}">
+                                                <a data-toggle="pill" href="#menu{{ $mappoint->id }}" id="tomenu{{ $mappoint->id }}">
                                                     <img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
                                                     <div class="link-info">
                                                         <strong>{{ trans('main.how_to_get_there_by_car') }}</strong>
@@ -78,49 +78,49 @@
                                             </li>
                                         </ul>
                                         <div class="tab-content">
-                                            @if($mappoint['bus_description'])
-                                                <div id="home{{$mappoint['id']}}" class="tab-pane well fade in active">
+                                            @if($mappoint->bus_description)
+                                                <div id="home{{ $mappoint->id }}" class="tab-pane well fade in active">
                                                     <div class="tab-detail">
-                                                        <p>{!! $mappoint['bus_description'] !!}</p>
+                                                        <p>{!! $mappoint->bus_description !!}</p>
                                                     </div>
-                                                    @if($mappoint['bus_est_time'])
+                                                    @if($mappoint->bus_est_time)
                                                         <div class="info-icons">
                                                             <img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25" />
-                                                            <p>{{ trans('main.estimated_time') }}: <strong>{{ $mappoint['bus_est_time'] }} {{ trans('main.hour') }}</strong></p>
+                                                            <p>{{ trans('main.estimated_time') }}: <strong>{{ $mappoint->bus_est_time }} {{ trans('main.hour') }}</strong></p>
                                                         </div>
                                                     @endif
-                                                    @if($mappoint['bus_est_expenditure'])
+                                                    @if($mappoint->bus_est_expenditure)
                                                         <div class="info-icons">
                                                             <img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25" />
-                                                            <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ {{ number_format($mappoint['bus_est_expenditure'], 0, ".", ".") }} {{ trans('main.per_person') }}</strong></p>
-                                                            @if($mappoint['bus_est_service'])
-                                                                <span>{{ trans('main.spa_value') }}: <strong>$ {{ number_format($mappoint['bus_est_service'], 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
+                                                            <p>{{ trans('main.estimated_expenditure') }}:  <strong>$ {{ number_format($mappoint->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></p>
+                                                            @if($mappoint->bus_est_service)
+                                                                <span>{{ trans('main.spa_value') }}: <strong>$ {{ number_format($mappoint->bus_est_service, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
                                                             @endif
                                                         </div>
                                                     @endif
                                                 </div>
                                             @endif
-                                            <div id="menu{{$mappoint['id']}}" class="tab-pane map-tab well fade">
+                                            <div id="menu{{ $mappoint->id }}" class="tab-pane map-tab well fade">
                                                 <div class="map-holder">
-                                                    <div id="map{{$mappoint['id']}}" style="width: 100%; height: 300px"></div>
+                                                    <div id="map{{ $mappoint->id}}" style="width: 100%; height: 300px"></div>
                                                     <script type="text/javascript">
-                                                        var map{{$mappoint['id']}};
-                                                        var loadedmap{{$mappoint['id']}} = false;
+                                                        var map{{ $mappoint->id }};
+                                                        var loadedmap{{ $mappoint->id }} = false;
                                                         var pucon = {lat: -39.279351, lng: -71.968676};
-                                                        var thispoint{{$mappoint['id']}} = {lat: {{ $mappoint['latitude'] }}, lng: {{ $mappoint['longitude']}} };
+                                                        var thispoint{{ $mappoint->id }} = {lat: {{ $mappoint->latitude }}, lng: {{ $mappoint->longitude}} };
                                                         function initMap(){
-                                                            var latLng = new google.maps.LatLng(thispoint{{$mappoint['id']}});
+                                                            var latLng = new google.maps.LatLng(thispoint{{ $mappoint->id }});
                                                             var myOptions = {
                                                                 mapTypeId: google.maps.MapTypeId.ROADMAP
                                                             };
-                                                            map{{$mappoint['id']}} = new google.maps.Map(document.getElementById("map{{$mappoint['id']}}"), myOptions);
+                                                            map{{ $mappoint->id }} = new google.maps.Map(document.getElementById("map{{ $mappoint->id }}"), myOptions);
 
                                                             var directionsDisplay = new google.maps.DirectionsRenderer({
-                                                                map: map{{$mappoint['id']}}
+                                                                map: map{{ $mappoint->id }}
                                                             });
 
                                                             var request = {
-                                                                destination: thispoint{{$mappoint['id']}},
+                                                                destination: thispoint{{ $mappoint->id }},
                                                                 origin: pucon,
                                                                 travelMode: 'DRIVING'
                                                             };
@@ -134,18 +134,18 @@
 
                                                             var marker = new google.maps.Marker({
                                                                 position: latLng,
-                                                                map: map{{$mappoint['id']}},
-                                                                title: '{{ $mappoint['name'] }}'
+                                                                map: map{{ $mappoint->id }},
+                                                                title: '{{ $mappoint->name  }}'
                                                             });
                                                         }
                                                         initMap();
-                                                        $("#tomenu{{$mappoint['id']}}").on('click', function(){
-                                                            if(!loadedmap{{$mappoint['id']}}){
+                                                        $("#tomenu{{ $mappoint->id }}").on('click', function(){
+                                                            if(!loadedmap{{ $mappoint->id }}){
                                                                 setTimeout(function(){
-                                                                    google.maps.event.trigger(map{{$mappoint['id']}}, 'resize');
-                                                                    map{{$mappoint['id']}}.setCenter(thispoint{{$mappoint['id']}});
-                                                                    map{{$mappoint['id']}}.setZoom(10);
-                                                                    loadedmap{{$mappoint['id']}} = true;
+                                                                    google.maps.event.trigger(map{{ $mappoint->id }}, 'resize');
+                                                                    map{{ $mappoint->id }}.setCenter(thispoint{{ $mappoint->id }});
+                                                                    map{{ $mappoint->id  }}.setZoom(10);
+                                                                    loadedmap{{ $mappoint->id }} = true;
                                                                 }, 200)
                                                             }
                                                         });
@@ -187,7 +187,7 @@
                                 <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
                                 <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
 
-                                <div id="instafeed3" class="instafeed" data-instaid="{{$mappoint['id']}}" data-instatag="{{ $mappoint['instagram_id'] }}"></div>
+                                <div id="instafeed3" class="instafeed" data-instaid="{{ $mappoint->id }}" data-instatag="{{ $mappoint->instagram_id }}"></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
