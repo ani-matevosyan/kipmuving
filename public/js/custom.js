@@ -82,7 +82,8 @@ $(document).ready(function () {
                 if($(this).outerHeight() > maxHeight)
                     maxHeight = $(this).outerHeight();
                 if($(this).parent().attr('data-opened') === 'true'){
-                    console.log('opened');
+                    var details_height = $(this).parent().find('.guide-place-plate-details').outerHeight();
+                    $(this).parent().css('margin-bottom', details_height+ 30 + 'px');
                 }
             });
             $(this).find('.guide-places-plate').height(maxHeight);
