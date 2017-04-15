@@ -434,7 +434,7 @@ class ReservationController extends Controller
 			
 			$this->createReservation($this->offers, $user, 'payu', $signature, 'none', false);
 
-//			session()->forget('selectedOffers');
+			session()->forget('selectedOffers');
 			
 			return response()->json($data);
 		}
