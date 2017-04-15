@@ -81,6 +81,9 @@ $(document).ready(function () {
             $(this).find('.guide-places-plate').each(function(){
                 if($(this).outerHeight() > maxHeight)
                     maxHeight = $(this).outerHeight();
+                if($(this).parent().attr('data-opened') === 'true'){
+                    console.log('opened');
+                }
             });
             $(this).find('.guide-places-plate').height(maxHeight);
         });
@@ -116,8 +119,11 @@ $(document).ready(function () {
         }
     });
 
+    $(".guide-places-plate-wrapper").change(function(){
+        alert('change');
+    });
+
     $(window).resize(function(){
-        console.log('ok');
         deccaroPlatesHeight();
     });
 
