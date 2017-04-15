@@ -81,6 +81,8 @@ class GuiaController extends Controller
 	public function getMapPoints()
 	{
 		$activities = GuideActivity::get();
+//		dd($activities[0]->bus_est_time);
+		
 		return $activities;
 //		dd($activities);
 		
