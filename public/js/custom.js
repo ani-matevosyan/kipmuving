@@ -121,5 +121,20 @@ $(document).ready(function () {
         deccaroPlatesHeight();
     });
 
+    $(".test-btn").click(function(){
+        $(this).after(' <div id="TA_selfserveprop189" class="TA_selfserveprop">' +
+            '<ul id="30iZF5r6R" class="TA_links cEtbHiZZFQx">'+
+            '<li id="MvwrsMNF" class="BRI36TXBBM0o">' +
+            '<a target="_blank" href="https://www.tripadvisor.cl/"><img src="https://www.tripadvisor.cl/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>'+
+            '</li>'+
+            '</ul>'+
+            '</div>'+
+            '<script src="https://www.jscache.com/wejs?wtype=selfserveprop&uniq=189&locationId=11880671&lang=en&rating=true&nreviews=0&writereviewlink=false&popIdx=false&iswide=false&border=false&display_version=2"></script> ');
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "https://www.jscache.com/wejs?wtype=selfserveprop&uniq=189&locationId=11880671&lang=en&rating=true&nreviews=0&writereviewlink=false&popIdx=false&iswide=false&border=false&display_version=2";
+        // Use any selector
+        $("head").append(s);
+    })
 
 });
