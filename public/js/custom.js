@@ -120,10 +120,6 @@ $(document).ready(function () {
         }
     });
 
-    $(".guide-places-plate-wrapper").change(function(){
-        alert('change');
-    });
-
     $(window).resize(function(){
         deccaroPlatesHeight();
     });

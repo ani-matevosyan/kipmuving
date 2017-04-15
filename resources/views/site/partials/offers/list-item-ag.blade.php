@@ -45,8 +45,8 @@
 							</li>
 							@if($offer->price)
 								<li class="profile">
-									<select class="persona">
-										<option value="">{{ trans('main.persons') }}</option>
+									<select id="select-persona-{{$offer->id}}" class="persona">
+										<option disabled selected value="">{{ trans('main.persons') }}</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -57,8 +57,8 @@
 								</li>
 								@if($offer->available_time)
 									<li class="profile hours">
-										<strong><span>Elija la opcion de horario</span></strong>
-										<select class="hours">
+										<label for="select-hours-{{$offer->id}}">Elija la opcion de horario</label>
+										<select id="select-hours-{{$offer->id}}" class="hours">
 											<option disabled selected>{{ trans('main.schedule') }}</option>
 											@if(is_array($offer->available_time))
 												@foreach($offer->available_time as $time)

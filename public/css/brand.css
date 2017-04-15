@@ -4910,8 +4910,13 @@ body.home2 .roteros-options .raised-form .text-field {
   width: auto;
 }
 
-.your-reservation.new .timing1 li.profile.hours strong{
+.your-reservation.new .timing1 li.profile.hours strong,
+.your-reservation.new .timing1 li.profile.hours label{
   margin-bottom: 3px;
+}
+.your-reservation.new .timing1 li.profile.hours label{
+  font-weight: bold;
+  display: block;
 }
 
 .your-reservation.new .timing1 li.cal:after {
