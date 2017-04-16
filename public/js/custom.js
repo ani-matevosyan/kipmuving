@@ -81,10 +81,6 @@ $(document).ready(function () {
             $(this).find('.guide-places-plate').each(function(){
                 if($(this).outerHeight() > maxHeight)
                     maxHeight = $(this).outerHeight();
-                if($(this).parent().attr('data-opened') === 'true'){
-                    var details_height = $(this).parent().find('.guide-place-plate-details').outerHeight();
-                    $(this).parent().css('margin-bottom', details_height+ 30 + 'px');
-                }
             });
             $(this).find('.guide-places-plate').height(maxHeight);
         });
@@ -101,6 +97,7 @@ $(document).ready(function () {
             thisWrapper.attr('data-opened', 'false');
             thisWrapper.css('margin-bottom', '15px');
             details_div.css({'display': 'none', 'visibility': 'hidden'});
+            ResizeSensor.detach(details_div);
         }else{
             var thisPlate = thisWrapper;
             $(".guide-places-plate").each(function () {
@@ -116,6 +113,10 @@ $(document).ready(function () {
             thisWrapper.attr('data-opened', 'true');
             var details_height = details_div.show().outerHeight();
             thisWrapper.css('margin-bottom', details_height+ 30 + 'px');
+            new ResizeSensor(details_div, function() {
+                details_height = details_div.outerHeight();
+                thisWrapper.css('margin-bottom', details_height+ 30 + 'px');
+            });
             details_div.css('visibility','visible');
         }
     });

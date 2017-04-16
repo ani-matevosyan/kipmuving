@@ -165,22 +165,15 @@
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <strong>Elija el opcion de horario</strong>
-                                                    {{--<select class="persona">--}}
-                                                        {{--<option value="">{{ trans('main.schedule') }}</option>--}}
-                                                        {{--<option value="1">One</option>--}}
-                                                        {{--<option value="2">Two</option>--}}
-                                                        {{--<option value="3">Three</option>--}}
-                                                        {{--<option value="4">Four</option>--}}
-                                                    {{--</select>--}}
-																									<select class="hours">
-																										<option value="">{{ trans('main.schedule') }}</option>
-																										@if(is_array($mappoint->time_ranges))
-																											@foreach($mappoint->time_ranges as $time)
-																												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
-																											@endforeach
-																										@endif
-																									</select>
+                                                    <label for="select-hours-{{ $mappoint->id }}">Elija el opcion de horario</label>
+                                                    <select id="select-hours-{{ $mappoint->id }}" class="hours">
+                                                        <option selected disabled value="">{{ trans('main.schedule') }}</option>
+                                                        @if(is_array($mappoint->time_ranges))
+                                                            @foreach($mappoint->time_ranges as $time)
+                                                                <option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
                                                 </li>
                                             </ul>
                                             <a href="#" class="btn btn-primary" data-offer-id="1">Agregar mi agenda</a>
@@ -195,7 +188,7 @@
                                 <img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
                                 <h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
 
-                                <div id="instafeed3" class="instafeed" data-instaid="{{ $mappoint->id }}" data-instatag="{{ $mappoint->instagram_id }}"></div>
+                                <div id="instafeed3-{{ $mappoint->id }}" class="instafeed" data-instaid="{{ $mappoint->id }}" data-instatag="{{ $mappoint->instagram_id }}"></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -205,19 +198,8 @@
             @endforeach
         </div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $.ajax({
-                type: 'GET',
-                url: '/guia/getmappoints',
-                success: function(data){
-                    console.log(data);
-                }
-            })
-        });
-    </script>
     <button class="btn test-btn">Test</button>
 </div>
 </div>
+<script type="text/javascript" src="{{ asset('/js/ResizeSensor.min.js') }}"></script>
 @stop

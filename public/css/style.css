@@ -970,11 +970,11 @@ tooltip fade top in {
     background-position: center center;
 }
 
-.order-theguide>ul>li>strong{
+.order-theguide>ul>li>label{
+    font-weight: bold;
     display: block;
     margin-bottom: 5px;
 }
-
 
 .order-theguide input[type=text],
 .order-theguide .jcf-select{
@@ -989,7 +989,7 @@ tooltip fade top in {
 }
 
 .order-theguide .jcf-select{
-    min-width: 100px;
+    min-width: 125px;
     width: auto;
 }
 .order-theguide .jcf-select .jcf-select-text{
