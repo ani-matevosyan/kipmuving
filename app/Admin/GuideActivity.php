@@ -28,21 +28,28 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('name', 'Name')->required()
-					], 3)
+					], 6)
+					->addColumn([
+						AdminFormElement::select('category', 'Category')->required()->setOptions([
+							'Ditch' => 'Ditch',
+							'Cats'  => 'Cats',
+						])
+					], 6),
+				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('instagram_id', 'Instagram')->required()
-					], 3)
+					], 4)
 					->addColumn([
 						AdminFormElement::text('latitude', 'Latitude')->required()
-					], 3)
+					], 4)
 					->addColumn([
 						AdminFormElement::text('longitude', 'Longitude')->required()
-					], 3),
+					], 4),
 				AdminFormElement::text('short_description', 'Short description')->required(),
 				AdminFormElement::textarea('description', 'Description')->required(),
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::textarea('time_ranges', 'Time')->required(),
+						AdminFormElement::textarea('real_time_ranges', 'Time')->required(),
 					], 8)
 					->addColumn([
 						AdminFormElement::image('image', 'Image'),
@@ -54,13 +61,13 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			'Bus data'       => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::text('bus_est_time', 'Est. time')->required(),
+						AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)')->required(),
 					], 4)
 					->addColumn([
-						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure')->required(),
+						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure (per person)')->required(),
 					], 4)
 					->addColumn([
-						AdminFormElement::text('bus_est_service', 'Est. service')->required(),
+						AdminFormElement::text('bus_est_service', 'Est. service (per person)')->required(),
 					], 4),
 				AdminFormElement::textarea('bus_description', 'Description')->required(),
 			])

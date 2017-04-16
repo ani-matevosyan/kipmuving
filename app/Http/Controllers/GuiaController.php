@@ -48,7 +48,7 @@ class GuiaController extends Controller
 				'offers'  => count($offer->getSelectedOffers()),
 				'persons' => $offer->getSelectedOffersPersons()
 			],
-			'mappoints'  => $this->getMapPoints()
+			'activities'  => $this->getMapPoints()
 		];
 		
 		return view('site.guia.decarro', $data);
