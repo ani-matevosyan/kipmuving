@@ -15,6 +15,7 @@ class CreateGuideActivitiesTable extends Migration
 	{
 		Schema::create('guide_activities', function (Blueprint $table) {
 			$table->increments('id');
+			$table->string('category', 100)->nullable();
 			$table->string('image')->nullable();
 			$table->text('tripadvisor_code')->nullable();
 			$table->string('instagram_id');
