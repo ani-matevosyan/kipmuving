@@ -198,19 +198,8 @@
             @endforeach
         </div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $.ajax({
-                type: 'GET',
-                url: '/guia/getmappoints',
-                success: function(data){
-                    console.log(data);
-                }
-            })
-        });
-    </script>
     <button class="btn test-btn">Test</button>
 </div>
 </div>
+<script type="text/javascript" src="{{ asset('/js/ResizeSensor.min.js') }}"></script>
 @stop
