@@ -74,6 +74,8 @@ $(document).ready(function () {
 
     //Deccaro plates
 
+    var accessToken = '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68';
+
     function deccaroPlatesHeight(){
         $(".guide-places-plate").css('height', 'auto');
         $(".guide-places-plates").each(function(){
@@ -117,9 +119,80 @@ $(document).ready(function () {
                 details_height = details_div.outerHeight();
                 thisWrapper.css('margin-bottom', details_height+ 30 + 'px');
             });
+            var thisInstagramTag = details_div.find('.instagramtag');
+            if(!(thisInstagramTag.text().length)){
+                var thisInsta = details_div.find('.instafeed');
+                thisTag = thisInsta.attr('data-instatag');
+                thisInstagramTag.text("#"+ thisTag);
+                var deccaroFeed = new Instafeed({
+                    get: 'tagged',
+                    tagName: thisTag,
+                    target: thisInsta.attr('id'),
+                    accessToken: accessToken,
+                    template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img src="{{image}}"/></a></div>',
+                    limit: 12,
+                    after: function () {
+                        $('#'+thisInsta.attr("id")+' a').click(function (e) {
+                            e.preventDefault();
+                            var urlOfThis = $(this)[0].href;
+                            if ($("#the-image img")) {
+                                $("#the-image img").remove();
+                            }
+                            $.each($("#data span"), function (i, v) {
+                                if ($(this).attr('data-link') == urlOfThis) {
+                                    $("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
+                                }
+                            });
+                            $("#myModalX").modal('show');
+                        });
+                    },
+                    success: function (data) {
+                        $.each(data.data, function (i, v) {
+                            var url = v.images.standard_resolution.url;
+                            $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
+                        });
+                    }
+                });
+                deccaroFeed.run();
+            }
             details_div.css('visibility','visible');
         }
     });
+
+    // if($("#instafeed3-1").length) {
+    //     var thisTag = $("#instafeed3-1").attr("data-instatag");
+    //     $(".instagramtag").text("#"+ thisTag);
+    //     var feed3 = new Instafeed({
+    //         get: 'tagged',
+    //         tagName: thisTag,
+    //         target: 'instafeed3-1',
+    //         accessToken: accessToken,
+    //         template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img src="{{image}}"/></a></div>',
+    //         limit: 12,
+    //         after: function () {
+    //             $('#instafeed3-1 a').click(function (e) {
+    //                 e.preventDefault();
+    //                 var urlOfThis = $(this)[0].href;
+    //                 if ($("#the-image img")) {
+    //                     $("#the-image img").remove();
+    //                 }
+    //                 $.each($("#data span"), function (i, v) {
+    //                     if ($(this).attr('data-link') == urlOfThis) {
+    //                         $("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
+    //                     }
+    //                 });
+    //                 $("#myModalX").modal('show');
+    //             });
+    //         },
+    //         success: function (data) {
+    //             $.each(data.data, function (i, v) {
+    //                 var url = v.images.standard_resolution.url;
+    //                 $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
+    //             });
+    //         }
+    //     });
+    //     feed3.run();
+    // }
 
     $(window).resize(function(){
         deccaroPlatesHeight();
