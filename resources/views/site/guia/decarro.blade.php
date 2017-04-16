@@ -165,22 +165,15 @@
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <strong>Elija el opcion de horario</strong>
-                                                    {{--<select class="persona">--}}
-                                                        {{--<option value="">{{ trans('main.schedule') }}</option>--}}
-                                                        {{--<option value="1">One</option>--}}
-                                                        {{--<option value="2">Two</option>--}}
-                                                        {{--<option value="3">Three</option>--}}
-                                                        {{--<option value="4">Four</option>--}}
-                                                    {{--</select>--}}
-																									<select class="hours">
-																										<option value="">{{ trans('main.schedule') }}</option>
-																										@if(is_array($mappoint->time_ranges))
-																											@foreach($mappoint->time_ranges as $time)
-																												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
-																											@endforeach
-																										@endif
-																									</select>
+                                                    <label for="select-hours-{{ $mappoint->id }}">Elija el opcion de horario</label>
+                                                    <select id="select-hours-{{ $mappoint->id }}" class="hours">
+                                                        <option selected disabled value="">{{ trans('main.schedule') }}</option>
+                                                        @if(is_array($mappoint->time_ranges))
+                                                            @foreach($mappoint->time_ranges as $time)
+                                                                <option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
                                                 </li>
                                             </ul>
                                             <a href="#" class="btn btn-primary" data-offer-id="1">Agregar mi agenda</a>

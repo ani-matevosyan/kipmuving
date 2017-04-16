@@ -233,6 +233,8 @@
                     $(document).ready(function () {
 						$('.payu-btn').click(function(event){
 							event.preventDefault();
+							var thisBtn = $(this);
+							thisBtn.attr('disabled', true);
 							$.ajax({
 								type: "GET",
 								url: "/reserve/payu",
@@ -245,6 +247,7 @@
 											$('form[name=payuform]>input[name='+key+']').val(data[key]);
 										}
 									}
+									thisBtn.attr('disabled', false);
 									document.payuform.submit();
 								}
 							})
