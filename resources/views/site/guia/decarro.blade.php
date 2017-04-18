@@ -2,7 +2,6 @@
 
 {{-- Subpage --}}
 @section('subpage')
-
 	<div class="detail-box active-tab" id="m-box-3">
 		<div class="all-activities custom_title custom_title">
 			<header class="light-blue">
@@ -39,7 +38,6 @@
 			@endif
 		</div>
 		<button class="btn test-btn">Test</button>
-	</div>
 	</div>
 	<script type="text/javascript" src="{{ asset('/js/ResizeSensor.min.js') }}"></script>
 @stop
