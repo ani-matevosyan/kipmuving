@@ -228,7 +228,7 @@
 											</strong>
 											@endif
 											<strong>
-												<span>Summary: </span>{{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}$
+												<span>Summary: </span>{{ session('currency.type') }}$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
 											</strong>
 										</li>
 										<li class="person">

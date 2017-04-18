@@ -25,7 +25,7 @@
 												en documentos electrónicos,.</p-->
 										</header>
 									@else
-										<!--header class="head reserveMessageHeader" style="display:none;">
+									<!--header class="head reserveMessageHeader" style="display:none;">
 											<h1 class="reserveMessage"></h1>
 											<p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
 												libro de
@@ -46,12 +46,13 @@
 												<header>
 													<div class="ico">
 														<img src="/{{ $offer->activity->image_icon }}"
-															  onerror="this.src='/images/image-none.jpg';"
-															  alt="agency image">
+																 onerror="this.src='/images/image-none.jpg';"
+																 alt="agency image">
 													</div>
 													<div class="text">
 														<h2>
-															<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
+															<a
+																href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
 														</h2>
 														<strong
 															class="sub-title">{{ $offer->agency->name }} <!--<span>O`Higgins Nº211-C </span>--></strong>
@@ -95,7 +96,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>$</sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+														<sub>{{ session('currency.type') }}$ </sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 													</strong>
 												</div>
 												<div id="reservetour1">
@@ -112,8 +113,10 @@
 									@if (empty($message))
 										<section class="s_moredetails">
 											<p>{{ trans('main.to_confirm_your_activities') }}
-												<strong>{{ trans('main.reserve_this_panorama') }}. </strong>{{ trans('main.confirm_with_payment_of_service') }}
-												<strong>{{ config('kipmuving.service_fee') * 100 }}%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+												<strong>{{ trans('main.reserve_this_panorama') }}
+													. </strong>{{ trans('main.confirm_with_payment_of_service') }}
+												<strong>{{ config('kipmuving.service_fee') * 100 }}
+													%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
 											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
 											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
 											<p class="carrio-heading">{{ trans('main.general_information') }}</p>
@@ -126,31 +129,35 @@
 									<section class="s_suprogram">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
-											<p><span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</p>
+											<p><span
+													id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
+											</p>
 										</header>
 										<ul class="offers-list">
 											@foreach ($reservation->offers as $offer)
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer->activity->name }}</h4>
-													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
+													{{ session('currency.type') }} <span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($reservation->total_in_currency, 0, ".", ".") }}</p>
+												{{ session('currency.type') }} <p>{{ number_format($reservation->total_in_currency, 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}</p>
+												{{ session('currency.type') }} <p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}</p>
 											</div>
 										</div>
-										<a href="#" class="btn-reservar reserve" data-toggle="modal" data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
+										<a href="#" class="btn-reservar reserve" data-toggle="modal"
+											 data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
 									</section>
 									<div class="su_program_note">
-										* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.
+										* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un
+										aproximado. El valor debera ser pago en pesos en la agencia.
 									</div>
 									<section class="s_howitworks_sidebar">
 										<div class="section-container">
@@ -163,7 +170,8 @@
 											</div>
 											<div class="item umbrella">
 												<img src="images/umbrella-grey.svg" alt="umbrella">
-												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>{{ config('kipmuving.service_fee') * 100 }}% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
+												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>{{ config('kipmuving.service_fee') * 100 }}
+														% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
 											</div>
 											<div class="item broklink">
 												<img src="images/broken-link-grey.svg" alt="broken-link">
@@ -194,32 +202,43 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<p class="modal-title">Estas reservando <strong>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando <strong>$ {{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}.</strong> <br> Para completar, debera pagar <strong>$ {{ number_format($reservation->to_pay_in_currency, 0, ".", ".") }}.</strong> Elija su medio de pago:</p>
+					<p class="modal-title">Estas reservando
+						<strong><span>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando
+						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}
+							.</strong> <br> Para completar, debera pagar
+						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->to_pay_in_currency, 0, ".", ".") }}.</strong> Elija su medio de
+						pago:</p>
 				</div>
 				<div class="modal-body">
-                    <div class="payment-options">
-                        <a href="/reserve/pagseguro" class="pagseguro-btn"><img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo"></a>
-                        <a href="/reserve/payu" class="payu-btn"><img src="/images/payu_logo.png" alt="PayU Logo"></a>
-                        <a href="/reserve/paypal" class="paypal-btn"><img src="/images/paypal_logo_transparent.png" alt="PayPal Logo"></a>
-                    </div>
+					<div class="payment-options">
+						<a href="/reserve/pagseguro" class="pagseguro-btn">
+							<img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo">
+						</a>
+						<a href="/reserve/payu" class="payu-btn">
+							<img src="/images/payu_logo.png" alt="PayU Logo">
+						</a>
+						<a href="/reserve/paypal" class="paypal-btn">
+							<img src="/images/paypal_logo_transparent.png" alt="PayPal Logo">
+						</a>
+					</div>
 				</div>
 				<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway">
-				{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}
-					<input name="merchantId" type="hidden"  value="">
-					<input name="ApiKey" type="hidden"  value="">
+					{{--<form name="payuform" method="post" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway">--}}
+					<input name="merchantId" type="hidden" value="">
+					<input name="ApiKey" type="hidden" value="">
 					<input name="accountId" type="hidden" value="">
-					<input name="description" type="hidden"  value="">
-					<input name="referenceCode" type="hidden"  value="" >
-					<input name="amount" type="hidden"  value="">
+					<input name="description" type="hidden" value="">
+					<input name="referenceCode" type="hidden" value="">
+					<input name="amount" type="hidden" value="">
 					{{--<input name="tax" type="hidden"  value="">--}}
 					{{--<input name="taxReturnBase" type="hidden"  value="">--}}
-					<input name="currency" type="hidden"  value="">
-					<input name="signature" type="hidden"  value="">
+					<input name="currency" type="hidden" value="">
+					<input name="signature" type="hidden" value="">
 					{{--<input type="hidden" name="totalAmount" value="">--}}
 					{{--<input type="hidden" name="OpenPayu-Signature" value="">--}}
-					<input name="test" type="hidden"  value="">
-					<input name="buyerEmail" type="hidden"  value="">
-					<input name="responseUrl" type="hidden"  value="" >
+					<input name="test" type="hidden" value="">
+					<input name="buyerEmail" type="hidden" value="">
+					<input name="responseUrl" type="hidden" value="">
 					<input name="confirmationUrl" type="hidden" value="">
 					<input name="continueUrl" type="hidden" value="">
 					<input name="notifyUrl" type="hidden" value="">
@@ -229,31 +248,31 @@
 					{{--<input name="sUrl" type="hidden" value="">--}}
 					{{--<input name="fUrl" type="hidden" value="">--}}
 				</form>
-                <script>
-                    $(document).ready(function () {
-						$('.payu-btn').click(function(event){
-							event.preventDefault();
-							var thisBtn = $(this);
-							thisBtn.attr('disabled', true);
-							$.ajax({
-								type: "GET",
-								url: "/reserve/payu",
-								data: {
-									'_token': $('meta[name="csrf-token"]').attr('content')
-								},
-								success: function(data){
-									for(key in data){
-										if (data.hasOwnProperty(key)){
-											$('form[name=payuform]>input[name='+key+']').val(data[key]);
-										}
-									}
-									thisBtn.attr('disabled', false);
-									document.payuform.submit();
-								}
-							})
-						});
-                    });
-                </script>
+				<script>
+            $(document).ready(function () {
+                $('.payu-btn').click(function (event) {
+                    event.preventDefault();
+                    var thisBtn = $(this);
+                    thisBtn.attr('disabled', true);
+                    $.ajax({
+                        type: "GET",
+                        url: "/reserve/payu",
+                        data: {
+                            '_token': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (data) {
+                            for (key in data) {
+                                if (data.hasOwnProperty(key)) {
+                                    $('form[name=payuform]>input[name=' + key + ']').val(data[key]);
+                                }
+                            }
+                            thisBtn.attr('disabled', false);
+                            document.payuform.submit();
+                        }
+                    })
+                });
+            });
+				</script>
 			</div>
 		</div>
 	</div>

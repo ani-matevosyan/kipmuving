@@ -4,7 +4,7 @@
 @section('content')
 	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
 		<div class="gradoverlay"></div>
-	<!-- <img src="images/img28.jpg" alt="image description"> -->
+		<!-- <img src="images/img28.jpg" alt="image description"> -->
 		<div class="caption">
 			<div class="container">
 				<div class="row">
@@ -24,12 +24,12 @@
 									<div class="sub-col">
 										<div class="text-field has-ico calender">
 											<input id="activity_date"
-													 type="text"
-													 name="activity_date"
-													 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-													 placeholder="{{ trans('form.date') }}"
-													 class="form-control"
-													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+														 type="text"
+														 name="activity_date"
+														 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+														 placeholder="{{ trans('form.date') }}"
+														 class="form-control"
+														 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
 										</div>
 										<!-- <div class="text-field has-ico date"><input type="text" placeholder="Dia en Pucon" class="form-control"></div> -->
 									</div>
@@ -39,7 +39,8 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} <span>{{ config('kipmuving.discount') * 100 }}%</span>  {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">{{ trans('main.less') }} <span>{{ config('kipmuving.discount') * 100 }}
+									%</span> {{ trans('main.in_all_activities') }}</p>
 						</form>
 					</div>
 				</div>
@@ -62,29 +63,29 @@
 				<div class="col-md-5 col-md-push-2">
 					<div class="section_title">
 						<h2>
-						@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
-							<span class="size1">{{ trans('main.guide') }}</span>
-							<span class="size4">{{ trans('main.complete') }}</span>
-							<span class="size2">pucon</span>
-							<span class="size3">{{ trans('main.free') }}</span>
-						@elseif(App::getLocale() == 'en')
-							<span class="size4">{{ trans('main.complete') }}</span>
-							<span class="size2">pucon</span>
-							<span class="size1">{{ trans('main.guide') }}</span>
-							<span class="size3">{{ trans('main.free') }}</span>
-						@endif
+							@if(app()->getLocale() == 'es_ES' || app()->getLocale() == 'pt')
+								<span class="size1">{{ trans('main.guide') }}</span>
+								<span class="size4">{{ trans('main.complete') }}</span>
+								<span class="size2">pucon</span>
+								<span class="size3">{{ trans('main.free') }}</span>
+							@elseif(app()->getLocale() == 'en')
+								<span class="size4">{{ trans('main.complete') }}</span>
+								<span class="size2">pucon</span>
+								<span class="size1">{{ trans('main.guide') }}</span>
+								<span class="size3">{{ trans('main.free') }}</span>
+							@endif
 						</h2>
-					{{--@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
-						<h1>{{ trans('main.guide') }}</h1>
-						<h4>{{ trans('main.complete') }}</h4>
-						<h2>pucon</h2>
-						<h3>{{ trans('main.free') }}</h3>
-					@elseif(App::getLocale() == 'en')
-						<h4>{{ trans('main.complete') }}</h4>
-						<h2>pucon</h2>
-						<h1>{{ trans('main.guide') }}</h1>
-						<h3>{{ trans('main.free') }}</h3>
-					@endif--}}
+						{{--@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
+							<h1>{{ trans('main.guide') }}</h1>
+							<h4>{{ trans('main.complete') }}</h4>
+							<h2>pucon</h2>
+							<h3>{{ trans('main.free') }}</h3>
+						@elseif(App::getLocale() == 'en')
+							<h4>{{ trans('main.complete') }}</h4>
+							<h2>pucon</h2>
+							<h1>{{ trans('main.guide') }}</h1>
+							<h3>{{ trans('main.free') }}</h3>
+						@endif--}}
 					</div>
 				</div>
 				<div class="col-md-2 col-md-pull-5">
@@ -151,7 +152,8 @@
 							<img src="{{ asset('images/umbrella.svg') }}" alt="">
 							<p>
 								<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
-								<span>{{ config('kipmuving.service_fee') * 100 }}%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
+								<span>{{ config('kipmuving.service_fee') * 100 }}
+									%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
 							</p>
 						</div>
 					</div>
@@ -191,27 +193,27 @@
 
 
 				<div class="row">
-					<?php $key = 0; ?>
+			  <?php $key = 0; ?>
 					@foreach($activities as $activity)
 						<div class="col-md-3 col-sm-6 col-xs-12 col">
 							@include('site.partials.activities.all-list-item-arr')
-                        </div>
-                        <?php ++$key?>
-                        @if($key === 2)
-                            <div class="clearfix visible-sm-block"></div>
-                        @elseif($key===4)
-                            <div class="clearfix visible-md-block"></div>
+						</div>
+				  <?php ++$key?>
+						@if($key === 2)
+							<div class="clearfix visible-sm-block"></div>
+						@elseif($key===4)
+							<div class="clearfix visible-md-block"></div>
 							<div class="clearfix visible-lg-block"></div>
 							<div class="clearfix visible-sm-block"></div>
-                            <?php $key = 0; ?>
-                        @endif
+					  <?php $key = 0; ?>
+						@endif
 					@endforeach
 				</div>
 
 
 				<div class="btn-holder">
 					<a href="{{ action('ActivityController@index') }}"
-						class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
+						 class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
 				</div>
 			</div>
 		</div>

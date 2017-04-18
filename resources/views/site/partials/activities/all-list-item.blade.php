@@ -53,7 +53,7 @@
 		<p>{{ $activity->short_description }}<p>
 	@endif
 	@if($activity->offers->min('price'))
-	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>$</sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
+	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>{{ session('currency.type') }}$ </sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
 	@endif
 	<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>
