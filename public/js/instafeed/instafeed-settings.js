@@ -131,41 +131,6 @@ $(document).ready(function(){
 		feed2_3.run();
 	}
 
-	if($("#instafeed3-1").length) {
-		var thisTag = $("#instafeed3-1").attr("data-instatag");
-		$(".instagramtag").text("#"+ thisTag);
-		var feed3 = new Instafeed({
-			get: 'tagged',
-			tagName: thisTag,
-			target: 'instafeed3-1',
-			accessToken: accessToken,
-			template: '<div class="col-md-2 col-sm-3 col-xs-4 in-image"><a href="{{link}}"><img src="{{image}}"/></a></div>',
-			limit: 12,
-			after: function () {
-				$('#instafeed3-1 a').click(function (e) {
-					e.preventDefault();
-					var urlOfThis = $(this)[0].href;
-					if ($("#the-image img")) {
-						$("#the-image img").remove();
-					}
-					$.each($("#data span"), function (i, v) {
-						if ($(this).attr('data-link') == urlOfThis) {
-							$("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
-						}
-					});
-					$("#myModalX").modal('show');
-				});
-			},
-			success: function (data) {
-				$.each(data.data, function (i, v) {
-					var url = v.images.standard_resolution.url;
-					$("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
-				});
-			}
-		});
-		feed3.run();
-	}
-
 	if($("#instafeed4").length){
 		var agencyId  = $("#instafeed4").attr("data-instagram-id");
 		var feed4 = new Instafeed({
