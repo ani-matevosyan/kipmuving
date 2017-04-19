@@ -17,7 +17,7 @@
 				<tr>
 					<td class="header" bgcolor="#133939"
 						 style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
-						<span width="340" valign="top" height="""82" style="display:block;" style="width:250px !important;
+						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
 						<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
 							  class="width:250px !important;">
@@ -105,7 +105,7 @@
 					<td id="footer" valign="top"
 						 style="padding-left:20px; padding-top:20px; padding-right:20px; padding-bottom:20px;">
 						{{ trans('emails.total_to_pay') }} <span
-							style="color:#980e25; font-weight:bold;">$ {{ $reservation->total }} CLP
+							style="color:#980e25; font-weight:bold;">$ {{ $reservation->total['CLP'] }} CLP
 							.</span> {{ trans('emails.each_agency_has_cancellation_policy') }}
 						<br>
 						<br>

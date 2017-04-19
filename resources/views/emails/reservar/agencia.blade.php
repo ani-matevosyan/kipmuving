@@ -536,7 +536,7 @@
 													@endforeach
 													<span style="color:#980e25">
 														<span style="font-size:16px">
-															<strong>Total a pagar de ${{ $total * (1 - config('kipmuving.discount')) }} CLP</strong>
+															<strong>Total a pagar de ${{ $total }} CLP</strong>
 														</span>
 													</span>
 												</td>

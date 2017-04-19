@@ -533,7 +533,7 @@
 															&nbsp;
 														</address>
 													@endforeach
-													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $reservation->total }} CLP</strong></span></span>
+													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $reservation->total['CLP'] }} CLP</strong></span></span>
 												</td>
 											</tr>
 											</tbody>

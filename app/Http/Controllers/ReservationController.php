@@ -25,10 +25,10 @@ class ReservationController extends Controller
 {
 	private $price_per_person = 3.5;
 	private $offers = [];
-	private $total = 0;
-	private $total_without_discount = 0;
+	private $total;
+//	private $total_without_discount = 0;
 	private $persons = 0;
-	private $to_pay = 0;
+//	private $to_pay;
 	
 	#Get offers data
 	public function __construct(Offer $offer)
@@ -41,15 +41,15 @@ class ReservationController extends Controller
 		
 		$this->offers = $data->offers;
 		$this->total = $data->total;
-		$this->total_without_discount = $data->total_without_discount;
+//		$this->total_without_discount = $data->total_without_discount;
 		$this->persons = $data->persons;
-		$this->to_pay = $data->to_pay;
+//		$this->to_pay = $data->total->to_pay;
 		
 		return 0;
 	}
 	
 	#Get price in currencies from USD
-	private function getPriceInCurrency($price, $currency = 'USD')
+	private static function getPriceInCurrency($price, $currency = 'USD')
 	{
 		$result = 0;
 		
@@ -109,7 +109,7 @@ class ReservationController extends Controller
 			Mail::send('emails.reservar.agencia', [
 				'reservations' => $item,
 				'user'         => $user,
-				'total'        => $item->sum('real_price')
+				'total'        => $item->sum('reservation.total')
 			], function ($message) use ($agency_email) {
 				$message->from('info@kipmuving.com', 'Kipmuving team');
 //				$message->to($agency_email)->subject('Kipmuving.com reservation');
@@ -148,14 +148,17 @@ class ReservationController extends Controller
 	private static function getReservationData($selected_offers)
 	{
 		$data = collect();
-		$data->total = 0;
-		$data->total_in_currency = 0;
-		$data->total_without_discount = 0;
-		$data->total_without_discount_in_currency = 0;
+//		$data->total = 0;
+//		$data->total_in_currency = 0;
+//		$data->total_without_discount = 0;
+//		$data->total_without_discount_in_currency = 0;
 		$data->persons = 0;
-		$data->to_pay = 0;
-		$data->to_pay_in_currency = 0;
-		
+//		$data->to_pay = 0;
+//		$data->to_pay_in_currency = 0;
+		$data->total = collect(['CLP' => 0, 'USD' => 0, 'BRL' => 0]);
+		$data->total->with_discount = collect(['CLP' => 0, 'USD' => 0, 'BRL' => 0]);
+		$data->total->to_pay = collect(['CLP' => 0, 'USD' => 0, 'BRL' => 0]);
+
 		$data->offers = collect();
 		
 		foreach ($selected_offers as $key => $selected_offer) {
@@ -169,16 +172,26 @@ class ReservationController extends Controller
 			];
 			
 			$data->offers[$key]['reservation'] = $reservation;
-			$data->total += $data->offers[$key]->real_price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
-			$data->total_in_currency += $data->offers[$key]->price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
-			$data->total_without_discount += $data->offers[$key]->real_price * $selected_offer['persons'];
-			$data->total_without_discount_in_currency += $data->offers[$key]->price * $selected_offer['persons'];
+//			$data->total += $data->offers[$key]->real_price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
+//			$data->total_in_currency += $data->offers[$key]->price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
+//			$data->total_without_discount += $data->offers[$key]->real_price * $selected_offer['persons'];
+//			$data->total_without_discount_in_currency += $data->offers[$key]->price * $selected_offer['persons'];
+			$data->total['CLP'] += $data->offers[$key]->real_price * $selected_offer['persons'];
+			$data->total['USD'] += round($data->total['CLP'] / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+			$data->total['BRL'] += round($data->total['USD'] * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+			$data->total->with_discount['CLP'] = round($data->total['CLP'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
+			$data->total->with_discount['USD'] = round($data->total['USD'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
+			$data->total->with_discount['BRL'] = round($data->total['BRL'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
 			$data->persons += $selected_offer['persons'];
 		}
 		
 		//todo change
-		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
-		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+//		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+//		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+//		$to_pay =
+		$data->total->to_pay['CLP'] = round($data->total->with_discount['CLP'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN) < 2000 ? '' : '';
+		$data->total->to_pay['USD'] = round($data->total->with_discount['USD'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->to_pay['BRL'] = round($data->total->with_discount['BRL'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
 
 //		$data->to_pay = 0.05;
 //		$data->to_pay_in_currency = 0.05;
@@ -189,8 +202,6 @@ class ReservationController extends Controller
 	#Display reservations (/reserve)
 	public function index()
 	{
-		$this->getPriceInCurrency($this->to_pay, 'BRL');
-		
 		if (!($user = Auth::user()))
 			return redirect('/login');
 		
@@ -260,11 +271,11 @@ class ReservationController extends Controller
 		if ($request->token) {
 			$response = $gateway->completePurchase([
 				'token'  => $request->token,
-				'amount' => $reservations->to_pay,
+				'amount' => $reservations->total->to_pay['USD'],
 			])->send();
 		} else {
 			$response = $gateway->purchase([
-				'amount'      => $reservations->to_pay,
+				'amount'      => $reservations->total->to_pay['USD'],
 				'no_shipping' => 1,
 				
 				//TEST
@@ -312,7 +323,7 @@ class ReservationController extends Controller
 						'id'          => uniqid(),
 						'description' => 'Kipmuving reservation',
 						'quantity'    => 1,
-						'amount'      => $this->getPriceInCurrency($this->to_pay, 'BRL')
+						'amount'      => $this->total->to_pay['BRL']
 					]
 				],
 				'currency' => 'BRL'
@@ -406,8 +417,8 @@ class ReservationController extends Controller
 			$merchant_id = '630645';
 			$account_id = '632993';
 			$uid = uniqid();
-//			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->to_pay.'~'.'USD');
-			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~1~'.'USD');
+//			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~'.$this->total->to_pay['USD'].'~'.'USD');
+			$signature = md5($api_key.'~'.$merchant_id.'~'.$uid.'~3.5~'.'USD');
 			
 			$data = [
 				'merchantId'    => $merchant_id,
@@ -415,14 +426,14 @@ class ReservationController extends Controller
 				'accountId'     => $account_id,
 				'description'   => 'Kipmuving.com reservation: '.$signature,
 				'referenceCode' => $uid,
-//				'amount'          => $this->to_pay,
+//				'amount'          => $this->total->to_pay['USD'],
 				'currency'      => 'USD',
 				'signature'     => $signature,
 				//TEST
 //				'test'            => 0,
 				//LIVE
 				'test'          => 0,
-				'amount'        => 1,
+				'amount'        => 3.5,
 				'buyerEmail'    => $user->email,
 				'responseUrl'   => 'http://kipmuving.com/user',
 				

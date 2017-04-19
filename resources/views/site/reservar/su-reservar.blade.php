@@ -144,12 +144,12 @@
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												{{ session('currency.type') }} <p>{{ number_format($reservation->total_in_currency, 0, ".", ".") }}</p>
+												{{ session('currency.type') }} <p>{{ number_format($reservation->total->with_discount[session('currency.type')], 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												{{ session('currency.type') }} <p>{{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}</p>
+												{{ session('currency.type') }} <p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
 											</div>
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
@@ -204,9 +204,9 @@
 				<div class="modal-header">
 					<p class="modal-title">Estas reservando
 						<strong><span>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando
-						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total_without_discount_in_currency * config('kipmuving.discount'), 0, ".", ".") }}
+						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}
 							.</strong> <br> Para completar, debera pagar
-						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->to_pay_in_currency, 0, ".", ".") }}.</strong> Elija su medio de
+						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total->to_pay[session('currency.type')], 0, ".", ".") }}.</strong> Elija su medio de
 						pago:</p>
 				</div>
 				<div class="modal-body">
