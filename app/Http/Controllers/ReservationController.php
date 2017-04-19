@@ -188,10 +188,10 @@ class ReservationController extends Controller
 		//todo change
 //		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
 //		$data->to_pay_in_currency = round(($data->total_in_currency) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
-//		$to_pay =
-		$data->total->to_pay['CLP'] = round($data->total->with_discount['CLP'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
-		$data->total->to_pay['USD'] = round($data->total->with_discount['USD'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
-		$data->total->to_pay['BRL'] = round($data->total->with_discount['BRL'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+		$tmp = round($data->total->with_discount['CLP'] * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->to_pay['CLP'] = $tmp < 2000 ? 2000 : $tmp;
+		$data->total->to_pay['USD'] = round($data->total->to_pay['CLP'] / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->to_pay['BRL'] = round($data->total->to_pay['USD'] * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
 
 //		$data->to_pay = 0.05;
 //		$data->to_pay_in_currency = 0.05;
