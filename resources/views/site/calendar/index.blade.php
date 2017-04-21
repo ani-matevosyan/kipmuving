@@ -61,7 +61,7 @@
 									<?php $total_discount = $total_cost * config('kipmuving.discount') ?>
 									<div class="discount">
 										<span>{{ trans('main.you_save') }}</span>
-										{{ session('currency.type') }} <p>{{ number_format($total_discount, 0, ".", ".") }}</p>
+										<p>{{ session('currency.type') }} {{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
 								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>

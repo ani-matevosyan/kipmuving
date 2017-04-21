@@ -334,11 +334,14 @@ jQuery(document).ready(function(){
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 	}
 
+
+
 	jQuery('.persona').on("change", function(){
 		var priceElem = $(this).parents('.offer-item').find('.price');
+        var currency = $(this).parents('.offer-item').find('.price sub').html();
 		var unit_price = 0 + priceElem.data('unit-price');
 
-		priceElem.html('<del> <small><sub>$</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>$</sub>' + Math.round($(this).val() * unit_price * 0.9));
+		priceElem.html('<del> <small><sub>'+currency+'</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>'+currency+'</sub>' + numberWithDots(Math.round($(this).val() * unit_price * 0.9)));
 	});
 
     //-----------AVATAR LOADING--------------

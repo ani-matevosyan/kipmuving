@@ -325,7 +325,9 @@ body.home2 .all-activities.custom_title header {
     padding: 14px 0 10px;}
     .s_suprogram .total div {
       display: inline-block;
-      width: 49%; }
+      width: 49%;
+      vertical-align: middle;
+    }
     .s_suprogram .total .totalprice {
       padding-left: 36px;
       position: relative; }

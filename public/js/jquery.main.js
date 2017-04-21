@@ -49,35 +49,6 @@ function initDatepicker() {
                 $('#reserve-date-sd').val(dt);
                 var addressArray = (window.location.href).split("/");
                 var activityId = addressArray[addressArray.length-1];
-                // $.ajax({
-                //     type: "GET",
-                //     url: "/activities/getalloffers/"+activityId,
-                //     success: function(data){
-                //         var reccomendedOffers = "";
-                //         $.each(data.recommend, function(index, value){
-                //             reccomendedOffers += "<li class='offer-item'><header><div class='ico'>" +
-                //                 "<img src='"+value.offerAgency.image_icon+"' alt='agency image'>" +
-                //                 "</div> <div class='text'><h2><a href='/agency/"+value.offerAgency.id+"'>"+value.offerAgency.name+"</a></h2>" +
-                //                 "<strong class='sub-title'><span>"+value.offerAgency.address+"</span></strong></div>" +
-                //                 "<ul class='links'><li>" +
-                //                 "</header>" +
-                //                 "<div class='row'>" +
-                //                 "<div class='col-md-5 col-sm-5 col-xs-12'>" +
-                //                 "<div class='listbox'>" +
-                //                 "<strong class='title'></strong>" +
-                //                 "</div>" +
-                //                 "</div>" +
-                //                 "</div>" +
-                //                 "</li>";
-                //         });
-                //
-                //         $("#tab2.tab-pane .accordion").html(reccomendedOffers);
-                //         console.log(data);
-                //     },
-                //     error: function(error){
-                //         console.log(error);
-                //     }
-                // })
             }
         });
     });
@@ -2262,7 +2233,7 @@ jQuery.onFontResize = (function ($) {
                 var parsedDate = self.parseDate(key);
 
                 if (parsedDate.valueOf() === date.valueOf()) {
-                    result = [!value.disabled, value.class || 'active'];
+                    result = [!value.disabled, value['class'] || 'active'];
                 }
             });
 
