@@ -60,7 +60,7 @@
 												</header>
 												<div class="activity_description">
 													<div class="row">
-														<div class="col-sm-7 col-xs-12">
+														<div class="col-sm-6 col-xs-12">
 															<div class="list-box">
 																<strong class="title">{{ trans('main.you_must_take') }}</strong>
 																<ul class="list">
@@ -70,7 +70,7 @@
 																</ul>
 															</div>
 														</div>
-														<div class="col-sm-5 col-xs-12">
+														<div class="col-sm-6 col-xs-12">
 															<ul class="timing">
 																<li class="time">
 																	<strong class="title">
@@ -149,7 +149,7 @@
 											</div>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												{{ session('currency.type') }} <p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
+												<p>{{ session('currency.type') }} {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
 											</div>
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
@@ -201,25 +201,65 @@
 	<div class="payment-modal modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<p class="modal-title">Estas reservando
-						<strong><span>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando
-						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}
-							.</strong> <br> Para completar, debera pagar
-						<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total->to_pay[session('currency.type')], 0, ".", ".") }}.</strong> Elija su medio de
-						pago:</p>
-				</div>
+				{{--<div class="modal-header">--}}
+					{{--<p class="modal-title">Estas reservando--}}
+						{{--<strong><span>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando--}}
+						{{--<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}--}}
+							{{--.</strong> <br> Para completar, debera pagar--}}
+						{{--<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total->to_pay[session('currency.type')], 0, ".", ".") }}.</strong> Elija su medio de--}}
+						{{--pago:</p>--}}
+				{{--</div>--}}
 				<div class="modal-body">
-					<div class="payment-options">
-						<a href="/reserve/pagseguro" class="pagseguro-btn">
-							<img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo">
-						</a>
-						<a href="/reserve/payu" class="payu-btn">
-							<img src="/images/payu_logo.png" alt="PayU Logo">
-						</a>
-						<a href="/reserve/paypal" class="paypal-btn">
-							<img src="/images/paypal_logo_transparent.png" alt="PayPal Logo">
-						</a>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="info-item">
+								<div class="row">
+									<div class="col-xs-6">
+										<h4>Reservando</h4>
+									</div>
+									<div class="col-xs-6">
+										<strong>3 actividades</strong>
+									</div>
+								</div>
+							</div>
+							<div class="info-item">
+								<div class="row">
+									<div class="col-xs-6">
+										<h4>Ahorrando</h4>
+									</div>
+									<div class="col-xs-6">
+										<strong>CLP$ 10.000</strong>
+										<span>USD$ 100 / BRL$ 300</span>
+									</div>
+								</div>
+							</div>
+							<div class="info-item">
+								<div class="row">
+									<div class="col-xs-6">
+										<h4>Tarifa de servicio</h4>
+									</div>
+									<div class="col-xs-6">
+										<strong>CLP$ 12.000</strong>
+										<span>USD$ 20 / BRL$ 100</span>
+										<span>*pago minimo</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="payment-options">
+								<span>Confirmar con:</span>
+								<a href="/reserve/pagseguro" class="pagseguro-btn">
+									<img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo">
+								</a>
+								<a href="/reserve/payu" class="payu-btn">
+									<img src="/images/payu_logo.png" alt="PayU Logo">
+								</a>
+								<a href="/reserve/paypal" class="paypal-btn">
+									<img src="/images/paypal_logo_transparent.png" alt="PayPal Logo">
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 				<form name="payuform" method="post" action="https://gateway.payulatam.com/ppp-web-gateway">
