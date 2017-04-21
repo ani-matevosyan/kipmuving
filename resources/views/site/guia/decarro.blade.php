@@ -21,7 +21,7 @@
 
 		<div class="guide-places-plates-wrapper">
 			@if(count($activities->where('category', '=', 'Visual')) > 0)
-				<h2>Ditch</h2>
+				<h2>Visual</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('category', '=', 'Visual') as $activity)
 						@include('site.partials.guia.all-list-item')
@@ -29,7 +29,7 @@
 				</div>
 			@endif
 			@if(count($activities->where('category', '=', 'Caminatas')) > 0)
-				<h2>Ditch</h2>
+				<h2>Caminatas</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('category', '=', 'Caminatas') as $activity)
 						@include('site.partials.guia.all-list-item')
@@ -37,7 +37,7 @@
 				</div>
 			@endif
 			@if(count($activities->where('category', '=', 'Termas')) > 0)
-				<h2>Cats</h2>
+				<h2>Termas</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('category', '=', 'Termas') as $activity)
 						@include('site.partials.guia.all-list-item')
@@ -45,7 +45,6 @@
 				</div>
 			@endif
 		</div>
-		<button class="btn test-btn">Test</button>
 	</div>
 	<script type="text/javascript" src="{{ asset('/js/ResizeSensor.min.js') }}"></script>
 @stop

@@ -76,57 +76,71 @@
 										</div>
 									</div>
 								@endif
-								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) active @endif">
+								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) in active @endif">
 									<div class="map-holder">
 										<div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
 										<script type="text/javascript">
-                        var map{{ $activity->id }};
-                        var loadedmap{{ $activity->id }} = false;
-                        var pucon = {lat: -39.279351, lng: -71.968676};
-                        var thispoint{{ $activity->id }} = {
-                            lat: {{ $activity->latitude }},
-                            lng: {{ $activity->longitude}} };
-                        function initMap() {
-                            var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});
-                            var myOptions = {
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            };
-                            map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);
+                                            var map{{ $activity->id }};
+                                            var loadedmap{{ $activity->id }} = false;
+                                            var pucon = {lat: -39.279351, lng: -71.968676};
+                                            var thispoint{{ $activity->id }} = {
+                                                lat: {{ $activity->latitude }},
+                                                lng: {{ $activity->longitude}} };
+                                            function initMap() {
+                                                var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});
+                                                var myOptions = {
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);
 
-                            var directionsDisplay = new google.maps.DirectionsRenderer({
-                                map: map{{ $activity->id }}
-                            });
+                                                var directionsDisplay = new google.maps.DirectionsRenderer({
+                                                    map: map{{ $activity->id }}
+                                                });
 
-                            var request = {
-                                destination: thispoint{{ $activity->id }},
-                                origin: pucon,
-                                travelMode: 'DRIVING'
-                            };
+                                                var request = {
+                                                    destination: thispoint{{ $activity->id }},
+                                                    origin: pucon,
+                                                    travelMode: 'DRIVING'
+                                                };
 
-                            var directionsService = new google.maps.DirectionsService();
-                            directionsService.route(request, function (response, status) {
-                                if (status == 'OK') {
-                                    directionsDisplay.setDirections(response);
-                                }
-                            });
+                                                var directionsService = new google.maps.DirectionsService();
+                                                directionsService.route(request, function (response, status) {
+                                                    if (status == 'OK') {
+                                                        directionsDisplay.setDirections(response);
+                                                    }
+                                                });
 
-                            var marker = new google.maps.Marker({
-                                position: latLng,
-                                map: map{{ $activity->id }},
-                                title: '{{ $activity->name  }}'
-                            });
-                        }
-                        initMap();
-                        $("#tomenu{{ $activity->id }}").on('click', function () {
-                            if (!loadedmap{{ $activity->id }}) {
-                                setTimeout(function () {
-                                    google.maps.event.trigger(map{{ $activity->id }}, 'resize');
-                                    map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
-                                    map{{ $activity->id  }}.setZoom(10);
-                                    loadedmap{{ $activity->id }} = true;
-                                }, 200)
-                            }
-                        });
+                                                var marker = new google.maps.Marker({
+                                                    position: latLng,
+                                                    map: map{{ $activity->id }},
+                                                    title: '{{ $activity->name  }}'
+                                                });
+                                            }
+                                            initMap();
+                                            @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure))
+                                                var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
+                                                thisPlate.click(function(){
+                                                    {{--if (!loadedmap{{ $activity->id }}) {--}}
+                                                        {{--setTimeout(function () {--}}
+                                                            {{--google.maps.event.trigger(map{{ $activity->id }}, 'resize');--}}
+                                                            {{--map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});--}}
+                                                            {{--map{{ $activity->id  }}.setZoom(10);--}}
+                                                            {{--loadedmap{{ $activity->id }} = true;--}}
+                                                        {{--}, 200)--}}
+                                                    {{--}--}}
+                                                    alert('ok');
+                                                });
+                                            @endif
+                                            $("#tomenu{{ $activity->id }}").on('click', function () {
+                                                if (!loadedmap{{ $activity->id }}) {
+                                                    setTimeout(function () {
+                                                        google.maps.event.trigger(map{{ $activity->id }}, 'resize');
+                                                        map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
+                                                        map{{ $activity->id  }}.setZoom(10);
+                                                        loadedmap{{ $activity->id }} = true;
+                                                    }, 200)
+                                                }
+                                            });
 										</script>
 									</div>
 								</div>
