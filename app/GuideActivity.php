@@ -51,20 +51,34 @@ class GuideActivity extends Model
 		return null;
 	}
 	
-	public function getRealTimeRangesAttribute() {
+	public function getRealTimeRangesAttribute()
+	{
 		return $this->attributes['time_ranges'];
 	}
 	
-	public function setRealTimeRangesAttribute($time) {
+	public function setRealTimeRangesAttribute($time)
+	{
 		$this->attributes['time_ranges'] = $time;
 	}
 	
-	public function getRealBusEstTimeAttribute() {
+	public function getRealBusEstTimeAttribute()
+	{
 		return $this->attributes['bus_est_time'];
 	}
 	
-	public function setRealBusEstTimeAttribute($time) {
-		$this->attributes['bus_est_time'] = $time;
+	public function setRealBusEstTimeAttribute($time)
+	{
+		empty($time) ? $this->attributes['bus_est_time'] = 0 : $this->attributes['bus_est_time'] = $time;
+	}
+	
+	public function setBusEstExpenditureAttribute($expenditure)
+	{
+		empty($expenditure) ? $this->attributes['bus_est_expenditure'] = 0 : $this->attributes['bus_est_expenditure'] = $expenditure;
+	}
+	
+	public function setBusEstServiceAttribute($service)
+	{
+		empty($service) ? $this->attributes['bus_est_service'] = 0 : $this->attributes['bus_est_service'] = $service;
 	}
 	
 	public function getTripadvisorCodeAttribute()
