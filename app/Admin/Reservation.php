@@ -12,7 +12,7 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 	$model->setTitle('Reservations');
 	
 	$model->onDisplay(function () {
-		$display = AdminDisplay::table()->setColumns([
+		$display = AdminDisplay::datatables()->setColumns([
 			$id = AdminColumn::text('id', '#')
 				->setHtmlAttribute('class', 'text-center'),
 			$status = AdminColumn::custom('Status')
@@ -57,6 +57,8 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 		$persons->getHeader()->setHtmlAttribute('class', 'text-center');
 		$price->getHeader()->setHtmlAttribute('class', 'text-center');
 		$sum->getHeader()->setHtmlAttribute('class', 'text-center');
+		
+		$display->setOrder([[0, 'desc']]);
 		
 		$display->paginate(10);
 		
