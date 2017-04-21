@@ -32,6 +32,7 @@
 						</div>
 						<div class="termas-tabs">
 							<ul class="nav nav-pills">
+								@if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
 								<li class="active">
 									<a data-toggle="pill" href="#home{{ $activity->id }}">
 										<img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
@@ -41,7 +42,8 @@
 										</div>
 									</a>
 								</li>
-								<li>
+								@endif
+								<li @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) class="active" @endif>
 									<a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
 										<img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
 										<div class="link-info">
@@ -52,33 +54,29 @@
 								</li>
 							</ul>
 							<div class="tab-content">
-								@if($activity->bus_description)
+								@if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
 									<div id="home{{ $activity->id }}" class="tab-pane well fade in active">
 										<div class="tab-detail">
 											<p>{!! $activity->bus_description !!}</p>
 										</div>
-										@if($activity->bus_est_time)
-											<div class="info-icons">
-												<img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25"/>
-												<p>{{ trans('main.estimated_time') }}:
-													<strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
-											</div>
-										@endif
-										@if($activity->bus_est_expenditure)
-											<div class="info-icons">
-												<img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25"/>
-												<p>{{ trans('main.estimated_expenditure') }}:
-													<strong>$ {{ number_format($activity->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong>
-												</p>
-												@if($activity->bus_est_service)
-													<span>{{ trans('main.spa_value') }}
-														: <strong>$ {{ number_format($activity->bus_est_service, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
-												@endif
-											</div>
-										@endif
+										<div class="info-icons">
+											<img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25"/>
+											<p>{{ trans('main.estimated_time') }}:
+												<strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
+										</div>
+										<div class="info-icons">
+											<img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25"/>
+											<p>{{ trans('main.estimated_expenditure') }}:
+												<strong>$ {{ number_format($activity->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong>
+											</p>
+											@if($activity->bus_est_service)
+												<span>{{ trans('main.spa_value') }}
+													: <strong>$ {{ number_format($activity->bus_est_service, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
+											@endif
+										</div>
 									</div>
 								@endif
-								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade">
+								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) active @endif">
 									<div class="map-holder">
 										<div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
 										<script type="text/javascript">
@@ -145,15 +143,115 @@
 										</div>
 									</li>
 									<li>
-										<label for="select-hours-{{ $activity->id }}">Elija el opcion de horario</label>
-										<select id="select-hours-{{ $activity->id }}" class="hours">
-											<option selected disabled value="">{{ trans('main.schedule') }}</option>
-											@if(is_array($activity->time_ranges))
-												@foreach($activity->time_ranges as $time)
-													<option
-														value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
-												@endforeach
-											@endif
+										<label for="select-hours-from-{{ $activity->id }}">Cuando seria el horario</label>
+										<select id="select-hours-from-{{ $activity->id }}" class="hours">
+											<option selected disabled value=""></option>
+											<option value="00:00">00:00</option>
+											<option value="00:30">00:30</option>
+											<option value="01:00">01:00</option>
+											<option value="01:30">01:30</option>
+											<option value="02:00">02:00</option>
+											<option value="02:30">02:30</option>
+											<option value="03:00">03:00</option>
+											<option value="03:30">03:30</option>
+											<option value="04:00">04:00</option>
+											<option value="04:30">04:30</option>
+											<option value="05:00">05:00</option>
+											<option value="05:30">05:30</option>
+											<option value="06:00">06:00</option>
+											<option value="06:30">06:30</option>
+											<option value="07:00">07:00</option>
+											<option value="07:30">07:30</option>
+											<option value="08:00">08:00</option>
+											<option value="08:30">08:30</option>
+											<option value="09:00">09:00</option>
+											<option value="09:30">09:30</option>
+											<option value="10:00">10:00</option>
+											<option value="10:30">10:30</option>
+											<option value="11:00">11:00</option>
+											<option value="11:30">11:30</option>
+											<option value="12:00">12:00</option>
+											<option value="12:30">12:30</option>
+											<option value="13:00">13:00</option>
+											<option value="13:30">13:30</option>
+											<option value="14:00">14:00</option>
+											<option value="14:30">14:30</option>
+											<option value="15:00">15:00</option>
+											<option value="15:30">15:30</option>
+											<option value="16:00">16:00</option>
+											<option value="16:30">16:30</option>
+											<option value="17:00">17:00</option>
+											<option value="17:30">17:30</option>
+											<option value="18:00">18:00</option>
+											<option value="18:30">18:30</option>
+											<option value="19:00">19:00</option>
+											<option value="19:30">19:30</option>
+											<option value="20:00">20:00</option>
+											<option value="20:30">20:30</option>
+											<option value="21:00">21:00</option>
+											<option value="21:30">21:30</option>
+											<option value="22:00">22:00</option>
+											<option value="22:30">22:30</option>
+											<option value="23:00">23:00</option>
+											<option value="23:30">23:30</option>
+											{{--@if(is_array($activity->time_ranges))--}}
+												{{--@foreach($activity->time_ranges as $time)--}}
+													{{--<option--}}
+														{{--value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>--}}
+												{{--@endforeach--}}
+											{{--@endif--}}
+										</select>
+										<span class="hour-devider">a</span>
+										<select id="select-hours-to-{{ $activity->id }}" class="hours">
+											<option selected disabled value=""></option>
+											<option value="00:00">00:00</option>
+											<option value="00:30">00:30</option>
+											<option value="01:00">01:00</option>
+											<option value="01:30">01:30</option>
+											<option value="02:00">02:00</option>
+											<option value="02:30">02:30</option>
+											<option value="03:00">03:00</option>
+											<option value="03:30">03:30</option>
+											<option value="04:00">04:00</option>
+											<option value="04:30">04:30</option>
+											<option value="05:00">05:00</option>
+											<option value="05:30">05:30</option>
+											<option value="06:00">06:00</option>
+											<option value="06:30">06:30</option>
+											<option value="07:00">07:00</option>
+											<option value="07:30">07:30</option>
+											<option value="08:00">08:00</option>
+											<option value="08:30">08:30</option>
+											<option value="09:00">09:00</option>
+											<option value="09:30">09:30</option>
+											<option value="10:00">10:00</option>
+											<option value="10:30">10:30</option>
+											<option value="11:00">11:00</option>
+											<option value="11:30">11:30</option>
+											<option value="12:00">12:00</option>
+											<option value="12:30">12:30</option>
+											<option value="13:00">13:00</option>
+											<option value="13:30">13:30</option>
+											<option value="14:00">14:00</option>
+											<option value="14:30">14:30</option>
+											<option value="15:00">15:00</option>
+											<option value="15:30">15:30</option>
+											<option value="16:00">16:00</option>
+											<option value="16:30">16:30</option>
+											<option value="17:00">17:00</option>
+											<option value="17:30">17:30</option>
+											<option value="18:00">18:00</option>
+											<option value="18:30">18:30</option>
+											<option value="19:00">19:00</option>
+											<option value="19:30">19:30</option>
+											<option value="20:00">20:00</option>
+											<option value="20:30">20:30</option>
+											<option value="21:00">21:00</option>
+											<option value="21:30">21:30</option>
+											<option value="22:00">22:00</option>
+											<option value="22:30">22:30</option>
+											<option value="23:00">23:00</option>
+											<option value="23:30">23:30</option>
 										</select>
 									</li>
 								</ul>
