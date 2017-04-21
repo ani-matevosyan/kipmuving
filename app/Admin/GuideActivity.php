@@ -31,8 +31,9 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 					], 6)
 					->addColumn([
 						AdminFormElement::select('category', 'Category')->required()->setOptions([
-							'Ditch' => 'Ditch',
-							'Cats'  => 'Cats',
+							'Visual'    => 'Visual',
+							'Caminatas' => 'Caminatas',
+							'Termas'    => 'Termas'
 						])
 					], 6),
 				AdminFormElement::columns()
@@ -61,15 +62,15 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			'Bus data'       => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)')->required(),
+						AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)'),
 					], 4)
 					->addColumn([
-						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure (per person)')->required(),
+						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure (per person)'),
 					], 4)
 					->addColumn([
-						AdminFormElement::text('bus_est_service', 'Est. service (per person)')->required(),
+						AdminFormElement::text('bus_est_service', 'Est. service (per person)'),
 					], 4),
-				AdminFormElement::textarea('bus_description', 'Description')->required(),
+				AdminFormElement::textarea('bus_description', 'Description'),
 			])
 		]);
 		

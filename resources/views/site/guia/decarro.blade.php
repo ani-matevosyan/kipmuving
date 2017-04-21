@@ -20,18 +20,26 @@
 		{{ $activities[0]['short_description'] }}
 
 		<div class="guide-places-plates-wrapper">
-			@if(count($activities->where('category', '=', 'Ditch')) > 0)
+			@if(count($activities->where('category', '=', 'Visual')) > 0)
 				<h2>Ditch</h2>
 				<div class="guide-places-plates">
-					@foreach($activities->where('category', '=', 'Ditch') as $activity)
+					@foreach($activities->where('category', '=', 'Visual') as $activity)
 						@include('site.partials.guia.all-list-item')
 					@endforeach
 				</div>
 			@endif
-			@if(count($activities->where('category', '=', 'Cats')) > 0)
+			@if(count($activities->where('category', '=', 'Caminatas')) > 0)
+				<h2>Ditch</h2>
+				<div class="guide-places-plates">
+					@foreach($activities->where('category', '=', 'Caminatas') as $activity)
+						@include('site.partials.guia.all-list-item')
+					@endforeach
+				</div>
+			@endif
+			@if(count($activities->where('category', '=', 'Termas')) > 0)
 				<h2>Cats</h2>
 				<div class="guide-places-plates">
-					@foreach($activities->where('category', '=', 'Cats') as $activity)
+					@foreach($activities->where('category', '=', 'Termas') as $activity)
 						@include('site.partials.guia.all-list-item')
 					@endforeach
 				</div>
