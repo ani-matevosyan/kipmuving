@@ -236,7 +236,7 @@
 					<input name="signature" type="hidden" value="">
 					{{--<input type="hidden" name="totalAmount" value="">--}}
 					{{--<input type="hidden" name="OpenPayu-Signature" value="">--}}
-					<input name="test" type="hidden" value="0">
+					<input name="test" type="hidden" value="">
 					<input name="buyerEmail" type="hidden" value="">
 					<input name="responseUrl" type="hidden" value="">
 					<input name="confirmationUrl" type="hidden" value="">

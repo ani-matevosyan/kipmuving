@@ -8,7 +8,7 @@
 </head>
 <body
 	style="margin:0; padding:0; font-size:14px; line-height:18px; font-family:'Trebuchet MS', Verdana, sans-serif; min-width:320px !important;"
-	bgcolor="#f6f6f6" link="#535353">
+	bgcolor="#FFFFFF" link="#535353">
 <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
 	<tr>
 		<td align="center" valign="top" id="bodyCell">
@@ -105,7 +105,7 @@
 					<td id="footer" valign="top"
 						 style="padding-left:20px; padding-top:20px; padding-right:20px; padding-bottom:20px;">
 						{{ trans('emails.total_to_pay') }} <span
-							style="color:#980e25; font-weight:bold;">$ {{ $reservation->total['CLP'] }} CLP
+							style="color:#980e25; font-weight:bold;">$ {{ $reservation->total->with_discount['CLP'] }} CLP
 							.</span> {{ trans('emails.each_agency_has_cancellation_policy') }}
 						<br>
 						<br>

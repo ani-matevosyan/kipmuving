@@ -110,7 +110,7 @@
 		}
 
 		body, #bodyTable {
-			background-color: #f6f6f6;
+			background-color: #FFFFFF;
 		}
 
 		#bodyCell {
@@ -184,7 +184,7 @@
 		}
 
 		#templateHeader {
-			background-color: #f6f6f6;
+			background-color: #FFFFFF;
 			border-top: 0;
 			border-bottom: 0;
 			padding-top: 9px;
@@ -206,7 +206,7 @@
 		}
 
 		#templateBody {
-			background-color: #f6f6f6;
+			background-color: #FFFFFF;
 			border-top: 0;
 			border-bottom: 1px solid #EAEAEA;
 			padding-top: 0;
@@ -228,7 +228,7 @@
 		}
 
 		#templateFooter {
-			background-color: #f6f6f6;
+			background-color: #FFFFFF;
 			border-top: 0;
 			border-bottom: 0;
 			padding-top: 9px;
