@@ -570,10 +570,14 @@ tooltip fade top in {
 
 .map-heading {
     color: #ffffff;
-    padding: 0px 15px;}
-.map-heading h2 {
-    font-size: 23px;
-    color: #ffffff; }
+    padding: 0 15px 0 50px;
+}
+
+.map-heading:before{
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
 
 .map-frame {
     height: 240px;
@@ -591,97 +595,75 @@ tooltip fade top in {
     width: 100%;
     height: 500px; }
 
+.click-tab {
+    display: block;
+    height: 100%;
+    position: relative;
+}
+.click-tab .map-heading h3{
+    font-size: 23px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 0;
+    line-height: 32px;
+}
+
 .map-box-1 {
     background-color: #b2c172;
     border: 4px solid #b2c172;
-    display: block;
     margin-top: 5px; }
-.map-box-1 .map-heading h3 {
-    font-size: 23px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    line-height: 32px}
-.map-box-1 .plus-icon {
-    display: block;
-    position: absolute;
-    vertical-align: middle;
-    top: 53%;
-    left: 50%;
-    text-decoration: none; }
-.map-box-1 .plus-icon img {
-    position: relative;
-    left: -51%; }
-
+.map-box-1 .map-heading:before{
+    width: 53px;
+    background: url('/images/hikking-white.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    top: 0;
+    left: -1px;
+}
 .map-box-2 {
     background-color: #4fb46e;
     border: 4px solid #4fb46e;
-    display: block;
     margin-top: 5px; }
-.map-box-2 .map-heading h3 {
-    font-size: 23px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    line-height: 32px}
-.map-box-2 .plus-icon {
-    display: block;
-    position: absolute;
-    vertical-align: middle;
-    top: 53%;
-    left: 50%;
-    text-decoration: none; }
-.map-box-2 .plus-icon img {
-    position: relative;
-    left: -51%; }
-
+.map-box-2 .map-heading:before{
+    width: 53px;
+    background: url('/images/bicycle-white.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    top: 0;
+    left: -1px;
+    transform: rotate(-90deg);
+}
 .map-box-3 {
     background-color: #238384;
     border: 4px solid #238384;
-    display: block;
     margin-top: 5px; }
-.map-box-3 .map-heading h3 {
-    font-size: 23px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    line-height: 32px;}
-.map-box-3 .plus-icon {
-    display: block;
-    position: absolute;
-    vertical-align: middle;
-    top: 53%;
-    left: 50%;
-    text-decoration: none; }
-.map-box-3 .plus-icon img {
-    position: relative;
-    left: -51%; }
-
+.map-box-3 .map-heading:before{
+    width: 53px;
+    background: url('/images/bus-white.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    top: 0;
+    left: -1px;
+    transform: rotate(-90deg);
+}
 .map-box-4 {
     background-color: #343b4e;
     border: 4px solid #343b4e;
-    display: block;
     margin-top: 5px; }
-.map-box-4 .map-heading h3 {
-    font-size: 23px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    line-height: 32px;}
-.map-box-4 .plus-icon {
-    display: block;
-    position: absolute;
-    vertical-align: middle;
-    top: 53%;
-    left: 50%;
-    text-decoration: none; }
-.map-box-4 .plus-icon img {
-    position: relative;
-    left: -51%; }
+.map-box-4 .map-heading:before{
+    width: 53px;
+    background: url('/images/car-white.svg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    top: 0;
+    left: -1px;
+    transform: rotate(-90deg);
+}
 
 .flex_wrapper{
     display: -webkit-box;
@@ -697,10 +679,6 @@ tooltip fade top in {
 .flex_item {
     width: calc(100% *(1/4) - 4px);
     margin: 0 4px 0 0;
-}
-.click-tab {
-    display: block;
-    height: 100%;
 }
 
 @media screen and (max-width: 991px){
@@ -1249,6 +1227,24 @@ tooltip fade top in {
 }
 .guide-places-plate{
     cursor: pointer;
+}
+
+.guide-places-plate>figure{
+    position: relative;
+}
+.vehicle-icon{
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    opacity: 0.7;
+}
+.vehicle-icon.car-icon{
+    right: 10px;
+    width: 16px;
+}
+.vehicle-icon.bus-icon{
+    right: 29px;
+    width: 20px;
 }
 
 .descr{

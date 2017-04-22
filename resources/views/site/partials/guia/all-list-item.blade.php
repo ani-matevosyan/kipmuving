@@ -1,7 +1,16 @@
+<?php
+$isThereABus = false;
+if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure && $activity->bus_est_service)
+    $isThereABus = true
+?>
 <div class="guide-places-plate-wrapper">
 	<div class="guide-places-plate">
 		<figure>
 			<img src="/{{ $activity->image }}" alt="{{ $activity->name }}" class="item-image">
+            <img src="/images/car-front.svg" alt="Car" class="vehicle-icon car-icon">
+            @if($isThereABus)
+                <img src="/images/bus-front.svg" alt="Bus" class="vehicle-icon bus-icon">
+            @endif
 		</figure>
 		<div class="descr">
 			<h3>{{ $activity->name }}</h3>
@@ -32,7 +41,7 @@
 						</div>
 						<div class="termas-tabs">
 							<ul class="nav nav-pills">
-								@if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
+								@if($isThereABus)
 								<li class="active">
 									<a data-toggle="pill" href="#home{{ $activity->id }}">
 										<img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
@@ -43,7 +52,7 @@
 									</a>
 								</li>
 								@endif
-								<li @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) class="active" @endif>
+								<li @if(!$isThereABus) class="active" @endif>
 									<a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
 										<img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
 										<div class="link-info">
@@ -54,7 +63,7 @@
 								</li>
 							</ul>
 							<div class="tab-content">
-								@if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
+								@if($isThereABus)
 									<div id="home{{ $activity->id }}" class="tab-pane well fade in active">
 										<div class="tab-detail">
 											<p>{!! $activity->bus_description !!}</p>
@@ -69,64 +78,75 @@
 											<p>{{ trans('main.estimated_expenditure') }}:
 												<strong>$ {{ number_format($activity->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong>
 											</p>
-											@if($activity->bus_est_service)
 												<span>{{ trans('main.spa_value') }}
 													: <strong>$ {{ number_format($activity->bus_est_service, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
-											@endif
 										</div>
 									</div>
 								@endif
-								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)) active @endif">
+								<div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!$isThereABus) in active @endif">
 									<div class="map-holder">
 										<div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
 										<script type="text/javascript">
-                        var map{{ $activity->id }};
-                        var loadedmap{{ $activity->id }} = false;
-                        var pucon = {lat: -39.279351, lng: -71.968676};
-                        var thispoint{{ $activity->id }} = {
-                            lat: {{ $activity->latitude }},
-                            lng: {{ $activity->longitude}} };
-                        function initMap() {
-                            var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});
-                            var myOptions = {
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            };
-                            map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);
+                                            var map{{ $activity->id }};
+                                            var loadedmap{{ $activity->id }} = false;
+                                            var pucon = {lat: -39.279351, lng: -71.968676};
+                                            var thispoint{{ $activity->id }} = {
+                                                lat: {{ $activity->latitude }},
+                                                lng: {{ $activity->longitude}} };
+                                            function initMap() {
+                                                var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});
+                                                var myOptions = {
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);
 
-                            var directionsDisplay = new google.maps.DirectionsRenderer({
-                                map: map{{ $activity->id }}
-                            });
+                                                var directionsDisplay = new google.maps.DirectionsRenderer({
+                                                    map: map{{ $activity->id }}
+                                                });
 
-                            var request = {
-                                destination: thispoint{{ $activity->id }},
-                                origin: pucon,
-                                travelMode: 'DRIVING'
-                            };
+                                                var request = {
+                                                    destination: thispoint{{ $activity->id }},
+                                                    origin: pucon,
+                                                    travelMode: 'DRIVING'
+                                                };
 
-                            var directionsService = new google.maps.DirectionsService();
-                            directionsService.route(request, function (response, status) {
-                                if (status == 'OK') {
-                                    directionsDisplay.setDirections(response);
-                                }
-                            });
+                                                var directionsService = new google.maps.DirectionsService();
+                                                directionsService.route(request, function (response, status) {
+                                                    if (status == 'OK') {
+                                                        directionsDisplay.setDirections(response);
+                                                    }
+                                                });
 
-                            var marker = new google.maps.Marker({
-                                position: latLng,
-                                map: map{{ $activity->id }},
-                                title: '{{ $activity->name  }}'
-                            });
-                        }
-                        initMap();
-                        $("#tomenu{{ $activity->id }}").on('click', function () {
-                            if (!loadedmap{{ $activity->id }}) {
-                                setTimeout(function () {
-                                    google.maps.event.trigger(map{{ $activity->id }}, 'resize');
-                                    map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
-                                    map{{ $activity->id  }}.setZoom(10);
-                                    loadedmap{{ $activity->id }} = true;
-                                }, 200)
-                            }
-                        });
+                                                var marker = new google.maps.Marker({
+                                                    position: latLng,
+                                                    map: map{{ $activity->id }},
+                                                    title: '{{ $activity->name  }}'
+                                                });
+                                            }
+                                            initMap();
+                                            @if(!$isThereABus)
+                                                var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
+                                                thisPlate.click(function(){
+                                                    if (!loadedmap{{ $activity->id }}) {
+                                                        setTimeout(function () {
+                                                            google.maps.event.trigger(map{{ $activity->id }}, 'resize');
+                                                            map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
+                                                            map{{ $activity->id  }}.setZoom(10);
+                                                            loadedmap{{ $activity->id }} = true;
+                                                        }, 200)
+                                                    }
+                                                });
+                                            @endif
+                                            $("#tomenu{{ $activity->id }}").on('click', function () {
+                                                if (!loadedmap{{ $activity->id }}) {
+                                                    setTimeout(function () {
+                                                        google.maps.event.trigger(map{{ $activity->id }}, 'resize');
+                                                        map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
+                                                        map{{ $activity->id  }}.setZoom(10);
+                                                        loadedmap{{ $activity->id }} = true;
+                                                    }, 200)
+                                                }
+                                            });
 										</script>
 									</div>
 								</div>
