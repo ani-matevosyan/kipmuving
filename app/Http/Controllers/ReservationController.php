@@ -77,6 +77,7 @@ class ReservationController extends Controller
 			$reservation->type = $type;
 			$reservation->status = $status;
 			$reservation->status_code = $status_code;
+			$reservation->lang_code = app()->getLocale();
 			$reservation->user_id = $user->id;
 			$reservation->offer_id = $offer->id;
 			$reservation->persons = $offer->reservation['persons'];
@@ -235,9 +236,11 @@ class ReservationController extends Controller
 		
 		return abort(404);
 	}
-	
-	
-	#--------------------------------------------------------------------\Payment PayPal
+	#---------------------------------------------------------------------
+	#
+	#
+	#
+	#Payment PayPal
 	public function paymentPaypal(Request $request)
 	{
 		$this->clearGarbageReservations();
@@ -309,8 +312,11 @@ class ReservationController extends Controller
 		
 		return null;
 	}
-	
-	#--------------------------------------------------------------------\Payment Pagseguro
+	#---------------------------------------------------------------------
+	#
+	#
+	#
+	#Payment Pagseguro
 	public function paymentPagseguro()
 	{
 		$this->clearGarbageReservations();
@@ -353,6 +359,7 @@ class ReservationController extends Controller
 			->get();
 		
 		$user_id = $reservations[0]->user_id;
+		app()->setLocale($reservations[0]->lang_code);
 		$selected_offers = [];
 		
 		foreach ($reservations as $reservation) {
@@ -400,8 +407,11 @@ class ReservationController extends Controller
 //		Log::debug('redirect - get');
 //		Log::info($request);
 	}
-	
-	#--------------------------------------------------------------------\Payment PayU
+	#---------------------------------------------------------------------
+	#
+	#
+	#
+	#Payment PayU
 	public function paymentPayU()
 	{
 		$this->clearGarbageReservations();
@@ -480,6 +490,7 @@ class ReservationController extends Controller
 		Log::debug($signature);
 		
 		$user_id = $reservations[0]->user_id;
+		app()->setLocale($reservations[0]->lang_code);
 		$selected_offers = [];
 		
 		foreach ($reservations as $reservation) {

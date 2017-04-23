@@ -18,6 +18,7 @@ class CreateReservationsTable extends Migration
 	        $table->string('type', 32)->default(''); #Payment type (for example paypal/pagseguro/payu...)
 	        $table->boolean('status')->default(false); #Payment status. If true - transaction paid and completed
 	        $table->string('status_code', 64)->default(''); #Payment status code (different for payments, for example ok/success/etc.)
+	        $table->string('lang_code', 10)->default('en'); #Language code at the time of reservation
 	        $table->integer('user_id');
 	        $table->integer('offer_id');
 	        $table->integer('persons');
