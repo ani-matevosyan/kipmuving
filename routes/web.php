@@ -43,6 +43,12 @@ Route::post('/offer/remove', 'OfferController@remove');
 
 
 
+
+#Guide activities
+Route::get('/guia/activity/add', 'GuiaController@addActivity');
+
+
+
 #Agencies
 Route::get('/agencies', 'AgencyController@index');
 Route::get('/agency/{id}', 'AgencyController@getAgency')

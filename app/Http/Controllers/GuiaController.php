@@ -48,12 +48,12 @@ class GuiaController extends Controller
 				'offers'  => count($offer->getSelectedOffers()),
 				'persons' => $offer->getSelectedOffersPersons()
 			],
-			'activities'  => $this->getMapPoints()
+			'activities' => $this->getMapPoints()
 		];
 		
 		return view('site.guia.decarro', $data);
 	}
-	
+
 //	public function getMapPoints()
 //	{
 //		$JSON_points = json_decode(file_get_contents(asset('/js/features.json')), true);
@@ -81,12 +81,13 @@ class GuiaController extends Controller
 	public function getMapPoints()
 	{
 		$activities = GuideActivity::get();
+
 //		dd($activities[0]->bus_est_time);
 		
 		return $activities;
 //		dd($activities);
-		
-		
+
+
 //		$JSON_points = json_decode(file_get_contents(asset('/js/features.json')), true);
 //		foreach ($JSON_points['features'] as $key => $feature) {
 //			if ($point = Mappoint::where('point_id', $feature['id'])->first()) {
@@ -107,6 +108,24 @@ class GuiaController extends Controller
 //		dd($JSON_points);
 //
 //		return $JSON_points;
+	}
+	
+	public function addActivity(Request $request)
+	{
+		$request['id'] = 1;
+		$request['date'] = '24/04/2017';
+		$request['hours_from'] = '07:00';
+		$request['hours_to'] = '18:30';
+		
+		$activities = session('guideActivities');
+		$activities[] = [
+			'id'         => $request['id'],
+			'date'       => $request['date'],
+			'hours_from' => $request['hours_from'],
+			'hours_to'   => $request['hours_to']
+		];
+		
+		session()->put('guideActivities', $activities);
 	}
 	
 	public function getTourcultural(Offer $offer)
