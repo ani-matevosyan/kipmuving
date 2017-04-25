@@ -58,13 +58,13 @@
 					</div>
                     <div class="info-tour"></div>
 				</div>
-				<div class="btn-holder">
-					@if (!Auth::guest())
-					<div class="avatar-wrapp">
-							<img src="{{ asset($currentUser['avatar']) }}"
-								  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-								  alt="Account name">
-					</div>
+				@if (!Auth::guest())
+					<div class="btn-holder">
+						<div class="avatar-wrapp">
+								<img src="{{ asset($currentUser['avatar']) }}"
+									  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
+									  alt="Account name">
+						</div>
 						<a href="{{ action('UserController@getUser') }}" class="btn btn-primary orange-btn"
 							title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
 							{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
@@ -76,13 +76,15 @@
 								style="display: none;">
 							{{ csrf_field() }}
 						</form>
-					@else
+					</div>
+				@else
+					<div class="btn-holder btn-holder_withoutavatar">
 						<a href="{{ url('/register') }}"
 							class="btn btn-primary orange-btn">{{ trans('button-links.register') }}</a>
 						<a href="{{ url('/login') }}"
 							class="btn btn-primary">{{ trans('button-links.login') }}</a>
-					@endif
-				</div>
+					</div>
+				@endif
 			</div>
 			<div class="col-md-6 col-md-pull-3 col-xs-12">
 				<nav id="nav">
