@@ -6,7 +6,7 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 <div class="guide-places-plate-wrapper">
 	<div class="guide-places-plate">
 		<figure>
-			<img src="/{{ $activity->image }}" alt="{{ $activity->name }}" class="item-image">
+			<img src="/{{ $activity->image }}" alt="{{ $activity->name }}" class="item-image" onerror="this.src='/images/image-none.jpg';">
             <img src="/images/car-front.svg" alt="Car" class="vehicle-icon car-icon">
             @if($isThereABus)
                 <img src="/images/bus-front.svg" alt="Bus" class="vehicle-icon bus-icon">
@@ -164,7 +164,7 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 									</li>
 									<li>
 										<label for="select-hours-from-{{ $activity->id }}">Cuando seria el horario</label>
-										<select id="select-hours-from-{{ $activity->id }}" class="hours">
+										<select id="select-hours-from-{{ $activity->id }}" class="hours" name="hours_from">
 											<option selected disabled value=""></option>
 											<option value="00:00">00:00</option>
 											<option value="00:30">00:30</option>
@@ -222,7 +222,7 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 											{{--@endif--}}
 										</select>
 										<span class="hour-devider">a</span>
-										<select id="select-hours-to-{{ $activity->id }}" class="hours">
+										<select id="select-hours-to-{{ $activity->id }}" class="hours" name="hours_to">
 											<option selected disabled value=""></option>
 											<option value="00:00">00:00</option>
 											<option value="00:30">00:30</option>
