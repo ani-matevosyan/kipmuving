@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\GuideActivity;
 use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class CalendarController extends Controller
 	public function getData()
 	{
 		$selectedOffers = session('selectedOffers');
+		$guideActivities = session('guideActivities');
 		
 		if (count($selectedOffers) <= 0)
 			abort(404);
@@ -38,13 +40,13 @@ class CalendarController extends Controller
 		
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = Offer::find($selectedOffer['offer_id']);
-
+			
 			$start = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'].' '.$selectedOffer['time']['start'])->toDateTimeString();
 			$end = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'].' '.$selectedOffer['time']['end'])->toDateTimeString();
 			
 			$results[] = [
-				'id' => $key,
-				'className' => 'cal-offer',
+				'id'               => $key,
+				'className'        => 'cal-offer',
 				'backgroundColor'  => $colors[$key % count($colors)],
 				'borderColor'      => $colors[$key % count($colors)],
 				'durationEditable' => false,
@@ -65,6 +67,44 @@ class CalendarController extends Controller
 				'agency_name'      => $offer->agency->name
 			];
 		}
+		foreach ($guideActivities as $key => $guideActivity) {
+			$activity = GuideActivity::find($guideActivity['id']);
+//			dd($activity, $guideActivity);
+
+//			dd(count($results) + $key + 1);
+//			$offer = Offer::find($activity['offer_id']);
+			
+			$start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_from'].':00')->toDateTimeString();
+			$end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_to'].':00')->toDateTimeString();
+			
+			$results[] = [
+				'id'                  => count($results) + $key + 1,
+				'className'           => 'cal-offer guide-activity',
+				'backgroundColor'     => '#FF8040',
+				'borderColor'         => '#FF8040',
+				'durationEditable'    => false,
+				'guide_activity_id'   => $activity->id,
+//				'offer_id'          => '0',
+//				'persons'           => '0',
+				'date'                => $guideActivity['date'],
+				'start'               => $start,
+				'end'                 => $end,
+				'start_time'          => Carbon::parse($guideActivity['hours_from'])->format('H:i'),
+				'end_time'            => Carbon::parse($guideActivity['hours_to'])->format('H:i'),
+				'hours'               => $guideActivity['hours_to'] - $guideActivity['hours_from'],
+//				'break_start'       => '0',
+//				'break_close'       => '0',
+//				'price'             => $offer->price * $guideActivity['persons'],
+				'bus_est_expenditure' => $activity->bus_est_expenditure,
+				'bus_est_service'     => $activity->bus_est_service,
+//				'activity_id'         => $offer->activity->id,
+				'title'               => $activity->name,
+//				'agency_id'           => $offer->agency->id,
+//				'agency_name'         => $offer->agency->name
+			];
+		}
+		
+//		dd($results, $guideActivities);
 		
 		return response()->json($results);
 	}
