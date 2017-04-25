@@ -38,6 +38,24 @@
                         </li>
                     </ul>
                     <p>Asi <strong>KipMuving</strong> urge para suplir una necesidad del sector de aventuras, donde el usuario tiene mas opciones y las agencias mas visibilidad.  Y el usuario apenas colabora con 3% del valor total de sus actividades. Esto sirve para cubrir gastos y seguir mejorando la aplicacion web.</p>
+                    <div class="whosmaking">
+                        <p>Quien hace <strong>KipMuving</strong>:</p>
+                        <ul>
+                            <li>
+                                <img src="/images/ico6.png" alt="Rafael Zarro">
+                                <strong>Rafael Zarro</strong> - Creador y Disenador
+                            </li>
+                            <li>
+                                <img src="/images/solodovnikow.jpg" alt="Oleksandr Solodovnikov">
+                                <strong>Oleksandr Solodovnikov</strong> - Desarrollador
+                            </li>
+                            <li>
+                                <img src="/images/liapota.jpg" alt="Hlib Liapota">
+                                <strong>Hlib Liapota</strong> - Desarrollador
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="credits">Creditos: <a target="_blank" href="http://flaticon.com/">http://flaticon.com/</a></p>
                 </div>
             </div>
         </section>
