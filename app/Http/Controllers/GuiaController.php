@@ -112,11 +112,6 @@ class GuiaController extends Controller
 	
 	public function addActivity(Request $request)
 	{
-		$request['id'] = 1;
-		$request['date'] = '24/04/2017';
-		$request['hours_from'] = '07:00';
-		$request['hours_to'] = '18:30';
-		
 		$activities = session('guideActivities');
 		$activities[] = [
 			'id'         => $request['id'],
