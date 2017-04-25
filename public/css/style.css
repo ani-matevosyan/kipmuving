@@ -911,36 +911,36 @@ tooltip fade top in {
 }
 
 
-.order-theguide>ul{
+.order-theguide ul{
     padding: 0;
     margin: 0 10px 0 0;
     list-style: none;
     float: left;
 }
-.order-theguide>ul>li{
+.order-theguide ul>li{
     display: inline-block;
     vertical-align: top;
     padding-left: 30px;
     position: relative;
     margin-right: 25px;
 }
-.order-theguide>ul>li:last-child{
+.order-theguide ul>li:last-child{
     margin-right: 0;
 }
-.order-theguide>ul>li:before{
+.order-theguide ul>li:before{
     content: '';
     position: absolute;
     top: 28px;
     left: 0;
 }
-.order-theguide>ul>li:nth-child(1):before{
+.order-theguide ul>li:nth-child(1):before{
     width: 18px;
     height: 18px;
     background: url(../images/calendar.svg) no-repeat;
     background-size: contain;
     background-position: center center;
 }
-.order-theguide>ul>li:nth-child(2):before{
+.order-theguide ul>li:nth-child(2):before{
     width: 22px;
     height: 22px;
     background: url(../images/clock.svg) no-repeat;
@@ -948,7 +948,7 @@ tooltip fade top in {
     background-position: center center;
 }
 
-.order-theguide>ul>li>label{
+.order-theguide ul>li>label{
     font-weight: bold;
     display: block;
     margin-bottom: 5px;

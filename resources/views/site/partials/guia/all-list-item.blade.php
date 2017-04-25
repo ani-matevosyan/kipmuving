@@ -152,19 +152,20 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 								</div>
 							</div>
 							<div class="order-theguide">
+								<form class="order-theguide-form" data-id="{{ $activity->id }}">
 								<ul>
 									<li>
 										<strong>Elija el dia</strong>
 										<div class="text-field has-ico calender">
-											<input id="reserve-date-sd" type="text"
+											<input type="text" name="guide-date"
 														 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 														 placeholder="Fecha" class="form-control"
-														 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
+														 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}" required>
 										</div>
 									</li>
 									<li>
 										<label for="select-hours-from-{{ $activity->id }}">Cuando seria el horario</label>
-										<select id="select-hours-from-{{ $activity->id }}" class="hours" name="hours_from">
+										<select id="select-hours-from-{{ $activity->id }}" class="hours" name="hours_from" required>
 											<option selected disabled value=""></option>
 											<option value="00:00">00:00</option>
 											<option value="00:30">00:30</option>
@@ -222,7 +223,7 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 											{{--@endif--}}
 										</select>
 										<span class="hour-devider">a</span>
-										<select id="select-hours-to-{{ $activity->id }}" class="hours" name="hours_to">
+										<select id="select-hours-to-{{ $activity->id }}" class="hours" name="hours_to" required>
 											<option selected disabled value=""></option>
 											<option value="00:00">00:00</option>
 											<option value="00:30">00:30</option>
@@ -275,8 +276,9 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 										</select>
 									</li>
 								</ul>
-								<a href="#" class="btn btn-primary" data-offer-id="1">Agregar mi agenda</a>
+								<button type="submit" class="btn btn-primary">Agregar mi agenda</button>
 								<div class="clearfix"></div>
+								</form>
 							</div>
 						</div>
 					</div>

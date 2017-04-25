@@ -163,4 +163,23 @@ $(document).ready(function () {
         deccaroPlatesHeight();
     });
 
+    $(".order-theguide-form").on('submit', function (e) {
+        e.preventDefault();
+        // console.log($(this).serialize());
+        $.ajax({
+            type: "GET",
+            url: "/guia/activity/add",
+            data: {
+                id: $(this).data('id'),
+                date: $(this).find('input[name=guide-date]').val(),
+                hours_from: $(this).find('select[name=hours_from]').val(),
+                hours_to: $(this).find('select[name=hours_to]').val()
+            },
+            success: function(data){
+                console.log('ok');
+                console.log(data);
+            }
+        })
+    })
+
 });
