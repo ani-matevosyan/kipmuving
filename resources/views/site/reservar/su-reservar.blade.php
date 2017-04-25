@@ -228,8 +228,8 @@
 										<h4>Ahorrando</h4>
 									</div>
 									<div class="col-xs-6">
-										<strong>CLP$ 10.000</strong>
-										<span>USD$ 100 / BRL$ 300</span>
+										<strong>CLP$ {{ number_format($reservation->total['CLP'] * config('kipmuving.discount'), 0, ".", ".") }}</strong>
+										<span>USD$ {{ number_format($reservation->total['USD'] * config('kipmuving.discount'), 0, ".", ".") }} / BRL$ {{ number_format($reservation->total['BRL'] * config('kipmuving.discount'), 0, ".", ".") }}</span>
 									</div>
 								</div>
 							</div>
@@ -239,9 +239,11 @@
 										<h4>Tarifa de servicio</h4>
 									</div>
 									<div class="col-xs-6">
-										<strong>CLP$ 12.000</strong>
-										<span>USD$ 20 / BRL$ 100</span>
-										<span>*pago minimo</span>
+										<strong>CLP$ {{ number_format($reservation->total->to_pay['CLP'], 0, ".", ".") }}</strong>
+										<span>USD$ {{ number_format($reservation->total->to_pay['USD'], 0, ".", ".") }} / BRL$ {{ number_format($reservation->total->to_pay['BRL'], 0, ".", ".") }}</span>
+										@if ($reservation->total->to_pay['CLP'] == 2000)
+											<span>*pago minimo</span>
+										@endif
 									</div>
 								</div>
 							</div>
