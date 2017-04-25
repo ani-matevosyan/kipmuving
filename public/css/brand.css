@@ -731,6 +731,9 @@ body.home2 .roteros-options .raised-form .text-field {
         max-width: 100px;
         margin-left: auto;
     }
+  #header.new .btn-holder_withoutavatar{
+    margin-top: 31px;
+  }
   #header.new .btn-holder .register-button{
     margin-top: 35px;
   }
