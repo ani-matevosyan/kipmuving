@@ -559,11 +559,35 @@ body.home2 .all-activities.custom_title header {
 
 .info-item{
   background: #e2e2e2;
-  font-size: 16px;
+    margin-bottom: 1px;
+    text-align: left;
+    height: 81px;
+}
+
+.info-item:first-child{
+    background: #f1f1f1;
+}
+
+.info-item h4,
+.info-item strong{
+    margin: 34px 0 0;
+    display: block;
+    font-size: 16px;
 }
 
 .info-item h4{
   font-family: 'Lato-Medium', sans-serif;
+    padding-left: 13px;
+}
+
+.info-item strong{
+    color: #972639;
+}
+.info-item span{
+    font-size: 12px;
+    color: #707070;
+    display: block;
+    line-height: 1;
 }
 
 .payment-options{
@@ -579,7 +603,7 @@ body.home2 .all-activities.custom_title header {
 }
 
 .payment-options a{
-    line-height: 50px;
+    line-height: 56px;
     display: block;
     position: relative;
 }

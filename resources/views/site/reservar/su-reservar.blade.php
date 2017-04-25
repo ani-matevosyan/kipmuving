@@ -218,7 +218,7 @@
 										<h4>Reservando</h4>
 									</div>
 									<div class="col-xs-6">
-										<strong>3 actividades</strong>
+										<strong>{{ count($reservation->offers) }} actividades</strong>
 									</div>
 								</div>
 							</div>
