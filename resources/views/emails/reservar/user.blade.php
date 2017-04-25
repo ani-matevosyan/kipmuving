@@ -15,12 +15,12 @@
 			<table style="margin:0 auto; width: auto !important; max-width:600px !important;" cellpadding="0"
 					 cellspacing="0" align="center">
 				<tr>
-					<td class="header" bgcolor="#133939"
+					<td bgcolor="#133939"
 						 style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
 						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
 						<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
-							  class="width:250px !important;">
+							  style="width:250px !important;">
 						</span>
 					</td>
 				</tr>
@@ -28,8 +28,7 @@
 					<td id="main" style=" padding-left:20px; padding-right:20px;">
 						<table cellpadding="0" cellspacing="0">
 							<tr>
-								<td class="intro"
-									 style="font-size:16px; line-height:20px; color:#000000; padding-top:30px; padding-bottom:30px; border-bottom:1px solid #cccccc;">
+								<td style="font-size:16px; line-height:20px; color:#000000; padding-top:30px; padding-bottom:30px; border-bottom:1px solid #cccccc;">
 									<strong
 										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>,
 									{{ trans('emails.many_thanks_for_booking') }}<br><br>
