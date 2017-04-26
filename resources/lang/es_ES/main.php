@@ -84,7 +84,7 @@ return [
 	
 	'by_car_or_bus'       => 'En auto o autobús',
 	'cultural_tour'       => 'Tour Cultural',
-	'pukon_walking'       => 'Conocer Pucón caminando. Principales calles y atractivo de la ciudad',
+	'pukon_walking'       => 'Conocer Pucón caminando. Principales calles y atractivo de la ciudad',
 	'tracks_and_routes'   => 'Senderos y rutas que puedes pedalear y conocer cosas bacanes',
 	'traditional_tours'   => 'Los paseos tradicionales que hacen una gran parte de los turistas',
 	'meet_pukon_mapuches' => 'Conoce Pucón por los Mapuches. Una experiencia inolvidable',

@@ -179,15 +179,9 @@
 											</div>
 										</div>
 										<div class="payment">
-											<a href="#">
-												<img src="images/pagseguro_min_logo.png" alt="Pagseguro logo">
-											</a>
-											<a href="#">
-												<img src="images/payu_min_logo.png" alt="PayU logo">
-											</a>
-											<a href="#">
-												<img src="images/paypal.png" alt="PayPal logo">
-											</a>
+											<img src="images/pagseguro_min_logo.png" alt="Pagseguro logo">
+											<img src="images/payu_min_logo.png" alt="PayU logo">
+											<img src="images/paypal.png" alt="PayPal logo">
 										</div>
 									</section>
 								</div>
