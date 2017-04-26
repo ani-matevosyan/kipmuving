@@ -256,5 +256,6 @@ return [
 	'car_big_text'              => 'We have all the routes you need to enjoy comfortably on 4 wheels the main attractions of the city, like the Ojos del Caburgua, the basis of the Villarica Volcano, a great amount of waterfalls and national parks. It is doubtless the perfect panorama to relax and enjoy with your family.',
 	'cultural_small_text'       => 'Immerse in a cultural experience with the most important indigenous people in Chile.',
 	'cultural_big_text'         => 'Learn how to get involved not only with the people, but also with its mysterious and interesting cosmovision, its ancestral costumes, rituals and games, besides its delicious food. Don’t miss this experience that will definitely leave a trace on your heart.',
-	'cancel_activity'           => 'Cancel activity'
+	'cancel_activity'           => 'Cancel activity',
+    'added_to_calendar'         => 'Su actividad fue añadida a su panorama'
 ];

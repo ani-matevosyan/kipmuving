@@ -1,559 +1,173 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
-		xmlns:o="urn:schemas-microsoft-com:office:office">
+      xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ACP Agencia</title>
-	<style type="text/css">
-		p {
-			margin: 10px 0;
-			padding: 0;
-		}
-
-		table {
-			border-collapse: collapse;
-		}
-
-		h1, h2, h3, h4, h5, h6 {
-			display: block;
-			margin: 0;
-			padding: 0;
-		}
-
-		img, a img {
-			border: 0;
-			height: auto;
-			outline: none;
-			text-decoration: none;
-		}
-
-		body, #bodyTable, #bodyCell {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			width: 100%;
-		}
-
-		#outlook a {
-			padding: 0;
-		}
-
-		img {
-			-ms-interpolation-mode: bicubic;
-		}
-
-		table {
-			mso-table-lspace: 0pt;
-			mso-table-rspace: 0pt;
-		}
-
-		.ReadMsgBody {
-			width: 100%;
-		}
-
-		.ExternalClass {
-			width: 100%;
-		}
-
-		p, a, li, td, blockquote {
-			mso-line-height-rule: exactly;
-		}
-
-		a[href^=tel], a[href^=sms] {
-			color: inherit;
-			cursor: default;
-			text-decoration: none;
-		}
-
-		p, a, li, td, body, table, blockquote {
-			-ms-text-size-adjust: 100%;
-			-webkit-text-size-adjust: 100%;
-		}
-
-		.ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass div, .ExternalClass span, .ExternalClass font {
-			line-height: 100%;
-		}
-
-		a[x-apple-data-detectors] {
-			color: inherit !important;
-			text-decoration: none !important;
-			font-size: inherit !important;
-			font-family: inherit !important;
-			font-weight: inherit !important;
-			line-height: inherit !important;
-		}
-
-		#bodyCell {
-			padding: 10px;
-		}
-
-		a.mcnButton {
-			display: block;
-		}
-
-		.mcnImage {
-			vertical-align: bottom;
-		}
-
-		.mcnTextContent {
-			word-break: break-word;
-		}
-
-		.mcnTextContent img {
-			height: auto !important;
-		}
-
-		.mcnDividerBlock {
-			table-layout: fixed !important;
-		}
-
-		body, #bodyTable {
-			background-color: #FFFFFF;
-		}
-
-		#bodyCell {
-			border-top: 0;
-		}
-
-		h1 {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 26px;
-			font-style: normal;
-			font-weight: bold;
-			line-height: 125%;
-			letter-spacing: normal;
-			text-align: left;
-		}
-
-		h2 {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 22px;
-			font-style: normal;
-			font-weight: bold;
-			line-height: 125%;
-			letter-spacing: normal;
-			text-align: left;
-		}
-
-		h3 {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 20px;
-			font-style: normal;
-			font-weight: bold;
-			line-height: 125%;
-			letter-spacing: normal;
-			text-align: left;
-		}
-
-		h4 {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 18px;
-			font-style: normal;
-			font-weight: bold;
-			line-height: 125%;
-			letter-spacing: normal;
-			text-align: left;
-		}
-
-		#templatePreheader {
-			background-color: #133939;
-			border-top: 0;
-			border-bottom: 0;
-			padding-top: 9px;
-			padding-bottom: 9px;
-		}
-
-		#templatePreheader .mcnTextContent, #templatePreheader .mcnTextContent p {
-			color: #656565;
-			font-family: Helvetica;
-			font-size: 12px;
-			line-height: 150%;
-			text-align: left;
-		}
-
-		#templatePreheader .mcnTextContent a, #templatePreheader .mcnTextContent p a {
-			color: #656565;
-			font-weight: normal;
-			text-decoration: underline;
-		}
-
-		#templateHeader {
-			background-color: #FFFFFF;
-			border-top: 0;
-			border-bottom: 0;
-			padding-top: 9px;
-			padding-bottom: 0;
-		}
-
-		#templateHeader .mcnTextContent, #templateHeader .mcnTextContent p {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 16px;
-			line-height: 150%;
-			text-align: left;
-		}
-
-		#templateHeader .mcnTextContent a, #templateHeader .mcnTextContent p a {
-			color: #2BAADF;
-			font-weight: normal;
-			text-decoration: underline;
-		}
-
-		#templateBody {
-			background-color: #FFFFFF;
-			border-top: 0;
-			border-bottom: 1px solid #EAEAEA;
-			padding-top: 0;
-			padding-bottom: 9px;
-		}
-
-		#templateBody .mcnTextContent, #templateBody .mcnTextContent p {
-			color: #202020;
-			font-family: Helvetica;
-			font-size: 16px;
-			line-height: 150%;
-			text-align: left;
-		}
-
-		#templateBody .mcnTextContent a, #templateBody .mcnTextContent p a {
-			color: #2BAADF;
-			font-weight: normal;
-			text-decoration: underline;
-		}
-
-		#templateFooter {
-			background-color: #f6f6f6;
-			border-top: 0;
-			border-bottom: 0;
-			padding-top: 9px;
-			padding-bottom: 9px;
-		}
-
-		#templateFooter .mcnTextContent, #templateFooter .mcnTextContent p {
-			color: #656565;
-			font-family: Helvetica;
-			font-size: 12px;
-			line-height: 150%;
-			text-align: center;
-		}
-
-		#templateFooter .mcnTextContent a, #templateFooter .mcnTextContent p a {
-			color: #656565;
-			font-weight: normal;
-			text-decoration: underline;
-		}
-
-		@media only screen and (max-width: 480px) {
-			body, table, td, p, a, li, blockquote {
-				-webkit-text-size-adjust: none !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			body {
-				width: 100% !important;
-				min-width: 100% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			#bodyCell {
-				padding-top: 10px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImage {
-				width: 100% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnCaptionTopContent, .mcnCaptionBottomContent, .mcnTextContentContainer, .mcnBoxedTextContentContainer, .mcnImageGroupContentContainer, .mcnCaptionLeftTextContentContainer, .mcnCaptionRightTextContentContainer, .mcnCaptionLeftImageContentContainer, .mcnCaptionRightImageContentContainer, .mcnImageCardLeftTextContentContainer, .mcnImageCardRightTextContentContainer {
-				max-width: 100% !important;
-				width: 100% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnBoxedTextContentContainer {
-				min-width: 100% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageGroupContent {
-				padding: 9px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnCaptionLeftContentOuter .mcnTextContent, .mcnCaptionRightContentOuter .mcnTextContent {
-				padding-top: 9px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageCardTopImageContent, .mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent {
-				padding-top: 18px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageCardBottomImageContent {
-				padding-bottom: 9px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageGroupBlockInner {
-				padding-top: 0 !important;
-				padding-bottom: 0 !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageGroupBlockOuter {
-				padding-top: 9px !important;
-				padding-bottom: 9px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnTextContent, .mcnBoxedTextContentColumn {
-				padding-right: 18px !important;
-				padding-left: 18px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcnImageCardLeftImageContent, .mcnImageCardRightImageContent {
-				padding-right: 18px !important;
-				padding-bottom: 0 !important;
-				padding-left: 18px !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-			.mcpreview-image-uploader {
-				display: none !important;
-				width: 100% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			h1 {
-				font-size: 22px !important;
-				line-height: 125% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			h2 {
-				font-size: 20px !important;
-				line-height: 125% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			h3 {
-				font-size: 18px !important;
-				line-height: 125% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			h4 {
-				font-size: 16px !important;
-				line-height: 150% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			.mcnBoxedTextContentContainer .mcnTextContent, .mcnBoxedTextContentContainer .mcnTextContent p {
-				font-size: 14px !important;
-				line-height: 150% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			#templatePreheader {
-				display: block !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			#templatePreheader .mcnTextContent, #templatePreheader .mcnTextContent p {
-				font-size: 14px !important;
-				line-height: 150% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			#templateHeader .mcnTextContent, #templateHeader .mcnTextContent p {
-				font-size: 16px !important;
-				line-height: 150% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			#templateBody .mcnTextContent, #templateBody .mcnTextContent p {
-				font-size: 16px !important;
-				line-height: 150% !important;
-			}
-		}
-
-		@media only screen and (max-width: 480px) {
-
-			#templateFooter .mcnTextContent, #templateFooter .mcnTextContent p {
-				font-size: 14px !important;
-				line-height: 150% !important;
-			}
-		}
-	</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title>ACP Agencia</title>
+    <style>
+        .timing{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+        }
+        .timing li{
+            position: relative;
+            border-top: 1px solid #d9d9d9;
+            padding: 10px 0 10px 30px;
+        }
+        .timing li:after{
+            width: 18px;
+            content: '';
+            height: 18px;
+            position: absolute;
+            left: 3px;
+            right: auto;
+            bottom: auto;
+        }
+        .timing li.time{
+            border: 0;
+            padding-top: 0;
+        }
+        .timing li.time:after{
+            background: url(http://kipmuving.com/images/clock.svg) no-repeat;
+            background-size: contain;
+            background-position: center center;
+            top: 2px;
+        }
+        .timing li.person:after{
+            background: url(/images/happy.svg) no-repeat;
+            background-size: contain;
+            background-position: center center;
+            top: 10px;
+        }
+        .timing strong{
+            display: block;
+            font-weight: normal;
+        }
+        .timing strong.title{
+            color: #963d4c;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 700;
+        }
+        .timing span{
+            font-weight: bold;
+        }
+        .footer{
+            padding: 20px;
+            vertical-align: top;
+        }
+        .footer p{
+            margin: 15px 0;
+        }
+    </style>
 </head>
-<body>
-{{--{{ dd(count($reservations)) }}--}}
-<center>
-	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-		<tr>
-			<td align="center" valign="top" id="bodyCell">
-				<!--[if gte mso 9]>
-				<table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
-					<tr>
-						<td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
-				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 600px !important;">
-					<tr>
-						<td valign="top"
-							 style="background-color: #133939;	border-top: 0; border-bottom: 0; padding-top: 9px; padding-bottom: 9px;">
-							<table class="mcnImageBlock" style="min-width:100%;" border="0" cellpadding="0" cellspacing="0"
-									 width="100%">
-								<tbody class="mcnImageBlockOuter">
-								<tr>
-									<td style="padding:9px" class="mcnImageBlockInner" valign="top">
-										<table class="mcnImageContentContainer" style="min-width:100%;" align="left" border="0"
-												 cellpadding="0" cellspacing="0" width="100%">
-											<tbody>
-											<tr>
-												<td class="mcnImageContent"
-													 style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;"
-													 valign="top"><img alt="" src="{{ url('/images/logo-new.svg') }}"
-																			 style="max-width:340px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
-																			 class="mcnImage" align="left" width="340"></td>
-											</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" id="templateHeader">
-							<table class="mcnTextBlock" style="min-width:100%;" border="0" cellpadding="0" cellspacing="0"
-									 width="100%">
-								<tbody class="mcnTextBlockOuter">
-								<tr>
-									<td class="mcnTextBlockInner" valign="top">
-										<table style="min-width:100%;" class="mcnTextContentContainer" align="left" border="0"
-												 cellpadding="0" cellspacing="0" width="100%">
-											<tbody>
-											<tr>
-												<td style="color: #656565;
-															font-family: Helvetica;
-															font-size: 12px;
-															line-height: 150%;
-															text-align: left; padding: 9px 18px;color: #000000;font-family: &quot;trebuchet ms&quot: ;,&quot: ;lucida grande&quot: ;lucida sans unicode&quot: ;lucida sans&quot: ;,tahoma,sans-serif: ;font-size: 14px;font-style: normal;font-weight: normal;"
-													 valign="top">
-													<br>
-													<strong>Hola,</strong><br>
-													tenemos <span style="color:#980e25">{{ count($reservations) }} paseos</span>
-													para <span style="color:#980e25"></span><br>&nbsp;
-												</td>
-											</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" id="templateBody">
-							<table class="mcnTextBlock" style="min-width:100%;" border="0" cellpadding="0" cellspacing="0"
-									 width="100%">
-								<tbody class="mcnTextBlockOuter">
-								<tr>
-									<td class="mcnTextBlockInner" valign="top">
-										<table style="min-width:100%;" class="mcnTextContentContainer" align="left" border="0"
-												 cellpadding="0" cellspacing="0" width="100%">
-											<tbody>
-											<tr>
-												<td class="mcnTextContent"
-													 style="padding: 9px 18px; font-family: &quot;Trebuchet MS&quot;,&quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,&quot;Lucida Sans&quot;,Tahoma,sans-serif; font-style: normal; font-weight: normal; line-height: 150%;"
-													 valign="top">
-													<!--?php $total = 0; ?-->
-													@foreach ($reservations as $offer)
-														<!--?php $total += $offer->real_price * $offer['offer_persons']; ?-->
-														<h2>
-															<span style="color:#008000">
-																<span style="font-size:24px; line-height:22px">{{ $offer->activity->name }}</span>
-															</span>
-														</h2>
-														<span style="font-size:14px">Date:<strong> {{ $offer->reservation['date'] }}</strong></span>
-														<br>
-														<span style="font-size:14px">Time:<strong> {{ date('H:i', strtotime($offer->reservation['time']['start'])) }}-{{ date('H:i', strtotime($offer->reservation['time']['end'])) }}</strong></span>
-														<br>
-														&nbsp;
-														<address style="font-style:normal">
-															Guest Information<br>
-															Name:
-															<strong>{{ $user->first_name.' '.$user->last_name }}</strong><br>
-															Email: <a href="#" style="color:#000; text-decoration:none;">
-																<span>{{ $user->email }}</span>
-															</a>
-															<br>
-															Persona: {{ $offer->reservation['persons'] }}<br>
-															&nbsp;
-														</address>
-													@endforeach
-													<span style="color:#980e25">
-														<span style="font-size:16px">
-															<strong>Total a pagar de ${{ $total }} CLP</strong>
-														</span>
-													</span>
-												</td>
-											</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-				</table>
-				<!--[if gte mso 9]></td></tr></table><![endif]-->
-			</td>
-		</tr>
-	</table>
-</center>
+<body style="margin:0; padding:0; font-size:14px; line-height:18px; font-family:'Lato', sans-serif; min-width:320px !important;"
+      bgcolor="#FFFFFF" link="#535353">
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+    <tr>
+        <td align="center" valign="top" id="bodyCell">
+            <table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #f6f6f6;" cellpadding="0"
+                   cellspacing="0" align="center">
+                <tr>
+                    <td bgcolor="#133939"
+                        style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
+						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
+						height:auto !important; overflow:hidden;">
+							<a target="_blank" href="http://www.kipmuving.com/">
+								<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0" style="width:207px !important;">
+							</a>
+						</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="main" style=" padding-left:20px; padding-right:20px;">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td style="font-size:16px; line-height:20px; color:#000000; padding-top:55px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
+                                    <strong>Hola Agency Name</strong><br>
+                                    El pasajero <span style="color:#980e25">User's name</span> <span style="color:#980e25">{{ count($reservations) }} paseos</span>
+                                    para <span style="color:#980e25"></span>
+                                </td>
+                            </tr>
+                            @foreach($reservations as $offer)
+                                <tr>
+                                    <td
+                                            style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
+                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td style="padding-bottom:20px;" colspan="2">
+                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td width="51" height="39" valign="middle"
+                                                                style="font-size:0; line-height:0; padding-right:20px;">
+                                                                <img src="{{ url($offer->activity->image_icon) }}"
+                                                                     alt="activity image" align="left" vspace="0" hspace="0">
+                                                            </td>
+                                                            <td>
+                                                                <h2 style="margin-top:0; margin-bottom:0;"><span
+                                                                            style="font-size:26px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
+                                                                </h2>
+                                                                <strong
+                                                                        style="font-size:18px; line-height:26px; font-weight:normal; display:block">{{ $offer->agency->name }}</strong>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="display: inline-block; padding-left: 70px; width:50%; padding-bottom:20px;" valign="top">
+                                                    <ul class="timing">
+                                                        <li class="time">
+                                                            <strong class="title">
+                                                                {{ trans('form.day') }}: {{ $offer->reservation['date'] }}
+                                                            </strong>
+                                                            <strong>
+																		<span>{{ trans('main.duration') }}
+                                                                            :</span> {{ $offer->duration }}
+                                                                hrs
+                                                            </strong>
+                                                            <strong>
+																		<span>{{ trans('main.schedule') }}
+                                                                            :</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}
+                                                                a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
+                                                            </strong>
+                                                        </li>
+                                                        <li class="person">
+                                                            <strong>
+                                                                <span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
+                                                            </strong>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="footer" class="footer">
+                        <p>
+                            {{ trans('emails.any_questions') }}
+                            <a href="mailto:contacto@kipmuving.com">contacto@kipmuving.com</a>
+                        </p>
+                        <p>{{ trans('emails.with_regards') }}</p>
+                        <p style="margin-bottom: 0">{{ trans('emails.kipmuving_team') }}</p>
+                        <a href="#" style="color:#000000; text-decoration:none;">{{ url('/') }}</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

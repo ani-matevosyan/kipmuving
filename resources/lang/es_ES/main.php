@@ -255,5 +255,6 @@ return [
 	'car_big_text'              => 'Tenemos todas las rutas que necesitas para disfrutar cómodamente sobre tus cuatro ruedas de los principales atractivos de la ciudad, como los Ojos del Caburgua, base del volcán Villarrica, una gran cantidad de saltos de agua, parques nacionales. Definitivamente el perfecto panorama para relajarte y disfrutar en compañía de la familia.',
 	'cultural_small_text'       => 'Sumérgete en una experiencia cultural con el pueblo indígena más importante de Chile.',
 	'cultural_big_text'         => 'Aprende e involúcrate no sólo con el pueblo mapuche, conoce también su misteriosa e interesante cosmovisión, sus costumbres ancestrales, sus ritos y juegos, además de su rica gastronomía. No te pierdas de vivir esta experiencia que definitivamente dejará una huella.',
-	'cancel_activity'           => 'Cancelar actividad'
+	'cancel_activity'           => 'Cancelar actividad',
+    'added_to_calendar'         => 'Su actividad fue añadida a su panorama'
 ];

@@ -188,10 +188,10 @@
 															</td>
 															<td>
 																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:31px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
+																		style="font-size:26px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
 																</h2>
 																<strong
-																	style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $offer->agency->name }}</strong>
+																	style="font-size:18px; line-height:26px; font-weight:normal; display:block;">{{ $offer->agency->name }}</strong>
 															</td>
 														</tr>
 													</table>

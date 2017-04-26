@@ -255,5 +255,6 @@ return [
 	'car_big_text'              => 'Temos todas as rotas que você precisa para desfrutar comodamente, sobre suas quatro rodas, das principais atrações da cidade, como os Ojos de Caburgua, a base do vulcão Villarica, uma grande quantidade de quedas d’água e parques nacionais. Definitivamente, o perfeito panorama para você relaxar e desfrutar com a sua família.',
 	'cultural_small_text'       => 'Mergulhe na experiência cultural com o povo indígena mais importante do Chile.',
 	'cultural_big_text'         => 'Não só aprenda e se involucre com o povo mapuche, conheça também sua misteriosa e interessante cosmovisão, seus costumes ancestrais, seus rituais e jogos, além da sua deliciosa gastronomia. Não perca a oportunidade de viver esta experiência que, definitivamente, deixará uma marca em você.',
-	'cancel_activity'           => 'Cancelar atividade'
+	'cancel_activity'           => 'Cancelar atividade',
+    'added_to_calendar'         => 'Su actividad fue añadida a su panorama'
 ];

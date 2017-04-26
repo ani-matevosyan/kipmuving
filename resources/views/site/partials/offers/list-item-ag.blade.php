@@ -46,7 +46,7 @@
 							@if($offer->price)
 								<li class="profile">
 									<select id="select-persona-{{$offer->id}}" class="persona">
-										<option disabled selected value="">{{ trans('main.persons') }}</option>
+										<option selected value="">{{ trans('main.persons') }}</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -59,7 +59,7 @@
 									<li class="profile hours">
 										<label for="select-hours-{{$offer->id}}">Elija la opcion de horario</label>
 										<select id="select-hours-{{$offer->id}}" class="hours">
-											<option disabled selected>{{ trans('main.schedule') }}</option>
+											<option value="" selected>{{ trans('main.schedule') }}</option>
 											@if(is_array($offer->available_time))
 												@foreach($offer->available_time as $time)
 													<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
@@ -85,11 +85,11 @@
 							<strong class="price" data-unit-price="{{ $offer->price }}">
 								<del>
 									<small>
-										<sub>{{ session('currency.type') }}$ </sub>{{ number_format($offer->price, 0, '.', '.') }}
+										<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}
 									</small>
 								</del>
 								<br>
-								<sub>{{ session('currency.type') }}$ </sub> {{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+								<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub> {{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
 								data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>

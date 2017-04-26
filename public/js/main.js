@@ -127,6 +127,11 @@ jQuery(document).ready(function(){
 			return false;
 		}
         var hours = $(this).parents('.offer-item').find('select.hours').val();
+        if (hours == '') {
+            $('#message-modal #message').text('Choose time.');
+            $('#message-modal').modal('show');
+            return false;
+        }
         $.ajax({
             type: "POST",
             url: "/offer/reserve",
@@ -234,9 +239,15 @@ jQuery(document).ready(function(){
             element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
             element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
             element.append('<br>');
-            element.append('<div class="agency-name">' + event.agency_name + '</div>');
+            if(event.agency_name != undefined){
+                element.append('<div class="agency-name">' + event.agency_name + '</div>');
+            }else{
+                element.append('<br>');
+            }
             element.append('<div class="hours"><i class="glyphicon glyphicon-time"></i> ' + event.hours + ' hrs (' + event.start_time + ' a ' + event.end_time+ ')</div>');
-            element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persons + ' persona</div>');
+            if(event.persons != undefined){
+                element.append('<div class="persona"><i class="glyphicon glyphicon-user"></i> ' + event.persons + ' persona</div>');
+            }
             element.append('<br>');
             element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
         },
@@ -277,7 +288,8 @@ jQuery(document).ready(function(){
         $('#delete-modal').modal('show');
     });
 
-    jQuery('#delete-modal .btn-confirm').on("click", function () {
+    jQuery('#delete-modal .btn-confirm').on("click", function (e) {
+        e.preventDefault();
         var oid = jQuery(this).data('oid');
         $('#delete-modal').modal('hide');
         $.ajax({

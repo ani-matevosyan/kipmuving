@@ -81,7 +81,28 @@
                             </div>
                         </div>
                     </div>
-                        <!-- MODAL END -->
+
+                    <div class="modal fade" tabindex="-1" role="dialog" id="confirm-modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Por favor</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p id="message">
+                                        {{ trans('main.added_to_calendar') }}
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL END -->
                     <div id="data"> <!-- Keep this div for instafeed information -->
                     </div>
                 </div>
