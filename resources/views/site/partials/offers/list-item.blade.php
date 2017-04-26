@@ -90,7 +90,7 @@
 							@endif
 							<li class="profile">
 								<select id="select-persona-{{$offer->id}}" class="persona">
-									<option disabled selected value="">{{ trans('main.amount_of_people') }}</option>
+									<option selected value="">{{ trans('main.amount_of_people') }}</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -103,7 +103,7 @@
 								<li class="profile hours">
 									<label for="select-hours-{{$offer->id}}">Elija la opcion de horario</label>
 									<select id="select-hours-{{$offer->id}}" class="hours">
-										<option disabled selected value="">{{ trans('main.schedule') }}</option>
+										<option selected value="">{{ trans('main.schedule') }}</option>
 										@if(is_array($offer->available_time))
 											@foreach($offer->available_time as $time)
 												<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>

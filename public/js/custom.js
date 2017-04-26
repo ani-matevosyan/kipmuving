@@ -165,7 +165,6 @@ $(document).ready(function () {
 
     $(".order-theguide-form").on('submit', function (e) {
         e.preventDefault();
-        // console.log($(this).serialize());
         $.ajax({
             type: "GET",
             url: "/guia/activity/add",
@@ -175,9 +174,11 @@ $(document).ready(function () {
                 hours_from: $(this).find('select[name=hours_from]').val(),
                 hours_to: $(this).find('select[name=hours_to]').val()
             },
-            success: function(data){
-                console.log('ok');
-                console.log(data);
+            success: function(){
+                $('#confirm-modal').modal('show');
+                setTimeout(function(){
+                    $('#confirm-modal').modal('hide');
+                }, 3000)
             }
         })
     })
