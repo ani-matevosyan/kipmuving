@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\View;
 
 class ReservationController extends Controller
 {
-	private $price_per_person = 3.5;
+//	private $price_per_person = 3.5;
 	private $offers = [];
 	private $total;
 //	private $total_without_discount = 0;

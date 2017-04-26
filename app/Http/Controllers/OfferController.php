@@ -44,9 +44,17 @@ class OfferController extends Controller
 	public function remove(Request $request)
 	{
 		$offers = session('selectedOffers');
-		array_splice($offers, $request['oid'], 1);
+		$guide_activities = session('guideActivities');
+		$oid = $request['oid'];
 		
-		session()->put('selectedOffers', $offers);
+		if ($oid < count($offers)) {
+			array_splice($offers, $oid, 1);
+			session()->put('selectedOffers', $offers);
+		} else {
+			$oid = $oid - count($offers);
+			array_splice($guide_activities, $oid, 1);
+			session()->put('guideActivities', $guide_activities);
+		}
 	}
 	
 }

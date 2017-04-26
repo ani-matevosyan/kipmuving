@@ -67,44 +67,35 @@ class CalendarController extends Controller
 				'agency_name'      => $offer->agency->name
 			];
 		}
-		foreach ($guideActivities as $key => $guideActivity) {
-			$activity = GuideActivity::find($guideActivity['id']);
-//			dd($activity, $guideActivity);
-
-//			dd(count($results) + $key + 1);
-//			$offer = Offer::find($activity['offer_id']);
-			
-			$start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_from'].':00')->toDateTimeString();
-			$end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_to'].':00')->toDateTimeString();
-			
-			$results[] = [
-				'id'                  => count($results) + $key + 1,
-				'className'           => 'cal-offer guide-activity',
-				'backgroundColor'     => '#FF8040',
-				'borderColor'         => '#FF8040',
-				'durationEditable'    => false,
-				'guide_activity_id'   => $activity->id,
-//				'offer_id'          => '0',
-//				'persons'           => '0',
-				'date'                => $guideActivity['date'],
-				'start'               => $start,
-				'end'                 => $end,
-				'start_time'          => Carbon::parse($guideActivity['hours_from'])->format('H:i'),
-				'end_time'            => Carbon::parse($guideActivity['hours_to'])->format('H:i'),
-				'hours'               => $guideActivity['hours_to'] - $guideActivity['hours_from'],
-//				'break_start'       => '0',
-//				'break_close'       => '0',
-//				'price'             => $offer->price * $guideActivity['persons'],
-				'bus_est_expenditure' => $activity->bus_est_expenditure,
-				'bus_est_service'     => $activity->bus_est_service,
-//				'activity_id'         => $offer->activity->id,
-				'title'               => $activity->name,
-//				'agency_id'           => $offer->agency->id,
-//				'agency_name'         => $offer->agency->name
-			];
-		}
 		
-//		dd($results, $guideActivities);
+		$counter = count($results);
+		
+		if (count($guideActivities) > 0) {
+			foreach ($guideActivities as $key => $guideActivity) {
+				$activity = GuideActivity::find($guideActivity['id']);
+				
+				$start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_from'].':00')->toDateTimeString();
+				$end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_to'].':00')->toDateTimeString();
+				
+				$results[] = [
+					'id'                  => $counter++,
+					'className'           => 'cal-offer guide-activity',
+					'backgroundColor'     => '#FF8040',
+					'borderColor'         => '#FF8040',
+					'durationEditable'    => false,
+					'guide_activity_id'   => $activity->id,
+					'date'                => $guideActivity['date'],
+					'start'               => $start,
+					'end'                 => $end,
+					'start_time'          => Carbon::parse($guideActivity['hours_from'])->format('H:i'),
+					'end_time'            => Carbon::parse($guideActivity['hours_to'])->format('H:i'),
+					'hours'               => $guideActivity['hours_to'] - $guideActivity['hours_from'],
+					'bus_est_expenditure' => $activity->bus_est_expenditure,
+					'bus_est_service'     => $activity->bus_est_service,
+					'title'               => $activity->name,
+				];
+			}
+		}
 		
 		return response()->json($results);
 	}
@@ -112,22 +103,31 @@ class CalendarController extends Controller
 	public function getProcess(Request $request)
 	{
 		$offers = session('selectedOffers');
+		$guide_activities = session('guideActivities');
+		
 		$action = $request['dir'];
 		$oid = $request['oid'];
 		
-		if ($action == 'prev')
-			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->subDay()->format('d/m/Y');
-		elseif ($action == 'next')
-			$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->addDay()->format('d/m/Y');
-		elseif ($action == 'del')
-			array_splice($offers, $oid, 1);
-		
-		session()->put('selectedOffers', $offers);
+		if ($oid <= count($offers) - 1) {
+			if ($action == 'prev')
+				$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->subDay()->format('d/m/Y');
+			elseif ($action == 'next')
+				$offers[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $offers[$oid]['date'])->addDay()->format('d/m/Y');
+			session()->put('selectedOffers', $offers);
+		} else {
+			$oid = $oid - count($offers);
+			if ($action == 'prev')
+				$guide_activities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $guide_activities[$oid]['date'])->subDay()->format('d/m/Y');
+			elseif ($action == 'next')
+				$guide_activities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $guide_activities[$oid]['date'])->addDay()->format('d/m/Y');
+			session()->put('guideActivities', $guide_activities);
+		}
 		
 		$data = [
-			'selectedOffers' => $offers
+			'selectedOffers' => $offers,
+			'guideActivities' => $guide_activities
 		];
-		
+
 		return response()->json($data);
 	}
 	
