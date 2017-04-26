@@ -15,7 +15,7 @@ class GuiaController extends Controller
 		$data = [
 			'imageIndex' => $imageIndex,
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
@@ -29,7 +29,7 @@ class GuiaController extends Controller
 		$data = [
 			'imageIndex' => $imageIndex,
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
@@ -45,7 +45,7 @@ class GuiaController extends Controller
 		$data = [
 			'imageIndex' => $imageIndex,
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			],
 			'activities' => $this->getMapPoints()
@@ -129,7 +129,7 @@ class GuiaController extends Controller
 		$data = [
 			'imageIndex' => $imageIndex,
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
