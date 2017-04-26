@@ -127,6 +127,11 @@ jQuery(document).ready(function(){
 			return false;
 		}
         var hours = $(this).parents('.offer-item').find('select.hours').val();
+        if (hours == '') {
+            $('#message-modal #message').text('Choose time.');
+            $('#message-modal').modal('show');
+            return false;
+        }
         $.ajax({
             type: "POST",
             url: "/offer/reserve",
@@ -283,7 +288,8 @@ jQuery(document).ready(function(){
         $('#delete-modal').modal('show');
     });
 
-    jQuery('#delete-modal .btn-confirm').on("click", function () {
+    jQuery('#delete-modal .btn-confirm').on("click", function (e) {
+        e.preventDefault();
         var oid = jQuery(this).data('oid');
         $('#delete-modal').modal('hide');
         $.ajax({

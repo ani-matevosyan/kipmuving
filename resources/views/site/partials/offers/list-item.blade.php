@@ -120,11 +120,11 @@
 								<strong class="price" data-unit-price="{{ $offer->price_offer }}">
 									<del>
 										<small>
-											<sub>{{ session('currency.type') }}$ </sub>{{ number_format($offer->price, 0, '.', '.') }}
+											@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}
 										</small>
 									</del>
 									<br>
-									<sub>{{ session('currency.type') }}$ </sub>{{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+									<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 								</strong>
 								<a href="#" class="btn btn-primary btn-reserve"
 									data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>
