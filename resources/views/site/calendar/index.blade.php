@@ -36,7 +36,7 @@
 							<br>
 						</div>
 						<div class="col-md-3 col-sm-12 col-xs-12">
-							<section class="s_suprogram">
+							<section class="s_suprogram @if(session('currency.type') === 'BRL') brl-curr @endif">
 								<header>
 									<h3>{{ trans('main.program') }}</h3>
 									<p><span id="count_activities">{{ $count['offers'] }}</span> {{ trans('main.activities') }}
@@ -48,20 +48,20 @@
 										<li>
 											<a href="#"></a>
 											<h4>{{ $offer['name'] }}</h4>
-											{{ session('currency.type') }}<span>{{ number_format($offer['price'] * (1 - config('kipmuving.discount')) * $offer['persons'], 0, '.', '.') }}</span>
+											<span>{{ number_format($offer['price'] * (1 - config('kipmuving.discount')) * $offer['persons'], 0, '.', '.') }}</span>
 										</li>
 										<?php $total_cost += $offer['price'] * $offer['persons']; ?>
 									@endforeach
 								</ul>
 								<div class="total">
 									<div class="totalprice">
-										{{ session('currency.type') }}<p>{{ number_format($total_cost * (1 - config('kipmuving.discount')), 0, ".", ".") }}</p>
+										<p>{{ number_format($total_cost * (1 - config('kipmuving.discount')), 0, ".", ".") }}</p>
 										<span>{{ trans('main.total') }}</span>
 									</div>
 									<?php $total_discount = $total_cost * config('kipmuving.discount') ?>
 									<div class="discount">
 										<span>{{ trans('main.you_save') }}</span>
-										<p>{{ session('currency.type') }} {{ number_format($total_discount, 0, ".", ".") }}</p>
+										<p>{{ number_format($total_discount, 0, ".", ".") }}</p>
 									</div>
 								</div>
 								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>

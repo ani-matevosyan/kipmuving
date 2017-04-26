@@ -126,7 +126,7 @@
 
 								</div>
 								<div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
-									<section class="s_suprogram">
+									<section class="s_suprogram @if(session('currency.type') === 'BRL') brl-curr @endif">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
 											<p><span
@@ -138,18 +138,18 @@
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer->activity->name }}</h4>
-													{{ session('currency.type') }} <span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
+													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												{{ session('currency.type') }} <p>{{ number_format($reservation->total->with_discount[session('currency.type')], 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total->with_discount[session('currency.type')], 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
 											<div class="discount">
 												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ session('currency.type') }} {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
 											</div>
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"

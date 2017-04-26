@@ -321,6 +321,9 @@ body.home2 .all-activities.custom_title header {
         .s_suprogram ul li span:before {
           content: "$";
           margin-right: 4px; }
+.s_suprogram.brl-curr ul li span:before{
+  content: "R$";
+}
   .s_suprogram .total {
     padding: 14px 0 10px;}
     .s_suprogram .total div {
@@ -335,9 +338,12 @@ body.home2 .all-activities.custom_title header {
         content: "$";
         position: absolute;
         top: 0;
-        left: 24px;
+        right: 75%;
         margin: auto;
         font-size: 13px; }
+.s_suprogram.brl-curr .total .totalprice:before{
+  content: "R$"
+}
       .s_suprogram .total .totalprice:after {
         content: "";
         height: 19px;
@@ -376,6 +382,9 @@ body.home2 .all-activities.custom_title header {
           content: "$";
           font-size: 13px;
           margin-right: 3px; }
+.s_suprogram.brl-curr .total .discount p:before{
+  content: "R$";
+}
   .s_suprogram .reserve {
     width: 100%;
     color: #fff;
