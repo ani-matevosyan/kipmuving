@@ -88,11 +88,11 @@
                 </tr>
                 <tr>
                     <td id="main" style=" padding-left:20px; padding-right:20px;">
-                        <table cellpadding="0" cellspacing="0">
+                        <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td style="font-size:16px; line-height:20px; color:#000000; padding-top:55px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
-                                    <strong>Hola,</strong><br>
-                                    tenemos <span style="color:#980e25">{{ count($reservations) }} paseos</span>
+                                    <strong>Hola Agency Name</strong><br>
+                                    El pasajero <span style="color:#980e25">User's name</span> <span style="color:#980e25">{{ count($reservations) }} paseos</span>
                                     para <span style="color:#980e25"></span>
                                 </td>
                             </tr>
@@ -112,10 +112,10 @@
                                                             </td>
                                                             <td>
                                                                 <h2 style="margin-top:0; margin-bottom:0;"><span
-                                                                            style="font-size:31px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
+                                                                            style="font-size:26px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
                                                                 </h2>
                                                                 <strong
-                                                                        style="font-size:22px; line-height:26px; font-weight:bold; display:block;">{{ $offer->agency->name }}</strong>
+                                                                        style="font-size:18px; line-height:26px; font-weight:normal; display:block">{{ $offer->agency->name }}</strong>
                                                             </td>
                                                         </tr>
                                                     </table>
