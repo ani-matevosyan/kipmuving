@@ -220,8 +220,8 @@ class ReservationController extends Controller
 			'reservation' => $reservations
 		];
 		
-		return view('site.reservar.su-reservar', $data);
-//        return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
+//		return view('site.reservar.su-reservar', $data);
+        return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
 //        return view('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations]);
 //        return view('emails.reservar.user', ['user' => $user, 'reservation' => $reservations]);
 	}
