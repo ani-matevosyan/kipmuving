@@ -29,4 +29,5 @@ return [
 	'any_questions'                       => 'Qualquer dúvida, por fa por escreva-nos. Estaremos atentos ao que você precise. Nosso e-mail é',
 	'and_also_by_phone'                   => 'e também por telefone',
 	'or_whatsapp'                         => 'ou por whatsapp',
+    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
 ];

@@ -29,4 +29,5 @@ return [
 	'any_questions'                       => 'Any questions please, write us. We will be attentive to what you need. Our mail is',
 	'and_also_by_phone'                   => 'and also by phone',
 	'or_whatsapp'                         => 'Or by whatsapp',
+    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
 ];
