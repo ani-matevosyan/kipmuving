@@ -79,8 +79,9 @@ class CalendarController extends Controller
 			
 			$results[] = [
 				'id'                  => count($results) + $key + 1,
-				'className'           => 'cal-offer guide-activity',
-				'backgroundColor'     => '#FF8040',
+//				'className'           => 'cal-offer guide-activity',
+                'className'           => 'cal-offer',
+                'backgroundColor'     => '#FF8040',
 				'borderColor'         => '#FF8040',
 				'durationEditable'    => false,
 				'guide_activity_id'   => $activity->id,

@@ -22,11 +22,12 @@ return [
 	'important'                           => 'Importante',
 	'you_must_present'                    => 'Deberás presentarte 1 día antes en la dirección de la agencia',
 	'to_try_shoes'                        => 'para probar zapatos',
-	'total_to_pay'                        => 'El total a pagar en la agencia es de',
-	'each_agency_has_cancellation_policy' => 'Cada agencia tiene su política de cancelación, estáte atento a ellas en el momento de tu reserva. Pero normalmente puedes cancelar hasta 1 día antes de tu actividad. En este caso, te devolveremos los 10% pagados.',
+	'total_to_pay'                        => 'Total a pagar de',
+	'each_agency_has_cancellation_policy' => 'Cada agencia tiene su política de cancelación, estáte atento a ellas en el momento de tu reserva. Pero normalmente puedes cancelar hasta 1 día antes de tu actividad',
 	'if_you_do_not_appear_on_the_day'     => 'Caso no aparezcas en el día de tu aventura, te será cobrado un valor de',
 	'as_a_fine'                           => '10% como multa.',
 	'any_questions'                       => 'Cualquier duda por favor, escríbenos. Estaremos atentos a lo que necesites. Nuestro correo es',
 	'and_also_by_phone'                   => 'y también por el teléfono',
 	'or_whatsapp'                         => 'o por el whatsapp',
+    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
 ];

@@ -491,27 +491,19 @@ body.home2 .all-activities.custom_title header {
   margin: 6px -2px 20px 0;
   text-align: center;
 }
-.s_howitworks_sidebar .payment a{
-  display: inline-block;
+.s_howitworks_sidebar .payment img{
   margin-right: 2px;
 }
-      .s_howitworks_sidebar .payment a:hover {
-        text-decoration: none; }
 @media(max-width: 1199px) and (min-width: 992px) {
   .s_howitworks_sidebar .section-container .umbrella img {
     height: 70px;
-    margin: 0 14px 6px; }
+    margin: 0 14px 6px;
+  }
+
   .s_howitworks_sidebar .section-container .broklink img {
-    height: 65px; }
-  .s_howitworks_sidebar .payment {
-    padding-left: 12px; }
-    .s_howitworks_sidebar .payment span {
-      margin-right: 5px; }
-    .s_howitworks_sidebar .payment a {
-      margin-right: 0;
-      width: 33%; }
-      .s_howitworks_sidebar .payment a img {
-        width: 100%; } }
+    height: 65px;
+  }
+}
 
 
 /*--------------END RIGHT SIDE BAR "SU PROGRAM"------------*/
