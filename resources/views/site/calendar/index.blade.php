@@ -111,8 +111,13 @@
 	<script>
 
        jQuery(document).ready(function () {
-
-
+		   $.ajax({
+			   type: "GET",
+			   url: "/calendar/data",
+			   success: function (data) {
+				   console.log(data);
+			   }
+		   })
        });
 	</script>
 @stop

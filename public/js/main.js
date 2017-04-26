@@ -225,9 +225,9 @@ jQuery(document).ready(function(){
         editable: false,
         eventLimit: true,
         events: '/calendar/data',
-        eventOverlap: false,
+        eventOverlap: true,
         eventRender: function (event, element) {
-            console.log(isOverlapping(event));
+            // console.log(isOverlapping(event));
             // event.overlap = true;
             element.data('duplicate', event.duplicate);
             element.append('<br>');

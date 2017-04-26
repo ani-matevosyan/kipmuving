@@ -838,19 +838,9 @@ body.home2 .roteros-options .raised-form .text-field {
       -webkit-transition: top 0.5s ease-out, left 0.5s ease-out;
       transition: top 0.5s ease-out, left 0.5s ease-out;
     }
-
-  #header.new #nav ul{
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-out 0.5s;
-    transition: all 0.3s ease-out 0.5s;
-  }
-
   #header.new #nav.active{
     top: -270px;
     left: -144px;
-  }
-  #header.new #nav.active ul{
-    opacity: 1;
   }
 }
 
@@ -8406,7 +8396,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .s_reservar .your-reservation .timing li.person{
-    padding: 5px 0 0 15px;
+    padding: 5px 0 0;
 }
 
 .s_reservar .your-reservation .timing li:after{
