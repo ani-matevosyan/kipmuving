@@ -150,7 +150,7 @@
 <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
 	<tr>
 		<td align="center" valign="top" id="bodyCell">
-			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #f6f6f6;"
+			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #FFF;"
 						 cellpadding="0"
 						 cellspacing="0" align="center">
 				<tr>
