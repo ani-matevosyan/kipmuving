@@ -2,12 +2,12 @@
 
 return [
 	#Confirmation email
-	'hello'                               => 'Hola-es',
-	'thanks_for_joining'                  => 'Gracias por unirte a KipMuving-es',
-	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!-es',
-	'please_activate_your_account_here'   => 'Por favor activa tu cuenta aquí-es',
-	'with_regards'                        => 'Saludos-es',
-	'kipmuving_team'                      => 'Equipo Kip Muving Chile-es',
+	'hello'                               => 'Hola',
+	'thanks_for_joining'                  => 'Gracias por unirte a KipMuving',
+	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!',
+	'please_activate_your_account_here'   => 'Por favor activa tu cuenta aquí',
+	'with_regards'                        => 'Saludos',
+	'kipmuving_team'                      => 'Equipo Kip Muving Chile',
 	
 	#User reservation email
 	'many_thanks_for_booking'             => 'Muchas gracias por reservar con Kipmuving. Sigue abajo la confirmación de tu reserva.',
@@ -29,5 +29,5 @@ return [
 	'any_questions'                       => 'Cualquier duda por favor, escríbenos. Estaremos atentos a lo que necesites. Nuestro correo es',
 	'and_also_by_phone'                   => 'y también por el teléfono',
 	'or_whatsapp'                         => 'o por el whatsapp',
-    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
+	'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
 ];

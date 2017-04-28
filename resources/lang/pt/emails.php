@@ -2,12 +2,12 @@
 
 return [
 	#Confirmation email
-	'hello'                               => 'Olá,-pt',
-	'thanks_for_joining'                  => 'Onbrigado por unir-se a KipMuving-pt',
-	'confirm_mail_message'                => 'Confirme seu e-mail!-pt',
-	'please_activate_your_account_here'   => 'Por favor, ative sua conta aqui-pt',
-	'with_regards'                        => 'Abraços-pt',
-	'kipmuving_team'                      => 'Equipe Kip Muving Chile-pt',
+	'hello'                               => 'Olá,',
+	'thanks_for_joining'                  => 'Onbrigado por unir-se a KipMuving',
+	'confirm_mail_message'                => 'Confirme seu e-mail!',
+	'please_activate_your_account_here'   => 'Por favor, ative sua conta aqui',
+	'with_regards'                        => 'Abraços',
+	'kipmuving_team'                      => 'Equipe Kip Muving Chile',
 	
 	#User reservation email
 	'many_thanks_for_booking'             => 'Muito obrigado por reservar com Kipmuving. Segue abaixo a confirmação da sua reserva.',

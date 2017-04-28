@@ -92,8 +92,7 @@
                             <tr>
                                 <td style="font-size:16px; line-height:20px; color:#000000; padding-top:55px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
                                     <strong>Hola {{ $reservations['0']->agency->name }}</strong><br>
-                                    El pasajero <span style="color:#980e25">{{ $user->first_name.' '.$user->last_name }}</span> <span style="color:#980e25">{{ count($reservations) }} paseos</span>
-                                    para <span style="color:#980e25"></span>
+                                    El pasajero <span style="color:#980e25">{{ $user->first_name.' '.$user->last_name }}</span>, cancelo las actividades abajo:
                                 </td>
                             </tr>
                             @foreach($reservations as $offer)
