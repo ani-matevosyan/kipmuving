@@ -113,7 +113,7 @@ Route::post('/pagseguro/notification', [
 
 
 //test
-
+Route::get('/reserve/testemails/{type}', 'ReservationController@testEmails');
 
 
 

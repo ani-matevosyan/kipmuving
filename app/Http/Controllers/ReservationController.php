@@ -578,5 +578,39 @@ class ReservationController extends Controller
 		Log::info('get');
 		Log::info($request);
 	}
+	#---------------------------------------------------------------------
+	#
+	#
+	#
+	#TEST
+	public function testEmails($type)
+	{
+		$selected_offers = session('selectedOffers');
+		if ($selected_offers) {
+			$reservations = self::getReservationData($selected_offers);
+			$user = Auth::user();
+//			dd($reservations->offers);
+			switch ($type) {
+				case 'user':
+					return view('emails.reservar.user', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'admin':
+					return view('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'agency':
+					return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
+					break;
+				case 'user-cancel':
+					return view('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'agency-cancel':
+					return view('emails.reservar.cancelation.agencia', ['user' => $user, 'reservations' => $reservations->offers]);
+					break;
+				default:
+					echo 'You need use link, for example: /reserve/testemails/TYPE, where TYPE: user | admin | agency | user-cancel | agency-cancel<br>';
+					echo 'For example: http://kipmuving.com/reserve/testemails/user';
+			}
+		} else return '<br>You need select offers';
+	}
 	
 }

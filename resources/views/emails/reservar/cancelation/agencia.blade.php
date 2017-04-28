@@ -121,7 +121,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="display: inline-block; padding-left: 70px; width:50%; padding-bottom:20px;" valign="top">
+                                                <td style="display: inline-block; padding-left: 118px; width:50%; padding-bottom:20px;" valign="top">
                                                     <ul class="timing">
                                                         <li class="time">
                                                             <strong class="title">
