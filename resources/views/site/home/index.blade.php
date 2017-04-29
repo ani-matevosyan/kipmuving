@@ -4,7 +4,6 @@
 @section('content')
 	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
 		<div class="gradoverlay"></div>
-		<!-- <img src="images/img28.jpg" alt="image description"> -->
 		<div class="caption">
 			<div class="container">
 				<div class="row">
@@ -31,10 +30,8 @@
 														 class="form-control"
 														 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
 										</div>
-										<!-- <div class="text-field has-ico date"><input type="text" placeholder="Dia en Pucon" class="form-control"></div> -->
 									</div>
 									<div class="sub-col sub-col-second">
-										<!-- <div class="text-field has-ico person"><input type="text" placeholder="Personas" class="form-control"></div> -->
 										<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
 									</div>
 								</div>
@@ -75,17 +72,6 @@
 								<span class="size3">{{ trans('main.free') }}</span>
 							@endif
 						</h2>
-						{{--@if(App::getLocale() == 'es_ES' || App::getLocale() == 'pt')
-							<h1>{{ trans('main.guide') }}</h1>
-							<h4>{{ trans('main.complete') }}</h4>
-							<h2>pucon</h2>
-							<h3>{{ trans('main.free') }}</h3>
-						@elseif(App::getLocale() == 'en')
-							<h4>{{ trans('main.complete') }}</h4>
-							<h2>pucon</h2>
-							<h1>{{ trans('main.guide') }}</h1>
-							<h3>{{ trans('main.free') }}</h3>
-						@endif--}}
 					</div>
 				</div>
 				<div class="col-md-2 col-md-pull-5">
@@ -167,23 +153,6 @@
 				</div>
 			</div>
 		</section>
-		<div class="text-bar">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-12 col">
-						<div class="img-holder"><img src="images/img33.png" alt=""></div>
-						<div class="text">
-							<strong class="value">1%</strong>
-							<div class="txt">{{ trans('main.for_the_organization') }}
-								<strong>{{ trans('main.parks_for_chili') }}</strong></div>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12 col">
-						<p>{{ trans('main.kipmuving_is_aware_that_nature') }} http://www.parquesparachile.cl/</p>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="all-activities" style="padding-top: 50px;">
 			<div class="container">
 				<header>
@@ -198,14 +167,14 @@
 						<div class="col-md-3 col-sm-6 col-xs-12 col">
 							@include('site.partials.activities.all-list-item-arr')
 						</div>
-				  <?php ++$key?>
+				  		<?php ++$key?>
 						@if($key === 2)
 							<div class="clearfix visible-sm-block"></div>
 						@elseif($key===4)
 							<div class="clearfix visible-md-block"></div>
 							<div class="clearfix visible-lg-block"></div>
 							<div class="clearfix visible-sm-block"></div>
-					  <?php $key = 0; ?>
+					  	<?php $key = 0; ?>
 						@endif
 					@endforeach
 				</div>
