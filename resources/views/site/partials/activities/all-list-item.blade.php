@@ -12,7 +12,7 @@
 			@if($activity->available_day)
 			<li>
 				<div class="ico">
-					<img src="images/day.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico16.png'">
+					<img src="images/day.svg" alt="day icon" width="33" height="33" onerror="this.onerror=null; this.src='images/ico16.png'">
 					<p>{{ trans('main.day_activity') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
@@ -20,7 +20,7 @@
 			@if($activity->available_night)
 			<li>
 				<div class="ico">
-					<img src="images/night.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico17.png'">
+					<img src="images/night.svg" alt="night icon" width="33" height="33" onerror="this.onerror=null; this.src='images/ico17.png'">
 					<p>{{ trans('main.night_activity') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
@@ -28,7 +28,7 @@
 			@if($activity->available_high)
 			<li>
 				<div class="ico">
-					<img src="images/down-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico18.png'">
+					<img src="images/down-arrow.svg" alt="down arrow icon" width="25" height="25" onerror="this.onerror=null; this.src='images/ico18.png'">
 					<p>{{ trans('main.march_to_november') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
@@ -36,7 +36,7 @@
 			@if($activity->available_low)
 			<li>
 				<div class="ico">
-					<img src="images/up-arrow.svg" alt="image description" width="25" height="25" onerror="this.onerror=null; this.src='images/ico19.png'">
+					<img src="images/up-arrow.svg" alt="up arrow icon" width="25" height="25" onerror="this.onerror=null; this.src='images/ico19.png'">
 					<p>{{ trans('main.december_to_march') }} <span class="glyphicon glyphicon-triangle-bottom"></span></p>
 				</div>
 			</li>
@@ -53,7 +53,7 @@
 		<p>{{ $activity->short_description }}<p>
 	@endif
 	@if($activity->offers->min('price'))
-	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>{{ session('currency.type') }}$ </sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
+	<strong class="price"><span>{{ trans('main.from') }}</span> <sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
 	@endif
 	<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>

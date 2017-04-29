@@ -96,7 +96,7 @@
 														</div>
 													</div>
 													<strong class="price">
-														<sub>{{ session('currency.type') }}$ </sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+														<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> </sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
 													</strong>
 												</div>
 												<div id="reservetour1">
@@ -195,14 +195,6 @@
 	<div class="payment-modal modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				{{--<div class="modal-header">--}}
-					{{--<p class="modal-title">Estas reservando--}}
-						{{--<strong><span>{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}</strong> y ahorrando--}}
-						{{--<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}--}}
-							{{--.</strong> <br> Para completar, debera pagar--}}
-						{{--<strong>{{ session('currency.type') }}$ {{ number_format($reservation->total->to_pay[session('currency.type')], 0, ".", ".") }}.</strong> Elija su medio de--}}
-						{{--pago:</p>--}}
-				{{--</div>--}}
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-sm-6">
@@ -222,8 +214,8 @@
 										<h4>Ahorrando</h4>
 									</div>
 									<div class="col-xs-6">
-										<strong>CLP$ {{ number_format($reservation->total['CLP'] * config('kipmuving.discount'), 0, ".", ".") }}</strong>
-										<span>USD$ {{ number_format($reservation->total['USD'] * config('kipmuving.discount'), 0, ".", ".") }} / BRL$ {{ number_format($reservation->total['BRL'] * config('kipmuving.discount'), 0, ".", ".") }}</span>
+										<strong>$ {{ number_format($reservation->total['CLP'] * config('kipmuving.discount'), 0, ".", ".") }}</strong>
+										<span>$ {{ number_format($reservation->total['USD'] * config('kipmuving.discount'), 0, ".", ".") }} / R$ {{ number_format($reservation->total['BRL'] * config('kipmuving.discount'), 0, ".", ".") }}</span>
 									</div>
 								</div>
 							</div>
@@ -233,8 +225,8 @@
 										<h4>Tarifa de servicio</h4>
 									</div>
 									<div class="col-xs-6">
-										<strong>CLP$ {{ number_format($reservation->total->to_pay['CLP'], 0, ".", ".") }}</strong>
-										<span>USD$ {{ number_format($reservation->total->to_pay['USD'], 0, ".", ".") }} / BRL$ {{ number_format($reservation->total->to_pay['BRL'], 0, ".", ".") }}</span>
+										<strong>$ {{ number_format($reservation->total->to_pay['CLP'], 0, ".", ".") }}</strong>
+										<span>$ {{ number_format($reservation->total->to_pay['USD'], 0, ".", ".") }} / R$ {{ number_format($reservation->total->to_pay['BRL'], 0, ".", ".") }}</span>
 										@if ($reservation->total->to_pay['CLP'] == 2000)
 											<span>*pago minimo</span>
 										@endif

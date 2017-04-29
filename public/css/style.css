@@ -351,6 +351,9 @@ tooltip fade top in {
 .activities-info a img {
     margin-right: 5px;
     padding-top: 5px; }
+.activities-info a img.down-arrow-icon{
+    margin-bottom: 20px;
+}
 .activities-info .ico {
     float: left;
     display: inline-block;
