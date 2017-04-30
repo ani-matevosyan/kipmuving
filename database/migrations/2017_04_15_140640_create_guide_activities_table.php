@@ -23,8 +23,8 @@ class CreateGuideActivitiesTable extends Migration
 			$table->decimal('longitude', 9, 5);
 			$table->integer('bus_est_time')->default(0);
 			$table->integer('bus_est_expenditure')->default(0);
-			$table->integer('bus_est_service')->default(0);
-			$table->text('time_ranges')->nullable();
+//			$table->integer('bus_est_service')->default(0);
+//			$table->text('time_ranges')->nullable();
 //			$table->string('point_id', 32);
 //			$table->text('tripadvisor_code')->nullable();
 		});

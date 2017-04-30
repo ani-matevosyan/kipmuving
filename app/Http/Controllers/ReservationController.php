@@ -116,9 +116,9 @@ class ReservationController extends Controller
 				'total'        => $item->sum('reservation.total')
 			], function ($message) use ($agency_email) {
 				$message->from('info@kipmuving.com', 'Kipmuving team');
-//				$message->to($agency_email)->subject('Kipmuving.com reservation');
+				$message->to($agency_email)->subject('Kipmuving.com reservation');
 				//TODO change
-				$message->to('sanek.solodovnikov.94@gmail.com')->subject('Kipmuving.com reservation');
+//				$message->to('sanek.solodovnikov.94@gmail.com')->subject('Kipmuving.com reservation');
 			});
 		}
 		//		return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
@@ -251,13 +251,13 @@ class ReservationController extends Controller
 							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
 								$message->from('info@kipmuving.com', 'Kipmuving team');
 //							$user->email
-								$message->to('sanek.solodovnikov.94@gmail.com', $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Kipmuving.com');
+								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Kipmuving.com');
 							});
 							
 							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
 								$message->from('info@kipmuving.com', 'Kipmuving team');
 //							$reservation_data->offers[0]->agency->email
-								$message->to('sanek.solodovnikov.94@gmail.com')->subject('Kipmuving.com canceled reservation');
+								$message->to($reservation_data->offers[0]->agency->email)->subject('Kipmuving.com canceled reservation');
 							});
 							
 							return redirect()->back();
