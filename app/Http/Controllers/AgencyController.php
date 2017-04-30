@@ -15,7 +15,7 @@ class AgencyController extends Controller
 			'imageIndex' => $imageIndex,
 			'agencies'   => Agency::get(),
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];

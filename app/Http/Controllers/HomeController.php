@@ -19,7 +19,7 @@ class HomeController extends Controller
 			'activities' => $activity->getHomePageActivities(),
 			'activitiesList' => $activity->getActivitiesList(),
 			'count' => [
-				'offers' => count($offer->getSelectedOffers()),
+				'offers' => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];

@@ -221,23 +221,50 @@ class ReservationController extends Controller
 		];
 		
 		return view('site.reservar.su-reservar', $data);
-//        return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
-//        return view('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations]);
-//        return view('emails.reservar.user', ['user' => $user, 'reservation' => $reservations]);
 	}
 	
 	#Cancel reservation
 	public static function cancelReservation($id)
 	{
-		$reservation = Reservation::find($id);
-		if ($reservation > Carbon::now()->toDateString()) {
-			$reservation->status = false;
-			$reservation->status_code = 'canceled';
-			$reservation->save();
-			
-			//todo send emails
-			
-			return redirect()->back();
+		if ($reservation = Reservation::find($id)) {
+			if ($user = User::find($reservation->user_id)) {
+				if ($current_user = Auth::user()) {
+					if ($current_user->id == $user->id) {
+						$time = explode('-', $reservation->time_range);
+						$selected_offers[] = [
+							'offer_id' => $reservation->offer_id,
+							'date'     => Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y'),
+							'persons'  => $reservation->persons,
+							'time'     => [
+								'start' => $time[0],
+								'end'   => $time[1]
+							]
+						];
+						
+						$reservation_data = self::getReservationData($selected_offers);
+						
+						if ($reservation > Carbon::now()->toDateString()) {
+							$reservation->status = false;
+							$reservation->status_code = 'canceled by user';
+							$reservation->save();
+							
+							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
+								$message->from('info@kipmuving.com', 'Kipmuving team');
+//							$user->email
+								$message->to('sanek.solodovnikov.94@gmail.com', $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Kipmuving.com');
+							});
+							
+							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
+								$message->from('info@kipmuving.com', 'Kipmuving team');
+//							$reservation_data->offers[0]->agency->email
+								$message->to('sanek.solodovnikov.94@gmail.com')->subject('Kipmuving.com canceled reservation');
+							});
+							
+							return redirect()->back();
+						}
+					} else abort(503);
+				} else abort(503);
+			}
 		}
 		
 		return abort(404);
@@ -478,22 +505,22 @@ class ReservationController extends Controller
 	
 	public function paymentPayUNotifications(Request $request)
 	{
-		Log::debug('notification');
-		Log::debug('request');
-		Log::debug(print_r($request->request, 1));
+//		Log::debug('notification');
+//		Log::debug('request');
+//		Log::debug(print_r($request->request, 1));
 		$status = $request['response_message_pol'];
 		$signature = str_replace('Kipmuving.com reservation: ', '', $request['description']);
 		
 		$reservations = Reservation::where('payment_uid', '=', $signature)
 			->where('type', '=', 'payu')
 			->get();
-		
-		Log::debug('reservations');
-		Log::debug(print_r($reservations, 1));
-		Log::debug('status');
-		Log::debug($status);
-		Log::debug('signature');
-		Log::debug($signature);
+
+//		Log::debug('reservations');
+//		Log::debug(print_r($reservations, 1));
+//		Log::debug('status');
+//		Log::debug($status);
+//		Log::debug('signature');
+//		Log::debug($signature);
 		
 		$user_id = $reservations[0]->user_id;
 		app()->setLocale($reservations[0]->lang_code);
@@ -529,10 +556,10 @@ class ReservationController extends Controller
 			$reservation->status_code = $status;
 			$reservation->save();
 		}
-		Log::debug(print_r($selected_offers, 1));
+//		Log::debug(print_r($selected_offers, 1));
 		
 		if ($status == 'APPROVED') {
-			Log::debug('last if (send emails)');
+//			Log::debug('last if (send emails)');
 			$reservations = ReservationController::getReservationData($selected_offers);
 			$user = User::find($user_id);
 			
@@ -550,6 +577,40 @@ class ReservationController extends Controller
 	{
 		Log::info('get');
 		Log::info($request);
+	}
+	#---------------------------------------------------------------------
+	#
+	#
+	#
+	#TEST
+	public function testEmails($type)
+	{
+		$selected_offers = session('selectedOffers');
+		if ($selected_offers) {
+			$reservations = self::getReservationData($selected_offers);
+			$user = Auth::user();
+//			dd($reservations->offers);
+			switch ($type) {
+				case 'user':
+					return view('emails.reservar.user', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'admin':
+					return view('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'agency':
+					return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
+					break;
+				case 'user-cancel':
+					return view('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservations]);
+					break;
+				case 'agency-cancel':
+					return view('emails.reservar.cancelation.agencia', ['user' => $user, 'reservations' => $reservations->offers]);
+					break;
+				default:
+					echo 'You need use link, for example: /reserve/testemails/TYPE, where TYPE: user | admin | agency | user-cancel | agency-cancel<br>';
+					echo 'For example: http://kipmuving.com/reserve/testemails/user';
+			}
+		} else return '<br>You need select offers';
 	}
 	
 }

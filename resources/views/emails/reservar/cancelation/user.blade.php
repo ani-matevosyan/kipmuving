@@ -27,6 +27,14 @@
 			font-size: 11px;
 		}
 
+		.time hr {
+			border: none;
+			height: 1px;
+			width: 200px;
+			background: #d9d9d9;
+			margin: 10px 0 0 -25px;
+		}
+
 		.timing {
 			margin: 0;
 			padding: 0;
@@ -38,7 +46,7 @@
 
 		.timing li {
 			position: relative;
-			border-top: 1px solid #d9d9d9;
+			/*border-top: 1px solid #d9d9d9;*/
 			padding: 10px 0 10px 30px;
 		}
 
@@ -142,7 +150,7 @@
 <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
 	<tr>
 		<td align="center" valign="top" id="bodyCell">
-			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #fff;"
+			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #FFF;"
 						 cellpadding="0"
 						 cellspacing="0" align="center">
 				<tr>
@@ -159,17 +167,13 @@
 				</tr>
 				<tr>
 					<td id="main" style=" padding-left:20px; padding-right:20px;">
-						<table cellpadding="0" cellspacing="0">
+						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<td
 									style="font-size:16px; line-height:20px; color:#000000; padding-top:55px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
 									<strong
-										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>,
-									{{ trans('emails.many_thanks_for_booking') }}
-									<p>{{ trans('emails.what_will_we_do_now') }}</p>
-									<strong
-										style="display:block; font-weight:bold; margin-top: 25px;">{{ trans('emails.activities_you_booked') }}
-										:</strong>
+										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>
+									<p style="margin: 0">Abajo estan las actividades que cancelaste:</p>
 								</td>
 							</tr>
 							@foreach($reservation->offers as $offer)
@@ -198,20 +202,10 @@
 												</td>
 											</tr>
 											<tr>
-												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<strong
-														style="display:block; font-weight:bold; padding-left:10px;">{{ trans('emails.you_must_take') }}
-														:</strong>
-													{{--<p>{{ $offer->carries }}</p>--}}
-													@if ($offer->activity->carries)
-														<ul class="you-must-take">
-															@foreach($offer->activity->carries as $carry)
-																<li>{{ $carry }}</li>
-															@endforeach
-														</ul>
-													@endif
+												<td style="width:1%; padding-bottom:20px; padding-left: 118px" valign="top">
+
 												</td>
-												<td style="width:50%; padding-bottom:20px;" valign="top">
+												<td style="width:100%; padding-bottom:20px;" valign="top">
 													<ul class="timing">
 														<li class="time">
 															<strong class="title">
@@ -226,25 +220,14 @@
 																		<span>{{ trans('main.schedule') }}
 																			:</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}-{{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
 															</strong>
+															<hr>
 														</li>
 														<li class="person">
 															<strong>
 																<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
 															</strong>
 														</li>
-														<li class="money">
-															<strong>Pagar en agencia</strong>
-															<strong class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
-														</li>
 													</ul>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2">
-													<div class="important">
-														<strong class="title">{{ trans('emails.important') }}:</strong>
-														{{ $offer->important }}
-													</div>
 												</td>
 											</tr>
 										</table>
@@ -256,9 +239,6 @@
 				</tr>
 				<tr>
 					<td id="footer" class="footer">
-						<p>{{ trans('emails.total_to_pay') }}
-							<strong style="color:#980e25; font-weight:bold;">$ {{ number_format($reservation->total->with_discount['CLP'], 0, '.', ' ') }} CLP. </strong>{{ trans('emails.must_be_paid_at_agency') }}</p>
-						<p>{{ trans('emails.each_agency_has_cancellation_policy') }}.</p>
 						<p>
 							{{ trans('emails.any_questions') }}
 							<a href="mailto:contacto@kipmuving.com">contacto@kipmuving.com</a>

@@ -18,7 +18,7 @@ class ActivityController extends Controller
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
 			'count'      => [
-				'offers'  => count($offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
@@ -63,7 +63,7 @@ class ActivityController extends Controller
 				'selected' => $_offer->getSelectedOffers()
 			],
 			'count'          => [
-				'offers'  => count($_offer->getSelectedOffers()),
+				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $_offer->getSelectedOffersPersons()
 			]
 		];
