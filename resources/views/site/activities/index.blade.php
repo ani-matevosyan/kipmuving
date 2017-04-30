@@ -173,7 +173,7 @@
 										<li class="active">
 											<a href="#">
 												<div class="ico">
-													<img src="images/day.svg" alt="image description" width="33"
+													<img src="images/day.svg" alt="day icon" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico16.png'">
 												</div>
@@ -183,7 +183,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img src="images/night.svg" alt="image description" width="33"
+													<img src="images/night.svg" alt="night icon" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico17.png'">
 												</div>
@@ -193,7 +193,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img src="images/down-arrow.svg" alt="image description" width="25"
+													<img class="down-arrow-icon" src="images/down-arrow.svg" alt="arrow down icon" width="25"
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico18.png'">
 												</div>
@@ -203,7 +203,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img src="images/up-arrow.svg" alt="image description" width="25"
+													<img src="images/up-arrow.svg" alt="arrow up icon" width="25"
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico19.png'">
 												</div>

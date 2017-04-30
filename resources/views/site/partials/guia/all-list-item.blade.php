@@ -78,8 +78,6 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 											<p>{{ trans('main.estimated_expenditure') }}:
 												<strong>$ {{ number_format($activity->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong>
 											</p>
-												<span>{{ trans('main.spa_value') }}
-													: <strong>$ {{ number_format($activity->bus_est_service, 0, ".", ".") }} {{ trans('main.per_person') }}</strong></span>
 										</div>
 									</div>
 								@endif
