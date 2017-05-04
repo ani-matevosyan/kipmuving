@@ -170,7 +170,7 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<td
-									style="font-size:16px; line-height:20px; color:#000000; padding-top:55px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
+									style="font-size:14px; line-height:20px; color:#000000; padding-top:45px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
 									<strong
 										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>
 									<p style="margin: 0">Abajo estan las actividades que cancelaste:</p>
@@ -192,17 +192,17 @@
 															</td>
 															<td>
 																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:26px; line-height:35px; color:#089f02;">{{ $offer->activity->name }}</span>
+																		style="font-size:22px; line-height:20px; color:#089f02;">{{ $offer->activity->name }}</span>
 																</h2>
 																<strong
-																	style="font-size:18px; line-height:26px; font-weight:normal; display:block;">{{ $offer->agency->name }}</strong>
+																	style="font-size:16px; line-height:20px; font-weight:normal; display:block;">{{ $offer->agency->name }}<span style="font-size: 12px; display: inline-block; margin-left: 10px;">{{ $offer->agency->address }}</span></strong>
 															</td>
 														</tr>
 													</table>
 												</td>
 											</tr>
 											<tr>
-												<td style="width:1%; padding-bottom:20px; padding-left: 118px" valign="top">
+												<td style="width:1%; padding-bottom:20px; padding-left: 70px" valign="top">
 
 												</td>
 												<td style="width:100%; padding-bottom:20px;" valign="top">

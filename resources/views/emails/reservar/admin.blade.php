@@ -85,10 +85,6 @@
 			line-height: inherit !important;
 		}
 
-		#bodyCell {
-			padding: 10px;
-		}
-
 		a.mcnButton {
 			display: block;
 		}
@@ -452,7 +448,7 @@
 												<td class="mcnImageContent"
 													 style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;"
 													 valign="top"><img alt="" src="{{ url('/images/logo-new.svg') }}"
-																			 style="max-width:340px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
+																			 style="max-width:207px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
 																			 class="mcnImage" align="left" width="340"></td>
 											</tr>
 											</tbody>
@@ -474,11 +470,9 @@
 												 cellpadding="0" cellspacing="0" width="100%">
 											<tbody>
 											<tr>
-												<td style="color: #656565;
-															font-family: Helvetica;
-															font-size: 12px;
+												<td style="font-family: Helvetica;
 															line-height: 150%;
-															text-align: left; padding: 9px 18px;color: #000000;font-family: &quot;trebuchet ms&quot: ;,&quot: ;lucida grande&quot: ;lucida sans unicode&quot: ;lucida sans&quot: ;,tahoma,sans-serif: ;font-size: 14px;font-style: normal;font-weight: normal;"
+															text-align: left; padding: 9px 18px;color: #000000; font-size: 14px;font-style: normal;font-weight: normal;"
 													 valign="top">
 													<br>
 													<strong>Hola Administrator</strong><br>
