@@ -529,7 +529,7 @@
 															Email: <a href="#"
 																		 style="color:#000; text-decoration:none;"><span>{{ $user->email }}</span></a><br>
 															Persona: {{ $offer->reservation['persons'] }}<br>
-															Price: {{ $offer->real_price }} CLP ({{ $offer->real_price * (1 - config('kipmuving.discount')) }} with 10% discount)<br>
+															Price: {{ $offer->real_price }} CLP<br>
 															&nbsp;
 														</address>
 													@endforeach
