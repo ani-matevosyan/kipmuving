@@ -49,27 +49,27 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				AdminFormElement::text('short_description', 'Short description')->required(),
 				AdminFormElement::textarea('description', 'Description')->required(),
 				AdminFormElement::columns()
-					->addColumn([
-						AdminFormElement::textarea('real_time_ranges', 'Time')->required(),
-					], 8)
+//					->addColumn([
+//						AdminFormElement::textarea('real_time_ranges', 'Time')->required(),
+//					], 8)
 					->addColumn([
 						AdminFormElement::image('image', 'Image'),
-					], 4),
+					], 12),
 			]),
 			'Tripadvisor'    => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code')->required(),
+				AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code'),
 			]),
 			'Bus data'       => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)'),
-					], 4)
+					], 6)
 					->addColumn([
 						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure (per person)'),
-					], 4)
-					->addColumn([
-						AdminFormElement::text('bus_est_service', 'Est. service (per person)'),
-					], 4),
+					], 6),
+//					->addColumn([
+//						AdminFormElement::text('bus_est_service', 'Est. service (per person)'),
+//					], 4),
 				AdminFormElement::textarea('bus_description', 'Description'),
 			])
 		]);

@@ -33,33 +33,33 @@ class GuideActivity extends Model
 		return $time % 60 == 0 ? $time / 60 : (int)($time / 60).':'.($time % 60 < 10 ? '0'.$time % 60 : $time % 60);
 	}
 	
-	public function getTimeRangesAttribute()
-	{
-		$time = $this->dataToArray($this->attributes['time_ranges']);
-		$time[count($time) - 1] = str_replace(';', '', $time[count($time) - 1]);
-		if ($time) {
-			$result = [];
-			foreach ($time as $key => $item) {
-				$item = explode('-', $item);
-				$result[$key]['start'] = $item[0];
-				$result[$key]['end'] = $item[1];
-			}
-			
-			return $result;
-		}
-		
-		return null;
-	}
-	
-	public function getRealTimeRangesAttribute()
-	{
-		return $this->attributes['time_ranges'];
-	}
-	
-	public function setRealTimeRangesAttribute($time)
-	{
-		$this->attributes['time_ranges'] = $time;
-	}
+//	public function getTimeRangesAttribute()
+//	{
+//		$time = $this->dataToArray($this->attributes['time_ranges']);
+//		$time[count($time) - 1] = str_replace(';', '', $time[count($time) - 1]);
+//		if ($time) {
+//			$result = [];
+//			foreach ($time as $key => $item) {
+//				$item = explode('-', $item);
+//				$result[$key]['start'] = $item[0];
+//				$result[$key]['end'] = $item[1];
+//			}
+//
+//			return $result;
+//		}
+//
+//		return null;
+//	}
+//
+//	public function getRealTimeRangesAttribute()
+//	{
+//		return $this->attributes['time_ranges'];
+//	}
+//
+//	public function setRealTimeRangesAttribute($time)
+//	{
+//		$this->attributes['time_ranges'] = $time;
+//	}
 	
 	public function getRealBusEstTimeAttribute()
 	{
@@ -76,10 +76,10 @@ class GuideActivity extends Model
 		empty($expenditure) ? $this->attributes['bus_est_expenditure'] = 0 : $this->attributes['bus_est_expenditure'] = $expenditure;
 	}
 	
-	public function setBusEstServiceAttribute($service)
-	{
-		empty($service) ? $this->attributes['bus_est_service'] = 0 : $this->attributes['bus_est_service'] = $service;
-	}
+//	public function setBusEstServiceAttribute($service)
+//	{
+//		empty($service) ? $this->attributes['bus_est_service'] = 0 : $this->attributes['bus_est_service'] = $service;
+//	}
 	
 	public function getTripadvisorCodeAttribute()
 	{

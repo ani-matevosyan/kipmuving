@@ -13,8 +13,8 @@ return [
 	*/
 
 	'name' => 'Kipmuving',
-//	'admin_email' => 'rafaelzarro@gmail.com',
-	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
+	'admin_email' => 'rafaelzarro@gmail.com',
+//	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
