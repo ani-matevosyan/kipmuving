@@ -1,6 +1,6 @@
 <?php
 $isThereABus = false;
-if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure && $activity->bus_est_service)
+if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
     $isThereABus = true
 ?>
 <div class="guide-places-plate-wrapper">
