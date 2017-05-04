@@ -197,7 +197,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<div class="info-item">
 								<div class="row">
 									<div class="col-xs-6">
@@ -234,18 +234,35 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-8">
 							<div class="payment-options">
-								<span>Confirmar con:</span>
-								<a href="/reserve/pagseguro" class="pagseguro-btn">
-									<img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo">
-								</a>
-								<a href="/reserve/payu" class="payu-btn">
-									<img src="/images/payu_logo.png" alt="PayU Logo">
-								</a>
-								<a href="/reserve/paypal" class="paypal-btn">
-									<img src="/images/paypal_logo_transparent.png" alt="PayPal Logo">
-								</a>
+								<div class="row">
+									<h4>Confirmar con:</h4>
+									<div class="col-md-4">
+										<div class="payment-method">
+											<a href="/reserve/pagseguro" class="pagseguro-btn">
+												<img src="/images/pagseguro_logo_dark.png" alt="Pagseguro Logo">
+											</a>
+											<span>Pagos solamente con Real Brasilieno</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="payment-method">
+											<a href="/reserve/payu" class="payu-btn">
+												<img src="/images/payu_logo.png" alt="PayU Logo">
+											</a>
+											<span>Tarjetas internacionales y america latina</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="payment-method payment-method_last">
+											<a href="/reserve/paypal" class="paypal-btn">
+												<img src="/images/paypal_logo_transparent.png" alt="PayPal Logo">
+											</a>
+											<span>Para cuetnas Paypal y Tarjetas intarnacionales</span>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

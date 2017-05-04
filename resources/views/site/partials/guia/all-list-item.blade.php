@@ -1,6 +1,6 @@
 <?php
 $isThereABus = false;
-if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure && $activity->bus_est_service)
+if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
     $isThereABus = true
 ?>
 <div class="guide-places-plate-wrapper">
@@ -27,13 +27,15 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 								<div class="col-sm-6 col-xs-12">
 									<h2>{{ $activity->name }}</h2>
 								</div>
-								<div class="col-sm-6 mobile-left col-xs-12">
-									<div class="pull-right">
-										<div class="opiniones">
-											{!! $activity->tripadvisor_code !!}
+								@if($activity->tripadvisor_code)
+									<div class="col-sm-6 mobile-left col-xs-12">
+										<div class="pull-right">
+											<div class="opiniones">
+												{!! $activity->tripadvisor_code !!}
+											</div>
 										</div>
 									</div>
-								</div>
+								@endif
 							</div>
 						</div>
 						<div class="detail-desc">
