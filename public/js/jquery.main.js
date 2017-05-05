@@ -1,7 +1,9 @@
 // page init
 jQuery(window).load(function () {
     initCustomForms();
-    initChosenSelect();
+    if($('.dropdown-activity').length){
+        initChosenSelect();
+    }
     initAccordion();
     initSameHeight();
     initDatepicker();
@@ -10,7 +12,10 @@ jQuery(window).load(function () {
 });
 
 jQuery(document).ready(function () {
-    jQuery("a[rel^='prettyPhoto']").prettyPhoto();
+
+    if($("a[rel^='prettyPhoto']").length){
+        jQuery("a[rel^='prettyPhoto']").prettyPhoto();
+    }
 
 
     //BURGER
