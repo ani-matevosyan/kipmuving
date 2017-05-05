@@ -216,6 +216,16 @@ class ReservationController extends Controller
 		$reservations = $this->getReservationData($selected_offers);
 		
 		$data = [
+			'styles' => [
+				'css/product-tour.min.css'
+			],
+			'scripts' => [
+				'js/product.tour.min.js',
+				'js/product-tour.min.js',
+				'js/chosen.jquery.min.js',
+				'owl-carousel/owl.carousel.min.js', //language/currency pop-up
+				'js/jquery.prettyPhoto.js', //language/currency pop-up
+			],
 			'user'        => $user,
 			'reservation' => $reservations
 		];

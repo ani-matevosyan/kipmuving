@@ -15,6 +15,20 @@ class ActivityController extends Controller
 	{
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
+			'styles' => [
+				'owl-carousel/owl.carousel.css',
+				'owl-carousel/owl.theme.css',
+				'css/product-tour.min.css',
+			],
+			'scripts' => [
+				'js/product.tour.min.js',
+				'js/product-tour.min.js',
+				'js/chosen.jquery.min.js',
+				'owl-carousel/owl.carousel.min.js', //slider and currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'js/floating/floating-1.12.min.js',
+				'js/floating/floating.min.js'
+			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
 			'count'      => [
@@ -54,6 +68,22 @@ class ActivityController extends Controller
 //		dd($activity->offers[0]->duration);
 		
 		$data = [
+			'styles' => [
+				'css/product-tour.min.css',
+				'css/jquery-ui.min.css',
+				'css/chosen/chosen.min.css',
+				'css/prettyPhoto.css',
+				'css/instafeed/instafeed.min.css'
+			],
+			'scripts' => [
+				'js/product.tour.min.js',
+				'js/product-tour.min.js',
+				'js/chosen.jquery.min.js',
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/instafeed/instafeed.min.js',
+				'js/instafeed/instafeed-settings.min.js',
+				'js/jquery.prettyPhoto.js', //Gallery and currency/language pop-up
+			],
 			'activity'       => $activity,
 			'activitiesList' => $_activity->getActivitiesList(),
 			'offers'         => [

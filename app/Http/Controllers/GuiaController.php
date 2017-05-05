@@ -13,6 +13,15 @@ class GuiaController extends Controller
 	{
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+			'styles' => [
+				'css/instafeed/instafeed.min.css'
+			],
+			'scripts' => [
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'js/instafeed/instafeed.min.js',
+				'js/instafeed/instafeed-settings.min.js',
+			],
 			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
@@ -27,6 +36,15 @@ class GuiaController extends Controller
 	{
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+			'styles' => [
+				'css/instafeed/instafeed.min.css'
+			],
+			'scripts' => [
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'js/instafeed/instafeed.min.js',
+				'js/instafeed/instafeed-settings.min.js',
+			],
 			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
@@ -43,6 +61,17 @@ class GuiaController extends Controller
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+			'styles' => [
+				'css/jquery-ui.min.css',
+				'css/instafeed/instafeed.min.css'
+			],
+			'scripts' => [
+				'js/chosen.jquery.min.js',
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'js/instafeed/instafeed.min.js',
+				'js/instafeed/instafeed-settings.min.js',
+			],
 			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
@@ -127,6 +156,10 @@ class GuiaController extends Controller
 	{
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+			'scripts' => [
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+			],
 			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),

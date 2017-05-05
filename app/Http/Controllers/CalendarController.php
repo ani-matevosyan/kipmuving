@@ -17,6 +17,21 @@ class CalendarController extends Controller
 			return redirect()->to(action('ActivityController@index'));
 		
 		$data = [
+			'styles'         => [
+				'link' => 'plugins/fullcalendar/fullcalendar.css',
+				[
+					'media' => 'print',
+					'link'  => 'plugins/fullcalendar/fullcalendar.print.css'
+				]
+			],
+			'scripts' => [
+				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
+				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'plugins/fullcalendar/lib/moment.min.js',
+				'plugins/fullcalendar/fullcalendar.min.js',
+				'plugins/fullcalendar/es.js',
+				'plugins/fullcalendar/pt.js',
+			],
 			'selectedOffers' => $selectedOffers,
 			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
 			'count'          => [
@@ -124,10 +139,10 @@ class CalendarController extends Controller
 		}
 		
 		$data = [
-			'selectedOffers' => $offers,
+			'selectedOffers'  => $offers,
 			'guideActivities' => $guide_activities
 		];
-
+		
 		return response()->json($data);
 	}
 	
