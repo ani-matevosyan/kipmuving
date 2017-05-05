@@ -155,5 +155,5 @@
         </div>
     </div>
     <!-- MODAL END -->
-	<div id="data"> <!-- Keep this div for instafeed information -->
+	<div id="data"></div> <!-- Keep this div for instafeed information -->
 @stop

@@ -215,12 +215,6 @@ if($activity->bus_description && $activity->bus_est_time && $activity->bus_est_e
 											<option value="22:30">22:30</option>
 											<option value="23:00">23:00</option>
 											<option value="23:30">23:30</option>
-											{{--@if(is_array($activity->time_ranges))--}}
-												{{--@foreach($activity->time_ranges as $time)--}}
-													{{--<option--}}
-														{{--value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>--}}
-												{{--@endforeach--}}
-											{{--@endif--}}
 										</select>
 										<span class="hour-devider">a</span>
 										<select id="select-hours-to-{{ $activity->id }}" class="hours" name="hours_to" required>
