@@ -46,5 +46,4 @@
 			@endif
 		</div>
 	</div>
-	<script type="text/javascript" src="{{ asset('/js/ResizeSensor.min.js') }}"></script>
 @stop
