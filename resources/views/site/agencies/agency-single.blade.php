@@ -65,18 +65,20 @@
 								<div class="map-block">
 									<div id="map" style="width: 100%; height: 300px"></div>
 									<script type="text/javascript">
-                               var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
-                               var myOptions = {
-                                   zoom: 15,
-                                   center: latLng,
-                                   mapTypeId: google.maps.MapTypeId.ROADMAP
-                               };
-                               var map = new google.maps.Map(document.getElementById("map"), myOptions);
-                               var marker = new google.maps.Marker({
-                                   position: latLng,
-                                   map: map,
-                                   title: '{{ $agency->name }}'
-                               });
+										function initAgencyMap() {
+											var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
+											var myOptions = {
+												zoom: 15,
+												center: latLng,
+												mapTypeId: google.maps.MapTypeId.ROADMAP
+											};
+											var map = new google.maps.Map(document.getElementById("map"), myOptions);
+											var marker = new google.maps.Marker({
+												position: latLng,
+												map: map,
+												title: '{{ $agency->name }}'
+											});
+										}
 									</script>
 								</div>
 								<div class="ta-code">
