@@ -81,6 +81,7 @@ class ActivityController extends Controller
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
 				'js/jquery.prettyPhoto.js', //Gallery and currency/language pop-up
+				'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap'
 			],
 			'activity'       => $activity,
 			'activitiesList' => $_activity->getActivitiesList(),

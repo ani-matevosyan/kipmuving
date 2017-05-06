@@ -48,10 +48,17 @@
 <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
 {{--All--}}
-<script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
 {{--Where google maps--}}
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8"></script>
-
+{{--<script>--}}
+	{{--function initMap() {--}}
+		{{--var map = new google.maps.Map(document.getElementById('map'), {--}}
+			{{--zoom: 4--}}
+		{{--});--}}
+		{{--var marker = new google.maps.Marker({--}}
+			{{--map: map--}}
+		{{--});--}}
+	{{--}--}}
+{{--</script>--}}
 {{--Calendar page footer--}}
 {{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/lib/moment.min.js') }}"></script>--}}
 {{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/fullcalendar.min.js') }}"></script>--}}

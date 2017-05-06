@@ -113,18 +113,20 @@
 		<div class="map-holder">
 			<div id="map" style="width: 100%; height: 300px"></div>
 			<script type="text/javascript">
-             var latLng = new google.maps.LatLng({{ $activity->latitude }}, {{ $activity->longitude }});
-             var myOptions = {
-                 zoom: 10,
-                 center: latLng,
-                 mapTypeId: google.maps.MapTypeId.ROADMAP
-             };
-             var map = new google.maps.Map(document.getElementById("map"), myOptions);
-             var marker = new google.maps.Marker({
-                 position: latLng,
-                 map: map,
-                 title: '{{ $activity->name }}'
-             });
+      	function initMap() {
+					var latLng = new google.maps.LatLng({{ $activity->latitude }}, {{ $activity->longitude }});
+					var myOptions = {
+						zoom: 10,
+						center: latLng,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					var map = new google.maps.Map(document.getElementById("map"), myOptions);
+					var marker = new google.maps.Marker({
+						position: latLng,
+						map: map,
+						title: '{{ $activity->name }}'
+					});
+				}
 			</script>
 		</div>
 	</div>

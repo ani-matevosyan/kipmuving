@@ -38,6 +38,7 @@ class AgencyController extends Controller
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
+				'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap'
 			],
 			'agency' => $_agency->getAgency($id),
 //			'offers' => $_offer->getAgencyOffers($id)
