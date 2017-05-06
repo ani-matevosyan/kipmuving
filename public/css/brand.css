@@ -845,7 +845,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 #header {
-  z-index: 21;
+  z-index: 500;
   position: absolute;
   top: 0;
   left: 0;
@@ -7769,6 +7769,8 @@ body.home2 .roteros-options .raised-form .text-field {
   width: 100%;
   display: block;
   height: auto;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .all-activities h2 {
