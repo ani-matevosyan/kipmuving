@@ -4,7 +4,11 @@
 <head>
 	@include('site.head.metatags')
 
-	<title>Kipmuving</title>
+	@if(isset($title))
+		<title>KipMuving Turismo em Pucon: {{ $title }}</title>
+	@else
+		<title>KipMuving</title>
+	@endif
 
 	@include('site.head.styles')
 </head>

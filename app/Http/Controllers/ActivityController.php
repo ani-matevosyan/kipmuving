@@ -93,7 +93,8 @@ class ActivityController extends Controller
 			'count'          => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $_offer->getSelectedOffersPersons()
-			]
+			],
+			'title' => empty($activity->name) ? null : $activity->name
 		];
 		
 		return view('site.activities.activity-single', $data);
