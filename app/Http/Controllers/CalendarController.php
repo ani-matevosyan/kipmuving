@@ -25,8 +25,6 @@ class CalendarController extends Controller
 				]
 			],
 			'scripts' => [
-				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
-				'js/jquery.prettyPhoto.js', //currency/language pop-up
 				'plugins/fullcalendar/lib/moment.min.js',
 				'plugins/fullcalendar/fullcalendar.min.js',
 				'plugins/fullcalendar/es.js',

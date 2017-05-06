@@ -23,8 +23,6 @@ class HomeController extends Controller
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/chosen.jquery.min.js',
-				'owl-carousel/owl.carousel.min.js', //language/currency pop-up
-				'js/jquery.prettyPhoto.js', //language/currency pop-up
 			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getHomePageActivities(),

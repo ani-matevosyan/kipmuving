@@ -24,8 +24,7 @@ class ActivityController extends Controller
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/chosen.jquery.min.js',
-				'owl-carousel/owl.carousel.min.js', //slider and currency/language pop-up
-				'js/jquery.prettyPhoto.js', //currency/language pop-up
+				'owl-carousel/owl.carousel.min.js',
 				'js/floating/floating-1.12.min.js',
 				'js/floating/floating.min.js'
 			],
@@ -79,7 +78,6 @@ class ActivityController extends Controller
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/chosen.jquery.min.js',
-				'owl-carousel/owl.carousel.min.js', //currency/language pop-up
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
 				'js/jquery.prettyPhoto.js', //Gallery and currency/language pop-up
