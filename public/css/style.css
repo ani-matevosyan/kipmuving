@@ -106,12 +106,16 @@
 .activities-panel{
     position:relative;
     height:60px;
-    z-index:100;
 }
 
 .activities-list {
     float: none;
     display: inline-block;
+}
+
+.floatdiv{
+    position: absolute !important;
+    z-index: 100;
 }
 
 @media screen and (max-width: 1199px){
@@ -303,11 +307,20 @@
     margin: 0 0 0 17px;
     vertical-align: bottom;
     list-style: none;
-	position: absolute;
+	position: relative;
     top: 0;
     right: -10px;
     display: block;
     background: #fff;
+    float: right;
+}
+.activities-info:before,
+.activities-info:after{
+    content: '';
+    display: table;
+}
+.activities-info:after{
+    clear: both;
 }
 @media screen and (max-width: 1149px){
     .activities-panel{

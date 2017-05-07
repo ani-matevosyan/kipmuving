@@ -82,7 +82,7 @@
 
 						<div class="activites-bar">
 							<div class="activities-panel">
-								<div id="floatdiv" style="position:absolute;">
+								<div id="floatdiv" class="floatdiv">
 									<ul class="activities-list">
 										<li>
 											<a href="#trekking" class="green">
