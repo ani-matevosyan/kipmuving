@@ -172,7 +172,7 @@ $(document).ready(function(){
 			tagName: activityTag,
 			target: 'instafeed5',
 			accessToken: accessToken,
-			template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img style="width: 90px !important; height: 90px !important;" src="{{image}}"/></a></div>',
+			template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
 			limit: 16,
 			after: function () {
 				$('#instafeed5 a').click(function (e) {

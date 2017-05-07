@@ -13,7 +13,8 @@
     height:86px
 }
 
-.in-image-activity{
+.in-image-activity,
+.in-image-activity>a>img{
     width: 90px;
     height: 90px;
 }
@@ -21,32 +22,21 @@
     width:500px;
     margin-left:30px
 }
-@media(max-width:992px){
-    .in-image:nth-child(17n){
-        display:none!important
-    }
-    .in-image:nth-child(18n){
-        display:none!important
-    }
+
+.instafeed{
+    margin: 10px 0;
+    width: 100%;
 }
-@media(max-width:768px){
-    #the-image img{
-        width:400px!important;
-        margin-left:30px
-    }
-    .in-image:nth-child(17n){
-        display:block!important
-    }
-    .in-image:nth-child(18n){
-        display:block!important
-    }
+
+.instafeed:before,
+.instafeed:after{
+    content:'';
+    display: table;
 }
-@media(max-width:480px){
-    #the-image img{
-        width:250px!important;
-        margin-left:0!important
-    }
+.instafeed:after{
+    clear: both;
 }
+
 @media(max-width:1378px){
     .in-image,
     .in-image>a>img{
@@ -62,7 +52,21 @@
     }
 }
 
+@media screen and (max-width: 1149px) and (min-width: 992px){
+    .in-image-activity,
+    .in-image-activity>a>img{
+        width: 77px;
+        height: 77px;
+    }
+}
+
 @media(max-width:991px){
+    .in-image:nth-child(17n){
+        display:none!important
+    }
+    .in-image:nth-child(18n){
+        display:none!important
+    }
     .in-image {
         width: 25%;
         height: auto;
@@ -73,13 +77,39 @@
         height: auto;
     }
 }
-@media(max-width: 768px){
+@media(max-width:767px){
+    #the-image img{
+        width:400px!important;
+        margin-left:30px
+    }
+    .in-image:nth-child(17n){
+        display:block!important
+    }
+    .in-image:nth-child(18n){
+        display:block!important
+    }
+    .in-image-activity{
+        width: 25%;
+        height: auto;
+        padding: 0;
+    }
+    .in-image-activity>a>img{
+        width: 100%;
+        height: auto;
+    }
     #myModalX .modal-dialog{
         width: 470px;
         margin: 50px auto;
     }
 }
-@media(max-width: 480px){
+@media(max-width:480px){
+    #the-image img{
+        width:250px!important;
+        margin-left:0!important
+    }
+    .in-image-activity{
+        width: 33.3333%;
+    }
     .in-image {
         width: 33.333%;
         height: auto;
@@ -88,18 +118,4 @@
     #myModalX .modal-dialog{
         width: 300px;
     }
-}
-
-.instafeed{
-    margin: 10px 0;
-    width: 100%;
-}
-
-.instafeed:before,
-.instafeed:after{
-    content:'';
-    display: table;
-}
-.instafeed:after{
-    clear: both;
 }

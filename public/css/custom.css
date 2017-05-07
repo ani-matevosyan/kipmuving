@@ -29,6 +29,9 @@
   background-image: url(../images/image-none.jpg);
 }
 @media (max-width: 767px) {
+  .your-reservation.activity .head{
+    padding-top: 10px;
+  }
   .your-reservation.activity .program-schedule {
     display: block;
   }
@@ -44,7 +47,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .your-reservation .btn-pay.paypal {
   background: #ebb414;
