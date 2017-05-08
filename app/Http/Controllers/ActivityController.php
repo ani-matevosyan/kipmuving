@@ -77,6 +77,7 @@ class ActivityController extends Controller
 			'scripts' => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
+                'js/moment.js',
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',

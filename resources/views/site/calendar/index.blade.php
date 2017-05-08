@@ -11,21 +11,23 @@
 						<li>{{ trans('main.your_agenda') }}</li>
 					</ul>
 					<div class="row">
-						<header class="head">
-							<h1>{{ trans('main.your_panorama_in_pucon') }}</h1>
-							<p>
-								<span>
-									<strong
-										class="sub-title">{{ trans('main.here_is_your_schedule') }}</strong> {{ trans('main.panorama_your_vacation') }}
-									<Br/>
-									{{ trans('main.you_can_include_activities') }} <strong>{{ trans('main.reserve') }}</strong>.
-								</span>
-							</p>
-							<br/>
-							<a href="{{ action('ActivityController@index') }}"
-								class="btn btn-success btn-success-cal">{{ trans('main.include_more_activities') }}</a>
-							<Br/><Br/>
-						</header>
+						<div class="col-xs-12">
+							<header class="head">
+								<h1>{{ trans('main.your_panorama_in_pucon') }}</h1>
+								<p>
+									<span>
+										<strong
+											class="sub-title">{{ trans('main.here_is_your_schedule') }}</strong> {{ trans('main.panorama_your_vacation') }}
+										<Br/>
+										{{ trans('main.you_can_include_activities') }} <strong>{{ trans('main.reserve') }}</strong>.
+									</span>
+								</p>
+								<br/>
+								<a href="{{ action('ActivityController@index') }}"
+									class="btn btn-success btn-success-cal">{{ trans('main.include_more_activities') }}</a>
+								<Br/><Br/>
+							</header>
+						</div>
 
 						<div class="col-md-9 col-sm-12 col-xs-12">
 							{{--<div class="alert alert-danger alert-overlap ">--}}
