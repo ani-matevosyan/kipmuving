@@ -34,7 +34,7 @@
 								{{--{{ trans('main.the_are_activities_of_the_same_day') }}--}}
 							{{--</div>--}}
 							{{--<br>--}}
-							<div id='calendar' data-date="{{ $viewDate }}" data-lang="{{ app()->getLocale() }}"></div>
+							<div id='calendar' class="calendar" data-date="{{ $viewDate }}" data-lang="{{ app()->getLocale() }}"></div>
 							<br>
 						</div>
 						<div class="col-md-3 col-sm-12 col-xs-12">

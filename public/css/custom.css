@@ -116,6 +116,16 @@
     margin-left: 0;
   }
 }
+@media screen and (max-width: 625px){
+  .calendar .fc-center{
+    display: block;
+    clear: both;
+  }
+  .calendar .fc-center h2{
+    font-size: 24px;
+    margin-top: 15px;
+  }
+}
 .fc-event.cal-offer .move,
 .fc-event.cal-offer .delete {
   color: #d1d1d1;
@@ -689,6 +699,7 @@ body.home2 .all-activities.custom_title header {
   .payment-modal .modal-dialog{
     width: calc( 100% - 20px );
     max-width: 490px;
+    margin: 50px 10px;
   }
 }
 
