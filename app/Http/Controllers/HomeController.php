@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
-		$imageIndex = rand(1, 3); //1-3
+		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles' => [
 				'css/jquery-ui.min.css',
