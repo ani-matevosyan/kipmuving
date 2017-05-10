@@ -21,6 +21,7 @@ Route::post('/contact-us', 'HomeController@sendMessage');
 #Service routes
 Route::get('/locale/{code}', 'LocaleController@setLocale'); #Change locale
 Route::get('/currency/{code}', 'CurrencyController@setCurrency'); #Change currency
+Route::get('/city/{city}', 'CityController@setCity'); #Change city
 
 
 #Activities

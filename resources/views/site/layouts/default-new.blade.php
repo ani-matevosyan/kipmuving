@@ -30,6 +30,11 @@
 				<div class="burger-menu">
 					<div class="burger"></div>
 				</div>
+				@if(session('city') == 'pucon')
+					<a href="{{ action('CityController@setCity', ['city' => 'atacama']) }}">toA</a>
+				@else
+					<a href="{{ action('CityController@setCity', ['city' => 'pucon']) }}">toP</a>
+				@endif
 				<div class="country">
 					<div class="img-flag pick-lang">
 						<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
