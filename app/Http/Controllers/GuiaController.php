@@ -64,9 +64,8 @@ class GuiaController extends Controller
 			'scripts' => [
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
-				'js/instafeed/instafeed-settings.min.js',
 				'js/ResizeSensor.min.js',
-				'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMap'
+				'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
 			],
 			'imageIndex' => $imageIndex,
 			'count'      => [

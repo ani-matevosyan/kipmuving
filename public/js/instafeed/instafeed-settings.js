@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var accessToken = '3468302324.ba4c844.647742b3c9b64b0db48e48e50e9e0c68';
+	var accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
 
 	if($("#instafeed1").length){
 		var feed1 = new Instafeed({

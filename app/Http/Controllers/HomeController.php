@@ -22,7 +22,7 @@ class HomeController extends Controller
 //			$files[$key] = str_replace('/home/sanek/server/personalProjects/kipmuving/public/', '', $file);
 //		}
 		
-		$imageIndex = rand(1, 3); //1-3
+		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles' => [
 				'css/jquery-ui.min.css',

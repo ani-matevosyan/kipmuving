@@ -46,4 +46,11 @@
 			@endif
 		</div>
 	</div>
+	<script>
+		function initGuideMaps(){
+			@foreach($activities as $activity)
+				initGuideMap{{ $activity->id }}();
+			@endforeach
+		}
+	</script>
 @stop

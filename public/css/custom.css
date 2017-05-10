@@ -284,7 +284,8 @@ body.home2 .all-activities.custom_title header {
 
 .s_suprogram {
   max-width: 385px;
-  font-family: "Lato-Bold", sans-serif;
+  font-family: "Lato", sans-serif;
+    font-weight: 700;
   background: #fff;
   border: 1px solid #cccccc;
   padding: 1px;
@@ -301,9 +302,13 @@ body.home2 .all-activities.custom_title header {
     .s_suprogram header p {
       margin: 0;
       font-size: 15px;
-      font-family: "Lato-Medium", sans-serif; }
+      font-family: "Lato", sans-serif;
+        font-weight: 500;
+    }
       .s_suprogram header p span {
-        font-family: "Lato-Bold"; }
+        font-family: "Lato", sans-serif;
+          font-weight: 700;
+      }
   .s_suprogram ul {
     padding: 7px 3px 0;
     margin: 0; }
@@ -330,7 +335,9 @@ body.home2 .all-activities.custom_title header {
       .s_suprogram ul li h4 {
         margin: 0; }
       .s_suprogram ul li span {
-        font-family: "Lato-Regular", sans-serif; }
+        font-family: "Lato", sans-serif;
+          font-weight: 400;
+      }
         .s_suprogram ul li span:before {
           content: "$";
           margin-right: 4px; }
@@ -370,7 +377,8 @@ body.home2 .all-activities.custom_title header {
         margin: 0;
         line-height: 1; }
       .s_suprogram .total .totalprice span {
-        font-family: "Lato-Regular", sans-serif;
+        font-family: "Lato", sans-serif;
+          font-weight: 400;
         font-size: 12px;
         position: relative;
         top: -5px; }
@@ -439,10 +447,13 @@ body.home2 .all-activities.custom_title header {
   .s_suprogram .reserve {
     font-size: 14px; } }
 .s_howitworks_sidebar {
-  font-family: "Lato-Medium", sans-serif;
+  font-family: "Lato", sans-serif;
+    font-weight: 400;
   color: #000; }
   .s_howitworks_sidebar span {
-    font-family: "Lato-Bold", sans-serif; }
+    font-family: "Lato", sans-serif;
+      font-weight: 700;
+  }
   .s_howitworks_sidebar .section-container {
     position: relative;
     padding: 24px 7px 83px;
@@ -571,8 +582,8 @@ body.home2 .all-activities.custom_title header {
 }
 .payment-modal .modal-header p {
     font-size: 16px;
-    font-family: "Lato-Medium", sans-serif;
-    font-weight: normal;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
 }
 .payment-modal .modal-header p>strong{
     color: #972639;
@@ -601,7 +612,8 @@ body.home2 .all-activities.custom_title header {
 }
 
 .info-item h4{
-  font-family: 'Lato-Medium', sans-serif;
+  font-family: 'Lato', sans-serif;
+    font-weight: 500;
     padding-left: 13px;
 }
 
@@ -619,7 +631,8 @@ body.home2 .all-activities.custom_title header {
 }
 
 .payment-options h4{
-  font-family: 'Lato-Medium', sans-serif;
+  font-family: 'Lato', sans-serif;
+    font-weight: 500;
   font-size: 16px;
   display: block;
   margin: 5px 0 20px;
