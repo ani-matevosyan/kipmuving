@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,11 @@ class HomeController extends Controller
 //		foreach ($files as $key => $file) {
 //			$files[$key] = str_replace('/home/sanek/server/personalProjects/kipmuving/public/', '', $file);
 //		}
+		
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+		
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', $prefix);
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
@@ -42,7 +48,7 @@ class HomeController extends Controller
 			]
 		];
 		
-		if (session('city') == 'atacama')
+		if (session('cities.current') == 'atacama')
 			return view('site.home.atacama-index', $data);
 		
 		return view('site.home.index', $data);

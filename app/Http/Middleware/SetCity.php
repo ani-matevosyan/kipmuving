@@ -10,8 +10,13 @@ class setCity
 {
 	public function handle($request, Closure $next)
 	{
-		if (!session('city'))
-			session(['city' => 'pucon']);
+		if (!session('cities')) {
+			$cities = [
+				'current' => 'pucon',
+				'list'    => ['pucon', 'atacama']
+			];
+			session()->put('cities', $cities);
+		}
 		
 		return $next($request);
 	}

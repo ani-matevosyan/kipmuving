@@ -13,6 +13,7 @@
 	@include('site.head.styles')
 </head>
 
+{{--{{ dd(session('cities')) }}--}}
 <body class="home2">
 <div id="wrapper">
 	<div class="w1">
@@ -30,11 +31,10 @@
 				<div class="burger-menu">
 					<div class="burger"></div>
 				</div>
-				@if(session('city') == 'pucon')
-					<a href="{{ action('CityController@setCity', ['city' => 'atacama']) }}">toA</a>
-				@else
-					<a href="{{ action('CityController@setCity', ['city' => 'pucon']) }}">toP</a>
-				@endif
+				@foreach(session('cities.list') as $city)
+					@continue(session('cities.current') == $city)
+					<a href="{{ action('CityController@setCity', ['city' => $city]) }}">{{ $city }}</a>
+				@endforeach
 				<div class="country">
 					<div class="img-flag pick-lang">
 						<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"

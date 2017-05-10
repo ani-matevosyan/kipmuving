@@ -6,10 +6,13 @@ class CityController extends Controller
 {
 	public function setCity($city)
 	{
-		if (!in_array($city, ['pucon', 'atacama']))
+		if (!in_array($city, session('cities.list')))
 			abort(404);
 		
-		session(['city' => $city]);
+		session(['cities' => [
+			'current' => $city,
+			'list'    => session('cities.list')
+		]]);
 		
 		return back();
 	}

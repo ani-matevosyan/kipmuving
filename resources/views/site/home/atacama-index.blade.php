@@ -78,25 +78,25 @@
 					<ul>
 						<li>
 							<a href="{{ action('GuiaController@index') }}">
-								<img src="images/bicycle-grey.svg" alt="bicycle">
+								<img src="{{ asset('images/bicycle-grey.svg') }}" alt="bicycle">
 							</a>
 							{{ trans('main.bicycle') }}
 						</li>
 						<li>
 							<a href="{{ action('GuiaController@index') }}">
-								<img src="images/bus-grey.svg" alt="bus">
+								<img src="{{ asset('images/bus-grey.svg') }}" alt="bus">
 							</a>
 							{{ trans('main.bus') }}
 						</li>
 						<li>
 							<a href="{{ action('GuiaController@index') }}">
-								<img src="images/car-grey.svg" alt="car">
+								<img src="{{ asset('images/car-grey.svg') }}" alt="car">
 							</a>
 							{{ trans('main.car') }}
 						</li>
 						<li>
 							<a href="{{ action('GuiaController@index') }}">
-								<img src="images/hikking-grey.svg" alt="hikking">
+								<img src="{{ asset('images/hikking-grey.svg') }}" alt="hikking">
 							</a>
 							{{ trans('main.walking') }}
 						</li>
