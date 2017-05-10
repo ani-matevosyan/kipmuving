@@ -32,9 +32,9 @@ class Kernel extends ConsoleKernel
 	
 	protected function schedule(Schedule $schedule)
 	{
-//		$schedule->call(function() {
-//			Log::debug('test - '.Carbon::now()->toDateTimeString());
-//		})->everyFiveMinutes();
+		$schedule->call(function() {
+			Log::debug('test - '.Carbon::now()->toDateTimeString());
+		})->everyMinute();
 	}
 
     /**
