@@ -41,6 +41,10 @@ class HomeController extends Controller
 				'persons' => $offer->getSelectedOffersPersons()
 			]
 		];
+		
+		if (session('city') == 'atacama')
+			return view('site.home.atacama-index', $data);
+		
 		return view('site.home.index', $data);
 	}
 
