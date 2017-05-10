@@ -18,11 +18,9 @@ Route::get('/home', 'HomeController@index');
 Route::post('/contact-us', 'HomeController@sendMessage');
 
 
-
 #Service routes
 Route::get('/locale/{code}', 'LocaleController@setLocale'); #Change locale
 Route::get('/currency/{code}', 'CurrencyController@setCurrency'); #Change currency
-
 
 
 #Activities
@@ -35,25 +33,20 @@ Route::get('/activities/getselectedoffers', 'ActivityController@getSelectedOffer
 Route::get('/activities/getalloffers/{id}', 'ActivityController@getAllOffers');
 
 
-
 #Offers
 Route::post('/offer/date/set', 'OfferController@setDate');
 Route::post('/offer/reserve', 'OfferController@reserve');
 Route::post('/offer/remove', 'OfferController@remove');
 
 
-
-
 #Guide activities
 Route::get('/guia/activity/add', 'GuiaController@addActivity');
-
 
 
 #Agencies
 Route::get('/agencies', 'AgencyController@index');
 Route::get('/agency/{id}', 'AgencyController@getAgency')
 	->where('id', '[0-9]+');
-
 
 
 #User
@@ -68,7 +61,6 @@ Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
 Route::get('/user/getAvatar', 'UserController@getAvatar');
 
 
-
 #Guia
 Route::get('/guia', 'GuiaController@index');
 Route::get('/guia/bicicleta', 'GuiaController@getBicicleta');
@@ -77,17 +69,14 @@ Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
 Route::get('/guia/getmappoints', 'GuiaController@getMapPoints');
 
 
-
 #About
 Route::get('/about', 'AboutController@index');
-
 
 
 #Calendar
 Route::get('/calendar', 'CalendarController@index');
 Route::get('/calendar/data', 'CalendarController@getData');
 Route::post('calendar/process', 'CalendarController@getProcess');
-
 
 
 #Reservation
@@ -99,23 +88,16 @@ Route::get('/reserve/paypal', 'ReservationController@paymentPaypal');
 Route::get('/reserve/pagseguro', 'ReservationController@paymentPagseguro');
 Route::get('/reserve/pagseguro/redirect', [
 	'uses' => 'ReservationController@paymentPagseguroRedirectGet',
-	'as' => 'pagseguro.redirect.get'
+	'as'   => 'pagseguro.redirect.get'
 ]);
 Route::post('/pagseguro/notification', [
 	'uses' => '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification',
-	'as' => 'pagseguro.notification',
+	'as'   => 'pagseguro.notification',
 ]);
-
-
-
-
-
 
 
 //test
 Route::get('/reserve/testemails/{type}', 'ReservationController@testEmails');
-
-
 
 
 Route::get('/reserve/payu/redirect', 'ReservationController@paymentPayURedirect');

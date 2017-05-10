@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\ActivityImage;
 use App\HomeMail;
 use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
@@ -13,6 +15,13 @@ class HomeController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
+//		$images = ActivityImage::get();
+//
+//		$files = File::files(public_path('uploads/activity'));
+//		foreach ($files as $key => $file) {
+//			$files[$key] = str_replace('/home/sanek/server/personalProjects/kipmuving/public/', '', $file);
+//		}
+		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles' => [

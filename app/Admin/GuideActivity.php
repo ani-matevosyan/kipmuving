@@ -22,7 +22,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 	
 	$model->onCreateAndEdit(function () {
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
-		
+		$warning_bus_est_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>120</small></div>';
+		$warning_bus_est_exp = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>1500</small></div>';
 		$tabs = AdminDisplay::tabbed([
 			'Guide activity' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
@@ -62,9 +63,11 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			'Bus data'       => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
 					->addColumn([
+						AdminFormElement::html($warning_bus_est_time),
 						AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)'),
 					], 6)
 					->addColumn([
+						AdminFormElement::html($warning_bus_est_exp),
 						AdminFormElement::text('bus_est_expenditure', 'Est. expenditure (per person)'),
 					], 6),
 //					->addColumn([
