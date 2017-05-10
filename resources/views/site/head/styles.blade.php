@@ -1,6 +1,6 @@
 {{--ALL--}}
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/fonts.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/fonts.min.css') }}">
 
 @if(isset($styles) && count($styles) > 0)
 	@foreach($styles as $style)

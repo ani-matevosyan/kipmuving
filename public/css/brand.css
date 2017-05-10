@@ -130,7 +130,8 @@
 
 .btn-success.btn-success-cal{
     font-size: 14px;
-    font-family: "Lato-Bold", sans-serif;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
     padding: 9px 15px;
 }
 
@@ -694,7 +695,8 @@ body.home2 .roteros-options .raised-form .text-field {
 #header.new .country > a {
   color: #fff;
   display: block;
-  font-family: 'Lato-Bold', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: 12px;
 }
 
@@ -929,7 +931,8 @@ body.home2 .roteros-options .raised-form .text-field {
   color: #fff;
   background: #46350d;
   text-transform: uppercase;
-  font-family: "Lato-Bold", sans-serif;
+  font-family: "Lato", sans-serif;
+    font-weight: 700;
   font-size: 12px;
 }
 
@@ -1071,8 +1074,8 @@ body.home2 .roteros-options .raised-form .text-field {
 #nav ul a {
     color: #fff;
     font-size: 17px;
-    font-family: "Lato-Medium", sans-serif;
-    font-weight: normal;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
 }
 
 @media (max-width: 991px) {
@@ -1304,9 +1307,9 @@ body.home2 .roteros-options .raised-form .text-field {
     margin: 10px 0 9px;
     font-size: 26px;
     line-height: 34px;
-    font-weight: normal;
     text-align: center;
-    font-family: "Lato-Bold", sans-serif;
+    font-family: "Lato", sans-serif;
+  font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -5252,7 +5255,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .important .title {
-  font-family: 'Lato-Heavy', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
 }
 
 .your-reservation .important p {
@@ -5271,7 +5275,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .cancellation_rules p span{
-  font-family: "Lato-Heavy", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
 }
 
 .your-reservation .more-detail {
@@ -5899,7 +5904,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .tenprocent{
-    font-family: "Lato-Bold", sans-serif;
+    font-family: "Lato", sans-serif;
+  font-weight: 700;
     font-size: 15px;
     color: #d9a91c;
     padding-left: 47px;
@@ -6606,7 +6612,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .important-block .box.alert p{
-    font-family: 'Lato-Heavy', sans-serif;
+    font-family: 'Lato', sans-serif;
+  font-weight: 800;
     font-size: 18px;
     color: #963d4c;
     margin: 5px 0 22px;
@@ -6641,7 +6648,8 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .important-block .box.alert .title span{
-    font-family: 'Lato-Bold', sans-serif;
+    font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }
 
 .your-reservation .important-block .box.tripadvisor{
@@ -7244,8 +7252,8 @@ body.home2 .roteros-options .raised-form .text-field {
   margin: 20px 0 7px;
   font-size: 34px;
   line-height: 38px;
-  font-weight: normal;
-  font-family: 'Lato-Bold', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {
@@ -7705,7 +7713,8 @@ body.home2 .roteros-options .raised-form .text-field {
 .profile-block .timing .delete_offer a{
   color: #972639;
   font-size: 12px;
-  font-family: 'Lato-Medium', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   position: relative;
   padding-left: 31px;
@@ -8142,7 +8151,8 @@ body.home2 .roteros-options .raised-form .text-field {
   background: #ededed;
   padding: 53px 0 64px; }
   .s_guia span {
-    font-family: "Lato-Bold", sans-serif; }
+    font-family: "Lato", sans-serif;
+    font-weight: 700;}
   .s_guia ul {
     padding-left: 0; }
     .s_guia ul li {
@@ -8181,7 +8191,8 @@ body.home2 .roteros-options .raised-form .text-field {
     display: block}
   .s_guia .section_title h2 .size1 {
     font-size: 117px;
-    font-family: "Lato-Bold", sans-serif;
+    font-family: "Lato", sans-serif;
+      font-weight: 700;
     color: #ffb400; }
   .s_guia .section_title h2 .size2 {
     font-size: 84px; }
@@ -8193,7 +8204,8 @@ body.home2 .roteros-options .raised-form .text-field {
     text-align: center;
     padding: 26px 0 0;
     font-size: 20px;
-    font-family: "Lato-Regular", sans-serif;
+    font-family: "Lato", sans-serif;
+      font-weight: 400;
     margin: 0 -30px;}
   .s_guia .go-to-guide p{
   	line-height: 1.2em;
@@ -8204,7 +8216,8 @@ body.home2 .roteros-options .raised-form .text-field {
     padding: 21px 33px;
     background: #ffb400;
     text-transform: uppercase;
-    font-family: "Lato-Bold", sans-serif;
+    font-family: "Lato", sans-serif;
+      font-weight: 700;
     font-size: 31px;
     color: #fff;
     text-decoration: none;
@@ -8269,7 +8282,8 @@ body.home2 .roteros-options .raised-form .text-field {
   position: relative;
   padding: 37px 0 56px;
   color: #172824;
-  font-family: "Lato-Medium", sans-serif;
+  font-family: "Lato", sans-serif;
+    font-weight: 500;
   text-align: center;}
   .s_howitworks:before {
     content: "";
@@ -8283,7 +8297,9 @@ body.home2 .roteros-options .raised-form .text-field {
     background-position: top right; }
   .s_howitworks span {
     color: #f3f9f7;
-    font-family: "Lato-Bold", sans-serif; }
+    font-family: "Lato", sans-serif;
+      font-weight: 700;
+  }
     .s_howitworks .section_title h2 {
       font-size: 46px;
       margin-bottom: 0; }
@@ -8358,12 +8374,14 @@ body.home2 .roteros-options .raised-form .text-field {
     .s_viagem .block:last-child:after {
       background: none; }
   .s_viagem h3 {
-    font-family: "Lato-Heavy", sans-serif;
+    font-family: "Lato", sans-serif;
+      font-weight: 800;
     text-transform: uppercase;
     font-size: 30px;
     margin: 0; }
   .s_viagem p {
-    font-family: "Lato-Regular", sans-serif;
+    font-family: "Lato", sans-serif;
+      font-weight: 400;
     font-size: 16px; }
 @media(max-width: 1199px) {
   .s_viagem .block {
@@ -8397,13 +8415,15 @@ body.home2 .roteros-options .raised-form .text-field {
 	margin: 11px 0 0;
     text-transform: uppercase;
     color: #fff;
-    font-family: 'Lato-Bold', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
     font-size: 20px;
     text-align: center;
 }
 
 .form_under_p span{
-	font-family: 'Lato-Black', sans-serif;
+	font-family: 'Lato', sans-serif;
+    font-weight: 900;
 }
 
 /*---- RESERVATION PAGE UPDATE ---*/
@@ -8424,12 +8444,14 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .s_reservar .your-reservation .head p{
     font-size: 14px;
-    font-family:  'Lato-Regular', sans-serif;
+    font-family:  'Lato', sans-serif;
+    font-weight: 400;
     margin:  0 0 10px;
 }
 
 .s_reservar .your-reservation .head p a{
-    font-family: 'Lato-Bold', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
     color:  #000;
 }
 
