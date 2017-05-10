@@ -87,7 +87,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 									<div class="map-holder">
 										<div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
 										<script type="text/javascript">
-											function initGuideMap() {
+											function initGuideMap{{ $activity->id}}() {
 												var map{{ $activity->id }};
 												var loadedmap{{ $activity->id }} = false;
 												var pucon = {lat: -39.279351, lng: -71.968676};
@@ -125,9 +125,9 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 													});
 												}
 												initMap();
-													@if(!$isThereABus)
-												var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
-												thisPlate.click(function () {
+												@if(!$isThereABus)
+													var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
+													thisPlate.click(function () {
 													if (!loadedmap{{ $activity->id }}) {
 														setTimeout(function () {
 															google.maps.event.trigger(map{{ $activity->id }}, 'resize');
@@ -138,7 +138,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 													}
 												});
 												@endif
-$("#tomenu{{ $activity->id }}").on('click', function () {
+												$("#tomenu{{ $activity->id }}").on('click', function () {
 													if (!loadedmap{{ $activity->id }}) {
 														setTimeout(function () {
 															google.maps.event.trigger(map{{ $activity->id }}, 'resize');
