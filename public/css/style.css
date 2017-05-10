@@ -33,12 +33,14 @@
     font-weight: 700; }
 @media (max-width: 767px) {
     #first-slider-sec h2, #second-slider-sec h2 {
-        margin: 0 0 1px;
+        margin: 41px 0 1px;
         font-size: 24px;
         line-height: 30px; } }
 #first-slider-sec p, #second-slider-sec p {
     font-size: 15px;
-    padding-top: 12px; }
+    padding-top: 12px;
+    padding-right: 110px;
+}
 #first-slider-sec .item, #second-slider-sec .item {
     margin: 11px; }
 #first-slider-sec .item img, #second-slider-sec .item img {
@@ -75,6 +77,9 @@
     #first-slider-sec .item h3, #second-slider-sec .item h3 {
         font-size: 25px;
     }
+    #first-slider-sec p, #second-slider-sec p{
+        padding-right: 0;
+    }
     #cpa-slider-1, #cpa-slider-2 {
         padding-top: 5px;
     }
@@ -101,12 +106,25 @@
 .activities-panel{
     position:relative;
     height:60px;
-    z-index:100;
 }
 
 .activities-list {
     float: none;
     display: inline-block;
+}
+
+.floatdiv{
+    position: absolute !important;
+    z-index: 100;
+}
+
+@media screen and (max-width: 1199px){
+    .owl-theme .owl-controls .owl-buttons .owl-next{
+        right: -50px;
+    }
+    .owl-theme .owl-controls .owl-buttons .owl-prev{
+        left: -50px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -284,20 +302,25 @@
     padding: 0px;
     margin-top: -13px; }
 
-tooltip fade top in {
-    top: 60.5938px;
-    left: 15.0625px; }
-
 .activities-info {
     padding: 0 0 0 12px;
     margin: 0 0 0 17px;
     vertical-align: bottom;
     list-style: none;
-	position: absolute;
+	position: relative;
     top: 0;
     right: -10px;
     display: block;
     background: #fff;
+    float: right;
+}
+.activities-info:before,
+.activities-info:after{
+    content: '';
+    display: table;
+}
+.activities-info:after{
+    clear: both;
 }
 @media screen and (max-width: 1149px){
     .activities-panel{
@@ -309,6 +332,7 @@ tooltip fade top in {
         left: 0;
         margin: 0;
         padding: 0;
+        position: relative;
     }
 }
 @media (max-width: 767px){
@@ -326,6 +350,15 @@ tooltip fade top in {
 		position: static;
 		display: block;
 	}
+}
+
+@media screen and (max-width: 600px){
+    #floatdiv{
+        display: none !important;
+    }
+    .activities-info{
+        display: none;
+    }
 }
 .activities-info ul {
     list-style: none;
@@ -1463,11 +1496,11 @@ tooltip fade top in {
 @media (max-width: 820px) {
     .owl-theme .owl-controls .owl-buttons .owl-prev {
         top: 40%;
-        left: -30px; }
+        left: -37px; }
 
     .owl-theme .owl-controls .owl-buttons .owl-next {
         top: 40%;
-        right: -30px; } }
+        right: -37px; } }
 @media (max-width: 767px) {
     .main-container {
         float: left;

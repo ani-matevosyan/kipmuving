@@ -82,9 +82,9 @@
 
 						<div class="activites-bar">
 							<div class="activities-panel">
-								<div id="floatdiv" style="position:absolute;">
+								<div id="floatdiv" class="floatdiv">
 									<ul class="activities-list">
-										<li class="active">
+										<li>
 											<a href="#trekking" class="green">
 												<div class="ico">
 													<img src="/images/ico-treking.svg" alt="image description"

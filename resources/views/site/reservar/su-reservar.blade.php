@@ -197,7 +197,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-md-4 col-sm-6">
 							<div class="info-item">
 								<div class="row">
 									<div class="col-xs-6">
@@ -234,7 +234,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-8">
+						<div class="col-md-8 col-sm-6">
 							<div class="payment-options">
 								<div class="row">
 									<h4>Confirmar con:</h4>

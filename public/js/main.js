@@ -207,9 +207,17 @@ jQuery(document).ready(function(){
 
     //-------------------CALENDAR PLUGIN --------------
     if($('#calendar').length){
-    var viewdate = $("#calendar").attr("data-date");
-    var calendarLang = $("#calendar").attr("data-lang");
-    if (calendarLang === 'es_ES'){ calendarLang = 'es' }
+        var viewdate = $("#calendar").attr("data-date");
+        var calendarLang = $("#calendar").attr("data-lang");
+        var dayRange, windowWidth = $(window).width();
+        if(windowWidth >= 992){
+            dayRange = 5;
+        }else if(windowWidth < 991 && windowWidth > 600 ){
+            dayRange = 3;
+        }else{
+            dayRange = 2;
+        }
+        if (calendarLang === 'es_ES'){ calendarLang = 'es' }
         jQuery('#calendar').fullCalendar({
             lang: calendarLang,
             header: {
@@ -221,7 +229,7 @@ jQuery(document).ready(function(){
             views: {
                 agendaFourDay: {
                     type: 'agenda',
-                    duration: {days: 5},
+                    duration: {days: dayRange},
                     buttonText: '5 days',
                     columnFormat: 'ddd D/M'
                 }
