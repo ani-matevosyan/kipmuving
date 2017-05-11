@@ -11,43 +11,6 @@
 <script type="text/javascript" src="{{ asset('js/custom.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 
-{{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/lib/moment.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/fullcalendar.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/es.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('plugins/fullcalendar/pt.js') }}"></script>--}}
-
-
-
-
-
-{{-- Activity single --}}
-{{--<script type="text/javascript" src="{{ asset('js/chosen.jquery.min.js') }}"></script>--}}
-
-{{-- To del --}}
-{{--<script type="text/javascript" src="{{ asset('js/moment.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/mapbox.js') }}"></script>--}}
-
-{{-- Activity single --}}
-{{--<script type="text/javascript" src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>--}}
-
-{{-- Activities --}}
-{{--<script type="text/javascript" src="{{ asset('owl-carousel/owl.carousel.min.js') }}"></script>--}}
-
-{{-- Where instagram --}}
-{{--<script type="text/javascript" src="{{ asset('js/instafeed/instafeed.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/instafeed/instafeed-settings.min.js') }}"></script>--}}
-
-{{-- Where tour --}}
-{{--<script type="text/javascript" src="{{ asset('js/product.tour.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/product-tour.min.js') }}"></script>--}}
-
-{{-- Decarro --}}
-{{--<script type="text/javascript" src="{{ asset('js/ResizeSensor.min.js') }}"></script>--}}
-
-{{-- Activities --}}
-{{--<script type="text/javascript" src="{{ asset('js/floating/floating-1.12.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('js/floating/floating.min.js') }}"></script>--}}
-
 {{-- Intercom --}}
 {{--<script>--}}
 	{{--window.intercomSettings = {--}}
