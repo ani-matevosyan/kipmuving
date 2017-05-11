@@ -16,10 +16,12 @@ class AgencyController extends Controller
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'agencies']);
 		
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'imageIndex' => $imageIndex,
-			'agencies'   => Agency::get(),
+			'agencies'   => Agency::where('region', '=', $region)->get(),
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons()

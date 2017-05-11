@@ -16,6 +16,11 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 				->setHtmlAttribute('class', 'hidden-sm hidden-xs')
 				->setWidth('50px')
 				->setOrderable(false),
+			AdminColumn::text('region', 'Region')
+				->setHtmlAttribute('class', 'text-center')
+				->append(
+					AdminColumn::filter('region')
+				),
 			$id = AdminColumn::text('id', '#')
 				->setHtmlAttribute('class', 'text-center'),
 			$name = AdminColumn::text('name', 'Name')
@@ -34,6 +39,10 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 		
 		$display->setOrder([[1, 'asc']]);
 		
+		$display->setFilters(
+			AdminDisplayFilter::related('region')
+		);
+		
 		$display->paginate(10);
 		
 		return $display;
@@ -47,13 +56,19 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('name', 'Agency name')->required()
-					], 4)
+					], 3)
 					->addColumn([
 						AdminFormElement::text('email', 'Email')->required()
-					], 4)
+					], 3)
 					->addColumn([
 						AdminFormElement::text('address', 'Address')->required()
-					], 4),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('region', 'REGION')->setOptions([
+							'pucon' => 'Pucon',
+							'atacama' => 'Atacama'
+						])->required()
+					], 3),
 				AdminFormElement::textarea('description', 'Description')->required(),
 				
 				AdminFormElement::columns()

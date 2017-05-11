@@ -114,7 +114,9 @@ class GuiaController extends Controller
 	
 	public function getMapPoints()
 	{
-		$activities = GuideActivity::get();
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+
+		$activities = GuideActivity::where('region', '=', $region)->get();
 		
 		return $activities;
 	}

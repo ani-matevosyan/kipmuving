@@ -16,6 +16,11 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 				->setHtmlAttribute('class', 'hidden-sm hidden-xs')
 				->setImageWidth('50px')
 				->setOrderable(false),
+			AdminColumn::text('region', 'Region')
+				->setHtmlAttribute('class', 'text-center')
+				->append(
+					AdminColumn::filter('region')
+				),
 			$id = AdminColumn::text('id', '#')
 				->setHtmlAttribute('class', 'text-center'),
 			$name = AdminColumn::text('name', 'Name')
@@ -48,6 +53,10 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		
 		$display->setOrder([[1, 'asc']]);
 		
+		$display->setFilters(
+			AdminDisplayFilter::related('region')
+		);
+		
 		$display->paginate(10);
 		
 		return $display;
@@ -61,7 +70,16 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		
 		$tabs = AdminDisplay::tabbed([
 			'Activity'     => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::text('name', 'Name')->required(),
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::text('name', 'Name')->required(),
+					], 9)
+					->addColumn([
+						AdminFormElement::select('region', 'REGION')->setOptions([
+							'pucon' => 'Pucon',
+							'atacama' => 'Atacama'
+						])->required(),
+					], 3),
 				AdminFormElement::text('subtitle', 'Subtitle')->required(),
 				AdminFormElement::textarea('short_description', 'Short description')->required(),
 				AdminFormElement::textarea('description', 'Description')->required(),

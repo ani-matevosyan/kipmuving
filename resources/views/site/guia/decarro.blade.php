@@ -17,8 +17,6 @@
 			</div>
 		</div>
 
-		{{ $activities[0]['short_description'] }}
-
 		<div class="guide-places-plates-wrapper">
 			@if(count($activities->where('category', '=', 'Visual')) > 0)
 				<h2>Visual</h2>

@@ -16,6 +16,6 @@ class CityController extends Controller
 		
 //		dd($route);
 		
-		return $route ? redirect()->route($route) : redirect('home');
+		return $route ? redirect()->route($route) : redirect()->back();
 	}
 }
