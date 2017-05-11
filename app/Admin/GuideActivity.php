@@ -13,9 +13,17 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
 			AdminColumn::text('id', '#'),
+			AdminColumn::text('region', 'Region')
+				->append(
+					AdminColumn::filter('region')
+				),
 			AdminColumn::text('name', 'Name'),
 		]);
 		$display->paginate(10);
+		
+		$display->setFilters(
+			AdminDisplayFilter::related('region')
+		);
 		
 		return $display;
 	});
@@ -36,7 +44,13 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 							'Caminatas' => 'Caminatas',
 							'Termas'    => 'Termas'
 						])
-					], 6),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('region', 'REGION')->required()->setOptions([
+							'pucon' => 'Pucon',
+							'atacama' => 'Atacama'
+						])
+					], 3),
 				AdminFormElement::columns()
 					->addColumn([
 						AdminFormElement::text('instagram_id', 'Instagram')->required()

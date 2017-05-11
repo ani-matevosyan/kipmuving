@@ -41,31 +41,31 @@
 				<div id="cpa-slider-1">
 					<div class="item">
 						<a href="/activity/10">
-							<img src="/uploads/activity/_nAqlH-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
+							<img src="{{ asset('/uploads/activity/_nAqlH-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
 							<h3>Termas Geométricas</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/3">
-							<img src="/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
+							<img src="{{ asset('/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
 							<h3>Trekking Volcán Villarrica</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/5">
-							<img src="/uploads/activity/_zNYN9-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
+							<img src="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
 							<h3>Rafting Alto</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/2">
-							<img src="/uploads/activity/_kpEoA-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
+							<img src="{{ asset('/uploads/activity/_kpEoA-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
 							<h3>Rafting Bajo</h3>
 						</a>
 					</div>
 					<div class="item">
 						<a href="/activity/4">
-							<img src="/uploads/activity/_ERPJI-2.jpg" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
+							<img src="{{ asset('/uploads/activity/_ERPJI-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
 							<h3>Tour por la zona + Termas</h3>
 						</a>
 					</div>
@@ -87,7 +87,7 @@
 										<li>
 											<a href="#trekking" class="green">
 												<div class="ico">
-													<img src="/images/ico-treking.svg" alt="image description"
+													<img src="{{ asset('/images/ico-treking.svg') }}" alt="image description"
 														  width="33" height="33"
 														  onerror="this.onerror=null; this.src='/images/ico16.png'">
 												</div>
@@ -97,7 +97,7 @@
 										<li>
 											<a href="#rio" class="orange">
 												<div class="ico">
-													<img src="/images/ico-rio.svg" alt="image description" width="33"
+													<img src="{{ asset('/images/ico-rio.svg') }}" alt="image description" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico17.png'">
 												</div>
@@ -107,7 +107,7 @@
 										<li>
 											<a href="#aire" class="blue">
 												<div class="ico">
-													<img src="/images/ico-aire.svg" alt="image description" width="33"
+													<img src="{{ asset('/images/ico-aire.svg') }}" alt="image description" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico18.png'">
 												</div>
@@ -117,7 +117,7 @@
 										<li>
 											<a href="#relax" class="sky-blue">
 												<div class="ico">
-													<img src="/images/ico-relax.svg" alt="image description" width="33"
+													<img src="{{ asset('/images/ico-relax.svg') }}" alt="image description" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico19.png'">
 												</div>
@@ -127,7 +127,7 @@
 										<li>
 											<a href="#nieve" class="violet">
 												<div class="ico">
-													<img src="/images/ico-nieve.svg" alt="image description" width="33"
+													<img src="{{ asset('/images/ico-nieve.svg') }}" alt="image description" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico20.png'">
 												</div>
@@ -137,7 +137,7 @@
 										<li>
 											<a href="#familia" class="red">
 												<div class="ico">
-													<img src="/images/ico-family.svg" alt="image description" width="33"
+													<img src="{{ asset('/images/ico-family.svg') }}" alt="image description" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='/images/ico30.png'">
 												</div>
@@ -152,7 +152,7 @@
 										<li class="active">
 											<a href="#">
 												<div class="ico">
-													<img src="images/day.svg" alt="day icon" width="33"
+													<img src="{{ asset('images/day.svg') }}" alt="day icon" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico16.png'">
 												</div>
@@ -162,7 +162,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img src="images/night.svg" alt="night icon" width="33"
+													<img src="{{ asset('images/night.svg') }}" alt="night icon" width="33"
 														  height="33"
 														  onerror="this.onerror=null; this.src='images/ico17.png'">
 												</div>
@@ -172,7 +172,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img class="down-arrow-icon" src="images/down-arrow.svg" alt="arrow down icon" width="25"
+													<img class="down-arrow-icon" src="{{ asset('images/down-arrow.svg') }}" alt="arrow down icon" width="25"
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico18.png'">
 												</div>
@@ -182,7 +182,7 @@
 										<li>
 											<a href="#">
 												<div class="ico">
-													<img src="images/up-arrow.svg" alt="arrow up icon" width="25"
+													<img src="{{ asset('images/up-arrow.svg') }}" alt="arrow up icon" width="25"
 														  height="25"
 														  onerror="this.onerror=null; this.src='images/ico19.png'">
 												</div>
@@ -207,7 +207,7 @@
 						<section class="activity-block" id="trekking">
 							<strong class="heading">
 								<span>
-									<img src="/images/Trekking.svg"
+									<img src="{{ asset('/images/Trekking.svg') }}"
 										  alt="image description"
 										  width="40"
 										  height="40"
@@ -239,7 +239,7 @@
 						<section class="activity-block rio" id="rio">
 							<strong class="heading">
 								<span>
-									<img src="/images/kayak.svg"
+									<img src="{{ asset('/images/kayak.svg') }}"
 										  alt="image description"
 										  width="40"
 										  height="40"
@@ -271,7 +271,7 @@
 						<section class="activity-block aire" id="aire">
 							<strong class="heading">
 								<span>
-									<img src="/images/aire.svg"
+									<img src="{{ asset('/images/aire.svg') }}"
 										  alt="image description"
 										  width="33"
 										  height="33"
@@ -303,7 +303,7 @@
 						<section class="activity-block relax" id="relax">
 							<strong class="heading">
 								<span>
-									<img src="/images/relax.svg"
+									<img src="{{ asset('/images/relax.svg') }}"
 										  alt="image description"
 										  width="33"
 										  height="33"
@@ -335,7 +335,7 @@
 						<section class="activity-block nieve" id="nieve">
 							<strong class="heading">
 								<span>
-									<img src="/images/skiing_ski_running.svg"
+									<img src="{{ asset('/images/skiing_ski_running.svg') }}"
 										  alt="image description"
 										  width="33"
 										  height="33"
@@ -367,7 +367,7 @@
 						<section class="activity-block familia" id="familia">
 							<strong class="heading">
 								<span>
-									<img src="/images/family.svg"
+									<img src="{{ asset('/images/family.svg') }}"
 										  alt="image description"
 										  width="33"
 										  height="33"

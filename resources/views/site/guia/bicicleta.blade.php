@@ -15,7 +15,7 @@
 				<div class="col-md-5 right-border">
 					<p>{{ trans('main.bicycle_big_text') }}</p>
 					<div class="play-info">
-						<img src="../images/play-button.svg" alt="play description" width="33" height="33">
+						<img src="{{ asset('/images/play-button.svg') }}" alt="play description" width="33" height="33">
 						<p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
 					</div>
 				</div>
@@ -26,7 +26,7 @@
 							<li class="active">
 								<a href="#bicicleta-sub-tab-1">
 									<div class="ico">
-										<img src="../images/turbio.svg" alt="image description" width="33" height="33"/>
+										<img src="{{ asset('/images/turbio.svg') }}" alt="image description" width="33" height="33"/>
 									</div>
 									<strong>{{ trans('main.rio_turbio_waterfall') }}</strong>
 								</a>
@@ -34,7 +34,7 @@
 							<li>
 								<a href="#bicicleta-sub-tab-2">
 									<div class="ico">
-										<img src="../images/claro.svg" alt="image description" width="33" height="33"/>
+										<img src="{{ asset('/images/claro.svg') }}" alt="image description" width="33" height="33"/>
 									</div>
 									<strong>{{ trans('main.eyes_of_caburgua') }}</strong>
 								</a>
@@ -42,7 +42,7 @@
 							<li>
 								<a href="#bicicleta-sub-tab-3">
 									<div class="ico">
-										<img src="../images/ojos.svg" alt="image description" width="33" height="33"/>
+										<img src="{{ asset('/images/ojos.svg') }}" alt="image description" width="33" height="33"/>
 									</div>
 									<strong>{{ trans('main.jump_the_light') }}</strong>
 								</a>
@@ -104,7 +104,7 @@
 								<div class="col-md-5">
 									<div class="fancy-button">
 										<a href="#">
-											<img src="../images/gps.svg" alt="clock" class="img-responsive" width="35"
+											<img src="{{ asset('/images/gps.svg') }}" alt="clock" class="img-responsive" width="35"
 												  height="35"/>
 											<div class="button-text">
 												<strong>{{ trans('main.gps_route') }}</strong>
@@ -114,7 +114,7 @@
 									</div>
 								</div>
 								<div class="col-md-7">
-									<p><img src="../images/clock.svg" alt="clock" class="img-responsive" width="35"
+									<p><img src="{{ asset('/images/clock.svg') }}" alt="clock" class="img-responsive" width="35"
 											  height="35"/>{{ trans('main.estimated_time_round_trip') }}:
 										<strong>2.5 {{ trans('hours') }}</strong></p>
 								</div>
@@ -154,7 +154,7 @@
 								<div class="col-md-5">
 									<div class="fancy-button">
 										<a href="#">
-											<img src="../images/gps.svg" alt="clock" class="img-responsive" width="35"
+											<img src="{{ asset('../images/gps.svg') }}" alt="clock" class="img-responsive" width="35"
 												  height="35"/>
 											<div class="button-text">
 												<strong>{{ trans('main.gps_route') }}</strong>
@@ -164,7 +164,7 @@
 									</div>
 								</div>
 								<div class="col-md-7">
-									<p><img src="../images/clock.svg" alt="clock" class="img-responsive" width="35"
+									<p><img src="{{ asset('../images/clock.svg') }}" alt="clock" class="img-responsive" width="35"
 											  height="35"/>{{ trans('main.estimated_time_round_trip') }}:
 										<strong>2.5 {{ trans('hours') }}</strong></p>
 								</div>
@@ -203,7 +203,7 @@
 								<div class="col-md-5">
 									<div class="fancy-button">
 										<a href="#">
-											<img src="../images/gps.svg" alt="clock" class="img-responsive" width="35"
+											<img src="{{ asset('../images/gps.svg') }}" alt="clock" class="img-responsive" width="35"
 												  height="35"/>
 											<div class="button-text">
 												<strong>{{ trans('main.gps_route') }}</strong>
@@ -213,7 +213,7 @@
 									</div>
 								</div>
 								<div class="col-md-7">
-									<p><img src="../images/clock.svg" alt="clock" class="img-responsive" width="35" height="35"/>{{ trans('main.estimated_time_round_trip') }}: <strong>2.5 {{ trans('hours') }}</strong></p>
+									<p><img src="{{ asset('../images/clock.svg') }}" alt="clock" class="img-responsive" width="35" height="35"/>{{ trans('main.estimated_time_round_trip') }}: <strong>2.5 {{ trans('hours') }}</strong></p>
 								</div>
 							</div>
 						</div>
@@ -244,7 +244,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 right-col">
-				<img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
+				<img src="{{ asset('../images/instagram.svg') }}" alt="instagram" class="img-responsive" width="28" height="28"/>
 
 				<h4>{{ trans('main.instagram_pictures') }}</h4><strong>#rioturbio #ojosdelcaburgua #saltodelclaro</strong>
 				<div id="instafeed2" class="instafeed">

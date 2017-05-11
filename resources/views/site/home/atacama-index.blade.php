@@ -63,11 +63,11 @@
 							@if(app()->getLocale() == 'es_ES' || app()->getLocale() == 'pt')
 								<span class="size1">{{ trans('main.guide') }}</span>
 								<span class="size4">{{ trans('main.complete') }}</span>
-								<span class="size2">pucon</span>
+								<span class="size2">atacama</span>
 								<span class="size3">{{ trans('main.free') }}</span>
 							@elseif(app()->getLocale() == 'en')
 								<span class="size4">{{ trans('main.complete') }}</span>
-								<span class="size2">pucon</span>
+								<span class="size2">atacama</span>
 								<span class="size1">{{ trans('main.guide') }}</span>
 								<span class="size3">{{ trans('main.free') }}</span>
 							@endif

@@ -17,7 +17,7 @@
                 {{ trans('main.walking_big_text') }}
             </p>
             <div class="play-info">
-                <img src="images/play-button.svg" alt="play description" width="33" height="33">
+                <img src="{{ asset('images/play-button.svg') }}" alt="play description" width="33" height="33">
                 <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
             </div> 
         </div>
@@ -28,11 +28,11 @@
                     <li class="active">
                         <a href="#sub-tab-info1">
                             <div class="ico">
-                                <img src="images/placeholder.svg"
+                                <img src="{{ asset('images/placeholder.svg') }}"
                                      alt="image description"
                                      width="33"
                                      height="33"
-                                     onerror="this.onerror=null; this.src='images/ico16.png'">
+                                     onerror="this.onerror=null; this.src='{{ asset('images/ico16.png') }}'">
                             </div>
                             <p><strong>{{ trans('main.a_small_circuit') }}</strong> {{ trans('main.which_you_can_do_to_know_main_streets') }}</p>
                         </a>
@@ -40,7 +40,7 @@
                     <li>
                         <a href="#sub-tab-info2">
                             <div class="ico">
-                                <img src="images/placeholder2.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='images/ico16.png'">
+                                <img src="{{ asset('images/placeholder2.svg') }}" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='{{ asset('images/ico16.png') }}'">
                             </div>
                             <p><strong>{{ trans('main.the_main_streets') }}</strong> {{ trans('main.where_there_are_businesses_shops') }}</p>
                         </a>
@@ -71,7 +71,7 @@
             <p>{{ trans('main.here_we_present_the_most_visited') }}</p>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="images/placeholderred.svg" alt="placeholderrred" class="img-responsive" />                                                            
+                    <img src="{{ asset('images/placeholderred.svg') }}" alt="placeholderrred" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">
@@ -99,7 +99,7 @@
             </div>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="images/placeholderredblue.svg" alt="placeholderrred" class="img-responsive" />                                                            
+                    <img src="{{ asset('images/placeholderredblue.svg') }}" alt="placeholderrred" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">
@@ -119,7 +119,7 @@
             </div>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="images/placeholder2.svg" alt="placeholderrred" class="img-responsive" />                                                            
+                    <img src="{{ asset('images/placeholder2.svg') }}" alt="placeholderrred" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">
@@ -155,7 +155,7 @@
 
 <div class="row">
     <div class="col-md-12 right-col">
-        <img src="images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
+        <img src="{{ asset('images/instagram.svg') }}" alt="instagram" class="img-responsive" width="28" height="28"/>
         <h4>{{ trans('main.instagram_pictures') }}</h4><strong>#pucon</strong>
        <div id="instafeed1" class="instafeed">
 

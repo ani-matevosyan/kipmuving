@@ -523,11 +523,11 @@
 															Email: <a href="#"
 																		 style="color:#000; text-decoration:none;"><span>{{ $user->email }}</span></a><br>
 															Persona: {{ $offer->reservation['persons'] }}<br>
-															Price: {{ $offer->real_price }} CLP<br>
+															Price: {{ $offer->real_price * (1 - config('kipmuving.discount')) }} CLP<br>
 															&nbsp;
 														</address>
 													@endforeach
-													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $reservation->total['CLP'] }} CLP</strong></span></span>
+													<span style="color:#980e25"><span style="font-size:16px"><strong>Total a pagar de ${{ $reservation->total->with_discount['CLP'] }} CLP</strong></span></span>
 												</td>
 											</tr>
 											</tbody>

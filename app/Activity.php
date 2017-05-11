@@ -103,11 +103,14 @@ class Activity extends Model
 	
 	public function getHomePageActivities()
 	{
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+		
 		$activities = Activity::limit(8)
 			->whereHas('offers', function ($query) {
 				$query->where('price', '>', 0);
 			})
 			->where('activities.visibility', true)
+			->where('region', '=', $region)
 			->select('activities.*')
 			->inRandomOrder()
 			->get();
@@ -117,9 +120,12 @@ class Activity extends Model
 	
 	public function getActivitiesList()
 	{
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+		
 		$activitiesList = Activity::join('activity_translations', 'activity_translations.activity_id', 'activities.id')
 			->where('activity_translations.locale', app()->getLocale())
 			->where('activities.visibility', true)
+			->where('region', '=', $region)
 			->select('activities.id as id', 'activity_translations.name as name')
 			->orderby('activity_translations.name')
 			->get();
@@ -141,7 +147,10 @@ class Activity extends Model
 	
 	public function getAllActivities()
 	{
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+		
 		$activities = Activity::where('visibility', true)
+			->where('region', '=', $region)
 			->whereHas('offers', function ($query) {
 				$query->where('price', '>', 0);
 			})
