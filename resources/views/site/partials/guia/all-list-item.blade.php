@@ -6,10 +6,10 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 <div class="guide-places-plate-wrapper">
 	<div class="guide-places-plate">
 		<figure>
-			<img src="/{{ $activity->image }}" alt="{{ $activity->name }}" class="item-image" onerror="this.src='/images/image-none.jpg';">
-			<img src="/images/car-front.svg" alt="Car" class="vehicle-icon car-icon">
+			<img src="/{{ asset($activity->image) }}" alt="{{ $activity->name }}" class="item-image" onerror="this.src='/images/image-none.jpg';">
+			<img src="{{ asset('/images/car-front.svg') }}" alt="Car" class="vehicle-icon car-icon">
 			@if($isThereABus)
-				<img src="/images/bus-front.svg" alt="Bus" class="vehicle-icon bus-icon">
+				<img src="{{ asset('/images/bus-front.svg') }}" alt="Bus" class="vehicle-icon bus-icon">
 			@endif
 		</figure>
 		<div class="descr">
@@ -46,7 +46,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 								@if($isThereABus)
 									<li class="active">
 										<a data-toggle="pill" href="#home{{ $activity->id }}">
-											<img src="../images/white-bus.svg" alt="white bus" width="43" height="29" class="img-responsive">
+											<img src="{{ asset('images/white-bus.svg') }}" alt="white bus" width="43" height="29" class="img-responsive">
 											<div class="link-info">
 												<strong>{{ trans('main.how_to_get_there_by_bus') }}</strong>
 												<p>{{ trans('main.from_the_center_of_pucon') }}</p>
@@ -56,7 +56,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 								@endif
 								<li @if(!$isThereABus) class="active" @endif>
 									<a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
-										<img src="../images/route.svg" alt="color route" width="37" height="38" class="img-responsive">
+										<img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
 										<div class="link-info">
 											<strong>{{ trans('main.how_to_get_there_by_car') }}</strong>
 											<p>{{ trans('main.path_through_google_maps') }}</p>
@@ -71,12 +71,12 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 											<p>{!! $activity->bus_description !!}</p>
 										</div>
 										<div class="info-icons">
-											<img src="../images/clock.svg" alt="clock" class="img-responsive" width="25" height="25"/>
+											<img src="{{ asset('images/clock.svg') }}" alt="clock" class="img-responsive" width="25" height="25"/>
 											<p>{{ trans('main.estimated_time') }}:
 												<strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
 										</div>
 										<div class="info-icons">
-											<img src="../images/coin.svg" alt="coin" class="img-responsive" width="25" height="25"/>
+											<img src="{{ asset('images/coin.svg') }}" alt="coin" class="img-responsive" width="25" height="25"/>
 											<p>{{ trans('main.estimated_expenditure') }}:
 												<strong>$ {{ number_format($activity->bus_est_expenditure, 0, ".", ".") }} {{ trans('main.per_person') }}</strong>
 											</p>
@@ -282,7 +282,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 			</div>
 			<div class="col-md-5">
 				<div class="right-col">
-					<img src="../images/instagram.svg" alt="instagram" class="img-responsive" width="28" height="28"/>
+					<img src="{{ asset('/images/instagram.svg') }}" alt="instagram" class="img-responsive" width="28" height="28"/>
 					<h4>{{ trans('main.instagram_pictures') }}</h4><strong class="instagramtag"></strong>
 
 					<div id="instafeed3-{{ $activity->id }}" class="instafeed" data-instaid="{{ $activity->id }}"

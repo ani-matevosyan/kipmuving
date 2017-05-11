@@ -15,7 +15,7 @@
         <div class="col-md-5 right-border">
             <p>{{ trans('main.cultural_big_text') }}</p>
             <div class="play-info">
-                <img src="../images/play-button.svg" alt="play description" width="33" height="33">
+                <img src="{{ asset('../images/play-button.svg') }}" alt="play description" width="33" height="33">
                 <p><strong>{{ trans('main.click_on_the_icons_for_more_info') }}</strong></p>
             </div> 
         </div>
@@ -26,7 +26,7 @@
                     <li class="active">
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/museu.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="{{ asset('../images/museu.svg') }}" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='{{ asset('../images/ico16.png') }}'">
                             </div>
                             <strong>{{ trans('main.museum') }} </strong>
                         </a>
@@ -34,7 +34,7 @@
                     <li>
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/artesanias.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="{{ asset('../images/artesanias.svg') }}" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='{{ asset('../images/ico16.png') }}'">
                             </div>
                             <strong>{{ trans('main.crafts') }} </strong>
                         </a>
@@ -42,7 +42,7 @@
                     <li>
                         <a href="#">
                             <div class="ico">
-                                <img src="../images/restaurantes.svg" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='../images/ico16.png'">
+                                <img src="{{ asset('../images/restaurantes.svg') }}" alt="image description" width="33" height="33" onerror="this.onerror=null; this.src='{{ asset('../images/ico16.png') }}'">
                             </div>
                             <strong>{{ trans('main.restaurant') }}</strong>
                         </a>
@@ -67,7 +67,7 @@
             <p>{{ trans('main.here_we_present_the_most_visited') }}</p>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="../images/museu.svg" alt="placeholderrred" class="img-responsive" />                                                            
+                    <img src="{{ asset('../images/museu.svg') }}" alt="placeholderrred" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">
@@ -78,7 +78,7 @@
             </div>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="../images/artesanias.svg" alt="placeholderrred" class="img-responsive" />                                                            
+                    <img src="{{ asset('../images/artesanias.svg') }}" alt="placeholderrred" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">
@@ -98,7 +98,7 @@
             </div>
             <div class="col-xs-1">
                 <div class="row">
-                    <img src="../images/restaurantes.svg" alt="restaurantes" class="img-responsive" />                                                            
+                    <img src="{{ asset('../images/restaurantes.svg') }}" alt="restaurantes" class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-11">

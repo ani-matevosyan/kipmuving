@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Agency;
 use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class AgencyController extends Controller
 {
 	public function index(Offer $offer, Agency $agency)
 	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+		
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'agencies']);
+		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'imageIndex' => $imageIndex,

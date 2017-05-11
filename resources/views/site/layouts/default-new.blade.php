@@ -33,7 +33,10 @@
 				</div>
 				@foreach(session('cities.list') as $city)
 					@continue(session('cities.current') == $city)
-					<a href="{{ action('CityController@setCity', ['city' => $city]) }}">{{ $city }}</a>
+					<a href="{{ action('CityController@setCity', [
+					'city' => $city,
+					'route' => \Illuminate\Support\Facades\Request::route()->getName()
+					]) }}">{{ $city }}</a>
 				@endforeach
 				<div class="country">
 					<div class="img-flag pick-lang">

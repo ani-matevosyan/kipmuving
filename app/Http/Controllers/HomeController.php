@@ -26,7 +26,7 @@ class HomeController extends Controller
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 		
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-			return redirect()->action('CityController@setCity', $prefix);
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'home']);
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [

@@ -6,6 +6,7 @@ use App\Activity;
 use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 
@@ -13,6 +14,11 @@ class ActivityController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+		
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'activities']);
+		
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
 			'styles' => [

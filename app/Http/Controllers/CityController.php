@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class CityController extends Controller
 {
-	public function setCity($city)
+	public function setCity($city, $route = null)
 	{
 		if (!in_array($city, session('cities.list')))
 			abort(404);
@@ -14,6 +14,8 @@ class CityController extends Controller
 			'list'    => session('cities.list')
 		]]);
 		
-		return back();
+//		dd($route);
+		
+		return $route ? redirect()->route($route) : redirect('home');
 	}
 }

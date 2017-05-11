@@ -16,27 +16,39 @@ Auth::routes();
 Route::group(['prefix' => 'atacama'], function () {
 	Route::get('/', 'HomeController@index');
 	Route::get('/home/', 'HomeController@index');
+	Route::get('/activities', 'ActivityController@index');
+	Route::get('/agencies', 'AgencyController@index')->name('agencies');
+	Route::get('/guia', 'GuiaController@index')->name('guide');
+	Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
+	Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
+	Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
 });
 
 Route::group(['prefix' => 'pucon'], function () {
 	Route::get('/', 'HomeController@index');
 	Route::get('/home/', 'HomeController@index');
+	Route::get('/activities', 'ActivityController@index');
+	Route::get('/agencies', 'AgencyController@index')->name('agencies');
+	Route::get('/guia', 'GuiaController@index')->name('guide');
+	Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
+	Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
+	Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
 });
 
 
-Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::post('/contact-us', 'HomeController@sendMessage');
 
 
 #Service routes
 Route::get('/locale/{code}', 'LocaleController@setLocale'); #Change locale
 Route::get('/currency/{code}', 'CurrencyController@setCurrency'); #Change currency
-Route::get('/city/{city}', 'CityController@setCity'); #Change city
+Route::get('/city/{city}/{route?}', 'CityController@setCity'); #Change city
 
 
 #Activities
-Route::get('/activities', 'ActivityController@index');
+Route::get('/activities', 'ActivityController@index')->name('activities');
 Route::post('/activity/search', 'ActivityController@search');
 Route::get('/activity/{id}', 'ActivityController@getActivity')
 	->where('id', '[0-9]+');
@@ -56,7 +68,7 @@ Route::get('/guia/activity/add', 'GuiaController@addActivity');
 
 
 #Agencies
-Route::get('/agencies', 'AgencyController@index');
+Route::get('/agencies', 'AgencyController@index')->name('agencies');
 Route::get('/agency/{id}', 'AgencyController@getAgency')
 	->where('id', '[0-9]+');
 
@@ -74,10 +86,10 @@ Route::get('/user/getAvatar', 'UserController@getAvatar');
 
 
 #Guia
-Route::get('/guia', 'GuiaController@index');
-Route::get('/guia/bicicleta', 'GuiaController@getBicicleta');
-Route::get('/guia/decarro', 'GuiaController@getDecarro');
-Route::get('/guia/tourcultural', 'GuiaController@getTourcultural');
+Route::get('/guia', 'GuiaController@index')->name('guide');
+Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
+Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
+Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
 Route::get('/guia/getmappoints', 'GuiaController@getMapPoints');
 
 
