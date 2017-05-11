@@ -18,21 +18,8 @@
 									@if (! empty($message))
 										<header class="head">
 											<h1>{{ $message }}</h1>
-											<!--p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
-												libro de
-												textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto
-												de relleno
-												en documentos electrónicos,.</p-->
 										</header>
 									@else
-									<!--header class="head reserveMessageHeader" style="display:none;">
-											<h1 class="reserveMessage"></h1>
-											<p>Desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
-												libro de
-												textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto
-												de relleno
-												en documentos electrónicos,.</p>
-										</header-->
 										<header class="head">
 											<h1>{{ trans('main.these_are_your_activities') }}</h1>
 											<p>{{ trans('please') }} <a
@@ -40,9 +27,20 @@
 												{{ trans('main.confirm_below_the_activities') }}</p>
 										</header>
 									@endif
+                                    <div class="print-header">
+                                        <img src="{{ asset('images/printer.svg') }}" alt="Printer icon">
+                                        <img src="{{ asset('images/cut.svg') }}" alt="Scissors icon">
+                                        <span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>
+                                    </div>
 									<ul class="accordion">
+										<?php $first_offer = true ?>
 										@foreach ($reservation->offers as $offer)
 											<li class="accordion-li">
+                                                <div class="print-li-header">
+                                                    <a href="/">
+                                                        <img src="{{ asset('images/kipmuving-atacama-logo.png') }}" alt="Kipmuving logo">
+                                                    </a>
+                                                </div>
 												<header>
 													<div class="ico">
 														<img src="/{{ $offer->activity->image_icon }}"
@@ -55,7 +53,7 @@
 																href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>
 														</h2>
 														<strong
-															class="sub-title">{{ $offer->agency->name }} <!--<span>O`Higgins Nº211-C </span>--></strong>
+															class="sub-title">{{ $offer->agency->name }} <span>{{ $offer->agency->address }}</span></strong>
 													</div>
 												</header>
 												<div class="activity_description">
@@ -73,6 +71,7 @@
 														<div class="col-sm-6 col-xs-12">
 															<ul class="timing">
 																<li class="time">
+                                                                    <img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">
 																	<strong class="title">
 																		{{ trans('form.day') }}: {{ $offer->reservation['date'] }}
 																	</strong>
@@ -88,18 +87,25 @@
 																	</strong>
 																</li>
 																<li class="person">
+                                                                    <img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">
 																	<strong>
 																		<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
 																	</strong>
 																</li>
+                                                                <li class="money">
+                                                                    <img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
+                                                                    <strong>Pagar en agencia</strong>
+                                                                    <strong class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} </strong>
+                                                                </li>
 															</ul>
 														</div>
 													</div>
 													<strong class="price">
 														<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> </sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+														{{--$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }}--}}
 													</strong>
 												</div>
-												<div id="reservetour1">
+												<div @if($first_offer) id="reservetour1" @endif class="reservation-info-block">
 													<div class="important">
 														<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
 													</div>
@@ -107,7 +113,11 @@
 														<p><span>Costos para cancelar: </span>{{ $offer->cancellation_rules }}</p>
 													</div>
 												</div>
+                                                <div class="print-li-footer">
+                                                    <a href="/">www.kipmuving.com</a>
+                                                </div>
 											</li>
+											<?php $first_offer = false; ?>
 										@endforeach
 									</ul>
 									@if (empty($message))
