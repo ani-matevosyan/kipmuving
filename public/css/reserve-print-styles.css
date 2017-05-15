@@ -14,7 +14,8 @@
     {
         display: none;
     }
-
+    .print-li-header,
+    .print-li-footer,
     .print-header{
         display: block;
     }
@@ -30,11 +31,6 @@
         padding: 0 25px;
         display: block;
         page-break-inside: avoid;
-    }
-
-    .print-li-header,
-    .print-li-footer {
-        display: block;
     }
 
     .s_reservar .activity_description .col-sm-6{
