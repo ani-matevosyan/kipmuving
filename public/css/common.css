@@ -2246,72 +2246,6 @@ body.home2 .roteros-options .raised-form .text-field {
     background: #833030;
 }
 
-.weather-box {
-    padding: 20px;
-    color: #963d4c;
-    font-size: 13px;
-    line-height: 16px;
-    margin: 0 0 20px;
-    overflow: hidden;
-    border-color: #ccc;
-    background: #f7f7f7;
-    border-style: solid;
-    border-width: 1px 0;
-}
-
-.weather-box iframe {
-    border: 0;
-    width: 100%;
-    display: block;
-}
-
-.weather-box h2 {
-    color: #963d4c !important;
-    margin: 0 0 20px;
-    font-size: 23px;
-    font-weight: bold;
-    line-height: 28px;
-}
-
-.activity-instagram{
-    text-align: right;
-    margin-bottom: 7px;
-}
-.activity-instagram .instafeed{
-    margin-left: -11px;
-}
-
-@media screen and (max-width: 991px){
-    .weather-box{
-        display: none;
-    }
-}
-
-@media screen and (max-width: 767px){
-    .activity-instagram{
-        margin: 0 auto 7px;
-        max-width: 600px;
-    }
-    .activity-instagram .instafeed{
-        margin-left: 0;
-    }
-}
-
-.activity-instagram .activity-tag{
-    padding-left: 27px;
-    background-image: url("../images/instagram.svg");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 19px;
-    line-height: 19px;
-    color: #e12570;
-    display: inline-block;
-}
-
-.activity-instagram .activity-tag:before{
-    content: "#";
-}
-
 .important-txt {
     font-size: 14px;
     overflow: hidden;
@@ -5367,21 +5301,7 @@ body.home2 .roteros-options .raised-form .text-field {
     background-size: 51px 30px;
 }
 
-.your-reservation .subnav {
-    background: #ededed;
-    border: 1px solid #ccc;
-    position: relative;
-}
 
-.your-reservation .subnav:after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background: #089f02;
-}
 
 @media screen and (max-width: 991px){
     .your-reservation .tenprocent{
@@ -5396,48 +5316,12 @@ body.home2 .roteros-options .raised-form .text-field {
     .your-reservation.all-activities .tenprocent{
         margin-top: -20px;
     }
-    .your-reservation .subnav {
-        margin: 0 0 20px;
-    }
 }
 @media screen and (max-width: 540px){
     .your-reservation.all-activities .tenprocent{
         visibility: hidden;
         pointer-events: none;
     }
-}
-
-.your-reservation .subnav ul {
-    overflow: hidden;
-    padding: 8px 0;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 700;
-}
-
-.your-reservation .subnav ul li {
-    padding: 0 13px;
-    display: inline-block;
-    vertical-align: top;
-}
-
-@media (max-width: 767px) {
-    .your-reservation .subnav ul li {
-        display: block;
-        padding: 5px 13px;
-    }
-}
-
-.your-reservation .subnav ul li.active a {
-    color: #007878;
-}
-
-.your-reservation .subnav ul a {
-    color: #000;
-}
-
-.your-reservation .subnav ul a:hover {
-    color: #007878;
 }
 
 .your-reservation .date-time {

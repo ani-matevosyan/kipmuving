@@ -1,6 +1,13 @@
 
 $(window).load(function(){
-    if (typeof(Storage) !== "undefined") {
+
+    var isDesctop = $(window).width() > 767;
+
+    $(window).resize(function () {
+        isDesctop = $(window).width() > 767;
+    });
+
+    if (typeof(Storage) !== "undefined" && isDesctop) {
         if (window.location.pathname === '/home' || window.location.pathname === '/') {
             if(localStorage.hometour !== "visited"){
                 homeTour();
@@ -128,14 +135,16 @@ $(window).load(function(){
     }
 
     $(".info-tour").click(function(){
-        if (window.location.pathname === '/home' || window.location.pathname === '/'){
-            homeTour();
-        }else if (window.location.pathname === '/activities'){
-            activitiesTour();
-        }else if(window.location.pathname.indexOf('/activity/') === 0){
-            activitytour();
-        }else if(window.location.pathname === '/reserve'){
-            reservationtour();
+        if(isDesctop){
+            if (window.location.pathname === '/home' || window.location.pathname === '/'){
+                homeTour();
+            }else if (window.location.pathname === '/activities'){
+                activitiesTour();
+            }else if(window.location.pathname.indexOf('/activity/') === 0){
+                activitytour();
+            }else if(window.location.pathname === '/reserve'){
+                reservationtour();
+            }
         }
     })
 });
