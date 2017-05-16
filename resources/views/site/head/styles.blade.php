@@ -1,6 +1,7 @@
 {{--ALL--}}
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/fonts.min.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/common.min.css') }}">
 
 @if(isset($styles) && count($styles) > 0)
 	@foreach($styles as $style)
@@ -13,8 +14,6 @@
 	@endforeach
 @endif
 
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/brand.min.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/custom.min.css') }}">
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/style.min.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/home-style.min.css') }}">
 
 <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">

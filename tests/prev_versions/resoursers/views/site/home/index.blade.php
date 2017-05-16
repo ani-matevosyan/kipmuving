@@ -167,31 +167,12 @@
                 </div>
             </div>
         </section>
-        {{--<div class="text-bar">--}}
-        {{--<div class="container">--}}
-        {{--<div class="row">--}}
-        {{--<div class="col-md-6 col-sm-6 col-xs-12 col">--}}
-        {{--<div class="img-holder"><img src="images/img33.png" alt=""></div>--}}
-        {{--<div class="text">--}}
-        {{--<strong class="value">1%</strong>--}}
-        {{--<div class="txt">{{ trans('main.for_the_organization') }}--}}
-        {{--<strong>{{ trans('main.parks_for_chili') }}</strong></div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="col-md-6 col-sm-6 col-xs-12 col">--}}
-        {{--<p>{{ trans('main.kipmuving_is_aware_that_nature') }} http://www.parquesparachile.cl/</p>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
         <div class="all-activities" style="padding-top: 50px;">
             <div class="container">
                 <header>
                     <h1>{{ trans('main.activities_in_pucon') }}</h1>
                     <p>{{ trans('main.first_choose_your_itinerary') }}</p>
                 </header>
-
-
                 <div class="row">
                     <?php $key = 0; ?>
                     @foreach($activities as $activity)

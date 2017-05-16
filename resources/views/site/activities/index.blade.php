@@ -7,27 +7,13 @@
 	</section>
 	<section>
 		<div class="container">
-			{{--<div class="row">--}}
-				{{--<div class="col-xs-12">--}}
-					{{--<ul class="breadcrumb">--}}
-						{{--<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>--}}
-						{{--<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>--}}
-					{{--</ul>--}}
-					<div class="your-reservation activity add all-activities" style="padding-bottom: 0px;">
-						@include('site.offers.offers_quickinfo')
-                        <div class="tenprocent">
-                            em todos <br>
-                            os precos
-                        </div>
-					</div>
-				{{--</div>--}}
-			{{--</div>--}}
-			{{--<div class="all-activities new all-activities-header">--}}
-				{{--<header>--}}
-					{{--<h1>{{ trans('main.all_activities_in_pucon') }}</h1>--}}
-					{{--<p>{{ trans('main.below_you_will_find_all_the_activities') }}</p>--}}
-				{{--</header>--}}
-			{{--</div>--}}
+			<div class="your-reservation activity add all-activities" style="padding-bottom: 0; float: right;">
+				@include('site.offers.offers_quickinfo')
+				<div class="tenprocent">
+					em todos <br>
+					os precos
+				</div>
+			</div>
 		</div>
 	</section>
 	<!--Slider section-->
@@ -149,7 +135,7 @@
 								<div class="activities-info" id="activities-info">
 									<p><strong>{{ trans('main.iconography') }}</strong></p>
 									<ul>
-										<li class="active">
+										<li>
 											<a href="#">
 												<div class="ico">
 													<img src="{{ asset('images/day.svg') }}" alt="day icon" width="33"
@@ -192,15 +178,6 @@
 									</ul>
 								</div>
 							</div>
-
-							<!-- <nav class="subnav">
-									  <ul>
-												 <li><a href="#">Ordenar por</a></li>
-												 <li class="active"><a href="#">Recomendacion</a></li>
-												 <li><a href="#">Precio más alto</a></li>
-												 <li><a href="#">Gratuito</a></li>
-									  </ul>
-							</nav> -->
 						</div>
 
 						@if(count($activities->where('styles', 'Trekking')) > 0)

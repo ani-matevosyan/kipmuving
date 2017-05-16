@@ -25,6 +25,7 @@ class ActivityController extends Controller
 				'owl-carousel/owl.carousel.css',
 				'owl-carousel/owl.theme.css',
 				'css/product-tour.min.css',
+                'css/activities-style.min.css'
 			],
 			'scripts' => [
 				'js/product.tour.min.js',
@@ -78,7 +79,8 @@ class ActivityController extends Controller
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
 				'css/prettyPhoto.css',
-				'css/instafeed/instafeed.min.css'
+				'css/instafeed/instafeed.min.css',
+                'css/activity-style.min.css'
 			],
 			'scripts' => [
 				'js/product.tour.min.js',
