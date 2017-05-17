@@ -11,7 +11,7 @@
 <script type="text/javascript" src="{{ asset('js/custom.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 
- Intercom
+ {{--Intercom--}}
 <script>
 	window.intercomSettings = {
 		app_id: "vi9dynbu"
@@ -49,4 +49,4 @@
 			}
 		}
 	})()</script>
- /Intercom
+ {{--/Intercom--}}

@@ -31,13 +31,13 @@
 				<div class="burger-menu">
 					<div class="burger"></div>
 				</div>
-				@foreach(session('cities.list') as $city)
-					@continue(session('cities.current') == $city)
-					<a href="{{ action('CityController@setCity', [
-					'city' => $city,
-					'route' => \Illuminate\Support\Facades\Request::route()->getName()
-					]) }}">{{ $city }}</a>
-				@endforeach
+				{{--@foreach(session('cities.list') as $city)--}}
+					{{--@continue(session('cities.current') == $city)--}}
+					{{--<a href="{{ action('CityController@setCity', [--}}
+					{{--'city' => $city,--}}
+					{{--'route' => \Illuminate\Support\Facades\Request::route()->getName()--}}
+					{{--]) }}">{{ $city }}</a>--}}
+				{{--@endforeach--}}
 				<div class="country">
 					<div class="img-flag pick-lang">
 						<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
