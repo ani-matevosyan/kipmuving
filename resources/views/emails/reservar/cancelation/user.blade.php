@@ -160,7 +160,7 @@
 						height:auto !important; overflow:hidden;">
 							<a target="_blank" href="http://www.kipmuving.com/">
 								<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
-										 style="width:207px !important;">
+										 style="width:180px !important;">
 							</a>
 						</span>
 					</td>
