@@ -47,9 +47,8 @@
 								<section class="post-box">
 									<div class="title-box">
 										@if($activity->description)
-											<span style="font-size:14px;">{{ $activity->description }}</span>
+											<span class="activity-description">{{ $activity->description }}</span>
 										@endif
-										<br><br/>
 										@if ($activity->weather_embed)
 											<div class="weather-box">
 												<h2>{{ trans('main.activity_depends_on_the_weather') }}</h2>

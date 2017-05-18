@@ -32,7 +32,8 @@ class HomeController extends Controller
 		$data = [
 			'styles' => [
 				'css/jquery-ui.min.css',
-				'css/product-tour.min.css'
+				'css/product-tour.min.css',
+                'css/home-style.min.css'
 			],
 			'scripts' => [
 				'js/product.tour.min.js',

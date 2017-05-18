@@ -11,17 +11,17 @@
                     </p>
                     <ul>
                         <li>
-                            <img src="images/handshake.svg" alt="Handshake" class="item-icon">
+                            <img src="{{ asset('images/handshake.svg') }}" alt="Handshake" class="item-icon">
                             <strong>Descuento de 10% </strong>
                             sobre cada actividad
                         </li>
                         <li>
-                            <img src="images/target.svg" alt="Target" class="item-icon">
+                            <img src="{{ asset('images/target.svg') }}" alt="Target" class="item-icon">
                             <strong>Facilitad de encontrar</strong> todas las agencias
                             y actividades en un mismo lugar
                         </li>
                         <li>
-                            <img src="images/list.svg" alt="List" class="item-icon">
+                            <img src="{{ asset('images/list.svg') }}" alt="List" class="item-icon">
                             <strong>Armar un panorama completo</strong>
                             en la ciudad y programar su viaje
                         </li>
@@ -29,11 +29,11 @@
                     <p>Y para la agencia, los beneficios son:</p>
                     <ul>
                         <li>
-                            <img src="images/creativity.svg" alt="Creativity" class="item-icon">
+                            <img src="{{ asset('images/creativity.svg') }}" alt="Creativity" class="item-icon">
                             <strong>Mayor visibilidad</strong>
                         </li>
                         <li>
-                            <img src="images/strength.svg" alt="Strength" class="item-icon">
+                            <img src="{{ asset('images/strength.svg') }}" alt="Strength" class="item-icon">
                             <strong>Mejor competitividad,</strong> independiente de la
                             localización física, y sí por la calidad del servicio y precio
                         </li>
@@ -44,15 +44,16 @@
                         <p>Quien hace <strong>KipMuving</strong>:</p>
                         <ul>
                             <li>
-                                <img src="/images/ico6.png" alt="Rafael Zarro">
+                                <img src="{{ asset('images/rafael_zarro.jpg') }}" alt="Rafael Zarro">
                                 <strong>Rafael Zarro</strong> - Creador y Diseñador
                             </li>
                             <li>
-                                <img src="/images/solodovnikow.jpg" alt="Oleksandr Solodovnikov">
+                                <img src="{{ asset('images/solodovnikow.jpg') }}" alt="Oleksandr Solodovnikov">
                                 <strong>Oleksandr Solodovnikov</strong> - Desarrollador
                             </li>
                             <li>
-                                <img src="/images/liapota.jpg" alt="Hlib Liapota">
+
+                                <img src="{{ asset('images/liapota.jpg') }}" alt="Hlib Liapota">
                                 <strong>Hlib Liapota</strong> - Desarrollador
                             </li>
                         </ul>
