@@ -80,23 +80,23 @@
 									<div class="my-intro">
 										<div class="img-holder">
 											<img src="/{{ $user->avatar }}" alt="your photo"
-												  onerror="this.src='/images/image-none.jpg';" id="youravatar">
+													 onerror="this.src='/images/image-none.jpg';" id="youravatar">
 											<form enctype="multipart/form-data"
-													action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
-													method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
+														action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
+														method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
 												{{ csrf_field() }}
 												<input id="image" name="image" type="file">
 												<label for="image">Upload avatar</label>
 											</form>
 											<iframe id="hiddenframe" name="hiddenframe"
-													  style="width:0px; height:0px; border:0px"></iframe>
+															style="width:0px; height:0px; border:0px"></iframe>
 										</div>
 									</div>
 								</div>
 								<form class="profile-form form-horizontal" method="post"
-										action="{{ action('UserController@updateUser', $user->id) }}"
-										autocomplete="off"
-										enctype="multipart/form-data">
+											action="{{ action('UserController@updateUser', $user->id) }}"
+											autocomplete="off"
+											enctype="multipart/form-data">
 									{{ csrf_field() }}
 									<div class="col-sm-10">
 										<div class="sub-row">
@@ -107,7 +107,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="number"
-																 name="first_name" value="{{ $user->first_name }}">
+																	 name="first_name" value="{{ $user->first_name }}">
 													</div>
 												</div>
 											</div>
@@ -120,7 +120,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="lname"
-																 name="last_name" value="{{ $user->last_name }}">
+																	 name="last_name" value="{{ $user->last_name }}">
 													</div>
 												</div>
 											</div>
@@ -133,8 +133,8 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="email" placeholder="" class="form-control" id="email"
-																 name="email"
-																 value="{{ $user->email }}">
+																	 name="email"
+																	 value="{{ $user->email }}">
 													</div>
 												</div>
 											</div>
@@ -147,7 +147,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="phone" name="phone"
-																 value="{{ $user->phone }}">
+																	 value="{{ $user->phone }}">
 													</div>
 												</div>
 											</div>
@@ -183,72 +183,78 @@
 										</div>
 										<!-- Form Actions -->
 									</div>
-							{{--</div>--}}
-							</form>
+									{{--</div>--}}
+								</form>
+							</div>
 						</div>
 					</div>
+					@if($user->reservations)
+						<div class="my_adventures">
+							<header>
+								<h2>{{ trans('main.my_adventures') }}</h2>
+								<p>{{ trans('main.here_you_will_find_adventures') }}</p>
+							</header>
+							<ul class="item-list">
+								@foreach ($user->reservations->where('status', true) as $reservation)
+									{{--{{ dd($user->reservations[2]->offer) }}--}}
+									@if($reservation->offer)
+										<li>
+											<ul class="timing">
+												<header>
+													<div class="ico">
+														<img alt="image description"
+																 src="{{ asset($reservation->offer->activity['image_icon']) }}"
+																 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+													</div>
+													<div class="text">
+														<h2>
+															<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
+																 data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
+														</h2>
+														<strong class="sub-title">
+															{{ $reservation->offer->agency->name }}
+														</strong>
+													</div>
+												</header>
+												<li class="time">
+													<strong class="title">{{ trans('emails.day') }}
+														: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
+													<strong>
+											<span>{{ trans('main.duration') }}
+												:</span> {{ $reservation->offer->duration }} hrs
+													</strong>
+													@if ($reservation->time)
+														<strong>
+											<span>{{ trans('main.schedule') }}
+												:</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
+															{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
+														</strong>
+													@endif
+													<strong>
+														<span>Summary: </span>{{ session('currency.type') }}
+														$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
+													</strong>
+												</li>
+												<li class="person">
+													<strong>
+														<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
+													</strong>
+												</li>
+												@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
+													<div class="delete_offer">
+														<a
+															href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
+													</div>
+												@endif
+											</ul>
+										</li>
+									@endif
+								@endforeach
+							</ul>
+						</div>
+					@endif
 				</div>
-				@if($user->reservations)
-					<div class="my_adventures">
-						<header>
-							<h2>{{ trans('main.my_adventures') }}</h2>
-							<p>{{ trans('main.here_you_will_find_adventures') }}</p>
-						</header>
-						<ul class="item-list">
-							@foreach ($user->reservations->where('status', true) as $reservation)
-								<li>
-									<ul class="timing">
-										<header>
-											<div class="ico">
-												<img alt="image description"
-													  src="{{ asset($reservation->offer->activity['image_icon']) }}"
-													  onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
-											</div>
-											<div class="text">
-												<h2>
-													<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal" data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
-												</h2>
-												<strong class="sub-title">
-													{{ $reservation->offer->agency->name }}
-												</strong>
-											</div>
-										</header>
-										<li class="time">
-											<strong class="title">{{ trans('emails.day') }}
-												: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
-											<strong>
-												<span>{{ trans('main.duration') }}
-													:</span> {{ $reservation->offer->duration }} hrs
-											</strong>
-											@if ($reservation->time)
-											<strong>
-												<span>{{ trans('main.schedule') }}
-													:</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
-												{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
-											</strong>
-											@endif
-											<strong>
-												<span>Summary: </span>{{ session('currency.type') }}$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
-											</strong>
-										</li>
-										<li class="person">
-											<strong>
-												<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
-											</strong>
-										</li>
-										@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
-											<div class="delete_offer">
-												<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
-											</div>
-										@endif
-									</ul>
-								</li>
-							@endforeach
-						</ul>
-					</div>
-				@endif
 			</div>
-		</div>
 	</main>
 	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
 		<div class="modal-dialog">
