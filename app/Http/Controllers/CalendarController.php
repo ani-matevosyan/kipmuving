@@ -19,6 +19,7 @@ class CalendarController extends Controller
 		$data = [
 			'styles'         => [
 				'link' => 'plugins/fullcalendar/fullcalendar.css',
+                'css/reservation-sidebar.min.css',
 				[
 					'media' => 'print',
 					'link'  => 'plugins/fullcalendar/fullcalendar.print.css'

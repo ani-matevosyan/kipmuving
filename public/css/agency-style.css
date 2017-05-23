@@ -267,3 +267,23 @@
     width:86px;
     height:86px
 }
+
+.your-reservation .performed-act {
+    overflow: hidden;
+    margin-right: -15%;
+}
+
+.your-reservation .performed-act h2 {
+    margin: 0 0 10px;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .your-reservation .performed-act h2 {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 700;
+    }
+}

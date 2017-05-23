@@ -220,6 +220,7 @@ class ReservationController extends Controller
 			    'css/product-tour.min.css',
                 'css/offer-items.min.css',
                 'css/reservation-style.min.css',
+                'css/reservation-sidebar.min.css',
                 [
                     'media' => 'print',
                     'link'  => 'css/reservation-print.min.css'

@@ -702,22 +702,3 @@
     padding: 0;
 }
 
-.your-reservation.activity .btn-primary {
-    float: right;
-    min-width: 100px;
-    background: #eab011;
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 700;
-}
-
-@media (max-width: 767px) {
-    .your-reservation.activity .btn-primary {
-        float: none;
-        margin: 0 0 10px 10px;
-    }
-}
-
-.your-reservation.activity .btn-primary:hover {
-    opacity: 0.8;
-}

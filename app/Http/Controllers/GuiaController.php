@@ -20,7 +20,8 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles'     => [
-				'css/instafeed/instafeed.min.css'
+				'css/instafeed/instafeed.min.css',
+                'css/guide-style.min.css'
 			],
 			'scripts'    => [
 				'js/instafeed/instafeed.min.js',
@@ -46,7 +47,8 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles'     => [
-				'css/instafeed/instafeed.min.css'
+				'css/instafeed/instafeed.min.css',
+                'css/guide-style.min.css'
 			],
 			'scripts'    => [
 				'js/instafeed/instafeed.min.js',
@@ -74,7 +76,8 @@ class GuiaController extends Controller
 		$data = [
 			'styles'     => [
 				'css/jquery-ui.min.css',
-				'css/instafeed/instafeed.min.css'
+				'css/instafeed/instafeed.min.css',
+                'css/guide-style.min.css'
 			],
 			'scripts'    => [
 				'js/chosen.jquery.min.js',
@@ -102,6 +105,9 @@ class GuiaController extends Controller
 		
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+		    'styles'     => [
+                'css/guide-style.min.css'
+            ],
 			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
