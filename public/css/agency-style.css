@@ -1,0 +1,269 @@
+.offer-item-desc{
+    color: #006b33;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.select-activity{
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .select-activity .timing1{
+    border: none;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.new .select-activity .timing1{
+        padding-bottom: 0;
+    }
+}
+
+.your-reservation.new .timing1 {
+    margin: 0 0 10px;
+    padding: 0 24px 10px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .timing1 li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.time{
+    min-height: 40px;
+}
+
+.your-reservation.new .timing1 li.profile {
+    padding: 10px 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.profile.hours{
+    padding: 4px 0 13px 30px;
+}
+
+.your-reservation.new .timing1 li.profile:after {
+    width: 20px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 17px;
+    right: auto;
+    bottom: auto;
+    background: url(../images/happy.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.your-reservation.new .timing1 li.profile.hours:after{
+    width: 22px;
+    height: 22px;
+    background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+    top: 31px;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
+    display: none;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select,
+.jcf-select-persona.jcf-select-drop .jcf-hover{
+    background: #963d4c;
+}
+
+@media screen and (max-width: 767px){
+    .your-reservation.new .timing1 li.profile .jcf-select{
+        width: auto;
+    }
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
+    color: #fff;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
+    border-color: #fff transparent transparent;
+}
+
+.your-reservation.new .timing1 li.profile.hours .jcf-select{
+    min-width: 100px;
+    width: auto;
+}
+
+.your-reservation.new .timing1 li.profile.hours strong,
+.your-reservation.new .timing1 li.profile.hours label{
+    margin-bottom: 3px;
+}
+.your-reservation.new .timing1 li.profile.hours label{
+    font-weight: bold;
+    display: block;
+}
+
+.your-reservation.new .timing1 li.cal:after {
+    width: 18px;
+    content: '';
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    right: auto;
+    bottom: auto;
+    background: url(../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.your-reservation.new .timing1 strong {
+    display: block;
+    font-weight: normal;
+}
+
+.your-reservation.new .timing1 strong span {
+    font-weight: bold;
+}
+
+.your-reservation.new .timing1 .btn-primary {
+    float: left;
+    font-weight: normal;
+    background: #963d4c;
+    text-transform: none;
+}
+
+.main-post {
+    overflow: hidden;
+    margin: 0 0 20px;
+}
+
+@media (max-width: 639px) {
+    .main-post {
+        margin: 0;
+    }
+}
+
+.main-post header {
+    margin: 0 0 20px;
+    overflow: hidden;
+}
+
+.main-post .post-holder {
+    overflow: hidden;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.main-post .text-holder {
+    overflow: hidden;
+    min-height: 160px;
+}
+
+@media (max-width: 639px) {
+    .main-post .text-holder {
+        min-height: inherit;
+    }
+}
+
+.main-post h1 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 38px;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .main-post h1 {
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 700;
+    }
+}
+
+.main-post .sub-title {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 991px) {
+    .main-post .align-left {
+        float: none;
+        width: auto;
+        margin: 0 0 10px;
+        overflow: hidden;
+    }
+}
+
+.main-post .agency-photo-wrapp img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.main-post .agency-gallery{
+    position: relative;
+}
+
+.main-post .agency-tag{
+    position: absolute;
+    bottom: 10px;
+    padding-left: 27px;
+    background-image: url("../images/instagram.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 19px;
+    line-height: 19px;
+    color: #e12570;
+}
+
+.main-post .agency-tag:before{
+    content: "@";
+}
+
+
+.main-post .align-right {
+    float: right;
+    width: 145px;
+    margin: 0 0 0 20px;
+}
+
+@media (max-width: 639px) {
+    .main-post .align-right {
+        display: none;
+    }
+}
+
+.main-post .align-right img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.main-post .text {
+    overflow: hidden;
+    position: relative;
+}
+
+.main-post .rating {
+    float: none;
+    overflow: hidden;
+    margin: 0 0 20px -5px;
+}
+
+@media (max-width: 639px) {
+    .main-post .rating {
+        margin: 0 0 10px;
+    }
+}
+
+.your-reservation.new .main-post {
+    margin: 0 0 50px;
+}
+
+.in-image-agency{
+    width:86px;
+    height:86px
+}

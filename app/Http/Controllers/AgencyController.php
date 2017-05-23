@@ -40,7 +40,9 @@ class AgencyController extends Controller
 			'styles' => [
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
-				'css/instafeed/instafeed.min.css'
+				'css/instafeed/instafeed.min.css',
+                'css/offer-items.min.css',
+                'css/agency-style.min.css'
 			],
 			'scripts' => [
 				'js/chosen.jquery.min.js',

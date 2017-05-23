@@ -4202,133 +4202,6 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 13px;
 }
 
-.your-reservation.new .main-post {
-    margin: 0 0 50px;
-}
-
-.your-reservation.new .timing1 {
-    margin: 0 0 10px;
-    padding: 0 24px 10px 0;
-    border-bottom: 1px solid #d9d9d9;
-}
-
-.select-activity{
-    border-bottom: 1px solid #d9d9d9;
-}
-
-.your-reservation.new .select-activity .timing1{
-    border: none;
-    margin: 0;
-}
-
-.your-reservation.new .timing1 li {
-    overflow: hidden;
-    position: relative;
-    padding: 0 0 3px 30px;
-}
-
-.your-reservation.new .timing1 li.time{
-    min-height: 40px;
-}
-
-.your-reservation.new .timing1 li.profile {
-    padding: 10px 0 3px 30px;
-}
-
-.your-reservation.new .timing1 li.profile.hours{
-    padding: 4px 0 13px 30px;
-}
-
-.your-reservation.new .timing1 li.profile:after {
-    width: 20px;
-    content: '';
-    height: 20px;
-    position: absolute;
-    left: 0;
-    top: 17px;
-    right: auto;
-    bottom: auto;
-    background: url(../images/happy.svg) no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-
-.your-reservation.new .timing1 li.profile.hours:after{
-    width: 22px;
-    height: 22px;
-    background: url(../images/clock.svg) no-repeat;
-    background-size: contain;
-    background-position: center center;
-    top: 31px;
-}
-
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
-    display: none;
-}
-
-.your-reservation.new .timing1 li.profile .jcf-select,
-.jcf-select-persona.jcf-select-drop .jcf-hover{
-    background: #963d4c;
-}
-
-@media screen and (max-width: 767px){
-    .your-reservation.new .timing1 li.profile .jcf-select{
-        width: auto;
-    }
-}
-
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
-    color: #fff;
-}
-
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
-    border-color: #fff transparent transparent;
-}
-
-.your-reservation.new .timing1 li.profile.hours .jcf-select{
-    min-width: 100px;
-    width: auto;
-}
-
-.your-reservation.new .timing1 li.profile.hours strong,
-.your-reservation.new .timing1 li.profile.hours label{
-    margin-bottom: 3px;
-}
-.your-reservation.new .timing1 li.profile.hours label{
-    font-weight: bold;
-    display: block;
-}
-
-.your-reservation.new .timing1 li.cal:after {
-    width: 18px;
-    content: '';
-    height: 18px;
-    position: absolute;
-    left: 0;
-    top: 8px;
-    right: auto;
-    bottom: auto;
-    background: url(../images/calendar.svg) no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-
-.your-reservation.new .timing1 strong {
-    display: block;
-    font-weight: normal;
-}
-
-.your-reservation.new .timing1 strong span {
-    font-weight: bold;
-}
-
-.your-reservation.new .timing1 .btn-primary {
-    float: left;
-    font-weight: normal;
-    background: #963d4c;
-    text-transform: none;
-}
-
 .your-reservation .head {
     overflow: hidden;
     max-width: 813px;
@@ -4377,9 +4250,6 @@ body.home2 .roteros-options .raised-form .text-field {
     .your-reservation.new .offer-item .list-box{
         margin-left: 25px;
     }
-    .your-reservation.new .select-activity .timing1{
-        padding-bottom: 0;
-    }
 }
 
 .your-reservation .btn-print {
@@ -4410,15 +4280,6 @@ body.home2 .roteros-options .raised-form .text-field {
     background: #c4c2c2;
 }
 
-.your-reservation .accordion {
-    max-width: 713px;
-}
-
-@media (max-width: 991px) {
-    .your-reservation .accordion {
-        margin-bottom: 20px;
-    }
-}
 .timing-icon{
     position: absolute;
     width: 18px;
@@ -4498,53 +4359,6 @@ body.home2 .roteros-options .raised-form .text-field {
     margin: 0 0 20px;
 }
 
-.your-reservation.adventure .accordion header {
-    margin: 0 0 50px;
-}
-
-.your-reservation .accordion .ico {
-    float: left;
-    width: 51px;
-    margin: 10px 10px 0 0;
-}
-
-@media (max-width: 767px) {
-    .your-reservation .accordion .ico {
-        width: 40px;
-        margin: 5px 10px 0 0;
-    }
-}
-
-.your-reservation .accordion .ico img {
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.your-reservation .accordion h2 {
-    margin: 0;
-    color: #089f02;
-    font-size: 31px;
-    line-height: 31px;
-    font-weight: 500;
-}
-
-@media (max-width: 767px) {
-    .your-reservation .accordion h2 {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 500;
-    }
-}
-
-.your-reservation .accordion h2 a {
-    color: #089f02;
-}
-
-.your-reservation .accordion h2 a:hover {
-    color: #0dce05;
-}
-
 .your-reservation .accordion .sub-title {
     display: block;
     font-size: 22px;
@@ -4603,33 +4417,6 @@ body.home2 .roteros-options .raised-form .text-field {
     right: auto;
     bottom: auto;
     background: url(../images/sprite.png) no-repeat -57px -181px;
-}
-
-.your-reservation .list-box .title {
-    display: block;
-    font-weight: bold;
-    padding: 0 0 5px 0;
-}
-
-.your-reservation .list-box .list {
-    overflow: hidden;
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 400;
-}
-
-.your-reservation .list-box .list li {
-    position: relative;
-    padding: 0 0 5px 10px;
-}
-
-.your-reservation .list-box .list li:after {
-    content: '\2022';
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 9px;
-    color: #089f02;
 }
 
 .your-reservation .important {
@@ -4926,24 +4713,21 @@ body.home2 .roteros-options .raised-form .text-field {
     }
 }
 
-.your-reservation.activity h2,
-.your-reservation.adventure h2{
+.your-reservation .offer-item h2{
     color: #000;
     font-size: 28px;
     line-height: 32px;
 }
 
 @media (max-width: 767px) {
-    .your-reservation.activity h2,
-    .your-reservation.adventure h2{
+    .your-reservation .offer-item h2{
         font-size: 20px;
         line-height: 24px;
         font-weight: 400;
     }
 }
 
-.your-reservation.activity h2 a,
-.your-reservation.adventure h2 a{
+.your-reservation .offer-item h2 a{
     color: #000;
 }
 
@@ -4956,21 +4740,9 @@ body.home2 .roteros-options .raised-form .text-field {
     padding: 0;
 }
 
-.your-reservation.activity .accordion {
-    max-width: inherit;
-}
-
-.your-reservation.activity .accordion > li,
-.your-reservation.adventure .accordion > li{
+.your-reservation .accordion > .offer-item{
     position: relative;
     padding-left: 93px;
-}
-
-
-
-.your-reservation.activity .accordion header {
-    overflow: visible;
-    position: static;
 }
 
 @media (max-width: 767px) {
@@ -4979,26 +4751,6 @@ body.home2 .roteros-options .raised-form .text-field {
     }
     .your-reservation.activity .accordion header{
         padding: 25px 0 0 10px;
-    }
-}
-
-.your-reservation.activity .accordion .ico,
-.your-reservation.adventure .accordion .ico{
-    margin: 0;
-    width: 80px;
-    position: absolute;
-    left: 0;
-    top: 23px;
-    right: auto;
-    bottom: auto;
-}
-
-@media (max-width: 767px) {
-    .your-reservation.activity .accordion .ico {
-        float: none;
-        display: block;
-        margin: 0 0 10px;
-        position: static;
     }
 }
 
@@ -5027,44 +4779,6 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .your-reservation.activity .timing li.total:after {
     display: none;
-}
-
-.your-reservation.activity .price {
-    padding: 0 0 12px;
-    text-align: right;
-}
-
-
-
-@media (max-width: 767px) {
-    .your-reservation.activity .price {
-        padding: 0 0 10px 12px;
-        text-align: left;
-    }
-}
-
-.your-reservation.activity .price.add {
-    padding: 0;
-}
-
-.your-reservation.activity .btn-primary {
-    float: right;
-    min-width: 100px;
-    background: #eab011;
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 700;
-}
-
-@media (max-width: 767px) {
-    .your-reservation.activity .btn-primary {
-        float: none;
-        margin: 0 0 10px 10px;
-    }
-}
-
-.your-reservation.activity .btn-primary:hover {
-    opacity: 0.8;
 }
 
 .your-reservation.activity .program-schedule {
@@ -5397,27 +5111,6 @@ body.home2 .roteros-options .raised-form .text-field {
 .your-reservation .trip-adv img {
     display: block;
     max-width: 100%;
-}
-
-.your-reservation .links {
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 400;
-}
-
-.your-reservation .links li {
-    margin: 0 20px 0 0;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.your-reservation .links a {
-    color: #089f02;
-}
-
-.your-reservation .links a:hover {
-    text-decoration: underline;
 }
 
 .your-reservation .rating {
@@ -5790,26 +5483,6 @@ body.home2 .roteros-options .raised-form .text-field {
     font-weight: 500;
 }
 
-
-.your-reservation.new .list-box ul{
-    padding: 0;
-    list-style: none;
-}
-
-
-.your-reservation.new .list-box ul li{
-    margin: 0 0 6px;
-    position: relative;
-}
-
-.your-reservation.new .list-box > ul li:before{
-    content: "\2022";
-    position: absolute;
-    left: -13px;
-    top: -1px;
-    color: #089f02;
-}
-
 .search-block {
     padding: 20px;
     overflow: hidden;
@@ -5862,132 +5535,6 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 21px;
     line-height: 25px;
     font-weight: 400;
-}
-
-.main-post {
-    overflow: hidden;
-    margin: 0 0 20px;
-}
-
-@media (max-width: 639px) {
-    .main-post {
-        margin: 0;
-    }
-}
-
-.main-post header {
-    margin: 0 0 20px;
-    overflow: hidden;
-}
-
-.main-post .post-holder {
-    overflow: hidden;
-    padding-bottom: 13px;
-    border-bottom: 1px solid #cccccc;
-}
-
-.main-post .text-holder {
-    overflow: hidden;
-    min-height: 160px;
-}
-
-@media (max-width: 639px) {
-    .main-post .text-holder {
-        min-height: inherit;
-    }
-}
-
-.main-post h1 {
-    margin: 0;
-    font-size: 34px;
-    line-height: 38px;
-    font-weight: 700;
-}
-
-@media (max-width: 767px) {
-    .main-post h1 {
-        font-size: 26px;
-        line-height: 30px;
-        font-weight: 700;
-    }
-}
-
-.main-post .sub-title {
-    display: block;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-}
-
-@media (max-width: 991px) {
-    .main-post .align-left {
-        float: none;
-        width: auto;
-        margin: 0 0 10px;
-        overflow: hidden;
-    }
-}
-
-.main-post .agency-photo-wrapp img {
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.main-post .agency-gallery{
-    position: relative;
-}
-
-.main-post .agency-tag{
-    position: absolute;
-    bottom: 10px;
-    padding-left: 27px;
-    background-image: url("../images/instagram.svg");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 19px;
-    line-height: 19px;
-    color: #e12570;
-}
-
-.main-post .agency-tag:before{
-    content: "@";
-}
-
-
-.main-post .align-right {
-    float: right;
-    width: 145px;
-    margin: 0 0 0 20px;
-}
-
-@media (max-width: 639px) {
-    .main-post .align-right {
-        display: none;
-    }
-}
-
-.main-post .align-right img {
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.main-post .text {
-    overflow: hidden;
-    position: relative;
-}
-
-.main-post .rating {
-    float: none;
-    overflow: hidden;
-    margin: 0 0 20px -5px;
-}
-
-@media (max-width: 639px) {
-    .main-post .rating {
-        margin: 0 0 10px;
-    }
 }
 
 .table {
@@ -7140,10 +6687,6 @@ body.home2 .roteros-options .raised-form .text-field {
 
 .s_reservar{
     margin-top: 30px
-}
-
-.s_reservar .your-reservation .accordion .ico {
-    margin: 2px 10px 0 0;
 }
 
 

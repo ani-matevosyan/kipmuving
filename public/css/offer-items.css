@@ -1,0 +1,102 @@
+.your-reservation .accordion {
+    max-width: 713px;
+}
+
+@media (max-width: 991px) {
+    .your-reservation .accordion {
+        margin-bottom: 20px;
+    }
+}
+
+.your-reservation.new .list-box ul{
+    padding: 0;
+    list-style: none;
+}
+
+
+.your-reservation.new .list-box ul li{
+    margin: 0 0 6px;
+    position: relative;
+}
+
+.your-reservation.new .list-box > ul li:before{
+    content: "\2022";
+    position: absolute;
+    left: -13px;
+    top: -1px;
+    color: #089f02;
+}
+
+.your-reservation .list-box .title {
+    display: block;
+    font-weight: bold;
+    padding: 0 0 5px 0;
+}
+
+.your-reservation .list-box .list {
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.your-reservation .list-box .list li {
+    position: relative;
+    padding: 0 0 5px 10px;
+}
+
+.your-reservation .list-box .list li:after {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 9px;
+    color: #089f02;
+}
+
+.your-reservation .accordion h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 32px;
+}
+
+.your-reservation .accordion h2 a {
+    color: #000;
+}
+
+.your-reservation .accordion h2 a:hover {
+    color: #0dce05;
+}
+
+@media (max-width: 767px) {
+    .your-reservation .accordion h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+.your-reservation .accordion .ico {
+    float: left;
+    margin: 0;
+    width: 80px;
+    position: absolute;
+    left: 0;
+    top: 23px;
+}
+
+.your-reservation .accordion .ico img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .your-reservation .accordion .ico {
+        width: 40px;
+        margin: 5px 10px 0 0;
+    }
+}
+
+
+

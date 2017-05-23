@@ -14,6 +14,4 @@
 	@endforeach
 @endif
 
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/home-style.min.css') }}">
-
 <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">

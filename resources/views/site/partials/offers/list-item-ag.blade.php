@@ -99,7 +99,7 @@
 				</div>
 			</div>
 			@if($offer->description)
-				<div style="color: #006b33; margin: 10px ; font-size: 13px;">
+				<div class="offer-item-desc">
 					<p>{{ $offer->description }}</p>
 				</div>
 			@endif

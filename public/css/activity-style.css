@@ -112,6 +112,14 @@
     .your-reservation .important-block {
         padding: 0 10px 20px;
     }
+
+    .your-reservation.activity .accordion .ico {
+        float: none;
+        display: block;
+        margin: 0 0 10px;
+        position: static;
+        width: 80px;
+    }
 }
 
 .your-reservation .important-block .box {
@@ -311,10 +319,6 @@
 
 .your-reservation .location p {
     margin: 3px 0 20px;
-}
-
-.booking iframe{
-    min-height: 460px;
 }
 
 @media(max-width: 991px){
@@ -522,4 +526,198 @@
 
 .your-reservation .subnav ul a:hover {
     color: #007878;
+}
+
+.your-reservation .links {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.your-reservation .links li {
+    margin: 0 20px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.your-reservation .links a {
+    color: #089f02;
+}
+
+.your-reservation .links a:hover {
+    text-decoration: underline;
+}
+
+
+.offer-item-desc{
+    color: #006b33;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.select-activity{
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .select-activity .timing1{
+    border: none;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.new .select-activity .timing1{
+        padding-bottom: 0;
+    }
+}
+
+.your-reservation.new .timing1 {
+    margin: 0 0 10px;
+    padding: 0 24px 10px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .timing1 li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.time{
+    min-height: 40px;
+}
+
+.your-reservation.new .timing1 li.profile {
+    padding: 10px 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.profile.hours{
+    padding: 4px 0 13px 30px;
+}
+
+.your-reservation.new .timing1 li.profile:after {
+    width: 20px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 17px;
+    right: auto;
+    bottom: auto;
+    background: url(../images/happy.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.your-reservation.new .timing1 li.profile.hours:after{
+    width: 22px;
+    height: 22px;
+    background: url(../images/clock.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+    top: 31px;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
+    display: none;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select,
+.jcf-select-persona.jcf-select-drop .jcf-hover{
+    background: #963d4c;
+}
+
+@media screen and (max-width: 767px){
+    .your-reservation.new .timing1 li.profile .jcf-select{
+        width: auto;
+    }
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
+    color: #fff;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
+    border-color: #fff transparent transparent;
+}
+
+.your-reservation.new .timing1 li.profile.hours .jcf-select{
+    min-width: 100px;
+    width: auto;
+}
+
+.your-reservation.new .timing1 li.profile.hours strong,
+.your-reservation.new .timing1 li.profile.hours label{
+    margin-bottom: 3px;
+}
+.your-reservation.new .timing1 li.profile.hours label{
+    font-weight: bold;
+    display: block;
+}
+
+.your-reservation.new .timing1 li.cal:after {
+    width: 18px;
+    content: '';
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    right: auto;
+    bottom: auto;
+    background: url(../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.your-reservation.new .timing1 strong {
+    display: block;
+    font-weight: normal;
+}
+
+.your-reservation.new .timing1 strong span {
+    font-weight: bold;
+}
+
+.your-reservation.new .timing1 .btn-primary {
+    float: left;
+    font-weight: normal;
+    background: #963d4c;
+    text-transform: none;
+}
+
+.your-reservation.activity .price {
+    padding: 0 0 12px;
+    text-align: right;
+}
+
+
+@media (max-width: 767px) {
+    .your-reservation.activity .price {
+        padding: 0 0 10px 12px;
+        text-align: left;
+    }
+}
+
+.your-reservation.activity .price.add {
+    padding: 0;
+}
+
+.your-reservation.activity .btn-primary {
+    float: right;
+    min-width: 100px;
+    background: #eab011;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.activity .btn-primary {
+        float: none;
+        margin: 0 0 10px 10px;
+    }
+}
+
+.your-reservation.activity .btn-primary:hover {
+    opacity: 0.8;
 }

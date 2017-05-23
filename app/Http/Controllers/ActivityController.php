@@ -80,6 +80,7 @@ class ActivityController extends Controller
 				'css/chosen/chosen.min.css',
 				'css/prettyPhoto.css',
 				'css/instafeed/instafeed.min.css',
+                'css/offer-items.min.css',
                 'css/activity-style.min.css'
 			],
 			'scripts' => [
