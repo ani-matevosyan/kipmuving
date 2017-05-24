@@ -136,14 +136,12 @@
 								<ul class="payment-cards">
 									@for($i = 1; $i <= 6; $i++)
 										<li>
-											<a href="#">
-												<img src="{{ asset('/images/card'.$i.'.png') }}" alt="image description">
-											</a>
+											<img src="{{ asset('/images/card'.$i.'.png') }}" alt="image description">
 										</li>
 									@endfor
 								</ul>
-								<a href="#"><img src="/images/pagseguro_logo.png" alt="Pagseguro logo"></a>
-								<a href="#"><img src="/images/payu_logo.png" alt="PayU logo"></a>
+								<img src="/images/pagseguro_logo.png" alt="Pagseguro logo">
+								<img src="/images/payu_logo.png" alt="PayU logo">
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-5 col-xs-12 box">
