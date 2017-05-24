@@ -103,6 +103,9 @@ class UserController extends Controller
 //			];
 //		}
 		$data = [
+		    'styles' => [
+		        'css/userpage-style.min.css'
+            ],
 			'user'         => $user,
 //			'reservations' => $result
 		];
