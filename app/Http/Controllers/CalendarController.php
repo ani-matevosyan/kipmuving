@@ -20,6 +20,7 @@ class CalendarController extends Controller
 			'styles'         => [
 				'link' => 'plugins/fullcalendar/fullcalendar.css',
                 'css/reservation-sidebar.min.css',
+                'css/calendar-style.min.css',
 				[
 					'media' => 'print',
 					'link'  => 'plugins/fullcalendar/fullcalendar.print.css'

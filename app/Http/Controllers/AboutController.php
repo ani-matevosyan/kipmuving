@@ -9,7 +9,13 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('site.about.index');
+        $data = [
+            'styles' => [
+                'css/about-style.min.css'
+            ]
+        ];
+
+        return view('site.about.index', $data);
     }
 
 }
