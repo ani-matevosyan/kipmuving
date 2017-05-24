@@ -1,3 +1,78 @@
+.your-reservation .accordion > li {
+    padding: 20px 0 0;
+}
+
+.your-reservation .accordion > li.active .more-detail:after {
+    background: #c26708;
+}
+
+.your-reservation .accordion > li.active .more-detail .opener {
+    color: #c26708;
+}
+
+.your-reservation .accordion > li.active .more-detail .opener:before {
+    background-position: -16px -184px;
+}
+
+.your-reservation .accordion > li.active .more-detail .less {
+    display: inline;
+}
+
+.your-reservation .accordion > li.active .more-detail .more {
+    display: none;
+}
+
+.your-reservation .accordion header {
+    margin: 0 0 20px;
+}
+
+.your-reservation .accordion .sub-title {
+    display: block;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+@media (max-width: 767px) {
+    .your-reservation .accordion .sub-title {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+    }
+}
+
+.your-reservation .accordion .sub-title span {
+    padding-left: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.your-reservation .accordion .text {
+    overflow: hidden;
+}
+
+.your-reservation.adventure .accordion .text{
+    margin-top: 12px;
+}
+
+.your-reservation .accordion > .offer-item{
+    position: relative;
+    padding-left: 93px;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.activity .accordion > li {
+        padding: 0;
+    }
+    .your-reservation.activity .accordion header{
+        padding: 25px 0 0 10px;
+    }
+}
+
+
 .your-reservation .accordion {
     max-width: 713px;
 }

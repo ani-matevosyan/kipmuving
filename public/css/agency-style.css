@@ -1,3 +1,175 @@
+@media (max-width: 767px) {
+    .your-reservation.adventure {
+        padding: 20px 0 0;
+    }
+}
+
+.your-reservation.adventure .head {
+    border: 0;
+    position: relative;
+    max-width: inherit;
+    padding: 0 0 10px 54px;
+}
+
+.your-reservation.adventure .head:after {
+    width: 55px;
+    content: '';
+    height: 50px;
+    position: absolute;
+    left: -8px;
+    top: 7px;
+    right: auto;
+    bottom: auto;
+    background: url(../images/ico8.png) no-repeat;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .head:after {
+        top: 0;
+    }
+}
+
+.your-reservation.adventure .head .sub-title {
+    font-size: 19px;
+    line-height: 23px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .head .sub-title {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+    }
+}
+
+.your-reservation.adventure h3 {
+    color: #089f02;
+    margin: 0 0 5px;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure h3 {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 700;
+    }
+}
+
+.your-reservation.adventure h3 a {
+    color: #089f02;
+}
+
+.your-reservation.adventure h3 a:hover {
+    color: #000;
+}
+
+.your-reservation.adventure .sub-title span {
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .timing {
+        padding: 0;
+    }
+}
+
+.your-reservation.adventure .timing li {
+    border: 0;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .timing li {
+        padding-left: 20px;
+    }
+    .your-reservation.adventure .timing li:after {
+        left: 0;
+    }
+}
+
+.your-reservation.adventure .timing li.total {
+    border-top: 1px solid #d9d9d9;
+}
+
+.your-reservation.adventure .timing li.total:after {
+    display: none;
+}
+
+.your-reservation.adventure .price {
+    padding: 13px 0 10px;
+    text-align: right;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .price {
+        padding: 0 0 10px;
+    }
+}
+
+.your-reservation.adventure .btn-primary {
+    float: right;
+    min-width: 100px;
+    background: #eab011;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .btn-primary {
+        float: none;
+        margin: 0 0 10px;
+    }
+}
+
+.your-reservation.adventure .btn-primary:hover {
+    opacity: 0.8;
+}
+
+.your-reservation.adventure .program-schedule {
+    float: right;
+    width: 243px;
+    padding: 10px;
+    margin: -110px 0 0;
+}
+
+@media (max-width: 767px) {
+    .your-reservation.adventure .program-schedule {
+        display: none;
+    }
+}
+
+.your-reservation.adventure .program-schedule h2 {
+    color: #fff;
+    margin: 0 0 20px;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.your-reservation.adventure .program-schedule h2:after {
+    top: 0;
+}
+
+.your-reservation.adventure .program-schedule .sub-title {
+    margin: 0 0 10px;
+}
+
+.your-reservation.adventure .program-schedule .btn-primary {
+    float: right;
+    color: #000;
+    padding: 3px 10px;
+    text-align: center;
+    background: #fff;
+}
+
 .offer-item-desc{
     color: #006b33;
     margin: 10px;
