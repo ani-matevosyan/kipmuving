@@ -486,6 +486,7 @@ body.home2 .roteros-options .raised-form .text-field {
 .header-panel{
     position: relative;
     float: right;
+    padding-top: 5px;
 }
 .header-panel:before,
 .header-panel:after{
@@ -564,7 +565,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #header.new #nav {
     text-align: center;
-    padding: 16px 0;
+    padding: 21px 0;
 }
 
 #nav {
@@ -772,7 +773,7 @@ body.home2 .roteros-options .raised-form .text-field {
     height: 20px;
     cursor: pointer;
     right: 15px;
-    top: 16px;
+    top: 21px;
     display: none;
 }
 
@@ -843,6 +844,7 @@ body.home2 .roteros-options .raised-form .text-field {
     right: 100%;
     width: 99999px;
     background: #072334;
+    z-index: -1;
 }
 
 .logo-wrapper:after{
@@ -1018,6 +1020,12 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 /*--------------RESPONSIVE PART---------------*/
+
+@media screen and (max-width: 1149px) and (min-width: 992px){
+    #header.new .logo{
+        margin-left: -25px;
+    }
+}
 
 @media(min-width: 992px){
     #header.new #nav{

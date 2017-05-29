@@ -24,7 +24,7 @@
 						<div class="logo-wrapper">
 							<div class="logo">
 								<a href="{{ action('HomeController@index') }}">
-									<img src="{{ asset('/images/KipMuving-white.svg') }}"
+									<img src="{{ asset('/images/logo'.session('cities.current').'.svg') }}"
 										  alt="image description"
 										  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
 								</a>
