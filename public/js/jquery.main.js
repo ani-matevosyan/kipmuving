@@ -19,25 +19,23 @@ jQuery(document).ready(function () {
 
 
     //BURGER
+    var opened = false;
     $(".burger-menu").click(function () {
-        $(this).toggleClass("menu-on");
-        $("#header.new #nav").addClass("active").css("visibility", "visible");
-        $(".nav-cover").addClass("active");
-        $("body").css("overflow-y", "hidden");
+        if(!opened){
+            $(this).toggleClass("menu-on");
+            $("#header.new #nav").addClass("active");
+            $("body").css("overflow-y", "hidden");
+            opened = true;
+        }
     });
     $(".nav-cover").click(function(){
-        $(".burger-menu").toggleClass("menu-on");
-        $(this).removeClass("active");
-        $("#header.new #nav").removeClass("active");
-        setTimeout(function(){
-            $("#header.new #nav").css("visibility", "hidden");
-        },500);
-        $("body").css("overflow-y", "visible");
+        if(opened){
+            $(".burger-menu").toggleClass("menu-on");
+            $("#header.new #nav").removeClass("active");
+            $("body").css("overflow-y", "visible");
+            opened = false;
+        }
     });
-
-    if(!($("section.visual").length)){
-        $("#header").addClass("header-v2");
-    }
 
 });
 function initDatepicker() {
