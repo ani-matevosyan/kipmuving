@@ -81,4 +81,8 @@ class HomeController extends Controller
 		});
 		return Redirect::to('/')->with('info', 'Your message is successfully send.');
 	}
+
+	public function siteEntrance(){
+        return view('site.home.site-entrance');
+    }
 }
