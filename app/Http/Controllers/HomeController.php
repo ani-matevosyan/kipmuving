@@ -28,7 +28,7 @@ class HomeController extends Controller
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'home']);
 		
-		$imageIndex = rand(1, 4); //1-4
+		$imageIndex = rand(1, 3); //1-3
 		$data = [
 			'styles' => [
 				'css/jquery-ui.min.css',
