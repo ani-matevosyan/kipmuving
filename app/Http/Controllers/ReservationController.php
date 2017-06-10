@@ -23,12 +23,9 @@ use Illuminate\Support\Facades\View;
 
 class ReservationController extends Controller
 {
-//	private $price_per_person = 3.5;
 	private $offers = [];
 	private $total;
-//	private $total_without_discount = 0;
 	private $persons = 0;
-//	private $to_pay;
 	
 	#Get offers data
 	public function __construct(Offer $offer)
@@ -177,18 +174,15 @@ class ReservationController extends Controller
 			];
 			
 			$data->offers[$key]['reservation'] = $reservation;
-//			$data->total += $data->offers[$key]->real_price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
-//			$data->total_in_currency += $data->offers[$key]->price * (1 - config('kipmuving.discount')) * $selected_offer['persons'];
-//			$data->total_without_discount += $data->offers[$key]->real_price * $selected_offer['persons'];
-//			$data->total_without_discount_in_currency += $data->offers[$key]->price * $selected_offer['persons'];
-			$data->total['CLP'] += $data->offers[$key]->real_price * $selected_offer['persons'];
-			$data->total['USD'] += round($data->total['CLP'] / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
-			$data->total['BRL'] += round($data->total['USD'] * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
-			$data->total->with_discount['CLP'] = round($data->total['CLP'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
-			$data->total->with_discount['USD'] = round($data->total['USD'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
-			$data->total->with_discount['BRL'] = round($data->total['BRL'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
+			$data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
 			$data->persons += $selected_offer['persons'];
 		}
+		
+		$data->total['USD'] = round($data->total['CLP'] / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+		$data->total['BRL'] = round($data->total['USD'] * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->with_discount['CLP'] = round($data->total['CLP'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->with_discount['USD'] = round($data->total['USD'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
+		$data->total->with_discount['BRL'] = round($data->total['BRL'] * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN);
 		
 		//todo change
 //		$data->to_pay = round(($data->total / session('currency.values.USDCLP')) * config('kipmuving.service_fee'), 2, PHP_ROUND_HALF_EVEN);

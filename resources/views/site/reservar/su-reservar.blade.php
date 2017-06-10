@@ -138,11 +138,11 @@
 
 								</div>
 								<div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
-									<section class="s_suprogram @if(session('currency.type') === 'BRL') brl-curr @endif">
+									<section class="s_suprogram {{ session('currency.type') === 'BRL' ? 'brl-curr' : '' }}">
 										<header>
 											<h3>{{ trans('main.program') }}</h3>
-											<p><span
-														id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
+											<p>
+												<span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
 											</p>
 										</header>
 										<ul class="offers-list">
