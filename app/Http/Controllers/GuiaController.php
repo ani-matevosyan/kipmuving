@@ -20,6 +20,7 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles'     => [
+			    'css/tripadvisor.min.css',
 				'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
 			],
@@ -47,6 +48,7 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles'     => [
+                'css/tripadvisor.min.css',
 				'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
 			],
@@ -75,6 +77,7 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 			'styles'     => [
+                'css/tripadvisor.min.css',
 				'css/jquery-ui.min.css',
 				'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
@@ -106,6 +109,7 @@ class GuiaController extends Controller
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
 		    'styles'     => [
+                'css/tripadvisor.min.css',
                 'css/guide-style.min.css'
             ],
 			'imageIndex' => $imageIndex,

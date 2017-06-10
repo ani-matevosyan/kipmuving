@@ -1,5 +1,5 @@
 {{--ALL--}}
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.css') }}">
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/fonts.min.css') }}">
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/common.min.css') }}">
 

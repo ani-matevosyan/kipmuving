@@ -12,21 +12,25 @@ $(window).load(function(){
             if(localStorage.hometour !== "visited"){
                 homeTour();
            }
+           $(".info-tour").show();
         }
         if (window.location.pathname === '/activities') {
             if(localStorage.activitiestour !== "visited"){
                 activitiesTour();
             }
+            $(".info-tour").show();
         }
         if (window.location.pathname.indexOf('/activity/') === 0) {
             if(localStorage.activitytour !== "visited") {
                 activitytour();
             }
+            $(".info-tour").show();
         }
         if (window.location.pathname === '/reserve') {
             if(localStorage.reservationtour !== "visited"){
                 reservationtour();
             }
+            $(".info-tour").show();
         }
     }
 

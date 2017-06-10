@@ -1,5 +1,5 @@
 <script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.main.min.js') }}"></script>
 
 @if(isset($scripts) && count($scripts) > 0)
