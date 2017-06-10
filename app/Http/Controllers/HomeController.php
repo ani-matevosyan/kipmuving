@@ -22,6 +22,8 @@ class HomeController extends Controller
 //		foreach ($files as $key => $file) {
 //			$files[$key] = str_replace('/home/sanek/server/personalProjects/kipmuving/public/', '', $file);
 //		}
+		if (session('cities.entrance') === false)
+			return redirect()->route('entrance');
 		
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 		
@@ -33,7 +35,7 @@ class HomeController extends Controller
 			'styles' => [
 				'css/jquery-ui.min.css',
 				'css/product-tour.min.css',
-                'css/home-style.min.css'
+				'css/home-style.min.css'
 			],
 			'scripts' => [
 				'js/product.tour.min.js',
@@ -54,8 +56,9 @@ class HomeController extends Controller
 		
 		return view('site.home.index', $data);
 	}
-
-	public function sendMessage(Request $request){
+	
+	public function sendMessage(Request $request)
+	{
 		$this->validate($request, [
 			'email' => 'email|required|max:128',
 			'name' => 'alpha|required|max:128',
@@ -67,22 +70,24 @@ class HomeController extends Controller
 			'email' => $request['email'],
 			'message' => $request['message']
 		];
-
+		
 		$homeMail = new HomeMail();
 		$homeMail->name = $data['name'];
 		$homeMail->email = $data['email'];
 		$homeMail->message = $data['message'];
 		$homeMail->user_ip = $request->ip();
 		$homeMail->save();
-
+		
 		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
 			$message->from('info@kipmuving.com', 'Kipmuving team');
 			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
 		});
 		return Redirect::to('/')->with('info', 'Your message is successfully send.');
 	}
-
-	public function siteEntrance(){
-        return view('site.home.site-entrance');
-    }
+	
+	public function siteEntrance()
+	{
+		session(['cities.entrance' => true]);
+		return view('site.home.site-entrance');
+	}
 }
