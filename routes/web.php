@@ -39,7 +39,7 @@ Route::group(['prefix' => 'pucon'], function () {
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/contact-us', 'HomeController@sendMessage');
-Route::get('/entrance', 'HomeController@siteEntrance');
+Route::get('/entrance', 'HomeController@siteEntrance')->name('entrance');
 
 
 #Service routes

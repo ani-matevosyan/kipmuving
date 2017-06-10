@@ -147,9 +147,9 @@ class Offer extends Model
 		$price = $this->attributes['price'];
 		
 		if (session('currency.type') == 'USD')
-			$price = round($price / session('currency.values.USDCLP'));
+			$price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
 		elseif (session('currency.type') == 'BRL')
-			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
+			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
 		
 		return round($price, 2);
 	}

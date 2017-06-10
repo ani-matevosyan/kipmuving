@@ -11,10 +11,9 @@ class CityController extends Controller
 		
 		session(['cities' => [
 			'current' => $city,
-			'list'    => session('cities.list')
+			'list'    => session('cities.list'),
+			'entrance' => session('cities.entrance')
 		]]);
-		
-//		dd($route);
 		
 		return $route ? redirect()->route($route) : redirect()->back();
 	}
