@@ -196,4 +196,49 @@ $(document).ready(function () {
         })
     });
 
+
+    //Print option
+
+    function openPrintDialogue(){
+        $('<iframe name="myiframe" id="printFrame" width="100%" >')
+            .appendTo('body')
+            .contents()
+            .find('head')
+            .append("<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/bootstrap.min.css'>" +
+                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/fonts.min.css'>" +
+                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/common.min.css'>" +
+                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/offer-items.min.css'>" +
+                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/reservation-style.min.css'>" +
+                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/reservation-print.min.css'>")
+            .parent()
+            .find('body')
+            .append('<div class="print-header">' +
+                '<img src="/images/printer.svg" alt="Printer icon">' +
+                '<img src="http://kipmuving.lo/images/cut.svg" alt="Scissors icon">' +
+                '<span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>' +
+                '</div>');
+
+
+        var item = $(".your-reservation").clone().show();
+
+        $("#printFrame").contents().find('body').append(item);
+
+        // $("#printFrame").contents().load(function(){
+        //     window.frames["myiframe"].print();
+        // });
+
+        setTimeout(function(){
+            window.frames["myiframe"].print();
+        },1000);
+
+        // setTimeout(function(){
+        //    $(".printFrame").remove();
+        // },1000);
+    };
+
+    $('.to_print').on('click', openPrintDialogue);
+
+
+    // window.frames["myiframe"].focus();
+
 });

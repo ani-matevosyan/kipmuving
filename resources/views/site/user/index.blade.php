@@ -199,6 +199,7 @@
 									{{--{{ dd($user->reservations[2]->offer) }}--}}
 									@if($reservation->offer)
 										<li>
+											<input type="checkbox" name="to_print" value="{{$reservation['id']}}">
 											<ul class="timing">
 												<header>
 													<div class="ico">
@@ -251,8 +252,104 @@
 									@endif
 								@endforeach
 							</ul>
+							You can print your reservation. <button class="to_print">Choose what to print</button>
 						</div>
 					@endif
+				</div>
+			</div>
+
+			<div class="your-reservation" style="display: none">
+				<div class="s_reservar">
+					<ul class="accordion">
+						<li class="accordion-li">
+							<div class="print-li-header">
+								<a href="/">
+									<img src="http://kipmuving.lo/images/kipmuving-atacama-logo.png" alt="Kipmuving logo">
+								</a>
+							</div>
+							<header>
+								<div class="ico">
+									<img src="/images/image-none.jpg" onerror="this.src='/images/image-none.jpg';" alt="agency image">
+								</div>
+								<div class="text">
+									<h2>
+										<a href="http://kipmuving.lo/activity/16">Ascenso y bajada ski Volcán Villarrica</a>
+									</h2>
+									<strong class="sub-title">Aguaventura <span>Palguín 336</span></strong>
+								</div>
+							</header>
+							<div class="activity_description">
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="list-box">
+											<strong class="title">Debes llevar</strong>
+											<ul class="list">
+												<li>Transporte ida y vuelta</li>
+												<li>Equipo de seguridad</li>
+												<li>Guía Profesional</li>
+												<li>Entrada a los Parques</li>
+												<li>Seguro de accidentes</li>
+												<li>Crampones</li>
+												<li>Piolet</li>
+												<li>Cubre pantalón</li>
+												<li>Guantes</li>
+												<li>Casco de seguridad</li>
+												<li>Guantes y protector de guante</li>
+												<li>Chaqueta</li>
+												<li>Guantes</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<ul class="timing">
+											<li class="time">
+												<img src="http://kipmuving.lo/images/clock.svg" alt="Time icon" class="timing-icon">
+												<strong class="title">
+													Día: 09/06/2017
+												</strong>
+												<strong>
+																				<span>Duración
+																					:</span> 12
+													hrs
+												</strong>
+												<strong>
+																				<span>Horario
+																					:</span> 06:30
+													a 18:00
+												</strong>
+											</li>
+											<li class="person">
+												<img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="timing-icon">
+												<strong>
+													<span>1</span> personas
+												</strong>
+											</li>
+											<li class="money">
+												<img src="http://kipmuving.lo/images/coin.svg" alt="Coin icon" class="timing-icon">
+												<strong>Pagar en agencia</strong>
+												<strong class="title">$ 85 500 </strong>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<strong class="price">
+									<sub> $ </sub>  85.500
+
+								</strong>
+							</div>
+							<div id="reservetour1" class="reservation-info-block">
+								<div class="important">
+									<p><strong class="title">Importante:</strong> Debes acercarte a la agencia una día antes para confirmar la actividad y pagar por ella. También confirmar tu lugar de alojamiento en Pucón.</p>
+								</div>
+								<div class="cancellation_rules">
+									<p><span>Costos para cancelar: </span>Se puede cancelar hasta 3 días de anticipación.</p>
+								</div>
+							</div>
+							<div class="print-li-footer">
+								<a href="/">www.kipmuving.com</a>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 	</main>
