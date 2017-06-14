@@ -62,10 +62,6 @@
     padding: 5px 0 0;
 }
 
-.s_reservar .your-reservation .timing li.money{
-    display: none;
-}
-
 .s_reservar .your-reservation .timing li:after{
     display: none;
 }
@@ -87,24 +83,6 @@
     width: 18px;
     top: 2px;
     left: -27px;
-}
-
-.print-li-header{
-    display: none;
-    text-align: right;
-    padding: 12px 0;
-    border-bottom: 1px solid #c4c4c4;
-}
-.print-li-header a:after,
-.print-li-footer a:after{
-    content: '';
-}
-
-.print-li-footer{
-    display: none;
-    text-align: center;
-    padding: 12px 0;
-    border-top: 1px solid #c4c4c4;
 }
 
 .carrio-heading {

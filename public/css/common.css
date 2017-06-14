@@ -61,8 +61,8 @@
     line-height: 16px;
     font-weight: 400;
     text-transform: uppercase;
-    -webkit-transition: all, 0.3s, linear;
-    transition: all, 0.3s, linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 
 .btn-primary {
@@ -83,8 +83,8 @@
 
 a {
     text-decoration: none;
-    -webkit-transition: all, 0.3s, linear;
-    transition: all, 0.3s, linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 
 a:hover, a:focus, a:active {
@@ -479,8 +479,8 @@ body.home2 .roteros-options .raised-form .text-field {
 .w1 {
     right: 0;
     position: relative;
-    -webkit-transition: right, 0.5s, linear;
-    transition: right, 0.5s, linear;
+    -webkit-transition: right 0.5s linear;
+    transition: right 0.5s linear;
 }
 
 .header-panel{
@@ -1504,8 +1504,8 @@ body.home2 .roteros-options .raised-form .text-field {
     top: auto;
     right: 0;
     bottom: 0;
-    -webkit-transition: all, 0.3s, linear;
-    transition: all, 0.3s, linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
     transform: translateY(100%);
     -webkit-transform: translateY(100%);
 }

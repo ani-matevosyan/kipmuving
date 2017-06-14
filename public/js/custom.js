@@ -200,16 +200,20 @@ $(document).ready(function () {
     //Print option
 
     function openPrintDialogue(){
-        $('<iframe name="myiframe" id="printFrame" width="100%" >')
+        var printItemHeader = '<div class="print-item-header">' +
+            '<a href="'+document.location.origin+'">' +
+            '<img src="'+document.location.origin+'/images/kipmuving-atacama-logo.png" alt="Kipmuving logo">' +
+            '</a>' +
+            '</div>',
+            printItemFooter = '<div class="print-item-footer">' +
+                '<a href="'+document.location.origin+'">www.kipmuving.com</a>' +
+                '</div>';
+
+        $('<iframe name="myiframe" id="printFrame" style="display:none" >')
             .appendTo('body')
             .contents()
             .find('head')
-            .append("<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/bootstrap.min.css'>" +
-                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/fonts.min.css'>" +
-                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/common.min.css'>" +
-                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/offer-items.min.css'>" +
-                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/reservation-style.min.css'>" +
-                "<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/reservation-print.min.css'>")
+            .append("<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/print-style.min.css'>")
             .parent()
             .find('body')
             .append('<div class="print-header">' +
@@ -218,27 +222,41 @@ $(document).ready(function () {
                 '<span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>' +
                 '</div>');
 
+        $(".check_activity input[type=checkbox]:checked").each(function(){
 
-        var item = $(".your-reservation").clone().show();
+            var item = $(this).parent().parent().find('.order-item').clone();
 
-        $("#printFrame").contents().find('body').append(item);
+            item.prepend(printItemHeader);
+            item.append(printItemFooter);
 
-        // $("#printFrame").contents().load(function(){
-        //     window.frames["myiframe"].print();
-        // });
+            $("#printFrame").contents().find('body').append(item);
+        });
 
         setTimeout(function(){
             window.frames["myiframe"].print();
         },1000);
 
-        // setTimeout(function(){
-        //    $(".printFrame").remove();
-        // },1000);
-    };
-
-    $('.to_print').on('click', openPrintDialogue);
+        setTimeout(function(){
+           $("#printFrame").remove();
+        },10000);
+    }
 
 
-    // window.frames["myiframe"].focus();
+    var activity_checked = false;
 
+    $('.to_print').on('click', function(e){
+        e.preventDefault();
+        if(!activity_checked){
+            $(".check_activity").show();
+            $(this).text("Print!");
+            activity_checked = true;
+        }else{
+            if($(".check_activity input[type=checkbox]:checked").length){
+               openPrintDialogue();
+            }else{
+                $("#printWarning").modal("show");
+            }
+
+        }
+    });
 });

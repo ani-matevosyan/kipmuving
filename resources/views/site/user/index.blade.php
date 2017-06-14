@@ -199,160 +199,109 @@
 									{{--{{ dd($user->reservations[2]->offer) }}--}}
 									@if($reservation->offer)
 										<li>
-											<input type="checkbox" name="to_print" value="{{$reservation['id']}}">
-											<ul class="timing">
+                                            <label class="check_activity">
+                                                <input type="checkbox" name="to_print" value="{{$reservation['id']}}">
+                                                <i class="glyphicon glyphicon-ok"></i>
+                                            </label>
+											<div class="order-item">
 												<header>
 													<div class="ico">
 														<img alt="image description"
-																 src="{{ asset($reservation->offer->activity['image_icon']) }}"
-																 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+															 src="{{ asset($reservation->offer->activity['image_icon']) }}"
+															 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
 													</div>
 													<div class="text">
 														<h2>
 															<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
-																 data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
+															   data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
 														</h2>
 														<strong class="sub-title">
-															{{ $reservation->offer->agency->name }}
+															{{ $reservation->offer->agency->name }} <span class="agency-address">{{ $reservation->offer->agency->address }}</span>
 														</strong>
 													</div>
 												</header>
-												<li class="time">
-													<strong class="title">{{ trans('emails.day') }}
-														: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
-													<strong>
-											<span>{{ trans('main.duration') }}
-												:</span> {{ $reservation->offer->duration }} hrs
-													</strong>
-													@if ($reservation->time)
-														<strong>
-											<span>{{ trans('main.schedule') }}
-												:</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
-															{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
-														</strong>
-													@endif
-													<strong>
-														<span>Summary: </span>{{ session('currency.type') }}
-														$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
-													</strong>
-												</li>
-												<li class="person">
-													<strong>
-														<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
-													</strong>
-												</li>
-												@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
-													<div class="delete_offer">
-														<a
-															href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
+												<div class="cols-row">
+													<div class="col">
+														<div class="list-box">
+															<strong class="title">{{ trans('main.you_must_take') }}</strong>
+															<ul class="list">
+																@foreach ($reservation->offer->includes as $include)
+																	<li>{{ $include }}</li>
+																@endforeach
+															</ul>
+														</div>
 													</div>
-												@endif
-											</ul>
+													<div class="col">
+														<ul class="timing">
+															<li class="time">
+																<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">
+																<strong class="title">{{ trans('emails.day') }} : {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
+																<strong>
+																<span>{{ trans('main.duration') }} : </span> {{ $reservation->offer->duration }} hrs
+																</strong>
+																@if ($reservation->time)
+																	<strong>
+																		<span>{{ trans('main.schedule') }} :</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
+																		{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
+																	</strong>
+																@endif
+																<strong>
+																	<span>Summary: </span>{{ session('currency.type') }}
+																	$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
+																</strong>
+															</li>
+															<li class="person">
+																<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">
+																<strong>
+																	<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
+																</strong>
+															</li>
+															<li class="money">
+																<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
+																<strong>Pagar en agencia</strong>
+																<strong
+																		class="title">$ {{ number_format($reservation->offer->real_price * (1 - config('kipmuving.discount')) * $reservation->offer->reservation['persons'], 0, '.', ' ') }} </strong>
+															</li>
+															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
+																<div class="delete_offer">
+																	<a
+																		href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
+																</div>
+															@endif
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 									@endif
 								@endforeach
 							</ul>
-							You can print your reservation. <button class="to_print">Choose what to print</button>
+                            <div class="print_notification_wrapper">
+							    You can print your reservation. <a href="#" class="btn btn-success to_print">Pick activities</a>
+                            </div>
 						</div>
 					@endif
 				</div>
 			</div>
-
-			<div class="your-reservation" style="display: none">
-				<div class="s_reservar">
-					<ul class="accordion">
-						<li class="accordion-li">
-							<div class="print-li-header">
-								<a href="/">
-									<img src="http://kipmuving.lo/images/kipmuving-atacama-logo.png" alt="Kipmuving logo">
-								</a>
-							</div>
-							<header>
-								<div class="ico">
-									<img src="/images/image-none.jpg" onerror="this.src='/images/image-none.jpg';" alt="agency image">
-								</div>
-								<div class="text">
-									<h2>
-										<a href="http://kipmuving.lo/activity/16">Ascenso y bajada ski Volcán Villarrica</a>
-									</h2>
-									<strong class="sub-title">Aguaventura <span>Palguín 336</span></strong>
-								</div>
-							</header>
-							<div class="activity_description">
-								<div class="row">
-									<div class="col-sm-6 col-xs-12">
-										<div class="list-box">
-											<strong class="title">Debes llevar</strong>
-											<ul class="list">
-												<li>Transporte ida y vuelta</li>
-												<li>Equipo de seguridad</li>
-												<li>Guía Profesional</li>
-												<li>Entrada a los Parques</li>
-												<li>Seguro de accidentes</li>
-												<li>Crampones</li>
-												<li>Piolet</li>
-												<li>Cubre pantalón</li>
-												<li>Guantes</li>
-												<li>Casco de seguridad</li>
-												<li>Guantes y protector de guante</li>
-												<li>Chaqueta</li>
-												<li>Guantes</li>
-											</ul>
-										</div>
-									</div>
-									<div class="col-sm-6 col-xs-12">
-										<ul class="timing">
-											<li class="time">
-												<img src="http://kipmuving.lo/images/clock.svg" alt="Time icon" class="timing-icon">
-												<strong class="title">
-													Día: 09/06/2017
-												</strong>
-												<strong>
-																				<span>Duración
-																					:</span> 12
-													hrs
-												</strong>
-												<strong>
-																				<span>Horario
-																					:</span> 06:30
-													a 18:00
-												</strong>
-											</li>
-											<li class="person">
-												<img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="timing-icon">
-												<strong>
-													<span>1</span> personas
-												</strong>
-											</li>
-											<li class="money">
-												<img src="http://kipmuving.lo/images/coin.svg" alt="Coin icon" class="timing-icon">
-												<strong>Pagar en agencia</strong>
-												<strong class="title">$ 85 500 </strong>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<strong class="price">
-									<sub> $ </sub>  85.500
-
-								</strong>
-							</div>
-							<div id="reservetour1" class="reservation-info-block">
-								<div class="important">
-									<p><strong class="title">Importante:</strong> Debes acercarte a la agencia una día antes para confirmar la actividad y pagar por ella. También confirmar tu lugar de alojamiento en Pucón.</p>
-								</div>
-								<div class="cancellation_rules">
-									<p><span>Costos para cancelar: </span>Se puede cancelar hasta 3 días de anticipación.</p>
-								</div>
-							</div>
-							<div class="print-li-footer">
-								<a href="/">www.kipmuving.com</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
 	</main>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="printWarning">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" data-dismiss="modal" class="close">close</a>
+                    <h4 class="modal-title">Check an activity</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Check at least one activity to print.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">

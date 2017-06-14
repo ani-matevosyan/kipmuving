@@ -27,20 +27,10 @@
 												{{ trans('main.confirm_below_the_activities') }}</p>
 										</header>
 									@endif
-									<div class="print-header">
-										<img src="{{ asset('images/printer.svg') }}" alt="Printer icon">
-										<img src="{{ asset('images/cut.svg') }}" alt="Scissors icon">
-										<span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>
-									</div>
 									<ul class="accordion">
 										<?php $first_offer = true ?>
 										@foreach ($reservation->offers as $offer)
 											<li class="accordion-li">
-												<div class="print-li-header">
-													<a href="/">
-														<img src="{{ asset('images/kipmuving-atacama-logo.png') }}" alt="Kipmuving logo">
-													</a>
-												</div>
 												<header>
 													<div class="ico">
 														<img src="/{{ $offer->activity->image_icon }}"
@@ -92,12 +82,6 @@
 																		<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
 																	</strong>
 																</li>
-																<li class="money">
-																	<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
-																	<strong>Pagar en agencia</strong>
-																	<strong
-																			class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} </strong>
-																</li>
 															</ul>
 														</div>
 													</div>
@@ -114,9 +98,6 @@
 													<div class="cancellation_rules">
 														<p><span>Costos para cancelar: </span>{{ $offer->cancellation_rules }}</p>
 													</div>
-												</div>
-												<div class="print-li-footer">
-													<a href="/">www.kipmuving.com</a>
 												</div>
 											</li>
 											<?php $first_offer = false; ?>

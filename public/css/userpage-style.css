@@ -299,7 +299,7 @@
     vertical-align: top;
 }
 
-.profile-block .item-list > li:nth-child(3n-3) > .timing{
+.profile-block .item-list > li:nth-child(3n-3) > .order-item{
     border-right: transparent;
 }
 
@@ -428,14 +428,13 @@
     font-size: 12px;
     line-height: 18px;
     font-weight: 500;
-    display: inline-block;
+    display: none;
     vertical-align: middle;
 }
 
 @media (max-width: 639px) {
     .profile-block .item-list .sub-title span {
         padding: 0;
-        display: block;
     }
 }
 
@@ -443,7 +442,7 @@
     overflow: hidden;
 }
 
-.profile-block .timing {
+.order-item {
     padding: 13px 0 58px 37px;
     font-size: 14px;
     line-height: 18px;
@@ -452,19 +451,19 @@
 }
 
 @media(max-width: 991px){
-    .profile-block .timing{
+    .order-item{
         border-right: transparent;
     }
 }
 
-.profile-block .timing li {
+.timing li {
     position: relative;
     padding: 10px 30px;
     display: inline-block;
     vertical-align: top;
 }
 
-.profile-block .timing .delete_offer{
+.order-item .delete_offer{
     position: absolute;
     left: 0;
     bottom: 25px;
@@ -472,7 +471,7 @@
     text-align: center;
 }
 
-.profile-block .timing .delete_offer a{
+.order-item .delete_offer a{
     color: #972639;
     font-size: 12px;
     font-family: 'Lato', sans-serif;
@@ -489,7 +488,7 @@
     transition: max-width 0.7s ease;
 }
 
-.profile-block .timing .delete_offer a:before{
+.order-item .delete_offer a:before{
     content: '';
     position: absolute;
     left: 0;
@@ -500,55 +499,50 @@
     background-size: contain;
 }
 
-.profile-block .timing .delete_offer a:hover{
+.order-item .delete_offer a:hover{
     max-width: 100%;
 }
 
 @media(max-width: 460px){
-    .profile-block .timing li{
+    .timing li{
         display: block;
         margin-left: 20px;
     }
-
-    .profile-block .timing li:after{
-        left: -9px;
-    }
 }
 
-.profile-block .timing li:first-child {
+.timing li:first-child {
     border: 0;
 }
 
-.profile-block .timing li:after {
-    width: 18px;
-    content: '';
-    height: 18px;
+.timing-icon{
     position: absolute;
+    width: 18px;
+    top: 9px;
     left: 0;
-    top: 12px;
-    right: auto;
-    bottom: auto;
-    background: url(../images/sprite.png) no-repeat -34px -137px;
 }
 
-.profile-block .timing li.time:after {
+.timing li.time:after {
     background: url(../images/clock.svg) no-repeat;
     background-size: contain;
     background-position: center center;
 }
 
-.profile-block .timing li.person:after {
+.timing li.person:after {
     background: url(../images/happy.svg) no-repeat;
     background-size: contain;
     background-position: center center;
 }
 
-.profile-block .timing strong {
+.timing li.money{
+    display: none;
+}
+
+.order-item strong {
     display: block;
     font-weight: normal;
 }
 
-.profile-block .timing strong.title {
+.order-item strong.title {
     display: block;
     color: #963d4c;
     font-size: 16px;
@@ -556,7 +550,7 @@
     font-weight: 700;
 }
 
-.profile-block .timing span {
+.order-item span {
     font-weight: bold;
 }
 
@@ -564,4 +558,52 @@
     overflow: hidden;
     padding: 30px 0 0;
     max-width: 700px;
+}
+
+.list-box{
+    display: none;
+}
+
+.print_notification_wrapper{
+    margin: 10px 0 0;
+}
+
+.to_print{
+    margin-left: 10px;
+}
+
+.check_activity{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 900;
+    border: 2px solid #000;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-radius: 2px;
+    cursor: pointer;
+    display: none;
+}
+
+.check_activity input{
+    display: none;
+}
+
+.check_activity .glyphicon{
+    position: absolute;
+    top: -6px;
+    left: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #089f02;
+    opacity: 0;
+}
+
+.check_activity:hover .glyphicon{
+    opacity: 0.5;
+}
+
+.check_activity input[type=checkbox]:checked ~ .glyphicon{
+    opacity: 1;
 }
