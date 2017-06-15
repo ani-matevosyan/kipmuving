@@ -234,11 +234,8 @@ $(document).ready(function () {
 
         setTimeout(function(){
             window.frames["myiframe"].print();
+            $("#printFrame").remove();
         },1000);
-
-        setTimeout(function(){
-           $("#printFrame").remove();
-        },10000);
     }
 
 
