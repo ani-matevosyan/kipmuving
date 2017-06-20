@@ -54,6 +54,7 @@ a{
     box-sizing: border-box;
 }
 
+@media print{
 
     .print-header{
         position: relative;
@@ -246,6 +247,10 @@ a{
         border-bottom: 1px solid #c4c4c4;
     }
 
+    .print-item-header img{
+        width: 161px;
+    }
+
     .print-item-header a:after,
     .print-item-footer a:after{
         content: "";
@@ -256,3 +261,5 @@ a{
         padding: 12px 0;
         border-top: 1px solid #c4c4c4;
     }
+
+}

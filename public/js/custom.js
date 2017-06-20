@@ -202,18 +202,18 @@ $(document).ready(function () {
     function openPrintDialogue(){
         var printItemHeader = '<div class="print-item-header">' +
             '<a href="'+document.location.origin+'">' +
-            '<img src="'+document.location.origin+'/images/kipmuving-atacama-logo.png" alt="Kipmuving logo">' +
+            '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
             '</a>' +
             '</div>',
             printItemFooter = '<div class="print-item-footer">' +
                 '<a href="'+document.location.origin+'">www.kipmuving.com</a>' +
                 '</div>';
 
-        $('<iframe name="myiframe" id="printFrame" style="display:none" >')
+        $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
             .appendTo('body')
             .contents()
             .find('head')
-            .append("<link rel='stylesheet' type='text/css' media='all' href='"+document.location.origin+"/css/print-style.min.css'>")
+            .append("<link rel='stylesheet' type='text/css' media='print' href='"+document.location.origin+"/css/print-style.min.css'>")
             .parent()
             .find('body')
             .append('<div class="print-header">' +
