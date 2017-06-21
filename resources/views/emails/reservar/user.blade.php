@@ -183,7 +183,7 @@
 														<tr>
 															<td width="51" height="39" valign="middle"
 																	style="font-size:0; line-height:0; padding-right:20px;">
-																<img src="{{ url($offer->activity->image_icon) }}"
+																<img src="{{ asset($offer->activity->image_icon) }}"
 																		 alt="activity image" align="left" vspace="0" hspace="0">
 															</td>
 															<td>

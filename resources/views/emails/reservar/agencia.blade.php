@@ -46,6 +46,12 @@
             background-position: center center;
             top: 10px;
         }
+        .timing li.money:after {
+            background: url(/images/coin.svg) no-repeat;
+            background-size: contain;
+            background-position: center center;
+            top: 18px;
+        }
         .timing strong{
             display: block;
             font-weight: normal;
@@ -107,7 +113,7 @@
                                                         <tr>
                                                             <td width="51" height="39" valign="middle"
                                                                 style="font-size:0; line-height:0; padding-right:20px;">
-                                                                <img src="{{ url($offer->activity->image_icon) }}"
+                                                                <img src="{{ asset($offer->activity->image_icon) }}"
                                                                      alt="activity image" align="left" vspace="0" hspace="0">
                                                             </td>
                                                             <td>
@@ -143,6 +149,10 @@
                                                             <strong>
                                                                 <span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
                                                             </strong>
+                                                        </li>
+                                                        <li class="money">
+                                                            <strong>Pagar en agencia</strong>
+                                                            <strong class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
                                                         </li>
                                                     </ul>
                                                 </td>
