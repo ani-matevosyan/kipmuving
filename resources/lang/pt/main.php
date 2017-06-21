@@ -228,6 +228,9 @@ return [
 	'we_will_not_share_email'       => 'Não compartilharemos seu e-mail pessoal com outros usuários.',
 	'update'                        => 'ATUALIZAR',
 	'here_you_will_find_adventures' => 'Aqui você encontrará todas as suas aventuras.',
+    'you_can_print'                   => 'Você pode imprimir suas reservas.',
+    'pick_activities_btn'             => 'Escolha as atividades',
+    'print_btn'                       => 'Imprimir',
 	
 	'send_confirmation_email'         => 'Enviar e-mail de confirmação',
 	'send_confirmation_email_message' => 'Lorem ipsum dolor sit ammet!',

@@ -229,6 +229,9 @@ return [
 	'we_will_not_share_email'       => 'We will not share your personal e-mail address with other users',
 	'update'                        => 'UPDATE',
 	'here_you_will_find_adventures' => 'Here you will find all your adventures.',
+    'you_can_print'                   => 'You can print your reservation.',
+    'pick_activities_btn'             => 'Pick activities',
+    'print_btn'                       => 'Print',
 	
 	'send_confirmation_email'         => 'Send confirmation email',
 	'send_confirmation_email_message' => 'Lorem ipsum dolor sit ammet!',

@@ -277,7 +277,7 @@
 								@endforeach
 							</ul>
                             <div class="print_notification_wrapper">
-							    You can print your reservation. <a href="#" class="btn btn-success to_print">Pick activities</a>
+							    {{ trans('main.you_can_print') }} <a href="#" class="btn btn-success to_print" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
                             </div>
 						</div>
 					@endif

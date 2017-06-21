@@ -242,10 +242,11 @@ $(document).ready(function () {
     var activity_checked = false;
 
     $('.to_print').on('click', function(e){
+        var printText = $(this).data('print-text');
         e.preventDefault();
         if(!activity_checked){
             $(".check_activity").show();
-            $(this).text("Print!");
+            $(this).text(printText);
             activity_checked = true;
         }else{
             if($(".check_activity input[type=checkbox]:checked").length){
