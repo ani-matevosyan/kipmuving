@@ -29,13 +29,13 @@
 
 .s_reservar .your-reservation .head p{
     font-size: 14px;
-    font-family:  'Lato', sans-serif;
+    font-family:  'CircularStd', sans-serif;
     font-weight: 400;
     margin:  0 0 10px;
 }
 
 .s_reservar .your-reservation .head p a{
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 700;
     color:  #000;
 }
@@ -154,7 +154,7 @@
 }
 
 .info-item h4{
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 500;
     padding-left: 13px;
 }
@@ -173,7 +173,7 @@
 }
 
 .payment-options h4{
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 500;
     font-size: 16px;
     display: block;

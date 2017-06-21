@@ -371,7 +371,7 @@ html {
 body {
     color: #000;
     min-width: 320px;
-    font: 14px/18px 'Lato', sans-serif;
+    font: 14px/18px 'CircularStd', sans-serif;
 }
 
 body.home2 .all-activities {
@@ -500,7 +500,7 @@ body.home2 .roteros-options .raised-form .text-field {
 #header.new .country > a {
     color: #fff;
     display: block;
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 700;
     font-size: 12px;
 }
@@ -600,7 +600,7 @@ body.home2 .roteros-options .raised-form .text-field {
 #nav ul a {
     color: #fff;
     font-size: 17px;
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 500;
 }
 
@@ -927,7 +927,7 @@ body.home2 .roteros-options .raised-form .text-field {
     color: #fff;
     background: #46350d;
     text-transform: uppercase;
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 700;
     font-size: 12px;
 }
@@ -1868,7 +1868,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 #footer .contact-form label {
     float: left;
-    min-width: 110px;
+    min-width: 120px;
     margin: 0 3px 0 0;
     font-size: 13px;
     line-height: 16px;
@@ -2834,7 +2834,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .important .title {
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 800;
 }
 
@@ -2854,7 +2854,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .cancellation_rules p span{
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 800;
 }
 
@@ -3197,7 +3197,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 .your-reservation .tenprocent{
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 700;
     font-size: 15px;
     color: #d9a91c;
@@ -3933,15 +3933,15 @@ body.home2 .roteros-options .raised-form .text-field {
     margin: 11px 0 0;
     text-transform: uppercase;
     color: #fff;
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 700;
     font-size: 20px;
     text-align: center;
 }
 
 .form_under_p span{
-    font-family: 'Lato', sans-serif;
-    font-weight: 900;
+    font-family: 'CircularStd', sans-serif;
+    font-weight: 800;
 }
 
 
