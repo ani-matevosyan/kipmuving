@@ -14,7 +14,7 @@ class setCity
 			$cities = [
 				'current' => 'pucon',
 				'list' => ['pucon', 'atacama'],
-				'entrance' => false
+				'entrance' => true
 			];
 			session()->put('cities', $cities);
 		}

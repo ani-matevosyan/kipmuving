@@ -259,5 +259,8 @@ return [
 	'cultural_small_text'       => 'Mergulhe na experiência cultural com o povo indígena mais importante do Chile.',
 	'cultural_big_text'         => 'Não só aprenda e se involucre com o povo mapuche, conheça também sua misteriosa e interessante cosmovisão, seus costumes ancestrais, seus rituais e jogos, além da sua deliciosa gastronomia. Não perca a oportunidade de viver esta experiência que, definitivamente, deixará uma marca em você.',
 	'cancel_activity'           => 'Cancelar atividade',
-    'added_to_calendar'         => 'Su actividad fue añadida a su panorama'
+    'added_to_calendar'         => 'Su actividad fue añadida a su panorama',
+	
+	#New 3 - 21.06.17
+	'summary' => 'Resumo',
 ];

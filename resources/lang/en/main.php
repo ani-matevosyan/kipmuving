@@ -260,5 +260,8 @@ return [
 	'cultural_small_text'       => 'Immerse in a cultural experience with the most important indigenous people in Chile.',
 	'cultural_big_text'         => 'Learn how to get involved not only with the people, but also with its mysterious and interesting cosmovision, its ancestral costumes, rituals and games, besides its delicious food. Don’t miss this experience that will definitely leave a trace on your heart.',
 	'cancel_activity'           => 'Cancel activity',
-    'added_to_calendar'         => 'Su actividad fue añadida a su panorama'
+    'added_to_calendar'         => 'Su actividad fue añadida a su panorama',
+	
+	#New 3 - 21.06.17
+	'summary' => 'Summary',
 ];

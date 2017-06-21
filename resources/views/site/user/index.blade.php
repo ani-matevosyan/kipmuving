@@ -246,8 +246,8 @@
 																	</strong>
 																@endif
 																<strong>
-																	<span>Summary: </span>{{ session('currency.type') }}
-																	$ {{ number_format($reservation->offer->price * (1 - config('kipmuving.discount')), 0, ".", ".") }}
+																	<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}
+																	$ {{ number_format(($reservation->offer->price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}
 																</strong>
 															</li>
 															<li class="person">
@@ -259,8 +259,7 @@
 															<li class="money">
 																<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
 																<strong>Pagar en agencia</strong>
-																<strong
-																		class="title">$ {{ number_format($reservation->offer->real_price * (1 - config('kipmuving.discount')) * $reservation->offer->reservation['persons'], 0, '.', ' ') }} </strong>
+																<strong class="title">CLP $ {{ number_format(($reservation->offer->real_price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}</strong>
 															</li>
 															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
 																<div class="delete_offer">
