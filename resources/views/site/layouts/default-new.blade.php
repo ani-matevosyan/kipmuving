@@ -21,29 +21,44 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-xs-6">
+
+						{{-----------------Version with picking city option---------------}}
+
+						{{--<div class="logo-wrapper">--}}
+							{{--<div class="logo">--}}
+								{{--<a href="{{ action('HomeController@index') }}">--}}
+									{{--<img src="{{ asset('/images/logo'.session('cities.current').'.svg') }}"--}}
+										  {{--alt="image description"--}}
+										  {{--onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">--}}
+								{{--</a>--}}
+							{{--</div>--}}
+							{{--<div class="dropdown location-dropdown">--}}
+								{{--<a href="#" data-toggle="dropdown">{{session('cities.current')}} <span class="glyphicon glyphicon-menu-down"></span></a>--}}
+								{{--<ul class="dropdown-menu">--}}
+									{{--@foreach(session('cities.list') as $city)--}}
+										{{--@continue(session('cities.current') == $city)--}}
+										{{--<li>--}}
+											{{--<a href="{{ action('CityController@setCity', [--}}
+												{{--'city' => $city,--}}
+												{{--'route' => \Illuminate\Support\Facades\Request::route()->getName()--}}
+											{{--]) }}">--}}
+												{{--<img src="{{ asset('/images/logo'.$city.'.svg') }}" alt="Kipmuving {{ $city }} logo">{{$city}}--}}
+											{{--</a>--}}
+										{{--</li>--}}
+									{{--@endforeach--}}
+								{{--</ul>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+
+						{{-----------------Version without picking city option---------------}}
+
 						<div class="logo-wrapper">
 							<div class="logo">
 								<a href="{{ action('HomeController@index') }}">
-									<img src="{{ asset('/images/logo'.session('cities.current').'.svg') }}"
-										  alt="image description"
-										  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
+									<img src="{{ asset('/images/KipMuving-white.svg') }}"
+										 alt="image description"
+										 onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
 								</a>
-							</div>
-							<div class="dropdown location-dropdown">
-								<a href="#" data-toggle="dropdown">{{session('cities.current')}} <span class="glyphicon glyphicon-menu-down"></span></a>
-								<ul class="dropdown-menu">
-									@foreach(session('cities.list') as $city)
-										@continue(session('cities.current') == $city)
-										<li>
-											<a href="{{ action('CityController@setCity', [
-												'city' => $city,
-												'route' => \Illuminate\Support\Facades\Request::route()->getName()
-											]) }}">
-												<img src="{{ asset('/images/logo'.$city.'.svg') }}" alt="Kipmuving {{ $city }} logo">{{$city}}
-											</a>
-										</li>
-									@endforeach
-								</ul>
 							</div>
 						</div>
 					</div>
