@@ -688,6 +688,7 @@
 .your-reservation.activity .price {
     padding: 0 0 12px;
     text-align: right;
+    white-space: nowrap;
 }
 
 
