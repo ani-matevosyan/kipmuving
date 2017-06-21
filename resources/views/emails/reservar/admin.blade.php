@@ -524,6 +524,7 @@
 																		 style="color:#000; text-decoration:none;"><span>{{ $user->email }}</span></a><br>
 															Persona: {{ $offer->reservation['persons'] }}<br>
 															Price: {{ $offer->real_price * (1 - config('kipmuving.discount')) }} CLP<br>
+															Summary: {{ $offer->real_price * $offer->reservation['persons'] * (1 - config('kipmuving.discount')) }} CLP<br>
 															&nbsp;
 														</address>
 													@endforeach
