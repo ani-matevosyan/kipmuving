@@ -205,17 +205,19 @@
 		</div>
 		<section id="viagem" class="s_viagem">
 			<div class="container">
-				<div class="block">
-					<h3>{{ trans('main.more_than_activities', ['activities' => 40]) }}</h3>
-					<p>{{ trans('main.all_activities_in_one_place') }}</p>
-				</div>
-				<div class="block">
-					<h3>{{ trans('main.more_time') }}</h3>
-					<p>{{ trans('main.enjoy_your_entire_trip') }}</p>
-				</div>
-				<div class="block">
-					<h3>{{ trans('main.all_agencies_together') }}</h3>
-					<p>{{ trans('main.what_you_can_see_here') }}</p>
+				<div class="block-wrapper">
+					<div class="block">
+						<h3>{{ trans('main.more_than_activities', ['activities' => 40]) }}</h3>
+						<p>{{ trans('main.all_activities_in_one_place') }}</p>
+					</div>
+					<div class="block">
+						<h3>{{ trans('main.more_time') }}</h3>
+						<p>{{ trans('main.enjoy_your_entire_trip') }}</p>
+					</div>
+					<div class="block">
+						<h3>{{ trans('main.all_agencies_together') }}</h3>
+						<p>{{ trans('main.what_you_can_see_here') }}</p>
+					</div>
 				</div>
 			</div>
 		</section>

@@ -149,7 +149,7 @@
 }
 
 .your-reservation .important-block .box.alert p{
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 800;
     font-size: 18px;
     color: #963d4c;
@@ -185,7 +185,7 @@
 }
 
 .your-reservation .important-block .box.alert .title span{
-    font-family: 'Lato', sans-serif;
+    font-family: 'CircularStd', sans-serif;
     font-weight: 700;
 }
 

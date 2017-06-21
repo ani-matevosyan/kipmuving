@@ -2,7 +2,7 @@
 
 .s_suprogram {
     max-width: 385px;
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 700;
     background: #fff;
     border: 1px solid #cccccc;
@@ -20,11 +20,11 @@
 .s_suprogram header p {
     margin: 0;
     font-size: 15px;
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 500;
 }
 .s_suprogram header p span {
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 700;
 }
 .s_suprogram ul {
@@ -53,7 +53,7 @@
 .s_suprogram ul li h4 {
     margin: 0; }
 .s_suprogram ul li span {
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 400;
 }
 .s_suprogram ul li span:before {
@@ -95,7 +95,7 @@
     margin: 0;
     line-height: 1; }
 .s_suprogram .total .totalprice span {
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 400;
     font-size: 12px;
     position: relative;
@@ -165,11 +165,11 @@
     .s_suprogram .reserve {
         font-size: 14px; } }
 .s_howitworks_sidebar {
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 400;
     color: #000; }
 .s_howitworks_sidebar span {
-    font-family: "Lato", sans-serif;
+    font-family: "CircularStd", sans-serif;
     font-weight: 700;
 }
 .s_howitworks_sidebar .section-container {
