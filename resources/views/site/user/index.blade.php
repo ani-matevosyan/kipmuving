@@ -80,23 +80,23 @@
 									<div class="my-intro">
 										<div class="img-holder">
 											<img src="/{{ $user->avatar }}" alt="your photo"
-													 onerror="this.src='/images/image-none.jpg';" id="youravatar">
+											     onerror="this.src='/images/image-none.jpg';" id="youravatar">
 											<form enctype="multipart/form-data"
-														action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
-														method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
+											      action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
+											      method="post" name="loadavatar" target="hiddenframe" class="loadavatar">
 												{{ csrf_field() }}
 												<input id="image" name="image" type="file">
 												<label for="image">Upload avatar</label>
 											</form>
 											<iframe id="hiddenframe" name="hiddenframe"
-															style="width:0px; height:0px; border:0px"></iframe>
+											        style="width:0px; height:0px; border:0px"></iframe>
 										</div>
 									</div>
 								</div>
 								<form class="profile-form form-horizontal" method="post"
-											action="{{ action('UserController@updateUser', $user->id) }}"
-											autocomplete="off"
-											enctype="multipart/form-data">
+								      action="{{ action('UserController@updateUser', $user->id) }}"
+								      autocomplete="off"
+								      enctype="multipart/form-data">
 									{{ csrf_field() }}
 									<div class="col-sm-10">
 										<div class="sub-row">
@@ -107,7 +107,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="number"
-																	 name="first_name" value="{{ $user->first_name }}">
+														       name="first_name" value="{{ $user->first_name }}">
 													</div>
 												</div>
 											</div>
@@ -120,7 +120,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="lname"
-																	 name="last_name" value="{{ $user->last_name }}">
+														       name="last_name" value="{{ $user->last_name }}">
 													</div>
 												</div>
 											</div>
@@ -133,8 +133,8 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="email" placeholder="" class="form-control" id="email"
-																	 name="email"
-																	 value="{{ $user->email }}">
+														       name="email"
+														       value="{{ $user->email }}">
 													</div>
 												</div>
 											</div>
@@ -147,7 +147,7 @@
 												<div class="col-xs-9">
 													<div class="text-field">
 														<input type="text" placeholder="" class="form-control" id="phone" name="phone"
-																	 value="{{ $user->phone }}">
+														       value="{{ $user->phone }}">
 													</div>
 												</div>
 											</div>
@@ -188,7 +188,7 @@
 							</div>
 						</div>
 					</div>
-					@if($user->reservations)
+					@if(isset($user->reservations))
 						<div class="my_adventures">
 							<header>
 								<h2>{{ trans('main.my_adventures') }}</h2>
@@ -196,28 +196,35 @@
 							</header>
 							<ul class="item-list">
 								@foreach ($user->reservations->where('status', true) as $reservation)
-									{{--{{ dd($user->reservations[2]->offer) }}--}}
-									@if($reservation->offer)
+									@if(isset($reservation->offer))
 										<li>
-                                            <label class="check_activity">
-                                                <input type="checkbox" name="to_print" value="{{$reservation['id']}}">
-                                                <i class="glyphicon glyphicon-ok"></i>
-                                            </label>
+											<label class="check_activity">
+												<input type="checkbox" name="to_print" value="{{$reservation['id']}}">
+												<i class="glyphicon glyphicon-ok"></i>
+											</label>
 											<div class="order-item">
 												<header>
-													<div class="ico">
-														<img alt="image description"
-															 src="{{ asset($reservation->offer->activity['image_icon']) }}"
-															 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
-													</div>
+													@if(isset($reservation->offer->activity['image_icon']))
+														<div class="ico">
+															<img alt="image description"
+															     src="{{ asset($reservation->offer->activity['image_icon']) }}"
+															     onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+														</div>
+													@endif
 													<div class="text">
-														<h2>
-															<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
-															   data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
-														</h2>
-														<strong class="sub-title">
-															{{ $reservation->offer->agency->name }} <span class="agency-address">{{ $reservation->offer->agency->address }}</span>
-														</strong>
+														@if (isset($reservation->offer->activity['id']) && isset($reservation->offer->activity['name']))
+															<h2>
+																<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
+																   data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
+															</h2>
+														@endif
+
+														@if(isset($reservation->offer->agency->name) && isset($reservation->offer->agency->address))
+															<strong class="sub-title">
+																{{ $reservation->offer->agency->name }} <span
+																		class="agency-address">{{ $reservation->offer->agency->address }}</span>
+															</strong>
+														@endif
 													</div>
 												</header>
 												<div class="cols-row">
@@ -225,46 +232,60 @@
 														<div class="list-box">
 															<strong class="title">{{ trans('main.you_must_take') }}</strong>
 															<ul class="list">
-																@foreach ($reservation->offer->includes as $include)
-																	<li>{{ $include }}</li>
-																@endforeach
+																@if(count($reservation->offer->includes) > 0)
+																	@foreach ($reservation->offer->includes as $include)
+																		<li>{{ $include }}</li>
+																	@endforeach
+																@endif
 															</ul>
 														</div>
 													</div>
 													<div class="col">
 														<ul class="timing">
-															<li class="time">
-																<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">
-																<strong class="title">{{ trans('emails.day') }} : {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
-																<strong>
-																<span>{{ trans('main.duration') }} : </span> {{ $reservation->offer->duration }} hrs
-																</strong>
-																@if ($reservation->time)
+															@if(isset($reservation->reserve_date) && isset($reservation->offer->duration) && isset($reservation->time['start'])
+																&& isset($reservation->time['end']) && isset($reservation->offer->price) && isset($reservation->persons))
+																<li class="time">
+																	<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">
+																	<strong class="title">{{ trans('emails.day') }}
+																		: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
 																	<strong>
-																		<span>{{ trans('main.schedule') }} :</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
-																		{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
+																		<span>{{ trans('main.duration') }} : </span> {{ $reservation->offer->duration }} hrs
 																	</strong>
-																@endif
-																<strong>
-																	<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}
-																	$ {{ number_format(($reservation->offer->price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}
-																</strong>
-															</li>
-															<li class="person">
-																<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">
-																<strong>
-																	<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
-																</strong>
-															</li>
-															<li class="money">
-																<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
-																<strong>Pagar en agencia</strong>
-																<strong class="title">CLP $ {{ number_format(($reservation->offer->real_price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}</strong>
-															</li>
+																	@if ($reservation->time)
+																		<strong>
+																			<span>{{ trans('main.schedule') }} :</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
+																			{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
+																		</strong>
+																	@endif
+																	<strong>
+																		<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}
+																		$ {{ number_format(($reservation->offer->price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}
+																	</strong>
+																</li>
+															@endif
+
+															@if(isset($reservation->persons))
+																<li class="person">
+																	<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">
+																	<strong>
+																		<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
+																	</strong>
+																</li>
+															@endif
+
+															@if(isset($reservation->offer->real_price) && isset($reservation->persons))
+																<li class="money">
+																	<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
+																	<strong>Pagar en agencia</strong>
+																	<strong class="title">CLP
+																		$ {{ number_format(($reservation->offer->real_price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}</strong>
+																</li>
+															@endif
+
 															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
 																<div class="delete_offer">
 																	<a
-																		href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
+																			href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
 																</div>
 															@endif
 														</ul>
@@ -275,31 +296,32 @@
 									@endif
 								@endforeach
 							</ul>
-                            <div class="print_notification_wrapper">
-							    {{ trans('main.you_can_print') }} <a href="#" class="btn btn-success to_print" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
-                            </div>
+							<div class="print_notification_wrapper">
+								{{ trans('main.you_can_print') }} <a href="#" class="btn btn-success to_print"
+								                                     data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
+							</div>
 						</div>
 					@endif
 				</div>
 			</div>
 	</main>
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="printWarning">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a href="#" data-dismiss="modal" class="close">close</a>
-                    <h4 class="modal-title">Check an activity</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Check at least one activity to print.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Ok</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="printWarning">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<a href="#" data-dismiss="modal" class="close">close</a>
+					<h4 class="modal-title">Check an activity</h4>
+				</div>
+				<div class="modal-body">
+					<p>Check at least one activity to print.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
 		<div class="modal-dialog">

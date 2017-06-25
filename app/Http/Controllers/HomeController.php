@@ -17,6 +17,8 @@ class HomeController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
+//		session()->forget('currency');
+//		session()->forget('currencies');
 //		$images = ActivityImage::get();
 //
 //		$files = File::files(public_path('uploads/activity'));
