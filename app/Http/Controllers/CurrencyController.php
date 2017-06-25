@@ -17,7 +17,7 @@ class CurrencyController extends Controller
 		$currencies = Currency::select('code', 'value', 'updated_at')
 			->get();
 		$data = [];
-		if (in_array($code, ['USD', 'CLP', 'BRL'])) {
+		if (in_array($code, ['USD', 'CLP', 'BRL', 'ILS'])) {
 			
 			foreach ($currencies as $currency) {
 				$values[$currency['code']] = $currency['value'];
