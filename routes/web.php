@@ -35,6 +35,8 @@ Route::group(['prefix' => 'pucon'], function () {
 	Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
 });
 
+#Tests
+Route::get('/tests/translations', 'HomeController@getTranslations');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index')->name('home');

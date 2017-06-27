@@ -209,7 +209,8 @@
 									<div class="col-xs-6">
 										<strong>$ {{ number_format($reservation->total['CLP'] * config('kipmuving.discount'), 0, ".", ".") }}</strong>
 										<span>$ {{ number_format($reservation->total['USD'] * config('kipmuving.discount'), 0, ".", ".") }}
-											/ R$ {{ number_format($reservation->total['BRL'] * config('kipmuving.discount'), 0, ".", ".") }}</span>
+											/ R$ {{ number_format($reservation->total['BRL'] * config('kipmuving.discount'), 0, ".", ".") }}
+											/ {{ number_format($reservation->total['ILS'] * config('kipmuving.discount'), 0, ".", ".") }} ILS</span>
 									</div>
 								</div>
 							</div>
@@ -221,7 +222,8 @@
 									<div class="col-xs-6">
 										<strong>$ {{ number_format($reservation->total->to_pay['CLP'], 0, ".", ".") }}</strong>
 										<span>$ {{ number_format($reservation->total->to_pay['USD'], 0, ".", ".") }}
-											/ R$ {{ number_format($reservation->total->to_pay['BRL'], 0, ".", ".") }}</span>
+											/ R$ {{ number_format($reservation->total->to_pay['BRL'], 0, ".", ".") }}
+											/ {{ number_format($reservation->total->to_pay['ILS'], 0, ".", ".") }} ILS</span>
 										@if ($reservation->total->to_pay['CLP'] == 2000)
 											<span>*pago minimo</span>
 										@endif

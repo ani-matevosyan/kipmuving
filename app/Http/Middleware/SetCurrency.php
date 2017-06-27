@@ -23,7 +23,7 @@ class setCurrency
 				if (Carbon::now()->subMinutes($time) > Carbon::parse($currencies[0]['updated_at'])) {
 					#Get currency
 					#TODO change link
-					$url = 'http://apilayer.net/api/live?access_key=390417d6045e37cadb7b22ad884ca4df&currencies=CLP,BRL&format=1';
+					$url = 'http://apilayer.net/api/live?access_key=390417d6045e37cadb7b22ad884ca4df&currencies=CLP,BRL,ILS&format=1';
 					$json = json_decode(file_get_contents($url), true);
 					#Update currencies in DB
 					foreach ($currencies as $currency) {
@@ -77,7 +77,7 @@ class setCurrency
 		}
 		
 		if (!session()->has('currencies')) {
-			$data = ['USD', 'CLP', 'BRL'];
+			$data = ['USD', 'CLP', 'BRL', 'ILS'];
 			session()->put('currencies', $data);
 		}
 		

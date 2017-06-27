@@ -150,6 +150,8 @@ class Offer extends Model
 			$price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+		elseif (session('currency.type') == 'ILS')
+			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
 		
 		return round($price, 2);
 	}
@@ -176,6 +178,8 @@ class Offer extends Model
 			$price = round($price / session('currency.values.USDCLP'));
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
+		elseif (session('currency.type') == 'ILS')
+			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'));
 		
 		return round($price, 2);
 	}
