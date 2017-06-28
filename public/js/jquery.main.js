@@ -23,7 +23,7 @@ jQuery(document).ready(function () {
     $(".burger-menu").click(function () {
         if(!opened){
             $(this).toggleClass("menu-on");
-            $("#header.new #nav").addClass("active");
+            $(".top_nav").addClass("active");
             $("body").css("overflow-y", "hidden");
             opened = true;
         }
@@ -31,7 +31,7 @@ jQuery(document).ready(function () {
     $(".nav-cover").click(function(){
         if(opened){
             $(".burger-menu").toggleClass("menu-on");
-            $("#header.new #nav").removeClass("active");
+            $(".top_nav").removeClass("active");
             $("body").css("overflow-y", "visible");
             opened = false;
         }

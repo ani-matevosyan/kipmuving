@@ -3,7 +3,7 @@
 {{-- Subpage --}}
 @section('subpage')
 <div id="m-box-3">
-    <div class="all-activities custom_title">
+    <div class="guide-header">
         <header>
             <h1>{{ trans('main.by_car_or_bus') }}</h1>
             <p>{{ trans('main.car_small_text') }}</p>

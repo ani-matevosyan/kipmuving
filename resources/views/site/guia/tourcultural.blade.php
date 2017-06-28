@@ -3,7 +3,7 @@
 {{-- Subpage --}}
 @section('subpage')
 <div id="m-box-4">
-    <div class="all-activities custom_title">
+    <div class="guide-header">
         <header>
             <h1>{{ trans('main.cultural_tour') }}</h1>
             <p>{{ trans('main.cultural_small_text') }}</p>

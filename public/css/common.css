@@ -1,10 +1,35 @@
-#nav ul, .two-columns .list, .two-columns .meta, .roteros-options .list, .activities .list, .packages .list, .activities-list, .res-process .col ul, #footer .footer-nav ul, #footer .payment-cards, .reservation .payment-card, .program-schedule ul, .transparent-price .list, .social-likes ul, .your-reservation.new .timing1, .your-reservation .accordion, .your-reservation .list-box .list, .your-reservation .timing, .your-reservation .subnav ul, .your-reservation .links, .your-reservation .you-add .list, .your-reservation .category, .your-reservation .widget ul, .your-reservation .important-block .list, .table .tbody, .profile-block .tablist, .profile-block .item-list, .profile-block .timing, .all-activities .subnav ul {
+@-webkit-viewport {
+    width: device-width;
+}
+
+@-moz-viewport {
+    width: device-width;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@-o-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
+
+.main-wrapper{
+    overflow-x: hidden;
+    position: relative;
+}
+
+.top_nav ul, .two-columns .list, .two-columns .meta, .roteros-options .list, .activities .list, .packages .list, .activities-list, .res-process .col ul, #footer .footer-nav ul, #footer .payment-cards, .reservation .payment-card, .program-schedule ul, .transparent-price .list, .social-likes ul, .your-reservation.new .timing1, .your-reservation .accordion, .your-reservation .list-box .list, .your-reservation .timing, .your-reservation .subnav ul, .your-reservation .links, .your-reservation .you-add .list, .your-reservation .category, .your-reservation .widget ul, .your-reservation .important-block .list, .table .tbody, .profile-block .tablist, .profile-block .item-list, .profile-block .timing, .all-activities .subnav ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-#header:after, #main:after, .activites-bar:after, .activities-list:after, .your-reservation:after, .your-reservation.activity .accordion header:after, .your-reservation .you-add .list li:after, .your-reservation .important-block .box:after {
+.main_header:after, #main:after, .activites-bar:after, .activities-list:after, .your-reservation:after, .your-reservation.activity .accordion header:after, .your-reservation .you-add .list li:after, .your-reservation .important-block .box:after {
     clear: both;
     content: '';
     display: block;
@@ -310,26 +335,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
     max-height: 1000000px;
 }
 
-@-webkit-viewport {
-    width: device-width;
-}
-
-@-moz-viewport {
-    width: device-width;
-}
-
-@-ms-viewport {
-    width: device-width;
-}
-
-@-o-viewport {
-    width: device-width;
-}
-
-@viewport {
-    width: device-width;
-}
-
 input[type=text], input[type=password],
 input[type=file], input[type=email],
 input[type=submit], input[type=tel], textarea {
@@ -372,43 +377,45 @@ body {
     color: #000;
     min-width: 320px;
     font: 14px/18px 'CircularStd', sans-serif;
+    overflow-x: hidden;
+    position: relative;
 }
 
-body.home2 .all-activities {
-    padding: 50px 0;
+.all-activities {
+    padding-top: 25px;
 }
 
-body.home2 .all-activities.all-activities-header{
+.all-activities.all-activities-header{
     padding: 0;
 }
 
 @media (max-width: 767px) {
-    body.home2 .all-activities {
+    .all-activities {
         padding: 20px 0;
     }
 }
 
-body.home2 .all-activities header {
+.all-activities header {
     text-align: center;
     margin: 0 auto 40px;
 }
 
 @media (max-width: 767px) {
-    body.home2 .all-activities header {
+    .all-activities header {
         margin: 0 auto 20px;
     }
 }
 
-body.home2 .all-activities .btn-holder {
+.all-activities .btn-holder {
     text-align: center;
 }
 
-body.home2 .all-activities .btn-success {
+.all-activities .btn-success {
     padding: 10px;
     min-width: 200px;
 }
 
-body.home2 .roteros-options h2 {
+.roteros-options h2 {
     color: #fff;
     font-size: 36px;
     font-weight: 600;
@@ -417,13 +424,13 @@ body.home2 .roteros-options h2 {
 }
 
 @media (max-width: 767px) {
-    body.home2 .roteros-options h2 {
+    .roteros-options h2 {
         font-size: 22px;
         line-height: 26px;
     }
 }
 
-body.home2 .roteros-options .sub-title {
+.roteros-options .sub-title {
     color: #fff;
     font-size: 16px;
     line-height: 20px;
@@ -431,13 +438,13 @@ body.home2 .roteros-options .sub-title {
 }
 
 @media (max-width: 767px) {
-    body.home2 .roteros-options .sub-title {
+    .roteros-options .sub-title {
         font-size: 16px;
         line-height: 20px;
     }
 }
 
-body.home2 .roteros-options .box {
+.roteros-options .box {
     border: 0;
     width: 500px;
     margin: 30px 0;
@@ -445,42 +452,30 @@ body.home2 .roteros-options .box {
 }
 
 @media (max-width: 767px) {
-    body.home2 .roteros-options .box {
+    .roteros-options .box {
         width: auto;
     }
 }
 
-body.home2 .raised-form {
+.raised-form {
     margin: 0 auto;
     padding: 0 5% 0 3%;
 }
 
 @media (max-width: 767px) {
-    body.home2 .raised-form {
+    .raised-form {
         padding: 0;
     }
 }
 
-body.home2 .roteros-options .raised-form .text-field {
+.roteros-options .raised-form .text-field {
     width: 25%;
 }
 
 @media (max-width: 767px) {
-    body.home2 .roteros-options .raised-form .text-field {
+    .roteros-options .raised-form .text-field {
         width: auto;
     }
-}
-
-#wrapper {
-    overflow: hidden;
-    position: relative;
-}
-
-.w1 {
-    right: 0;
-    position: relative;
-    -webkit-transition: right 0.5s linear;
-    transition: right 0.5s linear;
 }
 
 .header-panel{
@@ -497,7 +492,7 @@ body.home2 .roteros-options .raised-form .text-field {
     clear: both;
 }
 
-#header.new .country > a {
+.main_header .country > a {
     color: #fff;
     display: block;
     font-family: 'CircularStd', sans-serif;
@@ -505,48 +500,41 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 12px;
 }
 
-#header.new .btn-holder {
+.main_header .btn-holder {
     float: left;
     padding: 12px 0;
     position: relative;
 }
 
-#header.new .btn-holder .dropdown-menu{
+.main_header .btn-holder .dropdown-menu{
     min-width: 100%;
     background: #ce8902;
     top: 90%;
 }
 
-#header.new .btn-holder .dropdown-menu li{
+.main_header .btn-holder .dropdown-menu li{
     margin-bottom: 5px;
 }
 
-#header.new .btn-holder .dropdown-menu li:last-child{
+.main_header .btn-holder .dropdown-menu li:last-child{
     margin-bottom: 0;
 }
 
-#header.new .btn-holder .dropdown-menu li .btn-primary{
+.main_header .btn-holder .dropdown-menu li .btn-primary{
     border-radius: 0;
     max-width: none;
 }
 
-#header.new .btn-primary {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding: 6px 12px;
-}
-
-#header.new .btn-holder .btn-primary.orange-btn{
+.main_header .btn-primary.orange-btn{
     background: #ce8902;
     max-width: 90px;
 }
 
-#header.new .btn-holder .btn-primary.orange-btn:hover{
+.main_header .btn-primary.orange-btn:hover{
     background: #f0b916;
 }
 
-#header.new .avatar-wrapp{
+.main_header .avatar-wrapp{
     width: 31px;
     height: 31px;
     display: inline-block;
@@ -554,7 +542,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 
-#header.new .avatar-wrapp img{
+.main_header .avatar-wrapp img{
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -563,48 +551,43 @@ body.home2 .roteros-options .raised-form .text-field {
     border-radius: 50%;
 }
 
-#header.new #nav {
+.top_nav {
     text-align: center;
     padding: 17px 0;
-}
-
-#nav {
     overflow: hidden;
-    text-align: left;
-    padding: 8px 0 0;
 }
 
 @media (max-width: 991px) {
-    #nav {
+    .top_nav {
         padding: 0;
     }
 }
 
-#nav ul {
+.top_nav ul {
     overflow: hidden;
     font-size: 16px;
     line-height: 21px;
     font-weight: 400;
 }
 
-#nav ul li {
+.top_nav ul li {
     margin: 0 8% 0 0;
     display: inline-block;
     vertical-align: top;
 }
 
-#nav ul li:last-child{
+.top_nav ul li:last-child{
     margin: 0;
 }
 
-#nav ul a {
+.top_nav ul a {
     color: #fff;
     font-size: 17px;
     font-family: "CircularStd", sans-serif;
     font-weight: 500;
 }
 
-#nav ul a:hover {
+.top_nav ul a:hover {
     color: #eab011;
 }
 
@@ -628,7 +611,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 
-#header.new .country .glyphicon{
+.main_header .country .glyphicon{
     position: absolute;
     top: 200%;
     right: 0;
@@ -648,16 +631,16 @@ body.home2 .roteros-options .raised-form .text-field {
     box-shadow: 2px 2px 0 0 #6b5216;
 }
 
-#header.new .pick-curr .current-curr{
+.main_header .pick-curr .current-curr{
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
 }
 
-#header.new .pick-curr:hover .current-curr{
+.main_header .pick-curr:hover .current-curr{
     color: #eab011;
 }
 
-#header .country .pick-lang img{
+.main_header .country .pick-lang img{
     margin: 0;
 }
 
@@ -684,7 +667,7 @@ body.home2 .roteros-options .raised-form .text-field {
     display: block;
 }
 
-#header .country .choose-lang li img{
+.main_header .country .choose-lang li img{
     -webkit-transition: all .2s cubic-bezier(.35,-0.62,.64,1.73);
     transition: all .2s cubic-bezier(.35,-0.62,.64,1.73);
     -o-object-position: center;
@@ -693,12 +676,12 @@ body.home2 .roteros-options .raised-form .text-field {
     transform: scale(0.8);
 }
 
-#header .country .choose-lang li:hover img{
+.main_header .country .choose-lang li:hover img{
     -webkit-transform: scale(1);
     transform: scale(1);
 }
 
-#header .country .choose-lang li a{
+.main_header .country .choose-lang li a{
     display: block;
     padding: 3px 0;
 }
@@ -708,11 +691,11 @@ body.home2 .roteros-options .raised-form .text-field {
     box-shadow: 2px 2px 0 0 #6b5216;
 }
 
-#header.new .pick-curr.pressed .current-curr{
+.main_header .pick-curr.pressed .current-curr{
     color: #eab011;
 }
 
-#header .country .choose-curr li a{
+.main_header .country .choose-curr li a{
     color: #fff;
     font-size: 12px;
     display: block;
@@ -720,12 +703,12 @@ body.home2 .roteros-options .raised-form .text-field {
     padding: 5px 0;
 }
 
-#header .country .choose-curr li a:hover{
+.main_header .country .choose-curr li a:hover{
     background: #f0b916;
 }
 
-#header.new .country .pick-lang.pressed .glyphicon,
-#header.new .country .pick-curr.pressed .glyphicon{
+.main_header .country .pick-lang.pressed .glyphicon,
+.main_header .country .pick-curr.pressed .glyphicon{
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -900,13 +883,13 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 
-#header.new .logo {
+.logo {
     width: 122px;
     float: left;
     margin: 0;
 }
 
-#header {
+.main_header {
     z-index: 500;
     position: relative;
     top: 0;
@@ -919,11 +902,15 @@ body.home2 .roteros-options .raised-form .text-field {
 
 
 
-#header .logo img {
+.logo img {
     width: 100%;
 }
 
-#header .btn-primary {
+.main_header .btn-primary {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 6px 12px;
     color: #fff;
     background: #46350d;
     text-transform: uppercase;
@@ -932,11 +919,11 @@ body.home2 .roteros-options .raised-form .text-field {
     font-size: 12px;
 }
 
-#header .btn-primary:hover {
+.main_header .btn-primary:hover {
     background: #ce8902;
 }
 
-#header .country {
+.main_header .country {
     position: relative;
     float: left;
     margin: 18px 28px 0 0;
@@ -944,7 +931,7 @@ body.home2 .roteros-options .raised-form .text-field {
 
 
 
-#header .country:before{
+.main_header .country:before{
     content: '';
     position: absolute;
     height: 100%;
@@ -954,7 +941,7 @@ body.home2 .roteros-options .raised-form .text-field {
     background: #00626F;
 }
 
-#header .country img {
+.main_header .country img {
     width: 25px;
     height: 16px;
     -o-object-fit: contain;
@@ -966,7 +953,7 @@ body.home2 .roteros-options .raised-form .text-field {
     vertical-align: middle;
 }
 
-#header .country span {
+.main_header .country span {
     color: #fff;
     font-size: 12px;
     line-height: 16px;
@@ -975,33 +962,33 @@ body.home2 .roteros-options .raised-form .text-field {
     vertical-align: middle;
 }
 
-#header .country .dropdown-menu {
+.main_header .country .dropdown-menu {
     padding: 0;
     margin: 9px 0 0;
     overflow: hidden;
 }
 
-#header .country .dropdown-menu li {
+.main_header .country .dropdown-menu li {
     overflow: hidden;
 }
 
-#header .country .dropdown-menu a {
+.main_header .country .dropdown-menu a {
     color: #000;
     display: block;
     padding: 5px 10px;
 }
 
-#header .country .dropdown-menu span {
+.main_header .country .dropdown-menu span {
     color: #000;
 }
 
-#header .profile {
+.main_header .profile {
     padding-left: 10px;
     display: inline-block;
     vertical-align: top;
 }
 
-#header .profile .ico {
+.main_header .profile .ico {
     width: 27px;
     height: 27px;
     overflow: hidden;
@@ -1011,7 +998,7 @@ body.home2 .roteros-options .raised-form .text-field {
     vertical-align: middle;
 }
 
-#header .profile span {
+.main_header .profile span {
     color: #8ea1a1;
     font-size: 12px;
     line-height: 16px;
@@ -1020,7 +1007,7 @@ body.home2 .roteros-options .raised-form .text-field {
     vertical-align: middle;
 }
 
-#header .profile img {
+.main_header .profile img {
     width: 100%;
     display: block;
     height: auto;
@@ -1029,13 +1016,13 @@ body.home2 .roteros-options .raised-form .text-field {
 /*--------------RESPONSIVE PART---------------*/
 
 @media screen and (max-width: 1149px) and (min-width: 992px){
-    #header.new .logo{
+    .logo{
         margin-left: -25px;
     }
 }
 
 @media(min-width: 992px){
-    #header.new #nav{
+    .top_nav{
         visibility: visible !important;
     }
 }
@@ -1049,10 +1036,10 @@ body.home2 .roteros-options .raised-form .text-field {
         display: block;
     }
 
-    #header.new .country{
+    .main_header .country{
         margin-right: 30px;
     }
-    #header.new #nav{
+    .top_nav{
         position: fixed;
         padding: 0 10px;
         top: 0;
@@ -1075,12 +1062,12 @@ body.home2 .roteros-options .raised-form .text-field {
         transition: all 0.3s ease;
     }
 
-    #header.new #nav.active{
+    .top_nav.active{
         visibility: visible;
         opacity: 1;
     }
 
-    #nav ul{
+    .top_nav ul{
         border: 1px solid #fff;
         padding: 60px 40px;
         background: rgb(3, 20, 29);
@@ -1088,8 +1075,8 @@ body.home2 .roteros-options .raised-form .text-field {
         z-index: 999;
     }
 
-    #nav ul:before,
-    #nav ul:after{
+    .top_nav ul:before,
+    .top_nav ul:after{
         content: '';
         position: absolute;
         top: 0;
@@ -1101,7 +1088,7 @@ body.home2 .roteros-options .raised-form .text-field {
         -webkit-transform: rotate(1deg);
         transform: rotate(1deg);
     }
-    #nav ul:after{
+    .top_nav ul:after{
         -webkit-transform: rotate(-1deg);
         transform: rotate(-1deg);
     }
@@ -1118,12 +1105,12 @@ body.home2 .roteros-options .raised-form .text-field {
         transition: all 0.3s ease;
     }
 
-    #nav ul li {
+    .top_nav ul li {
         margin: 0;
         display: block;
     }
 
-    #nav ul a {
+    .top_nav ul a {
         display: block;
         padding: 20px 20px;
         font-size: 25px;
@@ -1131,7 +1118,7 @@ body.home2 .roteros-options .raised-form .text-field {
         font-weight: 700;
     }
 
-    #nav ul a:hover {
+    .top_nav ul a:hover {
         color: #46350d;
     }
 
@@ -1145,14 +1132,14 @@ body.home2 .roteros-options .raised-form .text-field {
 
 @media screen and (max-width: 606px){
 
-    #header.new .avatar-wrapp{
+    .main_header .avatar-wrapp{
         display: none;
     }
 
 }
 
 @media screen and (max-width: 540px){
-    #header.new .logo{
+    .logo{
         float: none;
     }
 
@@ -1170,17 +1157,17 @@ body.home2 .roteros-options .raised-form .text-field {
         top: 30px;
     }
 
-    #header.new .country{
+    .main_header .country{
         margin: 10px 0 0;
         float: none;
         text-align: right;
     }
 
-    #header.new .country:before{
+    .main_header .country:before{
         display: none;
     }
 
-    #header .country:after{
+    .main_header .country:after{
         content: '';
         display: table;
         clear: both;
@@ -1197,16 +1184,16 @@ body.home2 .roteros-options .raised-form .text-field {
         vertical-align: middle;
     }
 
-    #header.new .btn-holder{
+    .main_header .btn-holder{
         float: none;
         padding: 9px 0 0;
     }
 
-    #header.new .btn-holder .dropdown-menu{
+    .main_header .btn-holder .dropdown-menu{
         top: 100%;
     }
 
-    #header.new .btn-primary{
+    .main_header .btn-primary{
         display: block;
         font-size: 11px;
         margin: 4px 0;
@@ -1214,7 +1201,7 @@ body.home2 .roteros-options .raised-form .text-field {
 }
 
 @media screen and (max-width: 480px){
-    #nav ul a{
+    .top_nav ul a{
         font-size: 22px;
         letter-spacing: normal;
         font-weight: 500;
@@ -3811,117 +3798,6 @@ body.home2 .roteros-options .raised-form .text-field {
     background: url(../images/ico-close2.png) no-repeat;
 }
 
-.wifi-block {
-    width: 100%;
-    height: 100%;
-    display: table;
-    padding: 20px 10px;
-    table-layout: fixed;
-}
-
-.wifi-block .box {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.wifi-block .wifi {
-    width: 428px;
-    padding: 40px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
-    background: #fff;
-    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-}
-
-@media (max-width: 767px) {
-    .wifi-block .wifi {
-        width: auto;
-        padding: 20px 20px;
-    }
-}
-
-.wifi-block .img-holder {
-    width: 116px;
-    overflow: hidden;
-    margin: 0 auto 30px;
-}
-
-.wifi-block h1 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    line-height: 28px;
-    font-weight: 400;
-}
-
-.wifi-block h1 span {
-    font-weight: bold;
-}
-
-@media (max-width: 767px) {
-    .wifi-block h1 {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 400;
-    }
-}
-
-.wifi-block .form-control {
-    height: 38px;
-    color: #000;
-    padding: 5px 14px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    border: 1px solid #e4e4e4;
-}
-
-.wifi-block .form-control::-webkit-input-placeholder {
-    color: #000;
-}
-
-.wifi-block .form-control::-moz-placeholder {
-    opacity: 1;
-    color: #000;
-}
-
-.wifi-block .form-control:-moz-placeholder {
-    color: #000;
-}
-
-.wifi-block .form-control:-ms-input-placeholder {
-    color: #000;
-}
-
-.wifi-block .form-control.placeholder {
-    color: #000;
-}
-
-.wifi-block .col {
-    padding: 0 3px 5px;
-}
-
-@media (max-width: 767px) {
-    .wifi-block .col {
-        padding: inherit;
-        margin: 0 0 5px;
-    }
-}
-
-.wifi-block .btn-primary {
-    border: 0;
-    float: right;
-    margin: 10px 0 0;
-    padding: 8px 10px;
-    border-radius: 4px;
-    background: #00577a;
-}
-
-.wifi-block .btn-primary:hover {
-    opacity: 0.9;
-}
-
 @media (max-width: 767px) {
     #CDSWIDSSP {
         margin: 0 0 10px !important;
@@ -4016,14 +3892,12 @@ body.home2 .roteros-options .raised-form .text-field {
 .popover a {
     color: #089f02;
 }
-body.home2 .all-activities {
-    padding-top: 25px;
-}
-body.home2 .all-activities.new header {
+
+.all-activities.new header {
     text-align: left;
     margin: 0 0 20px;
 }
-body.home2 .all-activities .btn-success {
+.all-activities .btn-success {
     font-size: 15px;
 }
 .img-chart {
@@ -4356,8 +4230,6 @@ body.home2 .all-activities .btn-success {
         padding-left: 10px;
     }
 }
-.your-reservation .all-activities {
-    overflow: visible; }
 
 .your-reservation.activity .btn-primary {
     float: right;

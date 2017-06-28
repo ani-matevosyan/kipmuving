@@ -5,7 +5,7 @@
 
 <div id="m-box-1">
 
-    <div class="all-activities custom_title">
+    <div class="guide-header">
         <header>
             <h1>{{ trans('main.walking') }}</h1>
             <p>{{ trans('main.walking_small_text') }}</p>
