@@ -133,7 +133,7 @@
 					@endif
 				</div>
 			</div>
-			@if($offer['description'])
+			@if(isset($offer['description']))
 				<div class="offer-item-desc">
 					<p>{{ $offer['description'] }}</p>
 				</div>
