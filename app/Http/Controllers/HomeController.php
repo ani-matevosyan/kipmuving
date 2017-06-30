@@ -17,6 +17,9 @@ class HomeController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
+	
+		$this->testCode();
+	
 //		session()->forget('currency');
 //		session()->forget('currencies');
 //		$images = ActivityImage::get();
@@ -120,6 +123,12 @@ class HomeController extends Controller
 			
 			echo '<br>-----------------------------------';
 		}
+		
+	}
+	
+	public function testCode() {
+		
+		//test your code here ;)
 		
 	}
 	
