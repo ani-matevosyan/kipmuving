@@ -14,7 +14,7 @@
     margin: 20px 0 7px;
     font-size: 34px;
     line-height: 38px;
-    font-family: 'CircularStd', sans-serif;
+    font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
 }
 
@@ -118,7 +118,7 @@
 .profile-block .my-intro {
     color: #45484a;
     margin: 0 0 30px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 @media (max-width: 639px) {
@@ -233,7 +233,7 @@
     border: 1px solid #c9c9c9;
     font-size: 14px;
     line-height: 26px;
-    font-weight: 600;
+    font-weight: 700;
     color: #46494b;
 }
 
@@ -273,7 +273,7 @@
     color: #000;
     font-size: 14px;
     line-height: 20px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .profile-block .profile-form a {
@@ -389,14 +389,14 @@
     color: #089f02;
     font-size: 24px;
     line-height: 28px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 @media (max-width: 991px) {
     .profile-block .item-list h2 {
         font-size: 18px;
         line-height: 22px;
-        font-weight: 500;
+        font-weight: 400;
     }
 }
 
@@ -427,7 +427,7 @@
     padding-left: 10px;
     font-size: 12px;
     line-height: 18px;
-    font-weight: 500;
+    font-weight: 400;
     display: none;
     vertical-align: middle;
 }
@@ -474,8 +474,8 @@
 .order-item .delete_offer a{
     color: #972639;
     font-size: 12px;
-    font-family: 'CircularStd', sans-serif;
-    font-weight: 500;
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 400;
     text-transform: uppercase;
     position: relative;
     padding-left: 31px;

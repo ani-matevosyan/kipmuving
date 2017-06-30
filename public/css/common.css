@@ -376,7 +376,7 @@ html {
 body {
     color: #000;
     min-width: 320px;
-    font: 14px/18px 'CircularStd', sans-serif;
+    font: 14px/18px 'PT-Sans', sans-serif;
     overflow-x: hidden;
     position: relative;
 }
@@ -418,7 +418,7 @@ body {
 .roteros-options h2 {
     color: #fff;
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 44px;
     text-transform: none;
 }
@@ -495,7 +495,7 @@ body {
 .main_header .country > a {
     color: #fff;
     display: block;
-    font-family: 'CircularStd', sans-serif;
+    font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
     font-size: 12px;
 }
@@ -583,8 +583,8 @@ body {
 .top_nav ul a {
     color: #fff;
     font-size: 17px;
-    font-family: "CircularStd", sans-serif;
-    font-weight: 500;
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 400;
 }
 
 .top_nav ul a:hover {
@@ -914,7 +914,7 @@ body {
     color: #fff;
     background: #46350d;
     text-transform: uppercase;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     font-size: 12px;
 }
@@ -1204,7 +1204,7 @@ body {
     .top_nav ul a{
         font-size: 22px;
         letter-spacing: normal;
-        font-weight: 500;
+        font-weight: 400;
         padding: 12px;
     }
 }
@@ -1558,7 +1558,7 @@ body {
 
 .important-txt .sub-title {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 20px;
 }
 
@@ -1572,7 +1572,7 @@ body {
     padding: 10px 10px 10px 20px;
     font-size: 14px;
     line-height: 14px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .important-txt .chart-info li {
@@ -1978,7 +1978,7 @@ body {
     text-transform: uppercase;
     font-size: 10px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 @media (max-width: 767px) {
@@ -2367,7 +2367,7 @@ body {
     padding: 0 0 5px 20px;
     font-size: 16px;
     line-height: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .program-schedule ul li {
@@ -2413,7 +2413,7 @@ body {
     background: #f4d9b4;
     font-size: 14px;
     line-height: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .program-schedule .btn-primary:hover {
@@ -2731,7 +2731,7 @@ body {
     margin: 0 0 10px;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .your-reservation .head .sub-title span {
@@ -2782,7 +2782,7 @@ body {
     position: relative;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .your-reservation .list-box.rules .title:after {
@@ -2821,8 +2821,8 @@ body {
 }
 
 .your-reservation .important .title {
-    font-family: 'CircularStd', sans-serif;
-    font-weight: 800;
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 700;
 }
 
 .your-reservation .important p {
@@ -2841,8 +2841,8 @@ body {
 }
 
 .your-reservation .cancellation_rules p span{
-    font-family: "CircularStd", sans-serif;
-    font-weight: 800;
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 700;
 }
 
 .your-reservation .more-detail {
@@ -2993,7 +2993,7 @@ body {
     padding-left: 10px;
     font-size: 13px;
     line-height: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .your-reservation .cancel {
@@ -3184,7 +3184,7 @@ body {
 }
 
 .your-reservation .tenprocent{
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     font-size: 15px;
     color: #d9a91c;
@@ -3237,7 +3237,7 @@ body {
     background: #963d4c;
     font-size: 14px;
     line-height: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 @media (max-width: 767px) {
@@ -3493,7 +3493,7 @@ body {
     margin: 0 0 30px;
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .table .caption .timing {
@@ -3519,7 +3519,7 @@ body {
     margin: 0 0 20px;
     font-size: 12px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .table .caption .text-field {
@@ -3809,15 +3809,15 @@ body {
     margin: 11px 0 0;
     text-transform: uppercase;
     color: #fff;
-    font-family: 'CircularStd', sans-serif;
+    font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
     font-size: 20px;
     text-align: center;
 }
 
 .form_under_p span{
-    font-family: 'CircularStd', sans-serif;
-    font-weight: 800;
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 700;
 }
 
 
@@ -4055,7 +4055,7 @@ body {
 .complete-wizard .content-wizard-heading h1 {
     font-size: 46px;
     line-height: 50px;
-    font-weight: 500;
+    font-weight: 400;
     vertical-align: middle;
     display: inline-block;
     padding-right: 25px;
@@ -4190,7 +4190,7 @@ body {
 .irao .text-sec h2 {
     display: inline-block;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     text-align: left;
     margin-top: 12px; }
 @media (max-width: 767px) {
@@ -4221,7 +4221,7 @@ body {
     position: relative; }
 .your-reservation.activity .termas h2 {
     color: #0f86bd;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 25px;
     font-weight: bold; }
 

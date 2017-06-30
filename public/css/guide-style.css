@@ -51,7 +51,7 @@
 .click-tab .map-heading h3{
     font-size: 23px;
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 5px;
     margin-bottom: 0;
     line-height: 32px;
@@ -128,7 +128,7 @@
 
 .your-reservation .guide-header h1{
     color: #318B8C;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 34px;
     margin: 0 8px 0 0;
     line-height: 1.4;
@@ -476,7 +476,7 @@
 .map-description h3 {
     font-size: 25px;
     color: #df3c3c;
-    font-weight: 600; }
+    font-weight: 700; }
 .map-description .sub-tab-info {
     display: none;
     position: relative;

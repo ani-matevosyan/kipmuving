@@ -196,7 +196,7 @@
     font-size: 26px;
     line-height: 34px;
     text-align: center;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -338,7 +338,7 @@
     background: #ededed;
     padding: 53px 0 64px; }
 .s_guia span {
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;}
 .s_guia ul {
     padding-left: 0; }
@@ -378,7 +378,7 @@
     display: block}
 .s_guia .section_title h2 .size1 {
     font-size: 117px;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     color: #ffb400; }
 .s_guia .section_title h2 .size2 {
@@ -391,7 +391,7 @@
     text-align: center;
     padding: 26px 0 0;
     font-size: 20px;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 400;
     margin: 0 -30px;}
 .s_guia .go-to-guide p{
@@ -403,7 +403,7 @@
     padding: 21px 33px;
     background: #ffb400;
     text-transform: uppercase;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     font-size: 31px;
     color: #fff;
@@ -469,8 +469,8 @@
     position: relative;
     padding: 37px 0 56px;
     color: #172824;
-    font-family: "CircularStd", sans-serif;
-    font-weight: 500;
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 400;
     text-align: center;}
 .s_howitworks:before {
     content: "";
@@ -484,7 +484,7 @@
     background-position: top right; }
 .s_howitworks span {
     color: #f3f9f7;
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 700;
 }
 .s_howitworks .section_title h2 {
@@ -566,13 +566,13 @@
 .s_viagem .block:last-child:after {
     background: none; }
 .s_viagem h3 {
-    font-family: "CircularStd", sans-serif;
-    font-weight: 800;
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 30px;
     margin: 0; }
 .s_viagem p {
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-weight: 400;
     font-size: 16px; }
 @media(max-width: 1199px) {

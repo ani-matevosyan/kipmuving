@@ -3,36 +3,22 @@
 }
 
 @font-face{
-    font-family:"CircularStd";
-    font-style:normal;
-    font-weight:700;
-    src:url("../fonts/CircularStd-Bold.otf")
-    format("truetype");
-}
-@font-face{
-    font-family:"CircularStd";
-    font-style:normal;
-    font-weight:500;
-    src:url("../fonts/CircularStd-Medium.otf")
-    format("truetype");
-}
-@font-face{
-    font-family:"CircularStd";
+    font-family:"PT-Sans";
     font-style:normal;
     font-weight:400;
-    src:url("../fonts/CircularStd-Book.otf")
+    src:url("../fonts/PT_Sans-Web-Regular.ttf")
     format("truetype");
 }
 @font-face{
-    font-family:"CircularStd";
+    font-family:"PT-Sans";
     font-style:normal;
-    font-weight:800;
-    src:url("../fonts/CircularStd-Black.otf")
+    font-weight:700;
+    src:url("../fonts/PT_Sans-Web-Bold.ttf")
     format("truetype");
 }
 
 body{
-    font-family: "CircularStd", sans-serif;
+    font-family: "PT-Sans", sans-serif;
     font-size: 14px;
 }
 
@@ -141,7 +127,7 @@ a{
 
     h2{
         margin: 0;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 31px;
         line-height: 31px;
     }
@@ -174,7 +160,7 @@ a{
         padding-left: 10px;
         font-size: 12px;
         line-height: 18px;
-        font-weight: 500;
+        font-weight: 400;
         display: inline-block;
         vertical-align: middle;
     }
