@@ -13,10 +13,9 @@
                     <li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
                     <li><a href="{{ action('GuiaController@index') }}">{{ trans('main.guide') }}</a></li>
                 </ul>
+                @include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_guide'])
+                <div class="clearfix"></div>
                 <div class="your-reservation activity">
-                    <div class="container your-reservation activity custom_add">
-                        @include('site.offers.offers_quickinfo')
-                    </div>
                     <div class="flex_wrapper">
                         <div class="flex_item">
                             <a href="{{ action('GuiaController@index') }}" id="box-1">

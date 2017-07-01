@@ -50,7 +50,8 @@ class ActivityController extends Controller
 	{
 		$data = [
 			'offers'  => count($offer->getSelectedOffers()),
-			'persons' => $offer->getSelectedOffersPersons()
+			'persons' => $offer->getSelectedOffersPersons(),
+            'total'   => '1'
 		];
 		
 		return ['data' => $data];

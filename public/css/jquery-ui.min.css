@@ -56,9 +56,9 @@
 .ui-menu-icons .ui-menu-item{padding-left:2em}
 .ui-menu .ui-icon{position:absolute;top:0;bottom:0;left:.2em;margin:auto 0}
 .ui-menu .ui-menu-icon{left:auto;right:0}
-.ui-widget{font-family:'CircularStd', sans-serif;font-size:1em}
+.ui-widget{font-family:'PT-Sans', sans-serif;font-size:1em}
 .ui-widget .ui-widget{font-size:1em}
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{font-family:'CircularStd', sans-serif;font-size:1em}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{font-family:'PT-Sans', sans-serif;font-size:1em}
 .ui-widget-content{margin:3px 0 0;border:1px solid #ddd;background:#fff;color:#333}
 .ui-widget-content a{color:#333}
 .ui-widget-header{color:#333;font-weight:bold}

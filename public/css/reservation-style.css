@@ -29,13 +29,13 @@
 
 .s_reservar .your-reservation .head p{
     font-size: 14px;
-    font-family:  'CircularStd', sans-serif;
+    font-family:  'PT-Sans', sans-serif;
     font-weight: 400;
     margin:  0 0 10px;
 }
 
 .s_reservar .your-reservation .head p a{
-    font-family: 'CircularStd', sans-serif;
+    font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
     color:  #000;
 }
@@ -125,7 +125,7 @@
 .payment-modal .modal-header p {
     font-size: 16px;
     font-family: "Lato", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
 }
 .payment-modal .modal-header p>strong{
     color: #972639;
@@ -154,8 +154,8 @@
 }
 
 .info-item h4{
-    font-family: 'CircularStd', sans-serif;
-    font-weight: 500;
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 400;
     padding-left: 13px;
 }
 
@@ -173,8 +173,8 @@
 }
 
 .payment-options h4{
-    font-family: 'CircularStd', sans-serif;
-    font-weight: 500;
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 400;
     font-size: 16px;
     display: block;
     margin: 5px 0 20px;

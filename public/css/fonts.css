@@ -34,31 +34,47 @@
     /*format("truetype");*/
 /*}*/
 
+/*@font-face{*/
+    /*font-family:"CircularStd";*/
+    /*font-style:normal;*/
+    /*font-weight:700;*/
+    /*src:url("../fonts/CircularStd-Bold.otf")*/
+    /*format("truetype");*/
+/*}*/
+/*@font-face{*/
+    /*font-family:"CircularStd";*/
+    /*font-style:normal;*/
+    /*font-weight:500;*/
+    /*src:url("../fonts/CircularStd-Medium.otf")*/
+    /*format("truetype");*/
+/*}*/
+/*@font-face{*/
+    /*font-family:"CircularStd";*/
+    /*font-style:normal;*/
+    /*font-weight:400;*/
+    /*src:url("../fonts/CircularStd-Book.otf")*/
+    /*format("truetype");*/
+/*}*/
+/*@font-face{*/
+    /*font-family:"CircularStd";*/
+    /*font-style:normal;*/
+    /*font-weight:800;*/
+    /*src:url("../fonts/CircularStd-Black.otf")*/
+    /*format("truetype");*/
+/*}*/
+
+
 @font-face{
-    font-family:"CircularStd";
-    font-style:normal;
-    font-weight:700;
-    src:url("../fonts/CircularStd-Bold.otf")
-    format("truetype");
-}
-@font-face{
-    font-family:"CircularStd";
-    font-style:normal;
-    font-weight:500;
-    src:url("../fonts/CircularStd-Medium.otf")
-    format("truetype");
-}
-@font-face{
-    font-family:"CircularStd";
+    font-family:"PT-Sans";
     font-style:normal;
     font-weight:400;
-    src:url("../fonts/CircularStd-Book.otf")
+    src:url("../fonts/PT_Sans-Web-Regular.ttf")
     format("truetype");
 }
 @font-face{
-    font-family:"CircularStd";
+    font-family:"PT-Sans";
     font-style:normal;
-    font-weight:800;
-    src:url("../fonts/CircularStd-Black.otf")
+    font-weight:700;
+    src:url("../fonts/PT_Sans-Web-Bold.ttf")
     format("truetype");
 }

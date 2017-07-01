@@ -70,21 +70,21 @@
 			{!! $activity->tripadvisor_code !!}
 		</div>
 	@endif
-	<div class="booking">
-		<ins class="bookingaff" data-aid="1279314" data-target_aid="" data-prod="dfl2" data-width="100%" data-height="auto" data-lang="xb" data-currency="USD" data-dest_id="-897376" data-dest_type="city" data-df_duration="1" data-df_num_properties="5">
-			<!-- Anything inside will go away once widget is loaded. -->
-			<a href="//www.booking.com?aid=">Booking.com</a>
-		</ins>
-		<script type="text/javascript">
-			(function(d, sc, u) {
-				var s = d.createElement(sc), p = d.getElementsByTagName(sc)[0];
-				s.type = 'text/javascript';
-				s.async = true;
-				s.src = u + '?v=' + (+new Date());
-				p.parentNode.insertBefore(s,p);
-			})(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');
-		</script>
-
+	{{--<div class="booking">--}}
+		{{--<ins class="bookingaff" data-aid="1279314" data-target_aid="" data-prod="dfl2" data-width="100%" data-height="auto" data-lang="xb" data-currency="USD" data-dest_id="-897376" data-dest_type="city" data-df_duration="1" data-df_num_properties="5">--}}
+			{{--<!-- Anything inside will go away once widget is loaded. -->--}}
+			{{--<a href="//www.booking.com?aid=">Booking.com</a>--}}
+		{{--</ins>--}}
+		{{--<script type="text/javascript">--}}
+			{{--(function(d, sc, u) {--}}
+				{{--var s = d.createElement(sc), p = d.getElementsByTagName(sc)[0];--}}
+				{{--s.type = 'text/javascript';--}}
+				{{--s.async = true;--}}
+				{{--s.src = u + '?v=' + (+new Date());--}}
+				{{--p.parentNode.insertBefore(s,p);--}}
+			{{--})(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');--}}
+		{{--</script>--}}
+	{{--</div>--}}
 	<div class="img-tour">
 		@if (count($activity->images) > 0)
 			<div class="row">

@@ -7,8 +7,8 @@
 	</section>
 	<section>
 		<div class="container">
-			<div class="your-reservation activity add all-activities" style="padding-bottom: 0; float: right;">
-				@include('site.offers.offers_quickinfo')
+			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
+			<div class="your-reservation activity add all-activities" style="padding-bottom: 0;">
 				<div class="tenprocent">
 					em todos <br>
 					os precos
