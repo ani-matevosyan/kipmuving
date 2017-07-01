@@ -73,7 +73,7 @@ class HomeController extends Controller
 		echo 'ACTIVITIES';
 		echo '-----------------------------------';
 		foreach ($activities as $key => $activity) {
-			echo '<br>' . ($key + 1);
+			echo '<br><b>ID:</b> ' . $activity->id;
 			echo '<br><br><b>Name: </b>' . $activity->name;
 			echo '<br><br><b>Subtitle: </b>' . $activity->subtitle;
 			echo '<br><br><b>Short description: </b>' . $activity->short_description;
@@ -99,7 +99,7 @@ class HomeController extends Controller
 		echo 'OFFERS';
 		echo '-----------------------------------';
 		foreach ($offers as $key => $offer) {
-			echo '<br>' . ($key + 1);
+			echo '<br><b>ID:</b> ' . $offer->id;
 			echo '<br><br><b>Includes: </b>';
 			if (count($offer->includes) > 0) {
 				foreach ($offer->includes as $item) {
@@ -117,7 +117,7 @@ class HomeController extends Controller
 		echo 'AGENCIES';
 		echo '-----------------------------------';
 		foreach ($agencies as $key => $agency) {
-			echo '<br>' . ($key + 1);
+			echo '<br><b>ID:</b> ' . $agency->id;
 			echo '<br><br><b>Name: </b>' . $agency->name;
 			echo '<br><br><b>Description: </b>'. $agency->description;
 			
