@@ -7,13 +7,6 @@
 		<div class="gradoverlay"></div>
 	</section>
 
-	<style>
-		@if ($activity->image_icon)
-	.your-reservation.activity .head:after {
-			background-image: url('/{{ $activity->image_icon }}')
-		}
-		@endif
-	</style>
 	<main id="main">
 		<div class="container">
 			<div class="row">
@@ -27,23 +20,19 @@
 					</ul>
 					@include('site.offers.offers_quickinfo')
 					<div class="your-reservation activity add new">
-						<header class="head">
-							@if($activity->name)
-								<h1>{{ $activity->name }}</h1>
-							@endif
-							@if($activity->subtitle)
-								<strong class="sub-title">{{ $activity->subtitle }}</strong>
-							@endif
-							<div class="tenprocent">
-								em todos <br>
-								os precos
-							</div>
-						</header>
 						<div class="row">
 							<div id="activity-single-sidebar" class="col-md-4 col-sm-12 col-xs-12">
 								@include('site.activities.activity-single-sidebar')
 							</div>
 							<div class="col-md-8 col-sm-12 col-xs-12">
+								<header class="activity-title">
+									@if($activity->name)
+										<h1>{{ $activity->name }}</h1>
+									@endif
+									@if($activity->subtitle)
+										<p>{{ $activity->subtitle }}</p>
+									@endif
+								</header>
 								<section class="post-box">
 									<div class="title-box">
 										@if($activity->description)

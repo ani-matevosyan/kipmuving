@@ -1,5 +1,5 @@
 @media screen and (min-width: 992px){
-    .your-reservation.activity.add.new>.row{
+    .your-reservation.activity.add>.row{
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
@@ -28,7 +28,7 @@
 }
 
 .your-reservation .widget.select-box {
-    background: #c78933;
+    background: #283C5C;
 }
 
 .your-reservation .widget.select-box .chosen-container-single .chosen-search input[type=text]{
@@ -57,7 +57,7 @@
 }
 
 .your-reservation .widget.the-day {
-    background: #963d4c;
+    background: #25354D;
 }
 
 .your-reservation .widget.the-day .raised-form {
@@ -65,7 +65,7 @@
 }
 
 .your-reservation .widget.summary {
-    background: #5e2f46;
+    background: #1A2838;
 }
 
 .your-reservation .widget ul li {
@@ -144,7 +144,7 @@
     position: absolute;
     left: -13px;
     top: -1px;
-    color: #089f02;
+    color: #4F4F4F;
 
 }
 
@@ -171,17 +171,6 @@
 .your-reservation .important-block .box.alert .title{
     font-weight: normal;
     position: relative;
-}
-
-.your-reservation .important-block .box.alert .title:before{
-    position: absolute;
-    content: '';
-    top: -1px;
-    left: -34px;
-    width: 20px;
-    height: 20px;
-    background: url(../images/plus-18-movie.svg) no-repeat;
-    background-size: contain;
 }
 
 .your-reservation .important-block .box.alert .title span{
@@ -370,6 +359,25 @@
     margin: 0 0 20px;
 }
 
+.activity-title{
+    margin-bottom: 21px;
+}
+
+.your-reservation.activity .activity-title h1{
+    font-weight: 700;
+    font-size: 38px;
+    text-transform: uppercase;
+    color: #283C5C;
+    line-height: 1;
+}
+
+.activity-title p{
+    margin: 0;
+    color: #7F8590;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
 .activity-description{
     font-size: 14px;
     display: block;
@@ -551,7 +559,6 @@
 
 
 .offer-item-desc{
-    color: #006b33;
     margin: 10px;
     font-size: 13px;
 }
@@ -560,42 +567,42 @@
     border-bottom: 1px solid #d9d9d9;
 }
 
-.your-reservation.new .select-activity .timing1{
+.your-reservation .select-activity .timing1{
     border: none;
     margin: 0;
 }
 
 @media (max-width: 767px) {
-    .your-reservation.new .select-activity .timing1{
+    .your-reservation .select-activity .timing1{
         padding-bottom: 0;
     }
 }
 
-.your-reservation.new .timing1 {
+.your-reservation .timing1 {
     margin: 0 0 10px;
     padding: 0 24px 10px 0;
     border-bottom: 1px solid #d9d9d9;
 }
 
-.your-reservation.new .timing1 li {
+.your-reservation .timing1 li {
     overflow: hidden;
     position: relative;
     padding: 0 0 3px 30px;
 }
 
-.your-reservation.new .timing1 li.time{
+.your-reservation .timing1 li.time{
     min-height: 40px;
 }
 
-.your-reservation.new .timing1 li.profile {
+.your-reservation .timing1 li.profile {
     padding: 10px 0 3px 30px;
 }
 
-.your-reservation.new .timing1 li.profile.hours{
+.your-reservation .timing1 li.profile.hours{
     padding: 4px 0 13px 30px;
 }
 
-.your-reservation.new .timing1 li.profile:after {
+.your-reservation .timing1 li.profile:after {
     width: 20px;
     content: '';
     height: 20px;
@@ -609,7 +616,7 @@
     background-position: center center;
 }
 
-.your-reservation.new .timing1 li.profile.hours:after{
+.your-reservation .timing1 li.profile.hours:after{
     width: 22px;
     height: 22px;
     background: url(../images/clock.svg) no-repeat;
@@ -618,44 +625,45 @@
     top: 31px;
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener{
+.your-reservation .timing1 li.profile .jcf-select .jcf-select-opener{
     display: none;
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select,
+.your-reservation .timing1 li.profile .jcf-select,
 .jcf-select-persona.jcf-select-drop .jcf-hover{
-    background: #963d4c;
+    border: 2px solid #FDD164;
 }
 
 @media screen and (max-width: 767px){
-    .your-reservation.new .timing1 li.profile .jcf-select{
+    .your-reservation .timing1 li.profile .jcf-select{
         width: auto;
     }
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
-    color: #fff;
+.your-reservation .timing1 li.profile .jcf-select .jcf-select-text{
+    color: #F5AD00;
+    font-weight: bold;
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
+.your-reservation .timing1 li.profile .jcf-select .jcf-select-opener:after{
     border-color: #fff transparent transparent;
 }
 
-.your-reservation.new .timing1 li.profile.hours .jcf-select{
+.your-reservation .timing1 li.profile.hours .jcf-select{
     min-width: 100px;
     width: auto;
 }
 
-.your-reservation.new .timing1 li.profile.hours strong,
-.your-reservation.new .timing1 li.profile.hours label{
+.your-reservation .timing1 li.profile.hours strong,
+.your-reservation .timing1 li.profile.hours label{
     margin-bottom: 3px;
 }
-.your-reservation.new .timing1 li.profile.hours label{
+.your-reservation .timing1 li.profile.hours label{
     font-weight: bold;
     display: block;
 }
 
-.your-reservation.new .timing1 li.cal:after {
+.your-reservation .timing1 li.cal:after {
     width: 18px;
     content: '';
     height: 18px;
@@ -669,16 +677,16 @@
     background-position: center center;
 }
 
-.your-reservation.new .timing1 strong {
+.your-reservation .timing1 strong {
     display: block;
     font-weight: normal;
 }
 
-.your-reservation.new .timing1 strong span {
+.your-reservation .timing1 strong span {
     font-weight: bold;
 }
 
-.your-reservation.new .timing1 .btn-primary {
+.your-reservation .timing1 .btn-primary {
     float: left;
     font-weight: normal;
     background: #963d4c;
@@ -701,5 +709,15 @@
 
 .your-reservation.activity .price.add {
     padding: 0;
+}
+
+.your-reservation .accordion h2{
+    float: left;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.your-reservation .accordion h2 a:hover{
+    color: #f8be00;
 }
 

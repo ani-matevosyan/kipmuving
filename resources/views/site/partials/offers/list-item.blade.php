@@ -22,39 +22,6 @@
 					</strong>
 				@endif
 			</div>
-			<ul class="links">
-				<li>
-					@if($offer->agency->name && $offer->agency->id && $offer->agency->image && $offer->agency->address && $offer->agency->description)
-						<a href="javascript:void(0)"
-							data-toggle="popover"
-							title="{{ $offer->agency->name }}"
-							data-html="true"
-							data-placement="bottom"
-							data-container="body"
-							data-trigger="focus"
-							data-content="
-										<img src='/{{ $offer->agency->image }}'>
-										</a>
-										<br>
-										{{ $offer->agency->address }}
-								<hr>
-								{{ $offer->agency->description }}
-								<br>
-								<a href='{{ action('AgencyController@getAgency', $offer->agency->id) }}'>info...</a>">{{ trans('main.about_the_agency') }}</a>
-					@endif
-				</li>
-				<li>
-					@if($offer->agency->latitude && $offer->agency->longitude && $offer->agency->name)
-						<a href="javascript:void(0)"
-							class="btn-map"
-							data-toggle="modal"
-							data-lat="{{ $offer->agency->latitude }}"
-							data-lng="{{ $offer->agency->longitude }}"
-							data-title="{{ $offer->agency->name }}">{{ trans('main.show_map') }}</a>
-					@endif
-				</li>
-			<!-- <li><a href="/agency/{{ $offer->agency->id }}">Condiciones</a></li> -->
-			</ul>
 		</header>
 	<div class="row">
 		@if(count($offer->includes) > 0)

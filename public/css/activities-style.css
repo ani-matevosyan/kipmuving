@@ -8,6 +8,36 @@
     }
 }
 
+.tenprocent{
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #d9a91c;
+    background: url("../images/10-orange.svg") no-repeat;
+    background-position: left center;
+    line-height: 14px;
+    top: 0;
+    right: 0;
+    position: static;
+    clear: both;
+    float: right;
+    margin-top: 10px;
+    padding-left: 53px;
+    background-size: 51px 30px;
+}
+
+
+@media (max-width: 767px) {
+    .tenprocent{
+        margin-top: -20px;
+    }
+}
+@media screen and (max-width: 540px){
+    .tenprocent{
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
 
 /* Media query variable*/
 /*First slider*/
