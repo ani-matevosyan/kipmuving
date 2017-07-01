@@ -2289,162 +2289,6 @@ body {
     font-size: 12px;
 }
 
-.program-schedule {
-    overflow: hidden;
-    margin: 0 0 20px;
-    background: #ebb414;
-    padding: 10px 10px 1px;
-    border: 1px solid #d97f02;
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 20;
-}
-
-.program-schedule.add .sub-title {
-    padding: 0 0 10px;
-    border-bottom: 1px solid #efc343;
-}
-
-.program-schedule.add ul li {
-    border-top: 1px solid #efc343;
-}
-
-.program-schedule.add ul span {
-    color: #000;
-}
-
-.program-schedule.add ul a {
-    font-weight: bold;
-}
-
-.program-schedule.add .footer {
-    background: none;
-    border-top: 1px solid #efc343;
-}
-
-.program-schedule.add .btn-primary {
-    color: #fff;
-    background: #963d4c;
-}
-
-.program-schedule h2 {
-    color: #fff;
-    margin: 0 0 30px;
-    position: relative;
-    padding: 6px 0 0 30px;
-    text-transform: uppercase;
-    font-size: 22px;
-    line-height: 26px;
-    font-weight: 700;
-}
-
-.program-schedule h2:after {
-    width: 21px;
-    content: '';
-    height: 29px;
-    position: absolute;
-    left: 0;
-    top: 4px;
-    right: auto;
-    bottom: auto;
-    background: url(../images/sprite.png) no-repeat -44px 0;
-}
-
-.program-schedule .sub-title {
-    display: block;
-    margin: 0 0 20px;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-}
-
-.program-schedule .sub-title span {
-    font-weight: 700;
-}
-
-.program-schedule ul {
-    padding: 0 0 5px 20px;
-    font-size: 16px;
-    line-height: 18px;
-    font-weight: 400;
-}
-
-.program-schedule ul li {
-    padding: 3px 0;
-    position: relative;
-    border-top: 1px solid #fff;
-}
-
-.program-schedule ul li:first-child {
-    border: 0;
-}
-
-.program-schedule ul li:after {
-    width: 14px;
-    content: '';
-    height: 13px;
-    position: absolute;
-    left: -20px;
-    top: 6px;
-    right: auto;
-    bottom: auto;
-    background: url(../images/sprite.png) no-repeat -27px -55px;
-}
-
-.program-schedule ul a {
-    color: #000;
-}
-
-.program-schedule ul a:hover {
-    color: #fff;
-}
-
-.program-schedule ul span {
-    color: #fff;
-    display: block;
-    font-size: 14px;
-}
-
-.program-schedule .btn-primary {
-    float: right;
-    color: #000;
-    margin: 5px 0 0;
-    background: #f4d9b4;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-}
-
-.program-schedule .btn-primary:hover {
-    opacity: 0.9;
-}
-
-.program-schedule .total-price {
-    width: 82px;
-    color: #fff;
-    display: block;
-    overflow: hidden;
-    font-size: 18px;
-    line-height: 20px;
-    font-weight: 700;
-}
-
-.program-schedule .total-price span {
-    display: block;
-    text-align: right;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 400;
-}
-
-.program-schedule .footer {
-    margin: 0 -9px;
-    overflow: hidden;
-    background: #d97f02;
-    padding: 7px 10px 7px 26px;
-}
-
 .social-likes {
     height: 390px;
     padding: 40px 0 0;
@@ -2463,7 +2307,6 @@ body {
 .social-likes .divider {
     width: 8px;
     height: 22px;
-    position: relative;
     background: #fff;
     position: absolute;
     left: -3px;
@@ -3025,15 +2868,7 @@ body {
     font-weight: 700;
 }
 
-.your-reservation.activity.add .program-schedule {
-    margin: -250px 0 0;
-}
 
-@media (max-width: 1023px) {
-    .your-reservation.activity.add .program-schedule {
-        margin: -200px 0 0;
-    }
-}
 
 .your-reservation.activity .head {
     border: 0;
@@ -3143,44 +2978,6 @@ body {
 
 .your-reservation.activity .timing li.total:after {
     display: none;
-}
-
-.your-reservation.activity .program-schedule {
-    float: right;
-    width: 243px;
-    padding: 7px 10px;
-    margin: -110px 0 0;
-}
-
-@media (max-width: 767px) {
-    .your-reservation.activity .program-schedule {
-        display: none;
-    }
-}
-
-.your-reservation.activity .program-schedule h2 {
-    color: #fff;
-    margin: 0 0 16px;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 700;
-}
-
-.your-reservation.activity .program-schedule h2:after {
-    top: 0;
-}
-
-.your-reservation.activity .program-schedule .sub-title {
-    margin: 0 0 5px;
-}
-
-.your-reservation.activity .program-schedule .btn-primary {
-    float: right;
-    color: #000;
-    padding: 3px 10px;
-    text-align: center;
-    background: #fff;
-    text-transform: uppercase;
 }
 
 .your-reservation .tenprocent{
@@ -3748,6 +3545,131 @@ body {
     color: #dc7f3c;
 }
 
+
+/********* Program schedule block ***********/
+
+.program-schedule {
+    overflow: hidden;
+    background: #FCB600;
+    border: 1px solid #BFBDBD;
+    -webkit-box-shadow: 0 0 12px 0px rgba(45, 44, 44, 0.23);
+    box-shadow: 0 0 12px 0px rgba(45, 44, 44, 0.23);
+    position: relative;
+    z-index: 20;
+    float: right;
+    width: 243px;
+    padding: 7px 23px 15px;
+    margin: -120px 0 0;
+    text-align: right;
+}
+
+.program-schedule:after{
+    display: table;
+    content: '';
+    clear: both;
+}
+
+.program-schedule p{
+    margin: 0 0 16px;
+}
+
+.program-schedule p span:before{
+    content: '$';
+    margin-right: 4px;
+}
+.program-schedule p .brl-curr:before{
+    content: 'R$';
+}
+
+.program-schedule .btn{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.program-schedule .btn-success{
+    background: transparent;
+    color: #000;
+    text-transform: none;
+    padding: 0 0 0 23px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.program-schedule .btn-success:focus{
+    background: transparent;
+    color: #000;
+}
+
+.program-schedule .btn-success:before,
+.program-schedule .btn-success:after{
+    position: absolute;
+    content: "";
+}
+
+.program-schedule .btn-success:after{
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    transition: all .1s linear;
+    height: 1px;
+    background: #474747;
+    width: 0;
+    right: 0;
+    left: auto;
+    bottom: -5px;
+    pointer-events: none;
+}
+
+.program-schedule .btn-success:hover:after{
+    width: 100%;
+    left: 0;
+}
+
+.program-schedule .btn-success:before{
+    width: 15px;
+    height: 15px;
+    background: url(../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+    left: 0;
+}
+
+.program-schedule .btn-primary {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f19300;
+    padding: 9px 10px;
+    background: #fff;
+}
+
+.program-schedule .btn-primary:hover,
+.program-schedule .btn-primary:focus{
+    color: #f19300;
+    background: #e2dcdc;
+}
+
+.program-schedule .btn-primary:hover {
+    opacity: 0.9;
+}
+
+
+
+@media screen and (max-width: 1023px) {
+    .program-schedule {
+        margin: -200px 0 0;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .program-schedule{
+        margin-top: -160px;
+        margin-right: 10px;
+    }
+}
+
+
+
+/********* END Program schedule block ***********/
+
 .modal .modal-content {
     padding: 1px;
     border-radius: 0;
@@ -3835,9 +3757,6 @@ body {
     .your-reservation.activity .head{
         padding-top: 10px;
     }
-    .your-reservation.activity .program-schedule {
-        display: block;
-    }
 }
 .your-reservation .box {
     max-width: 713px;
@@ -3912,43 +3831,6 @@ body {
 }
 .jcf-select {
     border-radius: 4px;
-}
-.your-reservation.activity.add .program-schedule {
-    margin-top: -120px;
-}
-
-.your-reservation.activity.add.all-activities .program-schedule{
-    margin-top: -100px;
-}
-
-.your-reservation.activity.add.main .program-schedule{
-    margin-top: -130px;
-}
-@media (max-width: 767px) {
-    .your-reservation.activity.add.all-activities .program-schedule{
-        margin-top: -150px;
-    }
-    .your-reservation.activity.add .program-schedule {
-        margin-top: -160px;
-        margin-right: 10px;
-    }
-
-    .your-reservation.activity.add.main .program-schedule{
-        margin-top: -137px;
-        margin-right: 0;
-    }
-}
-
-.your-reservation.activity.custom_add .program-schedule{
-    margin: -120px 0 0;
-}
-@media(max-width: 470px){
-    .your-reservation.activity.custom_add .program-schedule{
-        margin: -160px 0 0;
-    }
-}
-.your-reservation.custom_add{
-    padding-bottom: 22px;
 }
 
 .icongraphic {

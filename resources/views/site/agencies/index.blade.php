@@ -13,9 +13,7 @@
 						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
 						<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
 					</ul>
-					<div class="your-reservation activity add" style="padding-bottom: 0px;">
-						@include('site.offers.offers_quickinfo')
-					</div>
+					@include('site.offers.offers_quickinfo')
 					<div class="all-activities new">
 						<header>
 							<h1>{{ trans('button-links.agencies') }}</h1>

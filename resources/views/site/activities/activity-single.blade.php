@@ -25,8 +25,8 @@
 							<li>{{ strtoupper($activity->name) }}</li>
 						@endif
 					</ul>
+					@include('site.offers.offers_quickinfo')
 					<div class="your-reservation activity add new">
-						@include('site.offers.offers_quickinfo')
 						<header class="head">
 							@if($activity->name)
 								<h1>{{ $activity->name }}</h1>

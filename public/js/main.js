@@ -43,8 +43,9 @@ jQuery(document).ready(function(){
             url: "/activities/getsuprogram",
             data: "",
             success: function(data){
-                $("#count_activities").text(data.data.offers);
-                $("#count_persons").text(data.data.persons);
+                $("#program_activities").text(data.data.offers);
+                $("#program_persons").text(data.data.persons);
+                $("#program_total").text(data.data.total);
             },
             error: function(){
                 location.reload();
@@ -55,7 +56,7 @@ jQuery(document).ready(function(){
     $(".overlay-opener").click(function(e){
         e.preventDefault();
     });
-	jQuery('.btn-reserve').click(function(){
+	$('.btn-reserve').click(function(){
 		var dt = $("#reserve-date").val();
 		if (dt == '') {
 			$('#message-modal #message').text('Seleccione primero la fecha.');

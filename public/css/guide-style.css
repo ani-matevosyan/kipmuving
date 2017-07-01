@@ -1,3 +1,13 @@
+.program-schedule_guide{
+    margin: -120px 0 22px;
+}
+
+@media screen and (max-width: 470px){
+    .program-schedule_guide{
+        margin-top: -160px;
+    }
+}
+
 
 .flex_wrapper{
     display: -webkit-box;

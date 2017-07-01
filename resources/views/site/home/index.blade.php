@@ -46,9 +46,7 @@
 	</section>
 	<main id="main">
 		<div class="container">
-			<div class="your-reservation activity add main" style="padding-bottom: 0px;">
-				@include('site.offers.offers_quickinfo')
-			</div>
+			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_home'])
 		</div>
 		<div class="line-box">
 			<div class="line-wrap">

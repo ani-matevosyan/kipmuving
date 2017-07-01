@@ -1,3 +1,14 @@
+.program-schedule_home{
+    margin-top: -130px;
+}
+
+@media screen and (max-width: 767px){
+    .program-schedule_home{
+        margin-top: -137px;
+        margin-right: 0;
+    }
+}
+
 .visual.home {
     height: 615px;
 }
