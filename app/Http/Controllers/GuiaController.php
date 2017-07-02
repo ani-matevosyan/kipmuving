@@ -47,23 +47,27 @@ class GuiaController extends Controller
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-bicycle']);
 		
 		$imageIndex = rand(1, 4); //1-4
-		$data = [
-			'styles'     => [
+        $data = [
+            'styles'     => [
                 'css/tripadvisor.min.css',
-				'css/instafeed/instafeed.min.css',
+                'css/jquery-ui.min.css',
+                'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
-			],
-			'scripts'    => [
-				'js/instafeed/instafeed.min.js',
-				'js/instafeed/instafeed-settings.min.js',
-			],
-			'imageIndex' => $imageIndex,
-			'count'      => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons(),
-				'total' => $offer->getSelectedOffersTotal()
-			]
-		];
+            ],
+            'scripts'    => [
+                'js/chosen.jquery.min.js',
+                'js/instafeed/instafeed.min.js',
+                'js/ResizeSensor.min.js',
+                'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+            ],
+            'imageIndex' => $imageIndex,
+            'count'      => [
+                'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
+                'persons' => $offer->getSelectedOffersPersons(),
+                'total' => $offer->getSelectedOffersTotal()
+            ],
+            'activities' => $this->getMapPoints()
+        ];
 		
 		return view('site.guia.bicicleta', $data);
 	}

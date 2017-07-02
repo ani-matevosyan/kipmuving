@@ -138,7 +138,7 @@
 
 .your-reservation .guide-header h1{
     color: #318B8C;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 34px;
     margin: 0 8px 0 0;
     line-height: 1.4;
@@ -159,6 +159,8 @@
     margin-top: 10px; }
 .infor-bar .right-border {
     border-right: 1px solid #cccccc; }
+
+/*********** Guide plates ****************/
 
 .guide-places-plates-wrapper{
     text-align: center;
@@ -251,7 +253,8 @@
     background: #D7E5D8;
     border-color: #D7E5D8;
 }
-.guide-places-plate-wrapper:nth-child(5n+2) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+2) .descr h3,
+.guide-places-plate-wrapper:nth-child(5n+2) .termas h2{
     color: #569856;
 }
 
@@ -259,7 +262,8 @@
     background: #F2DFA4;
     border-color: #F2DFA4;
 }
-.guide-places-plate-wrapper:nth-child(5n+3) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+3) .descr h3,
+.guide-places-plate-wrapper:nth-child(5n+3) .termas h2{
     color: #BD951F;
 }
 
@@ -267,7 +271,8 @@
     background: #FAD7C3;
     border-color: #FAD7C3;
 }
-.guide-places-plate-wrapper:nth-child(5n+4) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+4) .descr h3,
+.guide-places-plate-wrapper:nth-child(5n+4) .termas h2{
     color: #CD7351;
 }
 
@@ -275,7 +280,8 @@
     background: #FAD4AF;
     border-color: #FAD4AF;
 }
-.guide-places-plate-wrapper:nth-child(5n+5) .descr h3{
+.guide-places-plate-wrapper:nth-child(5n+5) .descr h3,
+.guide-places-plate-wrapper:nth-child(5n+5) .termas h2{
     color: #D8954D;
 }
 
@@ -287,6 +293,134 @@
     visibility: hidden;
     margin-top: 38px;
 }
+
+.termas h2 {
+    color: #0b6a6e;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/******/
+
+
+.termas-tabs {
+    text-align: left; }
+.termas-tabs .map-holder {
+    height: 270px; }
+.termas-tabs .map-holder iframe {
+    width: 100%;
+    height: 270px; }
+.termas-tabs a.yello-button {
+    color: #ffffff;
+    background-color: #ebb414;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    margin: auto; }
+
+.tab-content .well {
+    border-radius: 0;
+    padding: 9px 9px 29px;
+    background-color: #eeeeee; }
+
+.tab-content .well.map-tab{
+    padding: 0;
+    height: 300px;
+}
+
+.tab-content .tab-detail {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 10px; }
+
+.tab-pane .info-icons {
+    padding-left: 10px; }
+.tab-pane .info-icons img {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle; }
+.tab-pane .info-icons p {
+    display: inline-block;
+    vertical-align: text-top;
+    margin-top: 1px;
+    padding-left: 2px; }
+.tab-pane .info-icons span {
+    padding-left: 30px;
+    display: block; }
+
+
+@media screen and (max-width:600px){
+    .termas-tabs .nav.nav-pills{
+        margin-bottom: 10px;
+    }
+    .termas-tabs .nav-pills>li.active{
+        background: #eeeeee;
+    }
+    .termas-tabs .nav-pills > li{
+        float: none;
+    }
+    .termas-tabs .nav-pills li:not(:first-child) a{
+        border-left: none;
+    }
+    .termas-tabs .nav-pills li.active:after{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .tab-pane .info-icons strong{
+        display: block;
+    }
+}
+
+.nav-pills li {
+    height: 85px; }
+.nav-pills li img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px; }
+.nav-pills li .link-info {
+    display: inline-block;
+    padding-left: 5px;
+    vertical-align: middle; }
+.nav-pills li .link-info p {
+    margin-bottom: 5px; }
+.nav-pills li.active a {
+    color: #000000;
+    background-color: transparent; }
+.nav-pills li.active a:hover {
+    color: #000000;
+    background-color: transparent; }
+.nav-pills li.active a:focus {
+    color: #000000;
+    background-color: transparent; }
+.nav-pills li.active:after {
+    content: '';
+    background: url(../images/tab-arrow.png) no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    display: block;
+    bottom: -1px;
+    left: 50%; }
+.nav-pills li a {
+    color: #000000;
+    padding: 15px;
+    border-radius: 0px; }
+.nav-pills li:not(:first-child) a {
+    border-left: 1px solid #cccccc; }
+
+
+/******/
+
 
 @media screen and (max-width: 991px){
     .your-reservation .guide-header h1{
@@ -313,10 +447,14 @@
     .descr h3{
         font-size: 18px;
     }
+    .termas h2{
+        padding-left: 10px;
+    }
 }
 
-#m-box-2 h2 {
-    color: #21aa4b; }
+/*********** END Guide plates ****************/
+
+
 #m-box-2 .placeholder-info {
     margin-top: 10px; }
 #m-box-2 .placeholder-info a {

@@ -22,7 +22,7 @@
             <h2>Visual</h2>
             <div class="guide-places-plates">
                 @foreach($activities->where('category', '=', 'Visual') as $activity)
-                    @include('site.partials.guia.all-list-item')
+                    @include('site.partials.guia.deccaro-list-item')
                 @endforeach
             </div>
         @endif
@@ -30,7 +30,7 @@
             <h2>Caminatas</h2>
             <div class="guide-places-plates">
                 @foreach($activities->where('category', '=', 'Caminatas') as $activity)
-                    @include('site.partials.guia.all-list-item')
+                    @include('site.partials.guia.deccaro-list-item')
                 @endforeach
             </div>
         @endif
@@ -38,7 +38,7 @@
             <h2>Termas</h2>
             <div class="guide-places-plates">
                 @foreach($activities->where('category', '=', 'Termas') as $activity)
-                    @include('site.partials.guia.all-list-item')
+                    @include('site.partials.guia.deccaro-list-item')
                 @endforeach
             </div>
         @endif

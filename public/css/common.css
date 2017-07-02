@@ -3779,17 +3779,7 @@ body {
     outline: none;
     display: block;
     position: relative; }
-.your-reservation.activity .termas h2 {
-    color: #0f86bd;
-    font-weight: 400;
-    font-size: 25px;
-    font-weight: bold; }
 
-@media (max-width: 767px){
-    .your-reservation.activity .termas h2{
-        padding-left: 10px;
-    }
-}
 
 .your-reservation.activity .btn-primary {
     float: right;
@@ -3891,122 +3881,6 @@ body {
 .right-col strong {
     color: #e12570;
     display: inline-block; }
-
-.termas-tabs {
-    text-align: left; }
-.termas-tabs .map-holder {
-    height: 270px; }
-.termas-tabs .map-holder iframe {
-    width: 100%;
-    height: 270px; }
-.termas-tabs a.yello-button {
-    color: #ffffff;
-    background-color: #ebb414;
-    text-transform: uppercase;
-    font-size: 14px;
-    text-decoration: none;
-    outline: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    margin: auto; }
-
-.tab-content .well {
-    border-radius: 0;
-    padding: 9px 9px 29px;
-    background-color: #eeeeee; }
-
-.tab-content .well.map-tab{
-    padding: 0;
-    height: 300px;
-}
-
-.tab-content .tab-detail {
-    padding-top: 25px;
-    padding-bottom: 15px;
-    padding-left: 10px; }
-
-.tab-pane .info-icons {
-    padding-left: 10px; }
-.tab-pane .info-icons img {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    vertical-align: middle; }
-.tab-pane .info-icons p {
-    display: inline-block;
-    vertical-align: text-top;
-    margin-top: 1px;
-    padding-left: 2px; }
-.tab-pane .info-icons span {
-    padding-left: 30px;
-    display: block; }
-
-
-@media screen and (max-width:600px){
-    .termas-tabs .nav.nav-pills{
-        margin-bottom: 10px;
-    }
-    .termas-tabs .nav-pills>li.active{
-        background: #eeeeee;
-    }
-    .termas-tabs .nav-pills > li{
-        float: none;
-    }
-    .termas-tabs .nav-pills li:not(:first-child) a{
-        border-left: none;
-    }
-    .termas-tabs .nav-pills li.active:after{
-        display: none;
-    }
-}
-
-@media screen and (max-width:500px){
-    .tab-pane .info-icons strong{
-        display: block;
-    }
-}
-
-.nav-pills li {
-    height: 85px; }
-.nav-pills li img {
-    display: inline-block;
-    margin-right: 5px; }
-.nav-pills li:first-child img {
-    height: 50px; }
-.nav-pills li .link-info {
-    display: inline-block;
-    padding-left: 5px;
-    vertical-align: bottom; }
-.nav-pills li .link-info p {
-    margin-bottom: 5px; }
-.nav-pills li.active a {
-    color: #000000;
-    background-color: transparent; }
-.nav-pills li.active a:hover {
-    color: #000000;
-    background-color: transparent; }
-.nav-pills li.active a:focus {
-    color: #000000;
-    background-color: transparent; }
-.nav-pills li.active:after {
-    content: '';
-    background: url(../images/tab-arrow.png) no-repeat;
-    background-position: center;
-    width: 20px;
-    height: 10px;
-    position: absolute;
-    display: block;
-    bottom: -1px;
-    left: 50%; }
-.nav-pills li a {
-    color: #000000;
-    padding: 15px;
-    border-radius: 0px; }
-.nav-pills li:not(:first-child) a {
-    border-left: 1px solid #cccccc; }
 
 .leaflet-fade-anim .leaflet-tile-loaded {
     display: block; }
