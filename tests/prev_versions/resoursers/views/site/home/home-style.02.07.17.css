@@ -64,3 +64,134 @@
         font-size: 39px; }
     .s_howitworks .section_title p {
         font-size: 18px; } }
+
+
+.text-bar {
+    color: #fff;
+    padding: 15px 0;
+    overflow: hidden;
+    background: #133939;
+}
+
+@media (max-width: 767px) {
+    .text-bar {
+        text-align: center;
+    }
+}
+
+.text-bar .col {
+    position: relative;
+}
+
+.text-bar .col:first-child:after {
+    width: 1px;
+    content: '';
+    background: #2b4d4d;
+    position: absolute;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .text-bar .col:first-child:after {
+        display: none;
+    }
+}
+
+.text-bar .img-holder {
+    width: 74px;
+    margin: 0 30px 0 50px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (max-width: 1023px) {
+    .text-bar .img-holder {
+        margin: 0 20px 0 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .text-bar .img-holder {
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+.text-bar .img-holder img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.text-bar .text {
+    width: 300px;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (max-width: 1023px) {
+    .text-bar .text {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    .text-bar .text {
+        display: block;
+        overflow: hidden;
+        max-width: none;
+        width: 100%;
+        position: relative;
+    }
+}
+
+.text-bar .text .txt {
+    overflow: hidden;
+}
+
+.text-bar .text .txt > strong {
+    display: block;
+    color: #d3df9e;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.text-bar .value {
+    float: left;
+    color: #fef69f;
+    font-size: 35px;
+    line-height: 35px;
+    margin: 0 5px 0 0;
+}
+
+@media (max-width: 767px) {
+    .text-bar .value{
+        position: absolute;
+        left: 10px;
+        top: -3px;
+    }
+}
+
+@media (max-width: 400px) {
+    .text-bar .value{
+        left: 0;
+        font-size: 28px;
+    }
+}
+
+.text-bar p {
+    margin: 0;
+    padding: 10px 20px;
+}
+
+@media (max-width: 767px) {
+    .text-bar p {
+        padding: 0;
+    }
+}
