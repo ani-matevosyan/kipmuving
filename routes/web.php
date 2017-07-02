@@ -108,6 +108,7 @@ Route::post('calendar/process', 'CalendarController@getProcess');
 
 #Reservation
 Route::get('/reserve', 'ReservationController@index');
+Route::get('/bookit', 'ReservationController@reserve');
 //Route::post('/reserve', 'ReservationController@reserve');
 Route::get('/reservation/{id}/cancel', 'ReservationController@cancelReservation')
 	->where('id', '[0-9]+');

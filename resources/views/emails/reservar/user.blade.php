@@ -234,7 +234,7 @@
 														</li>
 														<li class="money">
 															<strong>Pagar en agencia</strong>
-															<strong class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
+															<strong class="title">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
 														</li>
 													</ul>
 												</td>
@@ -257,7 +257,7 @@
 				<tr>
 					<td id="footer" class="footer">
 						<p>{{ trans('emails.total_to_pay') }}
-							<strong style="color:#980e25; font-weight:bold;">$ {{ number_format($reservation->total->with_discount['CLP'], 0, '.', ' ') }} CLP. </strong>{{ trans('emails.must_be_paid_at_agency') }}</p>
+							<strong style="color:#980e25; font-weight:bold;">$ {{ number_format($reservation->total['CLP'], 0, '.', ' ') }} CLP. </strong>{{ trans('emails.must_be_paid_at_agency') }}</p>
 						<p>{{ trans('emails.each_agency_has_cancellation_policy') }}.</p>
 						<p>
 							{{ trans('emails.any_questions') }}
