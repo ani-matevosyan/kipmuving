@@ -21,13 +21,13 @@ class ActivityController extends Controller
 		
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
-			'styles' => [
+			'styles'     => [
 				'owl-carousel/owl.carousel.css',
 				'owl-carousel/owl.theme.css',
 				'css/product-tour.min.css',
-                'css/activities-style.min.css'
+				'css/activities-style.min.css'
 			],
-			'scripts' => [
+			'scripts'    => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/chosen.jquery.min.js',
@@ -39,7 +39,8 @@ class ActivityController extends Controller
 			'activities' => $activity->getAllActivities(),
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons()
+				'persons' => $offer->getSelectedOffersPersons(),
+				'total'   => $offer->getSelectedOffersTotal()
 			]
 		];
 		
@@ -51,7 +52,7 @@ class ActivityController extends Controller
 		$data = [
 			'offers'  => count($offer->getSelectedOffers()),
 			'persons' => $offer->getSelectedOffersPersons(),
-            'total'   => '1'
+			'total'   => $offer->getSelectedOffersTotal()
 		];
 		
 		return ['data' => $data];
@@ -71,23 +72,23 @@ class ActivityController extends Controller
 			abort(404);
 		
 		$_offer = new Offer();
-		
+
 //		dd($activity->offers[0]->duration);
 		
 		$data = [
-			'styles' => [
+			'styles'         => [
 				'css/product-tour.min.css',
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
 				'css/prettyPhoto.min.css',
 				'css/instafeed/instafeed.min.css',
-                'css/offer-items.min.css',
-                'css/activity-style.min.css'
+				'css/offer-items.min.css',
+				'css/activity-style.min.css'
 			],
-			'scripts' => [
+			'scripts'        => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
-                'js/moment.js',
+				'js/moment.js',
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
@@ -104,9 +105,10 @@ class ActivityController extends Controller
 			],
 			'count'          => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $_offer->getSelectedOffersPersons()
+				'persons' => $_offer->getSelectedOffersPersons(),
+				'total' => $_offer->getSelectedOffersTotal()
 			],
-			'title' => empty($activity->name) ? null : $activity->name
+			'title'          => empty($activity->name) ? null : $activity->name
 		];
 		
 		return view('site.activities.activity-single', $data);

@@ -334,6 +334,19 @@ class Offer extends Model
 		return $countPersons;
 	}
 	
+	public function getSelectedOffersTotal()
+	{
+		$total = 0;
+		$selectedOffers = $this->getSelectedOffers();
+		
+		if ($selectedOffers)
+			foreach ($selectedOffers as $offer) {
+				$total += $offer['price'] * $offer['persons'];
+			}
+		
+		return $total;
+	}
+	
 	public function getAgencyOffers($agencyId)
 	{
 		$offers = Offer::where('agency_id', $agencyId)
