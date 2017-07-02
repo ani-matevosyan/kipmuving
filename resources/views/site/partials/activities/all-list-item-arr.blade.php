@@ -9,7 +9,7 @@
 	<h2><a href="{{ action('ActivityController@getActivity', $activity->id) }}">{{ $activity->name }}</a></h2>
 	<p>{{ $activity->short_description }}</p>
 	<strong class="price"><span>{{ trans('main.from') }}</span>
-		<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> {{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }}</strong>
+		<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> {{ number_format($activity->offers->min('price'), 0, ".", ".") }}</strong>
 	<a href="{{ action('ActivityController@getActivity', $activity->id) }}"
 		class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>

@@ -87,7 +87,7 @@
 													</div>
 													<strong class="price">
 														<sub>@if(session('currency.type') === 'BRL') R$ @else
-																$ @endif</sub> {{ number_format($offer->reservation['persons'] * $offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+																$ @endif</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}
 														{{--$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }}--}}
 													</strong>
 												</div>
@@ -131,19 +131,19 @@
 												<li>
 													<a href="#"></a>
 													<h4>{{ $offer->activity->name }}</h4>
-													<span>{{number_format($offer->price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', '.')}}</span>
+													<span>{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
 												</li>
 											@endforeach
 										</ul>
 										<div class="total">
 											<div class="totalprice">
-												<p>{{ number_format($reservation->total->with_discount[session('currency.type')], 0, ".", ".") }}</p>
+												<p>{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
 												<span>{{ trans('main.total') }}</span>
 											</div>
-											<div class="discount">
-												<span>{{ trans('main.you_save') }}</span>
-												<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>
-											</div>
+											{{--<div class="discount">--}}
+												{{--<span>{{ trans('main.you_save') }}</span>--}}
+												{{--<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>--}}
+											{{--</div>--}}
 										</div>
 										<a href="#" class="btn-reservar reserve" data-toggle="modal"
 										   data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>
@@ -180,8 +180,8 @@
 								</div>
 							</div>
 						</div>
+					</section>
 				</div>
-				</section>
 			</div>
 		</div>
 	</main>

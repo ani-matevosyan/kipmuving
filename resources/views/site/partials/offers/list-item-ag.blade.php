@@ -83,13 +83,13 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div>
 							<strong class="price" data-unit-price="{{ $offer->price }}">
-								<del>
-									<small>
-										<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}
-									</small>
-								</del>
-								<br>
-								<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub> {{ number_format($offer->price * (1 - config('kipmuving.discount')), 0, '.', '.') }}
+								{{--<del>--}}
+									{{--<small>--}}
+										{{--<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}--}}
+									{{--</small>--}}
+								{{--</del>--}}
+								{{--<br>--}}
+								<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub> {{ number_format($offer->price, 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
 								data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>
