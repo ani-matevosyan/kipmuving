@@ -161,7 +161,7 @@
 		<div class="holder">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2 col-sm-3 col-xs-12 box">
+					<div class="col-md-2 col-sm-3 col-xs-12 foot-block">
 					<strong class="title">KipMuving</strong>
 					<nav class="footer-nav">
 					<ul>
@@ -170,7 +170,7 @@
 					</ul>
 					</nav>
 					</div>
-					<div class="col-md-3 col-sm-4 col-xs-12 box">
+					<div class="col-md-3 col-sm-4 col-xs-12 foot-block">
 						<div class="payment-cards-wrapper">
 							<ul class="payment-cards">
 								@for($i = 1; $i <= 6; $i++)
@@ -183,7 +183,7 @@
 							<img src="/images/payu_logo.png" alt="PayU logo">
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-5 col-xs-12 box">
+					<div class="col-md-3 col-sm-5 col-xs-12 foot-block">
 						<strong class="title">{{ trans('main.where_we_are') }}</strong>
 						<address class="address">
 							<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
@@ -195,7 +195,7 @@
 							</span>
 						</address>
 					</div>
-					<div class="col-md-4 col-sm-12 col-xs-12 box">
+					<div class="col-md-4 col-sm-12 col-xs-12 foot-block">
 						<div class="contact-form-wrapper">
 							<strong class="title">{{ trans('main.contact_us') }}</strong>
 							{{--rafaelzarro@gmail.com--}}

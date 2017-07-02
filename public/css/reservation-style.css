@@ -92,6 +92,38 @@
     color: #474a4c;
 }
 
+.head {
+    overflow: hidden;
+    max-width: 813px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.head .sub-title {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.head .sub-title span {
+    display: block;
+    font-weight: bold;
+}
+
+.head .sub-title a {
+    color: #089f02;
+}
+
+.head .sub-title a:hover {
+    text-decoration: underline;
+}
+
+.head p {
+    margin: 0 0 30px;
+}
+
 /*--------------MODAL WIDNOW "RESERVE"------------*/
 
 .payment-modal {

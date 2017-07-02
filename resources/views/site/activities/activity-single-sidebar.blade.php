@@ -65,6 +65,20 @@
 			</ul>
 		</div>
 	@endif
+	<div class="box faq">
+		<strong class="title">Preguntas Freentes</strong>
+		<ul>
+			<li>Como chegar a Pucon</li>
+			<li>Tiempo</li>
+			<li>Barrios y Zonas</li>
+			<li>Compras</li>
+			<li>Onde ficar</li>
+			<li>Que comer</li>
+			<li>Transportes</li>
+			<li>Vida noturna</li>
+			<li>Dinheiro</li>
+		</ul>
+	</div>
 	@if($activity->tripadvisor_code)
 		<div class="box tripadvisor">
 			{!! $activity->tripadvisor_code !!}

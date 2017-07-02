@@ -23,7 +23,7 @@
     position: relative;
 }
 
-.top_nav ul, .two-columns .list, .two-columns .meta, .roteros-options .list, .activities .list, .packages .list, .activities-list, .res-process .col ul, #footer .footer-nav ul, #footer .payment-cards, .reservation .payment-card, .program-schedule ul, .transparent-price .list, .social-likes ul, .your-reservation.new .timing1, .your-reservation .accordion, .your-reservation .list-box .list, .your-reservation .timing, .your-reservation .subnav ul, .your-reservation .links, .your-reservation .you-add .list, .your-reservation .category, .your-reservation .widget ul, .your-reservation .important-block .list, .table .tbody, .profile-block .tablist, .profile-block .item-list, .profile-block .timing, .all-activities .subnav ul {
+.top_nav ul, .two-columns .list, .two-columns .meta, .activities .list, .packages .list, .activities-list, .res-process .col ul, #footer .footer-nav ul, #footer .payment-cards, .reservation .payment-card, .program-schedule ul, .transparent-price .list, .social-likes ul, .your-reservation.new .timing1, .your-reservation .accordion, .your-reservation .list-box .list, .your-reservation .timing, .your-reservation .subnav ul, .your-reservation .links, .your-reservation .you-add .list, .your-reservation .category, .your-reservation .widget ul, .your-reservation .important-block .list, .table .tbody, .profile-block .tablist, .profile-block .item-list, .profile-block .timing, .all-activities .subnav ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -415,48 +415,6 @@ body {
     min-width: 200px;
 }
 
-.roteros-options h2 {
-    color: #fff;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 44px;
-    text-transform: none;
-}
-
-@media (max-width: 767px) {
-    .roteros-options h2 {
-        font-size: 22px;
-        line-height: 26px;
-    }
-}
-
-.roteros-options .sub-title {
-    color: #fff;
-    font-size: 16px;
-    line-height: 20px;
-    text-transform: none;
-}
-
-@media (max-width: 767px) {
-    .roteros-options .sub-title {
-        font-size: 16px;
-        line-height: 20px;
-    }
-}
-
-.roteros-options .box {
-    border: 0;
-    width: 500px;
-    margin: 30px 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 767px) {
-    .roteros-options .box {
-        width: auto;
-    }
-}
-
 .raised-form {
     margin: 0 auto;
     padding: 0 5% 0 3%;
@@ -465,16 +423,6 @@ body {
 @media (max-width: 767px) {
     .raised-form {
         padding: 0;
-    }
-}
-
-.roteros-options .raised-form .text-field {
-    width: 25%;
-}
-
-@media (max-width: 767px) {
-    .roteros-options .raised-form .text-field {
-        width: auto;
     }
 }
 
@@ -1368,163 +1316,6 @@ body {
     }
 }
 
-.activities {
-    overflow: hidden;
-    text-align: center;
-    background: #ededed;
-    padding: 40px 0 63px;
-    border-bottom: 1px solid #b2b2b2;
-}
-
-@media (max-width: 991px) {
-    .activities {
-        padding: 30px 0;
-    }
-}
-
-.activities .head {
-    overflow: hidden;
-    max-width: 592px;
-    margin: 0 auto 30px;
-}
-
-@media (max-width: 991px) {
-    .activities .head {
-        max-width: 500px;
-    }
-}
-
-.activities .head .sub-title {
-    display: block;
-    font-size: 25px;
-    line-height: 28px;
-    font-weight: 400;
-}
-
-@media (max-width: 991px) {
-    .activities .head .sub-title {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 400;
-    }
-}
-
-@media (max-width: 767px) {
-    .activities .head .sub-title {
-        font-size: 16px;
-        line-height: 20px;
-        font-weight: 400;
-    }
-}
-
-.activities h2 {
-    color: #089f02;
-    margin: 0 0 10px;
-    padding: 0 0 10px;
-    font-size: 46px;
-    line-height: 50px;
-    font-weight: 400;
-    text-transform: uppercase;
-    border-bottom: 1px solid #d5d5d5;
-}
-
-@media (max-width: 991px) {
-    .activities h2 {
-        font-size: 30px;
-        line-height: 34px;
-        font-weight: 400;
-    }
-}
-
-@media (max-width: 767px) {
-    .activities h2 {
-        padding: 0 0 5px;
-        margin: 0 0 5px;
-        font-size: 24px;
-        line-height: 30px;
-        font-weight: 400;
-    }
-}
-
-.activities .list {
-    overflow: hidden;
-    margin: 0 0 35px;
-    letter-spacing: -6px;
-}
-
-@media (max-width: 767px) {
-    .activities .list {
-        margin: 0 0 10px;
-    }
-}
-
-.activities .list li {
-    width: 18.8%;
-    overflow: hidden;
-    letter-spacing: 0;
-    position: relative;
-    margin: 0 0.6% 12px;
-    display: inline-block;
-    vertical-align: top;
-}
-
-@media (max-width: 991px) {
-    .activities .list li {
-        width: 31.3%;
-        margin: 0 1% 12px;
-    }
-}
-
-@media (max-width: 767px) {
-    .activities .list li {
-        width: 100%;
-        display: block;
-        margin: 0 0 10px;
-    }
-}
-
-.activities .list li:hover .description, .activities .list li.active .description {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-}
-
-.activities .list .description {
-    text-align: left;
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    left: 0;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
-    transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-}
-
-.activities .list img {
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.activities .list h3 {
-    margin: 0;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 700;
-}
-
-.activities .btn-success {
-    padding: 9px 30px;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 400;
-}
-
 .important-txt {
     font-size: 14px;
     overflow: hidden;
@@ -1747,7 +1538,7 @@ body {
 }
 
 @media (max-width: 991px) {
-    #footer .box {
+    .foot-block {
         margin-bottom: 20px;
     }
 }
@@ -2333,25 +2124,6 @@ body {
     bottom: auto;
 }
 
-.social-likes .box {
-    width: 100%;
-    height: 100%;
-    display: table;
-    table-layout: fixed;
-    padding: 0 0 0 34px;
-    border-left: 1px solid #b2b2b2;
-}
-
-@media (max-width: 991px) {
-    .social-likes .box {
-        border: 0;
-        padding: 0;
-        margin: 0 auto;
-        display: block;
-        max-width: 200px;
-    }
-}
-
 .social-likes ul {
     display: table-cell;
     vertical-align: middle;
@@ -2560,38 +2332,6 @@ body {
 .your-reservation.new .list-box {
     margin: 0 0 20px;
     font-size: 13px;
-}
-
-.your-reservation .head {
-    overflow: hidden;
-    max-width: 813px;
-    padding: 0 0 12px;
-    border-bottom: 1px solid #e4e4e4;
-}
-
-.your-reservation .head .sub-title {
-    display: block;
-    margin: 0 0 10px;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
-}
-
-.your-reservation .head .sub-title span {
-    display: block;
-    font-weight: bold;
-}
-
-.your-reservation .head .sub-title a {
-    color: #089f02;
-}
-
-.your-reservation .head .sub-title a:hover {
-    text-decoration: underline;
-}
-
-.your-reservation .head p {
-    margin: 0 0 30px;
 }
 
 .your-reservation h1 {
@@ -2874,7 +2614,7 @@ body {
     border: 0;
     position: relative;
     max-width: inherit;
-    padding: 0 0 10px 54px;
+    padding: 0 0 10px 64px;
 }
 
 .your-reservation.activity .head:after {
@@ -2907,6 +2647,12 @@ body {
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
+    }
+}
+
+@media (max-width: 767px) {
+    .your-reservation.activity .head{
+        padding-top: 10px;
     }
 }
 
@@ -2978,53 +2724,6 @@ body {
 
 .your-reservation.activity .timing li.total:after {
     display: none;
-}
-
-.your-reservation .tenprocent{
-    font-family: "PT-Sans", sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: #d9a91c;
-    padding-left: 47px;
-    background: url("../images/10-orange.svg") no-repeat;
-    background-size: 45px 27px;
-    background-position: left center;
-    line-height: 14px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.your-reservation.all-activities .tenprocent{
-    position: static;
-    clear: both;
-    float: right;
-    margin-top: 10px;
-    padding-left: 53px;
-    background-size: 51px 30px;
-}
-
-
-
-@media screen and (max-width: 991px){
-    .your-reservation .tenprocent{
-        display: none;
-    }
-    .your-reservation.all-activities .tenprocent{
-        display: block;
-    }
-}
-
-@media (max-width: 767px) {
-    .your-reservation.all-activities .tenprocent{
-        margin-top: -20px;
-    }
-}
-@media screen and (max-width: 540px){
-    .your-reservation.all-activities .tenprocent{
-        visibility: hidden;
-        pointer-events: none;
-    }
 }
 
 .your-reservation .date-time {
@@ -3557,7 +3256,6 @@ body {
     position: relative;
     z-index: 20;
     float: right;
-    width: 243px;
     padding: 7px 23px 15px;
     margin: -120px 0 0;
     text-align: right;
@@ -3742,26 +3440,6 @@ body {
     font-weight: 700;
 }
 
-
-
-.your-reservation.activity .head {
-    padding: 0 0 10px 64px;
-}
-.your-reservation.activity .head::after {
-    width: 60px;
-    height: 60px;
-    background-size: contain;
-    background-image: url(../images/image-none.jpg);
-}
-@media (max-width: 767px) {
-    .your-reservation.activity .head{
-        padding-top: 10px;
-    }
-}
-.your-reservation .box {
-    max-width: 713px;
-    padding: 50px 0;
-}
 .your-reservation .btn-pay {
     color: #ffffff;
     min-width: 175px;

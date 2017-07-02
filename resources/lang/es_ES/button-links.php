@@ -12,5 +12,6 @@ return [
 	'my_agenda'          => 'Mi agenda',
 	'go_to_guide'        => 'Ir a la guía',
 	'view'               => 'Visualizar',
-	'see_all_activities' => 'Ver todas las actividades'
+	'see_all_activities' => 'Ver todas las actividades',
+    'confirm'            => 'Confirmar'
 ];
