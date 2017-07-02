@@ -364,7 +364,7 @@ jQuery(document).ready(function(){
         var currency = $(this).parents('.offer-item').find('.price sub').html();
 		var unit_price = 0 + priceElem.data('unit-price');
 
-		priceElem.html('<del> <small><sub>'+currency+'</sub>'+ numberWithDots($(this).val() * unit_price) +'</small></del><br><sub>'+currency+'</sub>' + numberWithDots(Math.round($(this).val() * unit_price * 0.9)));
+		priceElem.html('<sub>'+currency+'</sub>' + numberWithDots($(this).val() * unit_price));
 	});
 
     //-----------AVATAR LOADING--------------
