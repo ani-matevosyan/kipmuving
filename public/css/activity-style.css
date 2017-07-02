@@ -19,6 +19,13 @@
     }
 }
 
+.box {
+    max-width: 713px;
+    padding: 15px 0;
+    position: relative;
+    margin: 0 0 0 30px;
+}
+
 .your-reservation .widget {
     color: #fff;
     padding: 20px;
@@ -101,7 +108,7 @@
     margin: 0 0 10px;
 }
 
-.your-reservation .important-block {
+.important-block {
     overflow: hidden;
     margin: 10px 0 0;
     background: #ededed;
@@ -109,7 +116,7 @@
 }
 
 @media (max-width: 767px) {
-    .your-reservation .important-block {
+    .important-block {
         padding: 0 10px 20px;
     }
 
@@ -122,24 +129,17 @@
     }
 }
 
-.your-reservation .important-block .box {
-    padding: 15px 0;
-    position: relative;
-    margin: 0 0 0 30px;
-    border-bottom: 1px solid #ccc;
-}
-
-.your-reservation .important-block .box ul{
+.important-block .box ul{
     padding: 0;
     list-style: none;
 }
 
-.your-reservation .important-block .box ul li{
+.important-block .box ul li{
     margin: 0 0 6px;
     position: relative;
 }
 
-.your-reservation .important-block .box > ul li:before{
+.important-block .box > ul li:before{
     content: "\2022";
     position: absolute;
     left: -13px;
@@ -148,7 +148,7 @@
 
 }
 
-.your-reservation .important-block .box.alert p{
+.important-block .box.alert p{
     font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -157,7 +157,7 @@
     position: relative;
 }
 
-.your-reservation .important-block .box.alert p:before{
+.important-block .box.alert p:before{
     position: absolute;
     content: '';
     left: -34px;
@@ -168,39 +168,39 @@
     background-size: contain;
 }
 
-.your-reservation .important-block .box.alert .title{
+.important-block .box.alert .title{
     font-weight: normal;
     position: relative;
 }
 
-.your-reservation .important-block .box.alert .title span{
+.important-block .box.alert .title span{
     font-family: 'PT-Sans', sans-serif;
     font-weight: 700;
 }
 
-.your-reservation .important-block .box.tripadvisor{
+.important-block .box.tripadvisor{
     margin: 0;
     padding: 10px 0 22px;
     border-bottom: 0;
 }
 
-.your-reservation .important-block .box.tripadvisor #CDSWIDSSP{
+.important-block .box.tripadvisor #CDSWIDSSP{
     margin: auto;
 }
 
-.your-reservation .important-block .box.tripadvisor #CDSWIDSSP .widSSPData{
+.important-block .box.tripadvisor #CDSWIDSSP .widSSPData{
     background-color: transparent;
 }
 
-.your-reservation .important-block .box.tripadvisor #CDSWIDSSP .widSSPData sup{
+.important-block .box.tripadvisor #CDSWIDSSP .widSSPData sup{
     top: 0;
 }
 
-.your-reservation .important-block .box.tripadvisor #CDSWIDSSP img{
+.important-block .box.tripadvisor #CDSWIDSSP img{
     background-color: transparent;
 }
 
-.your-reservation .important-block h2 {
+.important-block h2 {
     margin: 0;
     color: #963d4c;
     font-size: 23px;
@@ -208,7 +208,7 @@
     line-height: 26px;
 }
 
-.your-reservation .important-block .sub-title {
+.important-block .sub-title {
     color: #963d4c;
     display: block;
     font-size: 17px;
@@ -217,7 +217,7 @@
     line-height: 20px;
 }
 
-.your-reservation .important-block .title {
+.important-block .title {
     display: block;
     font-size: 15px;
     font-weight: 700;
@@ -225,19 +225,19 @@
     line-height: 18px;
 }
 
-.your-reservation .important-block .list {
+.important-block .list {
     overflow: hidden;
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
 }
 
-.your-reservation .important-block .list li {
+.important-block .list li {
     position: relative;
     padding: 0 0 5px 10px;
 }
 
-.your-reservation .important-block .list li:after {
+.important-block .list li:after {
     width: 3px;
     height: 3px;
     content: '';
@@ -250,11 +250,50 @@
     bottom: auto;
 }
 
-.your-reservation .img-tour {
+
+.faq{
+    background: #ffffff;
+    margin: 0 -20px 20px;
+    padding: 21px 50px 12px;
+}
+
+.faq .title{
+    font-size: 18px;
+    color: #02A000;
+    margin-bottom: 17px;
+    position: relative;
+}
+
+.faq .title:before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 23px;
+    background: url('../images/faq-icon.png') no-repeat;
+    background-size: contain;
+    left: -40px;
+    top: -4px;
+}
+
+.important-block .faq>ul li:before{
+    left: -15px;
+    top: -2px;
+    color: #02A000;
+}
+
+@media screen and (max-width: 991px){
+    .faq{
+        background: transparent;
+        margin: 0 0 20px;
+        padding: 21px 0 12px 30px;
+    }
+}
+
+.img-tour {
     overflow: hidden;
 }
 
-.your-reservation .img-tour img {
+.img-tour img {
     width: 100%;
     display: block;
     height: 125px;
@@ -268,17 +307,17 @@
     padding-right: 0;
 }
 
-.your-reservation .location {
+.location {
     overflow: hidden;
     padding: 20px 0 0;
 }
 
-.your-reservation .location header{
+.location header{
     padding-left: 41px;
     position: relative;
 }
 
-.your-reservation .location header:before{
+.location header:before{
     content: '';
     position: absolute;
     height: 35px;
@@ -289,56 +328,56 @@
     top: 1px;
 }
 
-.your-reservation .location h3 {
+.location h3 {
     margin: 0;
     font-size: 17px;
     font-weight: bold;
     line-height: 20px;
 }
 
-.your-reservation .location .map-holder {
+.location .map-holder {
     margin: 0;
 }
 
-.your-reservation .location img {
+.location img {
     width: 100%;
     display: block;
     height: auto;
 }
 
-.your-reservation .location p {
+.location p {
     margin: 3px 0 20px;
 }
 
 @media(max-width: 991px){
-    .your-reservation .important-block{
+    .important-block{
         padding-bottom: 30px;
         margin-bottom: 35px;
     }
-    .your-reservation .important-block .box.tripadvisor,
-    .your-reservation .important-block .booking,
-    .your-reservation .important-block .img-tour,
-    .your-reservation .important-block .location{
+    .important-block .box.tripadvisor,
+    .important-block .booking,
+    .important-block .img-tour,
+    .important-block .location{
         display: none;
     }
-    .your-reservation .img-tour img{
+    .img-tour img{
         height: 234px;
     }
 }
 
 @media(max-width: 767px){
-    .your-reservation .img-tour img{
+    .img-tour img{
         height: auto;
     }
 }
 
-.your-reservation .title-box {
+.title-box {
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
 }
 
-.your-reservation .title-box strong {
+.title-box strong {
     display: block;
     margin: 0 0 20px;
     font-size: 16px;
@@ -347,7 +386,7 @@
 }
 
 @media (max-width: 767px) {
-    .your-reservation .title-box strong {
+    .title-box strong {
         margin: 0 0 10px;
         font-size: 14px;
         line-height: 18px;
@@ -355,7 +394,7 @@
     }
 }
 
-.your-reservation .title-box p {
+.title-box p {
     margin: 0 0 20px;
 }
 
@@ -363,7 +402,7 @@
     margin-bottom: 21px;
 }
 
-.your-reservation.activity .activity-title h1{
+.activity .activity-title h1{
     font-weight: 700;
     font-size: 38px;
     text-transform: uppercase;
@@ -513,6 +552,12 @@
     vertical-align: top;
 }
 
+@media screen and (max-width: 1139px) and (min-width: 992px){
+    .your-reservation .subnav ul li{
+        padding: 0 9px;
+    }
+}
+
 @media (max-width: 767px) {
     .your-reservation .subnav {
         margin: 0 0 20px;
@@ -607,7 +652,7 @@
     content: '';
     height: 20px;
     position: absolute;
-    left: 0;
+    left: 1px;
     top: 17px;
     right: auto;
     bottom: auto;
@@ -629,8 +674,7 @@
     display: none;
 }
 
-.your-reservation .timing1 li.profile .jcf-select,
-.jcf-select-persona.jcf-select-drop .jcf-hover{
+.your-reservation .timing1 li.profile .jcf-select{
     border: 2px solid #FDD164;
 }
 
@@ -638,6 +682,10 @@
     .your-reservation .timing1 li.profile .jcf-select{
         width: auto;
     }
+}
+
+.jcf-select.jcf-select-persona{
+    width: auto;
 }
 
 .your-reservation .timing1 li.profile .jcf-select .jcf-select-text{
@@ -720,4 +768,6 @@
 .your-reservation .accordion h2 a:hover{
     color: #f8be00;
 }
+
+
 

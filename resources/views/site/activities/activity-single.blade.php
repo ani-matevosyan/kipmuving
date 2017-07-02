@@ -74,13 +74,6 @@
 										</nav>
 									</div>
 									<div class="tab-content">
-										{{--<div class="tab-pane active" id="tab2">--}}
-											{{--<ul class="accordion">--}}
-												{{--@foreach ($offers['recommend'] as $offer)--}}
-													{{--@include('site.partials.offers.list-item')--}}
-												{{--@endforeach--}}
-											{{--</ul>--}}
-										{{--</div>--}}
 										<div class="tab-pane active" id="tab2">
 											<ul class="accordion">
 												@foreach ($activity->offers->sortByDesc('recommendation') as $offer)
@@ -102,20 +95,6 @@
 												@endforeach
 											</ul>
 										</div>
-										{{--<div class="tab-pane" id="tab3">--}}
-											{{--<ul class="accordion">--}}
-												{{--@foreach ($offers['price'] as $offer)--}}
-													{{--@include('site.partials.offers.list-item')--}}
-												{{--@endforeach--}}
-											{{--</ul>--}}
-										{{--</div>--}}
-										{{--<div class="tab-pane" id="tab4">--}}
-											{{--<ul class="accordion">--}}
-												{{--@foreach ($offers['includes'] as $offer)--}}
-													{{--@include('site.partials.offers.list-item')--}}
-												{{--@endforeach--}}
-											{{--</ul>--}}
-										{{--</div>--}}
 									</div>
 								</section>
 							</div>

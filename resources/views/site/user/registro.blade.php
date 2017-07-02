@@ -113,17 +113,6 @@
 							</div>
 						</form>
 					</div>
-					<!-- <div class="col-md-3 col-sm-12 col-xs-12">
-						<div class="social-likes">
-							<span class="divider"></span>
-							<div class="box">
-								<ul>
-									<li><a href="#" class="facebook">Registrate con Facebook</a></li>
-									<li><a href="#" class="google">Registrate con Google</a></li>
-								</ul>
-							</div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>
