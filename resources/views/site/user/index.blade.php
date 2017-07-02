@@ -259,7 +259,7 @@
 																	@endif
 																	<strong>
 																		<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}
-																		$ {{ number_format(($reservation->offer->price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}
+																		$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}
 																	</strong>
 																</li>
 															@endif
@@ -278,7 +278,7 @@
 																	<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
 																	<strong>Pagar en agencia</strong>
 																	<strong class="title">CLP
-																		$ {{ number_format(($reservation->offer->real_price * $reservation->persons) * (1 - config('kipmuving.discount')), 0, ".", ".") }}</strong>
+																		$ {{ number_format(($reservation->offer->real_price * $reservation->persons), 0, ".", ".") }}</strong>
 																</li>
 															@endif
 

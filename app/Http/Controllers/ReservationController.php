@@ -93,18 +93,16 @@ class ReservationController extends Controller
 			$message->from('info@kipmuving.com', 'Kipmuving team');
 			$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('Your Kipmuving.com reservations');
 		});
-//		return view('emails.reservar.user', ['user' => $user, 'reservation' => $reservations]);
 		
 		#Send email about reservation to admin
 		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
 			$message->from('info@kipmuving.com', 'Kipmuving team');
 			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Kipmuving.com reservations');
 		});
-//		return view('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations]);
-		
+
 		$agency_reservations = $reservations;
 		$agency_reservations->offers = $reservations->offers->groupBy('agency.email');
-		
+
 		#Send emails about reservation to agencies
 		foreach ($agency_reservations->offers as $agency_email => $item) {
 			Mail::send('emails.reservar.agencia', [
@@ -114,11 +112,8 @@ class ReservationController extends Controller
 			], function ($message) use ($agency_email) {
 				$message->from('info@kipmuving.com', 'Kipmuving team');
 				$message->to($agency_email)->subject('Kipmuving.com reservation');
-				//TODO change
-//				$message->to('sanek.solodovnikov.94@gmail.com')->subject('Kipmuving.com reservation');
 			});
 		}
-		//		return view('emails.reservar.agencia', ['reservations' => $reservations->offers, 'user' => $user, 'total' => '155000']);
 	}
 	
 	private static function clearGarbageReservations()
@@ -229,6 +224,25 @@ class ReservationController extends Controller
 		];
 		
 		return view('site.reservar.su-reservar', $data);
+	}
+	
+	public function reserve() {
+		
+		if (!($user = Auth::user()))
+			return redirect('/login');
+		
+		if (!($selected_offers = session('selectedOffers')))
+			return redirect()->action('ActivityController@index');
+		
+		$reservations = $this->getReservationData($selected_offers);
+		
+		$this->createReservation($reservations->offers, $user, 'kipmuving', uniqid(), 'Success', true);
+		
+		$this->sendMails($reservations, $user);
+		
+		session()->forget('selectedOffers');
+		
+		return redirect()->action('UserController@getUser');
 	}
 	
 	#Cancel reservation

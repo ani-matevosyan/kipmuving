@@ -152,7 +152,7 @@
                                                         </li>
                                                         <li class="money">
                                                             <strong>Pagar en agencia</strong>
-                                                            <strong class="title">$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
+                                                            <strong class="title">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
                                                         </li>
                                                     </ul>
                                                 </td>
