@@ -66,8 +66,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 							->setModelForOptions('App\Activity')
 							->setDisplay('name'),
 					], 6),
-				AdminFormElement::textarea('description', 'Description')
-					->required(),
+				AdminFormElement::textarea('description', 'Description'),
 				AdminFormElement::text('cancellation_rules', 'Cancellation rules')
 					->required(),
 				

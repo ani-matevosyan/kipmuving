@@ -24,7 +24,8 @@ class AgencyController extends Controller
 			'agencies'   => Agency::where('region', '=', $region)->get(),
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons()
+				'persons' => $offer->getSelectedOffersPersons(),
+				'total' => $offer->getSelectedOffersTotal()
 			]
 		];
 		
