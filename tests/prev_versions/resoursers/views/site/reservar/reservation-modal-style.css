@@ -1,0 +1,167 @@
+/*--------------MODAL WIDNOW "RESERVE"------------*/
+
+.payment-modal {
+    text-align: center;
+}
+.payment-modal.modal:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+.payment-modal .modal-dialog {
+    display: inline-block;
+    vertical-align: middle;
+    width: 910px;
+}
+.payment-modal .modal-content {
+    border-radius: 0;
+    border-color: #aaaaaa;
+    background: #fff;
+    box-shadow: none;
+}
+.payment-modal .modal-header {
+    border-bottom: none;
+    color: #000;
+    background: transparent;
+    text-align: center;
+    padding: 36px 0 0;
+}
+.payment-modal .modal-header p {
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+.payment-modal .modal-header p>strong{
+    color: #972639;
+}
+
+.payment-modal .modal-body {
+    padding: 0;
+}
+
+.info-item{
+    background: #e2e2e2;
+    margin-bottom: 1px;
+    text-align: left;
+    height: 83px;
+}
+
+.info-item:first-child{
+    background: #f1f1f1;
+}
+
+.info-item h4,
+.info-item strong{
+    margin: 28px 0 0;
+    display: block;
+    font-size: 16px;
+}
+
+.info-item h4{
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 400;
+    padding-left: 13px;
+}
+
+.info-item strong{
+    color: #972639;
+}
+.info-item span{
+    color: #707070;
+    display: block;
+    line-height: 1;
+}
+
+.payment-options{
+    padding: 27px 0 20px;
+}
+
+.payment-options h4{
+    font-family: 'PT-Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: block;
+    margin: 5px 0 20px;
+    color: #343434;
+}
+
+.payment-method{
+    position: relative;
+    padding: 10px 0 30px;
+}
+
+.payment-method:after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    right: -10px;
+    top: 0;
+    background: #E6E6E6;
+}
+
+.payment-method_last:after{
+    display: none;
+}
+
+.payment-method span{
+    display: block;
+    font-size: 16px;
+    text-align: left;
+    color: #ADAEAD;
+    margin-top: 10px;
+}
+
+.payment-method a{
+    display: block;
+    line-height: 55px;
+}
+.payment-options a img{
+    max-width: 150px;
+}
+
+.modal-backdrop {
+    background: #000;
+}
+
+@media screen and (max-width: 991px){
+    .payment-modal .modal-dialog{
+        width: 700px;
+    }
+    .payment-options{
+        padding: 20px 0;
+    }
+    .payment-options h4{
+        margin: 5px 0 10px;
+    }
+    .payment-method{
+        padding: 10px 0 0;
+        margin: 0 auto;
+        max-width: 200px;
+    }
+    .payment-method a{
+        line-height: 50px;
+    }
+    .payment-method span{
+        display: none;
+    }
+    .payment-method:after{
+        right: 0;
+        top: auto;
+        bottom: -6px;
+        width: 100%;
+        height: 1px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .payment-modal .modal-dialog{
+        width: calc( 100% - 20px );
+        max-width: 490px;
+        margin: 50px 10px;
+    }
+}
+
+/*--------------END MODAL WIDNOW "RESERVE"------------*/

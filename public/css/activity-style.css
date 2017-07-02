@@ -287,6 +287,10 @@
         margin: 0 0 20px;
         padding: 21px 0 12px 30px;
     }
+
+    .faq .title{
+        margin-left: 19px;
+    }
 }
 
 .img-tour {
@@ -612,42 +616,42 @@
     border-bottom: 1px solid #d9d9d9;
 }
 
-.your-reservation .select-activity .timing1{
+.select-activity .timing1{
     border: none;
     margin: 0;
 }
 
 @media (max-width: 767px) {
-    .your-reservation .select-activity .timing1{
+    .select-activity .timing1{
         padding-bottom: 0;
     }
 }
 
-.your-reservation .timing1 {
+.timing1 {
     margin: 0 0 10px;
     padding: 0 24px 10px 0;
     border-bottom: 1px solid #d9d9d9;
 }
 
-.your-reservation .timing1 li {
+.timing1 li {
     overflow: hidden;
     position: relative;
     padding: 0 0 3px 30px;
 }
 
-.your-reservation .timing1 li.time{
+.timing1 li.time{
     min-height: 40px;
 }
 
-.your-reservation .timing1 li.profile {
+.timing1 li.profile {
     padding: 10px 0 3px 30px;
 }
 
-.your-reservation .timing1 li.profile.hours{
+.timing1 li.profile.hours{
     padding: 4px 0 13px 30px;
 }
 
-.your-reservation .timing1 li.profile:after {
+.timing1 li.profile:after {
     width: 20px;
     content: '';
     height: 20px;
@@ -661,7 +665,7 @@
     background-position: center center;
 }
 
-.your-reservation .timing1 li.profile.hours:after{
+.timing1 li.profile.hours:after{
     width: 22px;
     height: 22px;
     background: url(../images/clock.svg) no-repeat;
@@ -670,16 +674,16 @@
     top: 31px;
 }
 
-.your-reservation .timing1 li.profile .jcf-select .jcf-select-opener{
+.timing1 li.profile .jcf-select .jcf-select-opener{
     display: none;
 }
 
-.your-reservation .timing1 li.profile .jcf-select{
+.timing1 li.profile .jcf-select{
     border: 2px solid #FDD164;
 }
 
 @media screen and (max-width: 767px){
-    .your-reservation .timing1 li.profile .jcf-select{
+    .timing1 li.profile .jcf-select{
         width: auto;
     }
 }
@@ -688,30 +692,30 @@
     width: auto;
 }
 
-.your-reservation .timing1 li.profile .jcf-select .jcf-select-text{
+.timing1 li.profile .jcf-select .jcf-select-text{
     color: #F5AD00;
     font-weight: bold;
 }
 
-.your-reservation .timing1 li.profile .jcf-select .jcf-select-opener:after{
+.timing1 li.profile .jcf-select .jcf-select-opener:after{
     border-color: #fff transparent transparent;
 }
 
-.your-reservation .timing1 li.profile.hours .jcf-select{
+.timing1 li.profile.hours .jcf-select{
     min-width: 100px;
     width: auto;
 }
 
-.your-reservation .timing1 li.profile.hours strong,
-.your-reservation .timing1 li.profile.hours label{
+.timing1 li.profile.hours strong,
+.timing1 li.profile.hours label{
     margin-bottom: 3px;
 }
-.your-reservation .timing1 li.profile.hours label{
+.timing1 li.profile.hours label{
     font-weight: bold;
     display: block;
 }
 
-.your-reservation .timing1 li.cal:after {
+.timing1 li.cal:after {
     width: 18px;
     content: '';
     height: 18px;
@@ -725,16 +729,16 @@
     background-position: center center;
 }
 
-.your-reservation .timing1 strong {
+.timing1 strong {
     display: block;
     font-weight: normal;
 }
 
-.your-reservation .timing1 strong span {
+.timing1 strong span {
     font-weight: bold;
 }
 
-.your-reservation .timing1 .btn-primary {
+.timing1 .btn-primary {
     float: left;
     font-weight: normal;
     background: #963d4c;
@@ -768,6 +772,25 @@
 .your-reservation .accordion h2 a:hover{
     color: #f8be00;
 }
+
+@media screen and (max-width: 1139px) and (min-width: 992px){
+    .select-activity>.row>div{
+        width: 100%;
+    }
+    .select-activity>.row>.col-md-4{
+        padding-left: 44px;
+    }
+
+    .your-reservation.activity .price{
+        text-align: left;
+        padding-bottom: 10px;
+    }
+    .your-reservation.activity .btn-primary{
+        float: none;
+        margin-bottom: 15px;
+    }
+}
+
 
 
 
