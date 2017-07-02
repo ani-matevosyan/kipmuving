@@ -58,7 +58,7 @@
 			@endif
 			@if($activity->offers->min('price'))
 				<strong class="price"><span>{{ trans('main.from') }}</span> <sub>@if(session('currency.type') === 'BRL') R$ @else
-							$ @endif</sub>{{ number_format($activity->offers->min('price') * (1 - config('kipmuving.discount')), 0, ".", ".") }} </strong>
+							$ @endif</sub>{{ number_format($activity->offers->min('price'), 0, ".", ".") }} </strong>
 			@endif
 			<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="btn-primary">{{ trans('button-links.view') }}</a>
 </div>
