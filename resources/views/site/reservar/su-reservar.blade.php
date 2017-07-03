@@ -151,31 +151,6 @@
 										* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un
 										aproximado. El valor debera ser pago en pesos en la agencia.
 									</div>
-									<section class="s_howitworks_sidebar">
-										<div class="section-container">
-											<header>
-												<h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
-											</header>
-											<div class="item percent">
-												<img src="images/10-grey.svg" alt="{{ config('kipmuving.discount') * 100 }}%">
-												<p>{{ trans('main.agreement_with_local_agencies') }}</p>
-											</div>
-											<div class="item umbrella">
-												<img src="images/umbrella-grey.svg" alt="umbrella">
-												<p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }} <span>{{ config('kipmuving.service_fee') * 100 }}
-														% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
-											</div>
-											<div class="item broklink">
-												<img src="images/broken-link-grey.svg" alt="broken-link">
-												<p>{{ trans('main.we_make_your_union_with_agency') }}</p>
-											</div>
-										</div>
-										<div class="payment">
-											<img src="images/pagseguro_min_logo.png" alt="Pagseguro logo">
-											<img src="images/payu_min_logo.png" alt="PayU logo">
-											<img src="images/paypal.png" alt="PayPal logo">
-										</div>
-									</section>
 								</div>
 							</div>
 						</div>

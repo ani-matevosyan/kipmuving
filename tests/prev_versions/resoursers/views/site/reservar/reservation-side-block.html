@@ -1,0 +1,136 @@
+<section class="s_howitworks_sidebar">
+    <div class="section-container">
+        <header>
+            <h3>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h3>
+        </header>
+        <div class="item percent">
+            <img src="images/10-grey.svg" alt="{{ config('kipmuving.discount') * 100 }}%">
+            <p>{{ trans('main.agreement_with_local_agencies') }}</p>
+        </div>
+        <div class="item umbrella">
+            <img src="images/umbrella-grey.svg" alt="umbrella">
+            <p><span>{{ trans('main.support') }}</span> {{ trans('main.with_a_small_commission') }}
+                <span>{{ config('kipmuving.service_fee') * 100 }}
+												% </span> {{ trans('main.pay_for_website_maintenance') }}</p>
+        </div>
+        <div class="item broklink">
+            <img src="images/broken-link-grey.svg" alt="broken-link">
+            <p>{{ trans('main.we_make_your_union_with_agency') }}</p>
+        </div>
+    </div>
+    <div class="payment">
+        <a href="#">
+            <img src="images/pagseguro_min_logo.png" alt="Pagseguro logo">
+        </a>
+        <a href="#">
+            <img src="images/payu_min_logo.png" alt="PayU logo">
+        </a>
+        <a href="#">
+            <img src="images/paypal.png" alt="PayPal logo">
+        </a>
+    </div>
+</section>
+
+
+<style>
+    .s_howitworks_sidebar {
+        font-family: "PT-Sans", sans-serif;
+        font-weight: 400;
+        color: #000; }
+    .s_howitworks_sidebar span {
+        font-family: "PT-Sans", sans-serif;
+        font-weight: 700;
+    }
+    .s_howitworks_sidebar .section-container {
+        position: relative;
+        padding: 24px 7px 83px;
+        background: #e5e5e5; }
+    .s_howitworks_sidebar .section-container:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: url(../images/howitworks-sidebar_bg.png) no-repeat;
+        background-position: bottom right;
+        bottom: 0;
+        right: -21px; }
+    .s_howitworks_sidebar .section-container header {
+        margin-bottom: 15px; }
+    .s_howitworks_sidebar .section-container header h3 {
+        margin: 0;
+        font-size: 20px;
+        text-align: center; }
+    .s_howitworks_sidebar .section-container .item {
+        font-size: 13px;
+        margin-bottom: 40px;
+        position: relative; }
+    .s_howitworks_sidebar .section-container .item img {
+        float: left; }
+    .s_howitworks_sidebar .section-container .item:before {
+        content: "";
+        position: absolute;
+        bottom: -34px;
+        left: 0;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        margin: auto;
+        background: url(../images/arrow.png) no-repeat;
+        background-size: contain;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg); }
+    .s_howitworks_sidebar .section-container .percent p {
+        margin: 0;
+        padding-top: 5px; }
+    .s_howitworks_sidebar .section-container .percent img {
+        height: 43px;
+        width: 77px;
+        margin-right: 5px; }
+    .s_howitworks_sidebar .section-container .umbrella p {
+        text-align: right; }
+    .s_howitworks_sidebar .section-container .umbrella img {
+        height: 50px;
+        width: 38px;
+        float: right;
+        margin: 0 17px; }
+    .s_howitworks_sidebar .section-container .broklink:before {
+        display: none; }
+    .s_howitworks_sidebar .section-container .broklink img {
+        height: 50px;
+        width: 40px;
+        margin: 0 11px;
+        -webkit-transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+        transform: rotateX(180deg); }
+    .s_howitworks_sidebar .payment {
+        margin: 6px -2px 20px 0;
+        text-align: center;
+    }
+    .s_howitworks_sidebar .payment img{
+        margin-right: 2px;
+    }
+    @media(max-width: 1199px) and (min-width: 992px) {
+        .s_howitworks_sidebar .section-container .umbrella img {
+            height: 70px;
+            margin: 0 14px 6px;
+        }
+
+        .s_howitworks_sidebar .section-container .broklink img {
+            height: 65px;
+        }
+    }
+
+    @media screen and (max-width: 991px){
+        .s_suprogram .total .totalprice:before{
+            right: 85%;
+        }
+        .s_howitworks_sidebar{
+            display: none;
+        }
+    }
+</style>

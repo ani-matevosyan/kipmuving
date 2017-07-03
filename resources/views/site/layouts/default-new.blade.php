@@ -186,7 +186,7 @@
 					<div class="social-links">
 						<ul>
 							<li>
-								<a href="#" target="_blank"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
+								<a href="https://www.facebook.com/KipMuving-693742520728748/" target="_blank"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
 							</li>
 							<li>
 								<a href="https://www.instagram.com/kipmuving/" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
