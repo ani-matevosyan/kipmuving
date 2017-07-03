@@ -157,106 +157,95 @@
 
 	@yield('content')
 
-	<footer id="footer">
-		<div class="holder">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-2 col-sm-3 col-xs-12 foot-block">
+	<footer id="footer" class="main-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">
 					<strong class="title">KipMuving</strong>
 					<nav class="footer-nav">
-					<ul>
-					<li><a href="{{ action('AboutController@index') }}">Quien Somos</a></li>
-					<li><a href="#">Contacto</a></li>
-					</ul>
+						<ul>
+							<li><a href="{{ action('AboutController@index') }}">Quien Somos</a></li>
+							<li><a href="#">Contacto</a></li>
+						</ul>
 					</nav>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-12 foot-block">
-						<div class="payment-cards-wrapper">
-							<ul class="payment-cards">
-								@for($i = 1; $i <= 6; $i++)
-									<li>
-										<img src="{{ asset('/images/card'.$i.'.png') }}" alt="image description">
-									</li>
-								@endfor
-							</ul>
-							<img src="/images/pagseguro_logo.png" alt="Pagseguro logo">
-							<img src="/images/payu_logo.png" alt="PayU logo">
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-5 col-xs-12 foot-block">
-						<strong class="title">{{ trans('main.where_we_are') }}</strong>
-						<address class="address">
-							<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
-							<span>
-								<a href="tel:56452444035" class="tel">+56 45 2444035</a>
-							</span>
-							<span>
-								<a href="tel:56962266304" class="tel">+56 9 62266304</a>
-							</span>
-						</address>
-					</div>
-					<div class="col-md-4 col-sm-12 col-xs-12 foot-block">
-						<div class="contact-form-wrapper">
-							<strong class="title">{{ trans('main.contact_us') }}</strong>
-							{{--rafaelzarro@gmail.com--}}
-							<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
-								{{ csrf_field() }}
-								<div class="sub-row">
-									<label for="name">{{ trans('form.name') }}</label>
-									<div class="text-field">
-										<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
-									</div>
-								</div>
-								<div class="sub-row">
-									<label for="email">{{ trans('form.email') }}</label>
-									<div class="text-field">
-										<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
-									</div>
-								</div>
-								<div class="sub-row">
-									<label for="message">{{ trans('form.message') }}</label>
-									<div class="text-field">
-										<textarea rows="5" cols="5" class="form-control" id="message" name="message">{{ old('message') }}</textarea>
-									</div>
-								</div>
-								<div class="sub-row captcha-row" style="display:none;">
-									<label for="captcha">captcha</label>
-									<div class="text-field captcha-field">
-										{!! Recaptcha::render(['lang' => app()->getLocale(), 'theme' => 'dark']) !!}
-									</div>
-								</div>
-								<input type="submit" value="OK" class="btn btn-success">
-							</form>
-							@if($errors->has('text'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('text') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('email'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('email') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('message'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('message') }}</strong>
-								</div>
-							@endif
-							@if($errors->has('g-recaptcha-response'))
-								<div class="alert alert-error alert-danger">
-									<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-								</div>
-							@endif
-						</div>
+				</div>
+				<div class="col-md-3 col-sm-4 col-xs-12 foot-block">
+					<strong class="title">{{ trans('main.where_we_are') }}</strong>
+					<address class="address">
+						<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
+						<span>
+							<a href="tel:56452444035" class="tel">+56 45 2444035</a>
+						</span>
+						<span>
+							<a href="tel:56962266304" class="tel">+56 9 62266304</a>
+						</span>
+					</address>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">
+					<strong class="title">Web</strong>
+					<div class="social-links">
+						<ul>
+							<li>
+								<a href="#"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
+							</li>
+						</ul>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<a href="mailto:contacto@kipmuving.com" class="email">contacto@kipmuving.com</a>
+				<div class="col-md-5 col-sm-12 col-xs-12 foot-block">
+					<div class="contact-form-wrapper">
+						<strong class="title">{{ trans('main.contact_us') }}</strong>
+						{{--rafaelzarro@gmail.com--}}
+						<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
+							{{ csrf_field() }}
+							<div class="sub-row">
+								<label for="name">{{ trans('form.name') }}</label>
+								<div class="text-field">
+									<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+								</div>
+							</div>
+							<div class="sub-row">
+								<label for="email">{{ trans('form.email') }}</label>
+								<div class="text-field">
+									<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+								</div>
+							</div>
+							<div class="sub-row">
+								<label for="message">{{ trans('form.message') }}</label>
+								<div class="text-field">
+									<textarea rows="5" cols="5" class="form-control" id="message" name="message">{{ old('message') }}</textarea>
+								</div>
+							</div>
+							<div class="sub-row captcha-row" style="display:none;">
+								<label for="captcha">captcha</label>
+								<div class="text-field captcha-field">
+									{!! Recaptcha::render(['lang' => app()->getLocale(), 'theme' => 'dark']) !!}
+								</div>
+							</div>
+							<input type="submit" value="OK" class="btn btn-success">
+						</form>
+						@if($errors->has('text'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('text') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('email'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('email') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('message'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('message') }}</strong>
+							</div>
+						@endif
+						@if($errors->has('g-recaptcha-response'))
+							<div class="alert alert-error alert-danger">
+								<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+							</div>
+						@endif
 					</div>
 				</div>
 			</div>
