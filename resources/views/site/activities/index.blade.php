@@ -8,12 +8,6 @@
 	<section>
 		<div class="container">
 			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
-			<div class="your-reservation activity add all-activities" style="padding-bottom: 0;">
-				<div class="tenprocent">
-					em todos <br>
-					os precos
-				</div>
-			</div>
 		</div>
 	</section>
 	<!--Slider section-->
