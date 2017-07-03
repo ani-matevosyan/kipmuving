@@ -36,8 +36,7 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} <span>{{ config('kipmuving.discount') * 100 }}
-									%</span> {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">Todas las actividades en un solo lugar</p>
 						</form>
 					</div>
 				</div>

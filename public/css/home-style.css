@@ -153,7 +153,7 @@
 .activity-form {
     width: 547px;
     float: right;
-    padding: 7px 17px 19px;
+    padding: 7px 17px 12px;
     background: rgba(255, 188, 0, 0.88);
 }
 
@@ -322,10 +322,23 @@
 }
 
 .activity-form .btn-primary {
+    float: left;
+    padding-left: 13px;
+    padding-right: 13px;
+    background: #fff;
     font-size: 10px;
     line-height: 18px;
-    font-weight: 400;
     width: 100%;
+    color: #F19300;
+    font-weight: 700;
+}
+
+.form_under_p{
+    margin: 0;
+    color: #fff;
+    font-family: 'PT-Sans', sans-serif;
+    text-align: center;
+    font-size: 14px;
 }
 
 .line-box {
@@ -501,11 +514,6 @@
 
 .s_allactivities .caption{
     padding: 0 17px;
-}
-
-.s_allactivities .btn,
-.s_allactivities .btn-primary{
-    border-radius: 0;
 }
 
 .s_allactivities .btn-holder{

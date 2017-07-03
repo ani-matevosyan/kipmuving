@@ -3301,21 +3301,6 @@ body {
     }
 }
 
-.form_under_p{
-    margin: 11px 0 0;
-    text-transform: uppercase;
-    color: #fff;
-    font-family: 'PT-Sans', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    text-align: center;
-}
-
-.form_under_p span{
-    font-family: 'PT-Sans', sans-serif;
-    font-weight: 700;
-}
-
 .your-reservation .btn-pay {
     color: #ffffff;
     min-width: 175px;
@@ -3377,58 +3362,10 @@ body {
     width: 100%;
     max-width: 300px;
 }
-.activity-form .btn-primary {
-    float: left;
-    padding-left: 13px;
-    padding-right: 13px;
-    background: #46350d;
-}
+
 .jcf-select {
     border-radius: 4px;
 }
-
-.icongraphic {
-    display: inline-block;
-    overflow: hidden;
-    position: relative; }
-.icongraphic p {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px; }
-
-.iconinfo ul {
-    padding-left: 15px;
-    overflow: hidden;
-    margin-bottom: 0; }
-.iconinfo ul li {
-    list-style-type: none;
-    display: inline-block;
-    margin-bottom: 0;
-    width: 125px;
-    padding-right: 8px; }
-.iconinfo ul li .svg-icon {
-    display: inline-block;
-    padding-right: 5px; }
-.iconinfo ul li a {
-    font-size: 13px;
-    font-weight: bold;
-    color: #000000;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    overflow: hidden; }
-.iconinfo ul li a span {
-    display: inline-block; }
-
-.icons{
-    margin-bottom: 10px; }
-
-.icons img {
-    margin-left: 5px; }
 
 .tooltip > .tooltip-inner {
     background-color: #ffeedb;
