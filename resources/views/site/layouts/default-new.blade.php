@@ -186,10 +186,10 @@
 					<div class="social-links">
 						<ul>
 							<li>
-								<a href="#"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
+								<a href="#" target="_blank"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
 							</li>
 							<li>
-								<a href="#"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
+								<a href="https://www.instagram.com/kipmuving/" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
 							</li>
 						</ul>
 					</div>
@@ -197,7 +197,6 @@
 				<div class="col-md-5 col-sm-12 col-xs-12 foot-block">
 					<div class="contact-form-wrapper">
 						<strong class="title">{{ trans('main.contact_us') }}</strong>
-						{{--rafaelzarro@gmail.com--}}
 						<form action="{{ action('HomeController@sendMessage') }}" class="contact-form" method="POST">
 							{{ csrf_field() }}
 							<div class="sub-row">
