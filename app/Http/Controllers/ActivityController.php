@@ -35,7 +35,7 @@ class ActivityController extends Controller
 //                'libs/jcf/js/jcf.range.js',
 				'js/chosen.jquery.min.js',
 				'owl-carousel/owl.carousel.min.js',
-                'js/activities-scripts.min.js'
+//                'js/activities-scripts.min.js'
 			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
