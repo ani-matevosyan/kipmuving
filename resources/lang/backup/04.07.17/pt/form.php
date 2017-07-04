@@ -1,0 +1,31 @@
+<?php
+
+return [
+	'email'                            => 'Email',
+	'email_placeholder'                => 'Seu email',
+	'password'                         => 'Senha',
+	'password_placeholder'             => 'Sua senha',
+	'confirm_password'                 => 'Confirme a senha',
+	'confirm_password_placeholder'     => 'Confirme sua senha',
+	'new_password'                     => 'Nova senha',
+	'new_password_placeholder'         => 'Sua nova senha',
+	'new_password_confirm'             => 'Confirme nova senha',
+	'new_password_confirm_placeholder' => 'Confirme sua nova senha',
+	'remember_me'                      => 'Lembre-me',
+	'first_name'                       => 'Nome',
+	'first_name_placeholder'           => 'Seu Nome',
+	'last_name'                        => 'Sobrenome',
+	'last_name_placeholder'            => 'Seu Sobrenome',
+	'birthday'                         => 'Aniversário',
+	'month'                            => 'Mês',
+	'day'                              => 'Dia',
+	'year'                             => 'Ano',
+	'news_subscribe'                   => 'Quero receber cupons por email',
+	'phone'                            => 'Telefone-pt',
+	'phone_placeholder'                => 'Como Whatsapp, exemplo: +55 962266304',
+	'accept_terms'                     => 'Ao registrar-me, aceito as Condições do serviço, a Política de Privacidade e Cookies, a Política de reembolso e as Condições da Garantia de KipMuving',
+	'already_member'                   => 'Já é membro de Kipmuving?',
+	'date'                             => 'Data',
+	'name'                             => 'Nome-pt',
+	'message'                          => 'Mensagem'
+];
