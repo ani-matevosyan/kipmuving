@@ -1170,13 +1170,11 @@ body {
     background-repeat: no-repeat;
 }
 
-.visual.activities-all,
 .visual.activity-single {
     height: 220px;
 }
 
 @media (max-width: 505px){
-    .visual.activities-all,
     .visual.activity-single {
         height: 315px;
     }

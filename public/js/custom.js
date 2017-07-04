@@ -3,9 +3,9 @@ $(document).ready(function () {
         'container': 'body'
     });
 
-    if($("#cpa-slider-1").length){
-        $("#cpa-slider-1").owlCarousel({
-            autoPlay: 3000, //Set AutoPlay to 3 seconds
+    if($("#activities-slider").length){
+        $("#activities-slider").owlCarousel({
+            autoPlay: 3000,
             pagination: false,
             navigation: true,
             navigationText: [
@@ -17,9 +17,8 @@ $(document).ready(function () {
             itemsDesktopSmall: [979, 3]
 
         });
+        $('#activities-slider').removeClass('csHidden');
     }
-
-    $('#first-slider-sec').removeClass('csHidden')
 
     // Guia Page Sub Tabs
 

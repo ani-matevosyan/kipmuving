@@ -2,58 +2,53 @@
 
 {{-- Content --}}
 @section('content')
-	<section class="visual activities-all" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
-		<div class="gradoverlay"></div>
-	</section>
-	<section>
-		<div class="container">
-			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
-		</div>
-	</section>
-	<!--Slider section-->
-	<section id="first-slider-sec" class="csHidden">
-		<div class="container">
-			<header>
-				<h2>{{ trans('main.the_most_requested') }}</h2>
-				<p>{{ trans('main.below_are_the_activities') }}</p>
-			</header>
-			<div class="col-xs-12">
-				<div id="cpa-slider-1">
-					<div class="item">
-						<a href="/activity/10">
-							<img src="{{ asset('/uploads/activity/_nAqlH-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
-							<h3>Termas Geométricas</h3>
-						</a>
-					</div>
-					<div class="item">
-						<a href="/activity/3">
-							<img src="{{ asset('/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
-							<h3>Trekking Volcán Villarrica</h3>
-						</a>
-					</div>
-					<div class="item">
-						<a href="/activity/5">
-							<img src="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
-							<h3>Rafting Alto</h3>
-						</a>
-					</div>
-					<div class="item">
-						<a href="/activity/2">
-							<img src="{{ asset('/uploads/activity/_kpEoA-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
-							<h3>Rafting Bajo</h3>
-						</a>
-					</div>
-					<div class="item">
-						<a href="/activity/4">
-							<img src="{{ asset('/uploads/activity/_ERPJI-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
-							<h3>Tour por la zona + Termas</h3>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--End Slider section-->
+    <section class="activities-hero" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
+        <div class="container">
+            @include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
+        </div>
+        <div class="activities-slider-wrapper">
+            <div class="container">
+                <header>
+                    <h2>{{ trans('main.the_most_requested') }}</h2>
+                    <p>{{ trans('main.below_are_the_activities') }}</p>
+                </header>
+                <div class="col-xs-12">
+                    <div id="activities-slider" class="csHidden">
+                        <div class="item">
+                            <a href="/activity/10">
+                                <img src="{{ asset('/uploads/activity/_nAqlH-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
+                                <h3>Termas Geométricas</h3>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/activity/3">
+                                <img src="{{ asset('/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Trekking Volcán Villarrica"/>
+                                <h3>Trekking Volcán Villarrica</h3>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/activity/5">
+                                <img src="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
+                                <h3>Rafting Alto</h3>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/activity/2">
+                                <img src="{{ asset('/uploads/activity/_kpEoA-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
+                                <h3>Rafting Bajo</h3>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/activity/4">
+                                <img src="{{ asset('/uploads/activity/_ERPJI-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Tour por la zona + Termas"/>
+                                <h3>Tour por la zona + Termas</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 	<main id="main">
 		<div class="container">
 			<div class="row">
