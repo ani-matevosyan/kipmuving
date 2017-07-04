@@ -36,8 +36,7 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">{{ trans('main.less') }} <span>{{ config('kipmuving.discount') * 100 }}
-									%</span> {{ trans('main.in_all_activities') }}</p>
+							<p class="form_under_p">Todas las actividades en un solo lugar</p>
 						</form>
 					</div>
 				</div>
@@ -113,85 +112,32 @@
 				</div>
 			</div>
 		</section>
-		<section id="howitworks" class="s_howitworks">
+		<section class="s_allactivities">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-9">
-						<div class="section_title">
-							<h2>{{ trans('main.how_does_it_work') }} <span>KipMuving</span></h2>
-							<p>{{ trans('main.best_deals') }}</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<div class="howitworks_block">
-							<img src="{{ asset('images/10.svg') }}" alt="">
-							<p><span>KipMuving</span> {{ trans('main.has_an_agreement') }}
-								<span>{{ trans('main.preferential_prices') }}</span></p>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="howitworks_block">
-							<img src="{{ asset('images/umbrella.svg') }}" alt="">
-							<p>
-								<span>{{ trans('main.supporters') }}</span> {{ trans('main.with_a_small_commission') }}
-								<span>{{ config('kipmuving.service_fee') * 100 }}
-									%</span> {{ trans('main.for_any_reservation_will_pay_for_site') }}
-							</p>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="howitworks_block last-child">
-							<img src="{{ asset('images/broken-link.svg') }}" alt="">
-							<p>{{ trans('main.we_make') }} <span>{{ trans('main.your_union_with_the_agency') }}</span>
-								{{ trans('main.you_pay_your_tours') }}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		{{--<div class="text-bar">--}}
-			{{--<div class="container">--}}
-				{{--<div class="row">--}}
-					{{--<div class="col-md-6 col-sm-6 col-xs-12 col">--}}
-						{{--<div class="img-holder"><img src="images/img33.png" alt=""></div>--}}
-						{{--<div class="text">--}}
-							{{--<strong class="value">1%</strong>--}}
-							{{--<div class="txt">{{ trans('main.for_the_organization') }}--}}
-								{{--<strong>{{ trans('main.parks_for_chili') }}</strong></div>--}}
-						{{--</div>--}}
-					{{--</div>--}}
-					{{--<div class="col-md-6 col-sm-6 col-xs-12 col">--}}
-						{{--<p>{{ trans('main.kipmuving_is_aware_that_nature') }} http://www.parquesparachile.cl/</p>--}}
-					{{--</div>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-		{{--</div>--}}
-		<div class="all-activities" style="padding-top: 50px;">
-			<div class="container">
+
 				<header>
-					<h1>{{ trans('main.activities_in_pucon') }}</h1>
+					<h2>{{ trans('main.activities_in_pucon') }}</h2>
 					<p>{{ trans('main.first_choose_your_itinerary') }}</p>
 				</header>
 
-
-				<div class="row">
-			  <?php $key = 0; ?>
-					@foreach($activities as $activity)
-						<div class="col-md-3 col-sm-6 col-xs-12 col">
-							@include('site.partials.activities.all-list-item-arr')
-						</div>
-				  		<?php ++$key?>
-						@if($key === 2)
-							<div class="clearfix visible-sm-block"></div>
-						@elseif($key===4)
-							<div class="clearfix visible-md-block"></div>
-							<div class="clearfix visible-lg-block"></div>
-							<div class="clearfix visible-sm-block"></div>
-					  	<?php $key = 0; ?>
-						@endif
-					@endforeach
+				<div class="all-activities">
+					<div class="row">
+						<?php $key = 0; ?>
+						@foreach($activities as $activity)
+							<div class="col-md-3 col-sm-6 col-xs-12 col">
+								@include('site.partials.activities.all-list-item-arr')
+							</div>
+							<?php ++$key?>
+							@if($key === 2)
+								<div class="clearfix visible-sm-block"></div>
+							@elseif($key===4)
+								<div class="clearfix visible-md-block"></div>
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-sm-block"></div>
+							<?php $key = 0; ?>
+							@endif
+						@endforeach
+					</div>
 				</div>
 
 
@@ -200,7 +146,7 @@
 						 class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
 				</div>
 			</div>
-		</div>
+		</section>
 		<section id="viagem" class="s_viagem">
 			<div class="container">
 				<div class="block-wrapper">
