@@ -51,96 +51,96 @@
     </section>
 	<main id="main">
 		<div class="container">
-            <div class="filters">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="filters-group filters-group-first-child">
-                            <strong class="title">Por Estilo</strong>
-                            <div class="row">
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="trekking-style" value="Trecking">
-										<label for="trekking-style">Trekking</label>
-									</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="accion-style" value="Accion">
-										<label for="accion-style">Accion</label>
-									</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="nieve-style" value="Nieve">
-										<label for="nieve-style">Nieve</label>
-									</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="rio-style" value="Rio">
-										<label for="rio-style">Rio</label>
-									</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="relax-style" value="Relax">
-										<label for="relax-style">Relax</label>
-									</div>
-                                </div>
-                                <div class="col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_style" id="cultural-style" value="Cultural">
-										<label for="cultural-style">Cultural</label>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-						<div class="filters-group">
-							<strong class="title">Periodo</strong>
-							<div class="row">
-								<div class="col-md-6 col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_period" id="day-period" value="Actividad Diurna">
-										<label for="day-period">Actividad Diurna</label>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_period" id="summer-period" value="Verano">
-										<label for="summer-period">Verano</label>
-										<img src="{{ asset('/images/day.svg') }}" alt="Day">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6 col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_period" id="night-period" value="Actividad Noturna">
-										<label for="night-period">Actividad Noturna</label>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-4 col-xs-6">
-									<div class="filter-item">
-										<input type="checkbox" name="filter_period" id="winter-period" value="Invierno">
-										<label for="winter-period">Invierno</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="col-md-4">
-						<div class="filters-group filter-group-range">
-							<strong class="title">Rango de Precios</strong>
-							<div class="filter-item filter-item-range">
-								<label for="price-range">$ 10.000 - $ 300.000</label>
-								<input type="range" id="price-range" value="30,80" multiple>
-							</div>
-						</div>
-					</div>
-                </div>
-            </div>
+            {{--<div class="filters">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="filters-group filters-group-first-child">--}}
+                            {{--<strong class="title">Por Estilo</strong>--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="trekking-style" value="Trecking">--}}
+										{{--<label for="trekking-style">Trekking</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="accion-style" value="Accion">--}}
+										{{--<label for="accion-style">Accion</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="nieve-style" value="Nieve">--}}
+										{{--<label for="nieve-style">Nieve</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="rio-style" value="Rio">--}}
+										{{--<label for="rio-style">Rio</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="relax-style" value="Relax">--}}
+										{{--<label for="relax-style">Relax</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="cultural-style" value="Cultural">--}}
+										{{--<label for="cultural-style">Cultural</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+						{{--<div class="filters-group">--}}
+							{{--<strong class="title">Periodo</strong>--}}
+							{{--<div class="row">--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="day-period" value="Actividad Diurna">--}}
+										{{--<label for="day-period">Actividad Diurna</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="summer-period" value="Verano">--}}
+										{{--<label for="summer-period">Verano</label>--}}
+										{{--<img src="{{ asset('/images/day.svg') }}" alt="Day">--}}
+									{{--</div>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+							{{--<div class="row">--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="night-period" value="Actividad Noturna">--}}
+										{{--<label for="night-period">Actividad Noturna</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="winter-period" value="Invierno">--}}
+										{{--<label for="winter-period">Invierno</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+						{{--<div class="filters-group filter-group-range">--}}
+							{{--<strong class="title">Rango de Precios</strong>--}}
+							{{--<div class="filter-item filter-item-range">--}}
+								{{--<label for="price-range">$ 10.000 - $ 300.000</label>--}}
+								{{--<input type="range" id="price-range" value="30,80" multiple>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 			<div class="all-activities">
 				@if(count($activities->where('styles', 'Trekking')) > 0)
 				<section class="activity-block" id="trekking">
