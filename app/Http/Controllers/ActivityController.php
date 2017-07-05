@@ -30,7 +30,7 @@ class ActivityController extends Controller
 			'scripts'    => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
-//                'libs/jcf/js/jcf.js',
+                'libs/jcf/js/jcf.js',
 //                'libs/jcf/js/jcf.checkbox.js',
 //                'libs/jcf/js/jcf.range.js',
 				'js/chosen.jquery.min.js',
