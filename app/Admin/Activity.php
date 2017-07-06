@@ -153,6 +153,4 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 		return $form;
 	});
 	
-})
-	->addMenuPage(Activity::class, 0)
-	->setIcon('fa fa-tree');
+});

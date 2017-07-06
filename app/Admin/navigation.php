@@ -22,32 +22,71 @@ use SleepingOwl\Admin\Navigation\Page;
 // AdminSection::addMenuPage(\App\User::class)
 
 return [
-//	[
-//		'title' => 'Dashboard',
-//		'icon' => 'fa fa-dashboard',
-//		'url' => route('admin.dashboard'),
-//	],
-//
-//	[
-//		'title' => 'Information',
-//		'icon' => 'fa fa-exclamation-circle',
-//		'url' => route('admin.information'),
-//	],
-
 	[
-//		'title' => 'Activities',
-//		'icon' => 'fa fa-tree',
-//		(new Page(\App\Activity::class))
-//			->setIcon('fa fa-chevron-right')
-//			->setPriority(0)
-//		'model' => '\App\Activity',
-//		'pages' => [
-//			'title' => 'Styles',
-//			'icon' => 'fa fa-tree',
-//			'model' => '\App\ActivityStyle'
-//		]
-	]
-
+		'title' => "Activities",
+		'priority' => 0,
+		'icon'  => 'fa fa-tree',
+		'model' => \App\Activity::class
+	],
+	[
+		'title'    => "Agencies",
+		'priority' => 1,
+		'icon'     => 'fa fa-university',
+		'pages' => [
+			(new Page(\App\Agency::class))
+				->setIcon('fa fa-tree')
+				->setPriority(0),
+			[
+				'title' => 'Send emails',
+				'priority' => 1,
+				'icon'  => 'fa fa-envelope-o',
+				'url'   => action('AgencyEmailsController@viewList')
+			]
+		]
+	],
+	[
+		'title' => "Offers",
+		'priority' => 2,
+		'icon'  => 'fa fa-star',
+		'model' => \App\Offer::class
+	],
+	[
+		'title' => "Reservations",
+		'priority' => 3,
+		'icon'  => 'fa fa-handshake-o',
+		'model' => \App\Reservation::class
+	],
+	[
+		'title' => "Emails",
+		'priority' => 4,
+		'icon'  => 'fa fa-envelope-o',
+		'model' => \App\Reservation::class
+	],
+	[
+		'title' => "Guide activities",
+		'priority' => 5,
+		'icon'  => 'fa fa-map-marker',
+		'model' => \App\GuideActivity::class
+	],
+	[
+		'title' => "Users",
+		'priority' => 100,
+		'icon'  => 'fa fa-users',
+		'model' => \App\User::class
+	],
+	[
+		'title' => "Roles",
+		'priority' => 101,
+		'icon'  => 'fa fa-graduation-cap',
+		'model' => \App\Role::class
+	],
+	[
+		'title' => "Permissions",
+		'priority' => 102,
+		'icon'  => 'fa fa-key',
+		'model' => \App\Permission::class
+	],
+	
 	// Examples
 	// [
 	//    'title' => 'Content',
