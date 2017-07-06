@@ -30,10 +30,12 @@ class ActivityController extends Controller
 			'scripts'    => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
+                'libs/jcf/js/jcf.js',
+//                'libs/jcf/js/jcf.checkbox.js',
+//                'libs/jcf/js/jcf.range.js',
 				'js/chosen.jquery.min.js',
 				'owl-carousel/owl.carousel.min.js',
-				'js/floating/floating-1.12.min.js',
-				'js/floating/floating.min.js'
+//                'js/activities-scripts.min.js'
 			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
@@ -80,6 +82,7 @@ class ActivityController extends Controller
 				'css/product-tour.min.css',
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
+                'css/jcf.custom.css',
 				'css/prettyPhoto.min.css',
 				'css/instafeed/instafeed.min.css',
 				'css/offer-items.min.css',
@@ -89,6 +92,8 @@ class ActivityController extends Controller
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/moment.js',
+                'libs/jcf/js/jcf.js',
+                'libs/jcf/js/jcf.select.js',
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',

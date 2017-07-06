@@ -51,12 +51,15 @@ class GuiaController extends Controller
             'styles'     => [
                 'css/tripadvisor.min.css',
                 'css/jquery-ui.min.css',
+                'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
             ],
             'scripts'    => [
                 'js/chosen.jquery.min.js',
                 'js/instafeed/instafeed.min.js',
+                'libs/jcf/js/jcf.js',
+                'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
                 'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
             ],
@@ -85,14 +88,17 @@ class GuiaController extends Controller
 			'styles'     => [
                 'css/tripadvisor.min.css',
 				'css/jquery-ui.min.css',
+                'css/jcf.custom.min.css',
 				'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
 			],
 			'scripts'    => [
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
+                'libs/jcf/js/jcf.js',
+                'libs/jcf/js/jcf.select.js',
 				'js/ResizeSensor.min.js',
-				'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
 			],
 			'imageIndex' => $imageIndex,
 			'count'      => [

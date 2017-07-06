@@ -51,318 +51,289 @@
     </section>
 	<main id="main">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="all-activities new">
-
-						<div class="activites-bar">
-							<div class="activities-panel">
-								<div id="floatdiv" class="floatdiv">
-									<ul class="activities-list">
-										<li>
-											<a href="#trekking" class="green">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-treking.svg') }}" alt="image description"
-														  width="33" height="33"
-														  onerror="this.onerror=null; this.src='/images/ico16.png'">
-												</div>
-												<strong>{{ trans('main.trekking') }}</strong>
-											</a>
-										</li>
-										<li>
-											<a href="#rio" class="orange">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-rio.svg') }}" alt="image description" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='/images/ico17.png'">
-												</div>
-												<strong>{{ trans('main.river') }}</strong>
-											</a>
-										</li>
-										<li>
-											<a href="#aire" class="blue">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-aire.svg') }}" alt="image description" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='/images/ico18.png'">
-												</div>
-												<strong>{{ trans('main.action') }}</strong>
-											</a>
-										</li>
-										<li>
-											<a href="#relax" class="sky-blue">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-relax.svg') }}" alt="image description" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='/images/ico19.png'">
-												</div>
-												<strong>{{ trans('main.relax') }}</strong>
-											</a>
-										</li>
-										<li>
-											<a href="#nieve" class="violet">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-nieve.svg') }}" alt="image description" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='/images/ico20.png'">
-												</div>
-												<strong>{{ trans('main.snow') }}</strong>
-											</a>
-										</li>
-										<li>
-											<a href="#familia" class="red">
-												<div class="ico">
-													<img src="{{ asset('/images/ico-family.svg') }}" alt="image description" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='/images/ico30.png'">
-												</div>
-												<strong>{{ trans('main.cultural') }}</strong>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="activities-info" id="activities-info">
-									<p><strong>{{ trans('main.iconography') }}</strong></p>
-									<ul>
-										<li>
-											<a href="#">
-												<div class="ico">
-													<img src="{{ asset('images/day.svg') }}" alt="day icon" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='images/ico16.png'">
-												</div>
-												<p>{{ trans('main.day_activity') }}</p>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<div class="ico">
-													<img src="{{ asset('images/night.svg') }}" alt="night icon" width="33"
-														  height="33"
-														  onerror="this.onerror=null; this.src='images/ico17.png'">
-												</div>
-												<p>{{ trans('main.night_activity') }}</p>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<div class="ico">
-													<img class="down-arrow-icon" src="{{ asset('images/down-arrow.svg') }}" alt="arrow down icon" width="25"
-														  height="25"
-														  onerror="this.onerror=null; this.src='images/ico18.png'">
-												</div>
-												<p>{{ trans('main.march_to_november') }}</p>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<div class="ico">
-													<img src="{{ asset('images/up-arrow.svg') }}" alt="arrow up icon" width="25"
-														  height="25"
-														  onerror="this.onerror=null; this.src='images/ico19.png'">
-												</div>
-												<p>{{ trans('main.december_to_march') }}</p>
-											</a>
-										</li>
-									</ul>
-								</div>
+            {{--<div class="filters">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="filters-group filters-group-first-child">--}}
+                            {{--<strong class="title">Por Estilo</strong>--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="trekking-style" value="Trecking">--}}
+										{{--<label for="trekking-style">Trekking</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="accion-style" value="Accion">--}}
+										{{--<label for="accion-style">Accion</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="nieve-style" value="Nieve">--}}
+										{{--<label for="nieve-style">Nieve</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="rio-style" value="Rio">--}}
+										{{--<label for="rio-style">Rio</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="relax-style" value="Relax">--}}
+										{{--<label for="relax-style">Relax</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_style" id="cultural-style" value="Cultural">--}}
+										{{--<label for="cultural-style">Cultural</label>--}}
+									{{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+						{{--<div class="filters-group">--}}
+							{{--<strong class="title">Periodo</strong>--}}
+							{{--<div class="row">--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="day-period" value="Actividad Diurna">--}}
+										{{--<label for="day-period">Actividad Diurna</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="summer-period" value="Verano">--}}
+										{{--<label for="summer-period">Verano</label>--}}
+										{{--<img src="{{ asset('/images/day.svg') }}" alt="Day">--}}
+									{{--</div>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+							{{--<div class="row">--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="night-period" value="Actividad Noturna">--}}
+										{{--<label for="night-period">Actividad Noturna</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+								{{--<div class="col-md-6 col-sm-4 col-xs-6">--}}
+									{{--<div class="filter-item">--}}
+										{{--<input type="checkbox" name="filter_period" id="winter-period" value="Invierno">--}}
+										{{--<label for="winter-period">Invierno</label>--}}
+									{{--</div>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+						{{--<div class="filters-group filter-group-range">--}}
+							{{--<strong class="title">Rango de Precios</strong>--}}
+							{{--<div class="filter-item filter-item-range">--}}
+								{{--<label for="price-range">$ 10.000 - $ 300.000</label>--}}
+								{{--<input type="range" id="price-range" value="30,80" multiple>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+			<div class="all-activities">
+				@if(count($activities->where('styles', 'Trekking')) > 0)
+				<section class="activity-block" id="trekking">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/Trekking.svg') }}"
+								  alt="image description"
+								  width="40"
+								  height="40"
+								  onerror="this.onerror=null; this.src='/images/ico21.png'">
+						</span>
+						{{ trans('main.trekking') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Trekking') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
 							</div>
-						</div>
-
-						@if(count($activities->where('styles', 'Trekking')) > 0)
-						<section class="activity-block" id="trekking">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/Trekking.svg') }}"
-										  alt="image description"
-										  width="40"
-										  height="40"
-										  onerror="this.onerror=null; this.src='/images/ico21.png'">
-								</span>
-								{{ trans('main.trekking') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Trekking') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
-						@if(count($activities->where('styles', 'Rio')) > 0)
-						<section class="activity-block rio" id="rio">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/kayak.svg') }}"
-										  alt="image description"
-										  width="40"
-										  height="40"
-										  onerror="this.onerror=null; this.src='/images/ico22.png'">
-								</span>
-								{{ trans('main.river') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Rio') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
-						@if(count($activities->where('styles', 'Aire')) > 0)
-						<section class="activity-block aire" id="aire">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/aire.svg') }}"
-										  alt="image description"
-										  width="33"
-										  height="33"
-										  onerror="this.onerror=null; this.src='/images/ico23.png'">
-								</span>
-								{{ trans('main.action') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Aire') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
-						@if(count($activities->where('styles', 'Relax')) > 0)
-						<section class="activity-block relax" id="relax">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/relax.svg') }}"
-										  alt="image description"
-										  width="33"
-										  height="33"
-										  onerror="this.onerror=null; this.src='/images/ico24.png'">
-								</span>
-								{{ trans('main.relax') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Relax') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
-						@if(count($activities->where('styles', 'Nieve')) > 0)
-						<section class="activity-block nieve" id="nieve">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/skiing_ski_running.svg') }}"
-										  alt="image description"
-										  width="33"
-										  height="33"
-										  onerror="this.onerror=null; this.src='/images/ico25.png'">
-								</span>
-								{{ trans('main.snow') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Nieve') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
-						@if(count($activities->where('styles', 'Familia')) > 0)
-						<section class="activity-block familia" id="familia">
-							<strong class="heading">
-								<span>
-									<img src="{{ asset('/images/family.svg') }}"
-										  alt="image description"
-										  width="33"
-										  height="33"
-										  onerror="this.onerror=null; this.src='/images/ico25.png'">
-								</span>
-								{{ trans('main.cultural') }}
-							</strong>
-							<div class="row">
-								<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
-								@foreach ($activities->where('styles', 'Familia') as $activity)
-									<div class="col-md-3 col-sm-4 col-xs-12 col">
-										@include('site.partials.activities.all-list-item')
-									</div>
-									<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-									@if($key_for_4_col ===4 )
-										<div class="clearfix visible-lg-block"></div>
-										<div class="clearfix visible-md-block"></div>
-										<?php $key_for_4_col = 0; ?>
-									@endif
-									@if($key_for_3_col ===3 )
-										<div class="clearfix visible-sm-block"></div>
-										<?php $key_for_3_col = 0; ?>
-									@endif
-								@endforeach
-							</div>
-						</section>
-						@endif
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
 					</div>
-				</div>
+				</section>
+				@endif
+				@if(count($activities->where('styles', 'Rio')) > 0)
+				<section class="activity-block rio" id="rio">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/kayak.svg') }}"
+								  alt="image description"
+								  width="40"
+								  height="40"
+								  onerror="this.onerror=null; this.src='/images/ico22.png'">
+						</span>
+						{{ trans('main.river') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Rio') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
+							</div>
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
+					</div>
+				</section>
+				@endif
+				@if(count($activities->where('styles', 'Aire')) > 0)
+				<section class="activity-block aire" id="aire">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/aire.svg') }}"
+								  alt="image description"
+								  width="33"
+								  height="33"
+								  onerror="this.onerror=null; this.src='/images/ico23.png'">
+						</span>
+						{{ trans('main.action') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Aire') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
+							</div>
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
+					</div>
+				</section>
+				@endif
+				@if(count($activities->where('styles', 'Relax')) > 0)
+				<section class="activity-block relax" id="relax">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/relax.svg') }}"
+								  alt="image description"
+								  width="33"
+								  height="33"
+								  onerror="this.onerror=null; this.src='/images/ico24.png'">
+						</span>
+						{{ trans('main.relax') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Relax') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
+							</div>
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
+					</div>
+				</section>
+				@endif
+				@if(count($activities->where('styles', 'Nieve')) > 0)
+				<section class="activity-block nieve" id="nieve">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/skiing_ski_running.svg') }}"
+								  alt="image description"
+								  width="33"
+								  height="33"
+								  onerror="this.onerror=null; this.src='/images/ico25.png'">
+						</span>
+						{{ trans('main.snow') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Nieve') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
+							</div>
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
+					</div>
+				</section>
+				@endif
+				@if(count($activities->where('styles', 'Familia')) > 0)
+				<section class="activity-block familia" id="familia">
+					<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/family.svg') }}"
+								  alt="image description"
+								  width="33"
+								  height="33"
+								  onerror="this.onerror=null; this.src='/images/ico25.png'">
+						</span>
+						{{ trans('main.cultural') }}
+					</strong>
+					<div class="row">
+						<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+						@foreach ($activities->where('styles', 'Familia') as $activity)
+							<div class="col-md-3 col-sm-4 col-xs-12 col">
+								@include('site.partials.activities.all-list-item')
+							</div>
+							<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+							@if($key_for_4_col ===4 )
+								<div class="clearfix visible-lg-block"></div>
+								<div class="clearfix visible-md-block"></div>
+								<?php $key_for_4_col = 0; ?>
+							@endif
+							@if($key_for_3_col ===3 )
+								<div class="clearfix visible-sm-block"></div>
+								<?php $key_for_3_col = 0; ?>
+							@endif
+						@endforeach
+					</div>
+				</section>
+				@endif
 			</div>
 		</div>
 	</main>
