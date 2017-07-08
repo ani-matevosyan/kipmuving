@@ -119,6 +119,4 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 		return $form;
 	});
 	
-})
-	->addMenuPage(Offer::class, 2)
-	->setIcon('fa fa-star');
+});

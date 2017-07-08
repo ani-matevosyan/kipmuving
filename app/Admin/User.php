@@ -47,6 +47,4 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
 		return $display;
 	});
 	
-})
-	->addMenuPage(User::class, 6)
-	->setIcon('fa fa-users');
+});

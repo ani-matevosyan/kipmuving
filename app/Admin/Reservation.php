@@ -65,6 +65,4 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 		return $display;
 	});
 	
-})
-	->addMenuPage(Reservation::class, 3)
-	->setIcon('fa fa-handshake-o');
+});

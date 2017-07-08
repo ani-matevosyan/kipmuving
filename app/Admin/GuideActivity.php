@@ -96,6 +96,4 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 		return $form;
 	});
 	
-})
-	->addMenuPage(GuideActivity::class, 5)
-	->setIcon('fa fa-map-marker');
+});

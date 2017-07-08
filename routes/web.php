@@ -13,6 +13,9 @@
 
 Auth::routes();
 
+Route::get('/agency-emails', ['middleware' => ['role:admin|developer'], 'uses' => '\App\Http\Controllers\AgencyEmailsController@viewList']);
+Route::post('/agency-emails/send', ['middleware' => ['role:admin|developer'], 'uses' => '\App\Http\Controllers\AgencyEmailsController@sendEmails']);
+
 Route::group(['prefix' => 'atacama'], function () {
 	Route::get('/', 'HomeController@index');
 	Route::get('/home/', 'HomeController@index');
