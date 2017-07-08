@@ -30,12 +30,10 @@ class ActivityController extends Controller
 			'scripts'    => [
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
-                'libs/jcf/js/jcf.js',
-//                'libs/jcf/js/jcf.checkbox.js',
-//                'libs/jcf/js/jcf.range.js',
 				'js/chosen.jquery.min.js',
 				'owl-carousel/owl.carousel.min.js',
-//                'js/activities-scripts.min.js'
+                'libs/jquery-ui/slider/jquery-ui.min.js',
+                'js/activities-scripts.min.js'
 			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
@@ -125,4 +123,8 @@ class ActivityController extends Controller
 		
 		return Redirect::to(action('ActivityController@getActivity', $request['activity_id']));
 	}
+
+	public function filters(){
+
+    }
 }

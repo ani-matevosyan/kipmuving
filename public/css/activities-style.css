@@ -321,7 +321,8 @@
     width: 13px;
 }
 
-.jcf-checkbox{
+
+.custom-checkbox{
     display: inline-block;
     vertical-align: middle;
     width: 14px;
@@ -332,7 +333,16 @@
     position: relative;
 }
 
-.jcf-checkbox span{
+.custom-checkbox input[type=checkbox]{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.custom-checkbox-mark{
     position: absolute;
     height: 5px;
     width: 12px;
@@ -345,46 +355,44 @@
     transform: rotate(-45deg);
     display: none;
     margin: -4px 0 0 -5px;
+    pointer-events: none;
 }
 
-.jcf-checkbox.jcf-checked span {
+.custom-checkbox input[type=checkbox]:checked + .custom-checkbox-mark{
     display: block;
 }
 
-.jcf-range{
-    display: inline-block;
-    min-width: 0;
-    width: 100%;
-    margin: 8px 0 0;
-}
+/*JQuery UI input range*/
 
-.jcf-range-wrapper{
-    position: relative;
+.ui-slider{
     background: #e1e1e1;
-    display: block;
-    margin: 5px 0;
-}
-
-.jcf-range-track{
-    position: relative;
-    display: block;
     height: 4px;
-    margin: 0 13px 0 0;
+    border-radius: 0;
+    border: none;
+    position: relative;
+    touch-action: pan-y;
 }
 
-.jcf-range-handle{
+.ui-slider-range{
     position: absolute;
-    border-radius: 19px;
-    margin: -4px 0 0;
     z-index: 1;
     top: 0;
-    left: 31%;
+    background: #00a651;
+    height: 4px;
+}
+
+.ui-slider-handle{
+    position: absolute;
+    border-radius: 19px;
     width: 11px;
     height: 11px;
-    border: 2px solid #00a651;
-    background: #fff;
+    border: 2px solid rgb(0, 166, 81);
+    background: rgb(255, 255, 255);
+    z-index: 2;
+    top: -.3em;
+    margin-left: -.6em;
 }
-.jcf-range-handle:before{
+.ui-slider-handle:before{
     content: '';
     position: absolute;
     top: 2px;
@@ -394,22 +402,24 @@
     background: #00a651;
     border-radius: 50%;
 }
-
-.jcf-range-display-wrapper{
-    position: absolute;
-    min-width: 10px;
-    left: 10px;
-    right: 10px;
-    min-height: 0;
+.ui-slider-handle:focus{
+    outline: none;
 }
 
-.jcf-range-display{;
-    border-radius: 5px;
-    position: absolute;
-    width: 10px;
-    background: #00a651;
-    height: 4px;
+.slider-range-output{
+    padding: 0;
+    border: none;
+    margin-bottom: 13px;
 }
+
+
+/*END JQuery UI input range*/
+
+.btn-open-filters,
+.filters-modal-buttons{
+    display: none;
+}
+
 
 @media screen and (max-width: 1149px){
     .filters-group{
@@ -423,6 +433,98 @@
     }
     .filter-group-range .filter-item{
         max-width: 250px;
+    }
+
+    .filter-item img{
+        right: 110px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    body{
+        overflow-y: auto !important;
+    }
+    .filters-modal{
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .btn-open-filters{
+        display: inline-block;
+        position: relative;
+        padding: 10px 15px 10px 35px;
+        background: #eab011;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+    }
+    .btn-open-filters:before{
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        width: 14px;
+        height: 14px;
+        background: url(../images/filters-icon.svg) no-repeat;
+        background-size: contain;
+    }
+    .filter-item img{
+        display: none;
+    }
+    .filters-group{
+        padding: 11px 10px;
+    }
+    .filters-group strong{
+        background: #efefef;
+        padding: 10px 14px;
+        color: #28373d;
+        margin: 0 -10px 8px;
+    }
+    .filters-modal{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        overflow-x: auto;
+        padding: 15px 25px 50px;
+    }
+
+    .filters-modal-buttons{
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 0;
+        background: #ffffff;
+        z-index: 100;
+        padding-top: 5px;
+    }
+
+    .filters-modal-buttons .btn{
+        width: 50%;
+        border-radius: 0;
+        padding: 15px 0;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .btn-cancel-filters{
+        color: #f19300;
+        outline: 1px solid;
+        outline-offset: -1px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .filters-modal .col-xs-6{
+        float: none;
+        width: 100%;
     }
 }
 

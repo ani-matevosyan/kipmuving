@@ -121,7 +121,15 @@
     .s_suprogram .total .totalprice {
         padding-left: 27px; }
     .s_suprogram .reserve {
-        font-size: 14px; } }
+        font-size: 14px; }
+}
+
+@media screen and (max-width: 991px){
+    .s_suprogram .total .totalprice:before{
+        right: 94%
+    }
+}
+
 
 
 /*--------------END RIGHT SIDE BAR "SU PROGRAM"------------*/
