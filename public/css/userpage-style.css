@@ -1,3 +1,38 @@
+.my_profile{
+    margin-top: 15px;
+}
+
+.form-wrapper{
+    padding: 7px 0 27px;
+}
+
+.my_adventures>header{
+    padding-right: 380px;
+    position: relative;
+}
+
+.btn-export{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #343b4e url("../images/phone.png") no-repeat;
+    background-size: 16px 20px;
+    background-position: 11px center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 8px 18px 8px 38px;
+}
+
+.btn-export:active{
+    background-image: url("../images/phone.png");
+}
+
+.btn-export:hover,
+.btn-export:focus{
+    color: #fff;
+}
+
 .profile-block {
     overflow: hidden;
     margin: 0 0 60px;
@@ -7,11 +42,19 @@
     .profile-block {
         padding: 20px 0 0;
     }
+    .btn-export{
+        position: relative;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .my_adventures>header{
+        padding-right: 0;
+    }
 }
 
 .profile-block h2 {
     color: #000;
-    margin: 20px 0 7px;
+    margin: 0 0 10px;
     font-size: 34px;
     line-height: 38px;
     font-family: 'PT-Sans', sans-serif;
@@ -106,8 +149,12 @@
 }
 
 .profile-block header {
-    margin: 0 0 40px;
+    margin: 0 0 17px;
 }
+.profile-block header p{
+    margin: 0;
+}
+
 
 @media (max-width: 767px) {
     .profile-block header {
@@ -224,8 +271,9 @@
 }
 
 .profile-block .profile-form .text-field .btn{
-    font-size: 13px;
+    font-size: 14px;
     padding: 7px 14px;
+    font-weight: 700;
 }
 
 .profile-block .profile-form .form-control {
@@ -401,17 +449,18 @@
 }
 
 .profile-block .item-list h2 a {
-    color: #089f02;
+    color: #323e5b;
+    font-weight: 700;
 }
 
 .profile-block .item-list h2 a:hover {
-    color: #0dce05;
+    color: #003856;
 }
 
 .profile-block .item-list .sub-title {
     display: block;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 1.4;
     font-weight: 400;
 }
 
@@ -453,6 +502,12 @@
 @media(max-width: 991px){
     .order-item{
         border-right: transparent;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .order-item{
+        padding: 13px 0 40px;
     }
 }
 
@@ -606,4 +661,14 @@
 
 .check_activity input[type=checkbox]:checked ~ .glyphicon{
     opacity: 1;
+}
+
+@media screen and (max-width: 560px){
+    .print_notification_wrapper>span{
+        display: block;
+        margin-bottom: 10px;
+    }
+    .to_print{
+        margin: 0;
+    }
 }
