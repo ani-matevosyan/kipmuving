@@ -31,7 +31,7 @@ $(document).ready(function(){
             value: $("#slider-range").slider('values', 0)+', '+ $("#slider-range").slider('values', 1)
         });
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/activities/filters",
             data: {
                 data: JSON.stringify(filterData)
