@@ -26,7 +26,7 @@ class AgencyEmailsController extends Controller
 		if ($request['agencies']) {
 			foreach ($request['agencies'] as $agencyID) {
 				$agency = Agency::find($agencyID);
-				$message = str_replace('{name}', $agency->name, $_message);
+				$message = str_replace('{name}', $agency->contact, $_message);
 				
 				Mail::send('emails.agency-emails', ['msg' => $message], function ($message) use ($agency) {
 					$message->from('info@kipmuving.com', 'Kipmuving team');
