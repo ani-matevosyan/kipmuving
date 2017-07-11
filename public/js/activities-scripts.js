@@ -34,6 +34,7 @@ $(document).ready(function(){
             type: "POST",
             url: "/activities/filters",
             data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
                 data: JSON.stringify(filterData)
             },
             success: function(){

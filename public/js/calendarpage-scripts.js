@@ -136,15 +136,19 @@ $(document).ready(function(){
     //-----------------Fixed sidebar----------------
 
     if($(window).width() > 991){
-        var programBlock = $(".s_suprogram"),
-            blockWidth = programBlock.outerWidth();
+        var programBlock = $(".suprogram-content"),
+            programWrapper = $(".s_suprogram"),
+            blockWidth = programBlock.outerWidth(),
+            blockHeight = programBlock.outerHeight();
         $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
 
+            var scroll = $(window).scrollTop();
             if (scroll >= 300) {
+                programWrapper.css('height', blockHeight+'px');
                 programBlock.css('width', blockWidth+'px').addClass("fixed");
             }else{
-                programBlock.removeClass("fixed");
+                programWrapper.css('height', '');
+                programBlock.css('width', '').removeClass("fixed");
             }
         });
     }

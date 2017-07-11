@@ -118,34 +118,36 @@
 								</div>
 								<div class="col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
 									<section class="s_suprogram {{ session('currency.type') === 'BRL' ? 'brl-curr' : '' }}">
-										<header>
-											<h3>{{ trans('main.program') }}</h3>
-											<p>
-												<span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
-											</p>
-										</header>
-										<ul class="offers-list">
-											@foreach ($reservation->offers as $offer)
-												<li>
-													<a href="#"></a>
-													<h4>{{ $offer->activity->name }}</h4>
-													<span>{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
-												</li>
-											@endforeach
-										</ul>
-										<div class="total">
-											<div class="totalprice">
-												<p>{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
-												<span>{{ trans('main.total') }}</span>
+										<div class="suprogram-content">
+											<header>
+												<h3>{{ trans('main.program') }}</h3>
+												<p>
+													<span id="count_activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
+												</p>
+											</header>
+											<ul class="offers-list">
+												@foreach ($reservation->offers as $offer)
+													<li>
+														<a href="#"></a>
+														<h4>{{ $offer->activity->name }}</h4>
+														<span>{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
+													</li>
+												@endforeach
+											</ul>
+											<div class="total">
+												<div class="totalprice">
+													<p>{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
+													<span>{{ trans('main.total') }}</span>
+												</div>
+												{{--<div class="discount">--}}
+												{{--<span>{{ trans('main.you_save') }}</span>--}}
+												{{--<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>--}}
+												{{--</div>--}}
 											</div>
-											{{--<div class="discount">--}}
-											{{--<span>{{ trans('main.you_save') }}</span>--}}
-											{{--<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>--}}
-											{{--</div>--}}
+											{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
+											   {{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
+											<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 										</div>
-										{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
-										   {{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
-										<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 									</section>
 									<div class="su_program_note">
 										* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un

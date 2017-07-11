@@ -1,6 +1,10 @@
 /*--------------RIGHT SIDE BAR "SU PROGRAM"------------*/
 
-.s_suprogram {
+.s_suprogram{
+    margin: 20px auto 0;
+}
+
+.suprogram-content {
     max-width: 385px;
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;
@@ -8,34 +12,33 @@
     border: 1px solid #cccccc;
     padding: 1px;
     color: #000;
-    margin: 20px auto 0;
     position: relative; }
-.s_suprogram header {
+.suprogram-content header {
     background: #e5e5e5;
     padding: 8px 41px; }
-.s_suprogram header h3 {
+.suprogram-content header h3 {
     margin: 0;
     text-transform: uppercase;
     font-size: 20px; }
-.s_suprogram header p {
+.suprogram-content header p {
     margin: 0;
     font-size: 15px;
     font-family: "PT-Sans", sans-serif;
     font-weight: 400;
 }
-.s_suprogram header p span {
+.suprogram-content header p span {
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;
 }
-.s_suprogram ul {
+.suprogram-content ul {
     padding: 7px 3px 0;
     margin: 0; }
-.s_suprogram ul li {
+.suprogram-content ul li {
     border-bottom: 1px solid #cccccc;
     list-style: none;
     padding: 8px 0 2px 38px;
     position: relative; }
-.s_suprogram ul li a {
+.suprogram-content ul li a {
     color:  #000;
     font-size: 14px;
     position: absolute;
@@ -50,44 +53,44 @@
     margin: auto;
 }
 
-.s_suprogram ul li h4 {
+.suprogram-content ul li h4 {
     margin: 0; }
-.s_suprogram ul li span {
+.suprogram-content ul li span {
     font-family: "PT-Sans", sans-serif;
     font-weight: 400;
 }
-.s_suprogram ul li span:before {
+.suprogram-content ul li span:before {
     content: "$";
     margin-right: 4px; }
-.s_suprogram.brl-curr ul li span:before{
+.suprogram-content.brl-curr ul li span:before{
     content: "R$";
 }
-.s_suprogram .total {
+.suprogram-content .total {
     padding: 14px 0 10px;}
-.s_suprogram .total .totalprice {
+.suprogram-content .total .totalprice {
     padding-left: 36px;
     position: relative; }
-.s_suprogram .total .totalprice:before {
+.suprogram-content .total .totalprice:before {
     content: "$";
     position: absolute;
     top: 0;
     right: 90%;
     margin: auto;
     font-size: 13px; }
-.s_suprogram.brl-curr .total .totalprice:before{
+.suprogram-content.brl-curr .total .totalprice:before{
     content: "R$"
 }
-.s_suprogram .total .totalprice p {
+.suprogram-content .total .totalprice p {
     font-size: 18px;
     margin: 0;
     line-height: 1; }
-.s_suprogram .total .totalprice span {
+.suprogram-content .total .totalprice span {
     font-family: "PT-Sans", sans-serif;
     font-weight: 400;
     font-size: 12px;
     position: relative;
     top: -5px; }
-.s_suprogram .reserve {
+.suprogram-content .reserve {
     width: 100%;
     color: #fff;
     font-size: 17px;
@@ -101,7 +104,7 @@
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     transition: all 0.2s ease; }
-.s_suprogram .reserve:hover {
+.suprogram-content .reserve:hover {
     background: #ffd91f;
     text-decoration: none; }
 .su_program_note{
@@ -112,26 +115,26 @@
     max-width: 385px;
 }
 @media(max-width: 1199px) and (min-width: 992px) {
-    .s_suprogram header {
+    .suprogram-content header {
         padding: 8px 20px; }
-    .s_suprogram ul li {
+    .suprogram-content ul li {
         padding: 8px 0 2px 28px; }
-    .s_suprogram ul li:before {
+    .suprogram-content ul li:before {
         left: 6px; }
-    .s_suprogram .total .totalprice {
+    .suprogram-content .total .totalprice {
         padding-left: 27px; }
-    .s_suprogram .reserve {
+    .suprogram-content .reserve {
         font-size: 14px; }
 }
 
 @media screen and (max-width: 991px){
-    .s_suprogram .total .totalprice:before{
+    .suprogram-content .total .totalprice:before{
         right: 94%
     }
 }
 
 
-.s_suprogram.fixed{
+.suprogram-content.fixed{
     position: fixed;
     top: 0;
     z-index: 100;
