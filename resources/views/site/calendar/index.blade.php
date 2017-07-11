@@ -67,6 +67,9 @@
 									{{--</div>--}}
 								</div>
 								<a class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
+								@ability('admin,developer', '')
+								<a href="{{ action('ProposalController@saveProposal') }}">generate link</a>
+								@endability()
 							</section>
 							<div class="su_program_note">
 								* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.

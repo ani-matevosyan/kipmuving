@@ -55,20 +55,20 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 			'Agency'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::text('name', 'Agency name')->required()
-					], 3)
-					->addColumn([
+						AdminFormElement::text('name', 'Agency name')->required(),
 						AdminFormElement::text('email', 'Email')->required()
-					], 3)
+					], 4)
 					->addColumn([
+						AdminFormElement::text('contact', 'Contact')->required(),
 						AdminFormElement::text('address', 'Address')->required()
-					], 3)
+					], 4)
 					->addColumn([
+						AdminFormElement::text('whatsapp', 'Whatsapp')->required(),
 						AdminFormElement::select('region', 'REGION')->setOptions([
 							'pucon' => 'Pucon',
 							'atacama' => 'Atacama'
 						])->required()
-					], 3),
+					], 4),
 				AdminFormElement::textarea('description', 'Description')->required(),
 				
 				AdminFormElement::columns()
