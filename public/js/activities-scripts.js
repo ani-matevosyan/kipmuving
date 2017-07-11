@@ -19,17 +19,26 @@ $(document).ready(function(){
 
 
     function collectData(){
-        var filterData = [];
+        var filterData = {
+            'style': [],
+            'period': [],
+            'price': []
+        };
+
         $(".filter-item input[type=checkbox]").each(function(){
-            filterData.push({
-                name: $(this).val(),
-                value: $(this).is(":checked")
-            });
+            var thisName = $(this).attr('name');
+            if($(this).is(":checked")){
+                if(thisName == 'style'){
+                    filterData.style.push($(this).val());
+                }else{
+                    filterData.period.push($(this).val());
+                }
+            }
         });
-        filterData.push({
-            name: 'Price range',
-            value: $("#slider-range").slider('values', 0)+', '+ $("#slider-range").slider('values', 1)
-        });
+        filterData.price.push(
+            $("#slider-range").slider('values', 0),
+            $("#slider-range").slider('values', 1)
+        );
         $.ajax({
             type: "POST",
             url: "/activities/filters",
