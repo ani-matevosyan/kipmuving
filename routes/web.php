@@ -127,6 +127,10 @@ Route::post('/pagseguro/notification', [
 	'as'   => 'pagseguro.notification',
 ]);
 
+#Proposals
+Route::get('/proposal/save', 'ProposalController@saveProposal');
+Route::get('/proposal/{uid}', 'ProposalController@addFromLink');
+
 
 //test
 Route::get('/reserve/testemails/{type}', 'ReservationController@testEmails');
