@@ -144,7 +144,7 @@ $(document).ready(function(){
 
             var scroll = $(window).scrollTop();
             var topDistance = programWrapper.offset().top;
-            if ((topDistance+100) < scroll) {
+            if (topDistance < scroll) {
                 programWrapper.css('height', blockHeight+'px');
                 programBlock.css('width', blockWidth+'px').addClass("fixed");
             }else{

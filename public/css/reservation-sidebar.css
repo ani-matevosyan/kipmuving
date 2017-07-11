@@ -1,11 +1,15 @@
 /*--------------RIGHT SIDE BAR "SU PROGRAM"------------*/
 
+.sidebar{
+    max-width: 385px;
+    margin: 0 auto;
+}
+
 .s_suprogram{
-    margin: 20px auto 0;
+    margin-top: 20px;
 }
 
 .suprogram-content {
-    max-width: 385px;
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;
     background: #fff;
@@ -111,8 +115,10 @@
     padding: 15px 12px;
     font-size: 12px;
     color: #ffb400;
-    margin: 0 auto;
-    max-width: 385px;
+}
+.fixed{
+    position: fixed;
+    top: 0;
 }
 @media(max-width: 1199px) and (min-width: 992px) {
     .suprogram-content header {
@@ -128,16 +134,18 @@
 }
 
 @media screen and (max-width: 991px){
+    .s_suprogram{
+        height: auto !important;
+    }
+    .suprogram-content{
+        width: 100% !important;
+    }
+    .fixed{
+        position: relative;
+    }
     .suprogram-content .total .totalprice:before{
         right: 94%
     }
-}
-
-
-.suprogram-content.fixed{
-    position: fixed;
-    top: 0;
-    z-index: 100;
 }
 
 

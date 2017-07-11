@@ -31,6 +31,7 @@ class CalendarController extends Controller
 				'libs/fullcalendar/fullcalendar.min.js',
 				'libs/fullcalendar/es.js',
 				'libs/fullcalendar/pt.js',
+                'js/fixed-sidebar.min.js',
                 'js/calendarpage-scripts.min.js'
 			],
 			'selectedOffers' => $selectedOffers,

@@ -218,6 +218,7 @@ class ReservationController extends Controller
 				'js/product.tour.min.js',
 				'js/product-tour.min.js',
 				'js/chosen.jquery.min.js',
+                'js/fixed-sidebar.min.js'
 			],
 			'user'        => $user,
 			'reservation' => $reservations
