@@ -131,5 +131,11 @@
 }
 
 
+.s_suprogram.fixed{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
 
 /*--------------END RIGHT SIDE BAR "SU PROGRAM"------------*/

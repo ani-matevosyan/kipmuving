@@ -15,22 +15,23 @@ class CalendarController extends Controller
 		$selectedOffers = $offer->getSelectedOffers();
 		if (count($selectedOffers) <= 0)
 			return redirect()->to(action('ActivityController@index'));
-		
+
 		$data = [
 			'styles'         => [
-				'link' => 'plugins/fullcalendar/fullcalendar.css',
-                'css/reservation-sidebar.min.css',
-                'css/calendar-style.min.css',
-				[
+				'link' => 'libs/fullcalendar/fullcalendar.css',
+                [
 					'media' => 'print',
-					'link'  => 'plugins/fullcalendar/fullcalendar.print.css'
-				]
+					'link'  => 'libs/fullcalendar/fullcalendar.print.css'
+				],
+                'css/reservation-sidebar.min.css',
+                'css/calendar-style.min.css'
 			],
 			'scripts' => [
-				'plugins/fullcalendar/lib/moment.min.js',
-				'plugins/fullcalendar/fullcalendar.min.js',
-				'plugins/fullcalendar/es.js',
-				'plugins/fullcalendar/pt.js',
+				'libs/fullcalendar/lib/moment.min.js',
+				'libs/fullcalendar/fullcalendar.min.js',
+				'libs/fullcalendar/es.js',
+				'libs/fullcalendar/pt.js',
+                'js/calendarpage-scripts.min.js'
 			],
 			'selectedOffers' => $selectedOffers,
 			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
