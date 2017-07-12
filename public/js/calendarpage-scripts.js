@@ -138,7 +138,7 @@ $(document).ready(function(){
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/proposal/save',
+            url: '/proposals/save',
             data: {
                 '_token': $('meta[name="csrf-token"]').attr('content')
             },
@@ -148,7 +148,6 @@ $(document).ready(function(){
         })
     });
 
-    // {{ action('ProposalController@saveProposal') }}
     //------------------- END Generate link --------------
 
 })

@@ -73,7 +73,7 @@
 								</section>
 								@ability('admin,developer', '')
 									<div class="generate-link sidebar__block">
-										<a class="btn btn-block"  href="{{ action('ProposalController@saveProposal') }}" >generate link</a>
+										<a class="btn btn-block" id="generate-link"  href="{{ action('ProposalController@saveProposal') }}" >generate link</a>
 										<input type="text" class="generate-link__generated-link" readonly value="asdasdsd">
 									</div>
 								@endability()
