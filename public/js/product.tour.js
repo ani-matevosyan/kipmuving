@@ -63,22 +63,11 @@ $(window).load(function(){
             overlay: true
         });
         productTour_activities.steps([{
-            element: '#first-slider-sec',
+            element: '#activities-slider',
             title: 'Los más pedidos',
             content: 'Aquí puedes encontrar cuales son las actividades más buscadas en Pucón.',
             image: 'images/tour/activities-tour-1.jpg'
-        }, {
-            element: '#floatdiv',
-            title: 'Estilos de Actividades',
-            content: 'Para facilitar, separamos las actividades por estilos.',
-            image: 'images/tour/activities-tour-2.jpg'
-        },{
-            element: '#activities-info',
-            title: 'Iconografia',
-            content: 'Algunas clasificaciones de actividades, que te ayudará a elegir el momento correcto de hacerlas.',
-            image: 'images/tour/activities-tour-3.jpg'
-        }
-        ]);
+        }]);
         productTour_activities.startTour();
         localStorage.activitiestour = "visited";
     }

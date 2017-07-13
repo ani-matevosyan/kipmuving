@@ -24,12 +24,12 @@ class ActivityController extends Controller
 			'styles'     => [
 				'owl-carousel/owl.carousel.css',
 				'owl-carousel/owl.theme.css',
-				'css/product-tour.min.css',
+				'libs/product-tour/product-tour.min.css',
 				'css/activities-style.min.css'
 			],
 			'scripts'    => [
 				'js/product.tour.min.js',
-				'js/product-tour.min.js',
+				'libs/product-tour/product-tour.min.js',
 				'js/chosen.jquery.min.js',
 				'owl-carousel/owl.carousel.min.js',
 				'libs/jquery-ui/slider/jquery-ui.min.js',
@@ -75,7 +75,7 @@ class ActivityController extends Controller
 		
 		$data = [
 			'styles'         => [
-				'css/product-tour.min.css',
+				'libs/product-tour/product-tour.min.css',
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
 				'css/jcf.custom.css',
@@ -86,7 +86,7 @@ class ActivityController extends Controller
 			],
 			'scripts'        => [
 				'js/product.tour.min.js',
-				'js/product-tour.min.js',
+				'libs/product-tour/product-tour.min.js',
 				'js/moment.js',
 				'libs/jcf/js/jcf.js',
 				'libs/jcf/js/jcf.select.js',

@@ -132,28 +132,22 @@ $(document).ready(function(){
 
     //------------------- END CALENDAR PLUGIN --------------
 
+    //------------------- Generate link --------------
 
-    //-----------------Fixed sidebar----------------
-
-    if($(window).width() > 991){
-        var programBlock = $(".suprogram-content"),
-            programWrapper = $(".s_suprogram"),
-            blockWidth = programBlock.outerWidth(),
-            blockHeight = programBlock.outerHeight();
-        $(window).scroll(function() {
-
-            var scroll = $(window).scrollTop();
-            var topDistance = programWrapper.offset().top;
-            if ((topDistance+100) < scroll) {
-                programWrapper.css('height', blockHeight+'px');
-                programBlock.css('width', blockWidth+'px').addClass("fixed");
-            }else{
-                programWrapper.css('height', '');
-                programBlock.css('width', '').removeClass("fixed");
+    $("#generate-link").click(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/proposals/save',
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data){
+                console.log(data);
             }
-        });
-    }
+        })
+    });
 
-    //-----------------END Fixed sidebar----------------
+    //------------------- END Generate link --------------
 
 })

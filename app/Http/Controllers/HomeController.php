@@ -40,13 +40,13 @@ class HomeController extends Controller
 		$data = [
 			'styles'         => [
 				'css/jquery-ui.min.css',
-				'css/product-tour.min.css',
+				'libs/product-tour/product-tour.min.css',
                 'css/jcf.custom.min.css',
 				'css/home-style.min.css'
 			],
 			'scripts'        => [
 				'js/product.tour.min.js',
-				'js/product-tour.min.js',
+				'libs/product-tour/product-tour.min.js',
                 'libs/jcf/js/jcf.js',
                 'libs/jcf/js/jcf.select.js',
 				'js/chosen.jquery.min.js',
