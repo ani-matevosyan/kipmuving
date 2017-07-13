@@ -44,6 +44,7 @@ jQuery(document).ready(function(){
             data: "",
             success: function(data){
                 $("#program_activities").text(data.data.offers);
+                $("#program_activities").data('activities' ,data.data.offers);
                 $("#program_persons").text(data.data.persons);
                 $("#program_total").text(data.data.total);
             },

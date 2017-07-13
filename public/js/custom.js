@@ -196,6 +196,10 @@ $(document).ready(function () {
     });
 
 
+    // --------------------------- Program schedule restriction --------------------
 
+
+
+    // --------------------------- END Program schedule restriction --------------------
 
 });
