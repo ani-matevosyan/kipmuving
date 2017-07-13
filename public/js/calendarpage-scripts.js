@@ -134,18 +134,28 @@ $(document).ready(function(){
 
     //------------------- Generate link --------------
 
+    var generated = false;
     $("#generate-link").click(function(e){
         e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '/proposals/save',
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(data){
-                console.log(data);
-            }
-        })
+        var outputBlock = $(this).parent().find('input'),
+            thisButton = $(this);
+        if(generated){
+            outputBlock.select();
+            document.execCommand('copy');
+        }else{
+            $.ajax({
+                type: 'POST',
+                url: '/proposals/save',
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data){
+                    outputBlock.val(data).slideDown();
+                    generated = true;
+                    thisButton.text('Copy');
+                }
+            })
+        }
     });
 
     //------------------- END Generate link --------------
