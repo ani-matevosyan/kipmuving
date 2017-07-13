@@ -97,7 +97,7 @@
                         <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td style="font-size:14px; line-height:20px; color:#000000; padding-top:45px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
-                                    <span style="color:#980e25">{{ $msg }}</span>
+                                    <span style="color:#980e25">{!! $msg !!}</span>
                                 </td>
                             </tr>
                         </table>
