@@ -54,7 +54,7 @@
 	<main id="main">
 		<div class="container">
 			<div class="filters">
-				<a href="#" class="btn btn-open-filters">Filters</a>
+				<a href="#" class="btn btn-open-filters">Filters <span></span></a>
 				<div class="filters-modal">
 					<div class="filters-modal-buttons">
 						<a href="#" class="btn btn-success btn-confirm-filters">Confirm <span></span></a>
@@ -379,6 +379,9 @@
 
 	<div id="pass-variable" data-daydesc="{{ trans('main.day_activity') }}" data-nightdescr="{{ trans('main.night_activity') }}"
 		 data-summerdescr="{{ trans('main.march_to_november') }}" data-winterdescr="{{ trans('main.december_to_march') }}"
-		 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"></div>
+		 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"
+		 data-cat-trekking="{{ trans('main.trekking') }}" data-cat-rio="{{ trans('main.river') }}"
+		 data-cat-aire="{{ trans('main.action') }}" data-cat-relax="{{ trans('main.relax') }}"
+		 data-cat-nieve="{{ trans('main.snow') }}" data-cat-cultural="{{ trans('main.cultural') }}"></div>
 
 @stop

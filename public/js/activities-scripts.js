@@ -54,9 +54,12 @@ $(document).ready(function(){
             'price': []
         };
 
+        var activeFilters = 0;
+
         $(".filter-item input[type=checkbox]").each(function(){
             var thisName = $(this).attr('name');
             if($(this).is(":checked")){
+                activeFilters++;
                 if(thisName == 'style'){
                     filterData.style.push($(this).val());
                 }else{
@@ -64,6 +67,13 @@ $(document).ready(function(){
                 }
             }
         });
+
+        if(activeFilters != 0){
+            $(".btn-open-filters span").text('('+activeFilters+')');
+        }else{
+            $(".btn-open-filters span").text('');
+        }
+
         filterData.price.push(
             $("#slider-range").slider('values', 0),
             $("#slider-range").slider('values', 1)
@@ -79,7 +89,8 @@ $(document).ready(function(){
                 displayActivities(data);
                 calcAllActivities(data);
             }
-        })
+        });
+
     }
 
 
@@ -92,12 +103,18 @@ $(document).ready(function(){
         $( ".slider-range-output" ).val( "$ " + $( "#slider-range" ).slider( "values", 0 ) +
             " - $ " + $( "#slider-range" ).slider( "values", 1 ) );
 
+        var filterData = {
+            'style': [],
+            'period': [],
+            'price': []
+        };
+
         $.ajax({
             type: "POST",
             url: "/activities/filters",
             data: {
                 '_token': $('meta[name="csrf-token"]').attr('content'),
-                data: ''
+                data: filterData
             },
             success: function(data){
                 displayActivities(data);
@@ -123,7 +140,13 @@ $(document).ready(function(){
         summerDescription: passVariable.data('summerdescr'),
         winterDescription: passVariable.data('winterdescr'),
         textFrom: passVariable.data('textfrom'),
-        buttonText: passVariable.data('buttontext')
+        buttonText: passVariable.data('buttontext'),
+        trekkingCat: passVariable.data('cat-trekking'),
+        rioCat: passVariable.data('cat-rio'),
+        aireCat: passVariable.data('cat-aire'),
+        relaxCat: passVariable.data('cat-relax'),
+        nieveCat: passVariable.data('cat-nieve'),
+        culturalCat: passVariable.data('cat-cultural')
     };
 
     function displayActivities(data){
@@ -139,7 +162,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/Trekking.svg' alt='Trekking icon' width='40' height='40'>" +
                         "</span>" +
-                        "Trekking";
+                        translationData.trekkingCat;
                     break;
                 case 'Rio':
                     activitiesHTML += "<section class='activity-block rio'>" +
@@ -147,7 +170,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/kayak.svg' alt='Rio icon' width='40' height='40'>" +
                         "</span>" +
-                        "Rio";
+                        translationData.rioCat;
                     break;
                 case 'Aire':
                     activitiesHTML += "<section class='activity-block aire'>" +
@@ -155,7 +178,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/aire.svg' alt='Aire icon' width='33' height='33'>" +
                         "</span>" +
-                        "Acción";
+                        translationData.aireCat;
                     break;
                 case 'Nieve':
                     activitiesHTML += "<section class='activity-block nieve'>" +
@@ -163,7 +186,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/skiing_ski_running.svg' alt='Nieve icon' width='33' height='33'>" +
                         "</span>" +
-                        "Nieve";
+                        translationData.nieveCat;
                     break;
                 case 'Familia':
                     activitiesHTML += "<section class='activity-block familia'>" +
@@ -171,7 +194,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/family.svg' alt='Cultural icon' width='33' height='33'>" +
                         "</span>" +
-                        "Cultural";
+                        translationData.culturalCat;
                     break;
                 case 'Relax':
                     activitiesHTML += "<section class='activity-block relax'>" +
@@ -179,7 +202,7 @@ $(document).ready(function(){
                         "<span>" +
                         "<img src='"+document.location.origin+"/images/relax.svg' alt='Relax icon' width='33' height='33'>" +
                         "</span>" +
-                        "Relax";
+                        translationData.relaxCat;
                     break;
             }
             activitiesHTML += "</strong>" +
