@@ -32,8 +32,8 @@ class ActivityController extends Controller
 				'libs/product-tour/product-tour.min.js',
 				'js/chosen.jquery.min.js',
 				'owl-carousel/owl.carousel.min.js',
-                'libs/jquery-ui/slider/jquery-ui.min.js',
-                'js/activities-scripts.min.js'
+				'libs/jquery-ui/slider/jquery-ui.min.js',
+				'js/activities-scripts.min.js'
 			],
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
@@ -72,15 +72,13 @@ class ActivityController extends Controller
 			abort(404);
 		
 		$_offer = new Offer();
-
-//		dd($activity->offers[0]->duration);
 		
 		$data = [
 			'styles'         => [
 				'libs/product-tour/product-tour.min.css',
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
-                'css/jcf.custom.css',
+				'css/jcf.custom.css',
 				'css/prettyPhoto.min.css',
 				'css/instafeed/instafeed.min.css',
 				'css/offer-items.min.css',
@@ -90,8 +88,8 @@ class ActivityController extends Controller
 				'js/product.tour.min.js',
 				'libs/product-tour/product-tour.min.js',
 				'js/moment.js',
-                'libs/jcf/js/jcf.js',
-                'libs/jcf/js/jcf.select.js',
+				'libs/jcf/js/jcf.js',
+				'libs/jcf/js/jcf.select.js',
 				'js/chosen.jquery.min.js',
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
@@ -101,15 +99,12 @@ class ActivityController extends Controller
 			'activity'       => $activity,
 			'activitiesList' => $_activity->getActivitiesList(),
 			'offers'         => [
-//				'recommend' => $offer->getRecommendOffers($id),
-//				'price' => $offer->getPriceOffers($id),
-//				'includes' => $offer->getIncludesOffers($id),
 				'selected' => $_offer->getSelectedOffers()
 			],
 			'count'          => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $_offer->getSelectedOffersPersons(),
-				'total' => $_offer->getSelectedOffersTotal()
+				'total'   => $_offer->getSelectedOffersTotal()
 			],
 			'title'          => empty($activity->name) ? null : $activity->name
 		];
@@ -123,8 +118,67 @@ class ActivityController extends Controller
 		
 		return Redirect::to(action('ActivityController@getActivity', $request['activity_id']));
 	}
-
-	public function filters(){
-
-    }
+	
+	public function filters(Request $request)
+	{
+		$filters = json_decode($request->data);
+		
+		$activities = Activity::query();
+		
+		$activities = $activities->where('visibility', true);
+		$activities = $activities->where('region', '=', session('cities.current'));
+		
+		if (count($filters->price) === 2 && is_integer($filters->price[0]) && is_integer($filters->price[1])) {
+			$activities = $activities->whereRaw('(select min(offers.price) from offers where offers.activity_id = activities.id) between ' . $filters->price[0] . ' and ' . $filters->price[1]);
+		}
+		
+		
+		if (count($filters->style) > 0) {
+			$activities = $activities->whereIn('styles', $filters->style);
+		}
+		
+		if (count($filters->period) > 0) {
+			
+			if (in_array('Verano', $filters->period)) {
+				$activities = $activities->where('available_high', true);
+			}
+			
+			if (in_array('Invierno', $filters->period)) {
+				$activities = $activities->where('available_low', true);
+			}
+			
+			if (in_array('Actividad Diurna', $filters->period)) {
+				$activities = $activities->where('available_day', true);
+			}
+			
+			if (in_array('Actividad Noturna', $filters->period)) {
+				$activities = $activities->where('available_night', true);
+			}
+			
+		}
+		
+		$activities = $activities->get();
+		
+		$result = [];
+		
+		foreach ($activities as $activity) {
+			
+			$result[$activity->styles] []= [
+				'id'                => $activity->id,
+				'name'              => $activity->name,
+				'short_description' => $activity->short_description,
+				'image_thumb'       => $activity->image_thumb,
+				'availability'      => [
+					'night'  => $activity->available_night,
+					'day'    => $activity->available_day,
+					'summer' => $activity->available_high,
+					'winter' => $activity->available_low,
+				],
+				'offers_min_price'  => number_format($activity->offers->min('price'), 0, ".", ".")
+			];
+			
+		}
+		
+		return response($result);
+	}
 }
