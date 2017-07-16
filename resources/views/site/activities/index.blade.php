@@ -376,4 +376,9 @@
 			</div>
 		</div>
 	</main>
+
+	<div id="pass-variable" data-daydesc="{{ trans('main.day_activity') }}" data-nightdescr="{{ trans('main.night_activity') }}"
+		 data-summerdescr="{{ trans('main.march_to_november') }}" data-winterdescr="{{ trans('main.december_to_march') }}"
+		 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"></div>
+
 @stop

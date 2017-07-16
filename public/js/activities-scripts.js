@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
     //Opening and closing mobile filter modal
+
+
     var filtersModal = $(".filters-modal");
     $(".btn-open-filters").click(function(e){
         e.preventDefault();
@@ -8,8 +10,15 @@ $(document).ready(function(){
         $('body').css('overflow-y', 'hidden');
     });
 
+    $(".btn-confirm-filters").click(function(e){
+       e.preventDefault();
+        filtersModal.hide();
+        $('body').css('overflow-y', 'auto');
+    });
+
     $(".btn-cancel-filters").click(function(e){
        e.preventDefault();
+        clearFilters();
         filtersModal.hide();
         $('body').css('overflow-y', 'auto');
     });
@@ -68,12 +77,56 @@ $(document).ready(function(){
             },
             success: function(data){
                 displayActivities(data);
+                calcAllActivities(data);
             }
         })
     }
 
+
+    function clearFilters(){
+        $(".filter-item input[type=checkbox]").each(function(){
+            $(this).prop('checked', false);
+        });
+
+        $( "#slider-range" ).slider({ values: [ 10000, 300000 ]});
+        $( ".slider-range-output" ).val( "$ " + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $ " + $( "#slider-range" ).slider( "values", 1 ) );
+
+        $.ajax({
+            type: "POST",
+            url: "/activities/filters",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                data: ''
+            },
+            success: function(data){
+                displayActivities(data);
+                calcAllActivities(data);
+            }
+        })
+    }
+
+
+    function calcAllActivities(data){
+        var activitiesAmount = 0;
+        $.each(data, function(index, value){
+            activitiesAmount += value.length;
+        });
+        $(".btn-confirm-filters span").text("("+activitiesAmount+")");
+    }
+
+
+    var passVariable = $("#pass-variable");
+    var translationData = {
+        dayDescription: passVariable.data('daydesc'),
+        nightDescription: passVariable.data('nightdescr'),
+        summerDescription: passVariable.data('summerdescr'),
+        winterDescription: passVariable.data('winterdescr'),
+        textFrom: passVariable.data('textfrom'),
+        buttonText: passVariable.data('buttontext')
+    };
+
     function displayActivities(data){
-        console.log(data);
         var allActivities = $(".all-activities"),
             activitiesHTML = '';
         allActivities.html('');
@@ -151,7 +204,7 @@ $(document).ready(function(){
                                     "<div class='ico'>" +
                                     "<img src='"+document.location.origin+"/images/day.svg' alt='Day icon' width='33' height='33'>" +
                                     "<p>" +
-                                    "Actividad Diurna" +
+                                    translationData.dayDescription +
                                     "<span class='glyphicon glyphicon-triangle-bottom'></span>" +
                                     "</p>" +
                                     "</div>" +
@@ -162,18 +215,7 @@ $(document).ready(function(){
                                     "<div class='ico'>" +
                                     "<img src='"+document.location.origin+"/images/night.svg' alt='Night icon' width='33' height='33'>" +
                                     "<p>" +
-                                    "Actividad Noturna" +
-                                    "<span class='glyphicon glyphicon-triangle-bottom'></span>" +
-                                    "</p>" +
-                                    "</div>" +
-                                    "</li>";
-                                break;
-                            case 'winter':
-                                activitiesHTML += "<li>" +
-                                    "<div class='ico'>" +
-                                    "<img src='"+document.location.origin+"/images/down-arrow.svg' alt='Down arrow icon' width='25' height='25'>" +
-                                    "<p>" +
-                                    "Baja temporada: de marzo a noviembre" +
+                                    translationData.nightDescription +
                                     "<span class='glyphicon glyphicon-triangle-bottom'></span>" +
                                     "</p>" +
                                     "</div>" +
@@ -182,9 +224,20 @@ $(document).ready(function(){
                             case 'summer':
                                 activitiesHTML += "<li>" +
                                     "<div class='ico'>" +
+                                    "<img src='"+document.location.origin+"/images/down-arrow.svg' alt='Down arrow icon' width='25' height='25'>" +
+                                    "<p>" +
+                                    translationData.summerDescription+
+                                    "<span class='glyphicon glyphicon-triangle-bottom'></span>" +
+                                    "</p>" +
+                                    "</div>" +
+                                    "</li>";
+                                break;
+                            case 'winter':
+                                activitiesHTML += "<li>" +
+                                    "<div class='ico'>" +
                                     "<img src='"+document.location.origin+"/images/up-arrow.svg' alt='Up arrow icon' width='25' height='25'>" +
                                     "<p>" +
-                                    "Alta temporada: de diciembre a marzo" +
+                                    translationData.winterDescription +
                                     "<span class='glyphicon glyphicon-triangle-bottom'></span>" +
                                     "</p>" +
                                     "</div>" +
@@ -204,12 +257,12 @@ $(document).ready(function(){
                     "</p>" +
                     "<p>" +
                     "<strong class='price'>" +
-                    "<span>Desde</span>" +
+                    "<span>"+translationData.textFrom+"</span>" +
                     "<sub>$</sub>" +
                     value.offers_min_price +
                     "</strong>" +
                     "<a href='"+document.location.origin+"/activity/"+value.id+"' class='btn-primary'>" +
-                    "Visualizar" +
+                    translationData.buttonText +
                     "</a>" +
                     "</p>" +
                     "</div>" +
