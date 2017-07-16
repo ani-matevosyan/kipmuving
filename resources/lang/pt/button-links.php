@@ -13,5 +13,6 @@ return [
 	'go_to_guide'        => 'Ir ao guia',
 	'view'               => 'Visualizar',
 	'see_all_activities' => 'Ver todas las atividades',
-    'confirm'            => 'Confirmar'
+    'confirm'            => 'Confirmar',
+    'free'               => 'Livre'
 ];

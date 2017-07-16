@@ -130,15 +130,15 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 												@if(!$isThereABus)
 													var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
 													thisPlate.click(function () {
-													if (!loadedmap{{ $activity->id }}) {
-														setTimeout(function () {
-															google.maps.event.trigger(map{{ $activity->id }}, 'resize');
-															map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
-															map{{ $activity->id  }}.setZoom(10);
-															loadedmap{{ $activity->id }} = true;
-														}, 200)
-													}
-												});
+														if (!loadedmap{{ $activity->id }}) {
+															setTimeout(function () {
+																google.maps.event.trigger(map{{ $activity->id }}, 'resize');
+																map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
+																map{{ $activity->id  }}.setZoom(10);
+																loadedmap{{ $activity->id }} = true;
+															}, 200)
+														}
+													});
 												@endif
 												$("#tomenu{{ $activity->id }}").on('click', function () {
 													if (!loadedmap{{ $activity->id }}) {
@@ -159,7 +159,7 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
 								<form class="order-theguide-form" data-id="{{ $activity->id }}">
 									<ul>
 										<li>
-											<strong>Elija el dia</strong>
+											<label>Elija el dia</label>
 											<div class="text-field has-ico calender">
 												<input type="text" name="guide-date"
 															 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'

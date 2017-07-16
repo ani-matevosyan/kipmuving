@@ -1,18 +1,7 @@
-<?php
-$isThereABus = false;
-if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
-    $isThereABus = true
-?>
-
-{{--{{ dd($activity) }}--}}
 <div class="guide-places-plate-wrapper">
     <div class="guide-places-plate">
         <figure>
             <img src="{{ asset($activity->image) }}" alt="{{ $activity->name }}" class="item-image" onerror="this.src='/images/image-none.jpg';">
-            <img src="{{ asset('/images/car-front.svg') }}" alt="Car" class="vehicle-icon car-icon">
-            @if($isThereABus)
-                <img src="{{ asset('/images/bus-front.svg') }}" alt="Bus" class="vehicle-icon bus-icon">
-            @endif
         </figure>
         <div class="descr">
             <h3>{{ $activity->name }}</h3>
@@ -45,41 +34,18 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
                         </div>
                         <div class="termas-tabs">
                             <ul class="nav nav-pills">
-                                @if($isThereABus)
-                                    <li class="active">
-                                        <a data-toggle="pill" href="#home{{ $activity->id }}">
-                                            <img src="{{ asset('images/bicycle-guide.svg') }}" alt="white bus" width="43" height="29" class="img-responsive">
-                                            <div class="link-info">
-                                                <strong>Como chegar</strong>
-                                                <p>Desde o centro de Pucón</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                @endif
-                                <li @if(!$isThereABus) class="active" @endif>
+                                <li class="active">
                                     <a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
                                         <img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
                                         <div class="link-info">
-                                            <strong>Mapa</strong>
-                                            <p>Vista do caminho</p>
+                                            <strong>{{ trans('main.by_car') }}</strong>
+                                            <p>{{ trans('main.google_map_path') }}</p>
                                         </div>
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                @if($isThereABus)
-                                    <div id="home{{ $activity->id }}" class="tab-pane well fade in active">
-                                        <div class="tab-detail">
-                                            <p>{!! $activity->bus_description !!}</p>
-                                        </div>
-                                        <div class="info-icons">
-                                            <img src="{{ asset('images/clock.svg') }}" alt="clock" class="img-responsive" width="25" height="25"/>
-                                            <p>{{ trans('main.estimated_time') }}:
-                                                <strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
-                                        </div>
-                                    </div>
-                                @endif
-                                <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!$isThereABus) in active @endif">
+                                <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade in active">
                                     <div class="map-holder">
                                         <div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
                                         <script type="text/javascript">
@@ -121,7 +87,6 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
                                                     });
                                                 }
                                                 initMap();
-                                                        @if(!$isThereABus)
                                                 var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
                                                 thisPlate.click(function () {
                                                     if (!loadedmap{{ $activity->id }}) {
@@ -133,7 +98,6 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
                                                         }, 200)
                                                     }
                                                 });
-                                                @endif
                                                 $("#tomenu{{ $activity->id }}").on('click', function () {
                                                     if (!loadedmap{{ $activity->id }}) {
                                                         setTimeout(function () {

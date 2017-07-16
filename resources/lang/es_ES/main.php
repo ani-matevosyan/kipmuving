@@ -30,6 +30,8 @@ return [
 	'guide'                             => 'Guía',
 	'complete'                          => 'Completa',
 	'free'                              => 'Gratis',
+    'by_car'                            => 'De auto',
+    'google_map_path'                   => 'Caminho pelo Google Maps',
 	
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',

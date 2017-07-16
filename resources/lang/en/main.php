@@ -30,6 +30,8 @@ return [
 	'guide'                             => 'Guide',
 	'complete'                          => 'Complete',
 	'free'                              => 'Free',
+    'by_car'                            => 'By car',
+    'google_map_path'                   => 'Google Maps path',
 	
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',

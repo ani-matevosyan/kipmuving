@@ -64,11 +64,6 @@ class GuiaController extends Controller
                 'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
             ],
             'imageIndex' => $imageIndex,
-            'count'      => [
-                'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-                'persons' => $offer->getSelectedOffersPersons(),
-                'total' => $offer->getSelectedOffersTotal()
-            ],
             'activities' => $this->getMapPoints()
         ];
 		
@@ -101,11 +96,6 @@ class GuiaController extends Controller
 				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
 			],
 			'imageIndex' => $imageIndex,
-			'count'      => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons(),
-				'total' => $offer->getSelectedOffersTotal()
-			],
 			'activities' => $this->getMapPoints()
 		];
 		
@@ -114,24 +104,31 @@ class GuiaController extends Controller
 	
 	public function getTourcultural(Offer $offer)
 	{
-		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
-		
-		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-cultural']);
-		
-		$imageIndex = rand(1, 4); //1-4
-		$data = [
-		    'styles'     => [
+        $prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+
+        if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+            return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
+
+        $imageIndex = rand(1, 4); //1-4
+        $data = [
+            'styles'     => [
                 'css/tripadvisor.min.css',
+                'css/jquery-ui.min.css',
+                'css/jcf.custom.min.css',
+                'css/instafeed/instafeed.min.css',
                 'css/guide-style.min.css'
             ],
-			'imageIndex' => $imageIndex,
-			'count'      => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons(),
-				'total' => $offer->getSelectedOffersTotal()
-			]
-		];
+            'scripts'    => [
+                'js/chosen.jquery.min.js',
+                'js/instafeed/instafeed.min.js',
+                'libs/jcf/js/jcf.js',
+                'libs/jcf/js/jcf.select.js',
+                'js/ResizeSensor.min.js',
+                'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+            ],
+            'imageIndex' => $imageIndex,
+            'activities' => $this->getMapPoints()
+        ];
 		
 		return view('site.guia.tourcultural', $data);
 	}

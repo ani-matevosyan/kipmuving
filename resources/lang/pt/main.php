@@ -30,6 +30,8 @@ return [
 	'guide'                             => 'Guia',
 	'complete'                          => 'Completar',
 	'free'                              => 'Gratuito',
+    'by_car'                            => 'Pelo carro',
+    'google_map_path'                   => 'Google Maps cabelo Caminho',
 	
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',

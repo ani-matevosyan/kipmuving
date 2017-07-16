@@ -145,7 +145,7 @@
 									href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 							</li>
 							<li><a
-									href="{{ action('GuiaController@index') }}">{{ trans('button-links.guide') }}</a>
+									href="{{ action('GuiaController@index') }}">{{ trans('button-links.free') }}</a>
 							</li>
 						</ul>
 						<div class="nav-cover"></div>

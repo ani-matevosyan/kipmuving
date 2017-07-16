@@ -1,3 +1,10 @@
+.your-reservation.activity h1{
+    font-weight: 700;
+    font-size: 30px;
+    color: #242c3a;
+    margin: 15px 0;
+}
+
 .program-schedule_guide{
     margin: -120px 0 22px;
 }
@@ -710,19 +717,16 @@
 }
 
 .order-theguide input[type=text]{
-    background: #963d4c;
-}
-
-.order-theguide input[type=text]{
     font-size: 14px;
     height: 34px;
     width: 120px;
-    color: #fff;
+    border: 2px solid #fdd164;
 }
 
 .order-theguide .jcf-select{
     min-width: 80px;
     width: auto;
+    border: 2px solid #fdd164;
 }
 
 .order-theguide .jcf-select .jcf-select-opener:before{
