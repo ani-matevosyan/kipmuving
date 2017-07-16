@@ -199,6 +199,13 @@ $(document).ready(function () {
     // --------------------------- Program schedule restriction --------------------
 
 
+    $("#program-schedule .btn").click(function(e){
+       if($("#program_activities").attr('data-activities') == '0'){
+           e.preventDefault();
+           $('#message-modal #message').text('Debes incluir primero alguna actividad');
+           $('#message-modal').modal('show');
+       }
+    });
 
     // --------------------------- END Program schedule restriction --------------------
 
