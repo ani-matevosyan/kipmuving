@@ -198,7 +198,9 @@ return [
 	'spa_value'                => 'Valor de las termas',
 	'include_in_my_panorama'   => 'INCLUIR EN MI PANORAMA',
 	
-	'to_confirm_reservation'   => 'Para confirmar la reserva, por favor, regístrate en Kipmuving o si ya estás registrado, haz login con tu email y clave.',
+	'to_confirm_reservation'   => 'Para confirmar tus actividades, presiona el botón',
+    'confirm'                  => 'CONFIRMAR',
+    'you_got_mail'             => 'Te llegará un email con la confirmación de sus actividades. Incentivamos que las agencias escríbante para pasarte mas detalles. También podrás escribirla por si quiere alguna información.',
 	'sign_up_using_your_email' => 'Regístrate utilizando tu dirección de correo eletrónico',
 	'reservation'              => 'Reserva',
 	'you_must_take'            => 'Debes llevar',

@@ -199,7 +199,9 @@ return [
 	'spa_value'                => 'Spa value',
 	'include_in_my_panorama'   => 'INCLUDE IN MY PANORAMA',
 	
-	'to_confirm_reservation'   => 'To confirm the reservation, please register in Kipmuving or if you are already registered, login with your e-mail and password.',
+	'to_confirm_reservation'   => 'To confirm your actions press the button ',
+    'confirm'                  => 'CONFIRM',
+    'you_got_mail'             => 'You will receive an email with the confirmation of your activities. We encourage the agencies to write you to get more details. You can also write it in case you want any information.',
 	'sign_up_using_your_email' => 'Sign up using your e-mail address',
 	'reservation'              => 'Reservation',
 	'you_must_take'            => 'You must take',

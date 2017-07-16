@@ -104,10 +104,9 @@
 									@if (empty($message))
 										<section class="s_moredetails">
 											<p>{{ trans('main.to_confirm_your_activities') }}
-												<strong>{{ trans('main.reserve_this_panorama') }}
-													. </strong>{{ trans('main.confirm_with_payment_of_service') }}
-												<strong>{{ config('kipmuving.service_fee') * 100 }}
-													%</strong> {{ trans('main.you_will_receive_email_with_details') }}</p>
+												<strong>{{ trans('main.confirm') }}</strong>.
+												{{ trans('main.you_got_mail') }}
+											</p>
 											<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>
 											<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>
 											<p class="carrio-heading">{{ trans('main.general_information') }}</p>
@@ -140,13 +139,7 @@
 														<p>{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
 														<span>{{ trans('main.total') }}</span>
 													</div>
-													{{--<div class="discount">--}}
-													{{--<span>{{ trans('main.you_save') }}</span>--}}
-													{{--<p>{{ number_format($reservation->total[session('currency.type')] * config('kipmuving.discount'), 0, ".", ".") }}</p>--}}
-													{{--</div>--}}
 												</div>
-												{{--<a href="#" class="btn-reservar reserve" data-toggle="modal"--}}
-												   {{--data-target="#PaymentModal">{{ trans('main.reserve_this_panorama') }}</a>--}}
 												<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar reserve">{{ trans('main.reserve_this_panorama') }}</a>
 											</div>
 										</section>
