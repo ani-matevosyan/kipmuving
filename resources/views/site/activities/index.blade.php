@@ -182,7 +182,7 @@
 			</div>
 			<div class="all-activities">
 				@if(count($activities->where('styles', 'Trekking')) > 0)
-					<section class="activity-block" id="trekking">
+					<section class="activity-block trekking">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/Trekking.svg') }}"
@@ -214,7 +214,7 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Rio')) > 0)
-					<section class="activity-block rio" id="rio">
+					<section class="activity-block rio">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/kayak.svg') }}"
@@ -246,7 +246,7 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Aire')) > 0)
-					<section class="activity-block aire" id="aire">
+					<section class="activity-block aire">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/aire.svg') }}"
@@ -278,7 +278,7 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Relax')) > 0)
-					<section class="activity-block relax" id="relax">
+					<section class="activity-block relax">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/relax.svg') }}"
@@ -310,7 +310,7 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Nieve')) > 0)
-					<section class="activity-block nieve" id="nieve">
+					<section class="activity-block nieve">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/skiing_ski_running.svg') }}"
@@ -342,7 +342,7 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Familia')) > 0)
-					<section class="activity-block familia" id="familia">
+					<section class="activity-block familia">
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/family.svg') }}"
