@@ -162,12 +162,12 @@ class ActivityController extends Controller
 		$result = [];
 		
 		foreach ($activities as $activity) {
-			
-			$result[$activity->styles] []= [
+
+			$result[$activity->styles] [] = [
 				'id'                => $activity->id,
 				'name'              => $activity->name,
 				'short_description' => $activity->short_description,
-				'image_thumb'       => $activity->image_thumb,
+				'image_thumb'       => file_exists($activity->image_thumb) ? $activity->image_thumb : 'images/image-none.jpg',
 				'availability'      => [
 					'night'  => $activity->available_night,
 					'day'    => $activity->available_day,
