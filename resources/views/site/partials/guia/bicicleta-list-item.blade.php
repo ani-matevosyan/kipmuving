@@ -80,15 +80,14 @@
                                                     style: 'mapbox://styles/mapbox/streets-v9'
                                                 });
 
+                                                var geoJSON = {{ $activity->route }};
 
-                                                map.fitBounds([[
-                                                    -71.97168394357989,
-                                                    -39.27540274218929
-                                                ], [
-                                                    -71.96813568898577,
-                                                    -39.274294857097644
-                                                ]],{
-                                                    padding: 50
+                                                map.fitBounds([
+                                                        geoJSON[0],
+                                                        geoJSON[geoJSON.length - 1]
+                                                ],{
+                                                    padding: 50,
+                                                    duration: 0
                                                 });
 
                                                 map.on('load', function () {
@@ -101,58 +100,19 @@
                                                                 "type": "Feature",
                                                                 "geometry": {
                                                                     "type": "LineString",
-                                                                    "coordinates": [
-                                                                        [
-                                                                            -71.97168394357989,
-                                                                            -39.27540274218929
-                                                                        ],
-                                                                        [
-                                                                            -71.96968540399888,
-                                                                            -39.274812746394296
-                                                                        ],
-                                                                        [
-                                                                            -71.96952450462979,
-                                                                            -39.27479963531452
-                                                                        ],
-                                                                        [
-                                                                            -71.9691349587763,
-                                                                            -39.27495041251989
-                                                                        ],
-                                                                        [
-                                                                            -71.96882162842064,
-                                                                            -39.2751274114309
-                                                                        ],
-                                                                        [
-                                                                            -71.968508298065,
-                                                                            -39.27480619086175
-                                                                        ],
-                                                                        [
-                                                                            -71.96864379226817,
-                                                                            -39.27470785772992
-                                                                        ],
-                                                                        [
-                                                                            -71.96813568898577,
-                                                                            -39.274294857097644
-                                                                        ]
-                                                                    ]
+                                                                    "coordinates": {{ $activity->route }}
                                                                 }
                                                             },{
                                                                 "type": "Feature",
                                                                 "geometry": {
                                                                     "type": "Point",
-                                                                    "coordinates": [
-                                                                        -71.97168394357989,
-                                                                        -39.27540274218929
-                                                                    ]
+                                                                    "coordinates":  geoJSON[0]
                                                                 }
                                                             },{
                                                                 "type": "Feature",
                                                                 "geometry": {
                                                                     "type": "Point",
-                                                                    "coordinates": [
-                                                                        -71.96813568898577,
-                                                                        -39.274294857097644
-                                                                    ]
+                                                                    "coordinates":  geoJSON[geoJSON.length - 1]
                                                                 }
                                                             }]
                                                         }
