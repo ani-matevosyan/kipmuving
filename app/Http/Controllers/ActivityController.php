@@ -78,7 +78,7 @@ class ActivityController extends Controller
 				'libs/product-tour/product-tour.min.css',
 				'css/jquery-ui.min.css',
 				'css/chosen/chosen.min.css',
-				'css/jcf.custom.css',
+				'css/jcf.custom.min.css',
 				'css/prettyPhoto.min.css',
 				'css/instafeed/instafeed.min.css',
 				'css/offer-items.min.css',
