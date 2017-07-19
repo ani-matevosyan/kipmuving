@@ -312,11 +312,9 @@
 
 .termas-tabs {
     text-align: left; }
-.termas-tabs .map-holder {
-    height: 270px; }
-.termas-tabs .map-holder iframe {
-    width: 100%;
-    height: 270px; }
+.map-holder {
+    min-height: 270px;
+}
 .termas-tabs a.yello-button {
     color: #ffffff;
     background-color: #ebb414;
@@ -339,6 +337,7 @@
 .tab-content .well.map-tab{
     padding: 0;
     height: 300px;
+    position: relative;
 }
 
 .tab-content .tab-detail {
@@ -758,6 +757,14 @@
 .hour-devider{
     display: inline-block;
     margin: 5px 5px 0;
+}
+
+.bicycle-map{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }
 
 @media screen and (max-width: 1139px){
