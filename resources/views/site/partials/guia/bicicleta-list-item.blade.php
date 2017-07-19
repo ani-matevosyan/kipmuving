@@ -1,18 +1,8 @@
-<?php
-$isThereABus = false;
-if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_expenditure)
-    $isThereABus = true
-?>
-
 {{--{{ dd($activity) }}--}}
 <div class="guide-places-plate-wrapper">
     <div class="guide-places-plate">
         <figure>
             <img src="{{ asset($activity->image) }}" alt="{{ $activity->name }}" class="item-image" onerror="this.src='/images/image-none.jpg';">
-            <img src="{{ asset('/images/car-front.svg') }}" alt="Car" class="vehicle-icon car-icon">
-            @if($isThereABus)
-                <img src="{{ asset('/images/bus-front.svg') }}" alt="Bus" class="vehicle-icon bus-icon">
-            @endif
         </figure>
         <div class="descr">
             <h3>{{ $activity->name }}</h3>
@@ -45,18 +35,16 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
                         </div>
                         <div class="termas-tabs">
                             <ul class="nav nav-pills">
-                                @if($isThereABus)
-                                    <li class="active">
-                                        <a data-toggle="pill" href="#home{{ $activity->id }}">
-                                            <img src="{{ asset('images/bicycle-guide.svg') }}" alt="white bus" width="43" height="29" class="img-responsive">
-                                            <div class="link-info">
-                                                <strong>Como chegar</strong>
-                                                <p>Desde o centro de Pucón</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                @endif
-                                <li @if(!$isThereABus) class="active" @endif>
+                                <li class="active">
+                                    <a data-toggle="pill" href="#home{{ $activity->id }}">
+                                        <img src="{{ asset('images/bicycle-guide.svg') }}" alt="white bus" width="43" height="29" class="img-responsive">
+                                        <div class="link-info">
+                                            <strong>Como chegar</strong>
+                                            <p>Desde o centro de Pucón</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
                                     <a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
                                         <img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
                                         <div class="link-info">
@@ -67,85 +55,232 @@ if ($activity->bus_description && $activity->bus_est_time && $activity->bus_est_
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                @if($isThereABus)
-                                    <div id="home{{ $activity->id }}" class="tab-pane well fade in active">
-                                        <div class="tab-detail">
-                                            <p>{!! $activity->bus_description !!}</p>
-                                        </div>
-                                        <div class="info-icons">
-                                            <img src="{{ asset('images/clock.svg') }}" alt="clock" class="img-responsive" width="25" height="25"/>
-                                            <p>{{ trans('main.estimated_time') }}:
-                                                <strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
-                                        </div>
+                                <div id="home{{ $activity->id }}" class="tab-pane well fade in active">
+                                    <div class="tab-detail">
+                                        <p>{!! $activity->bus_description !!}</p>
                                     </div>
-                                @endif
-                                <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade @if(!$isThereABus) in active @endif">
+                                    <div class="info-icons">
+                                        <img src="{{ asset('images/clock.svg') }}" alt="clock" class="img-responsive" width="25" height="25"/>
+                                        <p>{{ trans('main.estimated_time') }}:
+                                            <strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
+                                    </div>
+                                </div>
+                                <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade">
                                     <div class="map-holder">
                                         <div id="map{{ $activity->id}}" style="width: 100%; height: 300px"></div>
                                         <script type="text/javascript">
-                                            function initGuideMap{{ $activity->id}}() {
-                                                var map{{ $activity->id }};
-                                                var loadedmap{{ $activity->id }} = false;
-                                                var pucon = {lat: -39.279351, lng: -71.968676};
-                                                var thispoint{{ $activity->id }} = {
-                                                    lat: {{ $activity->latitude }},
-                                                    lng: {{ $activity->longitude}} };
-                                                function initMap() {
-                                                    var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});
-                                                    var myOptions = {
-                                                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                                                    };
-                                                    map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);
 
-                                                    var directionsDisplay = new google.maps.DirectionsRenderer({
-                                                        map: map{{ $activity->id }}
-                                                    });
+                                            var mapLoaded{{ $activity->id}} = false;
 
-                                                    var request = {
-                                                        destination: thispoint{{ $activity->id }},
-                                                        origin: pucon,
-                                                        travelMode: 'DRIVING'
-                                                    };
+                                            function mapboxFunction{{ $activity->id}}(){
+                                                mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw';
+                                                var map = new mapboxgl.Map({
+                                                    container: 'map{{ $activity->id}}',
+                                                    style: 'mapbox://styles/mapbox/streets-v9'
+                                                });
 
-                                                    var directionsService = new google.maps.DirectionsService();
-                                                    directionsService.route(request, function (response, status) {
-                                                        if (status == 'OK') {
-                                                            directionsDisplay.setDirections(response);
+
+                                                map.fitBounds([[
+                                                    -71.97168394357989,
+                                                    -39.27540274218929
+                                                ], [
+                                                    -71.96813568898577,
+                                                    -39.274294857097644
+                                                ]],{
+                                                    padding: 50
+                                                });
+
+                                                map.on('load', function () {
+
+                                                    map.addSource("bicycle-route",{
+                                                        "type": "geojson",
+                                                        "data": {
+                                                            "type": "FeatureCollection",
+                                                            "features": [{
+                                                                "type": "Feature",
+                                                                "geometry": {
+                                                                    "type": "LineString",
+                                                                    "coordinates": [
+                                                                        [
+                                                                            -71.97168394357989,
+                                                                            -39.27540274218929
+                                                                        ],
+                                                                        [
+                                                                            -71.96968540399888,
+                                                                            -39.274812746394296
+                                                                        ],
+                                                                        [
+                                                                            -71.96952450462979,
+                                                                            -39.27479963531452
+                                                                        ],
+                                                                        [
+                                                                            -71.9691349587763,
+                                                                            -39.27495041251989
+                                                                        ],
+                                                                        [
+                                                                            -71.96882162842064,
+                                                                            -39.2751274114309
+                                                                        ],
+                                                                        [
+                                                                            -71.968508298065,
+                                                                            -39.27480619086175
+                                                                        ],
+                                                                        [
+                                                                            -71.96864379226817,
+                                                                            -39.27470785772992
+                                                                        ],
+                                                                        [
+                                                                            -71.96813568898577,
+                                                                            -39.274294857097644
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },{
+                                                                "type": "Feature",
+                                                                "geometry": {
+                                                                    "type": "Point",
+                                                                    "coordinates": [
+                                                                        -71.97168394357989,
+                                                                        -39.27540274218929
+                                                                    ]
+                                                                }
+                                                            },{
+                                                                "type": "Feature",
+                                                                "geometry": {
+                                                                    "type": "Point",
+                                                                    "coordinates": [
+                                                                        -71.96813568898577,
+                                                                        -39.274294857097644
+                                                                    ]
+                                                                }
+                                                            }]
                                                         }
                                                     });
 
-                                                    var marker = new google.maps.Marker({
-                                                        position: latLng,
-                                                        map: map{{ $activity->id }},
-                                                        title: '{{ $activity->name  }}'
+                                                    map.addLayer({
+                                                        "id": "route-line",
+                                                        "type": "line",
+                                                        "source": "bicycle-route",
+                                                        "layout": {
+                                                            "line-join": "round",
+                                                            "line-cap": "round"
+                                                        },
+                                                        "paint": {
+                                                            "line-color": "#73B2DF",
+                                                            "line-width": 5,
+                                                            "line-opacity": 0.8
+                                                        },
+                                                        "filter": ["==", "$type", "LineString"]
                                                     });
-                                                }
-                                                initMap();
-                                                        @if(!$isThereABus)
-                                                var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');
-                                                thisPlate.click(function () {
-                                                    if (!loadedmap{{ $activity->id }}) {
-                                                        setTimeout(function () {
-                                                            google.maps.event.trigger(map{{ $activity->id }}, 'resize');
-                                                            map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
-                                                            map{{ $activity->id  }}.setZoom(10);
-                                                            loadedmap{{ $activity->id }} = true;
-                                                        }, 200)
-                                                    }
-                                                });
-                                                @endif
-                                                $("#tomenu{{ $activity->id }}").on('click', function () {
-                                                    if (!loadedmap{{ $activity->id }}) {
-                                                        setTimeout(function () {
-                                                            google.maps.event.trigger(map{{ $activity->id }}, 'resize');
-                                                            map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});
-                                                            map{{ $activity->id  }}.setZoom(10);
-                                                            loadedmap{{ $activity->id }} = true;
-                                                        }, 200)
-                                                    }
+                                                    map.addLayer({
+                                                        "id": "route-points",
+                                                        "type": "circle",
+                                                        "source": "bicycle-route",
+                                                        "paint": {
+                                                            "circle-radius": 6,
+                                                            "circle-color": "#B42222"
+                                                        },
+                                                        "filter": ["==", "$type", "Point"]
+                                                    });
+
                                                 });
                                             }
+
+                                            var mapButton{{ $activity->id}} = document.getElementById('tomenu{{ $activity->id }}');
+
+                                            mapButton{{ $activity->id}}.addEventListener('click', function(e){
+                                                if(!mapLoaded{{ $activity->id}}){
+                                                    mapboxFunction{{ $activity->id}}();
+                                                    mapLoaded{{ $activity->id}} = true;
+                                                }
+                                            });
+
+                                            {{--var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');--}}
+                                            {{--thisPlate.click(function () {--}}
+                                                {{--if (!loadedmap{{ $activity->id }}) {--}}
+                                                    {{--setTimeout(function () {--}}
+                                                        {{--google.maps.event.trigger(map{{ $activity->id }}, 'resize');--}}
+                                                        {{--map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});--}}
+                                                        {{--map{{ $activity->id  }}.setZoom(10);--}}
+                                                        {{--loadedmap{{ $activity->id }} = true;--}}
+                                                    {{--}, 200)--}}
+                                                {{--}--}}
+                                            {{--});--}}
+                                            {{--$("#tomenu{{ $activity->id }}").on('click', function () {--}}
+                                                {{--if (!loadedmap{{ $activity->id }}) {--}}
+                                                    {{--setTimeout(function () {--}}
+                                                        {{--google.maps.event.trigger(map{{ $activity->id }}, 'resize');--}}
+                                                        {{--map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});--}}
+                                                        {{--map{{ $activity->id  }}.setZoom(10);--}}
+                                                        {{--loadedmap{{ $activity->id }} = true;--}}
+                                                    {{--}, 200)--}}
+                                                {{--}--}}
+                                            {{--});--}}
                                         </script>
+                                        {{--<script type="text/javascript">--}}
+                                            {{--function initGuideMap{{ $activity->id}}() {--}}
+                                                {{--var map{{ $activity->id }};--}}
+                                                {{--var loadedmap{{ $activity->id }} = false;--}}
+                                                {{--var pucon = {lat: -39.279351, lng: -71.968676};--}}
+                                                {{--var thispoint{{ $activity->id }} = {--}}
+                                                    {{--lat: {{ $activity->latitude }},--}}
+                                                    {{--lng: {{ $activity->longitude}} };--}}
+                                                {{--function initMap() {--}}
+                                                    {{--var latLng = new google.maps.LatLng(thispoint{{ $activity->id }});--}}
+                                                    {{--var myOptions = {--}}
+                                                        {{--mapTypeId: google.maps.MapTypeId.ROADMAP--}}
+                                                    {{--};--}}
+                                                    {{--map{{ $activity->id }} = new google.maps.Map(document.getElementById("map{{ $activity->id }}"), myOptions);--}}
+
+                                                    {{--var directionsDisplay = new google.maps.DirectionsRenderer({--}}
+                                                        {{--map: map{{ $activity->id }}--}}
+                                                    {{--});--}}
+
+                                                    {{--var request = {--}}
+                                                        {{--destination: thispoint{{ $activity->id }},--}}
+                                                        {{--origin: pucon,--}}
+                                                        {{--travelMode: 'DRIVING'--}}
+                                                    {{--};--}}
+
+                                                    {{--var directionsService = new google.maps.DirectionsService();--}}
+                                                    {{--directionsService.route(request, function (response, status) {--}}
+                                                        {{--if (status == 'OK') {--}}
+                                                            {{--directionsDisplay.setDirections(response);--}}
+                                                        {{--}--}}
+                                                    {{--});--}}
+
+                                                    {{--var marker = new google.maps.Marker({--}}
+                                                        {{--position: latLng,--}}
+                                                        {{--map: map{{ $activity->id }},--}}
+                                                        {{--title: '{{ $activity->name  }}'--}}
+                                                    {{--});--}}
+                                                {{--}--}}
+                                                {{--initMap();--}}
+                                                        {{--@if(!$isThereABus)--}}
+                                                {{--var thisPlate = $("#tomenu{{ $activity->id }}").parents('.guide-places-plate-wrapper').find('.guide-places-plate');--}}
+                                                {{--thisPlate.click(function () {--}}
+                                                    {{--if (!loadedmap{{ $activity->id }}) {--}}
+                                                        {{--setTimeout(function () {--}}
+                                                            {{--google.maps.event.trigger(map{{ $activity->id }}, 'resize');--}}
+                                                            {{--map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});--}}
+                                                            {{--map{{ $activity->id  }}.setZoom(10);--}}
+                                                            {{--loadedmap{{ $activity->id }} = true;--}}
+                                                        {{--}, 200)--}}
+                                                    {{--}--}}
+                                                {{--});--}}
+                                                {{--@endif--}}
+                                                {{--$("#tomenu{{ $activity->id }}").on('click', function () {--}}
+                                                    {{--if (!loadedmap{{ $activity->id }}) {--}}
+                                                        {{--setTimeout(function () {--}}
+                                                            {{--google.maps.event.trigger(map{{ $activity->id }}, 'resize');--}}
+                                                            {{--map{{ $activity->id }}.setCenter(thispoint{{ $activity->id }});--}}
+                                                            {{--map{{ $activity->id  }}.setZoom(10);--}}
+                                                            {{--loadedmap{{ $activity->id }} = true;--}}
+                                                        {{--}, 200)--}}
+                                                    {{--}--}}
+                                                {{--});--}}
+                                            {{--}--}}
+                                        {{--</script>--}}
                                     </div>
                                 </div>
                             </div>

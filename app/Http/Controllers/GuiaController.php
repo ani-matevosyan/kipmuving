@@ -53,6 +53,7 @@ class GuiaController extends Controller
                 'css/jquery-ui.min.css',
                 'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
+                'libs/mapbox-gl/mapbox-gl.min.css',
                 'css/guide-style.min.css'
             ],
             'scripts'    => [
@@ -61,7 +62,8 @@ class GuiaController extends Controller
                 'libs/jcf/js/jcf.js',
                 'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
-                'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+                'libs/mapbox-gl/mapbox-gl.js'
+//                'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
             ],
             'imageIndex' => $imageIndex,
             'activities' => $this->getMapPoints()
