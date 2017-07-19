@@ -157,7 +157,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				->addColumn([
 					AdminFormElement::select('page', 'PAGE')->required()->setOptions([
 						'bus'      => 'By car or bus',
-						'cultural' => 'Cultural tour'
+						'cultural' => 'Cultural tour',
+						'bicycle'  => 'Bicycle'
 					])
 				], 2)
 				->addColumn([
@@ -191,6 +192,10 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code'),
 		]);
 		
+		$route = new \SleepingOwl\Admin\Form\FormElements([
+			AdminFormElement::textarea('route', 'Route (json)'),
+		]);
+		
 		$bus_data = new \SleepingOwl\Admin\Form\FormElements([
 			AdminFormElement::columns()
 				->addColumn([
@@ -210,7 +215,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 		$tabs = AdminDisplay::tabbed([
 			'Guide activity' => $guide_activity,
 			'Tripadvisor'    => $tripadvisor,
-			'Bus data'       => $bus_data
+			'Bus data'       => $bus_data,
+			'Route'          => $route
 		]);
 		
 		$form->addElement($tabs);
