@@ -56,7 +56,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				->addColumn([
 					AdminFormElement::select('page', 'PAGE')->required()->setOptions([
 						'bus'      => 'By car or bus',
-						'cultural' => 'Cultural tour'
+						'cultural' => 'Cultural tour',
+						'bicycle'  => 'Bicycle'
 					])
 				], 2)
 				->addColumn([
@@ -90,6 +91,10 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			AdminFormElement::textarea('tripadvisor_code', 'Tripadvisor code'),
 		]);
 		
+		$route = new \SleepingOwl\Admin\Form\FormElements([
+			AdminFormElement::textarea('route', 'Route (json)'),
+		]);
+		
 		$bus_data = new \SleepingOwl\Admin\Form\FormElements([
 			AdminFormElement::columns()
 				->addColumn([
@@ -111,6 +116,12 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				'Guide activity' => $guide_activity,
 				'Tripadvisor'    => $tripadvisor
 			]);
+		} elseif ($activity->page === 'bicycle') {
+			$tabs = AdminDisplay::tabbed([
+				'Guide activity' => $guide_activity,
+				'Tripadvisor'    => $tripadvisor,
+				'Route'          => $route
+			]);
 		} else {
 			$tabs = AdminDisplay::tabbed([
 				'Guide activity' => $guide_activity,
@@ -125,7 +136,7 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 	});
 	
 	$model->onCreate(function () {
-	
+		
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$warning_bus_est_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>120</small></div>';
@@ -196,11 +207,11 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 			AdminFormElement::textarea('bus_description', 'Description'),
 		]);
 		
-			$tabs = AdminDisplay::tabbed([
-				'Guide activity' => $guide_activity,
-				'Tripadvisor'    => $tripadvisor,
-				'Bus data'       => $bus_data
-			]);
+		$tabs = AdminDisplay::tabbed([
+			'Guide activity' => $guide_activity,
+			'Tripadvisor'    => $tripadvisor,
+			'Bus data'       => $bus_data
+		]);
 		
 		$form->addElement($tabs);
 		
