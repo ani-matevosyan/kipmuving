@@ -77,7 +77,7 @@
                                                 mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw';
                                                 var map = new mapboxgl.Map({
                                                     container: 'map{{ $activity->id}}',
-                                                    style: 'mapbox://styles/mapbox/streets-v10'
+                                                    style: 'mapbox://styles/mapbox/streets-v9'
                                                 });
 
 
