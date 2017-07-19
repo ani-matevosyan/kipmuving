@@ -157,7 +157,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 				->addColumn([
 					AdminFormElement::select('page', 'PAGE')->required()->setOptions([
 						'bus'      => 'By car or bus',
-						'cultural' => 'Cultural tour'
+						'cultural' => 'Cultural tour',
+						'bicycle'  => 'Bicycle'
 					])
 				], 2)
 				->addColumn([
