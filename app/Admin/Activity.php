@@ -93,7 +93,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 							'Aire'     => 'Aire',
 							'Relax'    => 'Relax',
 							'Familia'  => 'Familia',
-							'Nieve'    => 'Nieve'
+							'Nieve'    => 'Nieve',
+							'Ciclismo' => 'Ciclismo'
 						]),
 					], 4)
 					->addColumn([
