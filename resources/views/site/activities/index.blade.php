@@ -119,6 +119,15 @@
 											<label for="cultural-style">Cultural</label>
 										</div>
 									</div>
+									<div class="col-sm-4 col-xs-6">
+										<div class="filter-item">
+											<div class="custom-checkbox">
+												<input type="checkbox" name="style" id="сiclismo-style" value="Ciclismo">
+												<div class="custom-checkbox-mark"></div>
+											</div>
+											<label for="cultural-style">Ciclismo</label>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -356,6 +365,38 @@
 						<div class="row">
 							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Familia') as $activity)
+								<div class="col-md-3 col-sm-4 col-xs-12 col">
+									@include('site.partials.activities.all-list-item')
+								</div>
+								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
+								@if($key_for_4_col ===4 )
+									<div class="clearfix visible-lg-block"></div>
+									<div class="clearfix visible-md-block"></div>
+									<?php $key_for_4_col = 0; ?>
+								@endif
+								@if($key_for_3_col ===3 )
+									<div class="clearfix visible-sm-block"></div>
+									<?php $key_for_3_col = 0; ?>
+								@endif
+							@endforeach
+						</div>
+					</section>
+				@endif
+				@if(count($activities->where('styles', 'Ciclismo')) > 0)
+					<section class="activity-block familia">
+						<strong class="heading">
+						<span>
+							<img src="{{ asset('/images/family.svg') }}"
+							     alt="image description"
+							     width="33"
+							     height="33"
+							     onerror="this.onerror=null; this.src='/images/ico25.png'">
+						</span>
+							{{ trans('main.cycling') }}
+						</strong>
+						<div class="row">
+							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
+							@foreach ($activities->where('styles', 'Ciclismo') as $activity)
 								<div class="col-md-3 col-sm-4 col-xs-12 col">
 									@include('site.partials.activities.all-list-item')
 								</div>

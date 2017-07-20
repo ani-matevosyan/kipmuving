@@ -53,12 +53,13 @@ class AgencyEmailsController extends Controller
 				
 				$message = str_replace('{name}', $agency->contact, $_message);
 				$message = str_replace('{activities}', $activities, $message);
+				$message = nl2br($message);
 				
-				Mail::send('emails.agency-emails', ['msg' => $message], function ($message) use ($agency) {
-					$message->from('info@kipmuving.com', 'Kipmuving team');
-					$message->to($agency->email)->subject('Kipmuving.com information');
-				});
-//				return view('emails.agency-emails', ['msg' => $message]);
+//				Mail::send('emails.agency-emails', ['msg' => $message], function ($message) use ($agency) {
+//					$message->from('info@kipmuving.com', 'Kipmuving team');
+//					$message->to($agency->email)->subject('Kipmuving.com information');
+//				});
+				return view('emails.agency-emails', ['msg' => $message]);
 			}
 		} else {
 			return redirect()->back()->with('error', 'Select the agencies and enter the text of the message.');

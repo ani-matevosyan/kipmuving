@@ -75,6 +75,7 @@ return [
 	'relax'    => 'Relax',
 	'snow'     => 'Snow',
 	'cultural' => 'Cultural',
+	'cycling' => 'Cycling',
 	
 	'iconography'       => 'Iconography',
 	'day_activity'      => 'Day activity',
