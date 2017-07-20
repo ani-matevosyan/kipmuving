@@ -125,7 +125,7 @@
 												<input type="checkbox" name="style" id="сiclismo-style" value="Ciclismo">
 												<div class="custom-checkbox-mark"></div>
 											</div>
-											<label for="cultural-style">Ciclismo</label>
+											<label for="сiclismo-style">Ciclismo</label>
 										</div>
 									</div>
 								</div>
@@ -383,15 +383,8 @@
 					</section>
 				@endif
 				@if(count($activities->where('styles', 'Ciclismo')) > 0)
-					<section class="activity-block familia">
+					<section class="activity-block ciclimo">
 						<strong class="heading">
-						<span>
-							<img src="{{ asset('/images/family.svg') }}"
-							     alt="image description"
-							     width="33"
-							     height="33"
-							     onerror="this.onerror=null; this.src='/images/ico25.png'">
-						</span>
 							{{ trans('main.cycling') }}
 						</strong>
 						<div class="row">

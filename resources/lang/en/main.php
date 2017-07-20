@@ -269,4 +269,8 @@ return [
 	
 	#New 3 - 21.06.17
 	'summary' => 'Summary',
+
+    #FAQ
+    'ask'                      => 'Ask question',
+    'you_should_be_registered' => 'To ask you have to log in'
 ];
