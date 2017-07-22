@@ -88,6 +88,7 @@ $(document).ready(function(){
             success: function(data){
                 displayActivities(data);
                 calcAllActivities(data);
+                console.log(data);
             }
         });
 

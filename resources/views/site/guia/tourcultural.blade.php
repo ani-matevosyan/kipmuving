@@ -45,9 +45,9 @@
 		</div>
 		<script>
         function initGuideMaps() {
-            @foreach($activities as $activity)
-initGuideMap{{ $activity->id }}();
-					@endforeach
+            @foreach($activities->where('page', '=', 'cultural') as $activity)
+				initGuideMap{{ $activity->id }}();
+			@endforeach
         }
 		</script>
 	</div>

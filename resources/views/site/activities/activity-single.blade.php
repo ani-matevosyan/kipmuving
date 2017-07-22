@@ -96,6 +96,35 @@
 											</ul>
 										</div>
 									</div>
+									{{--<div class="comments-block">--}}
+										{{--<header class="comments-block__header">--}}
+                                            {{--<div class="comments-block__titles @if (!Auth::guest()) comments-block__titles_registered @endif">--}}
+                                                {{--<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>--}}
+                                                {{--<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>--}}
+                                            {{--</div>--}}
+                                            {{--@if (!Auth::guest())--}}
+                                                {{--<form class="comments-block__form">--}}
+                                                    {{--<textarea class="comments-block__textarea" name="question" id="question" rows="3"></textarea>--}}
+                                                    {{--<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>--}}
+                                                {{--</form>--}}
+                                            {{--@else--}}
+                                                {{--<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>--}}
+                                            {{--@endif--}}
+										{{--</header>--}}
+										{{--<ul class="comments-block__comments">--}}
+											{{--<li class="comments-block__comment">--}}
+												{{--<header class="comments-block__comment-header">--}}
+													{{--<img src="{{ asset('images/img-profile.jpg') }}" alt="User name" class="comments-block__user-image">--}}
+													{{--<strong class="comments-block__user-name">Rafael Zarro</strong>--}}
+													{{--<span class="comments-block__date">15 de agosto 2015</span>--}}
+												{{--</header>--}}
+												{{--<p class="comments-block__text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dolorum expedita iste laborum reiciendis repellendus tenetur totam! Animi commodi cumque debitis earum laudantium maiores, porro quibusdam sunt vero voluptates? </p>--}}
+											{{--</li>--}}
+											{{--<li class="comments-block__comment comments-block__comment_answer">--}}
+												{{--<p class="comments-block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, deserunt dolorum ducimus eius error est fuga hic maiores natus nesciunt nostrum quas quis, quo recusandae sint unde ut veniam, vero!</p>--}}
+											{{--</li>--}}
+										{{--</ul>--}}
+									{{--</div>--}}
 								</section>
 							</div>
 						</div>

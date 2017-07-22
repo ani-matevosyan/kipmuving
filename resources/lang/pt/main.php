@@ -268,4 +268,8 @@ return [
 	
 	#New 3 - 21.06.17
 	'summary' => 'Resumo',
+
+    #FAQ
+    'ask'                      => 'Pergunte',
+    'you_should_be_registered' => 'Perguntar rápido Você tem de estar registado'
 ];

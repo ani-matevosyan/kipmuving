@@ -639,46 +639,6 @@ body {
     }
 }
 
-.location-dropdown{
-    float: left;
-    margin: 9px 0 0 22px;
-    position: static;
-}
-
-.location-dropdown a{
-    color: #fff;
-    font-size: 15px;
-    text-transform: capitalize;
-}
-
-.location-dropdown>a>.glyphicon{
-    font-size: 11px;
-    margin-left: 8px;
-}
-
-.location-dropdown .dropdown-menu{
-    top: 90%;
-    width: 100%;
-    background: #0d3956;
-    border-radius: 0;
-    min-width: 0;
-}
-
-.location-dropdown .dropdown-menu > li > a{
-    padding: 3px 11px;
-    color: #fff;
-}
-
-.location-dropdown .dropdown-menu > li > a:hover,
-.location-dropdown .dropdown-menu > li > a:focus{
-    background-color: #145980;
-}
-
-.location-dropdown .dropdown-menu > li > a img{
-    width: 122px;
-    margin-right: 22px;
-}
-
 
 .logo {
     width: 122px;
@@ -2519,11 +2479,6 @@ body {
 .your-reservation .trip-adv {
     overflow: hidden;
     border-top: 1px solid #e5e5e5;
-}
-
-.your-reservation .trip-adv img {
-    display: block;
-    max-width: 100%;
 }
 
 .your-reservation .rating {

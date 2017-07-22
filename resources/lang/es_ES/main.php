@@ -268,4 +268,8 @@ return [
 	
 	#New 3 - 21.06.17
 	'summary' => 'Resumen',
+
+    #FAQ
+    'ask'                      => 'Pregunte',
+    'you_should_be_registered' => 'Para perguntar voce tem que estar registrado'
 ];

@@ -112,8 +112,5 @@
     </div> -->
 	</div>
 
-
-	<div class="trip-adv"></div>
-
 </li>
 @endif
