@@ -147,7 +147,8 @@ $(document).ready(function(){
         aireCat: passVariable.data('cat-aire'),
         relaxCat: passVariable.data('cat-relax'),
         nieveCat: passVariable.data('cat-nieve'),
-        culturalCat: passVariable.data('cat-cultural')
+        culturalCat: passVariable.data('cat-cultural'),
+        ciclismoCat: passVariable.data('cat-ciclismo')
     };
 
     function displayActivities(data){
@@ -204,6 +205,11 @@ $(document).ready(function(){
                         "<img src='"+document.location.origin+"/images/relax.svg' alt='Relax icon' width='33' height='33'>" +
                         "</span>" +
                         translationData.relaxCat;
+                    break;
+                case 'Ciclismo':
+                    activitiesHTML += "<section class='activity-block ciclismo'>" +
+                        "<strong class='heading'>" +
+                        translationData.ciclismoCat;
                     break;
             }
             activitiesHTML += "</strong>" +

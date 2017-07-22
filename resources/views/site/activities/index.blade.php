@@ -416,6 +416,7 @@
 		 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"
 		 data-cat-trekking="{{ trans('main.trekking') }}" data-cat-rio="{{ trans('main.river') }}"
 		 data-cat-aire="{{ trans('main.action') }}" data-cat-relax="{{ trans('main.relax') }}"
-		 data-cat-nieve="{{ trans('main.snow') }}" data-cat-cultural="{{ trans('main.cultural') }}"></div>
+		 data-cat-nieve="{{ trans('main.snow') }}" data-cat-cultural="{{ trans('main.cultural') }}"
+		 data-cat-ciclismo="{{ trans('main.cycling') }}"></div>
 
 @stop
