@@ -13,7 +13,8 @@ class GuideActivity extends Model
 		'name',
 		'short_description',
 		'description',
-		'bus_description'
+		'bus_description',
+		'bicycle_description',
 	];
 	protected $table = 'guide_activities';
 	public $timestamps = false;
@@ -29,6 +30,13 @@ class GuideActivity extends Model
 	public function getBusEstTimeAttribute()
 	{
 		$time = $this->attributes['bus_est_time'];
+		
+		return $time % 60 == 0 ? $time / 60 : (int)($time / 60).':'.($time % 60 < 10 ? '0'.$time % 60 : $time % 60);
+	}
+	
+	public function getBicycleEstTimeAttribute()
+	{
+		$time = $this->attributes['bicycle_est_time'];
 		
 		return $time % 60 == 0 ? $time / 60 : (int)($time / 60).':'.($time % 60 < 10 ? '0'.$time % 60 : $time % 60);
 	}
@@ -66,9 +74,19 @@ class GuideActivity extends Model
 		return $this->attributes['bus_est_time'];
 	}
 	
+	public function getRealBicycleEstTimeAttribute()
+	{
+		return $this->attributes['bicycle_est_time'];
+	}
+	
 	public function setRealBusEstTimeAttribute($time)
 	{
 		empty($time) ? $this->attributes['bus_est_time'] = 0 : $this->attributes['bus_est_time'] = $time;
+	}
+	
+	public function setRealBicycleEstTimeAttribute($time)
+	{
+		empty($time) ? $this->attributes['bicycle_est_time'] = 0 : $this->attributes['bicycle_est_time'] = $time;
 	}
 	
 	public function setBusEstExpenditureAttribute($expenditure)

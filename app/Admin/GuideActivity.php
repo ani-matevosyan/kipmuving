@@ -93,6 +93,14 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 		
 		$route = new \SleepingOwl\Admin\Form\FormElements([
 			AdminFormElement::textarea('route', 'Route (json)'),
+			AdminFormElement::columns()
+				->addColumn([
+					AdminFormElement::text('real_bicycle_est_time', 'Est. time (in minutes)'),
+					AdminFormElement::html($warning_bus_est_time),
+				], 3)
+				->addColumn([
+					AdminFormElement::textarea('bicycle_description', 'Bicycle description'),
+				], 9)
 		]);
 		
 		$bus_data = new \SleepingOwl\Admin\Form\FormElements([
@@ -194,6 +202,8 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 		
 		$route = new \SleepingOwl\Admin\Form\FormElements([
 			AdminFormElement::textarea('route', 'Route (json)'),
+			AdminFormElement::html($warning_bus_est_time),
+			AdminFormElement::text('real_bus_est_time', 'Est. time (in minutes)'),
 		]);
 		
 		$bus_data = new \SleepingOwl\Admin\Form\FormElements([

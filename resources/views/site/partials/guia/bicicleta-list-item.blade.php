@@ -57,12 +57,12 @@
                             <div class="tab-content">
                                 <div id="home{{ $activity->id }}" class="tab-pane well fade in active">
                                     <div class="tab-detail">
-                                        <p>{!! $activity->bus_description !!}</p>
+                                        <p>{!! $activity->bicycle_description !!}</p>
                                     </div>
                                     <div class="info-icons">
                                         <img src="{{ asset('images/clock.svg') }}" alt="clock" class="img-responsive" width="25" height="25"/>
                                         <p>{{ trans('main.estimated_time') }}:
-                                            <strong>{{ $activity->bus_est_time }} {{ trans('main.hour') }}</strong></p>
+                                            <strong>{{ $activity->bicycle_est_time }} {{ trans('main.hour') }}</strong></p>
                                     </div>
                                 </div>
 
