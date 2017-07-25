@@ -1,4 +1,4 @@
- @extends('site.guia.layout')
+ @extends('site.free.layout')
 
 {{-- Subpage --}}
 @section('subpage')

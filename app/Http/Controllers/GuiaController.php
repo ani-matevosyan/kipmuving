@@ -36,7 +36,7 @@ class GuiaController extends Controller
 			]
 		];
 		
-		return view('site.guia.caminhando', $data);
+		return view('site.free.caminhando', $data);
 	}
 	
 	public function getBicicleta(Offer $offer)
@@ -69,7 +69,7 @@ class GuiaController extends Controller
             'activities' => $this->getMapPoints()
         ];
 		
-		return view('site.guia.bicicleta', $data);
+		return view('site.free.bicicleta', $data);
 	}
 	
 	
@@ -101,7 +101,7 @@ class GuiaController extends Controller
 			'activities' => $this->getMapPoints()
 		];
 		
-		return view('site.guia.decarro', $data);
+		return view('site.free.decarro', $data);
 	}
 	
 	public function getTourcultural(Offer $offer)
@@ -132,7 +132,7 @@ class GuiaController extends Controller
             'activities' => $this->getMapPoints()
         ];
 		
-		return view('site.guia.tourcultural', $data);
+		return view('site.free.tourcultural', $data);
 	}
 	
 	public function getMapPoints()

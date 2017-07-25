@@ -8,7 +8,7 @@ return [
 	'search'             => 'Buscar',
 	'activities'         => 'Atividades',
 	'agencies'           => 'Agências',
-	'guide'              => 'Guia Free Pucon',
+	'guide'              => 'Guia',
 	'my_agenda'          => 'Minha agenda',
 	'go_to_guide'        => 'Ir ao guia',
 	'view'               => 'Visualizar',
