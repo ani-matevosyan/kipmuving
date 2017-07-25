@@ -45,7 +45,7 @@
 		</div>
 		<script>
         function initGuideMaps() {
-            @foreach($activities as $activity)
+            @foreach($activities->where('page', '=', 'bus') as $activity)
                 initGuideMap{{ $activity->id }}();
 					@endforeach
         }
