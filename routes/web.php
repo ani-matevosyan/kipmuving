@@ -21,10 +21,10 @@ Route::group(['prefix' => 'atacama'], function () {
 	Route::get('/home/', 'HomeController@index');
 	Route::get('/activities', 'ActivityController@index');
 	Route::get('/agencies', 'AgencyController@index')->name('agencies');
-	Route::get('/guia', 'GuiaController@index')->name('guide');
-	Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
-	Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
-	Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
+	Route::get('/guia', 'FreePagesController@index')->name('guide');
+	Route::get('/guia/bicicleta', 'FreePagesController@getBicicleta')->name('guide-bicycle');
+	Route::get('/guia/decarro', 'FreePagesController@getDecarro')->name('guide-car');
+	Route::get('/guia/tourcultural', 'FreePagesController@getTourcultural')->name('guide-cultural');
 });
 
 Route::group(['prefix' => 'pucon'], function () {
@@ -32,10 +32,10 @@ Route::group(['prefix' => 'pucon'], function () {
 	Route::get('/home/', 'HomeController@index');
 	Route::get('/activities', 'ActivityController@index');
 	Route::get('/agencies', 'AgencyController@index')->name('agencies');
-	Route::get('/guia', 'GuiaController@index')->name('guide');
-	Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
-	Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
-	Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
+	Route::get('/guia', 'FreePagesController@index')->name('guide');
+	Route::get('/guia/bicicleta', 'FreePagesController@getBicicleta')->name('guide-bicycle');
+	Route::get('/guia/decarro', 'FreePagesController@getDecarro')->name('guide-car');
+	Route::get('/guia/tourcultural', 'FreePagesController@getTourcultural')->name('guide-cultural');
 });
 
 #Tests
@@ -70,10 +70,6 @@ Route::post('/offer/reserve', 'OfferController@reserve');
 Route::post('/offer/remove', 'OfferController@remove');
 
 
-#Guide activities
-Route::get('/guia/activity/add', 'GuiaController@addActivity');
-
-
 #Agencies
 Route::get('/agencies', 'AgencyController@index')->name('agencies');
 Route::get('/agency/{id}', 'AgencyController@getAgency')
@@ -92,12 +88,15 @@ Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
 Route::get('/user/getAvatar', 'UserController@getAvatar');
 
 
-#Guia
-Route::get('/guia', 'GuiaController@index')->name('guide');
-Route::get('/guia/bicicleta', 'GuiaController@getBicicleta')->name('guide-bicycle');
-Route::get('/guia/decarro', 'GuiaController@getDecarro')->name('guide-car');
-Route::get('/guia/tourcultural', 'GuiaController@getTourcultural')->name('guide-cultural');
-Route::get('/guia/getmappoints', 'GuiaController@getMapPoints');
+#Free pages activities
+Route::get('/free/activity/add', 'FreePagesController@addActivity');
+
+#Free pages
+Route::get('/free', 'FreePagesController@index')->name('free');
+Route::get('/free/bicicleta', 'FreePagesController@getBicicleta')->name('free-bicycle');
+Route::get('/free/decarro', 'FreePagesController@getDecarro')->name('free-car');
+Route::get('/free/tourcultural', 'FreePagesController@getTourcultural')->name('free-cultural');
+Route::get('/free/getmappoints', 'FreePagesController@getMapPoints');
 
 
 #About

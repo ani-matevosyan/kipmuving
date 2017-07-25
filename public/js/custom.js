@@ -156,7 +156,7 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             type: "GET",
-            url: "/guia/activity/add",
+            url: "/free/activity/add",
             data: {
                 id: $(this).data('id'),
                 date: $(this).find('input[name=guide-date]').val(),

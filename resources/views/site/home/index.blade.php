@@ -74,25 +74,25 @@
 				<div class="col-md-2 col-md-pull-5">
 					<ul>
 						<li>
-							<a href="{{ action('GuiaController@index') }}">
+							<a href="{{ action('FreePagesController@index') }}">
 								<img src="{{ asset('images/bicycle-grey.svg') }}" alt="bicycle">
 							</a>
 							{{ trans('main.bicycle') }}
 						</li>
 						<li>
-							<a href="{{ action('GuiaController@index') }}">
+							<a href="{{ action('FreePagesController@index') }}">
 								<img src="{{ asset('images/bus-grey.svg') }}" alt="bus">
 							</a>
 							{{ trans('main.bus') }}
 						</li>
 						<li>
-							<a href="{{ action('GuiaController@index') }}">
+							<a href="{{ action('FreePagesController@index') }}">
 								<img src="{{ asset('images/car-grey.svg') }}" alt="car">
 							</a>
 							{{ trans('main.car') }}
 						</li>
 						<li>
-							<a href="{{ action('GuiaController@index') }}">
+							<a href="{{ action('FreePagesController@index') }}">
 								<img src="{{ asset('images/hikking-grey.svg') }}" alt="hikking">
 							</a>
 							{{ trans('main.walking') }}
@@ -104,7 +104,7 @@
 						<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
 						</p>
 						<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
-						<a href="{{ action('GuiaController@index') }}" class="btn-orange">
+						<a href="{{ action('FreePagesController@index') }}" class="btn-orange">
 							<img src="{{ asset('images/arrow.png') }}" alt="">
 							{{ trans('button-links.go_to_guide') }}
 						</a>

@@ -8,7 +8,7 @@ use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-class GuiaController extends Controller
+class FreePagesController extends Controller
 {
 	public function index(Offer $offer)
 	{
@@ -63,7 +63,6 @@ class GuiaController extends Controller
                 'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
                 'libs/mapbox-gl/mapbox-gl.js'
-//                'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
             ],
             'imageIndex' => $imageIndex,
             'activities' => $this->getMapPoints()
