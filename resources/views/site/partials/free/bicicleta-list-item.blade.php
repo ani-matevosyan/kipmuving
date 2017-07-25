@@ -44,7 +44,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                @if(count($activity->route ) > 1)
+                                @if( isset($activity->route) && $activity->route  !== '' )
                                     <li>
                                         <a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
                                             <img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
@@ -69,7 +69,7 @@
                                 </div>
 
 
-                                @if(count($activity->route ) > 1)
+                                @if( isset($activity->route) && $activity->route  !== '' )
 
                                     <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade">
                                         <div class="map-holder">

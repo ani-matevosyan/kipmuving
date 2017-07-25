@@ -75,19 +75,19 @@
 				<div class="col-md-2 col-md-pull-5">
 					<ul>
 						<li>
-							<a href="{{ action('FreePagesController@index') }}">
+							<a href="{{ action('FreePagesController@getBicicleta') }}">
 								<img src="{{ asset('images/bicycle-grey.svg') }}" alt="bicycle">
 							</a>
 							{{ trans('main.bicycle') }}
 						</li>
 						<li>
-							<a href="{{ action('FreePagesController@index') }}">
+							<a href="{{ action('FreePagesController@getDecarro') }}">
 								<img src="{{ asset('images/bus-grey.svg') }}" alt="bus">
 							</a>
 							{{ trans('main.bus') }}
 						</li>
 						<li>
-							<a href="{{ action('FreePagesController@index') }}">
+							<a href="{{ action('FreePagesController@getTourcultural') }}">
 								<img src="{{ asset('images/car-grey.svg') }}" alt="car">
 							</a>
 							{{ trans('main.car') }}
