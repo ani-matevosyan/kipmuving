@@ -1,4 +1,4 @@
-@extends('site.guia.layout')
+@extends('site.free.layout')
 
 {{-- Subpage --}}
 @section('subpage')
@@ -20,7 +20,7 @@
 				<h2>Visual</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('page', '=', 'bicycle')->where('category', '=', 'Visual') as $activity)
-						@include('site.partials.guia.bicicleta-list-item')
+						@include('site.partials.free.bicicleta-list-item')
 					@endforeach
 				</div>
 			@endif
@@ -28,7 +28,7 @@
 				<h2>Caminatas</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('page', '=', 'bicycle')->where('category', '=', 'Caminatas') as $activity)
-						@include('site.partials.guia.bicicleta-list-item')
+						@include('site.partials.free.bicicleta-list-item')
 					@endforeach
 				</div>
 			@endif
@@ -36,7 +36,7 @@
 				<h2>Termas</h2>
 				<div class="guide-places-plates">
 					@foreach($activities->where('page', '=', 'bicycle')->where('category', '=', 'Termas') as $activity)
-						@include('site.partials.guia.bicicleta-list-item')
+						@include('site.partials.free.bicicleta-list-item')
 					@endforeach
 				</div>
 			@endif

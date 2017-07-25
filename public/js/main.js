@@ -240,7 +240,7 @@ jQuery(document).ready(function(){
 //TRIPADVISOR WIDGET CUSTOMIZE
 $(window).load(function(){
 
-    if (window.location.pathname.indexOf('/guia/') === 0){
+    if (window.location.pathname.indexOf('/free/') === 0){
         $(".opiniones").css("visibility", "visible");
         $("#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div").each(function(){
            var tripadvisorsubtext = $(this).html();

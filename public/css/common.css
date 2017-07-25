@@ -18,6 +18,28 @@
     width: device-width;
 }
 
+main{
+    min-height: calc( 100vh - 346px );
+}
+
+@media screen and (max-width: 991px){
+    main{
+        min-height: calc( 100vh - 458px )
+    }
+}
+
+@media screen and (max-width: 767px){
+    main{
+        min-height: calc( 100vh - 714px )
+    }
+}
+
+@media screen and (max-width: 540px){
+    main{
+        min-height: calc( 100vh - 735px )
+    }
+}
+
 .main-wrapper{
     overflow-x: hidden;
     position: relative;
@@ -826,7 +848,7 @@ body {
 
     .top_nav ul{
         border: 1px solid #fff;
-        padding: 60px 40px;
+        padding: 60px 80px;
         background: rgb(3, 20, 29);
         position: relative;
         z-index: 999;

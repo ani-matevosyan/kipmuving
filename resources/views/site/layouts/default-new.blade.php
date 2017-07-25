@@ -107,15 +107,18 @@
 				<div class="col-lg-6 col-lg-pull-3 col-md-5 col-md-pull-4 col-xs-12">
 					<nav class="top_nav">
 						<ul>
-							<li><a
-									href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
+							<li>
+								<a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
 							</li>
-							<li><a
-									href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
+							<li>
+								<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 							</li>
-							<li><a
-									href="{{ action('GuiaController@index') }}">{{ trans('button-links.free') }}</a>
+							<li>
+								<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>
 							</li>
+							{{--<li>--}}
+								{{--<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.guide') }}</a>--}}
+							{{--</li>--}}
 						</ul>
 						<div class="nav-cover"></div>
 					</nav>

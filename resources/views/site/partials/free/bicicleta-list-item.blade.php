@@ -44,15 +44,17 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
-                                        <img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
-                                        <div class="link-info">
-                                            <strong>Mapa</strong>
-                                            <p>Vista do caminho</p>
-                                        </div>
-                                    </a>
-                                </li>
+                                @if( isset($activity->route) && $activity->route  !== '' )
+                                    <li>
+                                        <a data-toggle="pill" href="#menu{{ $activity->id }}" id="tomenu{{ $activity->id }}">
+                                            <img src="{{ asset('images/route.svg') }}" alt="color route" width="37" height="38" class="img-responsive">
+                                            <div class="link-info">
+                                                <strong>Mapa</strong>
+                                                <p>Vista do caminho</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                             <div class="tab-content">
                                 <div id="home{{ $activity->id }}" class="tab-pane well fade in active">
@@ -66,100 +68,104 @@
                                     </div>
                                 </div>
 
-                                <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade">
-                                    <div class="map-holder">
-                                        <div id="map{{ $activity->id}}" class="bicycle-map"></div>
-                                        <script type="text/javascript">
 
-                                            var mapLoaded{{ $activity->id}} = false;
+                                @if( isset($activity->route) && $activity->route  !== '' )
 
-                                            function mapboxFunction{{ $activity->id}}(){
-                                                mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw';
-                                                var map = new mapboxgl.Map({
-                                                    container: 'map{{ $activity->id}}',
-                                                    style: 'mapbox://styles/mapbox/streets-v9'
-                                                });
+                                    <div id="menu{{ $activity->id }}" class="tab-pane map-tab well fade">
+                                        <div class="map-holder">
+                                            <div id="map{{ $activity->id}}" class="bicycle-map"></div>
+                                            <script type="text/javascript">
 
-                                                var geoJSON = {{ $activity->route }};
+                                                var mapLoaded{{ $activity->id}} = false;
 
-                                                map.fitBounds([
-                                                        geoJSON[0],
-                                                        geoJSON[geoJSON.length - 1]
-                                                ],{
-                                                    padding: 50,
-                                                    duration: 0
-                                                });
-
-                                                map.on('load', function () {
-
-                                                    map.addSource("bicycle-route",{
-                                                        "type": "geojson",
-                                                        "data": {
-                                                            "type": "FeatureCollection",
-                                                            "features": [{
-                                                                "type": "Feature",
-                                                                "geometry": {
-                                                                    "type": "LineString",
-                                                                    "coordinates": {{ $activity->route }}
-                                                                }
-                                                            },{
-                                                                "type": "Feature",
-                                                                "geometry": {
-                                                                    "type": "Point",
-                                                                    "coordinates":  geoJSON[0]
-                                                                }
-                                                            },{
-                                                                "type": "Feature",
-                                                                "geometry": {
-                                                                    "type": "Point",
-                                                                    "coordinates":  geoJSON[geoJSON.length - 1]
-                                                                }
-                                                            }]
-                                                        }
+                                                function mapboxFunction{{ $activity->id}}(){
+                                                    mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsemFycm8iLCJhIjoickFLaV9oZyJ9.Z-bQZFRg4kXflAMaV9Jifw';
+                                                    var map = new mapboxgl.Map({
+                                                        container: 'map{{ $activity->id}}',
+                                                        style: 'mapbox://styles/mapbox/streets-v9'
                                                     });
 
-                                                    map.addLayer({
-                                                        "id": "route-line",
-                                                        "type": "line",
-                                                        "source": "bicycle-route",
-                                                        "layout": {
-                                                            "line-join": "round",
-                                                            "line-cap": "round"
-                                                        },
-                                                        "paint": {
-                                                            "line-color": "#73B2DF",
-                                                            "line-width": 5,
-                                                            "line-opacity": 0.8
-                                                        },
-                                                        "filter": ["==", "$type", "LineString"]
-                                                    });
-                                                    map.addLayer({
-                                                        "id": "route-points",
-                                                        "type": "circle",
-                                                        "source": "bicycle-route",
-                                                        "paint": {
-                                                            "circle-radius": 6,
-                                                            "circle-color": "#B42222"
-                                                        },
-                                                        "filter": ["==", "$type", "Point"]
+                                                    var geoJSON = {{ $activity->route }};
+
+                                                    map.fitBounds([
+                                                            geoJSON[0],
+                                                            geoJSON[geoJSON.length - 1]
+                                                    ],{
+                                                        padding: 50,
+                                                        duration: 0
                                                     });
 
-                                                });
-                                            }
+                                                    map.on('load', function () {
 
-                                            var mapButton{{ $activity->id}} = document.getElementById('tomenu{{ $activity->id }}');
+                                                        map.addSource("bicycle-route",{
+                                                            "type": "geojson",
+                                                            "data": {
+                                                                "type": "FeatureCollection",
+                                                                "features": [{
+                                                                    "type": "Feature",
+                                                                    "geometry": {
+                                                                        "type": "LineString",
+                                                                        "coordinates": {{ $activity->route }}
+                                                                    }
+                                                                },{
+                                                                    "type": "Feature",
+                                                                    "geometry": {
+                                                                        "type": "Point",
+                                                                        "coordinates":  geoJSON[0]
+                                                                    }
+                                                                },{
+                                                                    "type": "Feature",
+                                                                    "geometry": {
+                                                                        "type": "Point",
+                                                                        "coordinates":  geoJSON[geoJSON.length - 1]
+                                                                    }
+                                                                }]
+                                                            }
+                                                        });
 
-                                            mapButton{{ $activity->id}}.addEventListener('click', function(e){
-                                                if(!mapLoaded{{ $activity->id}}){
-                                                    setTimeout(function(){
-                                                        mapboxFunction{{ $activity->id}}();
-                                                        mapLoaded{{ $activity->id}} = true;
-                                                    }, 500);
+                                                        map.addLayer({
+                                                            "id": "route-line",
+                                                            "type": "line",
+                                                            "source": "bicycle-route",
+                                                            "layout": {
+                                                                "line-join": "round",
+                                                                "line-cap": "round"
+                                                            },
+                                                            "paint": {
+                                                                "line-color": "#73B2DF",
+                                                                "line-width": 5,
+                                                                "line-opacity": 0.8
+                                                            },
+                                                            "filter": ["==", "$type", "LineString"]
+                                                        });
+                                                        map.addLayer({
+                                                            "id": "route-points",
+                                                            "type": "circle",
+                                                            "source": "bicycle-route",
+                                                            "paint": {
+                                                                "circle-radius": 6,
+                                                                "circle-color": "#B42222"
+                                                            },
+                                                            "filter": ["==", "$type", "Point"]
+                                                        });
+
+                                                    });
                                                 }
-                                            });
-                                        </script>
+
+                                                var mapButton{{ $activity->id}} = document.getElementById('tomenu{{ $activity->id }}');
+
+                                                mapButton{{ $activity->id}}.addEventListener('click', function(e){
+                                                    if(!mapLoaded{{ $activity->id}}){
+                                                        setTimeout(function(){
+                                                            mapboxFunction{{ $activity->id}}();
+                                                            mapLoaded{{ $activity->id}} = true;
+                                                        }, 500);
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                             <div class="order-theguide">
                                 <form class="order-theguide-form" data-id="{{ $activity->id }}">

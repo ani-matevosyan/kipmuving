@@ -8,7 +8,7 @@ use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-class GuiaController extends Controller
+class FreePagesController extends Controller
 {
 	public function index(Offer $offer)
 	{
@@ -22,7 +22,7 @@ class GuiaController extends Controller
 			'styles'     => [
 			    'css/tripadvisor.min.css',
 				'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
 			],
 			'scripts'    => [
 				'js/instafeed/instafeed.min.js',
@@ -36,7 +36,7 @@ class GuiaController extends Controller
 			]
 		];
 		
-		return view('site.guia.caminhando', $data);
+		return view('site.free.caminhando', $data);
 	}
 	
 	public function getBicicleta(Offer $offer)
@@ -54,7 +54,7 @@ class GuiaController extends Controller
                 'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
                 'libs/mapbox-gl/mapbox-gl.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
             ],
             'scripts'    => [
                 'js/chosen.jquery.min.js',
@@ -63,13 +63,12 @@ class GuiaController extends Controller
                 'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
                 'libs/mapbox-gl/mapbox-gl.js'
-//                'http://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
             ],
             'imageIndex' => $imageIndex,
             'activities' => $this->getMapPoints()
         ];
 		
-		return view('site.guia.bicicleta', $data);
+		return view('site.free.bicicleta', $data);
 	}
 	
 	
@@ -87,7 +86,7 @@ class GuiaController extends Controller
 				'css/jquery-ui.min.css',
                 'css/jcf.custom.min.css',
 				'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
 			],
 			'scripts'    => [
 				'js/chosen.jquery.min.js',
@@ -101,7 +100,7 @@ class GuiaController extends Controller
 			'activities' => $this->getMapPoints()
 		];
 		
-		return view('site.guia.decarro', $data);
+		return view('site.free.decarro', $data);
 	}
 	
 	public function getTourcultural(Offer $offer)
@@ -118,7 +117,7 @@ class GuiaController extends Controller
                 'css/jquery-ui.min.css',
                 'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
             ],
             'scripts'    => [
                 'js/chosen.jquery.min.js',
@@ -132,7 +131,7 @@ class GuiaController extends Controller
             'activities' => $this->getMapPoints()
         ];
 		
-		return view('site.guia.tourcultural', $data);
+		return view('site.free.tourcultural', $data);
 	}
 	
 	public function getMapPoints()
