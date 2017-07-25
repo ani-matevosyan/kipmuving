@@ -22,7 +22,7 @@ class FreePagesController extends Controller
 			'styles'     => [
 			    'css/tripadvisor.min.css',
 				'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
 			],
 			'scripts'    => [
 				'js/instafeed/instafeed.min.js',
@@ -54,7 +54,7 @@ class FreePagesController extends Controller
                 'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
                 'libs/mapbox-gl/mapbox-gl.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
             ],
             'scripts'    => [
                 'js/chosen.jquery.min.js',
@@ -86,7 +86,7 @@ class FreePagesController extends Controller
 				'css/jquery-ui.min.css',
                 'css/jcf.custom.min.css',
 				'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
 			],
 			'scripts'    => [
 				'js/chosen.jquery.min.js',
@@ -117,7 +117,7 @@ class FreePagesController extends Controller
                 'css/jquery-ui.min.css',
                 'css/jcf.custom.min.css',
                 'css/instafeed/instafeed.min.css',
-                'css/guide-style.min.css'
+                'css/free-style.min.css'
             ],
             'scripts'    => [
                 'js/chosen.jquery.min.js',
