@@ -854,7 +854,7 @@
 
 .comments-block__form{
     position: relative;
-    padding-right: 80px;
+    padding-right: 100px;
     margin: 5px 0 -20px;
 }
 
@@ -935,6 +935,12 @@
     left: 27px;
     top: -10px;
     color: #f0f0f0;
+}
+
+.comments-block__answer-button{
+    color: #242c3a;
+    margin-left: 10px;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 600px){
