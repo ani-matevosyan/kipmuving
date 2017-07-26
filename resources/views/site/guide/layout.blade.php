@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <main id="main">
-        <header class="guide-header">
+    <header class="guide-header">
+        <div class="container">
             <h2 class="guide-header__title">Preguntas Frecuentes</h2>
             <nav class="guide-header__navigation">
                 <ul class="guide-header__navigation-list">
@@ -63,12 +63,15 @@
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- Subpage -->
-        @yield('subpage')
-        <!-- ./ subpage -->
-
+    <main id="main">
+        <div class="container">
+            <!-- Subpage -->
+            @yield('subpage')
+            <!-- ./ subpage -->
+        </div>
     </main>
 
 @stop

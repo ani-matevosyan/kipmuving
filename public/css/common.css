@@ -820,7 +820,7 @@ body {
     }
     .top_nav{
         position: fixed;
-        padding: 0 10px;
+        padding: 20px 10px;
         top: 0;
         left: 0;
         width: 100%;
@@ -985,6 +985,15 @@ body {
         letter-spacing: normal;
         font-weight: 400;
         padding: 12px;
+    }
+}
+
+@media screen and (max-height: 480px){
+    .top_nav{
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        overflow: auto;
     }
 }
 
