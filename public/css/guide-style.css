@@ -1,23 +1,23 @@
 
-.guide-header{
+.guide-navigation{
     background: #242c3a;
 }
 
-.guide-header__title{
+.guide-navigation__title{
     color: #e28a11;
     font-weight: 700;
     font-size: 30px;
     margin: 33px 0 26px;
 }
 
-.guide-header__navigation-list{
+.guide-navigation__list{
     padding: 0;
     margin: 0 0 8px;
     list-style: none;
     font-size: 0;
 }
 
-.guide-header__navigation-item{
+.guide-navigation__item{
     font-size: 20px;
     display: inline-block;
     width: 33.3333%;
@@ -26,15 +26,15 @@
     margin-bottom: 26px;
 }
 
-.guide-header__navigation-link{
+.guide-navigation__link{
     color: #fff;
 }
 
-.guide-header__navigation-link_active{
+.guide-navigation__link_active{
     color: #e18910;
 }
 
-.guide-header__icon{
+.guide-navigation__icon{
     position: absolute;
     left: 0;
     top: -4px;
@@ -42,18 +42,18 @@
 
 
 @media screen and (max-width: 991px){
-    .guide-header__navigation-item{
+    .guide-navigation__item{
         width: 50%;
     }
 }
 
 @media screen and (max-width: 606px){
 
-    .guide-header__title{
+    .guide-navigation__title{
         font-size: 24px;
     }
 
-    .guide-header__navigation-item{
+    .guide-navigation__item{
         display: block;
         width: auto;
         padding: 2px 0 3px 45px;
