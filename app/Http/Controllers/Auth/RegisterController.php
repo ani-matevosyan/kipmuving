@@ -105,7 +105,7 @@ class RegisterController extends Controller
 	{
 		$user['_token'] = $request['_token'];
 		Mail::send('emails.auth.confirm', ['user' => $user], function ($message) use ($user) {
-			$message->from('info@kipmuving.com', 'Kipmuving team');
+			$message->from('contacto@kipmuving.com', 'Kipmuving team');
 			$message->to($user['email'], $user['name'])->subject('Confirm your email');
 		});
 		return Redirect::to('/login')->with('info', 'On your email was send email to confirm your account.');
