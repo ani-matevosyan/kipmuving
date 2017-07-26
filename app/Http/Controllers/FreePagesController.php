@@ -26,6 +26,7 @@ class FreePagesController extends Controller
 			'scripts'    => [
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
+                'js/free-pages-scripts.min.js'
 			],
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
@@ -43,8 +44,8 @@ class FreePagesController extends Controller
 		
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-bicycle']);
-		
-		$imageIndex = rand(1, 4); //1-4
+
+
         $data = [
             'styles'     => [
                 'css/tripadvisor.min.css',
@@ -60,9 +61,9 @@ class FreePagesController extends Controller
                 'libs/jcf/js/jcf.js',
                 'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
-                'libs/mapbox-gl/mapbox-gl.js'
+                'libs/mapbox-gl/mapbox-gl.js',
+                'js/free-pages-scripts.min.js'
             ],
-            'imageIndex' => $imageIndex,
             'activities' => $this->getMapPoints()
         ];
 		
@@ -77,7 +78,7 @@ class FreePagesController extends Controller
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 		
-		$imageIndex = rand(1, 4); //1-4
+
 		$data = [
 			'styles'     => [
                 'css/tripadvisor.min.css',
@@ -92,9 +93,9 @@ class FreePagesController extends Controller
                 'libs/jcf/js/jcf.js',
                 'libs/jcf/js/jcf.select.js',
 				'js/ResizeSensor.min.js',
-				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
+                'js/free-pages-scripts.min.js'
 			],
-			'imageIndex' => $imageIndex,
 			'activities' => $this->getMapPoints()
 		];
 		
@@ -108,7 +109,7 @@ class FreePagesController extends Controller
         if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
             return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 
-        $imageIndex = rand(1, 4); //1-4
+
         $data = [
             'styles'     => [
                 'css/tripadvisor.min.css',
@@ -123,9 +124,9 @@ class FreePagesController extends Controller
                 'libs/jcf/js/jcf.js',
                 'libs/jcf/js/jcf.select.js',
                 'js/ResizeSensor.min.js',
-                'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+                'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
+                'js/free-pages-scripts.min.js'
             ],
-            'imageIndex' => $imageIndex,
             'activities' => $this->getMapPoints()
         ];
 		

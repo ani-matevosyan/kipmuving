@@ -1,5 +1,22 @@
 $(document).ready(function(){
 
+    if($("#activities-slider").length){
+        $("#activities-slider").owlCarousel({
+            autoPlay: 3000,
+            pagination: false,
+            navigation: true,
+            navigationText: [
+                "<span class='glyphicon glyphicon-menu-left'></span>",
+                "<span class='glyphicon glyphicon-menu-right'></span>"
+            ],
+            items: 3,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 3]
+
+        });
+        $('#activities-slider').removeClass('csHidden');
+    }
+
     //Opening and closing mobile filter modal
 
 
