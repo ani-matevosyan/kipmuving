@@ -160,4 +160,60 @@ $(document).ready(function(){
 
     //------------------- END Generate link --------------
 
+    function calendarCalc(){
+        var totalcost = 0;
+        var totaldisc;
+        $( ".offers-list li" ).each( function(){
+            var totalcostprep = ($(this).find("span").text());
+            totalcost += parseInt(totalcostprep.split('.').join(""));
+        });
+        $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
+        totaldisc = parseInt(totalcost * 0.1);
+        $(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
+    }
+
+    jQuery('.offers-list').on("click", "a", function(){
+        var oid = $(this).parent().prevAll().length;
+        var pickedel = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: "/offer/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: function(){
+                pickedel.remove();
+                getsuprogram();
+                if($(".offers-list li").length === 0 ){
+                    $("section.widget.summary").slideUp();
+                }
+                if (window.location.pathname === '/calendar'){
+                    calendarCalc();
+                    jQuery('#calendar').fullCalendar('refetchEvents');
+                }
+                if(window.location.pathname === '/reserve'){
+                    location.reload();
+                }
+            },
+            error: function(){
+                location.reload();
+            }
+        });
+        return false;
+    });
+
+    var cancel_offer_id;
+    $(".delete_offer a").click(function(e){
+        cancel_offer_id = $(this).attr('href');
+        e.preventDefault();
+        $("#myModal").modal();
+    });
+
+    $("#confirm_cancel").click(function(e){
+        e.preventDefault();
+        window.location.href = cancel_offer_id;
+    });
+
+
 })

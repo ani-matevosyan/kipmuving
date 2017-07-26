@@ -1,43 +1,17 @@
-// page init
-jQuery(window).load(function () {
-    if($('select').length){
-        initCustomForms();
-    }
-    if($('.dropdown-activity').length){
-        initChosenSelect();
-    }
-    initAccordion();
-    initSameHeight();
-    initDatepicker();
-    jQuery('input, textarea').placeholder();
-    jQuery('[data-toggle="popover"]').popover();
-});
-
 jQuery(document).ready(function () {
 
     if($("a[rel^='prettyPhoto']").length){
         jQuery("a[rel^='prettyPhoto']").prettyPhoto();
     }
 
-
-    //BURGER
-    var opened = false;
-    $(".burger-menu").click(function () {
-        if(!opened){
-            $(this).toggleClass("menu-on");
-            $(".top_nav").addClass("active");
-            $("body").css("overflow-y", "hidden");
-            opened = true;
-        }
-    });
-    $(".nav-cover").click(function(){
-        if(opened){
-            $(".burger-menu").toggleClass("menu-on");
-            $(".top_nav").removeClass("active");
-            $("body").css("overflow-y", "visible");
-            opened = false;
-        }
-    });
+    if($('select').length){
+        initCustomForms();
+    }
+    initAccordion();
+    initSameHeight();
+    initDatepicker();
+    jQuery('input, textarea').placeholder();
+    jQuery('[data-toggle="popover"]').popover();
 
 });
 function initDatepicker() {
@@ -71,15 +45,7 @@ function initDatepicker() {
         });
     });
 }
-// initialize chosen.js select
-function initChosenSelect(){
-    var yourSelect = $(".dropdown-activity");
-    var notFoundText = yourSelect.attr("data-noresulttext");
-    yourSelect.chosen({
-        disable_search_threshold: 10,
-        no_results_text: notFoundText
-    });
-}
+
 
 
 // initialize custom form elements

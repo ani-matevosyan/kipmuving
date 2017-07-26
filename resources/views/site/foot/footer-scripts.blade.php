@@ -9,4 +9,3 @@
 @endif
 
 <script type="text/javascript" src="{{ asset('js/custom.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>

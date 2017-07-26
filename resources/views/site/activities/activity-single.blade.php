@@ -56,13 +56,11 @@
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">
-													<a href="#" class="overlay-opener">
-														<input id="reserve-date"
-														       type="text"
-														       data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-														       placeholder=""
-														       value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
-													</a>
+													<input id="reserve-date"
+														   type="text"
+														   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
+														   placeholder=""
+														   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
 												</div>
 											</div>
 											<ul role="tablist">
