@@ -95,76 +95,76 @@
 										</div>
 									</div>
 
-									<div class="comments-block">
+									{{--<div class="comments-block">--}}
 
-										<header class="comments-block__header">
-											<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">
-												<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>
-												<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
-											</div>
-											@if (auth()->user())
-												<form id="comments-block__form" data-answerText="{{ trans('button-links.answer') }}" class="comments-block__form" action="{{ action('ActivityController@addComment') }}" method="post">
-													{{ csrf_field() }}
-													<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>
-													<input type="hidden" value="" name="comment_id">
-													<input type="hidden" value="{{ $activity->id }}" name="activity_id">
-													<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>
-												</form>
-											@else
-												<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>
-											@endif
-										</header>
+										{{--<header class="comments-block__header">--}}
+											{{--<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">--}}
+												{{--<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>--}}
+												{{--<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>--}}
+											{{--</div>--}}
+											{{--@if (auth()->user())--}}
+												{{--<form id="comments-block__form" data-answerText="{{ trans('button-links.answer') }}" class="comments-block__form" action="{{ action('ActivityController@addComment') }}" method="post">--}}
+													{{--{{ csrf_field() }}--}}
+													{{--<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>--}}
+													{{--<input type="hidden" value="" name="comment_id">--}}
+													{{--<input type="hidden" value="{{ $activity->id }}" name="activity_id">--}}
+													{{--<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>--}}
+												{{--</form>--}}
+											{{--@else--}}
+												{{--<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>--}}
+											{{--@endif--}}
+										{{--</header>--}}
 
-										<ul class="comments-block__comments">
-											@if(auth()->user()->hasRole(['developer', 'admin']))
+										{{--<ul class="comments-block__comments">--}}
+											{{--@if(auth()->user()->hasRole(['developer', 'admin']))--}}
 
-												@if(isset($activity->comments) && count($activity->comments))
-													@foreach($activity->comments as $comment)
-														<li class="comments-block__comment">
-															<header class="comments-block__comment-header">
-																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">
-																<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
-																<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
+												{{--@if(isset($activity->comments) && count($activity->comments))--}}
+													{{--@foreach($activity->comments as $comment)--}}
+														{{--<li class="comments-block__comment">--}}
+															{{--<header class="comments-block__comment-header">--}}
+																{{--<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">--}}
+																{{--<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>--}}
+																{{--<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>--}}
 
-																@if(!isset($comment->answer))
-																	<a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>
-																@endif
+																{{--@if(!isset($comment->answer))--}}
+																	{{--<a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>--}}
+																{{--@endif--}}
 
-															</header>
-															<p class="comments-block__text">{{ $comment->question }}</p>
-														</li>
+															{{--</header>--}}
+															{{--<p class="comments-block__text">{{ $comment->question }}</p>--}}
+														{{--</li>--}}
 
-														@if(isset($comment->answer))
-															<li class="comments-block__comment comments-block__comment_answer">
-																<p class="comments-block__text">{{ $comment->answer }}</p>
-															</li>
-														@endif
+														{{--@if(isset($comment->answer))--}}
+															{{--<li class="comments-block__comment comments-block__comment_answer">--}}
+																{{--<p class="comments-block__text">{{ $comment->answer }}</p>--}}
+															{{--</li>--}}
+														{{--@endif--}}
 
-													@endforeach
-												@endif
+													{{--@endforeach--}}
+												{{--@endif--}}
 
-											@else
+											{{--@else--}}
 
-												@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)))
-													@foreach($activity->comments->where('answer', '<>', null) as $comment)
-														<li class="comments-block__comment">
-															<header class="comments-block__comment-header">
-																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">
-																<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
-																<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
-															</header>
-															<p class="comments-block__text">{{ $comment->question }}</p>
-														</li>
-														<li class="comments-block__comment comments-block__comment_answer">
-															<p class="comments-block__text">{{ $comment->answer }}</p>
-														</li>
-													@endforeach
-												@endif
+												{{--@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)))--}}
+													{{--@foreach($activity->comments->where('answer', '<>', null) as $comment)--}}
+														{{--<li class="comments-block__comment">--}}
+															{{--<header class="comments-block__comment-header">--}}
+																{{--<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">--}}
+																{{--<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>--}}
+																{{--<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>--}}
+															{{--</header>--}}
+															{{--<p class="comments-block__text">{{ $comment->question }}</p>--}}
+														{{--</li>--}}
+														{{--<li class="comments-block__comment comments-block__comment_answer">--}}
+															{{--<p class="comments-block__text">{{ $comment->answer }}</p>--}}
+														{{--</li>--}}
+													{{--@endforeach--}}
+												{{--@endif--}}
 
-											@endif
-										</ul>
+											{{--@endif--}}
+										{{--</ul>--}}
 
-									</div>
+									{{--</div>--}}
 
 								</section>
 							</div>
