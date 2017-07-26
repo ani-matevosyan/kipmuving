@@ -16,8 +16,7 @@ class FreePagesController extends Controller
 		
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide']);
-		
-		$imageIndex = rand(1, 4); //1-4
+
 		$data = [
 			'styles'     => [
 			    'css/tripadvisor.min.css',
@@ -28,7 +27,6 @@ class FreePagesController extends Controller
 				'js/instafeed/instafeed.min.js',
 				'js/instafeed/instafeed-settings.min.js',
 			],
-			'imageIndex' => $imageIndex,
 			'count'      => [
 				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
 				'persons' => $offer->getSelectedOffersPersons(),

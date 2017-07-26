@@ -98,6 +98,8 @@ Route::get('/free/decarro', 'FreePagesController@getDecarro')->name('free-car');
 Route::get('/free/tourcultural', 'FreePagesController@getTourcultural')->name('free-cultural');
 Route::get('/free/getmappoints', 'FreePagesController@getMapPoints');
 
+#Guide pages
+Route::get('/guide/markets', 'GuideController@getMarkets')->name('guide-markets');
 
 #About
 Route::get('/about', 'AboutController@index');

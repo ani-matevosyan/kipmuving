@@ -116,9 +116,9 @@
 							<li>
 								<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>
 							</li>
-							{{--<li>--}}
-								{{--<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.guide') }}</a>--}}
-							{{--</li>--}}
+							<li>
+								<a href="{{ action('GuideController@getMarkets') }}">{{ trans('button-links.guide') }}</a>
+							</li>
 						</ul>
 						<div class="nav-cover"></div>
 					</nav>
