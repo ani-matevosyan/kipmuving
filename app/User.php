@@ -42,6 +42,10 @@ class User extends Authenticatable
 	public function reservations() {
 		return $this->hasMany('App\Reservation', 'user_id', 'id');
 	}
+	
+	public function getAvatarAttribute() {
+		return file_exists($this->attributes['avatar']) ? $this->attributes['avatar'] : 'images/image-none.jpg';
+	}
 
 //	public function getUser($id)
 //	{

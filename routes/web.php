@@ -62,6 +62,7 @@ Route::get('/activities/getsuprogram', 'ActivityController@getSuProgram');
 Route::get('/activities/getselectedoffers', 'ActivityController@getSelectedOffers');
 Route::get('/activities/getalloffers/{id}', 'ActivityController@getAllOffers');
 Route::post('/activities/filters', 'ActivityController@filters');
+Route::post('/activity/comment/add', 'ActivityController@addComment');
 
 
 #Offers
