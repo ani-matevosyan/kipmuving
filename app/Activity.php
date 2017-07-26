@@ -41,6 +41,11 @@ class Activity extends Model
 		return $this->hasMany('App\Offer', 'activity_id', 'id');
 	}
 	
+	public function comments()
+	{
+		return $this->hasMany(ActivityComment::class, 'activity_id', 'id');
+	}
+	
 	private function dataToArray($data)
 	{
 		if ($data)
@@ -96,7 +101,7 @@ class Activity extends Model
 			$activity->images()->save($activityImage);
 		}
 	}
-	
+
 //	public function getCarriesAttribute() {
 //		return $this->attributes['carry'];
 //	}

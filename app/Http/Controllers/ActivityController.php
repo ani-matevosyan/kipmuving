@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\ActivityComment;
 use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -72,6 +73,12 @@ class ActivityController extends Controller
 			abort(404);
 		
 		$_offer = new Offer();
+
+//		$activity_comments = ActivityComment::where('activity_id', '=', $id)->get();
+//
+//		dd($activity_comments);
+
+//		dd($activity->comments->where('answer', '<>', null)[0]->user);
 		
 		$data = [
 			'styles'         => [
@@ -162,7 +169,7 @@ class ActivityController extends Controller
 		$result = [];
 		
 		foreach ($activities as $activity) {
-
+			
 			$result[$activity->styles] [] = [
 				'id'                => $activity->id,
 				'name'              => $activity->name,
@@ -180,5 +187,27 @@ class ActivityController extends Controller
 		}
 		
 		return response($result);
+	}
+	
+	public function addComment(Request $request)
+	{
+		if (!empty($request['comment_id'])) {
+			
+			if ($activity_comment = ActivityComment::find($request['comment_id'])) {
+				$activity_comment->answer = $request['message'];
+				$activity_comment->save();
+			} else abort(404);
+			
+		} else {
+			$activity_comment = new ActivityComment();
+			
+			$activity_comment->activity_id = $request['activity_id'];
+			$activity_comment->user_id = auth()->user()->id;
+			$activity_comment->question = $request['message'];
+			
+			$activity_comment->save();
+		}
+		
+		return redirect()->back();
 	}
 }
