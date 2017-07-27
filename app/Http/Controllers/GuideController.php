@@ -10,6 +10,22 @@ use Illuminate\Support\Facades\Route;
 
 class GuideController extends Controller
 {
+
+    public function index(Offer $offer)
+    {
+
+        $data = [
+            'styles'     => [
+                'css/guide-style.min.css'
+            ],
+            'scripts'    => [
+                'js/guide-scripts.min.js'
+            ]
+        ];
+
+        return view('site.guide.how-to-get', $data);
+    }
+
     public function getMarkets(Offer $offer)
     {
 
@@ -18,6 +34,7 @@ class GuideController extends Controller
                 'css/guide-style.min.css'
             ],
             'scripts'    => [
+                'js/guide-scripts.min.js'
             ]
         ];
 

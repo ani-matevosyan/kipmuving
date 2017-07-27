@@ -9,13 +9,13 @@
                 <h2 class="guide-navigation__title">Preguntas Frecuentes</h2>
                 <ul class="guide-navigation__list">
                     <li class="guide-navigation__item">
-                        <a href="" class="guide-navigation__link">
+                        <a href="{{ action('GuideController@index') }}" class="guide-navigation__link">
                             <img src="{{ asset('/images/guide-icon1.png') }}" alt="How to get to Pucon" class="guide-navigation__icon">
                             Como chegar a Pucón
                         </a>
                     </li>
                     <li class="guide-navigation__item">
-                        <a href="" class="guide-navigation__link guide-navigation__link_active">
+                        <a href="{{ action('GuideController@getMarkets') }}" class="guide-navigation__link guide-navigation__link_active">
                             <img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">
                             Lojas e Serviços
                         </a>

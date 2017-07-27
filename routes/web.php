@@ -100,6 +100,7 @@ Route::get('/free/tourcultural', 'FreePagesController@getTourcultural')->name('f
 Route::get('/free/getmappoints', 'FreePagesController@getMapPoints');
 
 #Guide pages
+Route::get('/guide', 'GuideController@index')->name('guide-how-to-get');
 Route::get('/guide/markets', 'GuideController@getMarkets')->name('guide-markets');
 
 #About
