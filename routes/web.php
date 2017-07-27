@@ -105,6 +105,10 @@ Route::get('/guide/shops-and-services', 'GuideController@shopsAndServices')->nam
 Route::get('/guide/transportation', 'GuideController@transportation')->name('guide-transportation');
 Route::get('/guide/summer-and-winter', 'GuideController@summerAndWinter')->name('guide-summer-and-winter');
 Route::get('/guide/where-to-sleep', 'GuideController@whereToSleep')->name('guide-where-to-sleep');
+Route::get('/guide/night-life', 'GuideController@nightLife')->name('guide-night-life');
+Route::get('/guide/city-and-zones', 'GuideController@cityAndZones')->name('guide-city-and-zones');
+Route::get('/guide/what-to-eat', 'GuideController@whatToEat')->name('guide-what-to-eat');
+Route::get('/guide/money', 'GuideController@money')->name('guide-money');
 
 #About
 Route::get('/about', 'AboutController@index');

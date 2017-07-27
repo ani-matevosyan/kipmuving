@@ -84,4 +84,64 @@ class GuideController extends Controller
 
         return view('site.guide.where-to-sleep', $data);
     }
+
+    public function nightLife()
+    {
+
+        $data = [
+            'styles'     => [
+                'css/guide-style.min.css'
+            ],
+            'scripts'    => [
+                'js/guide-scripts.min.js'
+            ]
+        ];
+
+        return view('site.guide.night-life', $data);
+    }
+
+    public function cityAndZones()
+    {
+
+        $data = [
+            'styles'     => [
+                'css/guide-style.min.css'
+            ],
+            'scripts'    => [
+                'js/guide-scripts.min.js'
+            ]
+        ];
+
+        return view('site.guide.city-and-zones', $data);
+    }
+
+    public function whatToEat()
+    {
+
+        $data = [
+            'styles'     => [
+                'css/guide-style.min.css'
+            ],
+            'scripts'    => [
+                'js/guide-scripts.min.js'
+            ]
+        ];
+
+        return view('site.guide.what-to-eat', $data);
+    }
+
+    public function money()
+    {
+
+        $data = [
+            'styles'     => [
+                'css/guide-style.min.css'
+            ],
+            'scripts'    => [
+                'js/guide-scripts.min.js'
+            ]
+        ];
+
+        return view('site.guide.money', $data);
+    }
 }
