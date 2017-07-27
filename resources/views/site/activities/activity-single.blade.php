@@ -105,7 +105,7 @@
 												@endif
 											</div>
 											@if (auth()->user())
-												<form class="comments-block__form" action="{{ action('ActivityController@addComment') }}" method="post">
+												<form id="comments-block__form" class="comments-block__form" data-answerText="{{ trans('button-links.answer') }}" action="{{ action('ActivityController@addComment') }}" method="post">
 													{{ csrf_field() }}
 													<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>
 													<input type="hidden" value="" name="comment_id">
@@ -129,7 +129,7 @@
 																<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
 
 																@if(!isset($comment->answer))
-																	<a href="#">answer</a>
+																	<a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>
 																@endif
 
 															</header>
