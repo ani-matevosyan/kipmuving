@@ -116,7 +116,7 @@
 										</header>
 
 										<ul class="comments-block__comments">
-											@if(auth()->user()->hasRole(['developer', 'admin']))
+											@if(auth()->user() && auth()->user()->hasRole(['developer', 'admin']))
 
 												@if(isset($activity->comments) && count($activity->comments))
 													@foreach($activity->comments as $comment)
@@ -143,7 +143,7 @@
 													@endforeach
 												@endif
 
-											@else
+											@elseif(auth()->user())
 
 												@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)))
 													@foreach($activity->comments->where('answer', '<>', null) as $comment)
