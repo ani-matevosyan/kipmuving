@@ -117,7 +117,7 @@
 								<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>
 							</li>
 							<li>
-								<a href="{{ action('GuideController@getMarkets') }}">{{ trans('button-links.guide') }}</a>
+								<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
 							</li>
 						</ul>
 						<div class="nav-cover"></div>
@@ -145,12 +145,7 @@
 					<strong class="title">{{ trans('main.where_we_are') }}</strong>
 					<address class="address">
 						<span class="adress-first-child">Colo Colo 485 - Pucón - Chile</span>
-						<span>
-							<a href="tel:56452444035" class="tel">+56 45 2444035</a>
-						</span>
-						<span>
-							<a href="tel:56962266304" class="tel">+56 9 62266304</a>
-						</span>
+						<span>+56 9 6479 5729</span>
 					</address>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">

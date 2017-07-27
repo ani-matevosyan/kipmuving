@@ -100,7 +100,11 @@ Route::get('/free/tourcultural', 'FreePagesController@getTourcultural')->name('f
 Route::get('/free/getmappoints', 'FreePagesController@getMapPoints');
 
 #Guide pages
-Route::get('/guide/markets', 'GuideController@getMarkets')->name('guide-markets');
+Route::get('/guide', 'GuideController@howToGetToPucon')->name('guide-how-to-get-to-pucon');
+Route::get('/guide/shops-and-services', 'GuideController@shopsAndServices')->name('guide-shops-and-services');
+Route::get('/guide/transportation', 'GuideController@transportation')->name('guide-transportation');
+Route::get('/guide/summer-and-winter', 'GuideController@summerAndWinter')->name('guide-summer-and-winter');
+Route::get('/guide/where-to-sleep', 'GuideController@whereToSleep')->name('guide-where-to-sleep');
 
 #About
 Route::get('/about', 'AboutController@index');

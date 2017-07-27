@@ -14,5 +14,6 @@ return [
 	'view'               => 'Visualizar',
 	'see_all_activities' => 'Ver todas las actividades',
     'confirm'            => 'Confirmar',
-    'free'               => 'Gratuitos'
+    'free'               => 'Gratuitos',
+    'answer'             => 'Responder'
 ];
