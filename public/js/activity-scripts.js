@@ -81,8 +81,6 @@ $(document).ready(function(){
         var answerText = $("#comments-block__form").attr("data-answerText");
         $("#comments-block__form").find(".comments-block__send-button").text(answerText);
 
-        console.log(answerText);
-
     })
 
 
