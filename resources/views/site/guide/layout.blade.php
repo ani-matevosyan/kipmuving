@@ -9,7 +9,7 @@
                 <h2 class="guide-navigation__title">Preguntas Frecuentes</h2>
                 <ul class="guide-navigation__list">
                     <li class="guide-navigation__item">
-                        <a href="{{ action('GuideController@index') }}" class="guide-navigation__link">
+                        <a href="{{ action('GuideController@howToGetToPucon') }}" class="guide-navigation__link">
                             <img src="{{ asset('/images/guide-icon1.png') }}" alt="How to get to Pucon" class="guide-navigation__icon">
                             Como chegar a Pucón
                         </a>
@@ -19,29 +19,29 @@
                             {{--<img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">--}}
                             {{--Lojas e Serviços--}}
                         {{--</a>--}}
-                        <a href="{{ action('GuideController@getMarkets') }}" class="guide-navigation__link">
+                        <a href="{{ action('GuideController@shopsAndServices') }}" class="guide-navigation__link">
                             <img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">
                             Lojas e Serviços
                         </a>
                     </li>
-                    {{--<li class="guide-navigation__item">--}}
-                        {{--<a href="" class="guide-navigation__link">--}}
-                            {{--<img src="{{ asset('/images/guide-icon7.png') }}" alt="Transportation" class="guide-navigation__icon">--}}
-                            {{--Transportes--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="guide-navigation__item">--}}
-                        {{--<a href="" class="guide-navigation__link">--}}
-                            {{--<img src="{{ asset('/images/guide-icon2.png') }}" alt="Summer and winter" class="guide-navigation__icon">--}}
-                            {{--Verao e Inverno--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="guide-navigation__item">--}}
-                        {{--<a href="" class="guide-navigation__link">--}}
-                            {{--<img src="{{ asset('/images/guide-icon5.png') }}" alt="Where sleep" class="guide-navigation__icon">--}}
-                            {{--Onde dormir--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
+                    <li class="guide-navigation__item">
+                        <a href="{{ action('GuideController@transportation') }}" class="guide-navigation__link">
+                            <img src="{{ asset('/images/guide-icon7.png') }}" alt="Transportation" class="guide-navigation__icon">
+                            Transportes
+                        </a>
+                    </li>
+                    <li class="guide-navigation__item">
+                        <a href="{{ action('GuideController@summerAndWinter') }}" class="guide-navigation__link">
+                            <img src="{{ asset('/images/guide-icon2.png') }}" alt="Summer and winter" class="guide-navigation__icon">
+                            Verao e Inverno
+                        </a>
+                    </li>
+                    <li class="guide-navigation__item">
+                        <a href="{{ action('GuideController@whereToSleep') }}" class="guide-navigation__link">
+                            <img src="{{ asset('/images/guide-icon5.png') }}" alt="Where to sleep" class="guide-navigation__icon">
+                            Onde dormir
+                        </a>
+                    </li>
                     {{--<li class="guide-navigation__item">--}}
                         {{--<a href="" class="guide-navigation__link">--}}
                             {{--<img src="{{ asset('/images/guide-icon8.png') }}" alt="Night life" class="guide-navigation__icon">--}}
