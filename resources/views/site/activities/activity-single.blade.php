@@ -57,10 +57,10 @@
 											<div class="date-time">
 												<div class="text-field">
 													<input id="reserve-date"
-														   type="text"
-														   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-														   placeholder=""
-														   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
+													       type="text"
+													       data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
+													       placeholder=""
+													       value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
 												</div>
 											</div>
 											<ul role="tablist">
@@ -100,7 +100,9 @@
 										<header class="comments-block__header">
 											<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">
 												<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>
-												<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
+												@if(!auth()->user())
+													<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
+												@endif
 											</div>
 											@if (auth()->user())
 												<form class="comments-block__form" action="{{ action('ActivityController@addComment') }}" method="post">
