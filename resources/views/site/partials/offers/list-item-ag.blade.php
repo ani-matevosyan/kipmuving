@@ -28,7 +28,7 @@
 				</div>
 			@endif
 		</div>
-		<div class="col-md-8 col-sm-4 col-xs-12">
+		<div class="col-md-8 col-sm-7 col-xs-12">
 			<div class="select-activity">
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12">
