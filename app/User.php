@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
 	use EntrustUserTrait;
 	use Notifiable;
-
+	
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -29,7 +29,7 @@ class User extends Authenticatable
 		'email',
 		'password',
 	];
-
+	
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *
@@ -39,12 +39,16 @@ class User extends Authenticatable
 		'password', 'remember_token',
 	];
 	
-	public function reservations() {
+	public function reservations()
+	{
 		return $this->hasMany('App\Reservation', 'user_id', 'id');
 	}
 	
-	public function getAvatarAttribute() {
-		return file_exists($this->attributes['avatar']) ? $this->attributes['avatar'] : 'images/image-none.jpg';
+	public function getAvatarAttribute()
+	{
+		return ($this->attributes['avatar'] === null)
+			? asset('images/image-none.jpg')
+			: $this->attributes['avatar'];
 	}
 
 //	public function getUser($id)
