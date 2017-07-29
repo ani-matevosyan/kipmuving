@@ -158,6 +158,12 @@
 							<li>
 								<a href="https://www.instagram.com/kipmuving/" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
 							</li>
+							<li>
+								<a href="{{ route('auth.facebook') }}">FB</a>
+							</li>
+							<li>
+								<a href="{{ route('auth.google') }}">G+</a>
+							</li>
 						</ul>
 					</div>
 				</div>

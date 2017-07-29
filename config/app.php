@@ -178,6 +178,7 @@ return [
 		Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
 //		Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
 		laravel\pagseguro\Platform\Laravel5\ServiceProvider::class,
+		Laravel\Socialite\SocialiteServiceProvider::class,
 		/*
 		 * Application Service Providers...
 		 */
@@ -241,6 +242,7 @@ return [
 		'PayPal'       => Srmklive\PayPal\Facades\PayPal::class,
 		'Recaptcha'    => Greggilbert\Recaptcha\Facades\Recaptcha::class,
 		'PagSeguro'    => laravel\pagseguro\Platform\Laravel5\PagSeguro::class,
+		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 	],
 
 ];

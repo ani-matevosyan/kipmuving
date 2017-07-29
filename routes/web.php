@@ -12,9 +12,12 @@
 */
 
 Auth::routes();
-
-Route::get('/agency-emails', ['middleware' => ['role:admin|developer'], 'uses' => '\App\Http\Controllers\AgencyEmailsController@viewList']);
-Route::post('/agency-emails/send', ['middleware' => ['role:admin|developer'], 'uses' => '\App\Http\Controllers\AgencyEmailsController@sendEmails']);
+Route::get('auth/facebook', 'Auth\FacebookController@redirectToProvider')
+	->name('auth.facebook');
+Route::get('auth/facebook/callback', 'Auth\FacebookController@handleProviderCallback');
+Route::get('auth/gplus', 'Auth\GooglePlusController@redirectToProvider')
+	->name('auth.google');
+Route::get('auth/gplus/callback', 'Auth\GooglePlusController@handleProviderCallback');
 
 Route::group(['prefix' => 'atacama'], function () {
 	Route::get('/', 'HomeController@index');
@@ -75,6 +78,12 @@ Route::post('/offer/remove', 'OfferController@remove');
 Route::get('/agencies', 'AgencyController@index')->name('agencies');
 Route::get('/agency/{id}', 'AgencyController@getAgency')
 	->where('id', '[0-9]+');
+Route::get('/agency-emails', [
+	'middleware' => ['role:admin|developer'],
+	'uses'       => '\App\Http\Controllers\AgencyEmailsController@viewList']);
+Route::post('/agency-emails/send', [
+	'middleware' => ['role:admin|developer'],
+	'uses'       => '\App\Http\Controllers\AgencyEmailsController@sendEmails']);
 
 
 #User
