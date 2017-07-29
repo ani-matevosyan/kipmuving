@@ -152,7 +152,7 @@ class UserController extends Controller
 				File::delete(public_path($user['avatar']));
 			$image = Input::file('image');
 			$destination_path = public_path('uploads/users/');
-			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
+			$file_path = asset('uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension());
 			$image->move($destination_path, $file_path);
 			$user->avatar = $file_path;
 		}
