@@ -1,5 +1,23 @@
 $(document).ready(function(){
 
+
+    function getsuprogram(){
+        $.ajax({
+            type: "GET",
+            url: "/activities/getsuprogram",
+            data: "",
+            success: function(data){
+                $("#program_activities").text(data.data.offers);
+                $("#program_activities").attr('data-activities' ,data.data.offers);
+                $("#program_persons").text(data.data.persons);
+                $("#program_total").text(data.data.total);
+            },
+            error: function(){
+                location.reload();
+            }
+        });
+    }
+
     //-------------------CALENDAR PLUGIN --------------
     if($('#calendar').length){
         var viewdate = $("#calendar").attr("data-date");

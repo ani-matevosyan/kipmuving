@@ -15,7 +15,7 @@ return [
 	
 	'program'        => 'Program',
 	'activities_for' => 'activities for',
-	'persons'        => 'persons',
+	'persons'        => 'Persons',
 	
 	'all_activities_in_single_place' => 'ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE',
 	

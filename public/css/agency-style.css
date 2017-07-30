@@ -242,9 +242,9 @@
     display: none;
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select,
-.jcf-select-persona.jcf-select-drop .jcf-hover{
-    background: #963d4c;
+.timing1 li.profile .jcf-select{
+    border: 2px solid #fdd164;
+    width: auto;
 }
 
 @media screen and (max-width: 767px){
@@ -253,8 +253,9 @@
     }
 }
 
-.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-text{
-    color: #fff;
+.timing1 li.profile .jcf-select .jcf-select-text{
+    color: #f5ad00;
+    font-weight: bold;
 }
 
 .your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after{
@@ -457,5 +458,23 @@
         font-size: 20px;
         line-height: 24px;
         font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 1149px) and (min-width: 992px){
+    .select-activity>.row>div{
+        width: 100%;
+    }
+    .select-activity>.row>.col-md-4{
+        padding-left: 44px;
+    }
+
+    .your-reservation.adventure .price{
+        text-align: left;
+        padding-bottom: 10px;
+    }
+    .your-reservation.adventure .btn-primary{
+        float: none;
+        margin-bottom: 15px;
     }
 }

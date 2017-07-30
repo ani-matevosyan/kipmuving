@@ -9,6 +9,23 @@ $(document).ready(function(){
         });
     }
 
+    function getsuprogram(){
+        $.ajax({
+            type: "GET",
+            url: "/activities/getsuprogram",
+            data: "",
+            success: function(data){
+                $("#program_activities").text(data.data.offers);
+                $("#program_activities").attr('data-activities' ,data.data.offers);
+                $("#program_persons").text(data.data.persons);
+                $("#program_total").text(data.data.total);
+            },
+            error: function(){
+                location.reload();
+            }
+        });
+    }
+
     jQuery('.raised-form').submit(function(e) {
         e.preventDefault();
         window.location.href="/activities/" + jQuery('#activity_id_r').val() + "?dt=" + jQuery('#activity_date_r').val();
