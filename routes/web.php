@@ -131,6 +131,7 @@ Route::get('/guide/what-to-eat', 'GuideController@whatToEat')
 	->name('guide-what-to-eat');
 Route::get('/guide/money', 'GuideController@money')
 	->name('guide-money');
+Route::get('/guide/comment/add', 'GuideController@addComment');
 
 #About
 Route::get('/about', 'AboutController@index');
