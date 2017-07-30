@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 use App\Offer;
+use App\Services\ICS;
 
 class CalendarController extends Controller
 {
@@ -15,24 +16,24 @@ class CalendarController extends Controller
 		$selectedOffers = $offer->getSelectedOffers();
 		if (count($selectedOffers) <= 0)
 			return redirect()->to(action('ActivityController@index'));
-
+		
 		$data = [
 			'styles'         => [
 				'link' => 'libs/fullcalendar/fullcalendar.css',
-                [
+				[
 					'media' => 'print',
 					'link'  => 'libs/fullcalendar/fullcalendar.print.css'
 				],
-                'css/reservation-sidebar.min.css',
-                'css/calendar-style.min.css'
+				'css/reservation-sidebar.min.css',
+				'css/calendar-style.min.css'
 			],
-			'scripts' => [
+			'scripts'        => [
 				'libs/fullcalendar/lib/moment.min.js',
 				'libs/fullcalendar/fullcalendar.min.js',
 				'libs/fullcalendar/es.js',
 				'libs/fullcalendar/pt.js',
-                'js/fixed-sidebar.min.js',
-                'js/calendarpage-scripts.min.js'
+				'js/fixed-sidebar.min.js',
+				'js/calendarpage-scripts.min.js'
 			],
 			'selectedOffers' => $selectedOffers,
 			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
@@ -58,8 +59,8 @@ class CalendarController extends Controller
 		foreach ($selectedOffers as $key => $selectedOffer) {
 			$offer = Offer::find($selectedOffer['offer_id']);
 			
-			$start = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'].' '.$selectedOffer['time']['start'])->toDateTimeString();
-			$end = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'].' '.$selectedOffer['time']['end'])->toDateTimeString();
+			$start = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'] . ' ' . $selectedOffer['time']['start'])->toDateTimeString();
+			$end = Carbon::createFromFormat('d/m/Y H:i:s', $selectedOffer['date'] . ' ' . $selectedOffer['time']['end'])->toDateTimeString();
 			
 			$results[] = [
 				'id'               => $key,
@@ -91,8 +92,8 @@ class CalendarController extends Controller
 			foreach ($guideActivities as $key => $guideActivity) {
 				$activity = GuideActivity::find($guideActivity['id']);
 				
-				$start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_from'].':00')->toDateTimeString();
-				$end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'].' '.$guideActivity['hours_to'].':00')->toDateTimeString();
+				$start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'] . ' ' . $guideActivity['hours_from'] . ':00')->toDateTimeString();
+				$end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'] . ' ' . $guideActivity['hours_to'] . ':00')->toDateTimeString();
 				
 				$results[] = [
 					'id'                  => $counter++,
@@ -146,6 +147,40 @@ class CalendarController extends Controller
 		];
 		
 		return response()->json($data);
+	}
+	
+	public function generateICS()
+	{
+		$offers = session('selectedOffers');
+		$free_activities = session('guideActivities');
+		
+		$calendar = new ICS('Kipmuving events - ' . Carbon::now()->toDateString());
+		
+		foreach ($offers as $offer) {
+			$_offer = Offer::find($offer['offer_id']);
+			
+			$calendar->add(
+				Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'] . ' ' . $offer['time']['start']),
+				Carbon::createFromFormat('d/m/Y H:i:s', $offer['date'] . ' ' . $offer['time']['end']),
+				$_offer->activity->name,
+				isset($_offer->description) ? $_offer->description : '',
+				$_offer->activity->latitude . ", " . $_offer->activity->longitude
+			);
+		}
+		
+		foreach ($free_activities as $free_activity) {
+			$activity = GuideActivity::find($free_activity['id']);
+			
+			$calendar->add(
+				Carbon::createFromFormat('d/m/Y H:i', $free_activity['date'] . ' ' . $free_activity['hours_from']),
+				Carbon::createFromFormat('d/m/Y H:i', $free_activity['date'] . ' ' . $free_activity['hours_to']),
+				$activity->name,
+				$activity->short_description,
+				$activity->latitude . ", " . $activity->longitude
+			);
+		}
+		
+		$calendar->show();
 	}
 	
 }

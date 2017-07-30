@@ -141,6 +141,7 @@ Route::get('/about', 'AboutController@index');
 Route::get('/calendar', 'CalendarController@index');
 Route::get('/calendar/data', 'CalendarController@getData');
 Route::post('calendar/process', 'CalendarController@getProcess');
+Route::get('calendar/getICS', 'CalendarController@generateICS');
 
 
 #Reservation
