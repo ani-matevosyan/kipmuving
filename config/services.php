@@ -36,9 +36,9 @@ return [
 	],
 	
 	'facebook' => [
-		'client_id'     => '121557898469064',
-		'client_secret' => '95f63294a19b7c4766873901a132da6a',
-		'redirect'      => 'http://kipmuving.lo/auth/facebook/callback',
+		'client_id'     => '122774041679508',
+		'client_secret' => '4194b31a6fd8d3f7aac85d27c6949aa4',
+		'redirect'      => 'http://kipmuving.com/auth/facebook/callback',
 	],
 	'google' => [
 		'client_id'     => '113785953117-3fsr35g2v0c9e3kqelokdbktc8m3itv1.apps.googleusercontent.com',
