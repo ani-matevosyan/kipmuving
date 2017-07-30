@@ -154,6 +154,9 @@ class CalendarController extends Controller
 		$offers = session('selectedOffers');
 		$free_activities = session('guideActivities');
 		
+		if (count($offers) < 1 && count($free_activities) < 1)
+			return redirect()->route('activities');
+		
 		$calendar = new ICS('Kipmuving events - ' . Carbon::now()->toDateString());
 		
 		foreach ($offers as $offer) {
