@@ -69,15 +69,15 @@ class UserController extends Controller
 	public function getUser()
 	{
 		if (!$user = Auth::user())
-			abort(404);
-		
-		
+			return redirect()->to('/login');
+
+
 //		dd($user->reservations[3]->time);
 //
 //		foreach ($user->reservations as $reservation) {
 //
 //		}
-		
+
 //		$reservations = Reservation::where('user_id', $user['id'])
 //			->where('status', '=', true)
 //			->get();
@@ -103,13 +103,13 @@ class UserController extends Controller
 //			];
 //		}
 		$data = [
-		    'styles'       => [
-		        'css/userpage-style.min.css'
-            ],
-            'scripts'      => [
-              'js/user-scripts.min.js'
-            ],
-			'user'         => $user,
+			'styles'  => [
+				'css/userpage-style.min.css'
+			],
+			'scripts' => [
+				'js/user-scripts.min.js'
+			],
+			'user'    => $user,
 //			'reservations' => $result
 		];
 		
@@ -152,7 +152,7 @@ class UserController extends Controller
 				File::delete(public_path($user['avatar']));
 			$image = Input::file('image');
 			$destination_path = public_path('uploads/users/');
-			$file_path = 'uploads/users/'.str_random(5).time().str_random(5).'.'.$image->getClientOriginalExtension();
+			$file_path = asset('uploads/users/' . str_random(5) . time() . str_random(5) . '.' . $image->getClientOriginalExtension());
 			$image->move($destination_path, $file_path);
 			$user->avatar = $file_path;
 		}

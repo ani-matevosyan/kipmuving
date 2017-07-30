@@ -80,8 +80,8 @@
 									<div class="col-sm-2">
 										<div class="my-intro">
 											<div class="img-holder">
-												<img src="/{{ $user->avatar }}" alt="your photo"
-													 onerror="this.src='/images/image-none.jpg';" id="youravatar">
+												<img src="{{ $user->avatar }}" alt="your photo"
+													 onerror="this.src='{{ asset('images/image-none.jpg') }}';" id="youravatar">
 												<form enctype="multipart/form-data"
 													  action="{{ action('UserController@updateUsersAvatar', $user->id) }}"
 													  method="post" name="loadavatar" target="hiddenframe" class="loadavatar">

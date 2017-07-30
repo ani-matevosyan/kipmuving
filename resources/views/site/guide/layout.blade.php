@@ -87,47 +87,90 @@
 			</div>
 		</main>
 
-		{{--<div class="container">--}}
+		<div class="container">
 
-		{{--<div class="comments-block">--}}
+			<?php $activity = \App\Activity::find(48) ?>
 
-		{{--<header class="comments-block__header">--}}
-		{{--<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">--}}
-		{{--<div class="comments-block__titles">--}}
-		{{--<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>--}}
-		{{--<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>--}}
-		{{--</div>--}}
-		{{--<form id="comments-block__form" data-answerText="{{ trans('button-links.answer') }}" class="comments-block__form" action="{{ action('ActivityController@addComment') }}" method="post">--}}
-		{{--{{ csrf_field() }}--}}
-		{{--<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>--}}
-		{{--<input type="hidden" value="" name="comment_id">--}}
-		{{--<input type="hidden" value="{{ $activity->id }}" name="activity_id">--}}
-		{{--<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>--}}
-		{{--</form>--}}
-		{{--<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>--}}
-		{{--</header>--}}
 
-		{{--<ul class="comments-block__comments">--}}
+			<div class="comments-block">
 
-		{{--<li class="comments-block__comment">--}}
-		{{--<header class="comments-block__comment-header">--}}
-		{{--<img src="{{ asset('/uploads/users/wiJdG1481622645x2qJA.jpg') }}" alt="User name" class="comments-block__user-image">--}}
-		{{--<strong class="comments-block__user-name">Orlando Bloom</strong>--}}
-		{{--<span class="comments-block__date">01.01.1999</span>--}}
-		{{--<a href="22" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>--}}
-		{{--</header>--}}
-		{{--<p class="comments-block__text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque dicta enim id ipsa itaque laudantium placeat soluta velit vitae! Delectus dignissimos dolore dolores nesciunt nostrum numquam perferendis saepe voluptatum. </p>--}}
-		{{--</li>--}}
+				<header class="comments-block__header">
+					<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">
+						<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>
+						@if(!auth()->user())
+							<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
+						@endif
+					</div>
+					@if (auth()->user())
+						<form id="comments-block__form" class="comments-block__form" data-answerText="{{ trans('button-links.answer') }}"
+						      action="{{ action('GuideController@addComment') }}" method="get">
+							{{ csrf_field() }}
+							<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>
+							<input type="hidden" value="" name="comment_id">
+							<input type="hidden" value="{{ Route::currentRouteName() }}" name="guide_page">
+							<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>
+						</form>
+					@else
+						<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>
+					@endif
+				</header>
 
-		{{--<li class="comments-block__comment comments-block__comment_answer">--}}
-		{{--<p class="comments-block__text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolorem eos ex fuga impedit incidunt, ipsum iste libero minima modi nam obcaecati omnis perspiciatis quibusdam quos soluta temporibus totam ut. </p>--}}
-		{{--</li>--}}
+				<?php $comments = \App\GuideComment::where('guide_page', '=', Route::currentRouteName())->get(); ?>
 
-		{{--</ul>--}}
+				<ul class="comments-block__comments">
+					@if(auth()->user() && auth()->user()->hasRole(['developer', 'admin']))
 
-		{{--</div>--}}
+						@if(isset($comments) && count($comments) > 0)
+							@foreach($comments as $comment)
+								<li class="comments-block__comment">
+									<header class="comments-block__comment-header">
+										<img src="{{ $comment->user->avatar }}" alt="User name" class="comments-block__user-image"
+										     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
+										<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
+										<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
 
-		{{--</div>--}}
+										@if(!isset($comment->answer))
+											<a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>
+										@endif
+
+									</header>
+									<p class="comments-block__text">{{ $comment->question }}</p>
+								</li>
+
+								@if(isset($comment->answer))
+									<li class="comments-block__comment comments-block__comment_answer">
+										<p class="comments-block__text">{{ $comment->answer }}</p>
+									</li>
+								@endif
+
+							@endforeach
+						@endif
+
+					@else
+
+						@if(isset($comments) && count($comments->where('answer', '<>', null)) > 0)
+							@foreach($comments->where('answer', '<>', null) as $comment)
+								<li class="comments-block__comment">
+									<header class="comments-block__comment-header">
+										<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image"
+										     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
+										<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
+										<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
+									</header>
+									<p class="comments-block__text">{{ $comment->question }}</p>
+								</li>
+								<li class="comments-block__comment comments-block__comment_answer">
+									<p class="comments-block__text">{{ $comment->answer }}</p>
+								</li>
+							@endforeach
+						@endif
+
+					@endif
+				</ul>
+
+			</div>
+
+		</div>
 
 	</div>
 

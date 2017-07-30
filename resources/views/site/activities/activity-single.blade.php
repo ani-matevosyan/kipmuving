@@ -120,11 +120,12 @@
 										<ul class="comments-block__comments">
 											@if(auth()->user() && auth()->user()->hasRole(['developer', 'admin']))
 
-												@if(isset($activity->comments) && count($activity->comments))
+												@if(isset($activity->comments) && count($activity->comments) > 0)
 													@foreach($activity->comments as $comment)
 														<li class="comments-block__comment">
 															<header class="comments-block__comment-header">
-																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">
+																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image"
+																     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
 																<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
 																<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
 
@@ -145,13 +146,14 @@
 													@endforeach
 												@endif
 
-											@elseif(auth()->user())
+											@else
 
-												@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)))
+												@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)) > 0)
 													@foreach($activity->comments->where('answer', '<>', null) as $comment)
 														<li class="comments-block__comment">
 															<header class="comments-block__comment-header">
-																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image">
+																<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image"
+																     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
 																<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
 																<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
 															</header>
