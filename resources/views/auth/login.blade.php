@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="page-header">
 				<h1><strong>{{ trans('main.login') }}</strong></h1>
-				<p>{{ trans('main.login_to_modify') }}</p>
+				<p class="registration__text">{{ trans('main.login_to_modify') }}</p>
 				<form class="form-horizontal registration registration-login " method="POST" action="/login" accept-charset="UTF-8">
 					{{ csrf_field() }}
 					<fieldset>
@@ -58,10 +58,17 @@
 								<div class="confirmlogin">
 									<a href="{{ url('/register') }}">¿No tienes una cuenta?</a>
 									<button tabindex="3" type="submit" class="btn btn-primary">{{ trans('button-links.login') }}</button>
-									<a class="btn btn-danger" href="{{ route('auth.facebook') }}">FB</a>
-									<a class="btn btn-danger" href="{{ route('auth.google') }}">G+</a>
 								</div>
 							</div>
+						</div>
+						<div class="form-group log-in-services">
+							<p class="log-in-services__text">Or Log In with with one of these services</p>
+							<a class="btn log-in-services__button" href="{{ route('auth.facebook') }}">
+								<img src="{{ asset('/images/facebook-button.png') }}" class="log-in-services__image" alt="facebook icon">
+							</a>
+							<a class="btn log-in-services__button" href="{{ route('auth.google') }}">
+								<img src="{{ asset('/images/google-plus-button.png') }}" class="log-in-services__image" alt="google plus icon">
+							</a>
 						</div>
 					</fieldset>
 				</form>
