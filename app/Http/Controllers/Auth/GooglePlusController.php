@@ -32,31 +32,27 @@ class GooglePlusController extends Controller
 	
 	public function findOrCreateUser($googleUser)
 	{
-		
-		dd($googleUser);
 		if ($auth_user = User::where('gplus_id', '=', $googleUser->id)->first()) {
 			return $auth_user;
 		} elseif ($auth_user = User::where('email', '=', $googleUser->email)->first()) {
 			
-			$auth_user->facebook_id = $googleUser->id;
+			$auth_user->gplus_id = $googleUser->id;
 			$auth_user->save();
 			
 			return $auth_user;
 		}
 		
-		$name = explode(' ', $googleUser->name);
-		
 		return User::create([
 			'username'          => '',
-			'first_name'        => isset($name[0]) ? $name[0] : ' ',
-			'last_name'         => isset($name[1]) ? $name[1] : ' ',
+			'first_name'        => $googleUser->user['name']['givenName'],
+			'last_name'         => $googleUser->user['name']['familyName'],
 			'gender'            => $googleUser['gender'] === 'male' ? 'm' : 'w',
 			'email'             => $googleUser->email,
 			'avatar'            => $googleUser->avatar,
 			'confirmation_code' => ' ',
 			'confirmed'         => 1,
 			'password'          => ' ',
-			'gplus_id'       => $googleUser->id
+			'gplus_id'          => $googleUser->id
 		]);
 	}
 }

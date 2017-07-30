@@ -43,7 +43,7 @@ return [
 	'google' => [
 		'client_id'     => '113785953117-3fsr35g2v0c9e3kqelokdbktc8m3itv1.apps.googleusercontent.com',
 		'client_secret' => 'vrQ8ccPjxhL00ftyw9xzhZsX',
-		'redirect'      => 'http://kipmuving.lo/auth/gplus/callback',
+		'redirect'      => 'http://kipmuving.com/auth/gplus/callback',
 	]
 
 ];
