@@ -145,7 +145,7 @@
 													@endforeach
 												@endif
 
-											@elseif(auth()->user())
+											@else
 
 												@if(isset($activity->comments) && count($activity->comments->where('answer', '<>', null)))
 													@foreach($activity->comments->where('answer', '<>', null) as $comment)
