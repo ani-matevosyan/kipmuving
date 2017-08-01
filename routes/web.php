@@ -125,8 +125,8 @@ Route::get('/guide/where-to-sleep', 'GuideController@whereToSleep')
 	->name('guide-where-to-sleep');
 Route::get('/guide/night-life', 'GuideController@nightLife')
 	->name('guide-night-life');
-Route::get('/guide/city-and-zones', 'GuideController@cityAndZones')
-	->name('guide-city-and-zones');
+Route::get('/guide/city-and-region', 'GuideController@cityAndRegion')
+	->name('guide-city-and-region');
 Route::get('/guide/what-to-eat', 'GuideController@whatToEat')
 	->name('guide-what-to-eat');
 Route::get('/guide/money', 'GuideController@money')

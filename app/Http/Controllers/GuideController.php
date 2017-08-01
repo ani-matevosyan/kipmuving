@@ -102,7 +102,7 @@ class GuideController extends Controller
 		return view('site.guide.night-life', $data);
 	}
 	
-	public function cityAndZones()
+	public function cityAndRegion()
 	{
 		
 		$data = [
@@ -114,7 +114,7 @@ class GuideController extends Controller
 			]
 		];
 		
-		return view('site.guide.city-and-zones', $data);
+		return view('site.guide.city-and-region', $data);
 	}
 	
 	public function whatToEat()

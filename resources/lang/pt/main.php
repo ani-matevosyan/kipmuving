@@ -271,5 +271,15 @@ return [
 
     #FAQ
     'ask'                      => 'Pergunte',
-    'you_should_be_registered' => 'Perguntar rápido Você tem de estar registado'
+    'you_should_be_registered' => 'Perguntar rápido Você tem de estar registado',
+    #City and Region page
+    'city_and_region'          => 'Cidade e Zona',
+    'pucon_is_located'         => 'Pucón está localizado na região de ',
+    'region_in_the_south'      => ', no sul do Chile, na beira do lago Villarica e perto da base do Vulcão com o mesmo nome. Em volta da cidade há também vários parques naturais, rios e cachoeiras, que oferecem a possibilidade de praticar diferentes atividades.',
+    'the_small_urban_center'   => 'O pequeno centro urbano da cidade pode ser ',
+    'explored_by_foot'         => 'percorrido a pé',
+    'admiring_interesting'     => ', admirando a arquitectura interessante, uma mistura das tradições da etnia mapuche e a forte influência dos colonos alemães que chegaram na zona no século XIX.',
+    'playa_glande'             => 'A Playa Grande',
+    'is_a_beach'               => ' é uma praia de água doce cristalina e areia negra con pequenas pedras vulcânicas, que atrai turistas e locais pela sua tranqüilidade e linda vista. Perto do centro, a zona de ',
+    'area_offers'              => ', oferece também um passeio e vistas agradáveis, juntos de um pitoresco porto de lanchas.',
 ];
