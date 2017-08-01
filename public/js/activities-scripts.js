@@ -65,6 +65,9 @@ $(document).ready(function(){
 
 
     function collectData(){
+
+        $(".all-activities").html("<div class='loader'><div class='loader__inside'></div></div>");
+
         var filterData = {
             'style': [],
             'period': [],
@@ -105,7 +108,6 @@ $(document).ready(function(){
             success: function(data){
                 displayActivities(data);
                 calcAllActivities(data);
-                console.log(data);
             }
         });
 
