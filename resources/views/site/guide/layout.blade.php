@@ -16,10 +16,6 @@
 						</a>
 					</li>
 					<li class="guide-navigation__item">
-						{{--<a href="{{ action('GuideController@getMarkets') }}" class="guide-navigation__link guide-navigation__link_active">--}}
-						{{--<img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">--}}
-						{{--Lojas e Serviços--}}
-						{{--</a>--}}
 						<a href="{{ action('GuideController@shopsAndServices') }}"
 						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-shops-and-services' ? '_active' : '' }}">
 							<img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">
@@ -55,10 +51,10 @@
 						</a>
 					</li>
 					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@cityAndZones') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-city-and-zones' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon3.png') }}" alt="City and Zones" class="guide-navigation__icon">
-							Ciudad y Zonas
+						<a href="{{ action('GuideController@cityAndRegion') }}"
+						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-city-and-region' ? '_active' : '' }}">
+							<img src="{{ asset('/images/guide-icon3.png') }}" alt="{{ trans('main.city_and_region') }}" class="guide-navigation__icon">
+							{{ trans('main.city_and_region') }}
 						</a>
 					</li>
 					<li class="guide-navigation__item">
