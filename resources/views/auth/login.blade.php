@@ -14,6 +14,13 @@
 			<div class="page-header">
 				<h1><strong>{{ trans('main.login') }}</strong></h1>
 				<p class="registration__text">{{ trans('main.login_to_modify') }}</p>
+
+				@if(session()->has('error'))
+					<div class="alert alert-danger" role="alert">
+						{{ session('error') }}
+					</div>
+				@endif
+
 				<form class="form-horizontal registration registration-login " method="POST" action="/login" accept-charset="UTF-8">
 					{{ csrf_field() }}
 					<fieldset>

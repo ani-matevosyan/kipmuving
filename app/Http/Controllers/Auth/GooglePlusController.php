@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Mockery\Exception;
+use Exception;
 
 class GooglePlusController extends Controller
 {
@@ -20,7 +20,10 @@ class GooglePlusController extends Controller
 		try {
 			$user = Socialite::driver('google')->user();
 		} catch (Exception $exception) {
-			return redirect()->route('auth.google');
+			return redirect()->to('/login')->with('error', 'Sorry, we can\'t login you with Google+ :(');
+			
+//			dd($exception);
+			
 		}
 		
 		$auth_user = $this->findOrCreateUser($user);
