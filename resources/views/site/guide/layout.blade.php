@@ -18,22 +18,22 @@
 					<li class="guide-navigation__item">
 						<a href="{{ action('GuideController@shopsAndServices') }}"
 						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-shops-and-services' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon4.png') }}" alt="Shops and Services" class="guide-navigation__icon">
-							Lojas e Serviços
+							<img src="{{ asset('/images/guide-icon4.png') }}" alt="{{ trans('main.shops_and_services') }}" class="guide-navigation__icon">
+							{{ trans('main.shops_and_services') }}
 						</a>
 					</li>
 					<li class="guide-navigation__item">
 						<a href="{{ action('GuideController@transportation') }}"
 						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-transportation' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon7.png') }}" alt="Transportation" class="guide-navigation__icon">
-							Transportes
+							<img src="{{ asset('/images/guide-icon7.png') }}" alt="{{ trans('main.transportaion') }}" class="guide-navigation__icon">
+							{{ trans('main.transportaion') }}
 						</a>
 					</li>
 					<li class="guide-navigation__item">
 						<a href="{{ action('GuideController@summerAndWinter') }}"
 						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-summer-and-winter' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon2.png') }}" alt="Summer and winter" class="guide-navigation__icon">
-							Verao e Inverno
+							<img src="{{ asset('/images/guide-icon2.png') }}" alt="{{ trans('main.summer_and_winter') }}" class="guide-navigation__icon">
+							{{ trans('main.summer_and_winter') }}
 						</a>
 					</li>
 					<li class="guide-navigation__item">
@@ -46,8 +46,8 @@
 					<li class="guide-navigation__item">
 						<a href="{{ action('GuideController@nightLife') }}"
 						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-night-life' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon8.png') }}" alt="Night life" class="guide-navigation__icon">
-							Vida noturna
+							<img src="{{ asset('/images/guide-icon8.png') }}" alt="{{ trans('main.night_life') }}" class="guide-navigation__icon">
+							{{ trans('main.night_life') }}
 						</a>
 					</li>
 					<li class="guide-navigation__item">
