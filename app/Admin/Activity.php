@@ -108,7 +108,8 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 				AdminFormElement::columns()
 					->addColumn([
 //						AdminFormElement::checkbox('availability', 'Available'),
-						AdminFormElement::checkbox('visibility', 'Visible')
+						AdminFormElement::checkbox('visibility', 'Visible'),
+						AdminFormElement::checkbox('slider', 'Slider')
 					], 4)
 					->addColumn([
 						AdminFormElement::checkbox('available_day', 'Available on day'),

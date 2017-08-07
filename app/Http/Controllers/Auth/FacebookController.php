@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Mockery\Exception;
+use Exception;
 
 class FacebookController extends Controller
 {
@@ -18,9 +19,13 @@ class FacebookController extends Controller
 	public function handleProviderCallback()
 	{
 		try {
-			$user = Socialite::driver('facebook')->user();
+			$user = Socialite::driver('facebook')
+				->setHttpClient(new Client(['http_errors' => false]))
+//				->stateless()
+				->user();
 		} catch (Exception $exception) {
-			return redirect()->route('auth.facebook');
+			dd($exception);
+			return redirect()->to('/login')->with('error', 'Sorry, we can\'t login you with Facebook :(');
 		}
 		
 		$auth_user = $this->findOrCreateUser($user);
