@@ -11,9 +11,9 @@
 @section('content')
 	<main id="main">
 		<div class="container">
-			<div class="page-header">
-				<h1><strong>{{ trans('main.login') }}</strong></h1>
-				<p class="registration__text">{{ trans('main.login_to_modify') }}</p>
+			<div class="login-page">
+				<h1 class="login-page__title">{{ trans('main.login') }}</h1>
+				<p class="login-page__description">{{ trans('main.log_in_at') }}<strong>KeepMoving</strong>{{ trans('main.or_register') }}</p>
 
 				@if(session()->has('error'))
 					<div class="alert alert-danger" role="alert">
@@ -21,7 +21,28 @@
 					</div>
 				@endif
 
-				<form class="form-horizontal registration registration-login " method="POST" action="/login" accept-charset="UTF-8">
+				<div class="login-content">
+					<div class="login-content__social-buttons">
+						<a class="social-login-button social-login-button__facebook" href="{{ route('auth.facebook') }}">Iniciar sesión con <strong>Facebook</strong></a>
+						<a class="social-login-button social-login-button__google" href="{{ route('auth.google') }}">Iniciar sesión con <strong>Google</strong></a>
+						<p class="login-content__text-between">o con su email y clave en KeepMoving</p>
+					</div>
+					{{--<form method="POST" action="/login" accept-charset="UTF-8" class="login-form">--}}
+						{{--{{ csrf_field() }}--}}
+						{{--<div class="login-form__group">--}}
+							{{--<label for="email" class="login-form__label">Email</label>--}}
+							{{--<input type="email" id="email" tabindex="1" name="email" class="login-form__input" value="{{ old('email') }}">--}}
+						{{--</div>--}}
+						{{--<div class="login-form__group">--}}
+							{{--<label for="password" class="login-form__label">Clave</label>--}}
+							{{--<input type="password" id="password" tabindex="2" name="password" class="login-form__input">--}}
+						{{--</div>--}}
+					{{--</form>--}}
+				</div>
+
+
+
+				<form class="form-horizontal registration registration-login" method="POST" action="/login" accept-charset="UTF-8">
 					{{ csrf_field() }}
 					<fieldset>
 						<div class="form-group">
@@ -67,15 +88,6 @@
 									<button tabindex="3" type="submit" class="btn btn-primary">{{ trans('button-links.login') }}</button>
 								</div>
 							</div>
-						</div>
-						<div class="form-group log-in-services">
-							<p class="log-in-services__text">Or Log In with with one of these services</p>
-							<a class="btn log-in-services__button" href="{{ route('auth.facebook') }}">
-								<img src="{{ asset('/images/facebook-button.png') }}" class="log-in-services__image" alt="facebook icon">
-							</a>
-							<a class="btn log-in-services__button" href="{{ route('auth.google') }}">
-								<img src="{{ asset('/images/google-plus-button.png') }}" class="log-in-services__image" alt="google plus icon">
-							</a>
 						</div>
 					</fieldset>
 				</form>

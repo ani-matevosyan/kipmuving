@@ -1,8 +1,9 @@
 <?php
 
 return [
-	'login'           => 'Login',
-	'login_to_modify' => 'Log in below to modify your adventures and data',
+	'login'       => 'Log in',
+	'log_in_at'   => 'To confirm the reservation, please register at ',
+    'or_register' => ' or if you are already registered, log in with your email and password.',
 	
 	'register'        => 'Register',
 	'welcome_to_site' => 'Welcome to the largest adventure site in Pucon, where you can find the best options and prices of the adventures available.',
