@@ -227,6 +227,7 @@ return [
 	'confirm_paypal'                         => 'Confirm PayPal',
 	
 	'my_account'                    => 'My account',
+    'log_out'                       => 'Log out',
 	'my_profile'                    => 'My profile',
 	'my_adventures'                 => 'My adventures',
 	'here_your_personal_info'       => 'Here are your personal information. You can update it at any time.',

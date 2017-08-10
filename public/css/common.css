@@ -321,8 +321,12 @@ body {
 
 .main_header .btn-holder {
     float: left;
-    padding: 11px 0;
+    padding: 21px 0;
     position: relative;
+}
+
+.main_header .btn-holder_withoutavatar{
+    padding: 23px 0;
 }
 
 .main_header .btn-holder .dropdown-menu{
@@ -372,7 +376,7 @@ body {
 
 .top_nav {
     text-align: center;
-    padding: 17px 0;
+    padding: 26px 0;
     overflow: hidden;
 }
 
@@ -390,7 +394,7 @@ body {
 }
 
 .top_nav ul li {
-    margin: 0 8% 0 0;
+    margin: 0 6% 0 0;
     display: inline-block;
     vertical-align: top;
 }
@@ -401,9 +405,9 @@ body {
 
 .top_nav ul a {
     color: #fff;
-    font-size: 17px;
+    font-size: 18px;
     font-family: "PT-Sans", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .top_nav ul a:hover {
@@ -556,7 +560,7 @@ body {
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
     float: left;
-    margin: 20px 0 0 10px;
+    margin: 29px 0 0 10px;
     display: none;
 }
 
@@ -576,7 +580,7 @@ body {
     height: 20px;
     cursor: pointer;
     right: 15px;
-    top: 17px;
+    top: 27px;
     display: none;
 }
 
@@ -627,69 +631,44 @@ body {
 
 /*--------------END BURGER MENU------------*/
 
-.logo-wrapper{
+.logo{
     position: relative;
-    padding: 12px 20px 12px 11px;
-    margin: 0 -11px;
-    background: #072334;
+    padding: 14px 0;
     display: inline-block;
     vertical-align: top;
+    width: 171px;
 }
-.logo-wrapper:before,
-.logo-wrapper:after{
-    content: '';
-}
-
-.logo-wrapper:before{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    right: 100%;
-    width: 99999px;
-    background: #072334;
-    z-index: -1;
-}
-
-.logo-wrapper:after{
-    clear: both;
-    display: table;
-}
-
-@media screen and (max-width: 540px){
-    .logo-wrapper{
-        padding: 21px 20px;
-    }
-}
-
-
-.logo {
-    width: 122px;
-    float: left;
-    margin: 0;
-}
-
-.main_header {
-    z-index: 500;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #003857;
-    -webkit-box-shadow: 0 1px 7px 0 #0c4767;
-    box-shadow: 0 1px 7px 0 #0c4767;
-}
-
-
 
 .logo img {
     width: 100%;
 }
 
+@media screen and (max-width: 540px){
+    .logo{
+        padding: 21px 20px;
+    }
+}
+
+
+.main_header {
+z-index: 500;
+position: relative;
+top: 0;
+left: 0;
+width: 100%;
+background: #353535;
+/*-webkit-box-shadow: 0 1px 7px 0 #0c4767;*/
+/*box-shadow: 0 1px 7px 0 #0c4767;*/
+}
+
+
+
+
 .main_header .btn-primary {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 6px 12px;
+    padding: 5px 15px;
     color: #fff;
     background: #46350d;
     text-transform: uppercase;
@@ -705,7 +684,7 @@ body {
 .main_header .country {
     position: relative;
     float: left;
-    margin: 16px 28px 0 0;
+    margin: 27px 28px;
 }
 
 
@@ -794,11 +773,6 @@ body {
 
 /*--------------RESPONSIVE PART---------------*/
 
-@media screen and (max-width: 1149px) and (min-width: 992px){
-    .logo{
-        margin-left: -25px;
-    }
-}
 
 @media(min-width: 992px){
     .top_nav{
@@ -911,6 +885,10 @@ body {
 
 @media screen and (max-width: 606px){
 
+    .main_header .btn-holder{
+        padding: 24px 0;
+    }
+
     .main_header .avatar-wrapp{
         display: none;
     }
@@ -918,9 +896,6 @@ body {
 }
 
 @media screen and (max-width: 540px){
-    .logo{
-        float: none;
-    }
 
     .location-dropdown{
         float: none;
