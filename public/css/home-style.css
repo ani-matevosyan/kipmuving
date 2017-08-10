@@ -1,25 +1,5 @@
-.program-schedule_home{
-    margin-top: -130px;
-}
-
-@media screen and (max-width: 767px){
-    .program-schedule_home{
-        margin-top: -137px;
-        margin-right: 0;
-    }
-}
-
-.visual.home {
-    height: 615px;
-}
-
 .visual .caption {
-    padding: 120px 0 175px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    padding: 184px 0 78px;
 }
 
 @media (max-width: 767px) {
@@ -153,7 +133,7 @@
     width: 547px;
     float: right;
     padding: 7px 17px 12px;
-    background: rgba(242, 174, 12, 0.9);
+    background: rgba(53, 53, 53, 0.9);
 }
 
 @media (max-width: 991px) {
@@ -200,16 +180,15 @@
 }
 
 .activity-form .title {
-    color: #46350d;
+    color: #ffffff;
     display: block;
     margin: 10px 0 9px;
-    font-size: 26px;
+    font-size: 28px;
     line-height: 34px;
     text-align: center;
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;
-    text-transform: uppercase;
-}
+    }
 
 @media (max-width: 991px) {
     .activity-form .title {
@@ -532,7 +511,7 @@
     padding: 56px 0 30px;
     color: #fff;
     position: relative;
-    background: #00A19D;
+    background: #0094E4;
 }
 
 .s_viagem>.container{

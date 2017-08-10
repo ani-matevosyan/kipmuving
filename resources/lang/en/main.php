@@ -14,7 +14,7 @@ return [
 	'compare_prices_between' => 'Compare prices between',
 	'agencies'               => 'agencies',
 	
-	'what_activities_search' => 'What activities do you want to do?',
+	'what_activities_search' => 'What adventure are you looking for?',
 	'in_all_activities'      => 'in all activities',
 	
 	'program'        => 'Program',
@@ -65,6 +65,8 @@ return [
 	
 	'where_we_are' => 'Where we are',
 	'contact_us'   => 'Contact us',
+    'who_are_we'   => 'Who are we',
+    'contact'      => 'Contact',
 	
 	
 	'home'                                   => 'Home',

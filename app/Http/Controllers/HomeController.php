@@ -53,12 +53,7 @@ class HomeController extends Controller
 			],
 			'imageIndex'     => $imageIndex,
 			'activities'     => $activity->getHomePageActivities(),
-			'activitiesList' => $activity->getActivitiesList(),
-			'count'          => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
-				'persons' => $offer->getSelectedOffersPersons(),
-				'total' => $offer->getSelectedOffersTotal()
-			]
+			'activitiesList' => $activity->getActivitiesList()
 		];
 		
 		if (session('cities.current') == 'atacama')

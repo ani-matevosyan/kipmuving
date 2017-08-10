@@ -131,11 +131,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">
-					<strong class="title">KipMuving</strong>
+					<strong class="title">KeepMoving</strong>
 					<nav class="footer-nav">
 						<ul>
-							<li><a href="{{ action('AboutController@index') }}">Quien Somos</a></li>
-							<li><a href="#">Contacto</a></li>
+							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
+							<li><a href="#">{{ trans('main.contact') }}</a></li>
 						</ul>
 					</nav>
 				</div>

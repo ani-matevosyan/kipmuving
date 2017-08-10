@@ -44,9 +44,6 @@
 		</div>
 	</section>
 	<main id="main">
-		<div class="container">
-			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_home'])
-		</div>
 		<div class="line-box">
 			<div class="line-wrap">
 				<p>{{ trans('main.all_activities_in_single_place') }}</p>
