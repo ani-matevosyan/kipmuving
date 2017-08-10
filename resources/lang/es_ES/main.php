@@ -1,9 +1,12 @@
 <?php
 
 return [
-	'login'       => 'Iniciar sesión',
-    'log_in_at'   => 'Para confirmar la reserva, por favor, registrase en ',
-    'or_register' => ' o si ya eres registrado, haga login con su email y clave.',
+	'login'                 => 'Iniciar sesión',
+    'log_in_at'             => 'Para confirmar la reserva, por favor, registrase en ',
+    'or_register'           => ' o si ya eres registrado, haga login con su email y clave.',
+    'login_with'            => 'Iniciar sesión con ',
+    'or_with_your_password' => 'o con su email y clave en ',
+    'password'              => 'Clave',
 	
 	'register'        => 'Tu registro',
 	'welcome_to_site' => 'Bienvenido al mayor sitio de aventuras de Pucón, donde podrá encontrar las mejores opciones y precios de las aventuras disponibles.',

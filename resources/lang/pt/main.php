@@ -1,9 +1,12 @@
 <?php
 
 return [
-	'login'       => 'Entrar',
-    'log_in_at'   => 'Para confirmar a reserva, inscreva-se em ',
-    'or_register' => ' ou se você já está cadastrado, faça o login com seu e-mail e senha.',
+	'login'                 => 'Entrar',
+    'log_in_at'             => 'Para confirmar a reserva, inscreva-se em ',
+    'or_register'           => ' ou se você já está cadastrado, faça o login com seu e-mail e senha.',
+    'login_with'            => 'Faça login com ',
+    'or_with_your_password' => 'ou com seu e-mail e senha em ',
+    'password'              => 'Senha',
 	
 	'register'        => 'Registrar',
 	'welcome_to_site' => 'Bem-vindo ao maior site de aventuras de Pucón, onde você poderá encontrar as melhores opções e preços das aventuras disponíveis.',

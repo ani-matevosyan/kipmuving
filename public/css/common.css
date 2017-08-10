@@ -3669,8 +3669,100 @@ body {
     background-position-x: 14px;
 }
 
+.login-content__text-between{
+    text-align: center;
+    position: relative;
+    font-size: 13px;
+    margin: 15px 0 14px;
+}
+
+.login-content__text-between:before{
+    content: '';
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    background-color: #e5e5e5;
+}
+
+.login-content__text-between-inside{
+    background-color: #fff;
+    padding: 0 15px;
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.blue-checkbox{
+    margin: 0;
+    cursor: pointer;
+}
+
+.blue-checkbox__input{
+    display: none;
+}
+
+.blue-checkbox__mark{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid #5b8dfc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.blue-checkbox__input:checked ~ .blue-checkbox__mark{
+    background-color: #5b8dfc;
+}
+
+.blue-checkbox__input:checked ~ .blue-checkbox__mark:before{
+    display: block;
+}
+
+.blue-checkbox__mark:before{
+    content: '';
+    position: absolute;
+    display: none;
+    width: 4px;
+    height: 7px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    left: 3px;
+    top: 1px;
+}
+
+.blue-checkbox__text{
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.login-form{
+    padding: 0 0 30px;
+}
+
 .login-form__group{
     margin-bottom: 10px;
+}
+
+.login-form__group_links{
+    margin: -6px 0 9px;
+}
+.login-form__group_links:after{
+    content: '';
+    display: table;
+    clear: both;
 }
 
 .login-form__label{
@@ -3689,11 +3781,35 @@ body {
     width: 100%;
 }
 
+.login-form__register-link{
+    float: right;
+    margin-top: 2px;
+}
 
-/*TEMP */
+.green-link{
+    color: #089f02;
+}
+.green-link:hover{
+    color: #14cc0d;
+}
 
-.login-content{
-    padding-left: 0;
+.orange-button{
+    display: inline-block;
+    background: #ebb414;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    padding: 10px 14px;
+}
+
+.orange-button_block{
+    display: block;
+    width: 100%;
 }
 
 /********** END Log in page *******************/
