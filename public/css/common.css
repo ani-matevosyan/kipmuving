@@ -3609,7 +3609,7 @@ body {
 /********** Log in page *******************/
 
 .login-page{
-    padding: 29px 0 0;
+    padding: 29px 0 50px;
 }
 
 .login-page__title{
@@ -3810,6 +3810,26 @@ body {
 .orange-button_block{
     display: block;
     width: 100%;
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px){
+    .login-page{
+        padding: 29px 0 50px 15px;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    .login-content{
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .login-form__label{
+        position: relative;
+        right: auto;
+        margin: 10px 0;
+    }
 }
 
 /********** END Log in page *******************/

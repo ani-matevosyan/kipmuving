@@ -49,57 +49,6 @@
 					</form>
 				</div>
 
-
-
-				{{--<form class="form-horizontal registration registration-login" method="POST" action="/login" accept-charset="UTF-8">--}}
-					{{--{{ csrf_field() }}--}}
-					{{--<fieldset>--}}
-						{{--<div class="form-group">--}}
-							{{--<div class="col-md-4">--}}
-								{{--<label class="control-label" for="email">--}}
-									{{--{{ trans('form.email') }}--}}
-								{{--</label>--}}
-							{{--</div>--}}
-							{{--<div class="col-md-8">--}}
-								{{--<div class="text-field">--}}
-									{{--<input class="form-control" tabindex="1" type="text" name="email" id="email" value="{{ old('email') }}">--}}
-								{{--</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="form-group">--}}
-							{{--<div class="col-md-4">--}}
-								{{--<label class="control-label" for="password">--}}
-									{{--{{ trans('form.password') }}--}}
-								{{--</label>--}}
-							{{--</div>--}}
-							{{--<div class="col-md-8">--}}
-								{{--<div class="text-field">--}}
-									{{--<input class="form-control" tabindex="2" type="password" name="password" id="password">--}}
-								{{--</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="form-group">--}}
-							{{--<div class="col-md-12">--}}
-								{{--<div class="checkbox">--}}
-									{{--<div class="rememberme">--}}
-										{{--<label for="remember">--}}
-											{{--<input type="checkbox" name="remember" id="remember" checked>&nbsp;&nbsp;--}}
-											{{--{{ trans('form.remember_me') }}--}}
-										{{--</label>--}}
-									{{--</div>--}}
-								{{--</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="form-group">--}}
-							{{--<div class="col-md-12">--}}
-								{{--<div class="confirmlogin">--}}
-									{{--<a href="{{ url('/register') }}">¿No tienes una cuenta?</a>--}}
-									{{--<button tabindex="3" type="submit" class="btn btn-primary">{{ trans('button-links.login') }}</button>--}}
-								{{--</div>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-					{{--</fieldset>--}}
-				{{--</form>--}}
 				@if($errors->has('email'))
 					<div class="alert alert-error alert-danger">
 						<strong>{{ $errors->first('email') }}</strong>
