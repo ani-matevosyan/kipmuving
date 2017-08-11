@@ -44,6 +44,15 @@
 		</div>
 	</section>
 	<main id="main">
+		{{--<section class="best-price-section">--}}
+			{{--<div class="container">--}}
+				{{--<header class="best-price-section__header">--}}
+					{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
+					{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
+				{{--</header>--}}
+				{{--<p class="best-price-section__summary">{{ trans('main.choose_dates_and_activities') }}</p>--}}
+			{{--</div>--}}
+		{{--</section>--}}
 		<section id="guia" class="s_guia">
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">

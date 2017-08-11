@@ -35,7 +35,11 @@ return [
 	'free'                              => 'Gratuito',
     'by_car'                            => 'Pelo carro',
     'google_map_path'                   => 'Google Maps cabelo Caminho',
-	
+
+    'the_best_price'              => 'Receba o melhor preço',
+    'you_have_preference'         => 'Você tem a preferência',
+    'choose_dates_and_activities' => 'Escolha datas e atividades. As agências enviar-lhe-ão ofertas e você pode decidir qual melhor agência você gosta da relação preço / qualidade.',
+
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',
 	'has_an_agreement'                      => 'Temos um acordo com as agencias locais e por isso temos',

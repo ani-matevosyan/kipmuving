@@ -35,6 +35,10 @@ return [
 	'free'                              => 'Free',
     'by_car'                            => 'By car',
     'google_map_path'                   => 'Google Maps path',
+
+    'the_best_price'              => 'Receive the best price',
+    'you_have_preference'         => 'You have the preference',
+    'choose_dates_and_activities' => 'Choose dates and activities. Agencies will send you offers and you can decide which best agency you like the price / quality ratio.',
 	
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',

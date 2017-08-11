@@ -35,6 +35,10 @@ return [
 	'free'                              => 'Gratis',
     'by_car'                            => 'De auto',
     'google_map_path'                   => 'Caminho pelo Google Maps',
+
+    'the_best_price'              => 'Reciba el mejor precio',
+    'you_have_preference'         => 'Tu tienes la preferencia',
+    'choose_dates_and_activities' => 'Elija las fechas y las actividades. Las agencias te enviarán ofertas y usted puede decidir la que mejor agencia te agrada relación precio/calidad.',
 	
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',
