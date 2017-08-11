@@ -36,7 +36,7 @@
 									</div>
 								</div>
 							</div>
-							<p class="form_under_p">Todas las actividades en un solo lugar</p>
+							<p class="form_under_p">{{ trans('main.activities_in_one_place') }}</p>
 						</form>
 					</div>
 				</div>
@@ -44,11 +44,6 @@
 		</div>
 	</section>
 	<main id="main">
-		<div class="line-box">
-			<div class="line-wrap">
-				<p>{{ trans('main.all_activities_in_single_place') }}</p>
-			</div>
-		</div>
 		<section id="guia" class="s_guia">
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">

@@ -14,15 +14,14 @@ return [
 	'compare_prices_between' => 'Compare prices between',
 	'agencies'               => 'agencies',
 	
-	'what_activities_search' => 'What adventure are you looking for?',
-	'in_all_activities'      => 'in all activities',
+	'what_activities_search'  => 'What adventure are you looking for?',
+	'in_all_activities'       => 'in all activities',
+    'activities_in_one_place' => 'All activities in one place',
 	
 	'program'        => 'Program',
 	'activities_for' => 'activities for',
 	'persons'        => 'Persons',
-	
-	'all_activities_in_single_place' => 'ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE',
-	
+
 	'bicycle'                           => 'Bicycle',
 	'bus'                               => 'Bus',
 	'car'                               => 'Car',

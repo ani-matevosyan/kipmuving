@@ -132,7 +132,7 @@
 .activity-form {
     width: 547px;
     float: right;
-    padding: 7px 17px 12px;
+    padding: 7px 17px 11px;
     background: rgba(53, 53, 53, 0.9);
 }
 
@@ -154,9 +154,9 @@
 }
 
 .activity-form .jcf-select {
-    border: 0;
-    height: 28px;
     border-radius: 4px;
+    height: auto;
+    border: 2px solid #A56C00;
 }
 
 @media (max-width: 991px){
@@ -168,7 +168,7 @@
 .activity-form .jcf-select .jcf-select-text {
     color: #000;
     font-size: 12px;
-    margin: 5px 20px 0 12px;
+    margin: 2px 11px;
 }
 
 .activity-form .jcf-select-opener{
@@ -176,13 +176,14 @@
 }
 
 .activity-form .form-control{
-    padding: 4px 0 5px 13px;
+    padding: 2px 11px;
+    height: auto;
 }
 
 .activity-form .title {
     color: #ffffff;
     display: block;
-    margin: 10px 0 9px;
+    margin: 4px 0 8px;
     font-size: 28px;
     line-height: 34px;
     text-align: center;
@@ -207,46 +208,33 @@
 }
 
 .activity-form .text-field {
-    margin: 0 0 6px;
+    margin: 0 0 8px;
     overflow: hidden;
-}
-
-.activity-form .text-field.has-ico {
     background: #fff;
     position: relative;
     border-radius: 4px;
     padding: 0 30px 0 0;
+    border: 2px solid #a56c00;
 }
 
+
 @media (max-width: 767px){
-    .activity-form .text-field.has-ico{
+    .activity-form .text-field{
         margin-left: -3px;
     }
 }
 
-.activity-form .text-field.has-ico:after {
+.activity-form .text-field:after {
     width: 18px;
     content: '';
     height: 18px;
     position: absolute;
     left: auto;
-    top: 5px;
+    top: 4px;
     right: 7px;
     bottom: auto;
     background: url(../images/sprite.png) no-repeat;
-}
-
-.activity-form .text-field.has-ico.calender:after {
-    top: 7px;
     background-position: 0 0;
-}
-
-.activity-form .text-field.has-ico.date:after {
-    background-position: 0 -19px;
-}
-
-.activity-form .text-field.has-ico.person:after {
-    background-position: 0 -42px;
 }
 
 .activity-form .holder {
@@ -301,14 +289,12 @@
 
 .activity-form .btn-primary {
     float: left;
-    padding-left: 13px;
-    padding-right: 13px;
-    background: #fff;
+    background: #E48A00;
     font-size: 14px;
     line-height: 18px;
-    width: 100%;
-    color: #F19300;
+    color: #fff;
     font-weight: 700;
+    padding: 4px 13px;
 }
 
 .form_under_p{
@@ -316,24 +302,7 @@
     color: #fff;
     font-family: 'PT-Sans', sans-serif;
     text-align: center;
-    font-size: 14px;
-}
-
-.line-box {
-    width: 100%;
-    color: #466464;
-    padding: 10px 0;
-    overflow: hidden;
-    background: #133939;
-}
-
-.line-box .line-wrap {
-    float: left;
-    width: 99999px;
-}
-
-.line-box p {
-    margin: 0 5px 0 0;
+    font-size: 17px;
 }
 
 .s_guia {
