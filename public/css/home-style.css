@@ -136,9 +136,8 @@
 }
 
 .activity-form {
-    width: 547px;
     float: right;
-    padding: 7px 17px 11px;
+    padding: 16px 17px 23px;
     background: rgba(53, 53, 53, 0.9);
 }
 
@@ -163,6 +162,10 @@
     border-radius: 4px;
     height: auto;
     border: 2px solid #A56C00;
+    width: 280px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
 }
 
 @media (max-width: 991px){
@@ -173,8 +176,8 @@
 
 .activity-form .jcf-select .jcf-select-text {
     color: #000;
-    font-size: 12px;
-    margin: 2px 11px;
+    font-size: 15px;
+    margin: 4px 11px;
 }
 
 .activity-form .jcf-select-opener{
@@ -182,8 +185,10 @@
 }
 
 .activity-form .form-control{
-    padding: 2px 11px;
+    padding: 4px 11px;
     height: auto;
+    font-size: 15px;
+    width: 120px;
 }
 
 .activity-form .title {
@@ -192,10 +197,9 @@
     margin: 4px 0 8px;
     font-size: 28px;
     line-height: 34px;
-    text-align: center;
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;
-    }
+}
 
 @media (max-width: 991px) {
     .activity-form .title {
@@ -214,13 +218,14 @@
 }
 
 .activity-form .text-field {
-    margin: 0 0 8px;
+    margin-right: 10px;
     overflow: hidden;
     background: #fff;
     position: relative;
     border-radius: 4px;
-    padding: 0 30px 0 0;
     border: 2px solid #a56c00;
+    display: inline-block;
+    vertical-align: top;
 }
 
 
@@ -230,21 +235,9 @@
     }
 }
 
-.activity-form .text-field:after {
-    width: 18px;
-    content: '';
-    height: 18px;
-    position: absolute;
-    left: auto;
-    top: 4px;
-    right: 7px;
-    bottom: auto;
-    background: url(../images/sprite.png) no-repeat;
-    background-position: 0 0;
-}
-
 .activity-form .holder {
     overflow: hidden;
+    font-size: 0;
 }
 
 .activity-form .col {
@@ -294,21 +287,13 @@
 }
 
 .activity-form .btn-primary {
-    float: left;
     background: #E48A00;
     font-size: 14px;
     line-height: 18px;
     color: #fff;
     font-weight: 700;
-    padding: 4px 13px;
-}
-
-.form_under_p{
-    margin: 0;
-    color: #fff;
-    font-family: 'PT-Sans', sans-serif;
-    text-align: center;
-    font-size: 17px;
+    padding: 6px 13px;
+    vertical-align: top;
 }
 
 .s_guia {
@@ -550,4 +535,44 @@
     .s_viagem p {
         font-size: 14px;
     }
+}
+
+.best-price-section{
+    background: #F2F2F2;
+}
+
+.best-price-section__header{
+    color: #0081CC;
+    text-align: center;
+    margin: 28px 0 10px;
+}
+
+.best-price-section__header-wrapper{
+    display: inline-block;
+    background-image: url('../images/sale.png');
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+    padding-left: 101px;
+}
+
+.best-price-section__title{
+    font-size: 57px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.best-price-section__title-description{
+    font-size: 32px;
+    margin: 0;
+    line-height: 1;
+}
+
+.best-price-section__summary{
+    color: #535353;
+    font-size: 24px;
+    color: #535353;
+    font-size: 24px;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
 }

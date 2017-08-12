@@ -12,31 +12,22 @@
 							{{ csrf_field() }}
 							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
 							<div class="holder">
-								<div class="col">
-									<select class="form-control" id="activity_id" name="activity_id">
-										@foreach ($activitiesList as $item)
-											<option value="{{ $item->id }}">{{ $item->name }}</option>
-										@endforeach
-									</select>
+								<select class="form-control" id="activity_id" name="activity_id">
+									@foreach ($activitiesList as $item)
+										<option value="{{ $item->id }}">{{ $item->name }}</option>
+									@endforeach
+								</select>
+								<div class="text-field">
+									<input id="activity_date"
+												 type="text"
+												 name="activity_date"
+												 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+												 placeholder="{{ trans('form.date') }}"
+												 class="form-control"
+												 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
 								</div>
-								<div class="col col-second">
-									<div class="sub-col">
-										<div class="text-field has-ico calender">
-											<input id="activity_date"
-														 type="text"
-														 name="activity_date"
-														 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-														 placeholder="{{ trans('form.date') }}"
-														 class="form-control"
-														 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-										</div>
-									</div>
-									<div class="sub-col sub-col-second">
-										<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
-									</div>
-								</div>
+								<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
 							</div>
-							<p class="form_under_p">{{ trans('main.activities_in_one_place') }}</p>
 						</form>
 					</div>
 				</div>
@@ -47,10 +38,48 @@
 		{{--<section class="best-price-section">--}}
 			{{--<div class="container">--}}
 				{{--<header class="best-price-section__header">--}}
-					{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
-					{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
+					{{--<div class="best-price-section__header-wrapper">--}}
+						{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
+						{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
+					{{--</div>--}}
 				{{--</header>--}}
-				{{--<p class="best-price-section__summary">{{ trans('main.choose_dates_and_activities') }}</p>--}}
+				{{--<p class="best-price-section__summary">--}}
+					{{--<strong>{{ trans('main.choose_dates_and_activities') }}</strong>--}}
+					{{--{{ trans('main.agencies_will_send') }}--}}
+					{{--<strong>{{ trans('main.offers') }}</strong>--}}
+					{{--{{ trans('main.and_you_can') }}--}}
+					{{--<strong>{{ trans('main.price&quality') }}</strong>.--}}
+				{{--</p>--}}
+				{{--<ul class="steps-list">--}}
+					{{--<li class="steps-list__item">--}}
+						{{--<figure class="steps-list__figure">--}}
+							{{--<img src="{{ asset('/images/mountains.svg') }}" alt="Mountains icon" class="steps-list__icon">--}}
+							{{--<figcaption class="steps-list__figcaption">1</figcaption>--}}
+						{{--</figure>--}}
+						{{--<p class="steps-list__name">{{ trans('main.choose_the') }}<strong>{{ trans('main.activities') }}</strong></p>--}}
+					{{--</li>--}}
+					{{--<li class="steps-list__item">--}}
+						{{--<figure class="steps-list__figure">--}}
+							{{--<img src="{{ asset('/images/percentage-discount.svg') }}" alt="Percent icon" class="steps-list__icon">--}}
+							{{--<figcaption class="steps-list__figcaption">2</figcaption>--}}
+						{{--</figure>--}}
+						{{--<p class="steps-list__name">{{ trans('main.receive_the') }}<strong>{{ trans('main.offers') }}</strong></p>--}}
+					{{--</li>--}}
+					{{--<li class="steps-list__item">--}}
+						{{--<figure class="steps-list__figure">--}}
+							{{--<img src="{{ asset('/images/point-at.svg') }}" alt="Point at icon" class="steps-list__icon">--}}
+							{{--<figcaption class="steps-list__figcaption">3</figcaption>--}}
+						{{--</figure>--}}
+						{{--<p class="steps-list__name">{{ trans('main.decide_the') }}<strong>{{ trans('main.best') }}</strong></p>--}}
+					{{--</li>--}}
+					{{--<li class="steps-list__item">--}}
+						{{--<figure class="steps-list__figure">--}}
+							{{--<img src="{{ asset('/images/cup.svg') }}" alt="Cup icon" class="steps-list__icon">--}}
+							{{--<figcaption class="steps-list__figcaption">4</figcaption>--}}
+						{{--</figure>--}}
+						{{--<p class="steps-list__name">{{ trans('main.you_are_the') }}<strong>{{ trans('main.winner') }}</strong></p>--}}
+					{{--</li>--}}
+				{{--</ul>--}}
 			{{--</div>--}}
 		{{--</section>--}}
 		<section id="guia" class="s_guia">
