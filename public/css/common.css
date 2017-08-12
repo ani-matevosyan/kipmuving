@@ -321,13 +321,17 @@ body {
 
 .main_header .btn-holder {
     float: left;
-    padding: 11px 0;
+    padding: 21px 0;
     position: relative;
+}
+
+.main_header .btn-holder_withoutavatar{
+    padding: 23px 0;
 }
 
 .main_header .btn-holder .dropdown-menu{
     min-width: 100%;
-    background: #ce8902;
+    background: #E38A00;
     top: 90%;
 }
 
@@ -345,12 +349,12 @@ body {
 }
 
 .main_header .btn-primary.orange-btn{
-    background: #ce8902;
+    background: #E38A00;
     max-width: 90px;
 }
 
 .main_header .btn-primary.orange-btn:hover{
-    background: #f0b916;
+    background: #f7b046;
 }
 
 .main_header .avatar-wrapp{
@@ -372,7 +376,7 @@ body {
 
 .top_nav {
     text-align: center;
-    padding: 17px 0;
+    padding: 26px 0;
     overflow: hidden;
 }
 
@@ -390,7 +394,7 @@ body {
 }
 
 .top_nav ul li {
-    margin: 0 8% 0 0;
+    margin: 0 6% 0 0;
     display: inline-block;
     vertical-align: top;
 }
@@ -401,9 +405,9 @@ body {
 
 .top_nav ul a {
     color: #fff;
-    font-size: 17px;
+    font-size: 18px;
     font-family: "PT-Sans", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .top_nav ul a:hover {
@@ -556,7 +560,7 @@ body {
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
     float: left;
-    margin: 20px 0 0 10px;
+    margin: 29px 0 0 10px;
     display: none;
 }
 
@@ -576,7 +580,7 @@ body {
     height: 20px;
     cursor: pointer;
     right: 15px;
-    top: 17px;
+    top: 27px;
     display: none;
 }
 
@@ -627,46 +631,24 @@ body {
 
 /*--------------END BURGER MENU------------*/
 
-.logo-wrapper{
+.logo{
     position: relative;
-    padding: 12px 20px 12px 11px;
-    margin: 0 -11px;
-    background: #072334;
+    padding: 14px 0;
     display: inline-block;
     vertical-align: top;
-}
-.logo-wrapper:before,
-.logo-wrapper:after{
-    content: '';
+    width: 171px;
 }
 
-.logo-wrapper:before{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    right: 100%;
-    width: 99999px;
-    background: #072334;
-    z-index: -1;
-}
-
-.logo-wrapper:after{
-    clear: both;
-    display: table;
+.logo img {
+    width: 100%;
 }
 
 @media screen and (max-width: 540px){
-    .logo-wrapper{
+    .logo{
         padding: 21px 20px;
     }
 }
 
-
-.logo {
-    width: 122px;
-    float: left;
-    margin: 0;
-}
 
 .main_header {
     z-index: 500;
@@ -674,22 +656,29 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #003857;
-    -webkit-box-shadow: 0 1px 7px 0 #0c4767;
-    box-shadow: 0 1px 7px 0 #0c4767;
+    background: #353535;
 }
 
-
-
-.logo img {
-    width: 100%;
+.main_header:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 225px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00ffffff',GradientType=0 );
+    pointer-events: none;
+    z-index: -1;
 }
 
 .main_header .btn-primary {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 6px 12px;
+    padding: 5px 15px;
     color: #fff;
     background: #46350d;
     text-transform: uppercase;
@@ -705,7 +694,7 @@ body {
 .main_header .country {
     position: relative;
     float: left;
-    margin: 16px 28px 0 0;
+    margin: 27px 28px;
 }
 
 
@@ -794,11 +783,6 @@ body {
 
 /*--------------RESPONSIVE PART---------------*/
 
-@media screen and (max-width: 1149px) and (min-width: 992px){
-    .logo{
-        margin-left: -25px;
-    }
-}
 
 @media(min-width: 992px){
     .top_nav{
@@ -911,6 +895,10 @@ body {
 
 @media screen and (max-width: 606px){
 
+    .main_header .btn-holder{
+        padding: 24px 0;
+    }
+
     .main_header .avatar-wrapp{
         display: none;
     }
@@ -918,9 +906,6 @@ body {
 }
 
 @media screen and (max-width: 540px){
-    .logo{
-        float: none;
-    }
 
     .location-dropdown{
         float: none;
@@ -3609,7 +3594,7 @@ body {
 /********** Log in page *******************/
 
 .login-page{
-    padding: 29px 0 0;
+    padding: 29px 0 50px;
 }
 
 .login-page__title{
@@ -3669,8 +3654,100 @@ body {
     background-position-x: 14px;
 }
 
+.login-content__text-between{
+    text-align: center;
+    position: relative;
+    font-size: 13px;
+    margin: 15px 0 14px;
+}
+
+.login-content__text-between:before{
+    content: '';
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    background-color: #e5e5e5;
+}
+
+.login-content__text-between-inside{
+    background-color: #fff;
+    padding: 0 15px;
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.blue-checkbox{
+    margin: 0;
+    cursor: pointer;
+}
+
+.blue-checkbox__input{
+    display: none;
+}
+
+.blue-checkbox__mark{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid #5b8dfc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.blue-checkbox__input:checked ~ .blue-checkbox__mark{
+    background-color: #5b8dfc;
+}
+
+.blue-checkbox__input:checked ~ .blue-checkbox__mark:before{
+    display: block;
+}
+
+.blue-checkbox__mark:before{
+    content: '';
+    position: absolute;
+    display: none;
+    width: 4px;
+    height: 7px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    left: 3px;
+    top: 1px;
+}
+
+.blue-checkbox__text{
+    font-size: 13px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.login-form{
+    padding: 0 0 30px;
+}
+
 .login-form__group{
     margin-bottom: 10px;
+}
+
+.login-form__group_links{
+    margin: -6px 0 9px;
+}
+.login-form__group_links:after{
+    content: '';
+    display: table;
+    clear: both;
 }
 
 .login-form__label{
@@ -3689,11 +3766,55 @@ body {
     width: 100%;
 }
 
+.login-form__register-link{
+    float: right;
+    margin-top: 2px;
+}
 
-/*TEMP */
+.green-link{
+    color: #089f02;
+}
+.green-link:hover{
+    color: #14cc0d;
+}
 
-.login-content{
-    padding-left: 0;
+.orange-button{
+    display: inline-block;
+    background: #ebb414;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    padding: 10px 14px;
+}
+
+.orange-button_block{
+    display: block;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px){
+    .login-page{
+        padding: 29px 0 50px 15px;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    .login-content{
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .login-form__label{
+        position: relative;
+        right: auto;
+        margin: 10px 0;
+    }
 }
 
 /********** END Log in page *******************/

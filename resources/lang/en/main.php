@@ -1,9 +1,12 @@
 <?php
 
 return [
-	'login'       => 'Log in',
-	'log_in_at'   => 'To confirm the reservation, please register at ',
-    'or_register' => ' or if you are already registered, log in with your email and password.',
+	'login'                 => 'Log in',
+	'log_in_at'             => 'To confirm the reservation, please register at ',
+    'or_register'           => ' or if you are already registered, log in with your email and password.',
+    'login_with'            => 'Login with ',
+    'or_with_your_password' => 'or with your email and password in ',
+    'password'              => 'Password',
 	
 	'register'        => 'Register',
 	'welcome_to_site' => 'Welcome to the largest adventure site in Pucon, where you can find the best options and prices of the adventures available.',
@@ -11,15 +14,14 @@ return [
 	'compare_prices_between' => 'Compare prices between',
 	'agencies'               => 'agencies',
 	
-	'what_activities_search' => 'What activities do you want to do?',
-	'in_all_activities'      => 'in all activities',
+	'what_activities_search'  => 'What adventure are you looking for?',
+	'in_all_activities'       => 'in all activities',
+    'activities_in_one_place' => 'All activities in one place',
 	
 	'program'        => 'Program',
 	'activities_for' => 'activities for',
 	'persons'        => 'Persons',
-	
-	'all_activities_in_single_place' => 'ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE ALL THE ACTIVITIES OF PUCÓN IN A SINGLE PLACE',
-	
+
 	'bicycle'                           => 'Bicycle',
 	'bus'                               => 'Bus',
 	'car'                               => 'Car',
@@ -62,6 +64,8 @@ return [
 	
 	'where_we_are' => 'Where we are',
 	'contact_us'   => 'Contact us',
+    'who_are_we'   => 'Who are we',
+    'contact'      => 'Contact',
 	
 	
 	'home'                                   => 'Home',
@@ -224,6 +228,7 @@ return [
 	'confirm_paypal'                         => 'Confirm PayPal',
 	
 	'my_account'                    => 'My account',
+    'log_out'                       => 'Log out',
 	'my_profile'                    => 'My profile',
 	'my_adventures'                 => 'My adventures',
 	'here_your_personal_info'       => 'Here are your personal information. You can update it at any time.',

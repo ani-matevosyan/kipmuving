@@ -5,9 +5,9 @@
 	@include('site.head.metatags')
 
 	@if(isset($title))
-		<title>KipMuving Turismo em Pucon: {{ $title }}</title>
+		<title>KeepMoving Turismo em Pucon: {{ $title }}</title>
 	@else
-		<title>KipMuving</title>
+		<title>KeepMoving</title>
 	@endif
 
 	@include('site.head.styles')
@@ -21,15 +21,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xs-6">
-					<div class="logo-wrapper">
-						<div class="logo">
-							<a href="{{ action('HomeController@index') }}">
-								<img src="{{ asset('/images/KipMuving-white.svg') }}"
-									 alt="image description"
-									 onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
-							</a>
-						</div>
-					</div>
+                    <div class="logo">
+                        <a href="{{ action('HomeController@index') }}">
+                            <img src="{{ asset('/images/KeepMoving.png') }}"
+                                 alt="image description"
+                                 onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
+                        </a>
+                    </div>
 				</div>
 				<div class="col-lg-3 col-lg-push-6 col-md-4 col-md-push-5 col-xs-6">
 					<div class="header-panel">
@@ -87,7 +85,7 @@
 									<li>
 										<a href="{{ url('/logout') }}" class="btn btn-primary orange-btn"
 										   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-										   title="SALIR">SALIR</a>
+										   title="{{ trans('main.log_out') }}">{{ trans('main.log_out') }}</a>
 										<form id="logout-form" action="{{ url('/logout') }}" method="POST"
 											  style="display: none;">
 											{{ csrf_field() }}
@@ -133,11 +131,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">
-					<strong class="title">KipMuving</strong>
+					<strong class="title">KeepMoving</strong>
 					<nav class="footer-nav">
 						<ul>
-							<li><a href="{{ action('AboutController@index') }}">Quien Somos</a></li>
-							<li><a href="#">Contacto</a></li>
+							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
+							<li><a href="#">{{ trans('main.contact') }}</a></li>
 						</ul>
 					</nav>
 				</div>

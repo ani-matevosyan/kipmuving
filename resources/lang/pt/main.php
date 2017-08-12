@@ -1,9 +1,12 @@
 <?php
 
 return [
-	'login'       => 'Entrar',
-    'log_in_at'   => 'Para confirmar a reserva, inscreva-se em ',
-    'or_register' => ' ou se você já está cadastrado, faça o login com seu e-mail e senha.',
+	'login'                 => 'Entrar',
+    'log_in_at'             => 'Para confirmar a reserva, inscreva-se em ',
+    'or_register'           => ' ou se você já está cadastrado, faça o login com seu e-mail e senha.',
+    'login_with'            => 'Faça login com ',
+    'or_with_your_password' => 'ou com seu e-mail e senha em ',
+    'password'              => 'Senha',
 	
 	'register'        => 'Registrar',
 	'welcome_to_site' => 'Bem-vindo ao maior site de aventuras de Pucón, onde você poderá encontrar as melhores opções e preços das aventuras disponíveis.',
@@ -11,15 +14,14 @@ return [
 	'compare_prices_between' => 'Comparar preços entre',
 	'agencies'               => 'agências',
 	
-	'what_activities_search' => 'Que atividades você quer fazer?',
-	'in_all_activities'      => 'em todas as atividades',
+	'what_activities_search'  => 'Que aventura você está procurando?',
+	'in_all_activities'       => 'em todas as atividades',
+    'activities_in_one_place' => 'Todas as atividades em um só lugar',
 	
 	'program'        => 'Seu programa',
 	'activities_for' => 'atividades para',
 	'persons'        => 'Pessoas',
-	
-	'all_activities_in_single_place' => 'TODAS AS ATIVIDADES DE PUCÓN EM UM SÓ LUGAR TODAS AS ATIVIDADES DE PUCÓN EM UM SÓ LUGAR TODAS AS ATIVIDADES DE PUCÓN EM UM SÓ LUGAR TODAS AS ATIVIDADES DE PUCÓN EN UM SÓ LUGAR',
-	
+
 	'bicycle'                           => 'Bicicleta',
 	'bus'                               => 'Ônibus',
 	'car'                               => 'Carro',
@@ -62,6 +64,8 @@ return [
 	
 	'where_we_are' => 'Onde Estamos',
 	'contact_us'   => 'Entre em contato conosco',
+    'who_are_we'   => 'Quem somos',
+    'contact'      => 'Contate-nos',
 	
 	
 	'home'                                   => 'Principal',
@@ -223,6 +227,7 @@ return [
 	'confirm_paypal'                         => 'Confirmar PayPal',
 	
 	'my_account'                    => 'Minha conta',
+    'log_out'                       => 'Salir',
 	'my_profile'                    => 'Meu Perfil',
 	'my_adventures'                 => 'Minhas Aventuras',
 	'here_your_personal_info'       => 'Aqui estão suas informações pessoais. Você pode atualizá-las a qualquer momento.',
