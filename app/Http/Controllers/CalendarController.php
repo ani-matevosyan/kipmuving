@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\GuideActivity;
+use App\FreeActivity;
 use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
@@ -34,7 +34,7 @@ class CalendarController extends Controller
   public function getData()
   {
     $selectedOffers = session('selectedOffers');
-    $guideActivities = session('guideActivities');
+    $freeActivities = session('freeActivities');
 
     if (count($selectedOffers) <= 0)
       abort(404);
@@ -73,12 +73,12 @@ class CalendarController extends Controller
 
     $counter = count($results);
 
-    if (count($guideActivities) > 0) {
-      foreach ($guideActivities as $key => $guideActivity) {
-        $activity = GuideActivity::find($guideActivity['id']);
+    if (count($freeActivities) > 0) {
+      foreach ($freeActivities as $key => $freeActivity) {
+        $activity = FreeActivity::find($freeActivity['id']);
 
-        $start = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'] . ' ' . $guideActivity['hours_from'] . ':00')->toDateTimeString();
-        $end = Carbon::createFromFormat('d/m/Y H:i:s', $guideActivity['date'] . ' ' . $guideActivity['hours_to'] . ':00')->toDateTimeString();
+        $start = Carbon::createFromFormat('d/m/Y H:i:s', $freeActivity['date'] . ' ' . $freeActivity['hours_from'] . ':00')->toDateTimeString();
+        $end = Carbon::createFromFormat('d/m/Y H:i:s', $freeActivity['date'] . ' ' . $freeActivity['hours_to'] . ':00')->toDateTimeString();
 
         $results[] = [
           'id' => $counter++,
@@ -87,12 +87,12 @@ class CalendarController extends Controller
           'borderColor' => '#FF8040',
           'durationEditable' => false,
           'guide_activity_id' => $activity->id,
-          'date' => $guideActivity['date'],
+          'date' => $freeActivity['date'],
           'start' => $start,
           'end' => $end,
-          'start_time' => Carbon::parse($guideActivity['hours_from'])->format('H:i'),
-          'end_time' => Carbon::parse($guideActivity['hours_to'])->format('H:i'),
-          'hours' => $guideActivity['hours_to'] - $guideActivity['hours_from'],
+          'start_time' => Carbon::parse($freeActivity['hours_from'])->format('H:i'),
+          'end_time' => Carbon::parse($freeActivity['hours_to'])->format('H:i'),
+          'hours' => $freeActivity['hours_to'] - $freeActivity['hours_from'],
           'bus_est_expenditure' => $activity->bus_est_expenditure,
           'bus_est_service' => $activity->bus_est_service,
           'title' => $activity->name,
@@ -106,7 +106,7 @@ class CalendarController extends Controller
   public function getProcess(Request $request)
   {
     $offers = session('selectedOffers');
-    $guide_activities = session('guideActivities');
+    $freeActivities = session('freeActivities');
 
     $action = $request['dir'];
     $oid = $request['oid'];
@@ -120,15 +120,15 @@ class CalendarController extends Controller
     } else {
       $oid = $oid - count($offers);
       if ($action == 'prev')
-        $guide_activities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $guide_activities[$oid]['date'])->subDay()->format('d/m/Y');
+        $freeActivities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $freeActivities[$oid]['date'])->subDay()->format('d/m/Y');
       elseif ($action == 'next')
-        $guide_activities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $guide_activities[$oid]['date'])->addDay()->format('d/m/Y');
-      session()->put('guideActivities', $guide_activities);
+        $freeActivities[$oid]['date'] = Carbon::createFromFormat('d/m/Y', $freeActivities[$oid]['date'])->addDay()->format('d/m/Y');
+      session()->put('freeActivities', $freeActivities);
     }
 
     $data = [
       'selectedOffers' => $offers,
-      'guideActivities' => $guide_activities
+      'freeActivities' => $freeActivities
     ];
 
     return response()->json($data);
@@ -137,7 +137,7 @@ class CalendarController extends Controller
   public function generateICS()
   {
     $offers = session('selectedOffers');
-    $free_activities = session('guideActivities');
+    $free_activities = session('freeActivities');
 
     if (count($offers) < 1 && count($free_activities) < 1)
       return redirect()->route('activities');
@@ -157,7 +157,7 @@ class CalendarController extends Controller
     }
 
     foreach ($free_activities as $free_activity) {
-      $activity = GuideActivity::find($free_activity['id']);
+      $activity = FreeActivity::find($free_activity['id']);
 
       $calendar->add(
         Carbon::createFromFormat('d/m/Y H:i', $free_activity['date'] . ' ' . $free_activity['hours_from']),

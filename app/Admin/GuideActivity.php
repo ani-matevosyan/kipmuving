@@ -2,9 +2,9 @@
 
 use Illuminate\Pagination\PaginationServiceProvider;
 use SleepingOwl\Admin\Model\ModelConfiguration;
-use App\GuideActivity;
+use App\FreeActivity;
 
-AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $model) {
+AdminSection::registerModel(FreeActivity::class, function (ModelConfiguration $model) {
 
 //	$model->enableAccessCheck();
 	
@@ -34,7 +34,7 @@ AdminSection::registerModel(GuideActivity::class, function (ModelConfiguration $
 	
 	$model->onEdit(function ($id) {
 		
-		$activity = GuideActivity::find($id);
+		$activity = FreeActivity::find($id);
 		
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		

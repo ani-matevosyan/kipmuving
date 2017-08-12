@@ -5,10 +5,10 @@ namespace App;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class GuideActivity extends Model
+class FreeActivity extends Model
 {
 	use Translatable;
-	public $translationModel = 'App\GuideActivityTranslation';
+	public $translationModel = 'App\FreeActivityTranslation';
 	public $translatedAttributes = [
 		'name',
 		'short_description',
@@ -16,7 +16,7 @@ class GuideActivity extends Model
 		'bus_description',
 		'bicycle_description',
 	];
-	protected $table = 'guide_activities';
+	protected $table = 'free_activities';
 	public $timestamps = false;
 	
 	private function dataToArray($data)

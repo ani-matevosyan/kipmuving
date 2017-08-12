@@ -27,7 +27,7 @@ class ActivityController extends Controller
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
 			'count'      => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
+				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total'   => $offer->getSelectedOffersTotal()
 			]
@@ -77,7 +77,7 @@ class ActivityController extends Controller
 				'selected' => $_offer->getSelectedOffers()
 			],
 			'count'          => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
+				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
 				'persons' => $_offer->getSelectedOffersPersons(),
 				'total'   => $_offer->getSelectedOffersTotal()
 			],

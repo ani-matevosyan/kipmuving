@@ -23,7 +23,7 @@ class AgencyController extends Controller
 			'imageIndex' => $imageIndex,
 			'agencies'   => Agency::where('region', '=', $region)->get(),
 			'count'      => [
-				'offers'  => count(session('selectedOffers')) + count(session('guideActivities')),
+				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total' => $offer->getSelectedOffersTotal()
 			]

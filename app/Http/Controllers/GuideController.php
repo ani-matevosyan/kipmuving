@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\GuideActivity;
 use App\GuideComment;
-use App\Mappoint;
-use App\Offer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 class GuideController extends Controller
 {

@@ -66,7 +66,7 @@ return [
 		'title' => "Guide activities",
 		'priority' => 5,
 		'icon'  => 'fa fa-map-marker',
-		'model' => \App\GuideActivity::class
+		'model' => \App\FreeActivity::class
 	],
 	[
 		'title' => "Users",

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\GuideActivity;
-use App\Mappoint;
+use App\FreeActivity;
 use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +20,7 @@ class FreePagesController extends Controller
       'styles' => config('resources.free.walking.styles'),
       'scripts' => config('resources.free.walking.scripts'),
       'count' => [
-        'offers' => count(session('selectedOffers')) + count(session('guideActivities')),
+        'offers' => count(session('selectedOffers')) + count(session('freeActivities')),
         'persons' => $offer->getSelectedOffersPersons(),
         'total' => $offer->getSelectedOffersTotal()
       ]
@@ -86,14 +85,14 @@ class FreePagesController extends Controller
   {
     $region = session('cities.current') ? session('cities.current') : 'pucon';
 
-    $activities = GuideActivity::where('region', '=', $region)->get();
+    $activities = FreeActivity::where('region', '=', $region)->get();
 
     return $activities;
   }
 
   public function addActivity(Request $request)
   {
-    $activities = session('guideActivities');
+    $activities = session('freeActivities');
     $activities[] = [
       'id' => $request['id'],
       'date' => $request['date'],
@@ -101,6 +100,6 @@ class FreePagesController extends Controller
       'hours_to' => $request['hours_to']
     ];
 
-    session()->put('guideActivities', $activities);
+    session()->put('freeActivities', $activities);
   }
 }
