@@ -38,12 +38,12 @@ return [
 	'facebook' => [
 		'client_id'     => '122774041679508',
 		'client_secret' => '4194b31a6fd8d3f7aac85d27c6949aa4',
-		'redirect'      => 'http://kipmuving.lo/auth/facebook/callback',
+		'redirect'      => 'http://keepmoving.co/auth/facebook/callback',
 	],
 	'google' => [
 		'client_id'     => '113785953117-3fsr35g2v0c9e3kqelokdbktc8m3itv1.apps.googleusercontent.com',
 		'client_secret' => 'O0Vf_475x5MFGVnRNeNX53sb',
-		'redirect'      => 'http://kipmuving.com/auth/gplus/callback',
+		'redirect'      => 'http://keepmoving.co/auth/gplus/callback',
 	]
 
 ];

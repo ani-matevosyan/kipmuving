@@ -90,13 +90,13 @@ class ReservationController extends Controller
 	{
 		#Send email about reservation to user
 		Mail::send('emails.reservar.user', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user) {
-			$message->from('contacto@kipmuving.com', 'Kipmuving team');
+			$message->from('contacto@keepmoving.co', 'Kipmuving team');
 			$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('Your Kipmuving.com reservations');
 		});
 		
 		#Send email about reservation to admin
 		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
-			$message->from('contacto@kipmuving.com', 'Kipmuving team');
+			$message->from('contacto@keepmoving.co', 'Kipmuving team');
 			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Kipmuving.com reservations');
 		});
 
@@ -110,7 +110,7 @@ class ReservationController extends Controller
 				'user'         => $user,
 				'total'        => $item->sum('reservation.total')
 			], function ($message) use ($agency_email) {
-				$message->from('contacto@kipmuving.com', 'Kipmuving team');
+				$message->from('contacto@keepmoving.co', 'Kipmuving team');
 				$message->to($agency_email)->subject('Kipmuving.com reservation');
 			});
 		}
@@ -272,13 +272,13 @@ class ReservationController extends Controller
 							$reservation->save();
 							
 							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
-								$message->from('contacto@kipmuving.com', 'Kipmuving team');
+								$message->from('contacto@keepmoving.co', 'Kipmuving team');
 //							$user->email
 								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Kipmuving.com');
 							});
 							
 							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
-								$message->from('contacto@kipmuving.com', 'Kipmuving team');
+								$message->from('contacto@keepmoving.co', 'Kipmuving team');
 //							$reservation_data->offers[0]->agency->email
 								$message->to($reservation_data->offers[0]->agency->email)->subject('Kipmuving.com canceled reservation');
 							});
