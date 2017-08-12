@@ -38,19 +38,8 @@ class HomeController extends Controller
 		
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
-			'styles'         => [
-				'css/jquery-ui.min.css',
-				'libs/product-tour/product-tour.min.css',
-                'css/jcf.custom.min.css',
-				'css/home-style.min.css'
-			],
-			'scripts'        => [
-				'js/product.tour.min.js',
-				'libs/product-tour/product-tour.min.js',
-                'libs/jcf/js/jcf.js',
-                'libs/jcf/js/jcf.select.js',
-				'js/chosen.jquery.min.js',
-			],
+			'styles'         => config('resources.home.styles'),
+			'scripts'        => config('resources.home.scripts'),
 			'imageIndex'     => $imageIndex,
 			'activities'     => $activity->getHomePageActivities(),
 			'activitiesList' => $activity->getActivitiesList()

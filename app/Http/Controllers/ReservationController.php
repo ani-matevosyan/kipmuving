@@ -208,18 +208,8 @@ class ReservationController extends Controller
 		$reservations = $this->getReservationData($selected_offers);
 		
 		$data = [
-			'styles' => [
-			    'libs/product-tour/product-tour.min.css',
-                'css/offer-items.min.css',
-                'css/reservation-style.min.css',
-                'css/reservation-sidebar.min.css'
-			],
-			'scripts' => [
-				'js/product.tour.min.js',
-				'libs/product-tour/product-tour.min.js',
-				'js/chosen.jquery.min.js',
-                'js/fixed-sidebar.min.js'
-			],
+			'styles' => config('resources.reservation.styles'),
+			'scripts' => config('resources.reservation.scripts'),
 			'user'        => $user,
 			'reservation' => $reservations
 		];

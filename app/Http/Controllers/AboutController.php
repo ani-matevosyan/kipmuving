@@ -7,15 +7,13 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function index()
-    {
-        $data = [
-            'styles' => [
-                'css/about-style.min.css'
-            ]
-        ];
+  public function index()
+  {
+    $data = [
+      'styles' => config('resources.about.styles')
+    ];
 
-        return view('site.about.index', $data);
-    }
+    return view('site.about.index', $data);
+  }
 
 }

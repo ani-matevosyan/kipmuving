@@ -44,7 +44,7 @@ class OfferController extends Controller
 	public function remove(Request $request)
 	{
 		$offers = session('selectedOffers');
-		$guide_activities = session('guideActivities');
+		$freeActivities = session('freeActivities');
 		$oid = $request['oid'];
 		
 		if ($oid < count($offers)) {
@@ -52,8 +52,8 @@ class OfferController extends Controller
 			session()->put('selectedOffers', $offers);
 		} else {
 			$oid = $oid - count($offers);
-			array_splice($guide_activities, $oid, 1);
-			session()->put('guideActivities', $guide_activities);
+			array_splice($freeActivities, $oid, 1);
+			session()->put('freeActivities', $freeActivities);
 		}
 	}
 	
