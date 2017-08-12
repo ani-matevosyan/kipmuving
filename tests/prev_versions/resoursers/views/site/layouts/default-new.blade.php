@@ -99,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="mailto:contacto@kipmuving.com" class="email">contacto@kipmuving.com</a>
+                    <a href="mailto:contacto@keepmoving.co" class="email">contacto@keepmoving.co</a>
                 </div>
             </div>
         </div>

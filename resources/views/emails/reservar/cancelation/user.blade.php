@@ -241,7 +241,7 @@
 					<td id="footer" class="footer">
 						<p>
 							{{ trans('emails.any_questions') }}
-							<a href="mailto:contacto@kipmuving.com">contacto@kipmuving.com</a>
+							<a href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a>
 						</p>
 						<p>{{ trans('emails.with_regards') }}</p>
 						<p style="margin-bottom: 0">{{ trans('emails.kipmuving_team') }}</p>
