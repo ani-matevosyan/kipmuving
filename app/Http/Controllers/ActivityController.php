@@ -22,20 +22,8 @@ class ActivityController extends Controller
 		
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
-			'styles'     => [
-				'owl-carousel/owl.carousel.css',
-				'owl-carousel/owl.theme.css',
-				'libs/product-tour/product-tour.min.css',
-				'css/activities-style.min.css'
-			],
-			'scripts'    => [
-				'js/product.tour.min.js',
-				'libs/product-tour/product-tour.min.js',
-				'js/chosen.jquery.min.js',
-				'owl-carousel/owl.carousel.min.js',
-				'libs/jquery-ui/slider/jquery-ui.min.js',
-				'js/activities-scripts.min.js'
-			],
+			'styles'     => config('resources.activities.list.styles'),
+			'scripts'    => config('resources.activities.list.scripts'),
 			'imageIndex' => $imageIndex,
 			'activities' => $activity->getAllActivities(),
 			'count'      => [
@@ -81,29 +69,8 @@ class ActivityController extends Controller
 //		dd($activity->comments->where('answer', '<>', null)[0]->user);
 		
 		$data = [
-			'styles'         => [
-				'libs/product-tour/product-tour.min.css',
-				'css/jquery-ui.min.css',
-				'css/chosen/chosen.min.css',
-				'css/jcf.custom.min.css',
-				'css/prettyPhoto.min.css',
-				'css/instafeed/instafeed.min.css',
-				'css/offer-items.min.css',
-				'css/activity-style.min.css'
-			],
-			'scripts'        => [
-				'js/product.tour.min.js',
-				'libs/product-tour/product-tour.min.js',
-				'js/moment.js',
-				'libs/jcf/js/jcf.js',
-				'libs/jcf/js/jcf.select.js',
-				'js/chosen.jquery.min.js',
-				'js/instafeed/instafeed.min.js',
-				'js/instafeed/instafeed-settings.min.js',
-				'js/jquery.prettyPhoto.js', //Gallery and currency/language pop-up
-				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap',
-                'js/activity-scripts.min.js'
-			],
+			'styles'         => config('resources.activities.single.styles'),
+			'scripts'        => config('resources.activities.single.scripts'),
 			'activity'       => $activity,
 			'activitiesList' => $_activity->getActivitiesList(),
 			'offers'         => [

@@ -38,22 +38,8 @@ class AgencyController extends Controller
 		$_offer = new Offer();
 		
 		$data = [
-			'styles' => [
-				'css/jquery-ui.min.css',
-				'css/chosen/chosen.min.css',
-				'css/instafeed/instafeed.min.css',
-                'css/jcf.custom.min.css',
-                'css/offer-items.min.css',
-                'css/agency-style.min.css'
-			],
-			'scripts' => [
-				'js/chosen.jquery.min.js',
-				'js/instafeed/instafeed.min.js',
-				'js/instafeed/instafeed-settings.min.js',
-                'libs/jcf/js/jcf.js',
-                'libs/jcf/js/jcf.select.js',
-				'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap'
-			],
+			'styles' => config('resources.agencies.single.styles'),
+			'scripts' => config('resources.agencies.single.scripts'),
 			'agency' => $_agency->getAgency($id),
 //			'offers' => $_offer->getAgencyOffers($id)
 		];
