@@ -43,43 +43,45 @@
 						{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
 					{{--</div>--}}
 				{{--</header>--}}
-				{{--<p class="best-price-section__summary">--}}
-					{{--<strong>{{ trans('main.choose_dates_and_activities') }}</strong>--}}
-					{{--{{ trans('main.agencies_will_send') }}--}}
-					{{--<strong>{{ trans('main.offers') }}</strong>--}}
-					{{--{{ trans('main.and_you_can') }}--}}
-					{{--<strong>{{ trans('main.price&quality') }}</strong>.--}}
-				{{--</p>--}}
-				{{--<ul class="steps-list">--}}
-					{{--<li class="steps-list__item">--}}
-						{{--<figure class="steps-list__figure">--}}
-							{{--<img src="{{ asset('/images/mountains.svg') }}" alt="Mountains icon" class="steps-list__icon">--}}
-							{{--<figcaption class="steps-list__figcaption">1</figcaption>--}}
-						{{--</figure>--}}
-						{{--<p class="steps-list__name">{{ trans('main.choose_the') }}<strong>{{ trans('main.activities') }}</strong></p>--}}
-					{{--</li>--}}
-					{{--<li class="steps-list__item">--}}
-						{{--<figure class="steps-list__figure">--}}
-							{{--<img src="{{ asset('/images/percentage-discount.svg') }}" alt="Percent icon" class="steps-list__icon">--}}
-							{{--<figcaption class="steps-list__figcaption">2</figcaption>--}}
-						{{--</figure>--}}
-						{{--<p class="steps-list__name">{{ trans('main.receive_the') }}<strong>{{ trans('main.offers') }}</strong></p>--}}
-					{{--</li>--}}
-					{{--<li class="steps-list__item">--}}
-						{{--<figure class="steps-list__figure">--}}
-							{{--<img src="{{ asset('/images/point-at.svg') }}" alt="Point at icon" class="steps-list__icon">--}}
-							{{--<figcaption class="steps-list__figcaption">3</figcaption>--}}
-						{{--</figure>--}}
-						{{--<p class="steps-list__name">{{ trans('main.decide_the') }}<strong>{{ trans('main.best') }}</strong></p>--}}
-					{{--</li>--}}
-					{{--<li class="steps-list__item">--}}
-						{{--<figure class="steps-list__figure">--}}
-							{{--<img src="{{ asset('/images/cup.svg') }}" alt="Cup icon" class="steps-list__icon">--}}
-							{{--<figcaption class="steps-list__figcaption">4</figcaption>--}}
-						{{--</figure>--}}
-						{{--<p class="steps-list__name">{{ trans('main.you_are_the') }}<strong>{{ trans('main.winner') }}</strong></p>--}}
-					{{--</li>--}}
-				{{--</ul>--}}
+				{{--<div class="best-price-section__content">--}}
+					{{--<p class="best-price-section__summary">--}}
+						{{--<strong>{{ trans('main.choose_dates_and_activities') }}</strong>--}}
+						{{--{{ trans('main.agencies_will_send') }}--}}
+						{{--<strong>{{ trans('main.offers') }}</strong>--}}
+						{{--{{ trans('main.and_you_can') }}--}}
+						{{--<strong>{{ trans('main.price&quality') }}</strong>.--}}
+					{{--</p>--}}
+					{{--<ul class="steps-list">--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/mountains.svg') }}" alt="Mountains icon" style="width: 37px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">1</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.choose_the') }}<strong class="steps-list__bold-text">{{ trans('main.activities') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/percentage-discount.svg') }}" alt="Percent icon" style="width: 26px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">2</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.receive_the') }}<strong class="steps-list__bold-text">{{ trans('main.offers') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/point-at.svg') }}" alt="Point at icon" style="width: 33px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">3</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.decide_the') }}<strong class="steps-list__bold-text">{{ trans('main.best') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/cup.svg') }}" alt="Cup icon" style="width: 32px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">4</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.you_are_the') }}<strong class="steps-list__bold-text">{{ trans('main.winner') }}</strong></p>--}}
+						{{--</li>--}}
+					{{--</ul>--}}
+				{{--</div>--}}
 			{{--</div>--}}
 		{{--</section>--}}
 		<section id="guia" class="s_guia">
