@@ -232,5 +232,23 @@ return [
     'styles' => [
       'css/about-style.min.css'
     ]
+  ],
+
+  'login' => [
+    'styles' => [
+
+    ],
+    'scripts' => [
+
+    ]
+  ],
+
+  'register' => [
+    'styles' => [
+
+    ],
+    'scripts' => [
+
+    ]
   ]
 ];
