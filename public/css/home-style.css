@@ -299,6 +299,9 @@
 .s_guia {
     background: #ededed;
     padding: 53px 0 64px; }
+.s_guia h2{
+    margin: 0;
+}
 .s_guia span {
     font-family: "PT-Sans", sans-serif;
     font-weight: 700;}
@@ -330,12 +333,11 @@
     object-fit: contain;
 }
 .s_guia .section_title h2 span{
-    color: #000000;
+    color: #535353;
     text-align: center;
     margin: 0;
     line-height: 0.97em;
     text-transform: uppercase;
-    letter-spacing: 2px;
     font-weight: bold;
     display: block}
 .s_guia .section_title h2 .size1 {
@@ -537,6 +539,9 @@
     }
 }
 
+
+/**********Best price section*************/
+
 .best-price-section{
     background: #F2F2F2;
     padding-bottom: 38px;
@@ -612,6 +617,10 @@
     top: 26px;
 }
 
+.steps-list__item:last-child:after{
+    display: none;
+}
+
 .steps-list__figure{
     width: 82px;
     height: 82px;
@@ -655,3 +664,63 @@
 .steps-list__bold-text{
     display: block;
 }
+
+@media screen and (max-width: 767px){
+
+    .best-price-section__header-wrapper{
+        padding-left: 0;
+        background-image: none;
+    }
+
+    .best-price-section__title{
+        font-size: 44px;
+    }
+
+    .best-price-section__title-description{
+        font-size: 26px;
+    }
+
+    .best-price-section__summary{
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width: 580px){
+
+    .best-price-section{
+        padding-bottom: 0;
+    }
+
+    .best-price-section__title{
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .best-price-section__title-description{
+        font-size: 20px;
+    }
+
+    .best-price-section__summary{
+        font-size: 18px;
+    }
+
+    .steps-list__item{
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto 70px;
+    }
+
+    .steps-list__item:after{
+        top: auto;
+        bottom: -41px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        border-width: 0 3px 3px 0;
+    }
+
+}
+
+/**********END Best price section*************/
