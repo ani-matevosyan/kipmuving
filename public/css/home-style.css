@@ -429,45 +429,6 @@
     .s_guia .section_title h2 .size4 {
         font-size: 30px; } }
 
-.s_allactivities header{
-    text-align: center;
-    margin: 56px 0 18px;
-}
-
-.s_allactivities header h2{
-    font-size: 46px;
-    font-weight: 700;
-    color: #575757;
-    margin: 0;
-}
-
-.s_allactivities .all-activities .img-holder img{
-    height: 93px;
-    object-fit: cover;
-}
-
-.s_allactivities header p{
-    margin: 0;
-    color: #959595;
-    font-size: 20px;
-}
-
-.s_allactivities .caption{
-    padding: 0 17px;
-}
-
-.s_allactivities .btn-holder{
-    text-align: center;
-    padding: 34px 0 50px;
-}
-
-.s_allactivities .btn-holder .btn{
-    font-size: 14px;
-    font-weight: 700;
-    background: #003856;
-    padding: 12px 40px;
-}
-
 
 .s_viagem {
     padding: 56px 0 30px;

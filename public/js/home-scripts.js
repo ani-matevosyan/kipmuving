@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#most-visited-activities-slider").owlCarousel({
+    $("#most-visited-activities-slider, #some-activities-slider").owlCarousel({
         items: 1,
         autoplay: true,
         autoplayTimeout: 3000,
@@ -26,6 +26,6 @@ $(document).ready(function(){
             }
         }
     });
-    $('#most-visited-activities-slider').removeClass('csHidden');
+    $('#most-visited-activities-slider, some-activities-slider').removeClass('csHidden');
 
 });

@@ -48,6 +48,8 @@ return [
     'best'                        => 'best',
     'you_are_the'                 => 'You are the ',
     'winner'                      => 'winner',
+
+
 	
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',
@@ -67,6 +69,10 @@ return [
 	'activities_in_pucon'         => 'Activities in Pucón',
 	'first_choose_your_itinerary' => 'First choose your itinerary, what you would like to do, and see what results',
 	'from'                        => 'From',
+
+    'most_visited_in_pucon'    => 'Most visited in Pucón',
+    'below_are_activities'     => 'Below are the activities that stand out most in Pucón and those that most tourists do.',
+    'some_activities_in_pucon' => 'Some activities in Pucón',
 	
 	'more_than_activities'        => 'More than :activities activities',
 	'all_activities_in_one_place' => 'All activities together in one place',

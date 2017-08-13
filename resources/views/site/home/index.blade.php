@@ -87,8 +87,8 @@
 		<section class="activities-slider-section">
 			<div class="container">
 				<header class="activities-slider-section__header">
-					<h2 class="activities-slider-section__title">Lo más visitados en Pucón</h2>
-					<p class="activities-slider-section__sub-title">Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más hacen. </p>
+					<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
+					<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
 				</header>
 				<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
 					@foreach($activities->where('slider', true) as $activity)
@@ -163,41 +163,25 @@
 				</div>
 			</div>
 		</section>
-		<section class="s_allactivities">
-			<div class="container">
-
-				<header>
-					<h2>{{ trans('main.activities_in_pucon') }}</h2>
-					<p>{{ trans('main.first_choose_your_itinerary') }}</p>
-				</header>
-
-				<div class="all-activities">
-					<div class="row">
-						<?php $key = 0; ?>
-						@foreach($activitiesHome as $activity)
-							<div class="col-md-3 col-sm-6 col-xs-12 col">
-								@include('site.partials.activities.all-list-item-arr')
-							</div>
-							<?php ++$key?>
-							@if($key === 2)
-								<div class="clearfix visible-sm-block"></div>
-							@elseif($key===4)
-								<div class="clearfix visible-md-block"></div>
-								<div class="clearfix visible-lg-block"></div>
-								<div class="clearfix visible-sm-block"></div>
-							<?php $key = 0; ?>
-							@endif
-						@endforeach
-					</div>
-				</div>
-
-
-				<div class="btn-holder">
-					<a href="{{ action('ActivityController@index') }}"
-						 class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
-				</div>
-			</div>
-		</section>
+		{{--<section class="activities-slider-section">--}}
+			{{--<div class="container">--}}
+				{{--<header class="activities-slider-section__header">--}}
+					{{--<h2 class="activities-slider-section__title">{{ trans('main.some_activities_in_pucon') }}</h2>--}}
+					{{--<p class="activities-slider-section__sub-title">{{ trans('main.first_choose_your_itinerary') }}</p>--}}
+				{{--</header>--}}
+				{{--<div id="some-activities-slider" class="owl-carousel csHidden activities-slider">--}}
+					{{--@foreach($activities->where('slider', true) as $activity)--}}
+						{{--<div class="activities-slider__item">--}}
+							{{--<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">--}}
+								{{--<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>--}}
+								{{--<h3 class="activities-slider__name">{{ $activity->name }}</h3>--}}
+								{{--<p class="activities-slider__description">{{ $activity->short_description }}</p>--}}
+							{{--</a>--}}
+						{{--</div>--}}
+					{{--@endforeach--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</section>--}}
 		<section id="viagem" class="s_viagem">
 			<div class="container">
 				<div class="block-wrapper">

@@ -67,6 +67,10 @@ return [
 	'activities_in_pucon'         => 'Algunas actividades en Pucón',
 	'first_choose_your_itinerary' => 'Primero elige tu itinerario, lo que te gustaría hacer y mira lo que resulta',
 	'from'                        => 'Desde',
+
+    'most_visited_in_pucon'    => 'Lo más visitados en Pucón',
+    'below_are_activities'     => 'Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más hacen.',
+    'some_activities_in_pucon' => 'Algunas actividades de Pucón',
 	
 	'more_than_activities'        => 'Más de :activities actividades',
 	'all_activities_in_one_place' => 'Todas las atividades en un solo lugar',
