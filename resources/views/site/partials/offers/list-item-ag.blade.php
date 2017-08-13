@@ -89,7 +89,7 @@
 									{{--</small>--}}
 								{{--</del>--}}
 								{{--<br>--}}
-								<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub> {{ number_format($offer->price, 0, '.', '.') }}
+								<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> {{ number_format($offer->price, 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"
 								data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>

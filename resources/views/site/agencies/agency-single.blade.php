@@ -62,6 +62,7 @@
 								</section>
 							</div>
 							<div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
+								@include('site.offers.offers_quickinfo')
 								<div class="map-block">
 									<div id="map" style="width: 100%; height: 300px"></div>
 									<script type="text/javascript">
