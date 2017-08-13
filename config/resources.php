@@ -167,7 +167,8 @@ return [
         'js/instafeed/instafeed-settings.min.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap'
+        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap',
+        'js/agency-scripts.min.js',
       ]
     ],
 
