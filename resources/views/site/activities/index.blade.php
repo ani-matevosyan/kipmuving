@@ -12,17 +12,15 @@
 					<h2>{{ trans('main.the_most_requested') }}</h2>
 					<p>{{ trans('main.below_are_the_activities') }}</p>
 				</header>
-				<div class="col-xs-12">
-					<div id="activities-slider" class="csHidden">
-						@foreach($activities->where('slider', true) as $activity)
-							<div class="item">
-								<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
-									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
-									<h3>{{ $activity->name }}</h3>
-								</a>
-							</div>
-						@endforeach
-					</div>
+				<div id="activities-slider" class="csHidden">
+					@foreach($activities->where('slider', true) as $activity)
+						<div class="item">
+							<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
+								<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
+								<h3>{{ $activity->name }}</h3>
+							</a>
+						</div>
+					@endforeach
 				</div>
 			</div>
 		</div>

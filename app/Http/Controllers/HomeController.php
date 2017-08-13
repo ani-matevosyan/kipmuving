@@ -41,7 +41,8 @@ class HomeController extends Controller
 			'styles'         => config('resources.home.styles'),
 			'scripts'        => config('resources.home.scripts'),
 			'imageIndex'     => $imageIndex,
-			'activities'     => $activity->getHomePageActivities(),
+			'activities'     => $activity->getAllActivities(),
+            'activitiesHome' => $activity->getHomePageActivities(),
 			'activitiesList' => $activity->getActivitiesList()
 		];
 		

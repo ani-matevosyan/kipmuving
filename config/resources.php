@@ -3,6 +3,7 @@
 return [
   'home' => [
     'styles' => [
+      'libs/owl-carousel/owl.carousel.min.css',
       'css/jquery-ui.min.css',
       'libs/product-tour/product-tour.min.css',
       'css/jcf.custom.min.css',
@@ -11,9 +12,11 @@ return [
     'scripts' => [
       'js/product.tour.min.js',
       'libs/product-tour/product-tour.min.js',
+      'libs/owl-carousel/owl.carousel.min.js',
       'libs/jcf/js/jcf.js',
       'libs/jcf/js/jcf.select.js',
       'js/chosen.jquery.min.js',
+      'js/home-scripts.min.js'
     ]
   ],
 
@@ -213,8 +216,8 @@ return [
 
     'list' => [
       'styles' => [
-        'owl-carousel/owl.carousel.css',
-        'owl-carousel/owl.theme.css',
+        'libs/owl-carousel(old)/owl.carousel.min.css',
+        'libs/owl-carousel(old)/owl.theme.min.css',
         'libs/product-tour/product-tour.min.css',
         'css/activities-style.min.css'
       ],
@@ -222,7 +225,7 @@ return [
         'js/product.tour.min.js',
         'libs/product-tour/product-tour.min.js',
         'js/chosen.jquery.min.js',
-        'owl-carousel/owl.carousel.min.js',
+        'libs/owl-carousel(old)/owl.carousel.min.js',
         'libs/jquery-ui/slider/jquery-ui.min.js',
         'js/activities-scripts.min.js'
       ]

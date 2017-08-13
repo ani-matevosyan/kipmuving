@@ -84,6 +84,25 @@
 				{{--</div>--}}
 			{{--</div>--}}
 		{{--</section>--}}
+		<section class="activities-slider-section">
+			<div class="container">
+				<header class="activities-slider-section__header">
+					<h2 class="activities-slider-section__title">Lo más visitados en Pucón</h2>
+					<p class="activities-slider-section__sub-title">Abajo están las actividades que más se destacan en Pucón y aquellas que los turistas más hacen. </p>
+				</header>
+				<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+					@foreach($activities->where('slider', true) as $activity)
+						<div class="activities-slider__item">
+							<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
+								<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+								<h3 class="activities-slider__name">{{ $activity->name }}</h3>
+								<p class="activities-slider__description">{{ $activity->short_description }}</p>
+							</a>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		</section>
 		<section id="guia" class="s_guia">
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">
@@ -155,7 +174,7 @@
 				<div class="all-activities">
 					<div class="row">
 						<?php $key = 0; ?>
-						@foreach($activities as $activity)
+						@foreach($activitiesHome as $activity)
 							<div class="col-md-3 col-sm-6 col-xs-12 col">
 								@include('site.partials.activities.all-list-item-arr')
 							</div>
