@@ -14,38 +14,14 @@
 				</header>
 				<div class="col-xs-12">
 					<div id="activities-slider" class="csHidden">
-						<div class="item">
-							<a href="/activity/10">
-								<img src="{{ asset('/uploads/activity/_nAqlH-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Termas Geométricas"/>
-								<h3>Termas Geométricas</h3>
-							</a>
-						</div>
-						<div class="item">
-							<a href="/activity/3">
-								<img src="{{ asset('/uploads/activity/_GmaWx-VolcánVillarrica_mini.jpg') }}" onerror="this.src='/images/image-none.jpg';"
-								     alt="Trekking Volcán Villarrica"/>
-								<h3>Trekking Volcán Villarrica</h3>
-							</a>
-						</div>
-						<div class="item">
-							<a href="/activity/5">
-								<img src="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Alto"/>
-								<h3>Rafting Alto</h3>
-							</a>
-						</div>
-						<div class="item">
-							<a href="/activity/2">
-								<img src="{{ asset('/uploads/activity/_kpEoA-2.jpg') }}" onerror="this.src='/images/image-none.jpg';" alt="Rafting Bajo"/>
-								<h3>Rafting Bajo</h3>
-							</a>
-						</div>
-						<div class="item">
-							<a href="/activity/4">
-								<img src="{{ asset('/uploads/activity/_ERPJI-2.jpg') }}" onerror="this.src='/images/image-none.jpg';"
-								     alt="Tour por la zona + Termas"/>
-								<h3>Tour por la zona + Termas</h3>
-							</a>
-						</div>
+						@foreach($activities->where('slider', true) as $activity)
+							<div class="item">
+								<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
+									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
+									<h3>{{ $activity->name }}</h3>
+								</a>
+							</div>
+						@endforeach
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 	<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
 		<img src="{{ asset($activity->image_thumb) }}"
 				 onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-				 alt="image description">
+				 alt="{{ $activity->name }}">
 	</a>
 </div>
 <div class="caption">
