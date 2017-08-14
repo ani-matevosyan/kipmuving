@@ -618,3 +618,32 @@
 }
 
 /*---------------END Filters---------------*/
+
+
+
+
+/*---------------Most visited activities section---------------*/
+
+.visited-activities-section{
+    background: #F2F2F2;
+    padding: 34px 0 0;
+}
+
+.visited-activities-section__header{
+    color: #535353;
+}
+
+.visited-activities-section__title{
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1;
+}
+
+.visited-activities-section__sub-title{
+    font-size: 15px;
+    margin: 0;
+    line-height: 1;
+}
+
+/*---------------END Most visited activities section---------------*/
