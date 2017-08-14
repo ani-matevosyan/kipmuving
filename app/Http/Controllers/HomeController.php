@@ -51,7 +51,6 @@ class HomeController extends Controller
 			'slider_activities' => Activity::where('region', '=', $region)
 				->where('slider', true)
 				->translatedIn(app()->getLocale())
-				->limit(8)
 				->inRandomOrder()
 				->get(),
 //			'activitiesHome' => $activity->getHomePageActivities(),
