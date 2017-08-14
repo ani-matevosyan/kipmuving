@@ -36,8 +36,8 @@ return [
 	],
 	
 	'facebook' => [
-		'client_id'     => '122774041679508',
-		'client_secret' => '4194b31a6fd8d3f7aac85d27c6949aa4',
+		'client_id'     => '109798136385162',
+		'client_secret' => '709e550d73545f40920a35f27cdcc319',
 		'redirect'      => 'http://keepmoving.co/auth/facebook/callback',
 	],
 	'google' => [

@@ -20,13 +20,12 @@ class FacebookController extends Controller
 	{
 		try {
 			$user = Socialite::driver('facebook')
-				->setHttpClient(new Client(['http_errors' => false]))
-//				->stateless()
+				->stateless()
 				->user();
 		} catch (Exception $exception) {
-			dd($exception);
-			return redirect()->to('/login')->with('error', 'Sorry, we can\'t login you with Facebook :(');
-		}
+      return redirect()->to('/login')->with('error', 'Sorry, we can\'t login you with Facebook :(');
+//      dd($exception);
+    }
 		
 		$auth_user = $this->findOrCreateUser($user);
 		
