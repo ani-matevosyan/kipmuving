@@ -43,7 +43,7 @@ class HomeController extends Controller
 			'styles'         => config('resources.home.styles'),
 			'scripts'        => config('resources.home.scripts'),
 			'imageIndex'     => $imageIndex,
-			'activities'     => Activity::where('slider', true)->where('region', '=', $region)->limit(8)->inRandomOrder()->get(),
+			'activities'     => Activity::where('region', '=', $region)->translatedIn(app()->getLocale())->limit(8)->inRandomOrder()->get(),
 //			'activitiesHome' => $activity->getHomePageActivities(),
 			'activitiesList' => $activity->getActivitiesList()
 		];
