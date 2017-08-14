@@ -84,25 +84,29 @@
 				{{--</div>--}}
 			{{--</div>--}}
 		{{--</section>--}}
-		<section class="activities-slider-section">
-			<div class="container">
-				<header class="activities-slider-section__header">
-					<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
-					<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
-				</header>
-				<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
-					@foreach($activities->where('slider', true) as $activity)
-						<div class="activities-slider__item">
-							<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
-								<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
-								<h3 class="activities-slider__name">{{ $activity->name }}</h3>
-								<p class="activities-slider__description">{{ $activity->short_description }}</p>
-							</a>
-						</div>
-					@endforeach
+
+		@if(count($activities) > 3)
+			<section class="activities-slider-section">
+				<div class="container">
+					<header class="activities-slider-section__header">
+						<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
+						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
+					</header>
+					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+							@foreach($activities as $activity)
+								<div class="activities-slider__item">
+									<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
+										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+										<h3 class="activities-slider__name">{{ $activity->name }}</h3>
+										<p class="activities-slider__description">{{ $activity->short_description }}</p>
+									</a>
+								</div>
+							@endforeach
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		@endif
+
 		<section id="guia" class="s_guia">
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">

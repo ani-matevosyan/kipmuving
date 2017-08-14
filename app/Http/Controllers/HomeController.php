@@ -17,9 +17,9 @@ class HomeController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
 	{
-	
+
 		$this->testCode();
-	
+
 //		session()->forget('currency');
 //		session()->forget('currencies');
 //		$images = ActivityImage::get();
@@ -30,34 +30,36 @@ class HomeController extends Controller
 //		}
 		if (session('cities.entrance') === false)
 			return redirect()->route('entrance');
-		
+
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
-		
+
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'home']);
-		
+
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
+
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
 			'styles'         => config('resources.home.styles'),
 			'scripts'        => config('resources.home.scripts'),
 			'imageIndex'     => $imageIndex,
-			'activities'     => $activity->getAllActivities(),
-            'activitiesHome' => $activity->getHomePageActivities(),
+			'activities'     => Activity::where('slider', true)->where('region', '=', $region)->limit(8)->inRandomOrder()->get(),
+//			'activitiesHome' => $activity->getHomePageActivities(),
 			'activitiesList' => $activity->getActivitiesList()
 		];
-		
+
 		if (session('cities.current') == 'atacama')
 			return view('site.home.atacama-index', $data);
-		
+
 		return view('site.home.index', $data);
 	}
-	
+
 	public function getTranslations()
 	{
 		$activities = Activity::get();
 		$offers = Offer::get();
 		$agencies = Agency::get();
-		
+
 		echo '-----------------------------------';
 		echo 'ACTIVITIES';
 		echo '-----------------------------------';
@@ -72,7 +74,7 @@ class HomeController extends Controller
 					echo '<br>' . $item;
 				}
 			}
-			
+
 			echo '<br><br><b>Restrictions: </b>';
 			if (count($activity->restrictions) > 0) {
 				foreach ($activity->restrictions as $item) {
@@ -80,10 +82,10 @@ class HomeController extends Controller
 				}
 			}
 			echo '<br><br><b>Description: </b>' . $activity->description;
-			
+
 			echo '<br>-----------------------------------';
 		}
-		
+
 		echo '-----------------------------------';
 		echo 'OFFERS';
 		echo '-----------------------------------';
@@ -98,10 +100,10 @@ class HomeController extends Controller
 			echo '<br><br><b>Cancellation rules: </b>' . $offer->cancellation_rules;
 			echo '<br><br><b>Important: </b>' . $offer->important;
 			echo '<br><br><b>Description: </b>'. $offer->description;
-			
+
 			echo '<br>-----------------------------------';
 		}
-		
+
 		echo '-----------------------------------';
 		echo 'AGENCIES';
 		echo '-----------------------------------';
@@ -109,18 +111,18 @@ class HomeController extends Controller
 			echo '<br><b>ID:</b> ' . $agency->id;
 			echo '<br><br><b>Name: </b>' . $agency->name;
 			echo '<br><br><b>Description: </b>'. $agency->description;
-			
+
 			echo '<br>-----------------------------------';
 		}
-		
+
 	}
-	
+
 	public function testCode() {
-		
+
 		//test your code here ;)
-		
+
 	}
-	
+
 	public function sendMessage(Request $request)
 	{
 		$this->validate($request, [
@@ -134,26 +136,26 @@ class HomeController extends Controller
 			'email'   => $request['email'],
 			'message' => $request['message']
 		];
-		
+
 		$homeMail = new HomeMail();
 		$homeMail->name = $data['name'];
 		$homeMail->email = $data['email'];
 		$homeMail->message = $data['message'];
 		$homeMail->user_ip = $request->ip();
 		$homeMail->save();
-		
+
 		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
 			$message->from('contacto@keepmoving.co', 'Kipmuving team');
 			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
 		});
-		
+
 		return Redirect::to('/')->with('info', 'Your message is successfully send.');
 	}
-	
+
 	public function siteEntrance()
 	{
 		session(['cities.entrance' => true]);
-		
+
 		return view('site.home.site-entrance');
 	}
 }

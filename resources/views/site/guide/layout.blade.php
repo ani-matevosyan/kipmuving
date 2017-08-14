@@ -2,172 +2,169 @@
 
 @section('content')
 
-	<div class="guides">
+  <div class="guides">
 
-		<nav class="guide-navigation">
-			<div class="container">
-				<h2 class="guide-navigation__title">Preguntas Frecuentes</h2>
-				<ul class="guide-navigation__list">
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@howToGetToPucon') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-how-to-get-to-pucon' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon1.png') }}" alt="How to get to Pucon" class="guide-navigation__icon">
-							Como chegar a Pucón
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@shopsAndServices') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-shops-and-services' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon4.png') }}" alt="{{ trans('main.shops_and_services') }}" class="guide-navigation__icon">
-							{{ trans('main.shops_and_services') }}
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@transportation') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-transportation' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon7.png') }}" alt="{{ trans('main.transportaion') }}" class="guide-navigation__icon">
-							{{ trans('main.transportaion') }}
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@summerAndWinter') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-summer-and-winter' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon2.png') }}" alt="{{ trans('main.summer_and_winter') }}" class="guide-navigation__icon">
-							{{ trans('main.summer_and_winter') }}
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@whereToSleep') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-where-to-sleep' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon5.png') }}" alt="Where to sleep" class="guide-navigation__icon">
-							Onde dormir
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@nightLife') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-night-life' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon8.png') }}" alt="{{ trans('main.night_life') }}" class="guide-navigation__icon">
-							{{ trans('main.night_life') }}
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@cityAndRegion') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-city-and-region' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon3.png') }}" alt="{{ trans('main.city_and_region') }}" class="guide-navigation__icon">
-							{{ trans('main.city_and_region') }}
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@whatToEat') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-what-to-eat' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon6.png') }}" alt="What to eat" class="guide-navigation__icon">
-							Que comer
-						</a>
-					</li>
-					<li class="guide-navigation__item">
-						<a href="{{ action('GuideController@money') }}"
-						   class="guide-navigation__link{{ Route::currentRouteName() === 'guide-money' ? '_active' : '' }}">
-							<img src="{{ asset('/images/guide-icon9.png') }}" alt="Money" class="guide-navigation__icon">
-							Dinheiro
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+    <nav class="guide-navigation">
+      <div class="container">
+        <h2 class="guide-navigation__title">Preguntas Frecuentes</h2>
+        <ul class="guide-navigation__list">
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@howToGetToPucon') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-how-to-get-to-pucon' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon1.png') }}" alt="{{ trans('guide.How_to_arrive_in_Pucon') }}" class="guide-navigation__icon">
+              {{ trans('guide.How_to_arrive_in_Pucon') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@shopsAndServices') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-shops-and-services' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon4.png') }}" alt="{{ trans('guide.shops_and_services') }}" class="guide-navigation__icon">
+              {{ trans('guide.shops_and_services') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@transportation') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-transportation' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon7.png') }}" alt="{{ trans('guide.transportaion') }}" class="guide-navigation__icon">
+              {{ trans('guide.transportaion') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@summerAndWinter') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-summer-and-winter' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon2.png') }}" alt="{{ trans('guide.summer_and_winter') }}" class="guide-navigation__icon">
+              {{ trans('guide.summer_and_winter') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@whereToSleep') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-where-to-sleep' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon5.png') }}" alt="{{ trans('guide.Where_to_sleep') }}" class="guide-navigation__icon">
+              {{ trans('guide.Where_to_sleep') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@nightLife') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-night-life' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon8.png') }}" alt="{{ trans('guide.night_life') }}" class="guide-navigation__icon">
+              {{ trans('guide.night_life') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@cityAndRegion') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-city-and-region' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon3.png') }}" alt="{{ trans('guide.city_and_region') }}" class="guide-navigation__icon">
+              {{ trans('guide.city_and_region') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@whatToEat') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-what-to-eat' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon6.png') }}" alt="{{ trans('guide.what_to_eat') }}" class="guide-navigation__icon">
+              {{ trans('guide.what_to_eat') }}
+            </a>
+          </li>
+          <li class="guide-navigation__item">
+            <a href="{{ action('GuideController@money') }}"
+               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-money' ? '_active' : '' }}">
+              <img src="{{ asset('/images/guide-icon9.png') }}" alt="{{ trans('guide.Money') }}" class="guide-navigation__icon">
+              {{ trans('guide.Money') }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-		<main id="main">
-			<div class="container">
-				<!-- Subpage -->
-			@yield('subpage')
-			<!-- ./ subpage -->
-			</div>
-		</main>
+    <main id="main">
+      <div class="container">
+        <!-- Subpage -->
+      @yield('subpage')
+      <!-- ./ subpage -->
+      </div>
+    </main>
 
-		<div class="container">
+    <div class="container">
 
-			<?php $activity = \App\Activity::find(48) ?>
+      <div class="comments-block">
 
+        <header class="comments-block__header">
+          <div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">
+            <h3 class="comments-block__title">{{ trans('main.ask') }}</h3>
+            @if(!auth()->user())
+              <p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
+            @endif
+          </div>
+          @if (auth()->user())
+            <form id="comments-block__form" class="comments-block__form" data-answerText="{{ trans('button-links.answer') }}"
+                  action="{{ action('GuideController@addComment') }}" method="get">
+              {{ csrf_field() }}
+              <textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>
+              <input type="hidden" value="" name="comment_id">
+              <input type="hidden" value="{{ Route::currentRouteName() }}" name="guide_page">
+              <button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>
+            </form>
+          @else
+            <a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>
+          @endif
+        </header>
 
-			<div class="comments-block">
+        <?php $comments = \App\GuideComment::where('guide_page', '=', Route::currentRouteName())->get(); ?>
 
-				<header class="comments-block__header">
-					<div class="comments-block__titles @if (auth()->user()) comments-block__titles_registered @endif">
-						<h3 class="comments-block__title">{{ trans('main.ask') }}</h3>
-						@if(!auth()->user())
-							<p class="comments-block__description">{{ trans('main.you_should_be_registered') }}</p>
-						@endif
-					</div>
-					@if (auth()->user())
-						<form id="comments-block__form" class="comments-block__form" data-answerText="{{ trans('button-links.answer') }}"
-						      action="{{ action('GuideController@addComment') }}" method="get">
-							{{ csrf_field() }}
-							<textarea class="comments-block__textarea" name="message" id="message" rows="3"></textarea>
-							<input type="hidden" value="" name="comment_id">
-							<input type="hidden" value="{{ Route::currentRouteName() }}" name="guide_page">
-							<button type="submit" class="btn btn-dark-blue comments-block__send-button">{{ trans('main.send') }}</button>
-						</form>
-					@else
-						<a href="{{ url('/login') }}" class="btn btn-dark-blue comments-block__enter-button">{{ trans('button-links.login') }}</a>
-					@endif
-				</header>
+        <ul class="comments-block__comments">
+          @if(auth()->user() && auth()->user()->hasRole(['developer', 'admin']))
 
-				<?php $comments = \App\GuideComment::where('guide_page', '=', Route::currentRouteName())->get(); ?>
+            @if(isset($comments) && count($comments) > 0)
+              @foreach($comments as $comment)
+                <li class="comments-block__comment">
+                  <header class="comments-block__comment-header">
+                    <img src="{{ $comment->user->avatar }}" alt="User name" class="comments-block__user-image"
+                         onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
+                    <strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
+                    <span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
 
-				<ul class="comments-block__comments">
-					@if(auth()->user() && auth()->user()->hasRole(['developer', 'admin']))
+                    @if(!isset($comment->answer))
+                      <a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>
+                    @endif
 
-						@if(isset($comments) && count($comments) > 0)
-							@foreach($comments as $comment)
-								<li class="comments-block__comment">
-									<header class="comments-block__comment-header">
-										<img src="{{ $comment->user->avatar }}" alt="User name" class="comments-block__user-image"
-										     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
-										<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
-										<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
+                  </header>
+                  <p class="comments-block__text">{{ $comment->question }}</p>
+                </li>
 
-										@if(!isset($comment->answer))
-											<a href="{{ $comment->id }}" class="comments-block__answer-button">{{ trans('button-links.answer') }}</a>
-										@endif
+                @if(isset($comment->answer))
+                  <li class="comments-block__comment comments-block__comment_answer">
+                    <p class="comments-block__text">{{ $comment->answer }}</p>
+                  </li>
+                @endif
 
-									</header>
-									<p class="comments-block__text">{{ $comment->question }}</p>
-								</li>
+              @endforeach
+            @endif
 
-								@if(isset($comment->answer))
-									<li class="comments-block__comment comments-block__comment_answer">
-										<p class="comments-block__text">{{ $comment->answer }}</p>
-									</li>
-								@endif
+          @else
 
-							@endforeach
-						@endif
+            @if(isset($comments) && count($comments->where('answer', '<>', null)) > 0)
+              @foreach($comments->where('answer', '<>', null) as $comment)
+                <li class="comments-block__comment">
+                  <header class="comments-block__comment-header">
+                    <img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image"
+                         onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
+                    <strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
+                    <span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
+                  </header>
+                  <p class="comments-block__text">{{ $comment->question }}</p>
+                </li>
+                <li class="comments-block__comment comments-block__comment_answer">
+                  <p class="comments-block__text">{{ $comment->answer }}</p>
+                </li>
+              @endforeach
+            @endif
 
-					@else
+          @endif
+        </ul>
 
-						@if(isset($comments) && count($comments->where('answer', '<>', null)) > 0)
-							@foreach($comments->where('answer', '<>', null) as $comment)
-								<li class="comments-block__comment">
-									<header class="comments-block__comment-header">
-										<img src="{{ asset($comment->user->avatar) }}" alt="User name" class="comments-block__user-image"
-										     onerror="this.onerror=null; this.src='{{ asset('/images/image-none.jpg') }}'">
-										<strong class="comments-block__user-name">{{ $comment->user->first_name .' '. $comment->user->last_name }}</strong>
-										<span class="comments-block__date">{{ \Carbon\Carbon::parse($comment->created_at)->format('d.m.Y') }}</span>
-									</header>
-									<p class="comments-block__text">{{ $comment->question }}</p>
-								</li>
-								<li class="comments-block__comment comments-block__comment_answer">
-									<p class="comments-block__text">{{ $comment->answer }}</p>
-								</li>
-							@endforeach
-						@endif
+      </div>
 
-					@endif
-				</ul>
+    </div>
 
-			</div>
-
-		</div>
-
-	</div>
+  </div>
 
 @stop
