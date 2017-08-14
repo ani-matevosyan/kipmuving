@@ -85,7 +85,6 @@
 			{{--</div>--}}
 		{{--</section>--}}
 
-		@if(count($activities) > 3)
 			<section class="activities-slider-section">
 				<div class="container">
 					<header class="activities-slider-section__header">
@@ -93,7 +92,7 @@
 						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
-							@foreach($activities as $activity)
+							@foreach($random_activities as $activity)
 								<div class="activities-slider__item">
 									<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
 										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
@@ -105,7 +104,8 @@
 					</div>
 				</div>
 			</section>
-		@endif
+
+		{{-- TODO use $slider_activities for activities checked as 'slider' --}}
 
 		<section id="guia" class="s_guia">
 			<div class="container">
