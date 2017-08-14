@@ -12,31 +12,22 @@
 							{{ csrf_field() }}
 							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
 							<div class="holder">
-								<div class="col">
-									<select class="form-control" id="activity_id" name="activity_id">
-										@foreach ($activitiesList as $item)
-											<option value="{{ $item->id }}">{{ $item->name }}</option>
-										@endforeach
-									</select>
+								<select class="form-control" id="activity_id" name="activity_id">
+									@foreach ($activitiesList as $item)
+										<option value="{{ $item->id }}">{{ $item->name }}</option>
+									@endforeach
+								</select>
+								<div class="text-field">
+									<input id="activity_date"
+												 type="text"
+												 name="activity_date"
+												 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+												 placeholder="{{ trans('form.date') }}"
+												 class="form-control"
+												 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
 								</div>
-								<div class="col col-second">
-									<div class="sub-col">
-										<div class="text-field has-ico calender">
-											<input id="activity_date"
-														 type="text"
-														 name="activity_date"
-														 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-														 placeholder="{{ trans('form.date') }}"
-														 class="form-control"
-														 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-										</div>
-									</div>
-									<div class="sub-col sub-col-second">
-										<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
-									</div>
-								</div>
+								<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
 							</div>
-							<p class="form_under_p">{{ trans('main.activities_in_one_place') }}</p>
 						</form>
 					</div>
 				</div>
@@ -44,6 +35,74 @@
 		</div>
 	</section>
 	<main id="main">
+		{{--<section class="best-price-section">--}}
+			{{--<div class="container">--}}
+				{{--<header class="best-price-section__header">--}}
+					{{--<div class="best-price-section__header-wrapper">--}}
+						{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
+						{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
+					{{--</div>--}}
+				{{--</header>--}}
+				{{--<div class="best-price-section__content">--}}
+					{{--<p class="best-price-section__summary">--}}
+						{{--<strong>{{ trans('main.choose_dates_and_activities') }}</strong>--}}
+						{{--{{ trans('main.agencies_will_send') }}--}}
+						{{--<strong>{{ trans('main.offers') }}</strong>--}}
+						{{--{{ trans('main.and_you_can') }}--}}
+						{{--<strong>{{ trans('main.price&quality') }}</strong>.--}}
+					{{--</p>--}}
+					{{--<ul class="steps-list">--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/mountains.svg') }}" alt="Mountains icon" style="width: 37px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">1</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.choose_the') }}<strong class="steps-list__bold-text">{{ trans('main.activities') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/percentage-discount.svg') }}" alt="Percent icon" style="width: 26px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">2</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.receive_the') }}<strong class="steps-list__bold-text">{{ trans('main.offers') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/point-at.svg') }}" alt="Point at icon" style="width: 33px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">3</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.decide_the') }}<strong class="steps-list__bold-text">{{ trans('main.best') }}</strong></p>--}}
+						{{--</li>--}}
+						{{--<li class="steps-list__item">--}}
+							{{--<figure class="steps-list__figure">--}}
+								{{--<img src="{{ asset('/images/cup.svg') }}" alt="Cup icon" style="width: 32px" class="steps-list__icon">--}}
+								{{--<figcaption class="steps-list__figcaption">4</figcaption>--}}
+							{{--</figure>--}}
+							{{--<p class="steps-list__name">{{ trans('main.you_are_the') }}<strong class="steps-list__bold-text">{{ trans('main.winner') }}</strong></p>--}}
+						{{--</li>--}}
+					{{--</ul>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</section>--}}
+		<section class="activities-slider-section">
+			<div class="container">
+				<header class="activities-slider-section__header">
+					<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
+					<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
+				</header>
+				<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+					@foreach($activities->where('slider', true) as $activity)
+						<div class="activities-slider__item">
+							<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
+								<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+								<h3 class="activities-slider__name">{{ $activity->name }}</h3>
+								<p class="activities-slider__description">{{ $activity->short_description }}</p>
+							</a>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		</section>
 		<section id="guia" class="s_guia">
 			<div class="container">
 				<div class="col-md-5 col-md-push-2">
@@ -104,41 +163,25 @@
 				</div>
 			</div>
 		</section>
-		<section class="s_allactivities">
-			<div class="container">
-
-				<header>
-					<h2>{{ trans('main.activities_in_pucon') }}</h2>
-					<p>{{ trans('main.first_choose_your_itinerary') }}</p>
-				</header>
-
-				<div class="all-activities">
-					<div class="row">
-						<?php $key = 0; ?>
-						@foreach($activities as $activity)
-							<div class="col-md-3 col-sm-6 col-xs-12 col">
-								@include('site.partials.activities.all-list-item-arr')
-							</div>
-							<?php ++$key?>
-							@if($key === 2)
-								<div class="clearfix visible-sm-block"></div>
-							@elseif($key===4)
-								<div class="clearfix visible-md-block"></div>
-								<div class="clearfix visible-lg-block"></div>
-								<div class="clearfix visible-sm-block"></div>
-							<?php $key = 0; ?>
-							@endif
-						@endforeach
-					</div>
-				</div>
-
-
-				<div class="btn-holder">
-					<a href="{{ action('ActivityController@index') }}"
-						 class="btn btn-success">{{ trans('button-links.see_all_activities') }}</a>
-				</div>
-			</div>
-		</section>
+		{{--<section class="activities-slider-section">--}}
+			{{--<div class="container">--}}
+				{{--<header class="activities-slider-section__header">--}}
+					{{--<h2 class="activities-slider-section__title">{{ trans('main.some_activities_in_pucon') }}</h2>--}}
+					{{--<p class="activities-slider-section__sub-title">{{ trans('main.first_choose_your_itinerary') }}</p>--}}
+				{{--</header>--}}
+				{{--<div id="some-activities-slider" class="owl-carousel csHidden activities-slider">--}}
+					{{--@foreach($activities->where('slider', true) as $activity)--}}
+						{{--<div class="activities-slider__item">--}}
+							{{--<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">--}}
+								{{--<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>--}}
+								{{--<h3 class="activities-slider__name">{{ $activity->name }}</h3>--}}
+								{{--<p class="activities-slider__description">{{ $activity->short_description }}</p>--}}
+							{{--</a>--}}
+						{{--</div>--}}
+					{{--@endforeach--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</section>--}}
 		<section id="viagem" class="s_viagem">
 			<div class="container">
 				<div class="block-wrapper">

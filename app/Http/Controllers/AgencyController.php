@@ -32,7 +32,7 @@ class AgencyController extends Controller
 		return view('site.agencies.index', $data);
 	}
 	
-	public function getAgency($id)
+	public function getAgency(Offer $offer, $id)
 	{
 		$_agency = new Agency();
 		$_offer = new Offer();
@@ -41,6 +41,11 @@ class AgencyController extends Controller
 			'styles' => config('resources.agencies.single.styles'),
 			'scripts' => config('resources.agencies.single.scripts'),
 			'agency' => $_agency->getAgency($id),
+            'count'      => [
+                'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
+                'persons' => $offer->getSelectedOffersPersons(),
+                'total' => $offer->getSelectedOffersTotal()
+            ]
 //			'offers' => $_offer->getAgencyOffers($id)
 		];
 

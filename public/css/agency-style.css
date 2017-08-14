@@ -1,3 +1,18 @@
+.program-schedule{
+    float: none;
+    display: inline-block;
+    margin: 0 0 40px;
+}
+
+.your-reservation.adventure .program-schedule .btn-primary{
+    font-size: 15px;
+    font-weight: 700;
+    background: #fff;
+    float: none;
+    min-width: 0;
+    line-height: 1;
+}
+
 @media (max-width: 767px) {
     .your-reservation.adventure {
         padding: 20px 0 0;
@@ -131,43 +146,6 @@
 
 .your-reservation.adventure .btn-primary:hover {
     opacity: 0.8;
-}
-
-.your-reservation.adventure .program-schedule {
-    float: right;
-    width: 243px;
-    padding: 10px;
-    margin: -110px 0 0;
-}
-
-@media (max-width: 767px) {
-    .your-reservation.adventure .program-schedule {
-        display: none;
-    }
-}
-
-.your-reservation.adventure .program-schedule h2 {
-    color: #fff;
-    margin: 0 0 20px;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 700;
-}
-
-.your-reservation.adventure .program-schedule h2:after {
-    top: 0;
-}
-
-.your-reservation.adventure .program-schedule .sub-title {
-    margin: 0 0 10px;
-}
-
-.your-reservation.adventure .program-schedule .btn-primary {
-    float: right;
-    color: #000;
-    padding: 3px 10px;
-    text-align: center;
-    background: #fff;
 }
 
 .offer-item-desc{

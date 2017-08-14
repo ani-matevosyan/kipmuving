@@ -100,43 +100,6 @@ $(document).ready(function () {
 
     });
 
-    jQuery('.btn-reserve-ag').click(function(){
-        var dt = jQuery(this).parents('.offer-item').find('.reserve-date').val();
-        if (dt == '') {
-            $('#message-modal #message').text('Please choose the date first.');
-            $('#message-modal').modal('show');
-            return false;
-        }
-        var offer_id = jQuery(this).data('offer-id');
-        var persona = $(this).parents('.offer-item').find('.persona').val();
-        if (persona == '') {
-            $('#message-modal #message').text('Choose persona first.');
-            $('#message-modal').modal('show');
-            return false;
-        }
-        var hours = $(this).parents('.offer-item').find('select.hours').val();
-        if (hours == '') {
-            $('#message-modal #message').text('Choose time.');
-            $('#message-modal').modal('show');
-            return false;
-        }
-        $.ajax({
-            type: "POST",
-            url: "/offer/reserve",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                offer_id: offer_id,
-                persons: persona,
-                date: dt,
-                timeRange: hours
-            },
-            error: function(){
-                location.reload();
-            }
-        });
-        return false;
-    });
-
 
     //------------------- DISPLAYING CAPTCHA--------------------
 

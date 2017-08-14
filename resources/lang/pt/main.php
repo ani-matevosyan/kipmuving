@@ -16,7 +16,6 @@ return [
 	
 	'what_activities_search'  => 'Que aventura você está procurando?',
 	'in_all_activities'       => 'em todas as atividades',
-    'activities_in_one_place' => 'Todas as atividades em um só lugar',
 	
 	'program'        => 'Seu programa',
 	'activities_for' => 'atividades para',
@@ -35,7 +34,21 @@ return [
 	'free'                              => 'Gratuito',
     'by_car'                            => 'Pelo carro',
     'google_map_path'                   => 'Google Maps cabelo Caminho',
-	
+
+    'the_best_price'              => 'Receba o melhor preço',
+    'you_have_preference'         => 'Você tem a preferência',
+    'choose_dates_and_activities' => 'Escolha datas e atividades',
+    'agencies_will_send'          => '. As agências enviar-lhe-ão ',
+    'and_you_can'                 => ' e você pode decidir qual melhor agência você gosta da relação ',
+    'price&quality'               => 'preço/qualidade',
+    'choose_the'                  => 'Escolha o ',
+    'receive_the'                 => 'Receba o',
+    'offers'                      => 'ofertas',
+    'decide_the'                  => 'Decida o ',
+    'best'                        => 'melhor',
+    'you_are_the'                 => 'Você é o ',
+    'winner'                      => 'vencedor',
+
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',
 	'has_an_agreement'                      => 'Temos um acordo com as agencias locais e por isso temos',
@@ -54,6 +67,10 @@ return [
 	'activities_in_pucon'         => 'As atividades em Pucón',
 	'first_choose_your_itinerary' => 'Primeiramente escolha seu itinerário, o que gostaria de fazer, e veja o resultado',
 	'from'                        => 'Desde de',
+
+    'most_visited_in_pucon'    => 'Mais visitados em Pucón',
+    'below_are_activities'     => 'Abaixo estão as atividades que mais se destacam em Pucón e as que a maioria dos turistas fazem.',
+    'some_activities_in_pucon' => 'Algumas atividades em Pucón',
 	
 	'more_than_activities'        => 'Mais de  atividades',
 	'all_activities_in_one_place' => 'Todas as atividades juntas em um só lugar',
@@ -274,6 +291,23 @@ return [
 	
 	#New 3 - 21.06.17
 	'summary' => 'Resumo',
+
+    #Who we are page
+    'emerged_from_the_need'   => ' emergiu da necessidade de oferecer ao visitante de Pucón a melhor opção de escolha da agência de turismo e também ampliar suas possibilidades de passeios na cidade. Por meio de acordos com as agências, podemos nos beneficiar:',
+    'easy_to_find'            => 'Fácil de encontrar',
+    'all_agencies_and'        => ' todas as agências e atividades em um só lugar',
+    'build_complete_panorama' => 'Construa um panorama completo',
+    'in_the_city_and'         => ' na cidade e agende sua viagem',
+    'and_for_the_agency'      => 'E para a agência, os benefícios são:',
+    'high_visibility'         => 'Alta visibilidade',
+    'better_competitiveness'  => 'Melhor competitividade',
+    'independent_of_location' => ', independente da localização física, e sim pela qualidade do serviço e preço',
+    'so'                      => 'Então, ',
+    'urges_to_meet'           => ' insiste em atender a necessidade do setor de aventura, onde o usuário tem mais opções e agências mais visíveis. E o usuário apenas colabora com 3% do valor total de suas atividades. Isso serve para cobrir despesas e continuar a melhorar a aplicação web.',
+    'who_made'                => 'Quem faz ',
+    'creator_and_designer'    => 'Criador e Designer',
+    'developer'               => 'Desenvolvedor',
+    'credits'                 => 'Créditos',
 
     #FAQ
     'ask'                      => 'Pergunte',

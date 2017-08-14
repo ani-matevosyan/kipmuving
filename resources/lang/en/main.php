@@ -16,7 +16,6 @@ return [
 	
 	'what_activities_search'  => 'What adventure are you looking for?',
 	'in_all_activities'       => 'in all activities',
-    'activities_in_one_place' => 'All activities in one place',
 	
 	'program'        => 'Program',
 	'activities_for' => 'activities for',
@@ -35,6 +34,22 @@ return [
 	'free'                              => 'Free',
     'by_car'                            => 'By car',
     'google_map_path'                   => 'Google Maps path',
+
+    'the_best_price'              => 'Receive the best price',
+    'you_have_preference'         => 'You have the preference',
+    'choose_dates_and_activities' => 'Choose dates and activities',
+    'agencies_will_send'          => '. Agencies will send you offers',
+    'and_you_can'                 => ' and you can decide which best agency you like the ',
+    'price&quality'               => 'price/quality ratio',
+    'choose_the'                  => 'Choose the ',
+    'receive_the'                 => 'Receive the ',
+    'offers'                      => 'offers',
+    'decide_the'                  => 'Decide the ',
+    'best'                        => 'best',
+    'you_are_the'                 => 'You are the ',
+    'winner'                      => 'winner',
+
+
 	
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',
@@ -54,6 +69,10 @@ return [
 	'activities_in_pucon'         => 'Activities in Pucón',
 	'first_choose_your_itinerary' => 'First choose your itinerary, what you would like to do, and see what results',
 	'from'                        => 'From',
+
+    'most_visited_in_pucon'    => 'Most visited in Pucón',
+    'below_are_activities'     => 'Below are the activities that stand out most in Pucón and those that most tourists do.',
+    'some_activities_in_pucon' => 'Some activities in Pucón',
 	
 	'more_than_activities'        => 'More than :activities activities',
 	'all_activities_in_one_place' => 'All activities together in one place',
@@ -275,6 +294,23 @@ return [
 	
 	#New 3 - 21.06.17
 	'summary' => 'Summary',
+
+    #Who we are page
+    'emerged_from_the_need'   => ' emerged from the need to offer the visitor of Pucón the best option of choice of the tourist agency and also to expand his possibilities of walks in the city. By means of agreements with the agencies, we can benefit:',
+    'easy_to_find'            => 'Easy to find',
+    'all_agencies_and'        => ' all agencies and activities in one place',
+    'build_complete_panorama' => 'Build a complete panorama',
+    'in_the_city_and'         => ' in the city and schedule your trip',
+    'and_for_the_agency'      => 'And for the agency, the benefits are:',
+    'high_visibility'         => 'High visibility',
+    'better_competitiveness'  => 'Better competitiveness',
+    'independent_of_location' => ', independent of the physical location, and for the quality of service and price',
+    'so'                      => 'So ',
+    'urges_to_meet'           => ' urges to meet a need for the adventure industry, where the user has more options and agencies more visibility. And the user only collaborates with 3% of the total value of their activities. This serves to cover expenses and continue to improve the web application.',
+    'who_made'                => 'Who made ',
+    'creator_and_designer'    => 'Creator and Designer',
+    'developer'               => 'Developer',
+    'credits'                 => 'Credits',
 
     #FAQ
     'ask'                      => 'Ask question',
