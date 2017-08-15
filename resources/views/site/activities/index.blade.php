@@ -9,7 +9,7 @@
 			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
 		</div>
 
-		@if(count($activities->where('slider_activities_page', true)) > 0)
+		@if(isset($slider_activities) && count($slider_activities) > 0)
 			<div class="activities-slider-wrapper">
 				<div class="container">
 					<header>
@@ -17,7 +17,7 @@
 						<p>{{ trans('main.below_are_the_activities') }}</p>
 					</header>
 					<div id="activities-slider" class="csHidden">
-						@foreach($activities->where('slider_activities_page', true) as $activity)
+						@foreach($slider_activities as $activity)
 							<div class="item">
 								<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
 									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
