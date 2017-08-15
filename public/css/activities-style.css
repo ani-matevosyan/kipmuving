@@ -626,11 +626,12 @@
 
 .visited-activities-section{
     background: #F2F2F2;
-    padding: 34px 0 0;
+    padding: 34px 0 58px;
 }
 
 .visited-activities-section__header{
     color: #535353;
+    margin-bottom: 51px;
 }
 
 .visited-activities-section__title{
@@ -644,6 +645,44 @@
     font-size: 15px;
     margin: 0;
     line-height: 1;
+}
+
+.activities-list__link,
+.activities-list__link:hover,
+.activities-list__link:focus{
+    color: #000;
+}
+
+.activities-list__image{
+    height: 93px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    width: 100%;
+}
+
+.activities-list__info{
+    margin: 0 18px;
+}
+
+.activities-list__name{
+    margin: 14px 0 6px;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.activities-list__description{
+    margin: 0 0 15px;
+}
+
+.activities-list__sub{
+    bottom: 0;
+}
+
+.activities-list__price{
+    font-size: 20px;
+    color: #FDB600;
+    margin-left: 7px;
 }
 
 /*---------------END Most visited activities section---------------*/
