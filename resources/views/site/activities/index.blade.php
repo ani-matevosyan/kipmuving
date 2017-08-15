@@ -40,68 +40,22 @@
 					{{--<p class="visited-activities-section__sub-title">{{ trans('main.below_are_activities') }}</p>--}}
 				{{--</header>--}}
 				{{--<div class="activities-list">--}}
-					{{--<div class="row">--}}
-						{{--<div class="col-md-3">--}}
-							{{--<div class="activities-list__item">--}}
-								{{--<a href="/activity/39" class="activities-list__link">--}}
-									{{--<img src="/uploads/activity/_QiuA4-2.jpg" alt="Lagunas Andinas" class="activities-list__image">--}}
-									{{--<div class="activities-list__info">--}}
-										{{--<h3 class="activities-list__name">Lagunas Andinas</h3>--}}
-										{{--<p class="activities-list__description">Esta Caminata Ecológica nos lleva en vehículo, desde Pucón, a través del Camino internacional, en dirección a Argentina. Cerca de la frontera de Argentina, entramos al parte más este del Parque Nacional Villarrica.</p>--}}
-										{{--<div class="activities-list__approximate-price">--}}
-											{{--<span class="activities-list__price-text">From</span>--}}
-											{{--<strong class="activities-list__price"><sub class="activities-list__sub">$</sub> 62</strong>--}}
-										{{--</div>--}}
+					{{--@foreach($activities->where('slider_activities_page', true) as $activity)--}}
+						{{--<div class="activities-list__item">--}}
+							{{--<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-list__link">--}}
+								{{--<img src="{{ asset($activity->image_thumb) }}" alt="{{ $activity->name }}" class="activities-list__image">--}}
+								{{--<div class="activities-list__info">--}}
+									{{--<h3 class="activities-list__name">{{ $activity->name }}</h3>--}}
+									{{--<p class="activities-list__description">{{ $activity->short_description }}</p>--}}
+									{{--<div class="activities-list__approximate-price">--}}
+										{{--<span class="activities-list__price-text">{{ trans('main.from') }}</span>--}}
+										{{--<strong class="activities-list__price"><sub class="activities-list__sub">@if(session('currency.type') === 'BRL') R$ @else--}}
+													{{--$ @endif</sub> {{ number_format($activity->offers->min('price'), 0, ".", ".") }}</strong>--}}
 									{{--</div>--}}
-								{{--</a>--}}
-							{{--</div>--}}
+								{{--</div>--}}
+							{{--</a>--}}
 						{{--</div>--}}
-						{{--<div class="col-md-3">--}}
-							{{--<div class="activities-list__item">--}}
-								{{--<a href="/activity/40" class="activities-list__link">--}}
-									{{--<img src="/uploads/activity/_Yl5GV-2.jpg" alt="Mini-Volcanes del Villarrica" class="activities-list__image">--}}
-									{{--<div class="activities-list__info">--}}
-										{{--<h3 class="activities-list__name">Mini-Volcanes del Villarrica</h3>--}}
-										{{--<p class="activities-list__description">La duración de este trekking es de dos horas y media y esta enfocado para toda la familia. Mientras disfrutas de una espectacular vista del lago y volcán Villarrica, puedes, entre otras cosas, admirar en la distancia, el Lago Caburgua y el volcán Lanín.</p>--}}
-										{{--<div class="activities-list__approximate-price">--}}
-											{{--<span class="activities-list__price-text">From</span>--}}
-											{{--<strong class="activities-list__price"><sub class="activities-list__sub">$</sub> 46</strong>--}}
-										{{--</div>--}}
-									{{--</div>--}}
-								{{--</a>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="col-md-3">--}}
-							{{--<div class="activities-list__item">--}}
-								{{--<a href="/activity/34" class="activities-list__link">--}}
-									{{--<img src="/uploads/activity/_1sGSx-2.jpg" alt="Cuevas Volcánicas" class="activities-list__image">--}}
-									{{--<div class="activities-list__info">--}}
-										{{--<h3 class="activities-list__name">Cuevas Volcánicas</h3>--}}
-										{{--<p class="activities-list__description">Conoce el parque turístico, científico y ecológico Cuevas Volcánicas, ubicado a 18 km de Pucón. Podrás visitar la Casa de los Volcanes, donde hay una exposición de fotos y objetos relacionados a las causas y la manera en que suceden las erupciones volcánicas.</p>--}}
-										{{--<div class="activities-list__approximate-price">--}}
-											{{--<span class="activities-list__price-text">From</span>--}}
-											{{--<strong class="activities-list__price"><sub class="activities-list__sub">$</sub> 54</strong>--}}
-										{{--</div>--}}
-									{{--</div>--}}
-								{{--</a>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-						{{--<div class="col-md-3">--}}
-							{{--<div class="activities-list__item">--}}
-								{{--<a href="/activity/17" class="activities-list__link">--}}
-									{{--<img src="/uploads/activity/_QiuA4-2.jpg" alt="Trekking Volcán Quetrupillan" class="activities-list__image">--}}
-									{{--<div class="activities-list__info">--}}
-										{{--<h3 class="activities-list__name">Trekking Volcán Quetrupillan</h3>--}}
-										{{--<p class="activities-list__description">Súmate al grupo de aventureros que suben al Volcán Quetrupillán, de 2.382 metros de altura. Se encuentra entre el Villarica y Lanín. Hay quienes lo prefieren por su menor recurrencia y porque al subir, el paisaje es un exuberante bosque. Es espectacular también, pero no está activo. Hasta comienzos del verano se ven campos de nieve pero no glaciares.</p>--}}
-										{{--<div class="activities-list__approximate-price">--}}
-											{{--<span class="activities-list__price-text">From</span>--}}
-											{{--<strong class="activities-list__price"><sub class="activities-list__sub">$</sub> 85</strong>--}}
-										{{--</div>--}}
-									{{--</div>--}}
-								{{--</a>--}}
-							{{--</div>--}}
-						{{--</div>--}}
-					{{--</div>--}}
+					{{--@endforeach--}}
 				{{--</div>--}}
 			{{--</div>--}}
 		{{--</section>--}}
