@@ -40,12 +40,21 @@ class HomeController extends Controller
 
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
-			'styles'         => config('resources.home.styles'),
-			'scripts'        => config('resources.home.scripts'),
-			'imageIndex'     => $imageIndex,
-			'activities'     => Activity::where('slider', true)->where('region', '=', $region)->limit(8)->inRandomOrder()->get(),
+			'styles'            => config('resources.home.styles'),
+			'scripts'           => config('resources.home.scripts'),
+			'imageIndex'        => $imageIndex,
+			'random_activities' => Activity::where('region', '=', $region)
+				->translatedIn(app()->getLocale())
+				->limit(8)
+				->inRandomOrder()
+				->get(),
+			'slider_activities' => Activity::where('region', '=', $region)
+				->where('slider', true)
+				->translatedIn(app()->getLocale())
+				->inRandomOrder()
+				->get(),
 //			'activitiesHome' => $activity->getHomePageActivities(),
-			'activitiesList' => $activity->getActivitiesList()
+			'activitiesList'    => $activity->getActivitiesList(),
 		];
 
 		if (session('cities.current') == 'atacama')
@@ -99,7 +108,7 @@ class HomeController extends Controller
 			}
 			echo '<br><br><b>Cancellation rules: </b>' . $offer->cancellation_rules;
 			echo '<br><br><b>Important: </b>' . $offer->important;
-			echo '<br><br><b>Description: </b>'. $offer->description;
+			echo '<br><br><b>Description: </b>' . $offer->description;
 
 			echo '<br>-----------------------------------';
 		}
@@ -110,14 +119,15 @@ class HomeController extends Controller
 		foreach ($agencies as $key => $agency) {
 			echo '<br><b>ID:</b> ' . $agency->id;
 			echo '<br><br><b>Name: </b>' . $agency->name;
-			echo '<br><br><b>Description: </b>'. $agency->description;
+			echo '<br><br><b>Description: </b>' . $agency->description;
 
 			echo '<br>-----------------------------------';
 		}
 
 	}
 
-	public function testCode() {
+	public function testCode()
+	{
 
 		//test your code here ;)
 
@@ -129,12 +139,12 @@ class HomeController extends Controller
 			'email'                => 'email|required|max:128',
 			'name'                 => 'alpha|required|max:128',
 			'message'              => 'required|min:5|max:1000',
-			'g-recaptcha-response' => 'required|recaptcha'
+			'g-recaptcha-response' => 'required|recaptcha',
 		]);
 		$data = [
 			'name'    => $request['name'],
 			'email'   => $request['email'],
-			'message' => $request['message']
+			'message' => $request['message'],
 		];
 
 		$homeMail = new HomeMail();

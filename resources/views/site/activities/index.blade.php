@@ -2,29 +2,36 @@
 
 {{-- Content --}}
 @section('content')
+
 	<section class="activities-hero" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
+
 		<div class="container">
 			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
 		</div>
-		<div class="activities-slider-wrapper">
-			<div class="container">
-				<header>
-					<h2>{{ trans('main.the_most_requested') }}</h2>
-					<p>{{ trans('main.below_are_the_activities') }}</p>
-				</header>
-				<div id="activities-slider" class="csHidden">
-					@foreach($activities->where('slider', true) as $activity)
-						<div class="item">
-							<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
-								<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
-								<h3>{{ $activity->name }}</h3>
-							</a>
-						</div>
-					@endforeach
+
+		@if(count($activities->where('slider_activities_page', true)) > 0)
+			<div class="activities-slider-wrapper">
+				<div class="container">
+					<header>
+						<h2>{{ trans('main.the_most_requested') }}</h2>
+						<p>{{ trans('main.below_are_the_activities') }}</p>
+					</header>
+					<div id="activities-slider" class="csHidden">
+						@foreach($activities->where('slider_activities_page', true) as $activity)
+							<div class="item">
+								<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
+									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>
+									<h3>{{ $activity->name }}</h3>
+								</a>
+							</div>
+						@endforeach
+					</div>
 				</div>
 			</div>
-		</div>
+		@endif
+
 	</section>
+
 	<main id="main">
 		{{--<section class="visited-activities-section">--}}
 			{{--<div class="container">--}}
@@ -241,10 +248,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/Trekking.svg') }}"
-							     alt="image description"
-							     width="40"
-							     height="40"
-							     onerror="this.onerror=null; this.src='/images/ico21.png'">
+									 alt="image description"
+									 width="40"
+									 height="40"
+									 onerror="this.onerror=null; this.src='/images/ico21.png'">
 						</span>
 							{{ trans('main.trekking') }}
 						</strong>
@@ -273,10 +280,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/kayak.svg') }}"
-							     alt="image description"
-							     width="40"
-							     height="40"
-							     onerror="this.onerror=null; this.src='/images/ico22.png'">
+									 alt="image description"
+									 width="40"
+									 height="40"
+									 onerror="this.onerror=null; this.src='/images/ico22.png'">
 						</span>
 							{{ trans('main.river') }}
 						</strong>
@@ -305,10 +312,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/aire.svg') }}"
-							     alt="image description"
-							     width="33"
-							     height="33"
-							     onerror="this.onerror=null; this.src='/images/ico23.png'">
+									 alt="image description"
+									 width="33"
+									 height="33"
+									 onerror="this.onerror=null; this.src='/images/ico23.png'">
 						</span>
 							{{ trans('main.action') }}
 						</strong>
@@ -337,10 +344,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/relax.svg') }}"
-							     alt="image description"
-							     width="33"
-							     height="33"
-							     onerror="this.onerror=null; this.src='/images/ico24.png'">
+									 alt="image description"
+									 width="33"
+									 height="33"
+									 onerror="this.onerror=null; this.src='/images/ico24.png'">
 						</span>
 							{{ trans('main.relax') }}
 						</strong>
@@ -369,10 +376,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/skiing_ski_running.svg') }}"
-							     alt="image description"
-							     width="33"
-							     height="33"
-							     onerror="this.onerror=null; this.src='/images/ico25.png'">
+									 alt="image description"
+									 width="33"
+									 height="33"
+									 onerror="this.onerror=null; this.src='/images/ico25.png'">
 						</span>
 							{{ trans('main.snow') }}
 						</strong>
@@ -401,10 +408,10 @@
 						<strong class="heading">
 						<span>
 							<img src="{{ asset('/images/family.svg') }}"
-							     alt="image description"
-							     width="33"
-							     height="33"
-							     onerror="this.onerror=null; this.src='/images/ico25.png'">
+									 alt="image description"
+									 width="33"
+									 height="33"
+									 onerror="this.onerror=null; this.src='/images/ico25.png'">
 						</span>
 							{{ trans('main.cultural') }}
 						</strong>
@@ -458,11 +465,11 @@
 	</main>
 
 	<div id="pass-variable" data-daydesc="{{ trans('main.day_activity') }}" data-nightdescr="{{ trans('main.night_activity') }}"
-		 data-summerdescr="{{ trans('main.march_to_november') }}" data-winterdescr="{{ trans('main.december_to_march') }}"
-		 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"
-		 data-cat-trekking="{{ trans('main.trekking') }}" data-cat-rio="{{ trans('main.river') }}"
-		 data-cat-aire="{{ trans('main.action') }}" data-cat-relax="{{ trans('main.relax') }}"
-		 data-cat-nieve="{{ trans('main.snow') }}" data-cat-cultural="{{ trans('main.cultural') }}"
-		 data-cat-ciclismo="{{ trans('main.cycling') }}"></div>
+			 data-summerdescr="{{ trans('main.march_to_november') }}" data-winterdescr="{{ trans('main.december_to_march') }}"
+			 data-textfrom="{{ trans('main.from') }}" data-buttontext="{{ trans('button-links.view') }}"
+			 data-cat-trekking="{{ trans('main.trekking') }}" data-cat-rio="{{ trans('main.river') }}"
+			 data-cat-aire="{{ trans('main.action') }}" data-cat-relax="{{ trans('main.relax') }}"
+			 data-cat-nieve="{{ trans('main.snow') }}" data-cat-cultural="{{ trans('main.cultural') }}"
+			 data-cat-ciclismo="{{ trans('main.cycling') }}"></div>
 
 @stop

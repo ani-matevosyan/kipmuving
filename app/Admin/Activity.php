@@ -109,12 +109,15 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 					->addColumn([
 //						AdminFormElement::checkbox('availability', 'Available'),
 						AdminFormElement::checkbox('visibility', 'Visible'),
-						AdminFormElement::checkbox('slider', 'Slider')
-					], 4)
+					], 2)
+					->addColumn([
+						AdminFormElement::checkbox('slider', 'Slider on homepage'),
+						AdminFormElement::checkbox('slider_activities_page', 'Slider on activities page'),
+					], 3)
 					->addColumn([
 						AdminFormElement::checkbox('available_day', 'Available on day'),
 						AdminFormElement::checkbox('available_night', 'Available on night'),
-					], 4)
+					], 3)
 					->addColumn([
 						AdminFormElement::checkbox('available_high', 'Available from March to November'),
 						AdminFormElement::checkbox('available_low', 'Available from December to March'),
