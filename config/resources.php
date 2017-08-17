@@ -49,7 +49,7 @@ return [
 
   'guide' => [
     'styles' => [
-      'css/guide-style.min.css'
+      'css/guide-style.css'
     ],
     'scripts' => [
       'js/guide-scripts.min.js'
@@ -197,7 +197,7 @@ return [
         'css/prettyPhoto.min.css',
         'css/instafeed/instafeed.min.css',
         'css/offer-items.min.css',
-        'css/activity-style.min.css'
+        'css/activity-style.css'
       ],
       'scripts' => [
         'js/product.tour.min.js',
@@ -219,7 +219,7 @@ return [
         'libs/owl-carousel(old)/owl.carousel.min.css',
         'libs/owl-carousel(old)/owl.theme.min.css',
         'libs/product-tour/product-tour.min.css',
-        'css/activities-style.min.css'
+        'css/activities-style.css'
       ],
       'scripts' => [
         'js/product.tour.min.js',
@@ -234,7 +234,7 @@ return [
 
   'about' => [
     'styles' => [
-      'css/about-style.min.css'
+      'css/about-style.css'
     ]
   ],
 

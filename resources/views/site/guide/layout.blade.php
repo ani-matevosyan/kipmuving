@@ -6,69 +6,68 @@
 
     <nav class="guide-navigation">
       <div class="container">
-        <h2 class="guide-navigation__title">Preguntas Frecuentes</h2>
         <ul class="guide-navigation__list">
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@howToGetToPucon') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-how-to-get-to-pucon' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-how-to-get-to-pucon' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon1.png') }}" alt="{{ trans('guide.How_to_arrive_in_Pucon') }}" class="guide-navigation__icon">
-              {{ trans('guide.How_to_arrive_in_Pucon') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.How_to_arrive_in_Pucon') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@shopsAndServices') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-shops-and-services' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-shops-and-services' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon4.png') }}" alt="{{ trans('guide.shops_and_services') }}" class="guide-navigation__icon">
-              {{ trans('guide.shops_and_services') }}
+              <span class="guide-navigation__link-text"> {{ trans('guide.shops_and_services') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@transportation') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-transportation' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-transportation' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon7.png') }}" alt="{{ trans('guide.transportaion') }}" class="guide-navigation__icon">
-              {{ trans('guide.transportaion') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.transportaion') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@summerAndWinter') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-summer-and-winter' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-summer-and-winter' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon2.png') }}" alt="{{ trans('guide.summer_and_winter') }}" class="guide-navigation__icon">
-              {{ trans('guide.summer_and_winter') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.summer_and_winter') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@whereToSleep') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-where-to-sleep' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-where-to-sleep' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon5.png') }}" alt="{{ trans('guide.Where_to_sleep') }}" class="guide-navigation__icon">
-              {{ trans('guide.Where_to_sleep') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.Where_to_sleep') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@nightLife') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-night-life' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-night-life' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon8.png') }}" alt="{{ trans('guide.night_life') }}" class="guide-navigation__icon">
-              {{ trans('guide.night_life') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.night_life') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@cityAndRegion') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-city-and-region' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-city-and-region' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon3.png') }}" alt="{{ trans('guide.city_and_region') }}" class="guide-navigation__icon">
-              {{ trans('guide.city_and_region') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.city_and_region') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@whatToEat') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-what-to-eat' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-what-to-eat' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon6.png') }}" alt="{{ trans('guide.what_to_eat') }}" class="guide-navigation__icon">
-              {{ trans('guide.what_to_eat') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.what_to_eat') }}</span>
             </a>
           </li>
           <li class="guide-navigation__item">
             <a href="{{ action('GuideController@money') }}"
-               class="guide-navigation__link{{ Route::currentRouteName() === 'guide-money' ? '_active' : '' }}">
+               class="guide-navigation__link {{ Route::currentRouteName() === 'guide-money' ? 'guide-navigation__link_active' : '' }}">
               <img src="{{ asset('/images/guide-icon9.png') }}" alt="{{ trans('guide.Money') }}" class="guide-navigation__icon">
-              {{ trans('guide.Money') }}
+              <span class="guide-navigation__link-text">{{ trans('guide.Money') }}</span>
             </a>
           </li>
         </ul>
