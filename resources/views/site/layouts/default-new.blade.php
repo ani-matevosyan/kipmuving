@@ -23,7 +23,7 @@
 				<div class="col-md-3 col-xs-6">
                     <div class="logo">
                         <a href="{{ action('HomeController@index') }}">
-                            <img src="{{ asset('/images/KeepMoving.png') }}"
+                            <img src="{{ asset('/images/logo.svg') }}"
                                  alt="image description"
                                  onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
                         </a>
