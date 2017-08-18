@@ -14,12 +14,6 @@ $(window).load(function(){
            }
            $(".info-tour").show();
         }
-        if (window.location.pathname === '/activities') {
-            if(localStorage.activitiestour !== "visited"){
-                activitiesTour();
-            }
-            $(".info-tour").show();
-        }
         if (window.location.pathname.indexOf('/activity/') === 0) {
             if(localStorage.activitytour !== "visited") {
                 activitytour();
@@ -43,12 +37,7 @@ $(window).load(function(){
             title: 'Busque su actividad',
             content: 'Busque las actividades que quiere hacer y seleccione la fecha que estará en Pucón.',
             image: 'images/tour/home-tour-1.jpg'
-        }, {
-            element: '#program-schedule',
-            title: 'Su carrito de actividades',
-            content: 'Aquí estará su carrito de actividades. Para ir finalizando su reserva, presione AGENDA.',
-            image: 'images/tour/home-tour-2.jpg'
-        }, {
+        },{
             element: '#guia',
             title: 'Guia de Pucón',
             content: 'Preparamos una guia completa de Pucón con las actividades más buscadas y también tours gratuitos que puede hacer.',
@@ -56,20 +45,6 @@ $(window).load(function(){
         }]);
         productTour_home.startTour();
         localStorage.hometour = "visited";
-    }
-
-    function activitiesTour(){
-        var productTour_activities = new ProductTour({
-            overlay: true
-        });
-        productTour_activities.steps([{
-            element: '#activities-slider',
-            title: 'Los más pedidos',
-            content: 'Aquí puedes encontrar cuales son las actividades más buscadas en Pucón.',
-            image: 'images/tour/activities-tour-1.jpg'
-        }]);
-        productTour_activities.startTour();
-        localStorage.activitiestour = "visited";
     }
 
     function activitytour(){
