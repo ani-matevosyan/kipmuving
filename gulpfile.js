@@ -11,7 +11,7 @@ gulp.task('sass', function(){
             browsers: ['last 15 version'],
             cascade: false
         }))
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/css'))
 });
 

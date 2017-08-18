@@ -1,7 +1,14 @@
+@import "../libs/product-tour/product-tour.min";
+@import "../libs/chosen/chosen.min";
+@import "../libs/jquery-ui/jquery-ui.min";
+@import "../libs/jcf/css/jcf.custom";
+@import "../libs/prettyPhoto/prettyPhoto";
+@import "../libs/instafeed/instafeed";
+@import "../css/offer-items";
+
+
 @media screen and (min-width: 992px){
   .your-reservation.activity.add>.row{
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
   .your-reservation.activity #activity-single-sidebar{

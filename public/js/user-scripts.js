@@ -35,7 +35,7 @@ $(document).ready(function(){
             .appendTo('body')
             .contents()
             .find('head')
-            .append("<link rel='stylesheet' type='text/css' media='print' href='"+document.location.origin+"/css/print-style.min.css'>")
+            .append("<link rel='stylesheet' type='text/css' media='print' href='"+document.location.origin+"/css/print-style.css'>")
             .parent()
             .find('body')
             .append('<div class="print-header">' +

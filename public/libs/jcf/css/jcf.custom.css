@@ -127,7 +127,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
     top: 7px;
     right: auto;
     bottom: auto;
-    background: url(../images/sprite.png) no-repeat -29px -81px;
+    background: url(../../../images/sprite.png) no-repeat -29px -81px;
 }
 
 :root .jcf-checkbox span {
