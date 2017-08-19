@@ -1,3 +1,6 @@
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+
 $(document).ready(function(){
 
     $("#most-visited-activities-slider, #some-activities-slider").owlCarousel({

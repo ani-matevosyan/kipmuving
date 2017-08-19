@@ -5,7 +5,9 @@ var gulp         = require('gulp'),
     babel        = require('gulp-babel'),
     uglify       = require('gulp-uglify'),
     pump         = require('pump'),
-    rename       = require('gulp-rename');
+    rename       = require('gulp-rename'),
+    webpack      = require('webpack-stream'),
+    named        = require('vinyl-named');
 
 gulp.task('sass', function(){
     return gulp.src('./public/scss/**/*.scss')
@@ -19,29 +21,44 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./public/css'))
 });
 
-gulp.task('scripts', function(){
-   return gulp.src('./public/js/src/*.js')
-       .pipe(sourcemaps.init())
-       // .pipe(uglify())
-       .pipe(sourcemaps.write("../maps"))
-       .pipe(gulp.dest("./public/js"));
+gulp.task('scripts1', function(cb){
+    pump(
+        [
+            gulp.src('./public/js/src1/*.js'),
+            uglify(),
+            rename({ suffix: '.min' }),
+            gulp.dest('./public/js/')
+        ],
+        cb
+    )
 });
 
-gulp.task('compress', function(cb){
-   pump(
-       [
-           gulp.src('./public/js/src/*.js'),
-           uglify(),
-           rename({ suffix: '.min' }),
-           gulp.dest('./public/js')
-       ],
-       cb
-   )
+gulp.task('scripts2', function(cb){
+    pump(
+        [
+            gulp.src('./public/js/src2/*.js'),
+            babel({presets: ['es2015']}),
+            named(),
+            webpack({
+                module:{
+                    loaders: [
+                        { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+                        { test: /\.(png|jpg|gif)$/, use: ['url-loader'] }
+                    ]
+                }
+            }),
+            uglify(),
+            rename({ suffix: '.min' }),
+            gulp.dest('./public/js/')
+        ],
+        cb
+    )
 });
 
-gulp.task('watch', ['sass', 'compress'], function() {
+gulp.task('watch', ['sass', 'scripts1', 'scripts2'], function() {
     gulp.watch('./public/scss/**/*.scss', ['sass']);
-    gulp.watch('./public/js/src/*.js', ['compress']);
+    gulp.watch('./public/js/src1/*.js', ['scripts1']);
+    gulp.watch('./public/js/src2/*.js', ['scripts2']);
 });
 
 gulp.task('default', ['watch']);

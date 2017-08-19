@@ -8,7 +8,6 @@ return [
     'scripts' => [
       'js/product.tour.min.js',
       'libs/product-tour/product-tour.min.js',
-      'libs/owl-carousel/owl.carousel.min.js',
       'libs/jcf/js/jcf.js',
       'libs/jcf/js/jcf.select.js',
       'js/home-scripts.min.js'
