@@ -1,0 +1,30 @@
+.divider{
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+  margin: 0;
+  padding: 15px 0;
+}
+
+.divider:before{
+  content: '';
+  height: 1px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  background-color: #e5e5e5;
+}
+
+.divider__text{
+  background-color: #fff;
+  padding: 0 15px;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  display: inline-block;
+  color: #BDBDBD;
+}

@@ -9,6 +9,7 @@
 //Components
 @import "../css/offer-items";
 @import "components/comments";
+@import "components/devider";
 
 
 @media screen and (min-width: 992px){
@@ -417,19 +418,26 @@
   margin-bottom: 21px;
 }
 
-.activity .activity-title h1{
-  font-weight: 700;
-  font-size: 38px;
-  text-transform: uppercase;
-  color: #283C5C;
-  line-height: 1;
-}
-
-.activity-title p{
-  margin: 0;
-  color: #7F8590;
-  text-transform: uppercase;
-  font-size: 17px;
+.activity .activity-title {
+  h1 {
+    font-weight: 700;
+    font-size: 38px;
+    text-transform: uppercase;
+    color: #283C5C;
+    line-height: 1;
+    @media screen and (max-width: 767px) {
+      font-size: 32px;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 28px;
+    }
+  }
+  p{
+    margin: 0;
+    color: #7F8590;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
 }
 
 .activity-description{
@@ -865,8 +873,16 @@
     padding:{
       top: 11px;
       bottom: 11px;
-      right: 0;
+      right: 17px;
       left: 30px;
+    }
+    @media screen and (max-width: 1149px) and (min-width: 992px){
+      padding-left: 15px;
+    }
+    &:after{
+      content: '';
+      display: table;
+      clear: both;
     }
   }
   &__datepicker{
@@ -878,7 +894,6 @@
     background-position: 0px 5px;
     background-size: 15px;
     text-align: right;
-    margin-right: 23px;
   }
 }
 
@@ -888,6 +903,7 @@
   font-weight: 400;
   border-color: #8C1A2C;
   height: auto;
+  float: right;
   .jcf-select-text{
     color: #AD3A4B;
     margin:{
@@ -902,6 +918,55 @@
       border-width: 6px 5px 0;
       top: 10px;
       right: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px){
+  %get-offers-item{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+//Offers navigation
+
+.offers-navigation{
+  background-color: #EEEEEE;
+  padding: 9px 0;
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  &__item{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 29px;
+    font-size: 12px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @media screen and (max-width: 450px){
+      display: block;
+      margin: 0 0 10px;
+      font-size: 14px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+  .active>a{
+    font-weight: 700;
+  }
+  &__link{
+    color: #000;
+    &:hover,
+    &:visited,
+    &:focus{
+      color: #000;
     }
   }
 }

@@ -143,7 +143,6 @@ return [
 	
 	'activity_depends_on_the_weather'     => 'Actividad depende del clima',
 	'this_activity_is_subject_to_weather' => 'Esta actividad está sujeta al clima. Si llueve, hay muchas nubes o viento, la actividad no se realiza. Puedes percibir como estará el clima en una semana para que programes cual es el mejor día para hacer esta actividad. Elige preferentemente un día que haga sol.',
-	'sort_by'                             => 'Ordenar por',
 	'recommendation'                      => 'Recomendación',
 	'lowest_price'                        => 'Precio más bajo',
 	'includes_more_services'              => 'Incluye más servicios',

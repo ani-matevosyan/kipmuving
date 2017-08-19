@@ -146,7 +146,6 @@ return [
 	
 	'activity_depends_on_the_weather'     => 'Activity that depends on the weather',
 	'this_activity_is_subject_to_weather' => 'This activity is subject to weather. If it rains or if there are many clouds or wind, the activity is not done. You can look how the weather will be in a week so that you can schedule what is the best day to do this activity. Choose preferably a sunny day.',
-	'sort_by'                             => 'Sort by',
 	'recommendation'                      => 'Recommendation',
 	'lowest_price'                        => 'Lowest price',
 	'includes_more_services'              => 'Includes more services',
