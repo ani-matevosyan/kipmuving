@@ -44,11 +44,13 @@ class HomeController extends Controller
 			'scripts'           => config('resources.home.scripts'),
 			'imageIndex'        => $imageIndex,
 			'random_activities' => Activity::where('region', '=', $region)
+				->where('visibility', true)
 				->translatedIn(app()->getLocale())
 				->limit(8)
 				->inRandomOrder()
 				->get(),
 			'slider_activities' => Activity::where('region', '=', $region)
+				->where('visibility', true)
 				->where('slider', true)
 				->translatedIn(app()->getLocale())
 				->inRandomOrder()
