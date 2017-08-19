@@ -1,10 +1,14 @@
+//Libraries
 @import "../libs/product-tour/product-tour.min";
 @import "../libs/chosen/chosen.min";
 @import "../libs/jquery-ui/jquery-ui.min";
 @import "../libs/jcf/css/jcf.custom";
 @import "../libs/prettyPhoto/prettyPhoto";
 @import "../libs/instafeed/instafeed";
+
+//Components
 @import "../css/offer-items";
+@import "components/comments";
 
 
 @media screen and (min-width: 992px){
@@ -818,10 +822,89 @@
   background: #4b5b77;
 }
 
+// Get offers block
 
-@import "components/comments";
+%get-offers-item{
+  display: inline-block;
+  vertical-align: top;
+  height: 49px;
+  color: #fff;
+  font-weight: 700;
+}
 
+.get-offers{
+  font-size: 0;
+  &__button{
+    @extend %get-offers-item;
+    width: 58%;
+    background-color: #0081CC;
+    text-transform: uppercase;
+    font-size: 19px;
+    line-height: 49px;
+    text-align: center;
+    margin-right: 6px;
+    &:before{
+      content: '';
+      display: inline-block;
+      width: 23px;
+      height: 23px;
+      background-image: url(../images/sale-icon.png);
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+    &:hover{
+      color: #fff;
+      background-color: #2B9ECC;
+    }
+  }
+  &__date-persons{
+    @extend %get-offers-item;
+    font-size: 14px;
+    width: calc( 42% - 6px );
+    background-color: #AD3A4B;
+    padding:{
+      top: 11px;
+      bottom: 11px;
+      right: 0;
+      left: 30px;
+    }
+  }
+  &__datepicker{
+    width: 116px;
+    border: none;
+    font-size: 17px;
+    outline: none;
+    background: transparent url('../images/calendar-white.svg') no-repeat;
+    background-position: 0px 5px;
+    background-size: 15px;
+    text-align: right;
+    margin-right: 23px;
+  }
+}
 
+.jcf-select-get-offers__persons-select{
+  width: auto;
+  min-width: 90px;
+  font-weight: 400;
+  border-color: #8C1A2C;
+  height: auto;
+  .jcf-select-text{
+    color: #AD3A4B;
+    margin:{
+      top: 4px;
+      bottom: 4px;
+    }
+  }
+  .jcf-select-opener {
+    width: 22px;
+    &:after {
+      border-top-color: #AD3A4B;
+      border-width: 6px 5px 0;
+      top: 10px;
+      right: 6px;
+    }
+  }
+}
 
 
 

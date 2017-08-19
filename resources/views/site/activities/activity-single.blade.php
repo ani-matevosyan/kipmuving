@@ -46,13 +46,31 @@
 											</div>
 										@endif
 
-										@if ($activity->instagram_name)
-											<div class="activity-instagram">
-												<span class="activity-tag">{{ $activity->instagram_name }}</span>
-												<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>
-												<div class="clearfix"></div>
+										{{--@if ($activity->instagram_name)--}}
+											{{--<div class="activity-instagram">--}}
+												{{--<span class="activity-tag">{{ $activity->instagram_name }}</span>--}}
+												{{--<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>--}}
+												{{--<div class="clearfix"></div>--}}
+											{{--</div>--}}
+										{{--@endif--}}
+										<div class="get-offers">
+											<a href="#" class="get-offers__button">Quiero recibir ofertas</a>
+											<div class="get-offers__date-persons">
+												<input id="get-offers-date"
+													   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
+													   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+													   class="get-offers__datepicker">
+												<select id="get-offers-persons" class="get-offers__persons-select">
+													<option selected value="">{{ trans('main.persons') }}</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+												</select>
 											</div>
-										@endif
+										</div>
 										<nav class="subnav">
 											<div class="date-time">
 												<div class="text-field">
