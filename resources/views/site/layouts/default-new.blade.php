@@ -134,7 +134,6 @@
 					<nav class="footer-nav">
 						<ul>
 							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
-							<li><a href="#">{{ trans('main.contact') }}</a></li>
 						</ul>
 					</nav>
 				</div>
