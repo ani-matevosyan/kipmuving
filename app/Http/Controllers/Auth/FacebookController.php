@@ -24,9 +24,8 @@ class FacebookController extends Controller
 				->user();
 		} catch (Exception $exception) {
       return redirect()->to('/login')->with('error', 'Sorry, we can\'t login you with Facebook :(');
-//      dd($exception);
     }
-		
+
 		$auth_user = $this->findOrCreateUser($user);
 		
 		Auth::login($auth_user, true);

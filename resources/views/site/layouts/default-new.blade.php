@@ -134,7 +134,6 @@
 					<nav class="footer-nav">
 						<ul>
 							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
-							<li><a href="#">{{ trans('main.contact') }}</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -312,7 +311,7 @@
 {{--Google analitics--}}
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
