@@ -2,8 +2,8 @@ $(document).ready(function(){
     //-----------------Fixed sidebar----------------
 
     if($(window).width() > 991){
-        var programBlock = $(".suprogram-content"),
-            programWrapper = $(".s_suprogram"),
+        var programBlock = $(".s-program__content"),
+            programWrapper = $(".s-program"),
             blockWidth = programBlock.outerWidth(),
             blockHeight = programBlock.outerHeight();
         $(window).scroll(function() {

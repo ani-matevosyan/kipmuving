@@ -17,9 +17,10 @@ return [
 	'what_activities_search'  => 'What adventure are you looking for?',
 	'in_all_activities'       => 'in all activities',
 	
-	'program'        => 'Program',
-	'activities_for' => 'activities for',
-	'persons'        => 'Persons',
+	'activities_for'  => 'activities for',
+	'persons'         => 'Persons',
+    'instant_booking' => 'Instant Booking',
+    'receive_offers'  => 'Receive Offers',
 
 	'bicycle'                           => 'Bicycle',
 	'bus'                               => 'Bus',

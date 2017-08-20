@@ -16,10 +16,11 @@ return [
 	
 	'what_activities_search'  => 'Que aventura você está procurando?',
 	'in_all_activities'       => 'em todas as atividades',
-	
-	'program'        => 'Seu programa',
-	'activities_for' => 'atividades para',
-	'persons'        => 'Pessoas',
+
+	'activities_for'  => 'atividades para',
+	'persons'         => 'Pessoas',
+    'instant_booking' => 'Reserva Imediata',
+    'receive_offers'  => 'Receber Ofertas',
 
 	'bicycle'                           => 'Bicicleta',
 	'bus'                               => 'Ônibus',
