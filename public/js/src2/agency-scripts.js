@@ -17,6 +17,18 @@ $(document).ready(function(){
         });
     }
 
+    function numberWithDots(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    jQuery('.persona').on("change", function(){
+        var priceElem = $(this).parents('.offer-item').find('.price');
+        var currency = $(this).parents('.offer-item').find('.price sub').html();
+        var unit_price = 0 + priceElem.data('unit-price');
+
+        priceElem.html('<sub>'+currency+'</sub>' + numberWithDots(Math.round($(this).val() * unit_price)));
+    });
+
     jQuery('.btn-reserve-ag').click(function(){
         var dt = jQuery(this).parents('.offer-item').find('.reserve-date').val();
         if (dt == '') {

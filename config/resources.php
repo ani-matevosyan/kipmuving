@@ -6,7 +6,6 @@ return [
       'css/home-style.css'
     ],
     'scripts' => [
-      'js/product.tour.min.js',
       'libs/product-tour/product-tour.min.js',
       'libs/jcf/js/jcf.js',
       'libs/jcf/js/jcf.select.js',
@@ -55,7 +54,7 @@ return [
       ],
       'scripts' => [
         'libs/instafeed/instafeed.min.js',
-        'libs/instafeed/instafeed-settings.min.js',
+        'js/instafeed-settings.min.js',
         'js/free-pages-scripts.min.js'
       ]
     ],
@@ -131,7 +130,7 @@ return [
       ],
       'scripts' => [
         'libs/instafeed/instafeed.min.js',
-        'libs/instafeed/instafeed-settings.min.js',
+        'js/instafeed-settings.min.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap',
@@ -157,15 +156,11 @@ return [
         'css/activity-style.css'
       ],
       'scripts' => [
-        'js/product.tour.min.js',
         'libs/product-tour/product-tour.min.js',
         'js/moment.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
-        'libs/chosen/chosen.jquery.min.js',
         'libs/instafeed/instafeed.min.js',
-        'libs/instafeed/instafeed-settings.min.js',
-        'libs/prettyPhoto/jquery.prettyPhoto.js', //Gallery and currency/language pop-up
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap',
         'js/activity-scripts.min.js'
       ]
@@ -176,8 +171,6 @@ return [
         'css/activities-style.css'
       ],
       'scripts' => [
-        'js/product.tour.min.js',
-        'libs/product-tour/product-tour.min.js',
         'libs/jquery-ui/slider/jquery-ui.min.js',
         'js/activities-scripts.min.js'
       ]

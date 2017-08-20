@@ -52,11 +52,6 @@ $(window).load(function(){
             overlay: true
         });
         productTour_activity.steps([{
-            element: '.jcf-select-persona',
-            title: 'Elija la cantidad de Personas',
-            content: 'Para cada actividad, seleccione la cantidad de personas',
-            image: '../images/tour/activity-tour-1.jpg'
-        }, {
             element: '.jcf-select-hours',
             title: 'Los horarios',
             content: 'Algunas actividades poseen dos horarios distintos, elija aquel que más le acomode',

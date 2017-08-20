@@ -164,38 +164,4 @@ $(document).ready(function(){
 		});
 		feed4.run();
 	}
-
-	if($("#instafeed5").length) {
-		var activityTag = $("#instafeed5").attr("data-tag");
-		var feed5 = new Instafeed({
-			get: 'tagged',
-			tagName: activityTag,
-			target: 'instafeed5',
-			accessToken: accessToken,
-			template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
-			limit: 16,
-			after: function () {
-				$('#instafeed5 a').click(function (e) {
-					e.preventDefault();
-					var urlOfThis = $(this)[0].href;
-					if ($("#the-image img")) {
-						$("#the-image img").remove();
-					}
-					$.each($("#data span"), function (i, v) {
-						if ($(this).attr('data-link') == urlOfThis) {
-							$("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
-						}
-					});
-					$("#myModalX").modal('show');
-				});
-			},
-			success: function (data) {
-				$.each(data.data, function (i, v) {
-					var url = v.images.standard_resolution.url;
-					$("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
-				});
-			}
-		});
-		feed5.run();
-	}
 });

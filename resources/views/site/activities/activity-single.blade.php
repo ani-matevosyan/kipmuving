@@ -46,13 +46,13 @@
 											</div>
 										@endif
 
-										{{--@if ($activity->instagram_name)--}}
-											{{--<div class="activity-instagram">--}}
-												{{--<span class="activity-tag">{{ $activity->instagram_name }}</span>--}}
-												{{--<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>--}}
-												{{--<div class="clearfix"></div>--}}
-											{{--</div>--}}
-										{{--@endif--}}
+										@if ($activity->instagram_name)
+											<div class="activity-instagram">
+												<span class="activity-tag">{{ $activity->instagram_name }}</span>
+												<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>
+												<div class="clearfix"></div>
+											</div>
+										@endif
 										<div class="get-offers">
 											<a href="#" class="get-offers__button">Quiero recibir ofertas</a>
 											<div class="get-offers__date-persons">
@@ -60,7 +60,9 @@
 													   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 													   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
 													   class="get-offers__datepicker">
-												<select id="get-offers-persons" class="get-offers__persons-select">
+												<select id="get-offers-persons"
+														class="get-offers__persons-select"
+														data-currencySign="@if(session('currency.type') === 'BRL') R$ @else $ @endif">
 													<option selected value="">{{ trans('main.persons') }}</option>
 													<option value="1">1</option>
 													<option value="2">2</option>

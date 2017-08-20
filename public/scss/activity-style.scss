@@ -1,6 +1,5 @@
 //Libraries
 @import "../libs/product-tour/product-tour.min";
-@import "../libs/chosen/chosen.min";
 @import "../libs/jquery-ui/jquery-ui.min";
 @import "../libs/jcf/css/jcf.custom";
 @import "../libs/prettyPhoto/prettyPhoto";
@@ -637,7 +636,7 @@
 
 .select-activity .timing1{
   border: none;
-  margin: 0;
+  margin: 21px 0 0;
 }
 
 @media (max-width: 767px) {
@@ -655,7 +654,7 @@
 .timing1 li {
   overflow: hidden;
   position: relative;
-  padding: 0 0 3px 30px;
+  padding-left: 30px;
 }
 
 .timing1 li.time{
@@ -667,7 +666,7 @@
 }
 
 .timing1 li.profile.hours{
-  padding: 4px 0 13px 30px;
+  padding: 0 0 13px 30px;
 }
 
 .timing1 li.profile:after {
@@ -690,7 +689,7 @@
   background: url(../images/clock.svg) no-repeat;
   background-size: contain;
   background-position: center center;
-  top: 31px;
+  top: 43px;
 }
 
 .timing1 li.profile .jcf-select .jcf-select-opener{
@@ -705,10 +704,6 @@
   .timing1 li.profile .jcf-select{
     width: auto;
   }
-}
-
-.jcf-select.jcf-select-persona{
-  width: auto;
 }
 
 .timing1 li.profile .jcf-select .jcf-select-text{
@@ -730,8 +725,9 @@
   margin-bottom: 3px;
 }
 .timing1 li.profile.hours label{
-  font-weight: bold;
   display: block;
+  margin-bottom: 18px;
+  font-weight: 400;
 }
 
 .timing1 li.cal:after {
@@ -748,13 +744,8 @@
   background-position: center center;
 }
 
-.timing1 strong {
-  display: block;
-  font-weight: normal;
-}
-
-.timing1 strong span {
-  font-weight: bold;
+.timing1 p {
+  margin: 0;
 }
 
 .timing1 .btn-primary {
@@ -780,6 +771,10 @@
 
 .your-reservation.activity .price.add {
   padding: 0;
+}
+
+.tab-content{
+  padding-top: 26px;
 }
 
 .your-reservation .accordion h2{
