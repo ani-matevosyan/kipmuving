@@ -50,9 +50,7 @@
 							@if($offer->duration)
 								<li>
 									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer->duration }}hrs </strong>
-									{{--<strong><span>{{ trans('main.schedule') }}--}}
-											{{--:</span> {{ date('H:i', strtotime($offer['start_time'])) }}--}}
-										{{--- {{ date('H:i', strtotime($offer['end_time'])) }}</strong>--}}
+									<strong><span>{{ trans('main.schedule') }}:</span> {{ $offer->schedule['start'] }} - {{ $offer->schedule['end'] }}</strong>
 								</li>
 							@endif
 							<li class="profile">
