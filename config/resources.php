@@ -18,7 +18,7 @@ return [
 
   'user' => [
     'styles' => [
-      'css/userpage-style.min.css'
+      'css/userpage-style.css'
     ],
     'scripts' => [
       'js/user-scripts.min.js'
