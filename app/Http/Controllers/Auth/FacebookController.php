@@ -51,7 +51,7 @@ class FacebookController extends Controller
 			'username'          => '',
 			'first_name'        => isset($name[0]) ? $name[0] : ' ',
 			'last_name'         => isset($name[1]) ? $name[1] : ' ',
-			'gender'            => $facebookUser['gender'] === 'male' ? 'm' : 'w',
+			'gender'            => isset($facebookUser['gender']) ? ($facebookUser['gender'] === 'male' ? 'm' : 'w') : null,
 			'email'             => $facebookUser->email,
 			'avatar'            => $facebookUser->avatar,
 			'confirmation_code' => ' ',

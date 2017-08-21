@@ -41,8 +41,8 @@ return [
 		'redirect'      => 'http://keepmoving.co/auth/facebook/callback',
 	],
 	'google' => [
-		'client_id'     => '113785953117-3fsr35g2v0c9e3kqelokdbktc8m3itv1.apps.googleusercontent.com',
-		'client_secret' => 'O0Vf_475x5MFGVnRNeNX53sb',
+		'client_id'     => '426565676169-oabbvgrvtj8cd90bgtftlqtbebpjkg74.apps.googleusercontent.com',
+		'client_secret' => 'ncnebkzQtAfjb9gCAYFa--W3',
 		'redirect'      => 'http://keepmoving.co/auth/gplus/callback',
 	]
 
