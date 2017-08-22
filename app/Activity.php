@@ -14,7 +14,7 @@ class Activity extends Model
 //		Upload::setAttribute as setUploadAttribute;
 //	}
 	use Translatable;
-	
+
 	public $translationModel = 'App\ActivityTranslation';
 	public $translatedAttributes = [
 		'name',
@@ -26,7 +26,7 @@ class Activity extends Model
 		'restrictions',
 		'real_restrictions'
 	];
-	
+
 	protected $table = 'activities';
 
 //	protected $casts = [
@@ -34,31 +34,31 @@ class Activity extends Model
 //		'image_thumb' => 'image',
 //		'image_icon' => 'image'
 //	];
-	
-	
+
+
 	public function offers()
 	{
 		return $this->hasMany('App\Offer', 'activity_id', 'id');
 	}
-	
+
 	public function comments()
 	{
 		return $this->hasMany(ActivityComment::class, 'activity_id', 'id');
 	}
-	
+
 	private function dataToArray($data)
 	{
 		if ($data)
 			return explode(";\r\n", $data);
-		
+
 		return null;
 	}
-	
+
 	public function images()
 	{
 		return $this->hasMany('App\ActivityImage', 'activity_id', 'id');
 	}
-	
+
 	public function getImagesAttribute()
 	{
 		$images = ActivityImage::where('activity_id', $this['id'])->get();
@@ -66,20 +66,20 @@ class Activity extends Model
 		foreach ($images as $image) {
 			$imagesUrls[] = $image['image_url'];
 		}
-		
+
 		return $imagesUrls;
 	}
-	
+
 	public function getTripadvisorCodeAttribute()
 	{
 		return str_replace('{language}', app()->getLocale(), $this->attributes['tripadvisor_code']);
 	}
-	
+
 	public function getRealTripadvisorCodeAttribute()
 	{
 		return $this->attributes['tripadvisor_code'];
 	}
-	
+
 	public function setRealTripadvisorCodeAttribute($code)
 	{
 //		$agency = Activity::find($this['id']);
@@ -87,7 +87,7 @@ class Activity extends Model
 //		$agency->save();
 		$this->attributes['tripadvisor_code'] = $code;
 	}
-	
+
 	public function setImagesAttribute($images)
 	{
 		$images = array_unique($images);
@@ -105,11 +105,11 @@ class Activity extends Model
 //	public function getCarriesAttribute() {
 //		return $this->attributes['carry'];
 //	}
-	
+
 	public function getHomePageActivities()
 	{
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
-		
+
 		$activities = Activity::limit(8)
 			->whereHas('offers', function ($query) {
 				$query->where('price', '>', 0);
@@ -119,25 +119,23 @@ class Activity extends Model
 			->select('activities.*')
 			->inRandomOrder()
 			->get();
-		
+
 		return $activities;
 	}
-	
-	public function getActivitiesList()
+
+	public static function getActivitiesList()
 	{
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
-		
-		$activitiesList = Activity::join('activity_translations', 'activity_translations.activity_id', 'activities.id')
-			->where('activity_translations.locale', app()->getLocale())
-			->where('activities.visibility', true)
+
+		$activitiesList = Activity::where('visibility', true)
+			->translatedIn(app()->getLocale())
 			->where('region', '=', $region)
-			->select('activities.id as id', 'activity_translations.name as name')
-			->orderby('activity_translations.name')
+			->select('activities.id')
 			->get();
-		
-		return $activitiesList;
+
+		return $activitiesList->sortBy('name');
 	}
-	
+
 	public function getActivity($id)
 	{
 		$activity = Activity::where('id', $id)
@@ -146,14 +144,14 @@ class Activity extends Model
 			})
 			->where('visibility', true)
 			->first();
-		
+
 		return $activity;
 	}
-	
+
 	public function getAllActivities()
 	{
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
-		
+
 		$activities = Activity::where('visibility', true)
 			->where('region', '=', $region)
 			->whereHas('offers', function ($query) {
@@ -161,7 +159,7 @@ class Activity extends Model
 			})
 			->inRandomOrder()
 			->get();
-		
+
 		return $activities;
 	}
 }
