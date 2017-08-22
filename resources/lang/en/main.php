@@ -190,6 +190,7 @@ return [
 	'include_more_activities'            => 'INCLUDE MORE ACTIVITIES',
 	'the_are_activities_of_the_same_day' => 'There are activities on the same day, please leave only one activity per day before continuing with your reservation. You can move the activity from one day to the next, or simply delete it.',
 	'activities'                         => 'activities',
+    'activity'                           => 'activity',
 	'total_in_pesos'                     => 'total in pesos',
 	'you_save'                           => 'you saved',
 	'reserve_this_panorama'              => 'RESERVE THIS PANORAMA',

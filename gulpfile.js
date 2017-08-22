@@ -10,7 +10,7 @@ var gulp         = require('gulp'),
     named        = require('vinyl-named');
 
 gulp.task('sass', function(){
-    return gulp.src('./public/scss/**/*.scss')
+    return gulp.src('./resources/assets/sass/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({
@@ -24,7 +24,7 @@ gulp.task('sass', function(){
 gulp.task('scripts1', function(cb){
     pump(
         [
-            gulp.src('./public/js/src1/*.js'),
+            gulp.src('./resources/assets/js/src1/**/*.js'),
             uglify(),
             rename({ suffix: '.min' }),
             gulp.dest('./public/js/')
@@ -36,7 +36,7 @@ gulp.task('scripts1', function(cb){
 gulp.task('scripts2', function(cb){
     pump(
         [
-            gulp.src('./public/js/src2/*.js'),
+            gulp.src('./resources/assets/js/src2/**/*.js'),
             babel({presets: ['es2015']}),
             named(),
             webpack({
@@ -56,9 +56,9 @@ gulp.task('scripts2', function(cb){
 });
 
 gulp.task('watch', ['sass', 'scripts1', 'scripts2'], function() {
-    gulp.watch('./public/scss/**/*.scss', ['sass']);
-    gulp.watch('./public/js/src1/*.js', ['scripts1']);
-    gulp.watch('./public/js/src2/*.js', ['scripts2']);
+    gulp.watch('./resources/assets/sass/**/*.scss', ['sass']);
+    gulp.watch('./resources/assets/js/src1/**/*.js', ['scripts1']);
+    gulp.watch('./resources/assets/js/src2/**/*.js', ['scripts2']);
 });
 
 gulp.task('default', ['watch']);

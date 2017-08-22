@@ -181,16 +181,14 @@ $(document).ready(function(){
     function calendarCalc(){
         var totalcost = 0;
         var totaldisc;
-        $( ".offers-list li" ).each( function(){
-            var totalcostprep = ($(this).find("span").text());
+        $("#instant-booking-list .basket-list__item" ).each( function(){
+            var totalcostprep = ($(this).find(".basket-list__price").text());
             totalcost += parseInt(totalcostprep.split('.').join(""));
         });
-        $(".total .totalprice p").text(Number(totalcost).toLocaleString('de-DE'));
-        totaldisc = parseInt(totalcost * 0.1);
-        $(".total .discount p").text(Number(totaldisc).toLocaleString('de-DE'));
+        $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
     }
 
-    jQuery('.offers-list').on("click", "a", function(){
+    jQuery('#instant-booking-list').on("click", ".basket-list__delete-button", function(){
         var oid = $(this).parent().prevAll().length;
         var pickedel = $(this).parent();
         $.ajax({
@@ -203,16 +201,8 @@ $(document).ready(function(){
             success: function(){
                 pickedel.remove();
                 getsuprogram();
-                if($(".offers-list li").length === 0 ){
-                    $("section.widget.summary").slideUp();
-                }
-                if (window.location.pathname === '/calendar'){
-                    calendarCalc();
-                    jQuery('#calendar').fullCalendar('refetchEvents');
-                }
-                if(window.location.pathname === '/reserve'){
-                    location.reload();
-                }
+                calendarCalc();
+                jQuery('#calendar').fullCalendar('refetchEvents');
             },
             error: function(){
                 location.reload();

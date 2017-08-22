@@ -1,7 +1,7 @@
 import './product.tour';
 import 'chosen-js/chosen.css';
 import 'chosen-js';
-import '../../libs/prettyPhoto/jquery.prettyPhoto';
+import '../../../../public/libs/prettyPhoto/jquery.prettyPhoto';
 
 
 $(document).ready(function(){
@@ -129,7 +129,7 @@ $(document).ready(function(){
                         $("section.widget.summary").slideDown();
                     }
                     var formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
-                    $(".offers-list").append("<li><a href='#'>"+ formattedDate   + " - "+ lastel.name+"</a>");
+                    $(".offers-list").append("<li><a href='"+document.location.origin+"/offers/remove/"+offer_id+"'>"+ formattedDate   + " - "+ lastel.name+"</a>");
 
                     $('html, body').animate({scrollTop: '0px'}, 800);
                 },

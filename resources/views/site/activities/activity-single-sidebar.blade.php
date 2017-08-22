@@ -26,7 +26,7 @@
 		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
 		<ul class="offers-list">
 			@foreach ($offers['selected'] as $offer)
-				<li><a href="#">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}
+				<li><a href="{{ action('OfferController@remove') }}/{{$offer['offer_id']}}">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}
 						- {{ $offer['name'] }}</a></li>
 			@endforeach
 		</ul>

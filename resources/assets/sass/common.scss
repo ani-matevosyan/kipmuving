@@ -1,5 +1,5 @@
-@import "../libs/bootstrap/bootstrap";
-@import "../css/fonts";
+@import "../../../public/libs/bootstrap/bootstrap";
+@import "../../../public/css/fonts";
 
 @-webkit-viewport {
   width: device-width;
@@ -2243,15 +2243,6 @@ body {
   margin-right: 5px;
 }
 
-
-.your-reservation .note {
-  color: #006b33;
-  padding-left: 10px;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 400;
-}
-
 .your-reservation .cancel {
   position: relative;
   padding-left: 31px;
@@ -3107,9 +3098,6 @@ body {
 }
 .your-reservation .btn-pay.stripe {
   background: #517bda;
-}
-.your-reservation .note {
-  margin-top: 18px;
 }
 .your-reservation .more-detail .opener {
   z-index: 1;

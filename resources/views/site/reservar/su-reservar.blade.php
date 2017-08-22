@@ -119,31 +119,47 @@
 									<aside class="sidebar">
 										<section class="s-program">
 											<div class="s-program__content @if(session('currency.type') === 'BRL') s-program__content_brl-curr @endif">
-												<header class="s-program__header">
-													<h3 class="s-program__title">{{ trans('main.instant_booking') }}</h3>
-													<p class="s-program__offers-count">
-														<span id="count-activities">{{ count($reservation->offers) }}</span> {{ trans('main.activities') }}
-													</p>
-												</header>
-												<ul class="offers-list">
-													@foreach ($reservation->offers as $offer)
-														<li class="offers-list__item">
-															<a class="offers-list__delete-button" href="#"></a>
-															<h4 class="offers-list__name">{{ $offer->activity->name }}</h4>
-															<span class="offers-list__price">{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
-														</li>
-													@endforeach
-												</ul>
-												<div class="s-program__total">
-													<div class="s-program__total-price">
+												<div class="s-program__basket">
+													<header class="s-program__header">
+														<h3 class="s-program__title">{{ trans('main.instant_booking') }}</h3>
+														<p class="s-program__offers-count">
+															<span id="count-activities">{{ count($reservation->offers) }}</span> @if(count($reservation->offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
+														</p>
+													</header>
+													<ul class="basket-list">
+														@foreach ($reservation->offers as $offer)
+															<li class="basket-list__item">
+																<a class="basket-list__delete-button" href="#"></a>
+																<h4 class="basket-list__name">{{ $offer->activity->name }}</h4>
+																<span class="basket-list__price">{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
+															</li>
+														@endforeach
+													</ul>
+													<div class="s-program__total">
 														<p class="s-program__price">{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
 														<span class="s-program__total-text">{{ trans('main.total') }}</span>
 													</div>
 												</div>
-												<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar s-program__reserve-button">{{ trans('main.reserve_this_panorama') }}</a>
+												<div class="s-program__basket">
+													<header class="s-program__header s-program__header_subscription">
+														<h3 class="s-program__title s-program__title_subscription">{{ trans('main.receive_offers') }}</h3>
+														<p class="s-program__offers-count">
+															<span id="count-activities">{{ count($reservation->offers) }}</span> @if(count($reservation->offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
+														</p>
+													</header>
+													<ul class="basket-list basket-list_subscription">
+														@foreach ($reservation->offers as $offer)
+															<li class="basket-list__item basket-list__item_subscription">
+																<a class="basket-list__delete-button" href="#"></a>
+																<h4 class="basket-list__name">{{ $offer->activity->name }}</h4>
+															</li>
+														@endforeach
+													</ul>
+												</div>
+												<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar s-program__reserve-button">{{ trans('main.confirm') }}</a>
 											</div>
 										</section>
-										<div class="su_program_note">
+										<div class="note">
 											* Ten en cuenta q ue el valor oficial es en pesos chilenos. La conversion en dolares o reales es un
 											aproximado. El valor debera ser pago en pesos en la agencia.
 										</div>

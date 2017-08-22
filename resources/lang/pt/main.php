@@ -187,6 +187,7 @@ return [
 	'include_more_activities'            => 'INCLUIR MAIS ATIVIDADES',
 	'the_are_activities_of_the_same_day' => 'Há atividades no mesmo dia. Por favor, deixe apenas uma actividade ao dia antes de continuar com sua reserva. Você pode mover a atividade para outro dia ou simplesmente eliminá-la.',
 	'activities'                         => 'atividades',
+    'activity'                           => 'atividade',
 	'total_in_pesos'                     => 'total em pesos',
 	'you_save'                           => 'você está economizando',
 	'reserve_this_panorama'              => 'RESERVAR ESTE PANORAMA',

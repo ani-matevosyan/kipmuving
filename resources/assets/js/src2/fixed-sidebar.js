@@ -1,13 +1,17 @@
 $(document).ready(function(){
     //-----------------Fixed sidebar----------------
 
-    if($(window).width() > 991){
-        var programBlock = $(".s-program__content"),
-            programWrapper = $(".s-program"),
-            blockWidth = programBlock.outerWidth(),
-            blockHeight = programBlock.outerHeight();
-        $(window).scroll(function() {
+    var programBlock = $(".s-program__content"),
+        programWrapper = $(".s-program"),
+        blockWidth = programBlock.outerWidth(),
+        blockHeight = programBlock.outerHeight();
 
+    $(window).resize(function(){
+        blockWidth = programBlock.outerWidth();
+    });
+
+    if($(window).width() > 991){
+        $(window).scroll(function() {
             var scroll = $(window).scrollTop();
             var topDistance = programWrapper.offset().top;
             if (topDistance < scroll) {

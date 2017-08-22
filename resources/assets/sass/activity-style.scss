@@ -1,12 +1,12 @@
 //Libraries
-@import "../libs/product-tour/product-tour.min";
-@import "../libs/jquery-ui/jquery-ui.min";
-@import "../libs/jcf/css/jcf.custom";
-@import "../libs/prettyPhoto/prettyPhoto";
-@import "../libs/instafeed/instafeed";
+@import "../../../public/libs/product-tour/product-tour.min";
+@import "../../../public/libs/jquery-ui/jquery-ui.min";
+@import "../../../public/libs/jcf/css/jcf.custom";
+@import "../../../public/libs/prettyPhoto/prettyPhoto";
+@import "../../../public/libs/instafeed/instafeed";
 
 //Components
-@import "../css/offer-items";
+@import "../../../public/css/offer-items";
 @import "components/comments";
 @import "components/devider";
 
@@ -855,7 +855,8 @@
       vertical-align: middle;
       margin-right: 7px;
     }
-    &:hover{
+    &:hover,
+    &:focus{
       color: #fff;
       background-color: #2B9ECC;
     }
