@@ -10,25 +10,13 @@
 						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
 						<li>{{ trans('main.your_agenda') }}</li>
 					</ul>
+					<header class="calendar-page-header">
+						<h1 class="calendar-page-header__title">{{ trans('main.your_panorama_in_pucon') }}</h1>
+						<p class="calendar-page-header__description">{{ trans('main.here_is_your_schedule') }}{{ trans('main.reserve') }}.</p>
+						<a href="{{ action('ActivityController@index') }}" class="calendar-page-header__include-activities-button">{{ trans('main.include_more_activities') }}</a>
+						<a href="#" class="btn export-button calendar-page-header__export-button">{{ trans('main.export_calendar')}}</a>
+					</header>
 					<div class="row">
-						<div class="col-xs-12">
-							<header class="head">
-								<h1>{{ trans('main.your_panorama_in_pucon') }}</h1>
-								<p>
-									<span>
-										<strong
-											class="sub-title">{{ trans('main.here_is_your_schedule') }}</strong> {{ trans('main.panorama_your_vacation') }}
-										<Br/>
-										{{ trans('main.you_can_include_activities') }} <strong>{{ trans('main.reserve') }}</strong>.
-									</span>
-								</p>
-								<br/>
-								<a href="{{ action('ActivityController@index') }}"
-									class="btn btn-success btn-success-cal">{{ trans('main.include_more_activities') }}</a>
-								<Br/><Br/>
-							</header>
-						</div>
-
 						<div class="col-md-9 col-sm-12 col-xs-12">
 							{{--<div class="alert alert-danger alert-overlap ">--}}
 								{{--{{ trans('main.the_are_activities_of_the_same_day') }}--}}
@@ -85,13 +73,13 @@
 								</section>
 								@ability('admin,developer', '')
 									<div class="generate-link sidebar__block">
-										<a class="btn btn-block" id="generate-link"  href="{{ action('ProposalController@saveProposal') }}" >generate link</a>
+										<a class="btn btn-block" id="generate-link"  href="{{ action('ProposalController@saveProposal') }}" >{{ trans('main.generate_link') }}</a>
 										<input type="text" class="generate-link__generated-link" readonly value="asdasdsd">
 									</div>
 								<a href="{{ action('CalendarController@generateICS') }}">Generate ICS</a>
 								@endability()
-								<div class="su_program_note">
-									* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.
+								<div class="note">
+									* {{ trans('main.keep_in_mind') }}
 								</div>
 							</aside>
 						</div>

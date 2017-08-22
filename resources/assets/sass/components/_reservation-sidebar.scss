@@ -116,9 +116,11 @@
     display: block;
     text-align: center;
     transition: all 0.2s ease;
-    &:hover{
+    &:hover,
+    &:focus{
       background: #ffd91f;
       text-decoration: none;
+      color: #fff;
     }
     @media(max-width: 1199px) and (min-width: 992px){
       font-size: 14px;

@@ -31,7 +31,7 @@ return [
     'scripts' => [
       'js/product.tour.min.js',
       'libs/product-tour/product-tour.min.js',
-      'js/fixed-sidebar.min.js'
+//      'js/fixed-sidebar.min.js'
     ]
   ],
 
@@ -116,7 +116,6 @@ return [
       'libs/fullcalendar/fullcalendar.min.js',
       'libs/fullcalendar/es.js',
       'libs/fullcalendar/pt.js',
-//      'js/fixed-sidebar.min.js',
       'js/calendarpage-scripts.min.js'
     ]
   ],

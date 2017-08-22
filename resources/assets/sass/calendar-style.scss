@@ -1,5 +1,38 @@
 @import "../../../public/libs/fullcalendar/fullcalendar";
-@import "components/reservation-sidebar";
+@import "./components/reservation-sidebar";
+@import "./components/export-button";
+
+.calendar-page-header{
+  max-width: 600px;
+  padding-bottom: 29px;
+  &__title{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 22px;
+  }
+  &__description{
+    margin: 0 0 23px;
+  }
+  &__include-activities-button{
+    background-color: #409D3E;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: top;
+    transition: all .2s ease;
+    &:hover,
+    &:focus{
+      color: #fff;
+      background-color: #209D5B;
+    }
+  }
+  &__export-button{
+    vertical-align: top;
+  }
+}
 
 .btn-success.btn-success-cal{
   font-size: 14px;
