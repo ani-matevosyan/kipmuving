@@ -15,16 +15,16 @@ class Offer extends Model
 		'real_includes',
 		'cancellation_rules',
 		'important',
-		'description'
+		'description',
 	];
 	protected $table = 'offers';
-	
-	
+
+
 	public function activity()
 	{
 		return $this->hasOne('App\Activity', 'id', 'activity_id');
 	}
-	
+
 	public function agency()
 	{
 		return $this->hasOne('App\Agency', 'id', 'agency_id');
@@ -50,12 +50,12 @@ class Offer extends Model
 //
 //		return $agency;
 //	}
-	
+
 	private function dataToArray($data)
 	{
 		if ($data)
 			return explode(";\r\n", $data);
-		
+
 		return null;
 	}
 
@@ -76,7 +76,7 @@ class Offer extends Model
 
 		return null;
 	}
-	
+
 	public function getAvailableTimeAttribute()
 	{
 		$time = $this->dataToArray($this->attributes['available_time']);
@@ -94,26 +94,34 @@ class Offer extends Model
 
 		return null;
 	}
-	
+
 	public function getRealAvailableTimeAttribute()
 	{
 		return $this->attributes['available_time'];
 	}
-	
+
 	public function setRealAvailableTimeAttribute($available_time)
 	{
 		$this->attributes['available_time'] = $available_time;
 	}
-	
+
+	public function getScheduleAttribute()
+	{
+		return [
+			'start' => $this->available_time[0]['start'],
+			'end'   => $this->available_time[count($this->available_time) - 1]['end'],
+		];
+	}
+
 	public function getDurationAttribute()
 	{
 		if (count($this->available_time) > 0) {
 			$start = $this->available_time[0]['start'];
 			$end = $this->available_time[0]['end'];
-			
+
 			return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
 		}
-		
+
 		return null;
 	}
 
@@ -127,60 +135,60 @@ class Offer extends Model
 //
 //		return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
 //	}
-	
-	
+
+
 	private function checkOffersAvailability($offers)
 	{
 		return $offers->filter(function ($value, $key) {
-			$startDate = Carbon::createFromFormat('d.m.Y', $value->available_start_date.'.'.Carbon::now()->year)->toDateString();
-			$endDate = Carbon::createFromFormat('d.m.Y', $value->available_end_date.'.'.Carbon::now()->year)->toDateString();
-			
+			$startDate = Carbon::createFromFormat('d.m.Y', $value->available_start_date . '.' . Carbon::now()->year)->toDateString();
+			$endDate = Carbon::createFromFormat('d.m.Y', $value->available_end_date . '.' . Carbon::now()->year)->toDateString();
+
 			if ($endDate > $startDate)
 				return session('selectedDate') >= $startDate
 					&& session('selectedDate') <= $endDate;
 //					&& $value->availability == true;
 		});
 	}
-	
+
 	public function getPriceAttribute()
 	{
 		$price = $this->attributes['price'];
-		
+
 		if (session('currency.type') == 'USD')
 			$price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
 		elseif (session('currency.type') == 'ILS')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
-		
+
 		return round($price, 2);
 	}
-	
+
 	public function getAvailableStartDateAttribute()
 	{
 		$start = Carbon::parse($this->attributes['available_start'])->format('d.m');
-		
+
 		return $start;
 	}
-	
+
 	public function getAvailableEndDateAttribute()
 	{
 		$end = Carbon::parse($this->attributes['available_end'])->format('d.m');
-		
+
 		return $end;
 	}
-	
+
 	public function getPriceOfferAttribute()
 	{
 		$price = $this->attributes['price_offer'];
-		
+
 		if (session('currency.type') == 'USD')
 			$price = round($price / session('currency.values.USDCLP'));
 		elseif (session('currency.type') == 'BRL')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'));
 		elseif (session('currency.type') == 'ILS')
 			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'));
-		
+
 		return round($price, 2);
 	}
 
@@ -199,17 +207,17 @@ class Offer extends Model
 //
 //		return $agency['name'];
 //	}
-	
+
 	public function getRealPriceAttribute()
 	{
 		return $this->attributes['price'];
 	}
-	
+
 	public function getRealPriceOfferAttribute()
 	{
 		return $this->attributes['price_offer'];
 	}
-	
+
 	public function setRealPriceAttribute($price)
 	{
 //		$offer = Offer::find($this['id']);
@@ -217,7 +225,7 @@ class Offer extends Model
 //		$offer->save();
 		$this->attributes['price'] = $price;
 	}
-	
+
 	public function setRealPriceOfferAttribute($price_offer)
 	{
 //		$offer = Offer::find($this['id']);
@@ -225,7 +233,7 @@ class Offer extends Model
 //		$offer->save();
 		$this->attributes['price_offer'] = $price_offer;
 	}
-	
+
 //	public function getRecommendOffers($activityId)
 //	{
 //		$offers = Offer::join('agencies', 'offers.agency_id', 'agencies.id')
@@ -291,7 +299,7 @@ class Offer extends Model
 //
 //		return $offers;
 //	}
-	
+
 	public function getSelectedOffers()
 	{
 		if (session()->has('selectedOffers')) {
@@ -317,10 +325,10 @@ class Offer extends Model
 			session()->forget('selectedOffers');
 			$sessionOffers = null;
 		}
-		
+
 		return $sessionOffers;
 	}
-	
+
 	public function getSelectedOffersPersons()
 	{
 		$countPersons = 0;
@@ -330,23 +338,23 @@ class Offer extends Model
 				if ($countPersons < $offer['persons'])
 					$countPersons = $offer['persons'];
 			}
-		
+
 		return $countPersons;
 	}
-	
+
 	public function getSelectedOffersTotal()
 	{
 		$total = 0;
 		$selectedOffers = $this->getSelectedOffers();
-		
+
 		if ($selectedOffers)
 			foreach ($selectedOffers as $offer) {
 				$total += $offer['price'] * $offer['persons'];
 			}
-		
+
 		return $total;
 	}
-	
+
 	public function getAgencyOffers($agencyId)
 	{
 		$offers = Offer::where('agency_id', $agencyId)
@@ -372,18 +380,18 @@ class Offer extends Model
 				'offers.price'
 			)
 			->get();
-		
+
 		$offers = $this->checkOffersAvailability($offers);
-		
+
 		foreach ($offers as $offer) {
 //			$offer['offer_includes'] = $this->getIncludes($offer['offer_includes']);
 //			$offer['available_time'] = $this->getTime($offer['available_time']);
 //			$offer['hours'] = $this->getDuration($offer['available_time']);
 		}
-		
+
 		return $offers;
 	}
-	
+
 	public function getOffer($offerId)
 	{
 		$offer = Offer::where('offers.id', $offerId)
@@ -410,7 +418,7 @@ class Offer extends Model
 		$offer['offerCarry'] = $offer['offerActivity']['carry'];
 //		$offer['available_time'] = $this->getTime($offer['available_time']);
 //		$offer['hours'] = $this->getDuration($offer['available_time']);
-		
+
 		return $offer;
 	}
 }

@@ -49,7 +49,7 @@ class GooglePlusController extends Controller
 			'username'          => '',
 			'first_name'        => $googleUser->user['name']['givenName'],
 			'last_name'         => $googleUser->user['name']['familyName'],
-			'gender'            => $googleUser->user['gender'] === 'male' ? 'm' : 'w',
+			'gender'            => isset($googleUser->user['gender']) ? ($googleUser->user['gender'] === 'male' ? 'm' : 'w') : null,
 			'email'             => $googleUser->email,
 			'avatar'            => $googleUser->avatar,
 			'confirmation_code' => ' ',

@@ -7,6 +7,8 @@
 					  alt="agency image">
 			</div>
 			<div class="rating">
+				<!-- <div class="star"><img src="images/img-star.png" alt="image description"></div> -->
+				<!-- <span>120 comentarios</span> -->
 			</div>
 			<div class="text">
 				@if($offer->agency->id && $offer->agency->name)
@@ -34,6 +36,9 @@
 							@endforeach
 						@endif
 					</ul>
+				<!-- <br />
+        <strong class="title">Idiomas:</strong>
+        <img src="/{{ $offer->important }}" onerror="this.src='/images/image-none.jpg';" alt="agency image">-->
 				</div>
 			</div>
 		@endif
@@ -44,12 +49,24 @@
 						<ul class="timing1">
 							@if($offer->duration)
 								<li>
-									<p>{{ trans('main.duration') }}: <strong>{{ $offer->duration }}hrs</strong> </p>
+									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer->duration }}hrs </strong>
+									<strong><span>{{ trans('main.schedule') }}:</span> {{ $offer->schedule['start'] }} - {{ $offer->schedule['end'] }}</strong>
 								</li>
 							@endif
+							<li class="profile">
+								<select id="select-persona-{{$offer->id}}" class="persona">
+									<option selected value="">{{ trans('main.amount_of_people') }}</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+							</li>
 							@if($offer->available_time)
 								<li class="profile hours">
-									<label for="select-hours-{{$offer->id}}">{{ trans('main.schedule') }}: <strong>12:00 a 18:00</strong></label>
+									<label for="select-hours-{{$offer->id}}">Elija la opcion de horario</label>
 									<select id="select-hours-{{$offer->id}}" class="hours">
 										<option selected value="">{{ trans('main.schedule') }}</option>
 										@if(is_array($offer->available_time))
@@ -65,7 +82,13 @@
 					@if($offer['price'])
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div>
-								<strong class="price" data-unit-price="{{ $offer->price }}">
+								<strong class="price" data-unit-price="{{ $offer->price_offer }}">
+									{{--<del>--}}
+										{{--<small>--}}
+											{{--@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}--}}
+										{{--</small>--}}
+									{{--</del>--}}
+									{{--<br>--}}
 									<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub>{{ number_format($offer->price, 0, '.', '.') }}
 								</strong>
 								<a href="#" class="btn btn-primary btn-reserve"
@@ -81,6 +104,10 @@
 				</div>
 			@endif
 		</div>
+	<!-- <div class="col-md-3 col-sm-3 col-xs-12">
+      <strong class="price" data-unit-price="{{ $offer->price_offer }}"><sub>$</sub> {{ number_format ($offer->price_offer, 0, '.', '.') }}</strong>
+      <a href="#" class="btn btn-primary btn-reserve" data-offer-id="{{ $offer->id }}">AGREGAR</a>
+    </div> -->
 	</div>
 
 </li>
