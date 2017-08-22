@@ -24,6 +24,7 @@ Route::group(['prefix' => 'atacama'], function () {
 	Route::get('/home/', 'HomeController@index');
 	Route::get('/activities', 'ActivityController@index');
 	Route::get('/agencies', 'AgencyController@index')->name('agencies');
+	//TODO 
 	Route::get('/guia', 'FreePagesController@index')->name('guide');
 	Route::get('/guia/bicicleta', 'FreePagesController@getBicicleta')->name('guide-bicycle');
 	Route::get('/guia/decarro', 'FreePagesController@getDecarro')->name('guide-car');
@@ -35,6 +36,7 @@ Route::group(['prefix' => 'pucon'], function () {
 	Route::get('/home/', 'HomeController@index');
 	Route::get('/activities', 'ActivityController@index');
 	Route::get('/agencies', 'AgencyController@index')->name('agencies');
+	//TODO Change to free
 	Route::get('/guia', 'FreePagesController@index')->name('guide');
 	Route::get('/guia/bicicleta', 'FreePagesController@getBicicleta')->name('guide-bicycle');
 	Route::get('/guia/decarro', 'FreePagesController@getDecarro')->name('guide-car');
