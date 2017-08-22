@@ -29,27 +29,6 @@ class Offer extends Model
 	{
 		return $this->hasOne('App\Agency', 'id', 'agency_id');
 	}
-//
-//	private function getAgency($agencyId)
-//	{
-//		$agency = AgencyTranslation::where('agencies.id', $agencyId)
-//			->join('agencies', 'agency_translations.agency_id', 'agencies.id')
-//			->where('agency_translations.locale', app()->getLocale())
-//			->select(
-//				'agencies.id',
-//				'agencies.address',
-//				'agencies.email',
-//				'agencies.latitude',
-//				'agencies.longitude',
-//				'agencies.image',
-//				'agencies.image_icon',
-//				'agency_translations.name',
-//				'agency_translations.description'
-//			)
-//			->first();
-//
-//		return $agency;
-//	}
 
 	private function dataToArray($data)
 	{
@@ -125,18 +104,6 @@ class Offer extends Model
 		return null;
 	}
 
-//	private function getDuration($timeArray)
-//	{
-//		if (!$timeArray)
-//			return null;
-//
-//		$start = $timeArray[0]['start'];
-//		$end = $timeArray[0]['end'];
-//
-//		return $end - $start < 0 ? $end - $start + 24 : ($end - $start == 0 ? 24 : $end - $start);
-//	}
-
-
 	private function checkOffersAvailability($offers)
 	{
 		return $offers->filter(function ($value, $key) {
@@ -192,22 +159,6 @@ class Offer extends Model
 		return round($price, 2);
 	}
 
-//	public function getActivityAttribute()
-//	{
-//		$activity = Activity::where('id', $this['activity_id'])
-//			->first();
-//
-//		return $activity['name'];
-//	}
-
-//	public function getAgencyAttribute()
-//	{
-//		$agency = Agency::where('id', $this['agency_id'])
-//			->first();
-//
-//		return $agency['name'];
-//	}
-
 	public function getRealPriceAttribute()
 	{
 		return $this->attributes['price'];
@@ -220,113 +171,36 @@ class Offer extends Model
 
 	public function setRealPriceAttribute($price)
 	{
-//		$offer = Offer::find($this['id']);
-//		$offer['price'] = $price;
-//		$offer->save();
 		$this->attributes['price'] = $price;
 	}
 
 	public function setRealPriceOfferAttribute($price_offer)
 	{
-//		$offer = Offer::find($this['id']);
-//		$offer['price_offer'] = $price_offer;
-//		$offer->save();
 		$this->attributes['price_offer'] = $price_offer;
 	}
 
-//	public function getRecommendOffers($activityId)
-//	{
-//		$offers = Offer::join('agencies', 'offers.agency_id', 'agencies.id')
-//			->where('offers.activity_id', $activityId)
-//			->where('offers.availability', true)
-//			->orderBy('agencies.recommendation', 'DESC')
-//			->select('offers.*')
-//			->get();
-//
-//		$offers = $this->checkOffersAvailability($offers);
-//
-//		foreach ($offers as $offer) {
-//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-////			$offer['includes'] = $this->getIncludes($offer['includes']);
-////			$offer['available_time'] = $this->getTime($offer['available_time']);
-////			$offer['hours'] = $this->getDuration($offer['available_time']);
-//		}
-//
-//		return $offers;
-//	}
-//
-//	public function getPriceOffers($activityId)
-//	{
-//		$offers = Offer::where('activity_id', $activityId)
-//			->where('availability', true)
-//			->orderBy('price_offer', 'ASC')
-//			->get();
-//
-//		$offers = $this->checkOffersAvailability($offers);
-//
-//		foreach ($offers as $offer) {
-//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-////			$offer['includes'] = $this->getIncludes($offer['includes']);
-////			$offer['available_time'] = $this->getTime($offer['available_time']);
-////			$offer['hours'] = $this->getDuration($offer['available_time']);
-//		}
-//
-//		return $offers;
-//	}
-//
-//	public function getIncludesOffers($activityId)
-//	{
-//		$offers = Offer::where('activity_id', $activityId)
-//			->where('availability', true)
-//			->get();
-//
-//		$offers = $this->checkOffersAvailability($offers);
-//
-//		foreach ($offers as $offer) {
-////			$offer['includes_count'] = count($this->getIncludes($offer['includes']));
-//		}
-//
-//		$offers = array_reverse(array_sort($offers, function ($value) {
-//			return $value['includes_count'];
-//		}));
-//
-//		foreach ($offers as $offer) {
-//			$offer['offerAgency'] = $this->getAgency($offer['agency_id']);
-////			$offer['includes'] = $this->getIncludes($offer['includes']);
-////			$offer['available_time'] = $this->getTime($offer['available_time']);
-////			$offer['hours'] = $this->getDuration($offer['available_time']);
-//		}
-//
-//		return $offers;
-//	}
-
 	public function getSelectedOffers()
 	{
-		if (session()->has('selectedOffers')) {
-			$sessionOffers = session('selectedOffers');
-			$offers = [];
-			foreach ($sessionOffers as $sessionOffer) {
-				$offers[] = Offer::where('offers.id', $sessionOffer['offer_id'])
-					->join('activities', 'activities.id', 'offers.activity_id')
-					->join('activity_translations', 'activities.id', 'activity_translations.activity_id')
-					->where('activity_translations.locale', app()->getLocale())
-					->select('offers.price_offer', 'offers.price', 'activity_translations.name')
-					->first();
+		$result = null;
+
+		if (session()->has('basket.offers')) {
+			$basket_offers = session('basket.offers');
+			foreach ($basket_offers as $basket_offer) {
+				$offer = Offer::find($basket_offer['offer_id']);
+
+				$result [] = [
+					'name'        => $offer->activity->name,
+					'price_offer' => $offer->price_offer,
+					'price'       => $offer->price,
+					'offer_id'    => $basket_offer['offer_id'],
+					'date'        => $basket_offer['date'],
+					'persons'     => $basket_offer['persons'],
+					'time'        => $basket_offer['time'],
+				];
 			}
-			if (count($offers) > 0)
-				foreach ($offers as $key => $offer) {
-					$sessionOffers[$key]['name'] = $offer['name'];
-					$sessionOffers[$key]['price_offer'] = $offer['price_offer'];
-					$sessionOffers[$key]['price'] = $offer['price'];
-				}
-			else
-				$sessionOffers = null;
-		} else {
-			session()->forget('selectedOffers');
-			$sessionOffers = null;
 		}
 
-		return $sessionOffers;
+		return $result;
 	}
 
 	public function getSelectedOffersPersons()
