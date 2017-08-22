@@ -194,7 +194,7 @@
 							<header>
 								<h2>{{ trans('main.my_adventures') }}</h2>
 								<p>{{ trans('main.here_you_will_find_adventures') }}</p>
-								{{--<a href="#" class="btn btn-export">Exportar calendario</a>--}}
+								{{--<a href="#" class="btn btn-export">{{ trans('main.export_calendar')}}</a>--}}
 							</header>
 							<ul class="item-list">
 								@foreach ($user->reservations->where('status', true) as $reservation)

@@ -85,13 +85,13 @@
 								</section>
 								@ability('admin,developer', '')
 									<div class="generate-link sidebar__block">
-										<a class="btn btn-block" id="generate-link"  href="{{ action('ProposalController@saveProposal') }}" >generate link</a>
+										<a class="btn btn-block" id="generate-link"  href="{{ action('ProposalController@saveProposal') }}" >{{ trans('main.generate_link') }}</a>
 										<input type="text" class="generate-link__generated-link" readonly value="asdasdsd">
 									</div>
 								<a href="{{ action('CalendarController@generateICS') }}">Generate ICS</a>
 								@endability()
-								<div class="su_program_note">
-									* Ten en cuenta que el valor oficial es en pesos chilenos. La conversion en dolares o reales es un aproximado. El valor debera ser pago en pesos en la agencia.
+								<div class="note">
+									* {{ trans('main.keep_in_mind') }}
 								</div>
 							</aside>
 						</div>
