@@ -35,7 +35,7 @@ class ActivityController extends Controller
 				->get(),
 			'activities'        => $activity->getAllActivities(),
 			'count'             => [
-				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
+				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total'   => $offer->getSelectedOffersTotal(),
 			],
@@ -85,7 +85,7 @@ class ActivityController extends Controller
 				'selected' => $_offer->getSelectedOffers(),
 			],
 			'count'          => [
-				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
+				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
 				'persons' => $_offer->getSelectedOffersPersons(),
 				'total'   => $_offer->getSelectedOffersTotal(),
 			],
