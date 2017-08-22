@@ -180,9 +180,7 @@ return [
 	
 	'your_agenda'                        => 'Tu agenda',
 	'your_panorama_in_pucon'             => 'Tu panorama en Pucón',
-	'here_is_your_schedule'              => 'Aquí está tu agenda.',
-	'panorama_your_vacation'             => 'Este es el panorama que estás creando en tus vacaciones en Pucón.',
-	'you_can_include_activities'         => 'Puedes seguir incluyendo actividades o finalizar la reserva. Para esto, haz click en el botón',
+	'here_is_your_schedule'              => 'Aquí está tu agenda. Este es el panorama que estás creando en tus vacaciones en Pucón. Puedes seguir incluyendo actividades o finalizar la reserva. Para esto, haz click en el botón ',
 	'reserve'                            => 'Reservar',
 	'include_more_activities'            => 'INCLUIR MÁS ACTIVIDADES',
 	'the_are_activities_of_the_same_day' => 'Hay actividades en el mismo día, por favor, deja apenas una actividad por día antes de seguir con tu reserva. Puedes mover la actividad de día, o simplesmente eliminarla.',

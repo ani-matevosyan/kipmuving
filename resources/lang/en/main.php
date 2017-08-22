@@ -183,9 +183,7 @@ return [
 	
 	'your_agenda'                        => 'Your agenda',
 	'your_panorama_in_pucon'             => 'Your panorama in Pucon',
-	'here_is_your_schedule'              => 'Here\'s your schedule.',
-	'panorama_your_vacation'             => 'This is the panorama you are creating on your vacation in Pucón.',
-	'you_can_include_activities'         => 'You can continue to include activities or end with the reservation. To do this, click on the button',
+	'here_is_your_schedule'              => 'Here\'s your schedule. This is the panorama you are creating on your vacation in Pucón. You can continue to include activities or end with the reservation. To do this, click on the button ',
 	'reserve'                            => 'Reserve',
 	'include_more_activities'            => 'INCLUDE MORE ACTIVITIES',
 	'the_are_activities_of_the_same_day' => 'There are activities on the same day, please leave only one activity per day before continuing with your reservation. You can move the activity from one day to the next, or simply delete it.',

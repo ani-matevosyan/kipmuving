@@ -1,3 +1,5 @@
+@import "./components/export-button";
+
 .my_profile{
   margin-top: 15px;
 }
@@ -6,32 +8,19 @@
   padding: 7px 0 27px;
 }
 
-.my_adventures>header{
-  padding-right: 380px;
-  position: relative;
+.my-adventures{
+  &__header{
+    padding-right: 380px;
+    position: relative;
+  }
+  &__export-button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
-.btn-export{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background: #343b4e url("../images/phone.png") no-repeat;
-  background-size: 16px 20px;
-  background-position: 11px center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 8px 18px 8px 38px;
-}
 
-.btn-export:active{
-  background-image: url("../images/phone.png");
-}
-
-.btn-export:hover,
-.btn-export:focus{
-  color: #fff;
-}
 
 .profile-block {
   overflow: hidden;
