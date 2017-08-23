@@ -164,6 +164,7 @@ return [
 	'of_this_activity'                    => 'Of this activity',
 	'summary_of_your_panorama'            => 'Summary of your panorama',
 	'important'                           => 'Important',
+    'cost_to_cancel'                      => 'Costs to cancel',
 	'about_this_activity'                 => 'about this activity',
 	'minimum_age'                         => 'Minimum age',
 	'years'                               => 'years',
@@ -271,7 +272,7 @@ return [
 	
 	'these_are_your_activities'    => 'These are your activities',
 	'please'                       => 'Please',
-	'confirm_below_the_activities' => 'Confirm below the activities that will be done in Pucón on selected days',
+	'confirm_below_the_activities' => 'confirm below the activities that will be done in Pucón on selected days',
 	
 	'museum'         => 'Museum',
 	'crafts'         => 'Crafts',

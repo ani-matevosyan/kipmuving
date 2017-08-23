@@ -1,6 +1,19 @@
 @import "../../../public/libs/product-tour/product-tour.min";
 @import "components/reservation-sidebar";
-@import "../../../public/css/offer-items";
+@import "components/offer-items";
+
+
+.reservation-header{
+  &__title{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+  }
+  &__description{
+    margin: 0;
+  }
+}
+
 
 .your-reservation .accordion h2 {
   font-size: 31px;
@@ -21,65 +34,57 @@
 
 /*---- RESERVATION PAGE UPDATE ---*/
 
-.s_reservar{
-  margin-top: 30px
-}
-
-
-.s_reservar .your-reservation .head{
-  padding: 0 16px;
-  margin-right: -12%;
-}
-
-.s_reservar .your-reservation .head p{
-  font-size: 14px;
-  font-family:  'PT-Sans', sans-serif;
-  font-weight: 400;
-  margin:  0 0 10px;
-}
-
-.s_reservar .your-reservation .head p a{
-  font-family: 'PT-Sans', sans-serif;
-  font-weight: 700;
-  color:  #000;
-}
-
-.s_reservar .activity_description{
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.s_reservar .your-reservation .list-box{
-  margin: 0 0 15px 10px;
-}
-
-.s_reservar .your-reservation .timing{
-  overflow: visible;
-  display: inline-block;
-}
-
-.s_reservar .your-reservation .timing li{
-  padding: 0 0 10px;
-}
-
-.s_reservar .your-reservation .timing li.person{
-  padding: 5px 0 0;
-}
-
-.s_reservar .your-reservation .timing li:after{
-  display: none;
-}
-
-.s_reservar .your-reservation .price{
-  padding: 0;
-  position: absolute;
-  bottom: 15px;
-  right:  0;
+.s-reservar{
+  margin-top: 30px;
+  .your-reservation{
+    .head{
+      padding: 0 16px;
+      margin-right: -12%;
+      p{
+        font-size: 14px;
+        font-family:  'PT-Sans', sans-serif;
+        font-weight: 400;
+        margin:  0 0 10px;
+        a{
+          font-family: 'PT-Sans', sans-serif;
+          font-weight: 700;
+          color:  #000;
+        }
+      }
+    }
+    .list-box{
+      margin: 0 0 15px 10px;
+    }
+    .timing{
+      overflow: visible;
+      display: inline-block;
+      li{
+        padding: 0 0 10px;
+        &.person{
+          padding: 5px 0 0;
+        }
+        &:after{
+          display: none;
+        }
+      }
+    }
+    .price{
+      padding: 0;
+      position: absolute;
+      bottom: 15px;
+      right:  0;
+    }
+  }
+  .activity_description{
+    position: relative;
+    padding-bottom: 15px;
+  }
 }
 
 .s_moredetails{
   margin-top: 30px;
 }
+
 /*---- END RESERVATION PAGE UPDATE ---*/
 
 .timing-icon{

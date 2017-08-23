@@ -161,6 +161,7 @@ return [
 	'of_this_activity'                    => 'desta atividade',
 	'summary_of_your_panorama'            => 'Resumo do seu panorama',
 	'important'                           => 'Importante',
+    'cost_to_cancel'                      => 'Custos para cancelar',
 	'about_this_activity'                 => 'sobre esta atividade',
 	'minimum_age'                         => 'Idade mínima',
 	'years'                               => 'anos',
