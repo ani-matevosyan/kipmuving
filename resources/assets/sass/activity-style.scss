@@ -846,6 +846,8 @@
     line-height: 49px;
     text-align: center;
     margin-right: 6px;
+    border: none;
+    outline: none;
     &:before{
       content: '';
       display: inline-block;

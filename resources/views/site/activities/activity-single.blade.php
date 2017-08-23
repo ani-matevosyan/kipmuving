@@ -54,7 +54,7 @@
 											</div>
 										@endif
 										<div class="get-offers">
-											<a href="#" class="get-offers__button">Quiero recibir ofertas</a>
+											<button class="get-offers__button" id="get-offers-button" data-activity-id="{{ $activity->id }}">Quiero recibir ofertas</button>
 											<div class="get-offers__date-persons">
 												<input id="reserve-date"
 													   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
