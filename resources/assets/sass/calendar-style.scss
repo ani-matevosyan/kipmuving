@@ -5,10 +5,16 @@
 .calendar-page-header{
   max-width: 600px;
   padding-bottom: 29px;
+  @media screen and (max-width: 767px){
+    padding-top: 20px;
+  }
   &__title{
     font-size: 30px;
     font-weight: 700;
     margin: 0 0 22px;
+    @media screen and (max-width: 480px){
+      font-size: 26px;
+    }
   }
   &__description{
     margin: 0 0 23px;
@@ -31,7 +37,19 @@
   }
   &__export-button{
     vertical-align: top;
+    margin-left: 9px;
+    @media screen and (max-width: 480px){
+      display: table;
+      margin:{
+        top: 10px;
+        left: 0;
+      }
+    }
   }
+}
+
+.fc-toolbar h2{
+  font-weight: 700;
 }
 
 .btn-success.btn-success-cal{
