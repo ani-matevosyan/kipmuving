@@ -7,6 +7,7 @@ use App\ActivityImage;
 use App\Agency;
 use App\HomeMail;
 use App\Offer;
+use App\SpecialOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,9 @@ class HomeController extends Controller
 {
 	public function index()
 	{
+
+		dd(SpecialOffer::get(), session('basket'));
+
 		if (session('cities.entrance') === false)
 			return redirect()->route('entrance');
 
