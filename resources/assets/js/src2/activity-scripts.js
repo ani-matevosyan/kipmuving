@@ -58,7 +58,7 @@ $(document).ready(function(){
         }
         $.ajax({
             type: "POST",
-            url: "/offer/reserve",
+            url: "/offer/special/add",
             data: {
                 '_token': $('meta[name="csrf-token"]').attr('content'),
                 activity_id: activityId,
@@ -71,7 +71,10 @@ $(document).ready(function(){
                 setTimeout(function(){
                     location.reload();
                 },2000)
-            }
+            }.done(function(){
+                getsuprogram();
+                $('html, body').animate({scrollTop: '0px'}, 800);
+            })
         });
     });
 
