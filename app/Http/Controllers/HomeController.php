@@ -15,19 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
-	public function index(Activity $activity, Offer $offer)
+	public function index()
 	{
-
-		$this->testCode();
-
-//		session()->forget('currency');
-//		session()->forget('currencies');
-//		$images = ActivityImage::get();
-//
-//		$files = File::files(public_path('uploads/activity'));
-//		foreach ($files as $key => $file) {
-//			$files[$key] = str_replace('/home/sanek/server/personalProjects/kipmuving/public/', '', $file);
-//		}
 		if (session('cities.entrance') === false)
 			return redirect()->route('entrance');
 
@@ -38,25 +27,13 @@ class HomeController extends Controller
 
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
 
-		$imageIndex = rand(1, 3); //1-3
 		$data = [
 			'styles'            => config('resources.home.styles'),
 			'scripts'           => config('resources.home.scripts'),
-			'imageIndex'        => $imageIndex,
-			'random_activities' => Activity::where('region', '=', $region)
-				->where('visibility', true)
-				->translatedIn(app()->getLocale())
-				->limit(8)
-				->inRandomOrder()
-				->get(),
-			'slider_activities' => Activity::where('region', '=', $region)
-				->where('visibility', true)
-				->where('slider', true)
-				->translatedIn(app()->getLocale())
-				->inRandomOrder()
-				->get(),
-//			'activitiesHome' => $activity->getHomePageActivities(),
-			'activitiesList'    => $activity->getActivitiesList(),
+			'imageIndex'        => rand(1, 3),
+			'random_activities' => Activity::where('region', '=', $region)->where('visibility', true)->translatedIn(app()->getLocale())->limit(8)->inRandomOrder()->get(),
+			'slider_activities' => Activity::where('region', '=', $region)->where('visibility', true)->where('slider', true)->translatedIn(app()->getLocale())->inRandomOrder()->get(),
+			'activitiesList'    => Activity::getActivitiesList(),
 		];
 
 		if (session('cities.current') == 'atacama')
@@ -125,13 +102,6 @@ class HomeController extends Controller
 
 			echo '<br>-----------------------------------';
 		}
-
-	}
-
-	public function testCode()
-	{
-
-		//test your code here ;)
 
 	}
 
