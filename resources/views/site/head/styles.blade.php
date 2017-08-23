@@ -1,5 +1,4 @@
 {{--ALL--}}
-<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/common.css') }}">
 
 @if(isset($styles) && count($styles) > 0)
 	@foreach($styles as $style)
@@ -10,6 +9,8 @@
 			<link rel="stylesheet" type="text/css" media="all" href="{{ asset($style) }}">
 		@endif
 	@endforeach
+@else
+	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/common.css') }}">
 @endif
 
 <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">

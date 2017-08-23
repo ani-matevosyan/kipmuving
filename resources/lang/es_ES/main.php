@@ -315,4 +315,7 @@ return [
     #FAQ
     'ask'                      => 'Pregunte',
     'you_should_be_registered' => 'Para perguntar voce tem que estar registrado',
+
+    #Special offer
+    "send_special_offer" => 'Enviar una oferta especial',
 ];

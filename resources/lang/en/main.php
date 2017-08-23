@@ -319,4 +319,7 @@ return [
     'ask'                      => 'Ask question',
     'you_should_be_registered' => 'To ask you have to log in',
 
+    #Special offer
+    "send_special_offer" => 'Send a special offer',
+
 ];

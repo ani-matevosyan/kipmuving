@@ -14,6 +14,13 @@ return [
   ],
 
 
+    'sendOffer' => [
+        'styles' => [
+            'css/send-offer-style.css'
+        ]
+    ],
+
+
   'user' => [
     'styles' => [
       'css/userpage-style.css'

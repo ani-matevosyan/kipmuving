@@ -50,6 +50,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/contact-us', 'HomeController@sendMessage');
 Route::get('/entrance', 'HomeController@siteEntrance')->name('entrance');
+Route::get('/send-offer', 'HomeController@sendOfferPage');
 
 
 #Service routes
