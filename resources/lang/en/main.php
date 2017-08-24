@@ -321,5 +321,8 @@ return [
 
     #Special offer
     "send_special_offer" => 'Send a special offer',
+    'with_discount_at'   => 'with discount at',
+    'or'                 => 'or',
+    'total_price'        => 'total price',
 
 ];

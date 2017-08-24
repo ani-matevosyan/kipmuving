@@ -318,4 +318,7 @@ return [
 
     #Special offer
     "send_special_offer" => 'Enviar uma oferta especial',
+    'with_discount_at'   => 'com desconto em 10 de maio',
+    'or'                 => 'ou',
+    'total_price'        => 'preço total',
 ];

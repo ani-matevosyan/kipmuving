@@ -1,3 +1,106 @@
 @import "./common";
 
 
+.s-send-special-offer{
+  &__header{
+    margin:{
+      top: 14px;
+      bottom: 26px;
+    }
+  }
+}
+
+.special-offer-header{
+  max-width: 665px;
+  &__title{
+    margin: 0 0 9px;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  &__description{
+    margin: 0;
+  }
+}
+
+%offer-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+%inline-block{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.special-offers-list{
+  @extend %offer-list;
+  font-size: 0;
+  &__item{
+    @extend %inline-block;
+    font-size: 14px;
+  }
+  &__title{
+    font-size: 26px;
+    font-weight: 700;
+    color: #283C5C;
+    margin: 0 0 3px;
+  }
+  &__info-list{
+    @extend %offer-list;
+  }
+  &__info-item{
+    font-size: 16px;
+    color: #343434;
+  }
+  .pick-discount{
+    margin-top: 32px;
+  }
+}
+
+.pick-discount{
+  &__info{
+    font-size: 15px;
+    color: #343434;
+  }
+  &__list{
+    @extend %offer-list;
+    font-size: 0;
+  }
+  &__item{
+    font-size: 14px;
+    @extend %inline-block;
+    margin-right: 6px;
+    text-align: center;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  &__button{
+    display: block;
+    width: 72px;
+    padding: 3px 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #b2b2b2;
+    border-radius: 3px;
+    &:hover,
+    &:focus{
+      color: #fff;
+      opacity: .8;
+    }
+    &_yellow{
+      background-color: #F1C04E;
+    }
+    &_orange{
+      background-color: #F85B40;
+    }
+    &_red{
+      background-color: #E02441;
+    }
+    &_purple{
+      background-color: #601F35;
+    }
+  }
+}

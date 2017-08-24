@@ -318,4 +318,7 @@ return [
 
     #Special offer
     "send_special_offer" => 'Enviar una oferta especial',
+    'with_discount_at'   => 'con descuento en',
+    'or'                 => 'o',
+    'total_price'        => 'precio total',
 ];
