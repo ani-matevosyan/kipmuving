@@ -2,6 +2,7 @@
 
 
 .s-send-special-offer{
+  padding-bottom: 50px;
   &__header{
     margin:{
       top: 14px;
@@ -30,7 +31,7 @@
 
 %inline-block{
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .special-offers-list{
@@ -39,6 +40,15 @@
   &__item{
     @extend %inline-block;
     font-size: 14px;
+    width: 50%;
+    margin-bottom: 50px;
+    &:nth-child(odd){
+      padding-right: 37px;
+      border-right: 1px solid #ECECEC;
+    }
+    &:nth-child(even){
+      padding-left: 50px;
+    }
   }
   &__title{
     font-size: 26px;
@@ -62,10 +72,12 @@
   &__info{
     font-size: 15px;
     color: #343434;
+    margin: 0 0 13px;
   }
   &__list{
     @extend %offer-list;
     font-size: 0;
+    @extend %inline-block;
   }
   &__item{
     font-size: 14px;
@@ -79,12 +91,13 @@
   &__button{
     display: block;
     width: 72px;
-    padding: 3px 0;
+    padding: 5px 0;
     color: #fff;
     font-weight: 700;
     font-size: 16px;
     background-color: #b2b2b2;
     border-radius: 3px;
+    margin-bottom: 4px;
     &:hover,
     &:focus{
       color: #fff;
@@ -101,6 +114,41 @@
     }
     &_purple{
       background-color: #601F35;
+    }
+  }
+  &__or-divider{
+    @extend %inline-block;
+    margin: 5px 6px 0;
+  }
+  &__form{
+    @extend %inline-block;
+  }
+  &__price-input{
+    width: 100px;
+    border: 2px solid #89ABAD;
+    border-radius: 3px;
+    outline: none;
+    font-size: 15px;
+    padding: 3px 11px;
+    margin-right: 8px;
+    &::placeholder{
+      color: #343434;
+    }
+  }
+  &__submit{
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 4px 8px;
+    background-color: #3B787B;
+    border: none;
+    outline: none;
+    transition: all .2s ease;
+    border-radius: 3px;
+    &:hover,
+    &:focus{
+      color: #fff;
+      background-color: #459699;
     }
   }
 }
