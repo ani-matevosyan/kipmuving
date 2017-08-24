@@ -43,18 +43,35 @@
     width: 50%;
     margin-bottom: 50px;
     &:nth-child(odd){
-      padding-right: 37px;
+      padding-right: 40px;
       border-right: 1px solid #ECECEC;
     }
     &:nth-child(even){
-      padding-left: 50px;
+      padding-left: 40px;
+    }
+    @media screen and (max-width: 767px){
+      display: block;
+      width: 100%;
+      &:nth-child(odd),
+      &:nth-child(even){
+        padding: 0;
+      }
+      &:nth-child(odd){
+        border-right: none;
+      }
     }
   }
   &__title{
+    margin: 0 0 3px;
+  }
+  &__title-link{
     font-size: 26px;
     font-weight: 700;
     color: #283C5C;
-    margin: 0 0 3px;
+    &:hover,
+    &:focus{
+      color: #283C5C;
+    }
   }
   &__info-list{
     @extend %offer-list;
@@ -87,6 +104,13 @@
     &:last-child{
       margin-right: 0;
     }
+    @media screen and (max-width: 400px){
+      margin:{
+        right: 0;
+        bottom: 10px;
+      }
+      width: 50%;
+    }
   }
   &__button{
     display: block;
@@ -115,13 +139,33 @@
     &_purple{
       background-color: #601F35;
     }
+    @media screen and (max-width: 400px){
+      margin: 0 auto 4px;
+    }
   }
   &__or-divider{
     @extend %inline-block;
     margin: 5px 6px 0;
+    @media screen and (max-width: 1139px) and (min-width: 768px){
+      margin: 10px 6px;
+      display: block;
+    }
+    @media screen and (max-width: 540px){
+      margin: 10px 6px;
+      display: block;
+    }
+    @media screen and (max-width: 400px){
+      margin-top: 0;
+      text-align: center;
+    }
+
   }
   &__form{
     @extend %inline-block;
+    @media screen and (max-width: 400px){
+      display: block;
+      text-align: center;
+    }
   }
   &__price-input{
     width: 100px;
