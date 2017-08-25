@@ -274,6 +274,7 @@ class ReservationController extends Controller
 				$activity = Activity::find($offer['activity_id']);
 
 				$result [] = [
+					'activity_id'    => $activity->id,
 					'activity_name'  => $activity->name,
 					'count_agencies' => $activity->offers->count(),
 					'date'           => $offer['date'],
