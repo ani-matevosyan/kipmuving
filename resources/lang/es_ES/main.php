@@ -21,6 +21,7 @@ return [
 	'persons'         => 'Personas',
     'instant_booking' => 'Reserva Inmediata',
     'receive_offers'  => 'Recibir Ofertas',
+    'we_send_this'    => 'Enviamos esta solicitud a ',
 
 	'bicycle'                           => 'Bicicleta',
 	'bus'                               => 'Autobus',
