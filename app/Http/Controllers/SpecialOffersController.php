@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SpecialOffer;
 use Illuminate\Http\Request;
 
 class SpecialOffersController extends Controller
@@ -31,5 +32,15 @@ class SpecialOffersController extends Controller
 		array_splice($basket['special'], $oid, 1);
 
 		session()->put('basket', $basket);
+	}
+
+	public function sendOfferPage($uid)
+	{
+		$data = [
+			'styles' => config('resources.sendOffer.styles'),
+			'offer'  => SpecialOffer::where('uid', '=', $uid)->first(),
+		];
+
+		return view('site.home.send-offer-page', $data);
 	}
 }

@@ -50,7 +50,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/contact-us', 'HomeController@sendMessage');
 Route::get('/entrance', 'HomeController@siteEntrance')->name('entrance');
-Route::get('/send-offer', 'HomeController@sendOfferPage');
 
 
 #Service routes
@@ -78,6 +77,8 @@ Route::post('/offer/remove', 'OfferController@remove');
 #Special offers
 Route::get('/offer/special/add', 'SpecialOffersController@addToBasket');
 Route::get('/offer/special/remove', 'SpecialOffersController@removeFromBasket');
+Route::get('/send-offer/{uid}', 'SpecialOffersController@sendOfferPage')
+	->where('uid', '[a-zA-Z0-9]+');
 
 
 

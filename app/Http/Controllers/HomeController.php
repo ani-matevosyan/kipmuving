@@ -144,13 +144,4 @@ class HomeController extends Controller
 
 		return view('site.home.site-entrance');
 	}
-
-	public function sendOfferPage()
-    {
-        $data = [
-            'styles'            => config('resources.sendOffer.styles'),
-        ];
-
-        return view('site.home.send-offer-page', $data);
-    }
 }

@@ -171,6 +171,8 @@ class ReservationController extends Controller
 
 				$s_offer->user_id = auth()->user()['id'];
 				$s_offer->offer_id = $a_offer->id;
+				$s_offer->offer_date = Carbon::createFromFormat('d/m/Y', $offer['date'])->toDateString();
+				$s_offer->persons = $offer['persons'];
 				$s_offer->uid = uniqid() . uniqid();
 
 				$s_offer->save();
