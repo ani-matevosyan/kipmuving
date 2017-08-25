@@ -1,7 +1,8 @@
+@import "./common";
 @import "../../../public/libs/jquery-ui/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
 @import "../../../public/libs/instafeed/instafeed";
-@import "../../../public/css/offer-items";
+@import "components/offer-items";
 
 .program-schedule{
   float: none;

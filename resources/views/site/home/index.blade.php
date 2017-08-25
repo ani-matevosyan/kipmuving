@@ -2,39 +2,39 @@
 
 {{-- Content --}}
 @section('content')
-	<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
-		<div class="gradoverlay"></div>
-		<div class="caption">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<form action="/activity/search" class="activity-form" id="activity-form" method="post">
-							{{ csrf_field() }}
-							<strong class="title">{{ trans('main.what_activities_search') }}</strong>
-							<div class="holder">
-								<select class="form-control" id="activity_id" name="activity_id">
-									@foreach ($activitiesList as $item)
-										<option value="{{ $item->id }}">{{ $item->name }}</option>
-									@endforeach
-								</select>
-								<div class="text-field">
-									<input id="activity_date"
-												 type="text"
-												 name="activity_date"
-												 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-												 placeholder="{{ trans('form.date') }}"
-												 class="form-control"
-												 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+	<main id="main">
+		<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
+			<div class="gradoverlay"></div>
+			<div class="caption">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<form action="/activity/search" class="activity-form" id="activity-form" method="post">
+								{{ csrf_field() }}
+								<strong class="title">{{ trans('main.what_activities_search') }}</strong>
+								<div class="holder">
+									<select class="form-control" id="activity_id" name="activity_id">
+										@foreach ($activitiesList as $item)
+											<option value="{{ $item->id }}">{{ $item->name }}</option>
+										@endforeach
+									</select>
+									<div class="text-field">
+										<input id="activity_date"
+													 type="text"
+													 name="activity_date"
+													 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+													 placeholder="{{ trans('form.date') }}"
+													 class="form-control"
+													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+									</div>
+									<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
 								</div>
-								<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<main id="main">
+		</section>
 		<section class="best-price-section">
 			<div class="container">
 				<header class="best-price-section__header">

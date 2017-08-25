@@ -1,4 +1,5 @@
 //Libraries
+@import "./common";
 @import "../../../public/libs/product-tour/product-tour.min";
 @import "../../../public/libs/jquery-ui/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
@@ -6,7 +7,7 @@
 @import "../../../public/libs/instafeed/instafeed";
 
 //Components
-@import "../../../public/css/offer-items";
+@import "components/offer-items";
 @import "components/comments";
 @import "components/devider";
 
@@ -846,6 +847,8 @@
     line-height: 49px;
     text-align: center;
     margin-right: 6px;
+    border: none;
+    outline: none;
     &:before{
       content: '';
       display: inline-block;

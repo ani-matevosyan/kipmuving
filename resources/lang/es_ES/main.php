@@ -161,6 +161,7 @@ return [
 	'of_this_activity'                    => 'de esta actividad',
 	'summary_of_your_panorama'            => 'Resumen de tu panorama',
 	'important'                           => 'Importante',
+    'cost_to_cancel'                      => 'Costos para cancelar',
 	'about_this_activity'                 => 'sobre esta actividad',
 	'minimum_age'                         => 'Edad mínima',
 	'years'                               => 'años',
@@ -314,4 +315,10 @@ return [
     #FAQ
     'ask'                      => 'Pregunte',
     'you_should_be_registered' => 'Para perguntar voce tem que estar registrado',
+
+    #Special offer
+    "send_special_offer" => 'Enviar una oferta especial',
+    'with_discount_at'   => 'con descuento en',
+    'or'                 => 'o',
+    'total_price'        => 'precio total',
 ];

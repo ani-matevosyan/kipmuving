@@ -164,6 +164,7 @@ return [
 	'of_this_activity'                    => 'Of this activity',
 	'summary_of_your_panorama'            => 'Summary of your panorama',
 	'important'                           => 'Important',
+    'cost_to_cancel'                      => 'Costs to cancel',
 	'about_this_activity'                 => 'about this activity',
 	'minimum_age'                         => 'Minimum age',
 	'years'                               => 'years',
@@ -271,7 +272,7 @@ return [
 	
 	'these_are_your_activities'    => 'These are your activities',
 	'please'                       => 'Please',
-	'confirm_below_the_activities' => 'Confirm below the activities that will be done in Pucón on selected days',
+	'confirm_below_the_activities' => 'confirm below the activities that will be done in Pucón on selected days',
 	
 	'museum'         => 'Museum',
 	'crafts'         => 'Crafts',
@@ -317,5 +318,11 @@ return [
     #FAQ
     'ask'                      => 'Ask question',
     'you_should_be_registered' => 'To ask you have to log in',
+
+    #Special offer
+    "send_special_offer" => 'Send a special offer',
+    'with_discount_at'   => 'with discount at',
+    'or'                 => 'or',
+    'total_price'        => 'total price',
 
 ];

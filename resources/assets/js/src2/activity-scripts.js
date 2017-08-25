@@ -47,6 +47,37 @@ $(document).ready(function(){
         });
     }
 
+    $("#get-offers-button").click(function(){
+        var activityId = $(this).data('activity-id'),
+            date = $("#reserve-date").val(),
+            persons = $("#get-offers-persons").val();
+        if (persons === '') {
+            $('#message-modal #message').text('Seleccione primero la cantidad de personas de esta actividad.');
+            $('#message-modal').modal('show');
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/offer/special/add",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                activity_id: activityId,
+                persons: persons,
+                date: date
+            },
+            error: function(){
+                $('#message-modal #message').text('Sorry. There is some problem with transferring data to the server. Please try again after reload');
+                $('#message-modal').modal('show');
+                setTimeout(function(){
+                    location.reload();
+                },2000)
+            }.done(function(){
+                getsuprogram();
+                $('html, body').animate({scrollTop: '0px'}, 800);
+            })
+        });
+    });
+
     jQuery('.offers-list').on("click", "a", function(){
         var oid = $(this).parent().prevAll().length;
         var pickedel = $(this).parent();

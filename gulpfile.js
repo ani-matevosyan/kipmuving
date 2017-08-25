@@ -9,16 +9,21 @@ var gulp         = require('gulp'),
     webpack      = require('webpack-stream'),
     named        = require('vinyl-named');
 
-gulp.task('sass', function(){
-    return gulp.src('./resources/assets/sass/**/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 15 version'],
-            cascade: false
-        }))
-        .pipe(sourcemaps.write("../maps"))
-        .pipe(gulp.dest('./public/css'))
+gulp.task('sass', function(cb){
+    pump(
+        [
+            gulp.src('./resources/assets/sass/**/*.scss'),
+            sourcemaps.init(),
+            sass({outputStyle: 'compressed'}).on('error', sass.logError),
+            autoprefixer({
+                browsers: ['last 15 version'],
+                cascade: false
+            }),
+            sourcemaps.write("../maps"),
+            gulp.dest('./public/css')
+        ],
+        cb
+    )
 });
 
 gulp.task('scripts1', function(cb){
@@ -62,25 +67,3 @@ gulp.task('watch', ['sass', 'scripts1', 'scripts2'], function() {
 });
 
 gulp.task('default', ['watch']);
-
-
-
-// const elixir = require('laravel-elixir');
-//
-// require('laravel-elixir-vue-2');
-//
-// /*
-//  |--------------------------------------------------------------------------
-//  | Elixir Asset Management
-//  |--------------------------------------------------------------------------
-//  |
-//  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
-//  | for your Laravel application. By default, we are compiling the Sass
-//  | file for our application, as well as publishing vendor resources.
-//  |
-//  */
-//
-// elixir(mix => {
-//     mix.sass('app.scss')
-//        .webpack('app.js');
-// });
