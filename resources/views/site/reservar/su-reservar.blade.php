@@ -2,7 +2,7 @@
 
 {{-- Content --}}
 @section('content')
-	<main id="main">
+	<main id="main" class="reservation-page">
 		<div class="container">
 			<ul class="breadcrumb">
 				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
@@ -17,57 +17,55 @@
 							<h1 class="reservation-header__title">{{ $message }}</h1>
 						</header>
 					@else
-						<header class="reservation-header">
-							<h1 class="reservation-header__title">{{ trans('main.these_are_your_activities') }}</h1>
-							<p class="reservation-header__description">{{ trans('main.please') }} {{ $user->username ? $user->username : $user->first_name }} {{ trans('main.confirm_below_the_activities') }}</p>
+						<header class="reservation-page__header">
+							<h1 class="reservation-page__title">{{ trans('main.these_are_your_activities') }}</h1>
+							<p class="reservation-page__description">{{ trans('main.please') }} {{ $user->username ? $user->username : $user->first_name }} {{ trans('main.confirm_below_the_activities') }}</p>
 						</header>
 					@endif
-					{{--<div class="picked-offers">--}}
-						{{--<header class="picked-offers__header">--}}
-							{{--<h2 class="picked-offers__title">{{ trans('main.instant_booking') }}</h2>--}}
-						{{--</header>--}}
-						{{--<ul class="chosen-offers-list">--}}
-                            {{--<?php $first_offer = true ?>--}}
-							{{--@foreach ($reservation->offers as $offer)--}}
-								{{--<li class="chosen-offers-list__item">--}}
-									{{--<header class="chosen-offers-list__header">--}}
-										{{--<h3 class="chosen-offers-list__name">--}}
-											{{--<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}" class="chosen-offers-list__name-link">{{ $offer->activity->name }}</a>--}}
-										{{--</h3>--}}
-										{{--<p class="chosen-offers-list__agency">{{ $offer->agency->name }} <span class="chosen-offers-list__agency-address">{{ $offer->agency->address }}</span></p>--}}
-									{{--</header>--}}
-									{{--<div class="chosen-offers-list__information">--}}
-										{{--<div class="you-should-take">--}}
-											{{--<strong class="you-should-take__title">{{ trans('main.you_must_take') }}</strong>--}}
-											{{--<ul class="you-should-take__list">--}}
-												{{--@foreach ($offer->includes as $include)--}}
-													{{--<li class="you-should-take__item">{{ $include }}</li>--}}
-												{{--@endforeach--}}
-											{{--</ul>--}}
-										{{--</div>--}}
-										{{--<div class="chosen-offers-list__order-information">--}}
-											{{--<ul class="order-information-list">--}}
-												{{--<li class="order-information-list__item order-information-list__item_time">--}}
-													{{--<strong class="order-information-list__point order-information-list__point_date">{{ trans('form.day') }}: {{ $offer->reservation['date'] }}</strong>--}}
-													{{--<p class="order-information-list__point"><strong>{{ trans('main.duration') }}</strong>: {{ $offer->duration }}hrs</p>--}}
-													{{--<p class="order-information-list__point"><strong>{{ trans('main.schedule') }}</strong>: {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }} a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}</p>--}}
-												{{--</li>--}}
-												{{--<li class="order-information-list__item order-information-list__item_persons">--}}
-													{{--<p class="order-information-list__point"><strong>{{ $offer->reservation['persons'] }}</strong> {{ trans('main.persons') }}</p>--}}
-												{{--</li>--}}
-											{{--</ul>--}}
-										{{--</div>--}}
-										{{--<span class="chosen-offers-list__price"><sub>@if(session('currency.type') === 'BRL') R$ @else--}}
-													{{--$ @endif</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span>--}}
-									{{--</div>--}}
-									{{--<div class="chosen-offers-list__additional-information">--}}
-										{{--<p class="chosen-offers-list__important"><strong>{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>--}}
-										{{--<p class="chosen-offers-list__cancellation"><strong>{{ trans('main.cost_to_cancel') }}:</strong> {{ $offer->cancellation_rules }}</p>--}}
-									{{--</div>--}}
-								{{--</li>--}}
-							{{--@endforeach--}}
-						{{--</ul>--}}
-					{{--</div>--}}
+					<section class="picked-offers">
+						<h2 class="picked-offers__title">{{ trans('main.instant_booking') }}</h2>
+						<ul class="chosen-offers-list">
+                            <?php $first_offer = true ?>
+							@foreach ($reservation->offers as $offer)
+								<li class="chosen-offers-list__item">
+									<header class="chosen-offers-list__header">
+										<h3 class="chosen-offers-list__name">
+											<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}" class="chosen-offers-list__name-link">{{ $offer->activity->name }}</a>
+										</h3>
+										<p class="chosen-offers-list__agency">{{ $offer->agency->name }} <span class="chosen-offers-list__agency-address">{{ $offer->agency->address }}</span></p>
+									</header>
+									<div class="chosen-offers-list__information">
+										<div class="you-should-take chosen-offers-list__you-should-take">
+											<strong class="you-should-take__title">{{ trans('main.you_must_take') }}</strong>
+											<ul class="you-should-take__list">
+												@foreach ($offer->includes as $include)
+													<li class="you-should-take__item">{{ $include }}</li>
+												@endforeach
+											</ul>
+										</div>
+										<div class="chosen-offers-list__order-information">
+											<ul class="order-information-list">
+												<li class="order-information-list__item order-information-list__item_time">
+													<strong class="order-information-list__point order-information-list__point_date">{{ trans('form.day') }}: {{ $offer->reservation['date'] }}</strong>
+													<p class="order-information-list__point"><strong>{{ trans('main.duration') }}</strong>: {{ $offer->duration }}hrs</p>
+													<p class="order-information-list__point"><strong>{{ trans('main.schedule') }}</strong>: {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }} a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}</p>
+												</li>
+												<li class="order-information-list__item order-information-list__item_persons">
+													<p class="order-information-list__point"><strong>{{ $offer->reservation['persons'] }}</strong> {{ trans('main.persons') }}</p>
+												</li>
+											</ul>
+										</div>
+										<span class="chosen-offers-list__price"><sub>@if(session('currency.type') === 'BRL') R$ @else
+													$ @endif</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span>
+									</div>
+									<div class="chosen-offers-list__additional-information">
+										<p class="chosen-offers-list__important"><strong>{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
+										<p class="chosen-offers-list__cancellation"><strong>{{ trans('main.cost_to_cancel') }}:</strong> {{ $offer->cancellation_rules }}</p>
+									</div>
+								</li>
+							@endforeach
+						</ul>
+					</section>
 					<section class="s-reservar">
 						<div class="your-reservation">
 							<ul class="accordion">

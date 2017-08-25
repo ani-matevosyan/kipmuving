@@ -3,8 +3,16 @@
 @import "components/reservation-sidebar";
 @import "components/offer-items";
 
+%inline-block_top{
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+}
 
-.reservation-header{
+.reservation-page{
+  &__header{
+    margin-bottom: 31px;
+  }
   &__title{
     font-size: 18px;
     font-weight: 700;
@@ -12,6 +20,106 @@
   }
   &__description{
     margin: 0;
+  }
+}
+
+.picked-offers{
+  &__title{
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #353535;
+    margin:{
+      top: 0;
+      bottom: 22px;
+      left: -17px;
+      right: -60px;
+    }
+    color: #fff;
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+.chosen-offers-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &__header{
+    margin-bottom: 26px;
+  }
+  &__name{
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  &__name-link{
+    color: #353535;
+    font-weight: 700;
+    font-size: 25px;
+    &:hover,
+    &:focus{
+      color: #353535;
+    }
+  }
+  &__agency{
+    margin: 0;
+    font-size: 17px;
+    line-height: 1;
+  }
+  &__agency-address{
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  &__information{
+    position: relative;
+    font-size: 0;
+  }
+  &__you-should-take{
+    @extend %inline-block_top;
+    padding-right: 20px;
+    width: 50%;
+  }
+  &__order-information{
+    @extend %inline-block_top;
+    width: 50%;
+  }
+}
+
+.you-should-take{
+  padding-left: 9px;
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item{
+    position: relative;
+    &:before{
+      content: "";
+      width: 3px;
+      height: 3px;
+      background-color: #089f02;
+      border-radius: 50%;
+      position: absolute;
+      left: -9px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+}
+
+.order-information-list{
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+  &__item{
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d9d9d9;
+    &:last-child{
+      border-bottom: none;
+      padding-bottom: 0;
+    }
   }
 }
 
