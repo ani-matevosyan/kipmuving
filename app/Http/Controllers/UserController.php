@@ -6,6 +6,7 @@ use App\Activity;
 use App\Agency;
 use App\Offer;
 use App\Reservation;
+use App\SpecialOffer;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -71,44 +72,16 @@ class UserController extends Controller
 		if (!$user = Auth::user())
 			return redirect()->to('/login');
 
-
-//		dd($user->reservations[3]->time);
-//
-//		foreach ($user->reservations as $reservation) {
-//
-//		}
-
-//		$reservations = Reservation::where('user_id', $user['id'])
-//			->where('status', '=', true)
-//			->get();
-//
-//		$result = [];
-//		foreach ($reservations as $reservation) {
-//			$offer = Offer::find($reservation['offer_id']);
-//			$activity = Activity::find($offer['activity_id']);
-//			$agency = Agency::find($offer['agency_id']);
-//			$result[] = [
-//				'activity_id'         => $activity['id'],
-//				'activity_name'       => $activity['name'],
-//				'activity_image_icon' => $activity['image_icon'],
-//				'agency_name'         => $agency['name'],
-//				'agency_address'      => $agency['address'],
-//				'reservation_id'      => $reservation['id'],
-//				'reservation_date'    => $reservation['reserve_date'],
-//				'reservation_persons' => $reservation['persons'],
-//				'offer_start_time'    => $offer['start_time'],
-//				'offer_end_time'      => $offer['end_time'],
-////				'offer_price'         => $offer['price'] * (1 - config('kipmuving.discount')),
-//				'offer_summary_price' => $offer['price'] * (1 - config('kipmuving.discount')) * $reservation['persons']
-//			];
-//		}
 		$data = [
 			'styles'  => config('resources.user.styles'),
 			'scripts' => config('resources.user.scripts'),
 			'user'    => $user,
-//			'reservations' => $result
+			'special_offers' => SpecialOffer::where([
+				['user_id', '=', \auth()->user()['id']],
+				['active', true]
+			])->get()
 		];
-		
+
 		return view('site.user.index', $data);
 	}
 	

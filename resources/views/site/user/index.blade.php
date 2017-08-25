@@ -286,8 +286,7 @@
 
 															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
 																<div class="delete_offer">
-																	<a
-																			href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
+																	<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
 																</div>
 															@endif
 														</ul>
@@ -299,13 +298,14 @@
 								@endforeach
 							</ul>
 							<div class="print_notification_wrapper">
-								<span>{{ trans('main.you_can_print') }} </span><a href="#" class="btn btn-success to_print"
-								                                     data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
+								<span>{{ trans('main.you_can_print') }} </span>
+								<a href="#" class="btn btn-success to_print" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
 							</div>
 						</div>
 					@endif
 				</div>
 			</div>
+		</div>
 	</main>
 
 	<div class="modal fade" tabindex="-1" role="dialog" id="printWarning">
