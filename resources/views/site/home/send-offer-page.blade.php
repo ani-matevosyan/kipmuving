@@ -14,63 +14,70 @@
 						ducimus eum explicabo pariatur quaerat vitae! Dolores earum neque perferendis veniam voluptas. Nam.</p>
 				</header>
 
-				<ul class="special-offers-list">
-
+				@if(session()->has('message'))
+					<h3>{{ session('message') }} </h3>
+				@else
 					@if(isset($offer))
-						<li class="special-offers-list__item">
-							<h2 class="special-offers-list__title">
-								<a href="{{ action('ActivityController@getActivity', ['id' => $offer->offer->activity->id]) }}"
-									 class="special-offers-list__title-link">{{ $offer->offer->activity->name }}</a>
-							</h2>
-							<ul class="special-offers-list__info-list">
-								<li class="special-offers-list__info-item">
-									<strong>Date:</strong> {{ \Carbon\Carbon::createFromFormat('Y-m-d', $offer->offer_date)->format('d/m/Y') }}
-								</li>
-								<li class="special-offers-list__info-item">
-									<strong>Persons:</strong> {{ $offer->persons }}
-								</li>
-								<li class="special-offers-list__info-item">
-									<strong>Your price:</strong> $ {{ number_format($offer->offer->real_price, 0, '.', '.') }}
-								</li>
-								<li class="special-offers-list__info-item">
-									<strong>Total:</strong> $ {{ number_format($offer->offer->real_price * $offer->persons, 0, '.', '.') }}
-								</li>
-							</ul>
-							<div class="pick-discount special-offers-list__pick-discount">
-								<p class="pick-discount__info">
-									{{ trans('main.send_special_offer') }} {{ trans('main.with_discount_at') }}
-									<strong>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $offer->offer_date)->format('d/m/Y') }}:</strong>
-								</p>
-								<ul class="pick-discount__list">
-									<li class="pick-discount__item">
-										<a href="#" class="pick-discount__button pick-discount__button_yellow">5%</a>
-										<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}</span>
+						<ul class="special-offers-list">
+
+							<li class="special-offers-list__item">
+								<h2 class="special-offers-list__title">
+									<a href="{{ action('ActivityController@getActivity', ['id' => $offer->offer->activity->id]) }}"
+										 class="special-offers-list__title-link">{{ $offer->offer->activity->name }}</a>
+								</h2>
+								<ul class="special-offers-list__info-list">
+									<li class="special-offers-list__info-item">
+										<strong>Date:</strong> {{ \Carbon\Carbon::createFromFormat('Y-m-d', $offer->offer_date)->format('d/m/Y') }}
 									</li>
-									<li class="pick-discount__item">
-										<a href="#" class="pick-discount__button pick-discount__button_orange">10%</a>
-										<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}</span>
+									<li class="special-offers-list__info-item">
+										<strong>Persons:</strong> {{ $offer->persons }}
 									</li>
-									<li class="pick-discount__item">
-										<a href="#" class="pick-discount__button pick-discount__button_red">15%</a>
-										<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}</span>
+									<li class="special-offers-list__info-item">
+										<strong>Your price:</strong> $ {{ number_format($offer->offer->real_price, 0, '.', '.') }}
 									</li>
-									<li class="pick-discount__item">
-										<a href="#" class="pick-discount__button pick-discount__button_purple">20%</a>
-										<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}</span>
+									<li class="special-offers-list__info-item">
+										<strong>Total:</strong> $ {{ number_format($offer->offer->real_price * $offer->persons, 0, '.', '.') }}
 									</li>
 								</ul>
-								<span class="pick-discount__or-divider">{{ trans('main.or') }}</span>
-								<form class="pick-discount__form">
-									{{ csrf_field() }}
-									<input class="pick-discount__price-input" placeholder="{{ trans('main.total_price') }}">
-									<input type="hidden" name="s_offer_uid" value="{{ $offer->uid }}">
-									<button class="pick-discount__submit">OK</button>
-								</form>
-							</div>
-						</li>
-					@endif
+								<div class="pick-discount special-offers-list__pick-discount">
+									<p class="pick-discount__info">
+										{{ trans('main.send_special_offer') }} {{ trans('main.with_discount_at') }}
+										<strong>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $offer->offer_date)->format('d/m/Y') }}:</strong>
+									</p>
+									<ul class="pick-discount__list">
+										<li class="pick-discount__item">
+											<a href="#" class="pick-discount__button pick-discount__button_yellow">5%</a>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}</span>
+										</li>
+										<li class="pick-discount__item">
+											<a href="#" class="pick-discount__button pick-discount__button_orange">10%</a>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}</span>
+										</li>
+										<li class="pick-discount__item">
+											<a href="#" class="pick-discount__button pick-discount__button_red">15%</a>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}</span>
+										</li>
+										<li class="pick-discount__item">
+											<a href="#" class="pick-discount__button pick-discount__button_purple">20%</a>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}</span>
+										</li>
+									</ul>
+									<span class="pick-discount__or-divider">{{ trans('main.or') }}</span>
+									<form class="pick-discount__form">
+										{{ csrf_field() }}
+										<input class="pick-discount__price-input" placeholder="{{ trans('main.total_price') }}" name="price">
+										<input type="hidden" name="s_offer_uid" value="{{ $offer->uid }}">
+										<button class="pick-discount__submit">OK</button>
+									</form>
+								</div>
+							</li>
 
-				</ul>
+						</ul>
+					@else
+						<h3>Sorry, we do not have such a record or you have already sent this offer to the user.</h3>
+					@endif
+				@endif
+
 
 			</section>
 

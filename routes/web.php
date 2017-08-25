@@ -79,6 +79,7 @@ Route::get('/offer/special/add', 'SpecialOffersController@addToBasket');
 Route::get('/offer/special/remove', 'SpecialOffersController@removeFromBasket');
 Route::get('/send-offer/{uid}', 'SpecialOffersController@sendOfferPage')
 	->where('uid', '[a-zA-Z0-9]+');
+Route::get('/send-offer', 'SpecialOffersController@sendOffer');
 
 
 
