@@ -46,11 +46,14 @@ class ActivityController extends Controller
 
 	public function getSuProgram(Offer $offer)
 	{
+		$s_offers = \session('basket.special');
+		$s_offers_max_persons = max(array_column($s_offers, 'persons'));
+
 		$data = [
-			'offers'  => count($offer->getSelectedOffers()),
-			'special_offers' => count(session('basket.special')),
-			'persons' => $offer->getSelectedOffersPersons(),
-			'total'   => $offer->getSelectedOffersTotal(),
+			'offers'         => count($offer->getSelectedOffers()),
+			'special_offers' => count($s_offers),
+			'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
+			'total'          => $offer->getSelectedOffersTotal(),
 		];
 
 		return ['data' => $data];
