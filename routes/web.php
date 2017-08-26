@@ -80,6 +80,7 @@ Route::get('/offer/special/remove', 'SpecialOffersController@removeFromBasket');
 Route::get('/send-offer/{uid}', 'SpecialOffersController@sendOfferPage')
 	->where('uid', '[a-zA-Z0-9]+');
 Route::get('/send-offer', 'SpecialOffersController@sendOffer');
+Route::get('/reserve/special-offer', 'ReservationController@reserveSpecialOffer');
 
 
 
@@ -159,6 +160,7 @@ Route::get('/bookit', 'ReservationController@reserve');
 //Route::post('/reserve', 'ReservationController@reserve');
 Route::get('/reservation/{id}/cancel', 'ReservationController@cancelReservation')
 	->where('id', '[0-9]+');
+
 Route::get('/reserve/paypal', 'ReservationController@paymentPaypal');
 Route::get('/reserve/pagseguro', 'ReservationController@paymentPagseguro');
 Route::get('/reserve/pagseguro/redirect', [
