@@ -17,6 +17,9 @@ return [
     'sendOffer' => [
         'styles' => [
             'css/send-offer-style.css'
+        ],
+        'scripts' => [
+            'js/send-offer-scripts.min.js'
         ]
     ],
 

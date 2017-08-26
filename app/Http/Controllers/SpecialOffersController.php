@@ -37,8 +37,9 @@ class SpecialOffersController extends Controller
 	public function sendOfferPage($uid)
 	{
 		$data = [
-			'styles' => config('resources.sendOffer.styles'),
-			'offer'  => SpecialOffer::where([
+			'styles'  => config('resources.sendOffer.styles'),
+            'scripts' => config('resources.sendOffer.scripts'),
+			'offer'   => SpecialOffer::where([
 				['uid', '=', $uid],
 				['active', false]
 			])->first(),

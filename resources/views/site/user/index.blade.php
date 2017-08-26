@@ -194,7 +194,9 @@
 							<header class="my-adventures__header">
 								<h2 class="my-adventures__title">{{ trans('main.my_adventures') }}</h2>
 								<p class="my-adventures__subtitle">{{ trans('main.here_you_will_find_adventures') }}</p>
-								<a href="#" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>
+								@ability('admin,developer', '')
+									<a href="{{ action('CalendarController@generateICS') }}" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>
+								@endability()
 							</header>
 							<ul class="item-list">
 								@foreach ($user->reservations->where('status', true) as $reservation)
