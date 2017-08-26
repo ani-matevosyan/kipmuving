@@ -84,6 +84,24 @@ class UserController extends Controller
 
 		return view('site.user.index', $data);
 	}
+
+	public function getUserReservations()
+	{
+		if (!$user = Auth::user())
+			return redirect()->to('/login');
+
+		$data = [
+			'styles'  => config('resources.user.styles'),
+			'scripts' => config('resources.user.scripts'),
+			'user'    => $user,
+			'special_offers' => SpecialOffer::where([
+				['user_id', '=', \auth()->user()['id']],
+				['active', true]
+			])->get()
+		];
+
+		return view('site.user.reservations', $data);
+	}
 	
 	public function updateUser($id, Request $request)
 	{

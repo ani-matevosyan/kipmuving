@@ -102,6 +102,7 @@ Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
 Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
 Route::get('/user', 'UserController@getUser');
+Route::get('/user/reservations', 'UserController@getUserReservations');
 Route::post('/user/{id}/edit', 'UserController@updateUser')
 	->where('id', '[0-9]+');
 Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')
