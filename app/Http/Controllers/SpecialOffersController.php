@@ -37,7 +37,7 @@ class SpecialOffersController extends Controller
 	{
 		$data = [
 			'styles'  => config('resources.sendOffer.styles'),
-            'scripts' => config('resources.sendOffer.scripts'),
+			'scripts' => config('resources.sendOffer.scripts'),
 			'offer'   => SpecialOffer::where([
 				['uid', '=', $uid],
 				['active', false],
@@ -49,6 +49,11 @@ class SpecialOffersController extends Controller
 
 	public function sendOffer(Request $request)
 	{
+		$this->validate($request, [
+			'price' => 'required|numeric',
+		]);
+
+
 		$price = 153000;
 		$offer_uid = '599fd78d5b488599fd78d5b48a';
 
