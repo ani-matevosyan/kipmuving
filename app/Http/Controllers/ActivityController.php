@@ -48,6 +48,7 @@ class ActivityController extends Controller
 	{
 		$data = [
 			'offers'  => count($offer->getSelectedOffers()),
+			'special_offers' => count(session('basket.special')),
 			'persons' => $offer->getSelectedOffersPersons(),
 			'total'   => $offer->getSelectedOffersTotal(),
 		];
