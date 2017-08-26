@@ -19,8 +19,6 @@ class HomeController extends Controller
 	public function index()
 	{
 
-		dd(SpecialOffer::get(), session('basket'));
-
 		if (session('cities.entrance') === false)
 			return redirect()->route('entrance');
 

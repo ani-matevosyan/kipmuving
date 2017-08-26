@@ -65,16 +65,17 @@ $(document).ready(function(){
                 persons: persons,
                 date: date
             },
-            error: function(){
+            error: function(err){
+                console.error(err);
                 $('#message-modal #message').text('Sorry. There is some problem with transferring data to the server. Please try again after reload');
                 $('#message-modal').modal('show');
                 setTimeout(function(){
                     location.reload();
-                },2000)
-            }.done(function(){
-                getsuprogram();
-                $('html, body').animate({scrollTop: '0px'}, 800);
-            })
+                },2000);
+            }
+        }).done(function(){
+            getsuprogram();
+            $('html, body').animate({scrollTop: '0px'}, 800);
         });
     });
 
