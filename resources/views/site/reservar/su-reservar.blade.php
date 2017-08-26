@@ -155,9 +155,9 @@
 											</p>
 										</header>
 										<ul class="basket-list basket-list_subscription">
-											@foreach ($special_offers as $offer)
+											@foreach ($special_offers as $key => $offer)
 												<li class="basket-list__item basket-list__item_subscription">
-													<a class="basket-list__delete-button" href="#"></a>
+													<a class="basket-list__delete-button" href="{{ action('SpecialOffersController@removeFromBasket', ['oid' => $key]) }}"></a>
 													<h4 class="basket-list__name">{{ $offer['activity_name'] }}</h4>
 												</li>
 											@endforeach

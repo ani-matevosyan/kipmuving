@@ -9,29 +9,28 @@ class SpecialOffersController extends Controller
 {
 	public function addToBasket(Request $request)
 	{
-		$activity_id = 2;
-		$date = '24/08/2017';
-		$persons = 2;
-
 		$basket = session('basket');
+
 		$basket['special'] [] = [
-			'activity_id' => $activity_id,
-			'date'        => $date,
-			'persons'     => $persons,
+			'activity_id' => $request['activity_id'],
+			'date'        => $request['date'],
+			'persons'     => $request['persons'],
 		];
 
 		session()->put('basket', $basket);
 	}
 
-	public function removeFromBasket(Request $request)
+	public function removeFromBasket($oid)
 	{
-		$oid = 0;
+		//TODO change to POST
 
 		$basket = session('basket');
 
 		array_splice($basket['special'], $oid, 1);
 
 		session()->put('basket', $basket);
+
+		return redirect()->back();
 	}
 
 	public function sendOfferPage($uid)
@@ -41,14 +40,15 @@ class SpecialOffersController extends Controller
             'scripts' => config('resources.sendOffer.scripts'),
 			'offer'   => SpecialOffer::where([
 				['uid', '=', $uid],
-				['active', false]
+				['active', false],
 			])->first(),
 		];
 
 		return view('site.home.send-offer-page', $data);
 	}
 
-	public function sendOffer(Request $request) {
+	public function sendOffer(Request $request)
+	{
 		$price = 153000;
 		$offer_uid = '599fd78d5b488599fd78d5b48a';
 
@@ -59,11 +59,11 @@ class SpecialOffersController extends Controller
 			$s_offer->price = $price;
 
 			$s_offer->save();
-		} else return redirect()->to('/send-offer/'.$offer_uid)->with('message', 'Sorry, you have already sent this offer to the user.');
+		} else return redirect()->to('/send-offer/' . $offer_uid)->with('message', 'Sorry, you have already sent this offer to the user.');
 
 		//TODO send email to user
 
 		//TODO redirect back
-		return redirect()->to('/send-offer/'.$offer_uid)->with('message', 'Great, we send email to user. Many thanks!');
+		return redirect()->to('/send-offer/' . $offer_uid)->with('message', 'Great, we send email to user. Many thanks!');
 	}
 }
