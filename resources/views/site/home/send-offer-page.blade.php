@@ -46,25 +46,24 @@
 									</p>
 									<ul class="pick-discount__list">
 										<li class="pick-discount__item">
-											<a href="#" class="pick-discount__button pick-discount__button_yellow">5%</a>
+											<span href="#" class="pick-discount__button pick-discount__button_yellow" data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}">5%</span>
 											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
-											<a href="#" class="pick-discount__button pick-discount__button_orange">10%</a>
+											<span href="#" class="pick-discount__button pick-discount__button_orange" data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}">10%</span>
 											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
-											<a href="#" class="pick-discount__button pick-discount__button_red">15%</a>
+											<span class="pick-discount__button pick-discount__button_red" data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}">15%</span>
 											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
-											<a href="#" class="pick-discount__button pick-discount__button_purple">20%</a>
+											<span class="pick-discount__button pick-discount__button_purple" data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}">20%</span>
 											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}</span>
 										</li>
 									</ul>
 									<span class="pick-discount__or-divider">{{ trans('main.or') }}</span>
 									<form class="pick-discount__form">
-										{{ csrf_field() }}
 										<input class="pick-discount__price-input" placeholder="{{ trans('main.total_price') }}" name="price">
 										<input type="hidden" name="s_offer_uid" value="{{ $offer->uid }}">
 										<button class="pick-discount__submit">OK</button>
