@@ -8,6 +8,8 @@ use App\Reservation;
 use App\SpecialOffer;
 use App\User;
 use Carbon\Carbon;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -80,6 +82,17 @@ class ReservationController extends Controller
 		}
 
 		return redirect()->action('UserController@getUser');
+	}
+
+	public function reserveSpecialOffer(Request $request)
+	{
+		$id = 1;
+		$timerange = '09:00-12:00';
+
+		$s_offer = SpecialOffer::find($id);
+
+		dd($s_offer);
+
 	}
 
 	#Cancel reservation
