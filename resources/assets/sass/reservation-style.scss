@@ -1,7 +1,6 @@
 @import "./common";
 @import "../../../public/libs/product-tour/product-tour.min";
 @import "components/reservation-sidebar";
-@import "components/offer-items";
 
 %inline-block_top{
   display: inline-block;
@@ -41,8 +40,22 @@
     color: #fff;
     text-align: center;
     padding: 12px 0;
+    @media screen and (max-width: 991px){
+      margin: 0 0 22px;
+    }
     &_special{
       background-color: #008DD0;
+      &:after{
+        content: '';
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+        width: 23px;
+        height: 23px;
+        background-image: url(../images/sale-icon.png);
+        background-size: contain;
+      }
     }
   }
 }
@@ -103,11 +116,20 @@
       padding-right: 0;
       margin-bottom: 0;
     }
+    @media screen and (max-width: 580px){
+      margin-bottom: 20px;
+      padding-right: 0;
+    }
   }
   &__you-should-take{
     @extend %inline-block_top;
     padding-right: 20px;
     width: 50%;
+    @media screen and (max-width: 460px){
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
   &__request-sent{
     @extend %inline-block_top;
@@ -115,10 +137,24 @@
     font-size: 15px;
     margin: 0;
     padding-right: 10px;
+    @media screen and (max-width: 580px){
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
   &__order-information{
     @extend %inline-block_top;
     width: 50%;
+    @media screen and (max-width: 460px){
+      display: block;
+      width: 100%;
+    }
+    &_special{
+      @media screen and (max-width: 580px){
+        width: 100%;
+      }
+    }
   }
   &__price{
     font-size: 25px;
@@ -127,6 +163,15 @@
     right: 0;
     color: #ebb414;
     font-weight: 700;
+    @media screen and (max-width: 580px){
+      position: relative;
+      display: block;
+      text-align: right;
+      margin-top: 25px;
+    }
+    @media screen and (max-width: 460px){
+      text-align: left;
+    }
   }
   &__currency-sign{
     font-size: 18px;
@@ -241,123 +286,4 @@
     font-size: 18px;
     margin-bottom: 3px;
   }
-}
-
-
-.your-reservation .accordion h2 {
-  font-size: 31px;
-  line-height: 31px;
-}
-
-.your-reservation .accordion h2 a{
-  color: #089f02;
-}
-
-.your-reservation .accordion .ico {
-  margin: 2px 10px 0 0;
-  position: relative;
-  left: auto;
-  top: auto;
-  width: 51px;
-}
-
-/*---- RESERVATION PAGE UPDATE ---*/
-
-.s-reservar{
-  margin-top: 30px;
-  .your-reservation{
-    .head{
-      padding: 0 16px;
-      margin-right: -12%;
-      p{
-        font-size: 14px;
-        font-family:  'PT-Sans', sans-serif;
-        font-weight: 400;
-        margin:  0 0 10px;
-        a{
-          font-family: 'PT-Sans', sans-serif;
-          font-weight: 700;
-          color:  #000;
-        }
-      }
-    }
-    .list-box{
-      margin: 0 0 15px 10px;
-    }
-    .timing{
-      overflow: visible;
-      display: inline-block;
-      li{
-        padding: 0 0 10px;
-        &.person{
-          padding: 5px 0 0;
-        }
-        &:after{
-          display: none;
-        }
-      }
-    }
-    .price{
-      padding: 0;
-      position: absolute;
-      bottom: 15px;
-      right:  0;
-    }
-  }
-  .activity_description{
-    position: relative;
-    padding-bottom: 15px;
-  }
-}
-
-.s_moredetails{
-  margin-top: 30px;
-}
-
-/*---- END RESERVATION PAGE UPDATE ---*/
-
-.timing-icon{
-  position: absolute;
-  width: 18px;
-  top: 2px;
-  left: -27px;
-}
-
-.carrio-heading {
-  margin-top: 24px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #474a4c;
-}
-
-.head {
-  overflow: hidden;
-  max-width: 813px;
-  padding: 0 0 12px;
-  border-bottom: 1px solid #e4e4e4;
-}
-
-.head .sub-title {
-  display: block;
-  margin: 0 0 10px;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 400;
-}
-
-.head .sub-title span {
-  display: block;
-  font-weight: bold;
-}
-
-.head .sub-title a {
-  color: #089f02;
-}
-
-.head .sub-title a:hover {
-  text-decoration: underline;
-}
-
-.head p {
-  margin: 0 0 30px;
 }

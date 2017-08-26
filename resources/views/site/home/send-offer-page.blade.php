@@ -64,6 +64,7 @@
 									</ul>
 									<span class="pick-discount__or-divider">{{ trans('main.or') }}</span>
 									<form class="pick-discount__form">
+										{{ csrf_field() }}
 										<input class="pick-discount__price-input" placeholder="{{ trans('main.total_price') }}" name="price">
 										<input type="hidden" name="s_offer_uid" value="{{ $offer->uid }}">
 										<button class="pick-discount__submit">OK</button>

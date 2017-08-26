@@ -87,7 +87,7 @@
 										</header>
 										<div class="chosen-offers-list__information chosen-offers-list__information_special">
 											<p class="chosen-offers-list__request-sent">{{ trans('main.we_send_this') }}<strong>{{ $offer['count_agencies'] }} {{ trans('main.agencies') }}</strong></p>
-											<div class="chosen-offers-list__order-information">
+											<div class="chosen-offers-list__order-information chosen-offers-list__order-information_special">
 												<ul class="order-information-list">
 													<li class="order-information-list__item order-information-list__item_special order-information-list__item_time">
 														<strong class="order-information-list__point order-information-list__point_date">{{ trans('form.day') }}: {{ $offer['date'] }}</strong>
@@ -116,98 +116,6 @@
 							<p class="s-more-details__paragraph">{{ trans('main.please_note_that_you_are_hiring') }}</p>
 						</section>
 					@endif
-					{{--<section class="s-reservar">--}}
-					{{--<div class="your-reservation">--}}
-					{{--<ul class="accordion">--}}
-					{{--<!--?php $first_offer = true ?-->--}}
-					{{--@if	(isset($reservation->offers) && count($reservation->offers) > 0)--}}
-					{{--@foreach ($reservation->offers as $offer)--}}
-					{{--<li class="accordion-li">--}}
-					{{--<header>--}}
-					{{--<div class="ico">--}}
-					{{--<img src="/{{ $offer->activity->image_icon }}"--}}
-					{{--onerror="this.src='/images/image-none.jpg';"--}}
-					{{--alt="agency image">--}}
-					{{--</div>--}}
-					{{--<div class="text">--}}
-					{{--<h2>--}}
-					{{--<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">{{ $offer->activity->name }}</a>--}}
-					{{--</h2>--}}
-					{{--<strong class="sub-title">{{ $offer->agency->name }} <span>{{ $offer->agency->address }}</span></strong>--}}
-					{{--</div>--}}
-					{{--</header>--}}
-					{{--<div class="activity_description">--}}
-					{{--<div class="row">--}}
-					{{--<div class="col-sm-6 col-xs-12">--}}
-					{{--<div class="list-box">--}}
-					{{--<strong class="title">{{ trans('main.you_must_take') }}</strong>--}}
-					{{--<ul class="list">--}}
-					{{--@foreach ($offer->includes as $include)--}}
-					{{--<li>{{ $include }}</li>--}}
-					{{--@endforeach--}}
-					{{--</ul>--}}
-					{{--</div>--}}
-					{{--</div>--}}
-					{{--<div class="col-sm-6 col-xs-12">--}}
-					{{--<ul class="timing">--}}
-					{{--<li class="time">--}}
-					{{--<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">--}}
-					{{--<strong class="title">--}}
-					{{--{{ trans('form.day') }}: {{ $offer->reservation['date'] }}--}}
-					{{--</strong>--}}
-					{{--<strong>--}}
-					{{--<span>{{ trans('main.duration') }}--}}
-					{{--:</span> {{ $offer->duration }}--}}
-					{{--hrs--}}
-					{{--</strong>--}}
-					{{--<strong>--}}
-					{{--<span>{{ trans('main.schedule') }}--}}
-					{{--:</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}--}}
-					{{--a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}--}}
-					{{--</strong>--}}
-					{{--</li>--}}
-					{{--<li class="person">--}}
-					{{--<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">--}}
-					{{--<strong>--}}
-					{{--<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}--}}
-					{{--</strong>--}}
-					{{--</li>--}}
-					{{--</ul>--}}
-					{{--</div>--}}
-					{{--</div>--}}
-					{{--<strong class="price">--}}
-					{{--<sub>@if(session('currency.type') === 'BRL') R$ @else--}}
-					{{--$ @endif</sub> {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}--}}
-					{{--$ {{ number_format($offer->real_price * (1 - config('kipmuving.discount')) * $offer->reservation['persons'], 0, '.', ' ') }}--}}
-					{{--</strong>--}}
-					{{--</div>--}}
-					{{--<div @if($first_offer) id="reservetour1" @endif class="reservation-info-block">--}}
-					{{--<div class="important">--}}
-					{{--<p><strong class="title">{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>--}}
-					{{--</div>--}}
-					{{--<div class="cancellation_rules">--}}
-					{{--<p><span>Costos para cancelar: </span>{{ $offer->cancellation_rules }}</p>--}}
-					{{--</div>--}}
-					{{--</div>--}}
-					{{--</li>--}}
-					{{--<!--?php $first_offer = false; ?-->--}}
-					{{--@endforeach--}}
-					{{--@endif--}}
-					{{--</ul>--}}
-					{{--@if (empty($message))--}}
-					{{--<section class="s_moredetails">--}}
-					{{--<p>{{ trans('main.to_confirm_your_activities') }}--}}
-					{{--<strong>{{ trans('main.confirm') }}</strong>.--}}
-					{{--{{ trans('main.you_got_mail') }}--}}
-					{{--</p>--}}
-					{{--<p class="carrio-heading">{{ trans('main.to_cancel_your_reservation') }}</p>--}}
-					{{--<p>{{ trans('main.you_will_receive_info_about_agency') }}</p>--}}
-					{{--<p class="carrio-heading">{{ trans('main.general_information') }}</p>--}}
-					{{--<p>{{ trans('main.please_note_that_you_are_hiring') }}</p>--}}
-					{{--</section>--}}
-					{{--@endif--}}
-					{{--</div>--}}
-					{{--</section> --}}
 				</div>
 				<div class="col-md-3 col-md-offset-1 col-sm-12">
 					<aside class="sidebar">
