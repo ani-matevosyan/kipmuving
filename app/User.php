@@ -43,6 +43,12 @@ class User extends Authenticatable
 	{
 		return $this->hasMany('App\Reservation', 'user_id', 'id');
 	}
+
+	public function special_offers()
+	{
+		return $this->hasMany(SpecialOffer::class, 'user_id', 'id')
+			->where('special_offers.active', true);
+	}
 	
 	public function getAvatarAttribute()
 	{

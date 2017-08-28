@@ -17,7 +17,7 @@
 								<h2 class="my-adventures__title">{{ trans('main.my_adventures') }}</h2>
 								<p class="my-adventures__subtitle">{{ trans('main.here_you_will_find_adventures') }}</p>
 								@ability('admin,developer', '')
-									<a href="{{ action('CalendarController@generateICS') }}" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>
+								<a href="{{ action('CalendarController@generateICS') }}" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>
 								@endability()
 							</header>
 							<ul class="item-list">
@@ -33,15 +33,15 @@
 													@if(isset($reservation->offer->activity['image_icon']))
 														<div class="ico">
 															<img alt="image description"
-															     src="{{ asset($reservation->offer->activity['image_icon']) }}"
-															     onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
+																	 src="{{ asset($reservation->offer->activity['image_icon']) }}"
+																	 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
 														</div>
 													@endif
 													<div class="text">
 														@if (isset($reservation->offer->activity['id']) && isset($reservation->offer->activity['name']))
 															<h2>
 																<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
-																   data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
+																	 data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
 															</h2>
 														@endif
 
@@ -127,6 +127,15 @@
 							</div>
 						</div>
 					@endif
+
+					@if(isset($user->special_offers))
+						<ul>
+							@foreach($user->special_offers as $offer)
+								<li>{{ $offer->offer->activity->name }} - {{ $offer->offer_date }}</li>
+							@endforeach
+						</ul>
+					@endif
+
 				</div>
 			</div>
 		</div>
