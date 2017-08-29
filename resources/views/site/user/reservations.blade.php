@@ -79,7 +79,7 @@
 								<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
 										$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
 								<div class="your-offers__cancel">
-									<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+									<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
 								</div>
 							</li>
 						@endforeach
