@@ -195,6 +195,8 @@ class ReservationController extends Controller
 				//TODO send email to agency
 			}
 		}
+
+		session()->forget('basket.special');
 	}
 
 	#Sending emails
