@@ -3027,13 +3027,13 @@ body {
 
 /********* END Program schedule block ***********/
 
-.modal .modal-content {
+.modal-content {
   padding: 1px;
   border-radius: 0;
   background: #f6f9ec;
 }
 
-.modal .modal-header {
+.modal-header {
   border: 0;
   color: #fff;
   background: #55cb2e;
@@ -3045,22 +3045,22 @@ body {
   font-weight: 700;
 }
 
-.modal .modal-footer {
+.modal-footer {
   border: 0;
   padding: 20px;
   text-align: left;
 }
 
-.modal .modal-footer .btn {
+.modal-footer .btn {
   font-size: 12px;
   padding: 8px 20px;
 }
 
-.modal .modal-footer .btn-success {
+.modal-footer .btn-success {
   background: #55cb2e;
 }
 
-.modal .modal-footer .btn-success:hover {
+.modal-footer .btn-success:hover {
   background: #44c11b;
 }
 

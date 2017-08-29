@@ -55,7 +55,7 @@
 				<section class="s-offers">
 					<header class="s-offers__header">
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
-						<button class="s-offers__print-button">{{ trans('main.select_to_print') }}</button>
+						{{--<button class="s-offers__print-button">{{ trans('main.select_to_print') }}</button>--}}
 					</header>
 					<ul class="your-offers">
 						@foreach($user->reservations->where('status', true) as $reservation)
@@ -237,15 +237,15 @@
 	</div>
 
 
-	<div class="modal fade reservation-modal accept-modal" tabindex="-1" role="dialog" id="accept-offer-modal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header reservation-modal__header">
-					<button data-dismiss="modal" class="reservation-modal__close-button"></button>
+	<div class="modal fade reservations-modal accept-modal" tabindex="-1" role="dialog" id="accept-offer-modal">
+		<div class="modal-dialog reservations-modal__dialog">
+			<div class="modal-content reservations-modal__content">
+				<div class="modal-header reservations-modal__header">
+					<button data-dismiss="modal" class="reservations-modal__close-button"></button>
 				</div>
-				<div class="modal-body reservation-modal__body">
-					<p class="reservation-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.from(s)') }} <strong>$ 120.000</strong> ?</p>
-					<p class="reservation-modal__paragraph">
+				<div class="modal-body reservations-modal__body">
+					<p class="reservations-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.from(s)') }} <strong>$ 120.000</strong> ?</p>
+					<p class="reservations-modal__paragraph">
 						{{ trans('main.first_choose_the_time') }}
 						<span class="time-select">
 							<select>
@@ -268,13 +268,13 @@
 	</div>
 
 
-	<div class="modal fade reservation-modal offer-modal" tabindex="-1" role="dialog" id="">
+	<div class="modal fade reservations-modal offer-modal" tabindex="-1" role="dialog" id="">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header reservation-modal__header">
-					<button data-dismiss="modal" class="reservation-modal__close-button"></button>
+				<div class="modal-header reservations-modal__header">
+					<button data-dismiss="modal" class="reservations-modal__close-button"></button>
 				</div>
-				<div class="modal-body reservation-modal__body">
+				<div class="modal-body reservations-modal__body">
 					<header class="offer-modal__header">
 						asd
 					</header>
