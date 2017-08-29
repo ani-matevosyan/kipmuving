@@ -1,3 +1,6 @@
+import 'jcf/dist/js/jcf';
+import 'jcf/dist/js/jcf.select';
+
 $(document).ready(function(){
 
     //Print option

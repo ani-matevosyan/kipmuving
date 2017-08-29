@@ -38,6 +38,7 @@
   "dependencies": {
     "chosen-js": "^1.7.0",
     "instafeed.js": "^1.4.1",
+    "jcf": "^1.2.3",
     "owl.carousel": "^2.2.0"
   }
 }

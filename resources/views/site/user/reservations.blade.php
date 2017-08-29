@@ -29,7 +29,7 @@
 								<h4 class="special-offers__agency">Aguaventura</h4>
 								<div class="special-offers__right-part">
 									<span class="price special-offers__price">$ 120.000</span>
-									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
 									<button class="special-offers__info-button"></button>
 								</div>
 							</li>
@@ -37,7 +37,7 @@
 								<h4 class="special-offers__agency">Aguaventura</h4>
 								<div class="special-offers__right-part">
 									<span class="price special-offers__price">$ 120.000</span>
-									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
 									<button class="special-offers__info-button"></button>
 								</div>
 							</li>
@@ -45,7 +45,7 @@
 								<h4 class="special-offers__agency">Patagonia Experience</h4>
 								<div class="special-offers__right-part">
 									<span class="price special-offers__price">$ 120.000</span>
-									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
 									<button class="special-offers__info-button"></button>
 								</div>
 							</li>
@@ -351,6 +351,38 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div class="modal fade reservation-modal accept-modal" tabindex="-1" role="dialog" id="accept-offer-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header reservation-modal__header">
+					<button data-dismiss="modal" class="reservation-modal__close-button"></button>
+				</div>
+				<div class="modal-body reservation-modal__body">
+					<p class="reservation-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.from(s)') }} <strong>$ 120.000</strong> ?</p>
+					<p class="reservation-modal__paragraph">
+						{{ trans('main.first_choose_the_time') }}
+						<span class="time-select">
+							<select>
+								<option selected value="">{{ trans('main.schedule') }}</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</span>
+					</p>
+					<div class="accept-modal__buttons">
+						<button class="accept-modal__button accept-modal__button_success">Yes</button>
+						<button class="accept-modal__button accept-modal__button_deny">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<div class="modal fade reservation-modal offer-modal" tabindex="-1" role="dialog" id="">
 		<div class="modal-dialog">
