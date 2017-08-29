@@ -37,7 +37,7 @@
 											<h4 class="special-offers__agency">{{ $offer->offer->agency->name }}</h4>
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
-												<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+                                                <button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
 												<button class="special-offers__info-button"></button>
 											</div>
 										</li>
