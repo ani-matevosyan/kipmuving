@@ -168,6 +168,7 @@ class ReservationController extends Controller
 
 		foreach ($offers as $offer) {
 			$activity = Activity::find($offer['activity_id']);
+			$subscription_uid = uniqid() . uniqid();
 
 			foreach ($activity->offers as $a_offer) {
 				$data = [
@@ -186,6 +187,7 @@ class ReservationController extends Controller
 				$s_offer->offer_id = $a_offer->id;
 				$s_offer->offer_date = Carbon::createFromFormat('d/m/Y', $offer['date'])->toDateString();
 				$s_offer->persons = $offer['persons'];
+				$s_offer->subscription_uid = $subscription_uid;
 				$s_offer->uid = uniqid() . uniqid();
 
 				$s_offer->save();
@@ -193,6 +195,8 @@ class ReservationController extends Controller
 				//TODO send email to agency
 			}
 		}
+
+		session()->forget('basket.special');
 	}
 
 	#Sending emails

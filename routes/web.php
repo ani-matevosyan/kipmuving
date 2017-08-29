@@ -74,6 +74,8 @@ Route::post('/activity/comment/add', 'ActivityController@addComment');
 Route::post('/offer/date/set', 'OfferController@setDate');
 Route::post('/offer/reserve', 'OfferController@reserve');
 Route::post('/offer/remove', 'OfferController@remove');
+Route::get('/offer/remove/{oid}', 'OfferController@removeFromBasket')
+	->where('oid', '[0-9]+');
 #Special offers
 Route::post('/offer/special/add', 'SpecialOffersController@addToBasket');
 Route::get('/offer/special/remove/{oid}', 'SpecialOffersController@removeFromBasket')

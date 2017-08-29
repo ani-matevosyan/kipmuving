@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FreeActivity;
+use App\SpecialOffer;
 use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class CalendarController extends Controller
 			'styles'         => config('resources.calendar.styles'),
 			'scripts'        => config('resources.calendar.scripts'),
 			'selectedOffers' => $selectedOffers,
+			'special_offers' => SpecialOffer::getSpecialOffers(),
 			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
 			'count'          => [
 				'offers'  => count($_offer->getSelectedOffers()),
