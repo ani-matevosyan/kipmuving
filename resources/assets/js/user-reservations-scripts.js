@@ -1,32 +1,13 @@
 $(document).ready(function(){
 
-
-    //-----------AVATAR LOADING--------------
-
-    $('#image').change(function(){
-        this.form.submit();
-        $("#hiddenframe").on('load', function(){
-            $.ajax({
-                type: "GET",
-                url: "/user/getAvatar",
-                data: "",
-                success: function(data){
-                    $("#youravatar").attr('src', data);
-                }
-            })
-        });
-    });
-
-    //----------END AVATAR LOADING---------------
-
     //Print option
 
     function openPrintDialogue(){
         var printItemHeader = '<div class="print-item-header">' +
-                '<a href="'+document.location.origin+'">' +
-                '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
-                '</a>' +
-                '</div>',
+            '<a href="'+document.location.origin+'">' +
+            '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
+            '</a>' +
+            '</div>',
             printItemFooter = '<div class="print-item-footer">' +
                 '<a href="'+document.location.origin+'">www.kipmuving.com</a>' +
                 '</div>';

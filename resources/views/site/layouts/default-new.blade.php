@@ -83,6 +83,12 @@
 										</a>
 									</li>
 									<li>
+										<a href="{{ action('UserController@getUserReservations') }}" class="btn btn-primary orange-btn"
+										   title="{{ trans('main.my_reservations') }}">
+											{{ trans('main.my_reservations') }}
+										</a>
+									</li>
+									<li>
 										<a href="{{ url('/logout') }}" class="btn btn-primary orange-btn"
 										   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 										   title="{{ trans('main.log_out') }}">{{ trans('main.log_out') }}</a>

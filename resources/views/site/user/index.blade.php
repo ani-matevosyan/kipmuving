@@ -2,12 +2,82 @@
 
 {{-- Content --}}
 @section('content')
-	<main id="main">
+	<main id="main" class="user-account-page">
 		<div class="container">
-			<ul class="breadcrumb">
-				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-				<li>{{ trans('main.my_account') }}</li>
-			</ul>
+			{{--<header class="user-page-header">--}}
+				{{--<h1 class="user-page-header__title">{{ trans('main.my_account') }}</h1>--}}
+				{{--<p class="user-page-header__description">{{ trans('main.here_your_personal_info') }}</p>--}}
+			{{--</header>--}}
+			{{--<section class="user-form">--}}
+				{{--<div class="user-form__errors">--}}
+					{{--<div class="alert alert-error alert-danger">--}}
+						{{--<strong>Error!</strong>--}}
+					{{--</div>--}}
+
+					{{--<div class="alert alert-info">Good!</div>--}}
+
+					{{--@if($errors->has('first_name'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('first_name') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('last_name'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('last_name') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('gender'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('gender') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('email'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('email') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('month'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('month') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('day'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('day') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('year'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('year') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('phone'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('phone') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('image'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('image') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('password'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('password') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if($errors->has('confirm_password'))--}}
+						{{--<div class="alert alert-error alert-danger">--}}
+							{{--<strong>{{ $errors->first('confirm_password') }}</strong>--}}
+						{{--</div>--}}
+					{{--@endif--}}
+					{{--@if (Session::get('success'))--}}
+						{{--<div class="alert alert-info">{{ Session::get('success') }}</div>--}}
+					{{--@endif--}}
+				{{--</div>--}}
+			{{--</section>--}}
+
+
 			<div class="profile-block">
 				<div class="my_profile">
 					<div class="row">

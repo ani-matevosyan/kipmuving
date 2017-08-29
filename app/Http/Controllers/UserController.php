@@ -73,8 +73,8 @@ class UserController extends Controller
 			return redirect()->to('/login');
 
 		$data = [
-			'styles'  => config('resources.user.styles'),
-			'scripts' => config('resources.user.scripts'),
+			'styles'  => config('resources.user.account.styles'),
+			'scripts' => config('resources.user.account.scripts'),
 			'user'    => $user,
 			'special_offers' => SpecialOffer::where([
 				['user_id', '=', \auth()->user()['id']],
@@ -91,8 +91,8 @@ class UserController extends Controller
 			return redirect()->to('/login');
 
 		$data = [
-			'styles'  => config('resources.user.styles'),
-			'scripts' => config('resources.user.scripts'),
+			'styles'  => config('resources.user.reservations.styles'),
+			'scripts' => config('resources.user.reservations.scripts'),
 			'user'    => $user,
 			'special_offers' => SpecialOffer::where([
 				['user_id', '=', \auth()->user()['id']],

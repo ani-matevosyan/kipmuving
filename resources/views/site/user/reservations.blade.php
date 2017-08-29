@@ -2,13 +2,207 @@
 
 {{-- Content --}}
 @section('content')
-	<main id="main">
+	<main id="main" class="user-reservations-page">
 		<div class="container">
-			<ul class="breadcrumb">
-				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-				<li><a href="{{ action('UserController@getUser') }}">{{ trans('main.my_account') }}</a></li>
-				<li>Reservations</li>
-			</ul>
+			<header class="user-page-header user-reservations-page__header">
+				<h1 class="user-page-header__title">{{ trans('main.my_adventures') }}</h1>
+				<p class="user-page-header__description">{{ trans('main.here_you_will_find_adventures') }}</p>
+			</header>
+			<section class="s-offers">
+				<header class="s-offers__header s-offers__header_special">
+					<h2 class="s-offers__title s-offers__title_special">{{ trans('main.received_offers') }}</h2>
+				</header>
+				<ul class="your-offers">
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph">{{ trans('main.these_offers_valid') }}: <strong>16/12/2017</strong></p>
+						</div>
+						<ul class="special-offers your-offers__special-offers">
+							<li class="special-offers__item">
+								<h4 class="special-offers__agency">Aguaventura</h4>
+								<div class="special-offers__right-part">
+									<span class="price special-offers__price">$ 120.000</span>
+									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__info-button"></button>
+								</div>
+							</li>
+							<li class="special-offers__item">
+								<h4 class="special-offers__agency">Aguaventura</h4>
+								<div class="special-offers__right-part">
+									<span class="price special-offers__price">$ 120.000</span>
+									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__info-button"></button>
+								</div>
+							</li>
+							<li class="special-offers__item">
+								<h4 class="special-offers__agency">Patagonia Experience</h4>
+								<div class="special-offers__right-part">
+									<span class="price special-offers__price">$ 120.000</span>
+									<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+									<button class="special-offers__info-button"></button>
+								</div>
+							</li>
+						</ul>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class="s-offers">
+				<header class="s-offers__header">
+					<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
+					<button class="s-offers__print-button">{{ trans('main.select_to_print') }}</button>
+				</header>
+				<ul class="your-offers">
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+					<li class="your-offers__item">
+						<h3 class="your-offers__name"><a class="your-offers__name-link" href="#">VOLCÁN VILLARRICA</a></h3>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: Pucon Aventura</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: Address 7878</p>
+						</div>
+						<div class="your-offers__info-block">
+							<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>: 15 de Febrero</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>
+							<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: 1</p>
+						</div>
+						<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">$ 120.000</span></p>
+						<div class="your-offers__cancel">
+							<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+
+
+
 			<div class="profile-block">
 				<div class="my_profile">
 					@if(isset($user->reservations))
@@ -108,11 +302,11 @@
 																</li>
 															@endif
 
-															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
+															{{--@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())--}}
 																<div class="delete_offer">
 																	<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
 																</div>
-															@endif
+															{{--@endif--}}
 														</ul>
 													</div>
 												</div>
@@ -144,6 +338,21 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade reservation-modal offer-modal" tabindex="-1" role="dialog" id="">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header reservation-modal__header">
+					<button data-dismiss="modal" class="reservation-modal__close-button"></button>
+				</div>
+				<div class="modal-body reservation-modal__body">
+					<header class="offer-modal__header">
+						asd
+					</header>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,14 @@
+.user-page-header{
+  &__title{
+    font-size: 35px;
+    margin: 0 0 12px;
+    font-weight: 700;
+    line-height: 1;
+    max-width: 710px;
+  }
+  &__description{
+    margin: 0;
+    line-height: 1;
+    font-size: 15px;
+  }
+}

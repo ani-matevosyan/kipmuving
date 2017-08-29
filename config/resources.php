@@ -1,17 +1,17 @@
 <?php
 
 return [
-  'home' => [
-    'styles' => [
-      'css/home-style.css'
+    'home' => [
+        'styles' => [
+          'css/home-style.css'
+        ],
+        'scripts' => [
+          'libs/product-tour/product-tour.min.js',
+          'libs/jcf/js/jcf.js',
+          'libs/jcf/js/jcf.select.js',
+          'js/home-scripts.js'
+        ]
     ],
-    'scripts' => [
-      'libs/product-tour/product-tour.min.js',
-      'libs/jcf/js/jcf.js',
-      'libs/jcf/js/jcf.select.js',
-      'js/home-scripts.min.js'
-    ]
-  ],
 
 
     'sendOffer' => [
@@ -19,41 +19,50 @@ return [
             'css/send-offer-style.css'
         ],
         'scripts' => [
-            'js/send-offer-scripts.min.js'
+            'js/send-offer-scripts.js'
         ]
     ],
 
 
-  'user' => [
-    'styles' => [
-      'css/userpage-style.css'
+    'user' => [
+        'account' => [
+            'styles' => [
+                'css/user-account-style.css'
+            ],
+            'scripts' => [
+                'js/user-account-scripts.js'
+            ]
+        ],
+        'reservations' => [
+            'styles' => [
+                'css/user-reservations-style.css'
+            ],
+            'scripts' => [
+                'js/user-reservations-scripts.js'
+            ]
+        ]
     ],
-    'scripts' => [
-      'js/user-scripts.min.js'
-    ]
-  ],
 
 
-  'reservation' => [
-    'styles' => [
-      'css/reservation-style.css',
+    'reservation' => [
+        'styles' => [
+          'css/reservation-style.css',
+        ],
+        'scripts' => [
+          'js/product.tour.js',
+          'libs/product-tour/product-tour.min.js',
+        ]
     ],
-    'scripts' => [
-      'js/product.tour.min.js',
-      'libs/product-tour/product-tour.min.js',
-//      'js/fixed-sidebar.min.js'
-    ]
-  ],
 
 
-  'guide' => [
-    'styles' => [
-      'css/guide-style.css'
+    'guide' => [
+        'styles' => [
+          'css/guide-style.css'
+        ],
+        'scripts' => [
+          'js/guide-scripts.js'
+        ]
     ],
-    'scripts' => [
-      'js/guide-scripts.min.js'
-    ]
-  ],
 
 
   'free' => [
@@ -64,8 +73,8 @@ return [
       ],
       'scripts' => [
         'libs/instafeed/instafeed.min.js',
-        'js/instafeed-settings.min.js',
-        'js/free-pages-scripts.min.js'
+        'js/instafeed-settings.js',
+        'js/free-pages-scripts.js'
       ]
     ],
 
@@ -79,7 +88,7 @@ return [
         'libs/jcf/js/jcf.select.js',
         'js/ResizeSensor.min.js',
         'libs/mapbox-gl/mapbox-gl.js',
-        'js/free-pages-scripts.min.js'
+        'js/free-pages-scripts.js'
       ]
     ],
 
@@ -93,7 +102,7 @@ return [
         'libs/jcf/js/jcf.select.js',
         'js/ResizeSensor.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
-        'js/free-pages-scripts.min.js'
+        'js/free-pages-scripts.js'
       ]
     ],
 
@@ -107,7 +116,7 @@ return [
         'libs/jcf/js/jcf.select.js',
         'js/ResizeSensor.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
-        'js/free-pages-scripts.min.js'
+        'js/free-pages-scripts.js'
       ]
     ]
   ],
@@ -126,7 +135,7 @@ return [
       'libs/fullcalendar/fullcalendar.min.js',
       'libs/fullcalendar/es.js',
       'libs/fullcalendar/pt.js',
-      'js/calendarpage-scripts.min.js'
+      'js/calendarpage-scripts.js'
     ]
   ],
 
@@ -139,11 +148,11 @@ return [
       ],
       'scripts' => [
         'libs/instafeed/instafeed.min.js',
-        'js/instafeed-settings.min.js',
+        'js/instafeed-settings.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap',
-        'js/agency-scripts.min.js',
+        'js/agency-scripts.js',
       ]
     ],
 
@@ -181,7 +190,7 @@ return [
       ],
       'scripts' => [
         'libs/jquery-ui/slider/jquery-ui.min.js',
-        'js/activities-scripts.min.js'
+        'js/activities-scripts.js'
       ]
     ]
   ],

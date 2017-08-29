@@ -1,5 +1,231 @@
 @import "./common";
-@import "./components/export-button";
+@import "./components/user-page-header";
+
+.user-reservations-page{
+  padding-top: 40px;
+  &__header{
+    margin-bottom: 22px;
+  }
+}
+
+.s-offers{
+  margin-bottom: -40px;
+  &__header{
+    background-color: #353535;
+    padding: 11px 5px;
+    position: relative;
+    margin-bottom: 22px;
+    &_special{
+      background-color: #008DD0;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 25px;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    &_special:after{
+      content: '';
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 10px;
+      width: 23px;
+      height: 23px;
+      background-image: url(../images/sale-icon.png);
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+  }
+  &__print-button{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border-radius: 3px;
+    background-color: #ebebeb;
+    background-image: url('../images/printer-green-icon.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 12px 6px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding:{
+      right: 18px;
+      top: 7px;
+      bottom: 8px;
+      left: 40px;
+    }
+    transition: all .2s ease;
+    &:hover,
+    &:focus{
+      background-color: #fdfdfd;
+    }
+  }
+}
+
+.your-offers{
+  padding: 0 15px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-right: -60px;
+  &__item{
+    width: calc( 33.333% - 60px );
+    position: relative;
+    margin:{
+      right: 60px;
+      bottom: 50px;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -30px;
+      height: 100%;
+      width: 1px;
+      background-color: #e5e5e5;
+    }
+    &:nth-child(3n-3):after{
+      display: none;
+    }
+  }
+  &__name{
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 9px;
+    line-height: 1;
+  }
+  &__name-link{
+    color: #323e5b;
+    &:hover,
+    &:focus{
+      color: #44506d;
+    }
+  }
+  &__paragraph{
+    margin: 0 0 3px;
+    line-height: 1;
+  }
+  &__info-block{
+    margin-bottom: 18px;
+  }
+  &__cancel{
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    margin-top: 10px;
+    padding: 22px 0 11px;
+  }
+  &__cancel-button{
+    display: inline-block;
+    font-size: 12px;
+    color: #972639;
+    font-weight: 700;
+    vertical-align: middle;
+    &:before{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      width: 23px;
+      height: 23px;
+      background: url(../images/cancel-button.svg) no-repeat;
+      background-size: contain;
+      margin-right: 8px;
+      top: -2px;
+    }
+    &:hover,
+    &:focus{
+      color: #b3283d;
+    }
+  }
+  &__special-offers{
+    border-top: 1px solid #e5e5e5;
+    padding-top: 10px;
+  }
+}
+
+.price{
+  color: #ebb414;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+%inline-block{
+  &_middle{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &_top{
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.special-offers{
+  font-size: 0;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  &__item{
+    margin-bottom: 7px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &:after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  &__agency{
+    @extend %inline-block_top;
+    font-size: 18px;
+    width: 42%;
+    margin: 0;
+  }
+  &__right-part{
+    @extend %inline-block_top;
+    width: 58%;
+    position: relative;
+  }
+  &__price{
+    @extend %inline-block_middle;
+    font-size: 18px;
+    width: 50%;
+  }
+  &__button{
+    @extend %inline-block_middle;
+    font-size: 12px;
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 13px;
+    text-transform: uppercase;
+    background-color: #198ccd;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+  }
+  &__info-button{
+    @extend %inline-block_middle;
+    width: 14px;
+    height: 14px;
+    border: none;
+    outline: none;
+    background: transparent url(../images/information-symbol-grey.svg) no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
+
 
 .my_profile{
   margin-top: 15px;
@@ -87,7 +313,6 @@
 .profile-block .tablist a {
   color: #fff;
   display: block;
-  padding: 10px 20px;
   position: relative;
   background: #c75233;
   padding: 10px 20px 10px 40px;
