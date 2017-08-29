@@ -76,8 +76,13 @@
 										{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
 									<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
 								</div>
-								<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
-										$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
+								{{--@if($reservation->is_special_offer)--}}
+									{{--<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">--}}
+											{{--$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span></p>--}}
+								{{--@else--}}
+									<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
+											$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
+								{{--@endif--}}
 								<div class="your-offers__cancel">
 									<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
 								</div>
