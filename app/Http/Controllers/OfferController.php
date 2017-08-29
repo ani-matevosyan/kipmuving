@@ -57,4 +57,17 @@ class OfferController extends Controller
 		}
 	}
 
+	public function removeFromBasket($oid)
+	{
+		//TODO change to POST
+
+		$basket = session('basket');
+
+		array_splice($basket['offers'], $oid, 1);
+
+		session()->put('basket', $basket);
+
+		return redirect()->back();
+	}
+
 }

@@ -131,9 +131,9 @@
 											</p>
 										</header>
 										<ul class="basket-list">
-											@foreach ($reservation->offers as $offer)
+											@foreach ($reservation->offers as $key => $offer)
 												<li class="basket-list__item">
-													<a class="basket-list__delete-button" href="#"></a>
+													<a class="basket-list__delete-button" href="{{ action('OfferController@removeFromBasket', ['oid' => $key]) }}"></a>
 													<h4 class="basket-list__name">{{ $offer->activity->name }}</h4>
 													<span class="basket-list__price">{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
 												</li>
