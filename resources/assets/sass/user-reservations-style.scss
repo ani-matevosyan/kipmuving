@@ -2,6 +2,7 @@
 
 @import "./common";
 @import "./components/user-page-header";
+@import "./components/you-should-take";
 
 .user-reservations-page{
   padding-top: 40px;
@@ -246,15 +247,140 @@
     vertical-align: middle;
   }
   &__content{
-    border: none;
+    border: 1px solid #fbfbfb;
     box-shadow: none;
     background-color: #fff;
   }
   &__header{
     background-color: transparent;
+    padding: 14px 19px 12px;
+  }
+  &__close-button{
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    position: relative;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      height: 25px;
+      width: 2px;
+      background-color: #e5e5e5;
+      transform-origin: 1.1px 2px 0;
+    }
+    &:before{
+      top: 0;
+      left: 0;
+      transform: rotate(-45deg)
+    }
+    &:after{
+      right: 0;
+      top: 0;
+      transform: rotate(45deg);
+    }
+  }
+  &__body{
+    padding: 0 19px 37px;
+    text-align: center;
+  }
+  &__paragraph{
+    margin: 0 0 13px;
+    font-size: 18px;
+  }
+  &__time-select{
+    margin-left: 4px;
   }
 }
 
+.time-select{
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 28px;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    background: url('../images/clock.svg') no-repeat;
+    background-size: contain;
+  }
+  .jcf-select{
+    min-width: 73px;
+    border: 2px solid #f2cf6a;
+    height: auto;
+    .jcf-select-text{
+      color: #e3ab07;
+      font-size: 14px;
+      font-weight: 700;
+      margin:{
+        top: 2px;
+        bottom: 4px;
+        right: 15px;
+        left: 11px;
+      }
+    }
+    .jcf-select-opener{
+      display: none;
+    }
+  }
+}
+
+.accept-modal{
+  &__buttons{
+    margin-top: 24px;
+  }
+  &__button{
+    font-weight: 700;
+    color: #fff;
+    width: 82px;
+    height: 29px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #868686;
+    border: none;
+    outline: none;
+    padding: 0;
+    & + & {
+      margin-left: 29px;
+    }
+    &_success{
+      background-color: #198ccd;
+    }
+    &_deny{
+      background-color: #9d9d9d;
+    }
+  }
+}
+
+
+.info-modal{
+  &__dialog{
+    width: 807px;
+  }
+  &__body{
+    text-align: left;
+    padding-left: 131px;
+  }
+  &__header{
+    position: relative;
+  }
+  &__icon{
+    position: absolute;
+    width: 80px;
+    left: -94px;
+    top: 0;
+  }
+}
 
 
 

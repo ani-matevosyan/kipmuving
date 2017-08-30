@@ -23,8 +23,6 @@
 								<div class="your-offers__info-block">
 									<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>:
 										{{ \Carbon\Carbon::createFromFormat('Y-m-d', $offers[0]->offer_date)->format('d/m/Y') }}</p>
-									{{--<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: 4 hrs</p>--}}
-									{{--<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: 12:00 a 18:00</p>--}}
 									<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $offers[0]->persons }}</p>
 								</div>
 								<div class="your-offers__info-block">
@@ -38,7 +36,7 @@
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
                                                 <button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
-												<button class="special-offers__info-button"></button>
+												<button class="special-offers__info-button" data-toggle="modal" data-target="#info-modal"></button>
 											</div>
 										</li>
 									@endforeach
@@ -244,10 +242,10 @@
 					<button data-dismiss="modal" class="reservations-modal__close-button"></button>
 				</div>
 				<div class="modal-body reservations-modal__body">
-					<p class="reservations-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.from(s)') }} <strong>$ 120.000</strong> ?</p>
+					<p class="reservations-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.for') }} <strong>$ 120.000</strong> ?</p>
 					<p class="reservations-modal__paragraph">
 						{{ trans('main.first_choose_the_time') }}
-						<span class="time-select">
+						<span class="time-select reservations-modal__time-select">
 							<select>
 								<option selected value="">{{ trans('main.schedule') }}</option>
 								<option value="1">1</option>
@@ -259,8 +257,8 @@
 						</span>
 					</p>
 					<div class="accept-modal__buttons">
-						<button class="accept-modal__button accept-modal__button_success">Yes</button>
-						<button class="accept-modal__button accept-modal__button_deny">No</button>
+						<button class="accept-modal__button accept-modal__button_success">{{ trans('button-links.yes') }}</button>
+						<button class="accept-modal__button accept-modal__button_deny" data-dismiss="modal">{{ trans('button-links.no') }}</button>
 					</div>
 				</div>
 			</div>
@@ -268,16 +266,42 @@
 	</div>
 
 
-	<div class="modal fade reservations-modal offer-modal" tabindex="-1" role="dialog" id="">
-		<div class="modal-dialog">
-			<div class="modal-content">
+	<div class="modal fade reservations-modal info-modal" tabindex="-1" role="dialog" id="info-modal">
+		<div class="modal-dialog reservations-modal__dialog info-modal__dialog">
+			<div class="modal-content reservations-modal__content">
 				<div class="modal-header reservations-modal__header">
 					<button data-dismiss="modal" class="reservations-modal__close-button"></button>
 				</div>
-				<div class="modal-body reservations-modal__body">
-					<header class="offer-modal__header">
-						asd
+				<div class="modal-body reservations-modal__body info-modal__body">
+					<header class="info-modal__header">
+						<img src="{{ asset('/images/img33.png') }}" alt="image" class="info-modal__icon">
+						<h5 class="info-modal__title">Aguaventura</h5>
+						<span class="info-modal__agency-address">O'Higgins №211-C</span>
 					</header>
+					<div class="info-modal__info">
+						<div class="you-should-take info-modal__you-should-take">
+							<strong class="you-should-take__title">You must take</strong>
+							<ul class="you-should-take__list">
+								<li class="you-should-take__item">Transporte ida y vuelta</li>
+								<li class="you-should-take__item">Entrada a los Parques</li>
+								<li class="you-should-take__item">Entrada a los Parques</li>
+								<li class="you-should-take__item">Seguro de accidentes</li>
+								<li class="you-should-take__item">Guía bilingüe</li>
+							</ul>
+						</div>
+						<div class="info-modal__right-part">
+							<div class="info-modal__accept-block">
+								<span class="info-modal__price_discount">$ 120.000</span>
+								<span class="price info-modal__price">$ 100.000</span>
+								<button class="info-modal__button">Aceptar </button>
+							</div>
+							<div class="info-modal__additional-info-block">
+								<p class="info-modal__additional-info">Duration: <strong>4hrs</strong></p>
+								<p class="info-modal__additional-info">Horario: <strong>12:00 a 18:00</strong></p>
+							</div>
+							<p class="info-modal__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis enim expedita facilis impedit minus nesciunt repellendus voluptatem! Aliquid aut autem dolorem ex fuga laboriosam modi mollitia placeat sunt voluptatibus!</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

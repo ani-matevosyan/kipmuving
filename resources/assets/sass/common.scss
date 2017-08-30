@@ -636,19 +636,15 @@ body {
 
 .logo{
   position: relative;
-  padding: 14px 0;
+  padding: 10px 0 7px;
   display: inline-block;
   vertical-align: top;
   width: 171px;
-}
-
-.logo img {
-  width: 100%;
-}
-
-@media screen and (max-width: 540px){
-  .logo{
-    padding: 21px 20px;
+  img{
+    width: 100%;
+  }
+  @media screen and (max-width: 540px){
+    padding: 21px 20px 13px;
   }
 }
 
@@ -660,114 +656,99 @@ body {
   left: 0;
   width: 100%;
   background: #29456a;
+  .btn-primary {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 15px;
+    color: #fff;
+    background: #46350d;
+    text-transform: uppercase;
+    font-family: "PT-Sans", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    &:hover{
+      background: #ce8902;
+    }
+  }
+  .country {
+    position: relative;
+    float: left;
+    margin: 27px 28px;
+    &:before{
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      top: 0;
+      right: -14px;
+      background: #00626F;
+    }
+    img {
+      width: 25px;
+      height: 16px;
+      -o-object-fit: contain;
+      object-fit: contain;
+      -o-object-position: bottom right;
+      object-position: bottom right;
+      margin: 0 5px 0 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    span {
+      color: #fff;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .dropdown-menu {
+      padding: 0;
+      margin: 9px 0 0;
+      overflow: hidden;
+      li {
+        overflow: hidden;
+      }
+      a {
+        color: #000;
+        display: block;
+        padding: 5px 10px;
+      }
+      span {
+        color: #000;
+      }
+    }
+  }
+  .profile {
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    .ico {
+      width: 27px;
+      height: 27px;
+      overflow: hidden;
+      margin: 0 8px 0 0;
+      border-radius: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    span {
+      color: #8ea1a1;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+  }
 }
 
-.main_header .btn-primary {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 5px 15px;
-  color: #fff;
-  background: #46350d;
-  text-transform: uppercase;
-  font-family: "PT-Sans", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-}
-
-.main_header .btn-primary:hover {
-  background: #ce8902;
-}
-
-.main_header .country {
-  position: relative;
-  float: left;
-  margin: 27px 28px;
-}
-
-
-
-.main_header .country:before{
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  top: 0;
-  right: -14px;
-  background: #00626F;
-}
-
-.main_header .country img {
-  width: 25px;
-  height: 16px;
-  -o-object-fit: contain;
-  object-fit: contain;
-  -o-object-position: bottom right;
-  object-position: bottom right;
-  margin: 0 5px 0 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.main_header .country span {
-  color: #fff;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.main_header .country .dropdown-menu {
-  padding: 0;
-  margin: 9px 0 0;
-  overflow: hidden;
-}
-
-.main_header .country .dropdown-menu li {
-  overflow: hidden;
-}
-
-.main_header .country .dropdown-menu a {
-  color: #000;
-  display: block;
-  padding: 5px 10px;
-}
-
-.main_header .country .dropdown-menu span {
-  color: #000;
-}
-
-.main_header .profile {
-  padding-left: 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.main_header .profile .ico {
-  width: 27px;
-  height: 27px;
-  overflow: hidden;
-  margin: 0 8px 0 0;
-  border-radius: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.main_header .profile span {
-  color: #8ea1a1;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.main_header .profile img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
 
 /*--------------RESPONSIVE PART---------------*/
 
