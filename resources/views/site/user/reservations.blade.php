@@ -31,12 +31,13 @@
 								</div>
 								<ul class="special-offers your-offers__special-offers">
 									@foreach($offers as $offer)
-										<li class="special-offers__item">
+										<li class="special-offers__item" data-offer-id="{{ $offer->id }}">
 											<h4 class="special-offers__agency">{{ $offer->offer->agency->name }}</h4>
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
                                                 <button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
-												<button class="special-offers__info-button" data-toggle="modal" data-target="#info-modal"></button>
+												<button class="special-offers__info-button"></button>
+												{{--<button class="special-offers__info-button" data-toggle="modal" data-target="#info-modal"></button>--}}
 											</div>
 										</li>
 									@endforeach
@@ -279,9 +280,9 @@
 				</div>
 				<div class="modal-body reservations-modal__body info-modal__body">
 					<header class="info-modal__header">
-						<img src="{{ asset('/images/img33.png') }}" alt="image" class="info-modal__icon">
+						<img src="{{ asset('/images/img33.png') }}" alt="image" id="info-modal__icon" class="info-modal__icon">
 						<h5 class="info-modal__title">
-							<a href="#" class="info-modal__title-link">Aguaventura</a>
+							<a id="info-modal__title-link" href="#" class="info-modal__title-link">Aguaventura</a>
 						</h5>
 						<span class="info-modal__agency-address">O'Higgins №211-C</span>
 					</header>
@@ -331,4 +332,7 @@
 			</div>
 		</div>
 	</div>
+	{{--<div class="loader">--}}
+		{{--<div class="loader__inner"></div>--}}
+	{{--</div>--}}
 @stop

@@ -1,1 +1,410 @@
-!function(i){function t(e){if(a[e])return a[e].exports;var n=a[e]={i:e,l:!1,exports:{}};return i[e].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var a={};t.m=i,t.c=a,t.d=function(i,a,e){t.o(i,a)||Object.defineProperty(i,a,{configurable:!1,enumerable:!0,get:e})},t.n=function(i){var a=i&&i.__esModule?function(){return i.default}:function(){return i};return t.d(a,"a",a),a},t.o=function(i,t){return Object.prototype.hasOwnProperty.call(i,t)},t.p="",t(t.s=5)}([,,,,,function(i,t,a){a(6),a(7),a(8),a(9),a(10),a(11),a(12),a(13),a(14),a(15),a(16),a(17),a(18),a(19),i.exports=a(20)},function(i,t){$(document).ready(function(){function i(){$(".all-activities").html("<div class='loader'><div class='loader__inside'></div></div>");var i={style:[],period:[],price:[]},t=0;$(".filter-item input[type=checkbox]").each(function(){var a=$(this).attr("name");$(this).is(":checked")&&(t++,"style"==a?i.style.push($(this).val()):i.period.push($(this).val()))}),0!=t?$(".btn-open-filters span").text("("+t+")"):$(".btn-open-filters span").text(""),i.price.push($("#slider-range").slider("values",0),$("#slider-range").slider("values",1)),$.ajax({type:"POST",url:"/activities/filters",data:{_token:$('meta[name="csrf-token"]').attr("content"),data:JSON.stringify(i)},success:function(i){e(i),a(i)}})}function t(){$(".filter-item input[type=checkbox]").each(function(){$(this).prop("checked",!1)}),$("#slider-range").slider({values:[1e4,3e5]}),$(".slider-range-output").val("$ "+$("#slider-range").slider("values",0)+" - $ "+$("#slider-range").slider("values",1));var i={style:[],period:[],price:[]};$.ajax({type:"POST",url:"/activities/filters",data:{_token:$('meta[name="csrf-token"]').attr("content"),data:i},success:function(i){e(i),a(i)}})}function a(i){var t=0;$.each(i,function(i,a){t+=a.length}),$(".btn-confirm-filters span").text("("+t+")")}function e(i){var t=$(".all-activities"),a="";t.html(""),$.each(i,function(i,t){switch(i){case"Trekking":a+="<section class='activity-block trekking'><strong class='heading'><span><img src='"+document.location.origin+"/images/Trekking.svg' alt='Trekking icon' width='40' height='40'></span>"+c.trekkingCat;break;case"Rio":a+="<section class='activity-block rio'><strong class='heading'><span><img src='"+document.location.origin+"/images/kayak.svg' alt='Rio icon' width='40' height='40'></span>"+c.rioCat;break;case"Aire":a+="<section class='activity-block aire'><strong class='heading'><span><img src='"+document.location.origin+"/images/aire.svg' alt='Aire icon' width='33' height='33'></span>"+c.aireCat;break;case"Nieve":a+="<section class='activity-block nieve'><strong class='heading'><span><img src='"+document.location.origin+"/images/skiing_ski_running.svg' alt='Nieve icon' width='33' height='33'></span>"+c.nieveCat;break;case"Familia":a+="<section class='activity-block familia'><strong class='heading'><span><img src='"+document.location.origin+"/images/family.svg' alt='Cultural icon' width='33' height='33'></span>"+c.culturalCat;break;case"Relax":a+="<section class='activity-block relax'><strong class='heading'><span><img src='"+document.location.origin+"/images/relax.svg' alt='Relax icon' width='33' height='33'></span>"+c.relaxCat;break;case"Ciclismo":a+="<section class='activity-block ciclismo'><strong class='heading'>"+c.ciclismoCat}a+="</strong><div class='row'>";var e=0,n=0;$.each(t,function(i,t){a+="<div class='col-md-3 col-sm-4 col-xs-12 col'><div class='img-holder'><a href='"+document.location.origin+"/activity/"+t.id+"'><img src='"+document.location.origin+"/"+t.image_thumb+"' alt='"+t.name+"'></a></div><div class='caption'><div class='activity-icons'><ul>",$.each(t.availability,function(i,t){if(0!=t)switch(i){case"day":a+="<li><div class='ico'><img src='"+document.location.origin+"/images/day.svg' alt='Day icon' width='33' height='33'><p>"+c.dayDescription+"<span class='glyphicon glyphicon-triangle-bottom'></span></p></div></li>";break;case"night":a+="<li><div class='ico'><img src='"+document.location.origin+"/images/night.svg' alt='Night icon' width='33' height='33'><p>"+c.nightDescription+"<span class='glyphicon glyphicon-triangle-bottom'></span></p></div></li>";break;case"summer":a+="<li><div class='ico'><img src='"+document.location.origin+"/images/down-arrow.svg' alt='Down arrow icon' width='25' height='25'><p>"+c.summerDescription+"<span class='glyphicon glyphicon-triangle-bottom'></span></p></div></li>";break;case"winter":a+="<li><div class='ico'><img src='"+document.location.origin+"/images/up-arrow.svg' alt='Up arrow icon' width='25' height='25'><p>"+c.winterDescription+"<span class='glyphicon glyphicon-triangle-bottom'></span></p></div></li>"}}),a+="</ul></div><h2><a href='"+document.location.origin+"/activity/"+t.id+"'>"+t.name+"</a></h2><p>"+t.short_description+"</p><p><strong class='price'><span>"+c.textFrom+"</span><sub>$</sub>"+t.offers_min_price+"</strong><a href='"+document.location.origin+"/activity/"+t.id+"' class='btn-primary'>"+c.buttonText+"</a></p></div></div>",++n,++e,3===n&&(a+='<div class="clearfix visible-sm-block"></div>',n=0),4===e&&(a+='<div class="clearfix visible-lg-block"></div><div class="clearfix visible-md-block"></div>',e=0)}),a+="</div></section>"}),t.html(a),0==i.length&&t.html("<h2> Sorry there are no activities </h2>")}$("#activities-slider").length&&($("#activities-slider").owlCarousel({autoPlay:3e3,pagination:!1,navigation:!0,navigationText:["<span class='glyphicon glyphicon-menu-left'></span>","<span class='glyphicon glyphicon-menu-right'></span>"],items:3,itemsDesktop:[1199,3],itemsDesktopSmall:[979,3]}),$("#activities-slider").removeClass("csHidden"));var n=$(".filters-modal");$(".btn-open-filters").click(function(i){i.preventDefault(),n.show(),$("body").css("overflow-y","hidden")}),$(".btn-confirm-filters").click(function(i){i.preventDefault(),n.hide(),$("body").css("overflow-y","auto")}),$(".btn-cancel-filters").click(function(i){i.preventDefault(),t(),n.hide(),$("body").css("overflow-y","auto")}),$(".filter-item input[type=checkbox]").on("change",function(){i()}),$("#slider-range").slider({range:!0,min:1e4,max:3e5,step:100,values:[1e4,3e5],slide:function(i,t){$(".slider-range-output").val("$ "+t.values[0]+" - $ "+t.values[1])},change:function(t,a){i()}}),$(".slider-range-output").val("$ "+$("#slider-range").slider("values",0)+" - $ "+$("#slider-range").slider("values",1));var s=$("#pass-variable"),c={dayDescription:s.data("daydesc"),nightDescription:s.data("nightdescr"),summerDescription:s.data("summerdescr"),winterDescription:s.data("winterdescr"),textFrom:s.data("textfrom"),buttonText:s.data("buttontext"),trekkingCat:s.data("cat-trekking"),rioCat:s.data("cat-rio"),aireCat:s.data("cat-aire"),relaxCat:s.data("cat-relax"),nieveCat:s.data("cat-nieve"),culturalCat:s.data("cat-cultural"),ciclismoCat:s.data("cat-ciclismo")}})},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){},function(i,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(6);
+__webpack_require__(7);
+__webpack_require__(8);
+__webpack_require__(9);
+__webpack_require__(10);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(13);
+__webpack_require__(14);
+__webpack_require__(15);
+__webpack_require__(16);
+__webpack_require__(17);
+__webpack_require__(18);
+__webpack_require__(19);
+module.exports = __webpack_require__(20);
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+
+    if ($("#activities-slider").length) {
+        $("#activities-slider").owlCarousel({
+            autoPlay: 3000,
+            pagination: false,
+            navigation: true,
+            navigationText: ["<span class='glyphicon glyphicon-menu-left'></span>", "<span class='glyphicon glyphicon-menu-right'></span>"],
+            items: 3,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 3]
+
+        });
+        $('#activities-slider').removeClass('csHidden');
+    }
+
+    //Opening and closing mobile filter modal
+
+
+    var filtersModal = $(".filters-modal");
+    $(".btn-open-filters").click(function (e) {
+        e.preventDefault();
+        filtersModal.show();
+        $('body').css('overflow-y', 'hidden');
+    });
+
+    $(".btn-confirm-filters").click(function (e) {
+        e.preventDefault();
+        filtersModal.hide();
+        $('body').css('overflow-y', 'auto');
+    });
+
+    $(".btn-cancel-filters").click(function (e) {
+        e.preventDefault();
+        clearFilters();
+        filtersModal.hide();
+        $('body').css('overflow-y', 'auto');
+    });
+
+    //Filters functionality
+
+    $(".filter-item input[type=checkbox]").on('change', function () {
+        collectData();
+    });
+
+    $("#slider-range").slider({
+        range: true,
+        min: 10000,
+        max: 300000,
+        step: 100,
+        values: [10000, 300000],
+        slide: function slide(event, ui) {
+            $(".slider-range-output").val("$ " + ui.values[0] + " - $ " + ui.values[1]);
+        },
+        change: function change(event, ui) {
+            collectData();
+        }
+    });
+    $(".slider-range-output").val("$ " + $("#slider-range").slider("values", 0) + " - $ " + $("#slider-range").slider("values", 1));
+
+    function collectData() {
+
+        $(".all-activities").html("<div class='loader'><div class='loader__inside'></div></div>");
+
+        var filterData = {
+            'style': [],
+            'period': [],
+            'price': []
+        };
+
+        var activeFilters = 0;
+
+        $(".filter-item input[type=checkbox]").each(function () {
+            var thisName = $(this).attr('name');
+            if ($(this).is(":checked")) {
+                activeFilters++;
+                if (thisName == 'style') {
+                    filterData.style.push($(this).val());
+                } else {
+                    filterData.period.push($(this).val());
+                }
+            }
+        });
+
+        if (activeFilters != 0) {
+            $(".btn-open-filters span").text('(' + activeFilters + ')');
+        } else {
+            $(".btn-open-filters span").text('');
+        }
+
+        filterData.price.push($("#slider-range").slider('values', 0), $("#slider-range").slider('values', 1));
+        $.ajax({
+            type: "POST",
+            url: "/activities/filters",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                data: JSON.stringify(filterData)
+            },
+            success: function success(data) {
+                displayActivities(data);
+                calcAllActivities(data);
+            }
+        });
+    }
+
+    function clearFilters() {
+        $(".filter-item input[type=checkbox]").each(function () {
+            $(this).prop('checked', false);
+        });
+
+        $("#slider-range").slider({ values: [10000, 300000] });
+        $(".slider-range-output").val("$ " + $("#slider-range").slider("values", 0) + " - $ " + $("#slider-range").slider("values", 1));
+
+        var filterData = {
+            'style': [],
+            'period': [],
+            'price': []
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/activities/filters",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                data: filterData
+            },
+            success: function success(data) {
+                displayActivities(data);
+                calcAllActivities(data);
+            }
+        });
+    }
+
+    function calcAllActivities(data) {
+        var activitiesAmount = 0;
+        $.each(data, function (index, value) {
+            activitiesAmount += value.length;
+        });
+        $(".btn-confirm-filters span").text("(" + activitiesAmount + ")");
+    }
+
+    var passVariable = $("#pass-variable");
+    var translationData = {
+        dayDescription: passVariable.data('daydesc'),
+        nightDescription: passVariable.data('nightdescr'),
+        summerDescription: passVariable.data('summerdescr'),
+        winterDescription: passVariable.data('winterdescr'),
+        textFrom: passVariable.data('textfrom'),
+        buttonText: passVariable.data('buttontext'),
+        trekkingCat: passVariable.data('cat-trekking'),
+        rioCat: passVariable.data('cat-rio'),
+        aireCat: passVariable.data('cat-aire'),
+        relaxCat: passVariable.data('cat-relax'),
+        nieveCat: passVariable.data('cat-nieve'),
+        culturalCat: passVariable.data('cat-cultural'),
+        ciclismoCat: passVariable.data('cat-ciclismo')
+    };
+
+    function displayActivities(data) {
+        var allActivities = $(".all-activities"),
+            activitiesHTML = '';
+        allActivities.html('');
+
+        $.each(data, function (index, value) {
+            switch (index) {
+                case 'Trekking':
+                    activitiesHTML += "<section class='activity-block trekking'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/Trekking.svg' alt='Trekking icon' width='40' height='40'>" + "</span>" + translationData.trekkingCat;
+                    break;
+                case 'Rio':
+                    activitiesHTML += "<section class='activity-block rio'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/kayak.svg' alt='Rio icon' width='40' height='40'>" + "</span>" + translationData.rioCat;
+                    break;
+                case 'Aire':
+                    activitiesHTML += "<section class='activity-block aire'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/aire.svg' alt='Aire icon' width='33' height='33'>" + "</span>" + translationData.aireCat;
+                    break;
+                case 'Nieve':
+                    activitiesHTML += "<section class='activity-block nieve'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/skiing_ski_running.svg' alt='Nieve icon' width='33' height='33'>" + "</span>" + translationData.nieveCat;
+                    break;
+                case 'Familia':
+                    activitiesHTML += "<section class='activity-block familia'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/family.svg' alt='Cultural icon' width='33' height='33'>" + "</span>" + translationData.culturalCat;
+                    break;
+                case 'Relax':
+                    activitiesHTML += "<section class='activity-block relax'>" + "<strong class='heading'>" + "<span>" + "<img src='" + document.location.origin + "/images/relax.svg' alt='Relax icon' width='33' height='33'>" + "</span>" + translationData.relaxCat;
+                    break;
+                case 'Ciclismo':
+                    activitiesHTML += "<section class='activity-block ciclismo'>" + "<strong class='heading'>" + translationData.ciclismoCat;
+                    break;
+            }
+            activitiesHTML += "</strong>" + "<div class='row'>";
+            var keyFor4Col = 0,
+                keyFor3Col = 0;
+            $.each(value, function (index, value) {
+                activitiesHTML += "<div class='col-md-3 col-sm-4 col-xs-12 col'>" + "<div class='img-holder'>" + "<a href='" + document.location.origin + "/activity/" + value.id + "'>" + "<img src='" + document.location.origin + "/" + value.image_thumb + "' alt='" + value.name + "'>" + "</a>" + "</div>" + "<div class='caption'>" + "<div class='activity-icons'>" + "<ul>";
+                $.each(value.availability, function (index, value) {
+                    if (value != 0) switch (index) {
+                        case 'day':
+                            activitiesHTML += "<li>" + "<div class='ico'>" + "<img src='" + document.location.origin + "/images/day.svg' alt='Day icon' width='33' height='33'>" + "<p>" + translationData.dayDescription + "<span class='glyphicon glyphicon-triangle-bottom'></span>" + "</p>" + "</div>" + "</li>";
+                            break;
+                        case 'night':
+                            activitiesHTML += "<li>" + "<div class='ico'>" + "<img src='" + document.location.origin + "/images/night.svg' alt='Night icon' width='33' height='33'>" + "<p>" + translationData.nightDescription + "<span class='glyphicon glyphicon-triangle-bottom'></span>" + "</p>" + "</div>" + "</li>";
+                            break;
+                        case 'summer':
+                            activitiesHTML += "<li>" + "<div class='ico'>" + "<img src='" + document.location.origin + "/images/down-arrow.svg' alt='Down arrow icon' width='25' height='25'>" + "<p>" + translationData.summerDescription + "<span class='glyphicon glyphicon-triangle-bottom'></span>" + "</p>" + "</div>" + "</li>";
+                            break;
+                        case 'winter':
+                            activitiesHTML += "<li>" + "<div class='ico'>" + "<img src='" + document.location.origin + "/images/up-arrow.svg' alt='Up arrow icon' width='25' height='25'>" + "<p>" + translationData.winterDescription + "<span class='glyphicon glyphicon-triangle-bottom'></span>" + "</p>" + "</div>" + "</li>";
+                            break;
+                    }
+                });
+                activitiesHTML += "</ul>" + "</div>" + "<h2>" + "<a href='" + document.location.origin + "/activity/" + value.id + "'>" + value.name + "</a>" + "</h2>" + "<p>" + value.short_description + "</p>" + "<p>" + "<strong class='price'>" + "<span>" + translationData.textFrom + "</span>" + "<sub>$</sub>" + value.offers_min_price + "</strong>" + "<a href='" + document.location.origin + "/activity/" + value.id + "' class='btn-primary'>" + translationData.buttonText + "</a>" + "</p>" + "</div>" + "</div>";
+                ++keyFor3Col;
+                ++keyFor4Col;
+                if (keyFor3Col === 3) {
+                    activitiesHTML += '<div class="clearfix visible-sm-block"></div>';
+                    keyFor3Col = 0;
+                }
+                if (keyFor4Col === 4) {
+                    activitiesHTML += '<div class="clearfix visible-lg-block"></div>' + '<div class="clearfix visible-md-block"></div>';
+                    keyFor4Col = 0;
+                }
+            });
+            activitiesHTML += "</div>" + "</section>";
+        });
+        allActivities.html(activitiesHTML);
+        if (data.length == 0) {
+            allActivities.html("<h2> Sorry there are no activities </h2>");
+        }
+    }
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);

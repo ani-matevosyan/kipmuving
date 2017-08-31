@@ -3,6 +3,32 @@ import 'jcf/dist/js/jcf.select';
 
 $(document).ready(function(){
 
+
+    $(".special-offers__info-button").click(function(e){
+        e.preventDefault();
+        let offer_id = $(this).parent().parent().data('offer-id');
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        $.ajax({
+            type: 'POST',
+            url: '/offer/special/info',
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'id': offer_id
+            },
+            success: function(data){
+                $("#info-modal__icon").attr('src', document.location.origin+'/'+data.agency.logo);
+                $("#info-modal__title-link").attr('href', 'ss').text(data.agency.name);
+                console.log(data);
+            },
+            error: function(data){
+                console.log(data);
+            }
+        }).done(function(){
+            $(".loader").remove();
+            $("#info-modal").modal('show');
+        });
+    });
+
     //Print option
 
     function openPrintDialogue(){
