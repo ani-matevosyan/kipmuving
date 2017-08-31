@@ -23,9 +23,9 @@
 				<div class="col-md-3 col-xs-6">
                     <div class="logo">
                         <a href="{{ action('HomeController@index') }}">
-                            <img src="{{ asset('/images/logo.svg') }}"
+                            <img src="{{ asset('/images/KeepMoving_logo.svg') }}"
                                  alt="image description"
-                                 onerror="this.onerror=null; this.src='{{ asset('/images/logo1.png') }}'">
+                                 onerror="this.onerror=null; this.src='{{ asset('/images/logo.svg') }}'">
                         </a>
                     </div>
 				</div>

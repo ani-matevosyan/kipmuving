@@ -2,6 +2,8 @@
 
 @import "./common";
 @import "./components/user-page-header";
+@import "./components/you-should-take";
+@import "./components/time-select";
 
 .user-reservations-page{
   padding-top: 40px;
@@ -19,6 +21,13 @@
     margin-bottom: 22px;
     &_special{
       background-color: #008DD0;
+    }
+    @media screen and (max-width: 767px){
+      margin:{
+        left: -11px;
+        right: -11px;
+        bottom: 22px;
+      }
     }
   }
   &__title{
@@ -74,9 +83,13 @@
   flex-wrap: wrap;
   font-size: 15px;
   margin-right: -60px;
+  @media screen and (max-width: 600px){
+    margin-right: 0;
+  }
   &__item{
     width: calc( 33.333% - 60px );
     position: relative;
+    padding-bottom: 67px;
     margin:{
       right: 60px;
       bottom: 50px;
@@ -92,6 +105,34 @@
     }
     &:nth-child(3n-3):after{
       display: none;
+    }
+    &_special{
+      @media screen and (max-width: 1139px){
+        width: calc( 50% - 60px );
+        &:nth-child(3n-3):after{
+          display: block;
+        }
+        &:nth-child(even):after{
+          display: none;
+        }
+      }
+    }
+    @media screen and (max-width: 991px){
+      width: calc( 50% - 60px );
+      &:nth-child(3n-3):after{
+        display: block;
+      }
+      &:nth-child(even):after{
+        display: none;
+      }
+    }
+    @media screen and (max-width: 600px){
+      width: 100%;
+      margin-right: 0;
+      padding-bottom: 0;
+      &:after{
+        display: none;
+      }
     }
   }
   &__name{
@@ -120,6 +161,15 @@
     text-align: center;
     margin-top: 10px;
     padding: 22px 0 11px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 57px;
+    @media screen and (max-width: 600px){
+      height: auto;
+      position: relative;
+    }
   }
   &__cancel-button{
     display: inline-block;
@@ -188,16 +238,38 @@
     font-size: 18px;
     width: 42%;
     margin: 0;
+    line-height: 1.5;
+    @media screen and (max-width: 767px) and (min-width: 601px), (max-width: 400px){
+      vertical-align: middle;
+      width: 55%;
+    }
   }
   &__right-part{
     @extend %inline-block_top;
     width: 58%;
     position: relative;
+    @media screen and (max-width: 1139px){
+      text-align: right;
+    }
+    @media screen and (max-width: 767px) and (min-width: 601px), (max-width: 400px){
+      vertical-align: middle;
+      width: 45%;
+    }
   }
   &__price{
     @extend %inline-block_middle;
     font-size: 18px;
     width: 50%;
+    @media screen and (max-width: 1139px){
+      text-align: left;
+    }
+    @media screen and (max-width: 767px) and (min-width: 601px) , (max-width: 400px){
+      display: block;
+      width: 100%;
+      text-align: right;
+      padding-right: 23px;
+      margin-bottom: 7px;
+    }
   }
   &__button{
     @extend %inline-block_middle;
@@ -210,6 +282,9 @@
     border: none;
     outline: none;
     border-radius: 3px;
+    @media screen and (max-width: 1139px){
+      margin-right: 23px;
+    }
   }
   &__info-button{
     @extend %inline-block_middle;
@@ -224,6 +299,243 @@
     right: 0;
     bottom: 0;
     margin: auto;
+  }
+}
+
+.reservations-modal{
+  text-align: center;
+  &:before{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  &__dialog{
+    width: 580px;
+    max-width: 100%;
+    margin: 30px auto;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    @media screen and (max-width: 600px){
+      width: calc( 100% - 30px );
+    }
+  }
+  &__content{
+    border: 1px solid #fbfbfb;
+    box-shadow: none;
+    background-color: #fff;
+  }
+  &__header{
+    background-color: transparent;
+    padding: 14px 19px 12px;
+  }
+  &__close-button{
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    position: relative;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      height: 25px;
+      width: 2px;
+      background-color: #e5e5e5;
+      transform-origin: 1.1px 2px 0;
+    }
+    &:before{
+      top: 0;
+      left: 0;
+      transform: rotate(-45deg)
+    }
+    &:after{
+      right: 0;
+      top: 0;
+      transform: rotate(45deg);
+    }
+  }
+  &__body{
+    padding: 0 19px 37px;
+    text-align: center;
+  }
+  &__paragraph{
+    margin: 0 0 13px;
+    font-size: 18px;
+    @media screen and (max-width: 600px){
+      font-size: 16px;
+    }
+  }
+  &__time-select{
+    margin-left: 4px;
+    @media screen and (max-width: 600px){
+      margin: 10px auto 0;
+      display: table;
+    }
+  }
+}
+
+.accept-modal{
+  &__buttons{
+    margin-top: 24px;
+  }
+  &__button{
+    font-weight: 700;
+    color: #fff;
+    width: 82px;
+    height: 29px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #868686;
+    border: none;
+    outline: none;
+    padding: 0;
+    & + & {
+      margin-left: 29px;
+      @media screen and (max-width: 600px){
+        margin-left: 10px;
+      }
+    }
+    &_success{
+      background-color: #198ccd;
+    }
+    &_deny{
+      background-color: #9d9d9d;
+    }
+  }
+}
+
+
+.info-modal{
+  &__dialog{
+    width: 807px;
+    @media screen and (max-width: 850px){
+      width: calc( 100% - 30px );
+    }
+  }
+  &__body{
+    text-align: left;
+    padding:{
+      left: 131px;
+      right: 59px;
+      bottom: 21px;
+    }
+    @media screen and (max-width: 600px){
+      padding: 0 35px 21px;
+    }
+  }
+  &__header{
+    position: relative;
+    margin-bottom: 7px;
+  }
+  &__icon{
+    position: absolute;
+    width: 80px;
+    left: -94px;
+    top: 0;
+    @media screen and (max-width: 600px){
+      display: none;
+    }
+  }
+  &__title{
+    display: inline-block;
+    margin: 0;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  &__title-link{
+    color: #000;
+    &:hover,
+    &:focus{
+      color: #f8be00;
+    }
+  }
+  &__agency-address{
+    font-size: 12px;
+    margin-left: 18px;
+    position: relative;
+    bottom: 3px;
+    @media screen and (max-width: 600px){
+      display: block;
+      margin: 10px 0 0;
+    }
+  }
+  &__info:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+  &__you-should-take{
+    float: left;
+    width: 39%;
+    margin-top: 34px;
+    padding:{
+      left: 3px;
+      right: 10px;
+    }
+    @media screen and (max-width: 670px){
+      float: none;
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+  &__item:before{
+    background-color: #505050;
+  }
+  &__right-part{
+    float: left;
+    width: 61%;
+    @media screen and (max-width: 670px){
+      float: none;
+      width: 100%;
+      position: relative;
+      padding-bottom: 100px;
+      margin-top: 30px;
+    }
+  }
+  &__accept-block{
+    text-align: right;
+    @media screen and (max-width: 670px){
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-align: left;
+    }
+  }
+  &__price{
+    display: block;
+    font-size: 25px;
+    margin: 5px 0 11px;
+  }
+  &__discount{
+    display: block;
+    font-size: 17px;
+    color: #707070;
+    font-weight: 700;
+    text-decoration: line-through;
+  }
+  &__button{
+    font-weight: 700;
+    color: #fff;
+    background-color: #198ccd;
+    border-radius: 3px;
+    padding: 6px 13px;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+  }
+  &__additional-info{
+    margin: 0;
+  }
+  &__description{
+    margin: 7px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
   }
 }
 
