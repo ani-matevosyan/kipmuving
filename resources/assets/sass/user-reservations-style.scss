@@ -369,16 +369,90 @@
   }
   &__body{
     text-align: left;
-    padding-left: 131px;
+    padding:{
+      left: 131px;
+      right: 59px;
+      bottom: 21px;
+    }
   }
   &__header{
     position: relative;
+    margin-bottom: 7px;
   }
   &__icon{
     position: absolute;
     width: 80px;
     left: -94px;
     top: 0;
+  }
+  &__title{
+    display: inline-block;
+    margin: 0;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  &__title-link{
+    color: #000;
+    &:hover,
+    &:focus{
+      color: #f8be00;
+    }
+  }
+  &__agency-address{
+    font-size: 12px;
+    margin-left: 18px;
+    position: relative;
+    bottom: 3px;
+  }
+  &__info:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+  &__you-should-take{
+    float: left;
+    width: 39%;
+    padding-left: 3px;
+    margin-top: 34px;
+  }
+  &__item:before{
+    background-color: #505050;
+  }
+  &__right-part{
+    float: left;
+    width: 61%;
+  }
+  &__accept-block{
+    text-align: right;
+  }
+  &__price{
+    display: block;
+    font-size: 25px;
+    margin: 5px 0 11px;
+  }
+  &__discount{
+    display: block;
+    font-size: 17px;
+    color: #707070;
+    font-weight: 700;
+    text-decoration: line-through;
+  }
+  &__button{
+    font-weight: 700;
+    color: #fff;
+    background-color: #198ccd;
+    border-radius: 3px;
+    padding: 6px 13px;
+    border: none;
+    outline: none;
+  }
+  &__additional-info{
+    margin: 0;
+  }
+  &__description{
+    margin: 7px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
   }
 }
 

@@ -275,23 +275,25 @@
 				<div class="modal-body reservations-modal__body info-modal__body">
 					<header class="info-modal__header">
 						<img src="{{ asset('/images/img33.png') }}" alt="image" class="info-modal__icon">
-						<h5 class="info-modal__title">Aguaventura</h5>
+						<h5 class="info-modal__title">
+							<a href="#" class="info-modal__title-link">Aguaventura</a>
+						</h5>
 						<span class="info-modal__agency-address">O'Higgins №211-C</span>
 					</header>
 					<div class="info-modal__info">
 						<div class="you-should-take info-modal__you-should-take">
 							<strong class="you-should-take__title">You must take</strong>
 							<ul class="you-should-take__list">
-								<li class="you-should-take__item">Transporte ida y vuelta</li>
-								<li class="you-should-take__item">Entrada a los Parques</li>
-								<li class="you-should-take__item">Entrada a los Parques</li>
-								<li class="you-should-take__item">Seguro de accidentes</li>
-								<li class="you-should-take__item">Guía bilingüe</li>
+								<li class="you-should-take__item info-modal__item">Transporte ida y vuelta</li>
+								<li class="you-should-take__item info-modal__item">Entrada a los Parques</li>
+								<li class="you-should-take__item info-modal__item">Entrada a los Parques</li>
+								<li class="you-should-take__item info-modal__item">Seguro de accidentes</li>
+								<li class="you-should-take__item info-modal__item">Guía bilingüe</li>
 							</ul>
 						</div>
 						<div class="info-modal__right-part">
 							<div class="info-modal__accept-block">
-								<span class="info-modal__price_discount">$ 120.000</span>
+								<span class="info-modal__discount">$ 120.000</span>
 								<span class="price info-modal__price">$ 100.000</span>
 								<button class="info-modal__button">Aceptar </button>
 							</div>
