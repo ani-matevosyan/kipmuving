@@ -66,4 +66,34 @@ class SpecialOffersController extends Controller
 
 		return redirect()->back()->with('message', 'Great, we send email to user. Many thanks!');
 	}
+
+	public function getJsonInfo(Request $request)
+	{
+		$id = 1;
+
+		$s_offer = SpecialOffer::find($id);
+		$result = null;
+
+		if ($s_offer) {
+			$result = [
+				'agency'   => [
+					'logo'    => $s_offer->offer->agency->image_icon,
+					'name'    => $s_offer->offer->agency->name,
+					'address' => $s_offer->offer->agency->address,
+				],
+				'offer'    => [
+					's_offer_id' => $s_offer->id,
+					'includes'   => $s_offer->offer->includes,
+					'duration'   => $s_offer->offer->duration,
+					'old_price'  => $s_offer->offer->real_price * $s_offer->persons,
+					'new_price'  => $s_offer->price * $s_offer->persons,
+				],
+				'activity' => [
+					'description' => $s_offer->offer->activity->description,
+				],
+			];
+		}
+
+		return response()->json($result);
+	}
 }

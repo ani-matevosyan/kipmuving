@@ -84,6 +84,7 @@ Route::get('/send-offer/{uid}', 'SpecialOffersController@sendOfferPage')
 	->where('uid', '[a-zA-Z0-9]+');
 Route::get('/send-offer', 'SpecialOffersController@sendOffer');
 Route::get('/reserve/special-offer', 'ReservationController@reserveSpecialOffer');
+Route::get('/offer/special/info', 'SpecialOffersController@getJsonInfo');
 
 
 
