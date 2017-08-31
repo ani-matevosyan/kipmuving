@@ -1,10 +1,13 @@
 .user-page-header{
+  max-width: 710px;
   &__title{
     font-size: 35px;
     margin: 0 0 12px;
     font-weight: 700;
     line-height: 1;
-    max-width: 710px;
+    @media screen and (max-width: 600px){
+      font-size: 30px;
+    }
   }
   &__description{
     margin: 0;

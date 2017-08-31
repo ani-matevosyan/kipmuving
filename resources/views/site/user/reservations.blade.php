@@ -15,7 +15,7 @@
 					</header>
 					<ul class="your-offers">
 						@foreach($user->special_offers->groupBy('subscription_uid') as $offers)
-							<li class="your-offers__item">
+							<li class="your-offers__item your-offers__item_special">
 								<h3 class="your-offers__name">
 									<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $offers[0]->offer->activity->id]) }}">
 										{{ $offers[0]->offer->activity->name }}</a>
@@ -295,11 +295,11 @@
 							<div class="info-modal__accept-block">
 								<span class="info-modal__discount">$ 120.000</span>
 								<span class="price info-modal__price">$ 100.000</span>
-								<button class="info-modal__button">Aceptar </button>
+								<button class="info-modal__button">{{ trans('button-links.accept') }}</button>
 							</div>
 							<div class="info-modal__additional-info-block">
-								<p class="info-modal__additional-info">Duration: <strong>4hrs</strong></p>
-								<p class="info-modal__additional-info">Horario: <strong>12:00 a 18:00</strong></p>
+								<p class="info-modal__additional-info">{{ trans('main.duration') }}: <strong>4hrs</strong></p>
+								<p class="info-modal__additional-info">{{ trans('main.schedule') }}: <strong>12:00 a 18:00</strong></p>
 							</div>
 							<p class="info-modal__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis enim expedita facilis impedit minus nesciunt repellendus voluptatem! Aliquid aut autem dolorem ex fuga laboriosam modi mollitia placeat sunt voluptatibus!</p>
 						</div>

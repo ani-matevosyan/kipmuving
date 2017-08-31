@@ -3,6 +3,7 @@
 @import "./common";
 @import "./components/user-page-header";
 @import "./components/you-should-take";
+@import "./components/time-select";
 
 .user-reservations-page{
   padding-top: 40px;
@@ -20,6 +21,13 @@
     margin-bottom: 22px;
     &_special{
       background-color: #008DD0;
+    }
+    @media screen and (max-width: 767px){
+      margin:{
+        left: -11px;
+        right: -11px;
+        bottom: 22px;
+      }
     }
   }
   &__title{
@@ -75,9 +83,13 @@
   flex-wrap: wrap;
   font-size: 15px;
   margin-right: -60px;
+  @media screen and (max-width: 600px){
+    margin-right: 0;
+  }
   &__item{
     width: calc( 33.333% - 60px );
     position: relative;
+    padding-bottom: 67px;
     margin:{
       right: 60px;
       bottom: 50px;
@@ -93,6 +105,34 @@
     }
     &:nth-child(3n-3):after{
       display: none;
+    }
+    &_special{
+      @media screen and (max-width: 1139px){
+        width: calc( 50% - 60px );
+        &:nth-child(3n-3):after{
+          display: block;
+        }
+        &:nth-child(even):after{
+          display: none;
+        }
+      }
+    }
+    @media screen and (max-width: 991px){
+      width: calc( 50% - 60px );
+      &:nth-child(3n-3):after{
+        display: block;
+      }
+      &:nth-child(even):after{
+        display: none;
+      }
+    }
+    @media screen and (max-width: 600px){
+      width: 100%;
+      margin-right: 0;
+      padding-bottom: 0;
+      &:after{
+        display: none;
+      }
     }
   }
   &__name{
@@ -121,6 +161,15 @@
     text-align: center;
     margin-top: 10px;
     padding: 22px 0 11px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 57px;
+    @media screen and (max-width: 600px){
+      height: auto;
+      position: relative;
+    }
   }
   &__cancel-button{
     display: inline-block;
@@ -190,16 +239,37 @@
     width: 42%;
     margin: 0;
     line-height: 1.5;
+    @media screen and (max-width: 767px) and (min-width: 601px), (max-width: 400px){
+      vertical-align: middle;
+      width: 55%;
+    }
   }
   &__right-part{
     @extend %inline-block_top;
     width: 58%;
     position: relative;
+    @media screen and (max-width: 1139px){
+      text-align: right;
+    }
+    @media screen and (max-width: 767px) and (min-width: 601px), (max-width: 400px){
+      vertical-align: middle;
+      width: 45%;
+    }
   }
   &__price{
     @extend %inline-block_middle;
     font-size: 18px;
     width: 50%;
+    @media screen and (max-width: 1139px){
+      text-align: left;
+    }
+    @media screen and (max-width: 767px) and (min-width: 601px) , (max-width: 400px){
+      display: block;
+      width: 100%;
+      text-align: right;
+      padding-right: 23px;
+      margin-bottom: 7px;
+    }
   }
   &__button{
     @extend %inline-block_middle;
@@ -212,6 +282,9 @@
     border: none;
     outline: none;
     border-radius: 3px;
+    @media screen and (max-width: 1139px){
+      margin-right: 23px;
+    }
   }
   &__info-button{
     @extend %inline-block_middle;
@@ -245,6 +318,9 @@
     display: inline-block;
     text-align: left;
     vertical-align: middle;
+    @media screen and (max-width: 600px){
+      width: calc( 100% - 30px );
+    }
   }
   &__content{
     border: 1px solid #fbfbfb;
@@ -291,46 +367,15 @@
   &__paragraph{
     margin: 0 0 13px;
     font-size: 18px;
+    @media screen and (max-width: 600px){
+      font-size: 16px;
+    }
   }
   &__time-select{
     margin-left: 4px;
-  }
-}
-
-.time-select{
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  padding-left: 28px;
-  &:before{
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    width: 18px;
-    height: 18px;
-    background: url('../images/clock.svg') no-repeat;
-    background-size: contain;
-  }
-  .jcf-select{
-    min-width: 73px;
-    border: 2px solid #f2cf6a;
-    height: auto;
-    .jcf-select-text{
-      color: #e3ab07;
-      font-size: 14px;
-      font-weight: 700;
-      margin:{
-        top: 2px;
-        bottom: 4px;
-        right: 15px;
-        left: 11px;
-      }
-    }
-    .jcf-select-opener{
-      display: none;
+    @media screen and (max-width: 600px){
+      margin: 10px auto 0;
+      display: table;
     }
   }
 }
@@ -352,6 +397,9 @@
     padding: 0;
     & + & {
       margin-left: 29px;
+      @media screen and (max-width: 600px){
+        margin-left: 10px;
+      }
     }
     &_success{
       background-color: #198ccd;
@@ -366,6 +414,9 @@
 .info-modal{
   &__dialog{
     width: 807px;
+    @media screen and (max-width: 850px){
+      width: calc( 100% - 30px );
+    }
   }
   &__body{
     text-align: left;
@@ -373,6 +424,9 @@
       left: 131px;
       right: 59px;
       bottom: 21px;
+    }
+    @media screen and (max-width: 600px){
+      padding: 0 35px 21px;
     }
   }
   &__header{
@@ -384,6 +438,9 @@
     width: 80px;
     left: -94px;
     top: 0;
+    @media screen and (max-width: 600px){
+      display: none;
+    }
   }
   &__title{
     display: inline-block;
@@ -403,6 +460,10 @@
     margin-left: 18px;
     position: relative;
     bottom: 3px;
+    @media screen and (max-width: 600px){
+      display: block;
+      margin: 10px 0 0;
+    }
   }
   &__info:after{
     content: '';
@@ -412,8 +473,16 @@
   &__you-should-take{
     float: left;
     width: 39%;
-    padding-left: 3px;
     margin-top: 34px;
+    padding:{
+      left: 3px;
+      right: 10px;
+    }
+    @media screen and (max-width: 670px){
+      float: none;
+      width: 100%;
+      padding-right: 0;
+    }
   }
   &__item:before{
     background-color: #505050;
@@ -421,9 +490,22 @@
   &__right-part{
     float: left;
     width: 61%;
+    @media screen and (max-width: 670px){
+      float: none;
+      width: 100%;
+      position: relative;
+      padding-bottom: 100px;
+      margin-top: 30px;
+    }
   }
   &__accept-block{
     text-align: right;
+    @media screen and (max-width: 670px){
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-align: left;
+    }
   }
   &__price{
     display: block;
@@ -445,6 +527,7 @@
     padding: 6px 13px;
     border: none;
     outline: none;
+    text-transform: uppercase;
   }
   &__additional-info{
     margin: 0;
