@@ -45,12 +45,18 @@ class HomeController extends Controller
 			'imageIndex'        => $imageIndex,
 			'random_activities' => Activity::where('region', '=', $region)
 				->where('visibility', true)
+				->whereHas('offers', function ($query) {
+					$query->where('price', '>', 0);
+				})
 				->translatedIn(app()->getLocale())
 				->limit(8)
 				->inRandomOrder()
 				->get(),
 			'slider_activities' => Activity::where('region', '=', $region)
 				->where('visibility', true)
+				->whereHas('offers', function ($query) {
+					$query->where('price', '>', 0);
+				})
 				->where('slider', true)
 				->translatedIn(app()->getLocale())
 				->inRandomOrder()
