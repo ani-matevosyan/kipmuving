@@ -69,9 +69,7 @@ class SpecialOffersController extends Controller
 
 	public function getJsonInfo(Request $request)
 	{
-		$id = 1;
-
-		$s_offer = SpecialOffer::find($id);
+		$s_offer = SpecialOffer::find($request['id']);
 		$result = null;
 
 		if ($s_offer) {
