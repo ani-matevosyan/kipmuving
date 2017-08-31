@@ -4,29 +4,48 @@ import 'jcf/dist/js/jcf.select';
 $(document).ready(function(){
 
 
+    function numberWithDots(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+
     $(".special-offers__info-button").click(function(e){
         e.preventDefault();
         let offer_id = $(this).parent().parent().data('offer-id');
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        $.ajax({
-            type: 'POST',
-            url: '/offer/special/info',
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                'id': offer_id
-            },
-            success: function(data){
-                $("#info-modal__icon").attr('src', document.location.origin+'/'+data.agency.logo);
-                $("#info-modal__title-link").attr('href', 'ss').text(data.agency.name);
-                console.log(data);
-            },
-            error: function(data){
-                console.log(data);
-            }
-        }).done(function(){
-            $(".loader").remove();
+        if(offer_id !== $("#info-modal").data('offer-id')){
+            $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+            $.ajax({
+                type: 'POST',
+                url: '/offer/special/info',
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'id': offer_id
+                },
+                success: function(data){
+                    $("#info-modal__icon").attr('src', document.location.origin+'/'+data.agency.logo).attr('alt', data.agency.name);
+                    $("#info-modal__title-link").attr('href', 'ss').text(data.agency.name);
+                    $("#info-modal__agency-address").text(data.agency.address);
+                    $("#you-should-take__list").text("");
+                    $.each(data.offer.includes, function(key, value){
+                        $("#you-should-take__list").append("<li class='you-should-take__item info-modal__item'>"+value+"</li>");
+                    });
+                    $("#info-modal__discount").text(numberWithDots(data.offer.old_price));
+                    $("#info-modal__price").text(numberWithDots(data.offer.new_price));
+                    $("#info-modal__duration").text(data.offer.duration+'hrs');
+                    $("#info-modal__schedule").text(data.offer.schedule);
+                    $("#info-modal__description").text(data.activity.description);
+                    $("#info-modal").attr('data-offer-id', offer_id);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            }).done(function(){
+                $(".loader").remove();
+                $("#info-modal").modal('show');
+            });
+        }else{
             $("#info-modal").modal('show');
-        });
+        }
     });
 
     //Print option

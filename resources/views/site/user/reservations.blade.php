@@ -280,34 +280,29 @@
 				</div>
 				<div class="modal-body reservations-modal__body info-modal__body">
 					<header class="info-modal__header">
-						<img src="{{ asset('/images/img33.png') }}" alt="image" id="info-modal__icon" class="info-modal__icon">
+						<img src="" alt="" id="info-modal__icon" class="info-modal__icon">
 						<h5 class="info-modal__title">
-							<a id="info-modal__title-link" href="#" class="info-modal__title-link">Aguaventura</a>
+							<a id="info-modal__title-link" href="#" class="info-modal__title-link"></a>
 						</h5>
-						<span class="info-modal__agency-address">O'Higgins №211-C</span>
+						<span id="info-modal__agency-address" class="info-modal__agency-address"></span>
 					</header>
 					<div class="info-modal__info">
 						<div class="you-should-take info-modal__you-should-take">
-							<strong class="you-should-take__title">You must take</strong>
-							<ul class="you-should-take__list">
-								<li class="you-should-take__item info-modal__item">Transporte ida y vuelta</li>
-								<li class="you-should-take__item info-modal__item">Entrada a los Parques</li>
-								<li class="you-should-take__item info-modal__item">Entrada a los Parques</li>
-								<li class="you-should-take__item info-modal__item">Seguro de accidentes</li>
-								<li class="you-should-take__item info-modal__item">Guía bilingüe</li>
+							<strong class="you-should-take__title">{{ trans('main.you_must_take') }}</strong>
+							<ul id="you-should-take__list" class="you-should-take__list">
 							</ul>
 						</div>
 						<div class="info-modal__right-part">
 							<div class="info-modal__accept-block">
-								<span class="info-modal__discount">$ 120.000</span>
-								<span class="price info-modal__price">$ 100.000</span>
+								<span class="info-modal__discount">@if(session('currency.type') === 'BRL') R$ @else $ @endif <span id="info-modal__discount"></span></span>
+								<span class="price info-modal__price">@if(session('currency.type') === 'BRL') R$ @else $ @endif <span id="info-modal__price"></span></span>
 								<button class="info-modal__button">{{ trans('button-links.accept') }}</button>
 							</div>
 							<div class="info-modal__additional-info-block">
-								<p class="info-modal__additional-info">{{ trans('main.duration') }}: <strong>4hrs</strong></p>
-								<p class="info-modal__additional-info">{{ trans('main.schedule') }}: <strong>12:00 a 18:00</strong></p>
+								<p class="info-modal__additional-info">{{ trans('main.duration') }}: <strong id="info-modal__duration"></strong></p>
+								<p class="info-modal__additional-info">{{ trans('main.schedule') }}: <strong id="info-modal__schedule"></strong></p>
 							</div>
-							<p class="info-modal__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis enim expedita facilis impedit minus nesciunt repellendus voluptatem! Aliquid aut autem dolorem ex fuga laboriosam modi mollitia placeat sunt voluptatibus!</p>
+							<p class="info-modal__description" id="info-modal__description"></p>
 						</div>
 					</div>
 				</div>
@@ -332,7 +327,4 @@
 			</div>
 		</div>
 	</div>
-	{{--<div class="loader">--}}
-		{{--<div class="loader__inner"></div>--}}
-	{{--</div>--}}
 @stop
