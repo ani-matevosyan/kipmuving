@@ -91,6 +91,40 @@ $(document).ready(function () {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
+    $(".special-offers__button").click(function (e) {
+        e.preventDefault();
+        var offer_id = $(this).parent().parent().data('offer-id');
+        if (offer_id !== $("#accept-offer-modal").data('offer-id')) {
+            $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+            $.ajax({
+                type: 'GET',
+                url: '/offer/special/confirm',
+                data: {
+                    id: offer_id
+                },
+                success: function success(data) {
+                    $("#accept-offer-modal__agency-name").text(data.agency_name);
+                    $("#accept-offer-modal__price").text(data.price);
+                    var pickHours = $("#accept-offer-modal__select-hours").detach(),
+                        yourHours = $("#accept-offer-modal__your-hours").detach();
+                    if (data.timeranges.length < 2) {
+                        $("#reservations-modal__time-select").remove();
+                    }
+                    $("#accept-offer-modal").attr('data-offer-id', offer_id);
+                    console.log(data);
+                },
+                error: function error(data) {
+                    console.error(data);
+                }
+            }).done(function () {
+                $(".loader").remove();
+                $("#accept-offer-modal").modal('show');
+            });
+        } else {
+            $("#accept-offer-modal").modal('show');
+        }
+    });
+
     $(".special-offers__info-button").click(function (e) {
         e.preventDefault();
         var offer_id = $(this).parent().parent().data('offer-id');

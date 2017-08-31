@@ -35,9 +35,9 @@
 											<h4 class="special-offers__agency">{{ $offer->offer->agency->name }}</h4>
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
-                                                <button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>
+												<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
+                                                {{--<button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>--}}
 												<button class="special-offers__info-button"></button>
-												{{--<button class="special-offers__info-button" data-toggle="modal" data-target="#info-modal"></button>--}}
 											</div>
 										</li>
 									@endforeach
@@ -248,20 +248,21 @@
 					<button data-dismiss="modal" class="reservations-modal__close-button"></button>
 				</div>
 				<div class="modal-body reservations-modal__body">
-					<p class="reservations-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong>Aguaventura</strong> {{ trans('main.for') }} <strong>$ 120.000</strong> ?</p>
-					<p class="reservations-modal__paragraph">
+					<p class="reservations-modal__paragraph">{{ trans('main.you_want_to_accept') }} <strong id="accept-offer-modal__agency-name"></strong> {{ trans('main.for') }} <strong>@if(session('currency.type') === 'BRL') R$ @else $ @endif <span id="accept-offer-modal__price"></span></strong> ?</p>
+					<p class="reservations-modal__paragraph" id="accept-offer-modal__select-hours">
 						{{ trans('main.first_choose_the_time') }}
-						<span class="time-select reservations-modal__time-select">
+						<span class="time-select reservations-modal__time-select" id="reservations-modal__time-select">
 							<select>
 								<option selected value="">{{ trans('main.schedule') }}</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+								<option class="reservations-modal__option" value="1">1</option>
+								<option class="reservations-modal__option" value="2">2</option>
+								<option class="reservations-modal__option" value="3">3</option>
+								<option class="reservations-modal__option" value="4">4</option>
+								<option class="reservations-modal__option" value="5">5</option>
 							</select>
 						</span>
 					</p>
+					<p class="reservations-modal__paragraph" id="accept-offer-modal__your-hours">You hours is: </p>
 					<div class="accept-modal__buttons">
 						<button class="accept-modal__button accept-modal__button_success">{{ trans('button-links.yes') }}</button>
 						<button class="accept-modal__button accept-modal__button_deny" data-dismiss="modal">{{ trans('button-links.no') }}</button>
