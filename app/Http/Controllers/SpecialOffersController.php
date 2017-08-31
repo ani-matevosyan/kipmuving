@@ -75,6 +75,7 @@ class SpecialOffersController extends Controller
 		if ($s_offer) {
 			$result = [
 				'agency'   => [
+					'id'      => $s_offer->offer->agency->id,
 					'logo'    => $s_offer->offer->agency->image_icon,
 					'name'    => $s_offer->offer->agency->name,
 					'address' => $s_offer->offer->agency->address,
@@ -105,7 +106,7 @@ class SpecialOffersController extends Controller
 			$result = [
 				'agency_name' => $s_offer->offer->agency->name,
 				'price'       => $s_offer->price * $s_offer->persons,
-				'timeranges'  => $s_offer->offer->available_time
+				'timeranges'  => $s_offer->offer->available_time,
 			];
 		}
 
