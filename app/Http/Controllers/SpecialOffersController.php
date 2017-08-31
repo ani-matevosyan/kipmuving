@@ -83,6 +83,7 @@ class SpecialOffersController extends Controller
 					's_offer_id' => $s_offer->id,
 					'includes'   => $s_offer->offer->includes,
 					'duration'   => $s_offer->offer->duration,
+					'schedule'   => $s_offer->offer->schedule['start'].'-'.$s_offer->offer->schedule['end'],
 					'old_price'  => $s_offer->offer->real_price * $s_offer->persons,
 					'new_price'  => $s_offer->price * $s_offer->persons,
 				],
