@@ -11830,9 +11830,10 @@ body {
 }
 
 .time-select .jcf-select {
-  min-width: 73px;
+  min-width: 114px;
   border: 2px solid #f2cf6a;
   height: auto;
+  text-align: left;
 }
 
 .time-select .jcf-select .jcf-select-text {
@@ -12286,6 +12287,10 @@ body {
   }
 }
 
+.reservations-modal__paragraph_error {
+  color: #cb0000;
+}
+
 .reservations-modal__time-select {
   margin-left: 4px;
 }
@@ -12295,6 +12300,14 @@ body {
     margin: 10px auto 0;
     display: table;
   }
+}
+
+.reservations-modal__time-select_error .jcf-select {
+  border-color: #cb0000;
+}
+
+.reservations-modal__time-select_error .jcf-select .jcf-select-text {
+  color: #cb0000;
 }
 
 .accept-modal__buttons {

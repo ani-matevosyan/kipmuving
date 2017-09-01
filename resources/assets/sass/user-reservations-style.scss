@@ -370,12 +370,23 @@
     @media screen and (max-width: 600px){
       font-size: 16px;
     }
+    &_error{
+      color: #cb0000;
+    }
   }
   &__time-select{
     margin-left: 4px;
     @media screen and (max-width: 600px){
       margin: 10px auto 0;
       display: table;
+    }
+    &_error{
+      .jcf-select{
+        border-color: #cb0000;
+        .jcf-select-text{
+          color: #cb0000;
+        }
+      }
     }
   }
 }
