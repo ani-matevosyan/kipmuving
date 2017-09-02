@@ -523,7 +523,7 @@
 															Email: <a href="#"
 																		 style="color:#000; text-decoration:none;"><span>{{ $user->email }}</span></a><br>
 															Persona: {{ $offer->reservation['persons'] }}<br>
-															Price: {{ $offer->real_price }} CLP<br>
+															Price: {{ $offer->is_special_offer ? $reservation->total['CLP'] / $offer->reservation['persons'] : $offer->real_price }} CLP<br>
 															Summary: {{ $offer->real_price * $offer->reservation['persons'] }} CLP<br>
 															&nbsp;
 														</address>

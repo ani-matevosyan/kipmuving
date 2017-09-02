@@ -86,10 +86,24 @@ class ReservationController extends Controller
 
 	public function reserveSpecialOffer(Request $request)
 	{
-		$id = 1;
-		$timerange = '09:00-12:00';
+		$s_offer = SpecialOffer::find($request['id']);
+		$s_offer->timerange = explode('-', $request['timerange']);
 
-		$s_offer = SpecialOffer::find($id);
+		$selected_offer []= [
+			'offer_id' => $s_offer->offer->id,
+			'date' => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
+			'persons' => $s_offer->persons,
+			'time' => [
+				'start' => $s_offer->timerange[0],
+				'end' => $s_offer->timerange[1]
+			]
+		];
+
+		$reservation = $this->getReservationData($selected_offer, $s_offer->price);
+
+		return view('emails.reservar.admin', ['user' => \auth()->user(), 'reservation' => $reservation]);
+
+		dd($reservation);
 
 		dd($s_offer);
 
@@ -231,7 +245,7 @@ class ReservationController extends Controller
 	}
 
 	#Collect reservation data from selected offers
-	private static function getReservationData($selected_offers)
+	private static function getReservationData($selected_offers, $new_price = null)
 	{
 		$data = collect();
 
@@ -254,7 +268,8 @@ class ReservationController extends Controller
 				];
 
 				$data->offers[$key]['reservation'] = $reservation;
-				$data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
+				$data->offers[$key]['is_special_offer'] = $new_price ? true : false;
+				$new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
 				$data->persons += $selected_offer['persons'];
 			}
 

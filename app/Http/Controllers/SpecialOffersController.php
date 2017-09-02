@@ -35,6 +35,9 @@ class SpecialOffersController extends Controller
 
 	public function sendOfferPage($uid)
 	{
+
+		dd(session('basket.offers'));
+
 		$data = [
 			'styles'  => config('resources.sendOffer.styles'),
 			'scripts' => config('resources.sendOffer.scripts'),
@@ -86,7 +89,7 @@ class SpecialOffersController extends Controller
 					'duration'   => $s_offer->offer->duration,
 					'schedule'   => $s_offer->offer->schedule['start'] . '-' . $s_offer->offer->schedule['end'],
 					'old_price'  => $s_offer->offer->real_price * $s_offer->persons,
-					'new_price'  => $s_offer->price * $s_offer->persons,
+					'new_price'  => $s_offer->price,
 				],
 				'activity' => [
 					'description' => $s_offer->offer->activity->description,
@@ -105,7 +108,7 @@ class SpecialOffersController extends Controller
 		if ($s_offer) {
 			$result = [
 				'agency_name' => $s_offer->offer->agency->name,
-				'price'       => $s_offer->price * $s_offer->persons,
+				'price'       => $s_offer->price,
 				'timeranges'  => $s_offer->offer->available_time,
 			];
 		}
