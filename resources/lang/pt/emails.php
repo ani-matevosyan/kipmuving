@@ -7,8 +7,8 @@ return [
 	'confirm_mail_message'                => 'Confirme seu e-mail!',
 	'please_activate_your_account_here'   => 'Por favor, ative sua conta aqui',
 	'with_regards'                        => 'Abraços',
-	'kipmuving_team'                      => 'Equipe Kip Muving Chile',
-	
+	'kipmuving_team'                      => 'Equipe KeepMoving',
+
 	#User reservation email
 	'many_thanks_for_booking'             => 'Muito obrigado por reservar com Kipmuving. Segue abaixo a confirmação da sua reserva.',
 	'what_will_we_do_now'                 => 'O que faremos agora? Confirmaremos todos os passeios com as agências. Sabemos que alguns estão sujeitos a disponibilidade, devido à quantidade de pessoas e também ao clima. Caso alguma atividade não ocorra, voltaremos a comunicar-nos com você, para oferecer-lhe outra opção.',
@@ -29,5 +29,14 @@ return [
 	'any_questions'                       => 'Qualquer dúvida, por fa por escreva-nos. Estaremos atentos ao que você precise. Nosso e-mail é',
 	'and_also_by_phone'                   => 'e também por telefone',
 	'or_whatsapp'                         => 'ou por whatsapp',
-    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
+  'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia',
+
+  #Special offers emails
+  'you_received_special_offer'          => 'You received a special offer',
+  'date'                                => 'Encontro',
+  'your_price'                          => 'Seu preço',
+  'original_price'                      => 'Preço original',
+  'offer_price'                         => 'Preço de oferta',
+  'offer_valid'                         => 'A oferta é válida até',
+  'go_to_my_offers'                     => 'Vá para as minhas ofertas',
 ];
