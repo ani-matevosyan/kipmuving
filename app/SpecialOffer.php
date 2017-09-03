@@ -12,6 +12,10 @@ class SpecialOffer extends Model
 		return $this->hasOne(Offer::class, 'id', 'offer_id');
 	}
 
+	public function user() {
+		return $this->hasOne(User::class, 'id', 'user_id');
+	}
+
 	public static function getSpecialOffers() {
 
 		$offers = session('basket.special');

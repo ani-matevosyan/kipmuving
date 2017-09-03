@@ -86,6 +86,7 @@ Route::get('/send-offer', 'SpecialOffersController@sendOffer');
 Route::get('/reserve/special-offer', 'ReservationController@reserveSpecialOffer');
 Route::post('/offer/special/info', 'SpecialOffersController@getJsonInfo');
 Route::get('/offer/special/confirm', 'SpecialOffersController@getConfirmOfferJsonData');
+Route::post('/offer/special/confirm', 'ReservationController@reserveSpecialOffer');
 
 
 
