@@ -7,7 +7,7 @@ return [
 	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!',
 	'please_activate_your_account_here'   => 'Please activate your account here',
 	'with_regards'                        => 'With regards',
-	'kipmuving_team'                      => 'Kip Muving Chile team',
+	'kipmuving_team'                      => 'KeepMoving team',
 	
 	#User reservation email
 	'many_thanks_for_booking'             => 'many thanks for booking with Kipmuving. Please follow the confirmation of your reservation below.',
@@ -29,5 +29,14 @@ return [
 	'any_questions'                       => 'Any questions please, write us. We will be attentive to what you need. Our mail is',
 	'and_also_by_phone'                   => 'and also by phone',
 	'or_whatsapp'                         => 'Or by whatsapp',
-    'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
+  'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia',
+
+  #Special offers emails
+  'you_received_special_offer'          => 'You received a special offer',
+  'date'                                => 'Date',
+  'your_price'                          => 'Your price',
+  'original_price'                      => 'Original price',
+  'offer_price'                         => 'Offer Price',
+  'offer_valid'                         => 'Offer is valid until',
+  'go_to_my_offers'                     => 'Go to my offers',
 ];

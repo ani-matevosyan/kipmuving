@@ -1,7 +1,7 @@
 import './product.tour';
 import 'chosen-js/chosen.css';
 import 'chosen-js';
-// import './../../../public/libs/prettyPhoto/jquery.prettyPhoto';
+import './../../../public/libs/prettyPhoto/jquery.prettyPhoto';
 
 
 $(document).ready(function(){
