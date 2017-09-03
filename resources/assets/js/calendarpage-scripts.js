@@ -6,23 +6,25 @@ $(document).ready(function(){
             type: "GET",
             url: "/activities/getsuprogram",
             data: "",
-            success: function(data){
-                $("#program_activities").text(data.data.offers);
-                $("#program_activities").attr('data-activities' ,data.data.offers);
-                $("#program_persons").text(data.data.persons);
-                $("#program_total").text(data.data.total);
+            success: response => {
+                console.log(response);
+                // $("#program_activities").text(data.data.offers);
+                // $("#program_activities").attr('data-activities' ,data.data.offers);
+                // $("#program_persons").text(data.data.persons);
+                // $("#program_total").text(data.data.total);
             },
-            error: function(){
-                location.reload();
+            error: err => {
+                console.log(err)
+                // location.reload();
             }
         });
     }
 
     //-------------------CALENDAR PLUGIN --------------
     if($('#calendar').length){
-        var viewdate = $("#calendar").attr("data-date");
-        var calendarLang = $("#calendar").attr("data-lang");
-        var dayRange, windowWidth = $(window).width();
+        let viewdate = $("#calendar").attr("data-date"),
+            calendarLang = $("#calendar").attr("data-lang"),
+            dayRange, windowWidth = $(window).width();
         if(windowWidth >= 992){
             dayRange = 5;
         }else if(windowWidth < 991 && windowWidth > 600 ){
@@ -88,8 +90,8 @@ $(document).ready(function(){
 
     jQuery(document).on("click", ".fc-event.cal-offer .move", function (e) {
         e.preventDefault();
-        var oid = jQuery(this).data('oid');
-        var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
+        let oid = jQuery(this).data('oid'),
+            dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
         $.ajax({
             type: "POST",
             url: "/calendar/process",
@@ -106,14 +108,14 @@ $(document).ready(function(){
 
     jQuery(document).on("click", ".fc-event.cal-offer .delete", function (e) {
         e.preventDefault();
-        var oid = jQuery(this).data('oid');
+        let oid = jQuery(this).data('oid');
         $('#delete-modal .btn-confirm').data('oid', oid);
         $('#delete-modal').modal('show');
     });
 
     jQuery('#delete-modal .btn-confirm').on("click", function (e) {
         e.preventDefault();
-        var oid = jQuery(this).data('oid');
+        let oid = jQuery(this).data('oid');
         $('#delete-modal').modal('hide');
         $.ajax({
             type: 'POST',
@@ -136,7 +138,7 @@ $(document).ready(function(){
     });
 
     function isOverlapping(event){
-        var array = $("#calendar").fullCalendar('clientEvents');
+        let array = $("#calendar").fullCalendar('clientEvents');
         for(i in array){
             if(array[i].id != event.id){
                 if(!(Date(array[i].start) >= Date(event.end) || Date(array[i].end) <= Date(event.start))){
@@ -179,18 +181,20 @@ $(document).ready(function(){
     //------------------- END Generate link --------------
 
     function calendarCalc(){
-        var totalcost = 0;
-        var totaldisc;
+        let totalcost = 0,
+            totaldisc;
         $("#instant-booking-list .basket-list__item" ).each( function(){
-            var totalcostprep = ($(this).find(".basket-list__price").text());
+            let totalcostprep = ($(this).find(".basket-list__price").text());
             totalcost += parseInt(totalcostprep.split('.').join(""));
         });
         $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
     }
 
-    jQuery('#instant-booking-list').on("click", ".basket-list__delete-button", function(){
-        var oid = $(this).parent().prevAll().length;
-        var pickedel = $(this).parent();
+    $('#instant-booking-list').on("click", ".basket-list__delete-button", function(e){
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
         $.ajax({
             type: 'POST',
             url: "/offer/remove",
@@ -198,20 +202,41 @@ $(document).ready(function(){
                 '_token': $('meta[name="csrf-token"]').attr('content'),
                 oid: oid
             },
-            success: function(){
+            success: () => {
                 pickedel.remove();
                 getsuprogram();
                 calendarCalc();
                 jQuery('#calendar').fullCalendar('refetchEvents');
             },
-            error: function(){
+            error: () => {
                 location.reload();
             }
+        }).done(() => {
+            $(".loader").remove();
         });
-        return false;
     });
 
-    var cancel_offer_id;
+    $("#receive-offers-list").on('click', '.basket-list__delete-button', function(e){
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
+        $.ajax({
+            type: 'GET',
+            url: "/offer/special/remove/"+oid,
+            success: () => {
+                pickedel.remove();
+            },
+            error: err => {
+                console.error(err);
+                // location.reload();
+            }
+        }).done(() => {
+            $(".loader").remove();
+        });
+    });
+
+    let cancel_offer_id;
     $(".delete_offer a").click(function(e){
         cancel_offer_id = $(this).attr('href');
         e.preventDefault();

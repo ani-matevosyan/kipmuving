@@ -7,8 +7,8 @@ import './../../../public/libs/prettyPhoto/jquery.prettyPhoto';
 $(document).ready(function(){
 
     if($('.dropdown-activity').length){
-        var yourSelect = $(".dropdown-activity");
-        var notFoundText = yourSelect.attr("data-noresulttext");
+        let yourSelect = $(".dropdown-activity"),
+            notFoundText = yourSelect.attr("data-noresulttext");
         yourSelect.chosen({
             disable_search_threshold: 10,
             no_results_text: notFoundText
@@ -21,11 +21,11 @@ $(document).ready(function(){
     }
 
     $("#get-offers-persons").on('change', function(){
-       var currencySign = $(this).attr('data-currencySign');
-       var value = $(this).val();
+       let currencySign = $(this).attr('data-currencySign'),
+           value = $(this).val();
        $('.offer-item').each(function(){
-           var priceElem = $(this).find('.price');
-           var unit_price = 0 + priceElem.data('unit-price');
+           let priceElem = $(this).find('.price'),
+               unit_price = 0 + priceElem.data('unit-price');
            priceElem.html('<sub>'+currencySign+'</sub>' + numberWithDots(Math.round(value * unit_price)));
        })
     });
@@ -35,11 +35,11 @@ $(document).ready(function(){
             type: "GET",
             url: "/activities/getsuprogram",
             data: "",
-            success: function(data){
-                $("#program_activities").text(data.data.offers);
-                $("#program_activities").attr('data-activities' ,data.data.offers);
-                $("#program_persons").text(data.data.persons);
-                $("#program_total").text(data.data.total);
+            success: response => {
+                $("#program_activities").text(response.data.offers).attr('data-activities' ,response.data.offers);
+                $("#program_subscriptions").text(response.data.special_offers);
+                $("#program_persons").text(response.data.persons);
+                $("#program_total").text(response.data.total);
             },
             error: function(){
                 location.reload();
@@ -48,7 +48,8 @@ $(document).ready(function(){
     }
 
     $("#get-offers-button").click(function(){
-        var activityId = $(this).data('activity-id'),
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let activityId = $(this).data('activity-id'),
             date = $("#reserve-date").val(),
             persons = $("#get-offers-persons").val();
         if (persons === '') {
@@ -70,18 +71,20 @@ $(document).ready(function(){
                 $('#message-modal #message').text('Sorry. There is some problem with transferring data to the server. Please try again after reload');
                 $('#message-modal').modal('show');
                 setTimeout(function(){
-                    location.reload();
+                    // location.reload();
                 },2000);
             }
         }).done(function(){
             getsuprogram();
+            $(".loader").remove();
             $('html, body').animate({scrollTop: '0px'}, 800);
         });
     });
 
     jQuery('.offers-list').on("click", "a", function(){
-        var oid = $(this).parent().prevAll().length;
-        var pickedel = $(this).parent();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
         $.ajax({
             type: 'POST',
             url: "/offer/remove",
@@ -100,12 +103,14 @@ $(document).ready(function(){
                     jQuery('#calendar').fullCalendar('refetchEvents');
                 }
                 if(window.location.pathname === '/reserve'){
-                    location.reload();
+                    // location.reload();
                 }
             },
             error: function(){
-                location.reload();
+                // location.reload();
             }
+        }).done(function(){
+            $(".loader").remove();
         });
         return false;
     });
@@ -136,6 +141,7 @@ $(document).ready(function(){
             $('#message-modal').modal('show');
             return false;
         }
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         $.ajax({
             type: "POST",
             url: "/offer/reserve",
@@ -147,7 +153,7 @@ $(document).ready(function(){
                 timeRange: hours
             },
             error: function(){
-                location.reload();
+                // location.reload();
             }
         }).done(function(){
             getsuprogram();
@@ -168,7 +174,9 @@ $(document).ready(function(){
                 error: function(){
                     location.reload();
                 }
-            })
+            }).done(function(){
+                $(".loader").remove();
+            });
         });
         return false;
     });

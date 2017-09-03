@@ -18,7 +18,10 @@ return [
 	'in_all_activities'       => 'en todas las actividades',
 
 	'activities_for'  => 'actividades para',
+  'and'             => 'y',
+  'persons_s'       => 'personas',
 	'persons'         => 'Personas',
+  'subscriptions'   => 'suscripciones',
   'instant_booking' => 'Reserva Inmediata',
   'receive_offers'  => 'Recibir Ofertas',
   'we_send_this'    => 'Enviamos esta solicitud a ',

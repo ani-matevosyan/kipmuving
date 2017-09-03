@@ -83,23 +83,25 @@ $(document).ready(function () {
             type: "GET",
             url: "/activities/getsuprogram",
             data: "",
-            success: function success(data) {
-                $("#program_activities").text(data.data.offers);
-                $("#program_activities").attr('data-activities', data.data.offers);
-                $("#program_persons").text(data.data.persons);
-                $("#program_total").text(data.data.total);
+            success: function success(response) {
+                console.log(response);
+                // $("#program_activities").text(data.data.offers);
+                // $("#program_activities").attr('data-activities' ,data.data.offers);
+                // $("#program_persons").text(data.data.persons);
+                // $("#program_total").text(data.data.total);
             },
-            error: function error() {
-                location.reload();
+            error: function error(err) {
+                console.log(err);
+                // location.reload();
             }
         });
     }
 
     //-------------------CALENDAR PLUGIN --------------
     if ($('#calendar').length) {
-        var viewdate = $("#calendar").attr("data-date");
-        var calendarLang = $("#calendar").attr("data-lang");
-        var dayRange,
+        var viewdate = $("#calendar").attr("data-date"),
+            calendarLang = $("#calendar").attr("data-lang"),
+            dayRange = void 0,
             windowWidth = $(window).width();
         if (windowWidth >= 992) {
             dayRange = 5;
@@ -168,8 +170,8 @@ $(document).ready(function () {
 
     jQuery(document).on("click", ".fc-event.cal-offer .move", function (e) {
         e.preventDefault();
-        var oid = jQuery(this).data('oid');
-        var dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
+        var oid = jQuery(this).data('oid'),
+            dir = jQuery(this).hasClass('prev') ? 'prev' : jQuery(this).hasClass('next') ? 'next' : '';
         $.ajax({
             type: "POST",
             url: "/calendar/process",
@@ -258,8 +260,8 @@ $(document).ready(function () {
     //------------------- END Generate link --------------
 
     function calendarCalc() {
-        var totalcost = 0;
-        var totaldisc;
+        var totalcost = 0,
+            totaldisc = void 0;
         $("#instant-booking-list .basket-list__item").each(function () {
             var totalcostprep = $(this).find(".basket-list__price").text();
             totalcost += parseInt(totalcostprep.split('.').join(""));
@@ -267,9 +269,11 @@ $(document).ready(function () {
         $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
     }
 
-    jQuery('#instant-booking-list').on("click", ".basket-list__delete-button", function () {
-        var oid = $(this).parent().prevAll().length;
-        var pickedel = $(this).parent();
+    $('#instant-booking-list').on("click", ".basket-list__delete-button", function (e) {
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        var oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
         $.ajax({
             type: 'POST',
             url: "/offer/remove",
@@ -286,11 +290,32 @@ $(document).ready(function () {
             error: function error() {
                 location.reload();
             }
+        }).done(function () {
+            $(".loader").remove();
         });
-        return false;
     });
 
-    var cancel_offer_id;
+    $("#receive-offers-list").on('click', '.basket-list__delete-button', function (e) {
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        var oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
+        $.ajax({
+            type: 'GET',
+            url: "/offer/special/remove/" + oid,
+            success: function success() {
+                pickedel.remove();
+            },
+            error: function error(err) {
+                console.error(err);
+                // location.reload();
+            }
+        }).done(function () {
+            $(".loader").remove();
+        });
+    });
+
+    var cancel_offer_id = void 0;
     $(".delete_offer a").click(function (e) {
         cancel_offer_id = $(this).attr('href');
         e.preventDefault();

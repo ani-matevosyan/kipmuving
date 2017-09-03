@@ -18,10 +18,13 @@ return [
 	'in_all_activities'       => 'in all activities',
 	
 	'activities_for'  => 'activities for',
+  'and'             => 'and',
+  'persons_s'       => 'persons',
 	'persons'         => 'Persons',
-    'instant_booking' => 'Instant Booking',
-    'receive_offers'  => 'Receive Offers',
-    'we_send_this'    => 'We send this request to ',
+  'subscriptions'   => 'subscriptions',
+  'instant_booking' => 'Instant Booking',
+  'receive_offers'  => 'Receive Offers',
+  'we_send_this'    => 'We send this request to ',
 
 	'bicycle'                           => 'Bicycle',
 	'bus'                               => 'Bus',

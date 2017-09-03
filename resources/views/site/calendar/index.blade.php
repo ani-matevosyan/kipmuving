@@ -64,7 +64,7 @@
 												@if(count($special_offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
 											</p>
 										</header>
-										<ul class="basket-list basket-list_subscription">
+										<ul class="basket-list basket-list_subscription" id="receive-offers-list">
 											@foreach ($special_offers as $key => $offer)
 												<li class="basket-list__item basket-list__item_subscription">
 													<a class="basket-list__delete-button" href="{{ action('SpecialOffersController@removeFromBasket', ['id' => $key]) }}"></a>
