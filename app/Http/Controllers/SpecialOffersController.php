@@ -55,7 +55,12 @@ class SpecialOffersController extends Controller
 			])->first(),
 		];
 
-		return view('site.home.send-offer-page', $data);
+		if (isset($data['offer']) && $data['offer']->created_at->addDays(2) <= Carbon::now())
+			return view('site.home.send-offer-page', [
+				'message' => 'Sorry, you should send an offer to '.$data['offer']->created_at->addDays(2)->format('d/m/Y - H:i:s ')
+			]);
+		else
+			return view('site.home.send-offer-page', $data);
 	}
 
 	public function sendOffer(Request $request)
@@ -86,9 +91,9 @@ class SpecialOffersController extends Controller
 		} else return redirect()->back()->with('message', 'Sorry, you have already sent this offer to the user.');
 
 		//TODO change email
-		Mail::send('emails.special-offers.special-offers-to-user', ['data' => $data], function ($message) use ($data){
+		Mail::send('emails.special-offers.special-offers-to-user', ['data' => $data], function ($message) use ($data) {
 			$message->from('contacto@keepmoving.co', 'Kipmuving team');
-			$message->to(config('app.admin_email'))->subject('You received a special offer: '.$data['activity_name']);
+			$message->to(config('app.admin_email'))->subject('You received a special offer: ' . $data['activity_name']);
 		});
 
 		return redirect()->back()->with('message', 'Great, we send email to user. Many thanks!');
