@@ -85,15 +85,15 @@ $(document).ready(function () {
             data: "",
             success: function success(response) {
                 console.log(response);
-                // $("#program_activities").text(data.data.offers);
-                // $("#program_activities").attr('data-activities' ,data.data.offers);
-                // $("#program_persons").text(data.data.persons);
-                // $("#program_total").text(data.data.total);
+                $("#count-activities").text(response.data.offers);
+                $("#count-special-offers").text(response.data.special_offers);
             },
             error: function error(err) {
                 console.log(err);
-                // location.reload();
+                location.reload();
             }
+        }).done(function () {
+            $(".loader").remove();
         });
     }
 
@@ -283,7 +283,6 @@ $(document).ready(function () {
             },
             success: function success() {
                 pickedel.remove();
-                getsuprogram();
                 calendarCalc();
                 jQuery('#calendar').fullCalendar('refetchEvents');
             },
@@ -291,7 +290,7 @@ $(document).ready(function () {
                 location.reload();
             }
         }).done(function () {
-            $(".loader").remove();
+            getsuprogram();
         });
     });
 
@@ -301,8 +300,12 @@ $(document).ready(function () {
         var oid = $(this).parent().prevAll().length,
             pickedel = $(this).parent();
         $.ajax({
-            type: 'GET',
-            url: "/offer/special/remove/" + oid,
+            type: 'POST',
+            url: "/offer/special/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
             success: function success() {
                 pickedel.remove();
             },
@@ -311,7 +314,7 @@ $(document).ready(function () {
                 // location.reload();
             }
         }).done(function () {
-            $(".loader").remove();
+            getsuprogram();
         });
     });
 

@@ -8,15 +8,15 @@ $(document).ready(function(){
             data: "",
             success: response => {
                 console.log(response);
-                // $("#program_activities").text(data.data.offers);
-                // $("#program_activities").attr('data-activities' ,data.data.offers);
-                // $("#program_persons").text(data.data.persons);
-                // $("#program_total").text(data.data.total);
+                $("#count-activities").text(response.data.offers);
+                $("#count-special-offers").text(response.data.special_offers);
             },
             error: err => {
-                console.log(err)
-                // location.reload();
+                console.log(err);
+                location.reload();
             }
+        }).done(() => {
+            $(".loader").remove();
         });
     }
 
@@ -204,7 +204,6 @@ $(document).ready(function(){
             },
             success: () => {
                 pickedel.remove();
-                getsuprogram();
                 calendarCalc();
                 jQuery('#calendar').fullCalendar('refetchEvents');
             },
@@ -212,7 +211,7 @@ $(document).ready(function(){
                 location.reload();
             }
         }).done(() => {
-            $(".loader").remove();
+            getsuprogram();
         });
     });
 
@@ -222,8 +221,12 @@ $(document).ready(function(){
         let oid = $(this).parent().prevAll().length,
             pickedel = $(this).parent();
         $.ajax({
-            type: 'GET',
-            url: "/offer/special/remove/"+oid,
+            type: 'POST',
+            url: "/offer/special/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
             success: () => {
                 pickedel.remove();
             },
@@ -232,7 +235,7 @@ $(document).ready(function(){
                 // location.reload();
             }
         }).done(() => {
-            $(".loader").remove();
+            getsuprogram();
         });
     });
 
