@@ -35,6 +35,15 @@ class SpecialOffersController extends Controller
 		return redirect()->back();
 	}
 
+	public function removeFromBasketPost(Request $request)
+	{
+		$basket = session('basket');
+
+		array_splice($basket['special'], $request['oid'], 1);
+
+		session()->put('basket', $basket);
+	}
+
 	public function sendOfferPage($uid)
 	{
 		$data = [
