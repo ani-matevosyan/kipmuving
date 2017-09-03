@@ -11,10 +11,11 @@ return [
 	| framework needs to place the application's name in a notification or
 	| any other location as required by the application or its packages.
 	*/
-	
+
+	//TODO change emails
 	'name'        => 'Kipmuving',
-	'admin_email' => 'rafaelzarro@gmail.com',
-//	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
+//	'admin_email' => 'rafaelzarro@gmail.com',
+	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 	
 	/*
 	|--------------------------------------------------------------------------

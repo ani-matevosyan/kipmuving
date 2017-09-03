@@ -89,14 +89,14 @@ class ReservationController extends Controller
 		$s_offer = SpecialOffer::find($request['id']);
 		$s_offer->timerange = explode('-', $request['timerange']);
 
-		$selected_offer []= [
+		$selected_offer [] = [
 			'offer_id' => $s_offer->offer->id,
-			'date' => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
-			'persons' => $s_offer->persons,
-			'time' => [
+			'date'     => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
+			'persons'  => $s_offer->persons,
+			'time'     => [
 				'start' => $s_offer->timerange[0],
-				'end' => $s_offer->timerange[1]
-			]
+				'end'   => $s_offer->timerange[1],
+			],
 		];
 
 		$reservation = $this->getReservationData($selected_offer, $s_offer->price);
@@ -178,6 +178,7 @@ class ReservationController extends Controller
 	#Subscribe on special offers
 	private function subscribeSpecialOffers()
 	{
+
 		$offers = session('basket.special');
 
 		foreach ($offers as $offer) {
@@ -185,6 +186,9 @@ class ReservationController extends Controller
 			$subscription_uid = uniqid() . uniqid();
 
 			foreach ($activity->offers as $a_offer) {
+				$uid = uniqid() . uniqid();
+
+
 				$data = [
 					'agency_name'   => $a_offer->agency['name'],
 					'activity_name' => $activity->name,
@@ -192,7 +196,7 @@ class ReservationController extends Controller
 					'persons'       => $offer['persons'],
 					'offer_price'   => $a_offer['real_price'],
 					'total_price'   => $a_offer['real_price'] * $offer['persons'],
-
+					'uid'           => $uid,
 				];
 
 				$s_offer = new SpecialOffer();
@@ -202,15 +206,20 @@ class ReservationController extends Controller
 				$s_offer->offer_date = Carbon::createFromFormat('d/m/Y', $offer['date'])->toDateString();
 				$s_offer->persons = $offer['persons'];
 				$s_offer->subscription_uid = $subscription_uid;
-				$s_offer->uid = uniqid() . uniqid();
+				$s_offer->uid = $uid;
 
 				$s_offer->save();
 
-				//TODO send email to agency
+				//TODO change email
+				Mail::send('emails.special-offers.special-offers-to-agency', ['data' => $data], function ($message) use ($data){
+					$message->from('contacto@keepmoving.co', 'Kipmuving team');
+					$message->to(config('app.admin_email'))->subject('You received a special offer: '.$data['activity_name']);
+				});
+
 			}
 		}
 
-		session()->forget('basket.special');
+//		session()->forget('basket.special');
 	}
 
 	#Sending emails
