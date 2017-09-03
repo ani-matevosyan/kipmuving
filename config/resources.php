@@ -180,7 +180,7 @@ return [
         'libs/jcf/js/jcf.select.js',
         'libs/instafeed/instafeed.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap',
-        'js/activity-scripts.min.js'
+        'js/activity-scripts.js'
       ]
     ],
 

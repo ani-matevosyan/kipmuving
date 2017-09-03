@@ -60,7 +60,7 @@ $(document).ready(function(){
                 },
                 success: function (data) {
                     $("#accept-offer-modal__agency-name").text(data.agency_name);
-                    $("#accept-offer-modal__price").text(data.price);
+                    $("#accept-offer-modal__price").text(numberWithDots(data.price));
                     let pickHours = $("#accept-offer-modal__select-hours").detach(),
                         yourHours = $("#accept-offer-modal__your-hours").detach();
                     if(data.timeranges.length < 2){
@@ -91,9 +91,10 @@ $(document).ready(function(){
        e.preventDefault();
        let offerId = $("#info-modal").data('offer-id');
        $("#info-modal").modal('hide');
-       setTimeout(function(){
+       $("#info-modal").on('hidden.bs.modal', function(){
            $(".special-offers__item[data-offer-id="+offerId+"]").find(".special-offers__button").trigger('click');
-       }, 300);
+           $("#info-modal").off();
+       });
     });
 
     $(".special-offers__info-button").click(function(e){
