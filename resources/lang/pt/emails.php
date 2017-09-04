@@ -39,4 +39,14 @@ return [
   'offer_price'                         => 'Preço de oferta',
   'offer_valid'                         => 'A oferta é válida até',
   'go_to_my_offers'                     => 'Vá para as minhas ofertas',
+
+  #Reservations confirmation
+  'congratulations'                     => 'Parabéns! Você tem uma reserva confirmada',
+  'guests_information'                  => 'Informação do convidado',
+  'phone_number'                        => 'Número de telefone',
+  'now_you_can_talk'                    => 'Agora, você pode conversar diretamente com seu convidado e contar-lhe os detalhes.',
+  'thank_you_very_much'                 => 'Muito obrigado pela reserva com',
+  'below_you_have'                      => 'Abaixo você tem a confirmação de sua reserva.',
+  'what_do_you_have_to_do'              => 'O que você tem a fazer agora? Você pode entrar em contato com a agência ou esperar que eles escrevam.',
+  'what_includes'                       => 'Que inclui',
 ];

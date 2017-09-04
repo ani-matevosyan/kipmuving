@@ -50,7 +50,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tbody>
 									<tr>
-										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} <a href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a></td>
+										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a></td>
 									</tr>
 									<tr>
 										<td style="padding-top: 17px;">{{ trans('emails.with_regards') }}</td>

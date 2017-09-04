@@ -92,7 +92,8 @@ class UserController extends Controller
 			'user'    => $user,
 		];
 
-		return view('site.user.reservations', $data);
+//		return view('site.user.reservations', $data);
+    return view('emails.reservations.confirm-to-agency');
 	}
 
 	public function updateUser($id, Request $request)

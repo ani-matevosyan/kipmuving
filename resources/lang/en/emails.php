@@ -39,4 +39,14 @@ return [
   'offer_price'                         => 'Offer Price',
   'offer_valid'                         => 'Offer is valid until',
   'go_to_my_offers'                     => 'Go to my offers',
+
+  #Reservations confirmation
+  'congratulations'                     => 'Congratulations! You have a confirmed booking',
+  'guests_information'                  => 'Guest\'s Information',
+  'phone_number'                        => 'Phone number',
+  'now_you_can_talk'                    => 'Now, you can talk directly with your guest and tell to him the details.',
+  'thank_you_very_much'                 => 'Thank you very much for booking with',
+  'below_you_have'                      => 'Below you have the confirmation of your reservation.',
+  'what_do_you_have_to_do'              => 'What do you have to do now? You can contact the agency or expect them to write.',
+  'what_includes'                       => 'What includes',
 ];

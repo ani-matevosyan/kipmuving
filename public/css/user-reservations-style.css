@@ -8007,24 +8007,24 @@ button.close {
 }
 
 main {
-  min-height: calc( 100vh - 367px);
+  min-height: calc( 100vh - 365px);
 }
 
 @media screen and (max-width: 991px) {
   main {
-    min-height: calc( 100vh - 458px);
+    min-height: calc( 100vh - 477px);
   }
 }
 
 @media screen and (max-width: 767px) {
   main {
-    min-height: calc( 100vh - 714px);
+    min-height: calc( 100vh - 715px);
   }
 }
 
 @media screen and (max-width: 540px) {
   main {
-    min-height: calc( 100vh - 735px);
+    min-height: calc( 100vh - 719px);
   }
 }
 

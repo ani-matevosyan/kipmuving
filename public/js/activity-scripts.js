@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 147);
+/******/ 	return __webpack_require__(__webpack_require__.s = 149);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10326,574 +10326,90 @@ return jQuery;
 
 /***/ }),
 
-/***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 1:
+/***/ (function(module, exports) {
 
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
 
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
 	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
 };
 
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(11);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
 	}
 
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ 11:
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-
-/***/ 12:
-/***/ (function(module, exports) {
-
-window.ProductTour;!function (e) {
-  ProductTour = function ProductTour(t) {
-    function n() {
-      var n = e(".cd-tour-wrapper"),
-          s = n.children("li"),
-          a = s.length,
-          v = e(".cd-cover-layer"),
-          f = e(".cd-more-info"),
-          m = e("#cd-tour-trigger");e(".overlay-tour").css({ display: "block" }), o(s, a), t.html ? (e(".cd-next").html(t.next), e(".cd-prev").html(t.prev)) : (e(".cd-next").text(t.next), e(".cd-prev").text(t.prev)), e(u[c()]).addClass("tour-target-element"), m.on("click", function () {
-        n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
-      }), f.on("click", ".cd-prev", function (t) {
-        !e(t.target).hasClass("inactive") && l(s, v, "prev");
-      }), f.on("click", ".cd-next", function (t) {
-        !e(t.target).hasClass("inactive") && l(s, v, "next");
-      }), f.on("click", ".cd-close", function (o) {
-        r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element));
-      }), f.on("swiperight", function (t) {
-        e(this).find(".cd-prev").hasClass("inactive") || "mobile" != d() || l(s, v, "prev");
-      }), f.on("swipeleft", function (t) {
-        e(this).find(".cd-next").hasClass("inactive") || "mobile" != d() || l(s, v, "next");
-      }), e(document).keyup(function (o) {
-        "37" != o.which || s.filter(".is-selected").find(".cd-prev").hasClass("inactive") ? "39" != o.which || s.filter(".is-selected").find(".cd-next").hasClass("inactive") ? "27" == o.which && (r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element))) : l(s, v, "next") : l(s, v, "prev");
-      }), n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
-    }function o(t, n) {
-      e(".cd-nav").length > 0 && e(".cd-nav").remove();var o = '<div class="cd-nav"><span><b class="cd-actual-step">1</b> of ' + n + '</span><ul class="cd-tour-nav"><li><a href="javascript:;" class="cd-prev">&#8617; Previous</a></li><li><a href="javascript:;" class="cd-next">Next &#8618;</a></li></ul></div><a href="javascript:;" class="cd-close">Close</a>';t.each(function (t) {
-        var i = e(this),
-            s = t + 1,
-            a = s < n ? "" : "inactive",
-            l = 1 == s ? "inactive" : "";e(o).find(".cd-next").addClass(a).end().find(".cd-prev").addClass(l).end().find(".cd-actual-step").html(s).end().appendTo(i.children(".cd-more-info"));
-      });
-    }function i(e, t) {
-      e.addClass("is-selected").removeClass("move-left"), s(e.children(".cd-more-info")), a(t);
-    }function s(t) {
-      if (!(e(window).width() < 768)) {
-        var n = e(u[c()]).offset().top,
-            o = e(u[c()]).height();n < e(window).scrollTop() && e("body,html").animate({ scrollTop: n - o }, "slow"), n + o > e(window).scrollTop() + e(window).height() && e("body,html").animate({ scrollTop: n - o }, "slow");
-      }
-    }function a(e) {
-      e.addClass("is-visible").on("webkitAnimationEnd oanimationend msAnimationEnd animationend", function () {
-        e.removeClass("is-visible");
-      });
-    }function l(n, o, s) {
-      var a = n.filter(".is-selected"),
-          l = "desktop" == d() ? 300 : 0;a.removeClass("is-selected"), e(u[c()]).removeClass("tour-target-element"), "next" == s && a.addClass("move-left"), setTimeout(function () {
-        "next" == s ? i(a.next(), o) : i(a.prev(), o), e(u[c()]).addClass("tour-target-element"), e.isFunction(t.onChanged) && t.onChanged(e(p[c()].element));
-      }, l);
-    }function c() {
-      var t = e(".cd-tour-wrapper"),
-          n = t.children("li"),
-          o = 0;return n.each(function (t, n) {
-        e(n).hasClass("is-selected") && (o = t);
-      }), o;
-    }function r(t, n, o) {
-      t.removeClass("is-selected move-left"), n.removeClass("active"), o.removeClass("is-visible"), e(".overlay-tour").css({ display: "none" }), e(u[c()]).removeClass("tour-target-element");
-    }function d() {
-      return window.getComputedStyle(document.querySelector(".cd-tour-wrapper"), "::before").getPropertyValue("content").replace(/"/g, "").replace(/'/g, "");
-    }var v = !1,
-        p = [],
-        u = [];t.next = t.next ? t.next : "Next", t.prev = t.prev ? t.prev : "Previous", t.html = "html" in t && t.html, t.overlay = !("overlay" in t) || t.overlay, t.onStart = "function" == typeof t.onStart ? t.onStart : void 0, t.onChanged = "function" == typeof t.onChanged ? t.onChanged : void 0, t.onClosed = "function" == typeof t.onClosed ? t.onClosed : void 0, this.startTour = function () {
-      e.fn.exists = function () {
-        return this.length > 0;
-      }, e(".cd-tour-wrapper").exists() && n(), e.isFunction(t.onStart) && t.onStart();
-    }, this.steps = function (n) {
-      if (!(n instanceof Array)) return void console.error("Expecting an array of tour items or steps.");if (v) return void console.warn("Tour steps has already been added, you can't add step on the fly, coming on next version");p = n;var o = "<ul class='cd-tour-wrapper'>",
-          i = "<div><li class='cd-single-step'><span>Step</span><div class='cd-more-info'><h2></h2><p></p><img src=''></div></li></div>",
-          s = "";e.each(n, function (t, n) {
-        n.element = n.element ? n.element : void 0, n.title = n.title ? n.title : void 0, n.content = n.content ? n.content : "", n.image = n.image ? n.image : "images/sample.jpg", n.position = n.position ? n.position : "bottom", void 0 == n.element ? n.element = "body" : n.element += ":first", u.push(n.element);var o = e(i);if (void 0 != n.title ? e("h2", o).text(n.title) : e("h2", o).remove(), e("p", o).text(n.content), e(".cd-more-info", o).addClass(n.position), e("img", o).attr("src", n.image), n.element) {
-          var a = e(n.element).outerWidth() / 2,
-              l = e(n.element).innerHeight() / 2,
-              c = e(n.element).offset().top + -12 + l,
-              r = e(n.element).offset().left + a;e("li.cd-single-step", o).css({ top: c, left: r, height: "10px", width: "10px" });
-        }s += o.html();
-      }), o += s + "</ul>", e("body").append(o), t.overlay && e("body").append("<div class='overlay-tour'></div>"), v = !0;
-    };
-  };
-}(jQuery);
-
-/***/ }),
-
-/***/ 13:
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
 		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
 	}
-	return module;
-};
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
 
-/***/ 14:
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -13054,28 +12570,608 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 147:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(148);
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(13);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
 
 
 /***/ }),
 
-/***/ 148:
+/***/ 13:
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
+/***/ 14:
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ 149:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(150);
+
+
+/***/ }),
+
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+// Generated by CoffeeScript 1.9.3
+(function () {
+  var e;e = function () {
+    function e(e, t) {
+      var n, r;this.options = { target: "instafeed", get: "popular", resolution: "thumbnail", sortBy: "none", links: !0, mock: !1, useHttp: !1 };if ((typeof e === "undefined" ? "undefined" : _typeof(e)) == "object") for (n in e) {
+        r = e[n], this.options[n] = r;
+      }this.context = t != null ? t : this, this.unique = this._genKey();
+    }return e.prototype.hasNext = function () {
+      return typeof this.context.nextUrl == "string" && this.context.nextUrl.length > 0;
+    }, e.prototype.next = function () {
+      return this.hasNext() ? this.run(this.context.nextUrl) : !1;
+    }, e.prototype.run = function (t) {
+      var n, r, i;if (typeof this.options.clientId != "string" && typeof this.options.accessToken != "string") throw new Error("Missing clientId or accessToken.");if (typeof this.options.accessToken != "string" && typeof this.options.clientId != "string") throw new Error("Missing clientId or accessToken.");return this.options.before != null && typeof this.options.before == "function" && this.options.before.call(this), typeof document != "undefined" && document !== null && (i = document.createElement("script"), i.id = "instafeed-fetcher", i.src = t || this._buildUrl(), n = document.getElementsByTagName("head"), n[0].appendChild(i), r = "instafeedCache" + this.unique, window[r] = new e(this.options, this), window[r].unique = this.unique), !0;
+    }, e.prototype.parse = function (e) {
+      var t, n, r, i, s, o, u, a, f, l, c, h, p, d, v, m, g, y, b, w, E, S, x, T, N, C, k, L, A, O, M, _, D;if ((typeof e === "undefined" ? "undefined" : _typeof(e)) != "object") {
+        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "Invalid JSON data"), !1;throw new Error("Invalid JSON response");
+      }if (e.meta.code !== 200) {
+        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, e.meta.error_message), !1;throw new Error("Error from Instagram: " + e.meta.error_message);
+      }if (e.data.length === 0) {
+        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "No images were returned from Instagram"), !1;throw new Error("No images were returned from Instagram");
+      }this.options.success != null && typeof this.options.success == "function" && this.options.success.call(this, e), this.context.nextUrl = "", e.pagination != null && (this.context.nextUrl = e.pagination.next_url);if (this.options.sortBy !== "none") {
+        this.options.sortBy === "random" ? M = ["", "random"] : M = this.options.sortBy.split("-"), O = M[0] === "least" ? !0 : !1;switch (M[1]) {case "random":
+            e.data.sort(function () {
+              return .5 - Math.random();
+            });break;case "recent":
+            e.data = this._sortBy(e.data, "created_time", O);break;case "liked":
+            e.data = this._sortBy(e.data, "likes.count", O);break;case "commented":
+            e.data = this._sortBy(e.data, "comments.count", O);break;default:
+            throw new Error("Invalid option for sortBy: '" + this.options.sortBy + "'.");}
+      }if (typeof document != "undefined" && document !== null && this.options.mock === !1) {
+        m = e.data, A = parseInt(this.options.limit, 10), this.options.limit != null && m.length > A && (m = m.slice(0, A)), u = document.createDocumentFragment(), this.options.filter != null && typeof this.options.filter == "function" && (m = this._filter(m, this.options.filter));if (this.options.template != null && typeof this.options.template == "string") {
+          f = "", d = "", w = "", D = document.createElement("div");for (c = 0, N = m.length; c < N; c++) {
+            h = m[c], p = h.images[this.options.resolution];if ((typeof p === "undefined" ? "undefined" : _typeof(p)) != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o);E = p.width, y = p.height, b = "square", E > y && (b = "landscape"), E < y && (b = "portrait"), v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), d = this._makeTemplate(this.options.template, { model: h, id: h.id, link: h.link, type: h.type, image: v, width: E, height: y, orientation: b, caption: this._getObjectProperty(h, "caption.text"), likes: h.likes.count, comments: h.comments.count, location: this._getObjectProperty(h, "location.name") }), f += d;
+          }D.innerHTML = f, i = [], r = 0, n = D.childNodes.length;while (r < n) {
+            i.push(D.childNodes[r]), r += 1;
+          }for (x = 0, C = i.length; x < C; x++) {
+            L = i[x], u.appendChild(L);
+          }
+        } else for (T = 0, k = m.length; T < k; T++) {
+          h = m[T], g = document.createElement("img"), p = h.images[this.options.resolution];if ((typeof p === "undefined" ? "undefined" : _typeof(p)) != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o);v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), g.src = v, this.options.links === !0 ? (t = document.createElement("a"), t.href = h.link, t.appendChild(g), u.appendChild(t)) : u.appendChild(g);
+        }_ = this.options.target, typeof _ == "string" && (_ = document.getElementById(_));if (_ == null) throw o = 'No element with id="' + this.options.target + '" on page.', new Error(o);_.appendChild(u), a = document.getElementsByTagName("head")[0], a.removeChild(document.getElementById("instafeed-fetcher")), S = "instafeedCache" + this.unique, window[S] = void 0;try {
+          delete window[S];
+        } catch (P) {
+          s = P;
+        }
+      }return this.options.after != null && typeof this.options.after == "function" && this.options.after.call(this), !0;
+    }, e.prototype._buildUrl = function () {
+      var e, t, n;e = "https://api.instagram.com/v1";switch (this.options.get) {case "popular":
+          t = "media/popular";break;case "tagged":
+          if (!this.options.tagName) throw new Error("No tag name specified. Use the 'tagName' option.");t = "tags/" + this.options.tagName + "/media/recent";break;case "location":
+          if (!this.options.locationId) throw new Error("No location specified. Use the 'locationId' option.");t = "locations/" + this.options.locationId + "/media/recent";break;case "user":
+          if (!this.options.userId) throw new Error("No user specified. Use the 'userId' option.");t = "users/" + this.options.userId + "/media/recent";break;default:
+          throw new Error("Invalid option for get: '" + this.options.get + "'.");}return n = e + "/" + t, this.options.accessToken != null ? n += "?access_token=" + this.options.accessToken : n += "?client_id=" + this.options.clientId, this.options.limit != null && (n += "&count=" + this.options.limit), n += "&callback=instafeedCache" + this.unique + ".parse", n;
+    }, e.prototype._genKey = function () {
+      var e;return e = function e() {
+        return ((1 + Math.random()) * 65536 | 0).toString(16).substring(1);
+      }, "" + e() + e() + e() + e();
+    }, e.prototype._makeTemplate = function (e, t) {
+      var n, r, i, s, o;r = /(?:\{{2})([\w\[\]\.]+)(?:\}{2})/, n = e;while (r.test(n)) {
+        s = n.match(r)[1], o = (i = this._getObjectProperty(t, s)) != null ? i : "", n = n.replace(r, function () {
+          return "" + o;
+        });
+      }return n;
+    }, e.prototype._getObjectProperty = function (e, t) {
+      var n, r;t = t.replace(/\[(\w+)\]/g, ".$1"), r = t.split(".");while (r.length) {
+        n = r.shift();if (!(e != null && n in e)) return null;e = e[n];
+      }return e;
+    }, e.prototype._sortBy = function (e, t, n) {
+      var r;return r = function r(e, _r) {
+        var i, s;return i = this._getObjectProperty(e, t), s = this._getObjectProperty(_r, t), n ? i > s ? 1 : -1 : i < s ? 1 : -1;
+      }, e.sort(r.bind(this)), e;
+    }, e.prototype._filter = function (e, t) {
+      var n, r, i, s, o;n = [], r = function r(e) {
+        if (t(e)) return n.push(e);
+      };for (i = 0, o = e.length; i < o; i++) {
+        s = e[i], r(s);
+      }return n;
+    }, e;
+  }(), function (e, t) {
+    return  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (t),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (typeof module === "undefined" ? "undefined" : _typeof(module)) == "object" && module.exports ? module.exports = t() : e.Instafeed = t();
+  }(this, function () {
+    return e;
+  });
+}).call(this);
+
+/***/ }),
+
+/***/ 150:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-__webpack_require__(12);
-window.moment = __webpack_require__(149);
+__webpack_require__(8);
+window.moment = __webpack_require__(151);
 __webpack_require__(4);
 __webpack_require__(6);
-window.Instafeed = __webpack_require__(150);
+window.Instafeed = __webpack_require__(15);
 __webpack_require__(7);
-__webpack_require__(151);
-__webpack_require__(154);
-__webpack_require__(14);
+__webpack_require__(152);
 __webpack_require__(155);
+__webpack_require__(10);
+__webpack_require__(156);
 
 $(document).ready(function () {
 
@@ -13362,7 +13458,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 149:
+/***/ 151:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -14984,112 +15080,17 @@ $(document).ready(function () {
     config._d = new Date(toInt(input));
   });hooks.version = '2.17.1';setHookCallback(createLocal);hooks.fn = proto;hooks.min = min;hooks.max = max;hooks.now = now;hooks.utc = createUTC;hooks.unix = createUnix;hooks.months = listMonths;hooks.isDate = isDate;hooks.locale = getSetGlobalLocale;hooks.invalid = createInvalid;hooks.duration = createDuration;hooks.isMoment = isMoment;hooks.weekdays = listWeekdays;hooks.parseZone = createInZone;hooks.localeData = getLocale;hooks.isDuration = isDuration;hooks.monthsShort = listMonthsShort;hooks.weekdaysMin = listWeekdaysMin;hooks.defineLocale = defineLocale;hooks.updateLocale = updateLocale;hooks.locales = listLocales;hooks.weekdaysShort = listWeekdaysShort;hooks.normalizeUnits = normalizeUnits;hooks.relativeTimeRounding = getSetRelativeTimeRounding;hooks.relativeTimeThreshold = getSetRelativeTimeThreshold;hooks.calendarFormat = getCalendarFormat;hooks.prototype = proto;return hooks;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module)))
 
 /***/ }),
 
-/***/ 150:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-// Generated by CoffeeScript 1.9.3
-(function () {
-  var e;e = function () {
-    function e(e, t) {
-      var n, r;this.options = { target: "instafeed", get: "popular", resolution: "thumbnail", sortBy: "none", links: !0, mock: !1, useHttp: !1 };if ((typeof e === "undefined" ? "undefined" : _typeof(e)) == "object") for (n in e) {
-        r = e[n], this.options[n] = r;
-      }this.context = t != null ? t : this, this.unique = this._genKey();
-    }return e.prototype.hasNext = function () {
-      return typeof this.context.nextUrl == "string" && this.context.nextUrl.length > 0;
-    }, e.prototype.next = function () {
-      return this.hasNext() ? this.run(this.context.nextUrl) : !1;
-    }, e.prototype.run = function (t) {
-      var n, r, i;if (typeof this.options.clientId != "string" && typeof this.options.accessToken != "string") throw new Error("Missing clientId or accessToken.");if (typeof this.options.accessToken != "string" && typeof this.options.clientId != "string") throw new Error("Missing clientId or accessToken.");return this.options.before != null && typeof this.options.before == "function" && this.options.before.call(this), typeof document != "undefined" && document !== null && (i = document.createElement("script"), i.id = "instafeed-fetcher", i.src = t || this._buildUrl(), n = document.getElementsByTagName("head"), n[0].appendChild(i), r = "instafeedCache" + this.unique, window[r] = new e(this.options, this), window[r].unique = this.unique), !0;
-    }, e.prototype.parse = function (e) {
-      var t, n, r, i, s, o, u, a, f, l, c, h, p, d, v, m, g, y, b, w, E, S, x, T, N, C, k, L, A, O, M, _, D;if ((typeof e === "undefined" ? "undefined" : _typeof(e)) != "object") {
-        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "Invalid JSON data"), !1;throw new Error("Invalid JSON response");
-      }if (e.meta.code !== 200) {
-        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, e.meta.error_message), !1;throw new Error("Error from Instagram: " + e.meta.error_message);
-      }if (e.data.length === 0) {
-        if (this.options.error != null && typeof this.options.error == "function") return this.options.error.call(this, "No images were returned from Instagram"), !1;throw new Error("No images were returned from Instagram");
-      }this.options.success != null && typeof this.options.success == "function" && this.options.success.call(this, e), this.context.nextUrl = "", e.pagination != null && (this.context.nextUrl = e.pagination.next_url);if (this.options.sortBy !== "none") {
-        this.options.sortBy === "random" ? M = ["", "random"] : M = this.options.sortBy.split("-"), O = M[0] === "least" ? !0 : !1;switch (M[1]) {case "random":
-            e.data.sort(function () {
-              return .5 - Math.random();
-            });break;case "recent":
-            e.data = this._sortBy(e.data, "created_time", O);break;case "liked":
-            e.data = this._sortBy(e.data, "likes.count", O);break;case "commented":
-            e.data = this._sortBy(e.data, "comments.count", O);break;default:
-            throw new Error("Invalid option for sortBy: '" + this.options.sortBy + "'.");}
-      }if (typeof document != "undefined" && document !== null && this.options.mock === !1) {
-        m = e.data, A = parseInt(this.options.limit, 10), this.options.limit != null && m.length > A && (m = m.slice(0, A)), u = document.createDocumentFragment(), this.options.filter != null && typeof this.options.filter == "function" && (m = this._filter(m, this.options.filter));if (this.options.template != null && typeof this.options.template == "string") {
-          f = "", d = "", w = "", D = document.createElement("div");for (c = 0, N = m.length; c < N; c++) {
-            h = m[c], p = h.images[this.options.resolution];if ((typeof p === "undefined" ? "undefined" : _typeof(p)) != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o);E = p.width, y = p.height, b = "square", E > y && (b = "landscape"), E < y && (b = "portrait"), v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), d = this._makeTemplate(this.options.template, { model: h, id: h.id, link: h.link, type: h.type, image: v, width: E, height: y, orientation: b, caption: this._getObjectProperty(h, "caption.text"), likes: h.likes.count, comments: h.comments.count, location: this._getObjectProperty(h, "location.name") }), f += d;
-          }D.innerHTML = f, i = [], r = 0, n = D.childNodes.length;while (r < n) {
-            i.push(D.childNodes[r]), r += 1;
-          }for (x = 0, C = i.length; x < C; x++) {
-            L = i[x], u.appendChild(L);
-          }
-        } else for (T = 0, k = m.length; T < k; T++) {
-          h = m[T], g = document.createElement("img"), p = h.images[this.options.resolution];if ((typeof p === "undefined" ? "undefined" : _typeof(p)) != "object") throw o = "No image found for resolution: " + this.options.resolution + ".", new Error(o);v = p.url, l = window.location.protocol.indexOf("http") >= 0, l && !this.options.useHttp && (v = v.replace(/https?:\/\//, "//")), g.src = v, this.options.links === !0 ? (t = document.createElement("a"), t.href = h.link, t.appendChild(g), u.appendChild(t)) : u.appendChild(g);
-        }_ = this.options.target, typeof _ == "string" && (_ = document.getElementById(_));if (_ == null) throw o = 'No element with id="' + this.options.target + '" on page.', new Error(o);_.appendChild(u), a = document.getElementsByTagName("head")[0], a.removeChild(document.getElementById("instafeed-fetcher")), S = "instafeedCache" + this.unique, window[S] = void 0;try {
-          delete window[S];
-        } catch (P) {
-          s = P;
-        }
-      }return this.options.after != null && typeof this.options.after == "function" && this.options.after.call(this), !0;
-    }, e.prototype._buildUrl = function () {
-      var e, t, n;e = "https://api.instagram.com/v1";switch (this.options.get) {case "popular":
-          t = "media/popular";break;case "tagged":
-          if (!this.options.tagName) throw new Error("No tag name specified. Use the 'tagName' option.");t = "tags/" + this.options.tagName + "/media/recent";break;case "location":
-          if (!this.options.locationId) throw new Error("No location specified. Use the 'locationId' option.");t = "locations/" + this.options.locationId + "/media/recent";break;case "user":
-          if (!this.options.userId) throw new Error("No user specified. Use the 'userId' option.");t = "users/" + this.options.userId + "/media/recent";break;default:
-          throw new Error("Invalid option for get: '" + this.options.get + "'.");}return n = e + "/" + t, this.options.accessToken != null ? n += "?access_token=" + this.options.accessToken : n += "?client_id=" + this.options.clientId, this.options.limit != null && (n += "&count=" + this.options.limit), n += "&callback=instafeedCache" + this.unique + ".parse", n;
-    }, e.prototype._genKey = function () {
-      var e;return e = function e() {
-        return ((1 + Math.random()) * 65536 | 0).toString(16).substring(1);
-      }, "" + e() + e() + e() + e();
-    }, e.prototype._makeTemplate = function (e, t) {
-      var n, r, i, s, o;r = /(?:\{{2})([\w\[\]\.]+)(?:\}{2})/, n = e;while (r.test(n)) {
-        s = n.match(r)[1], o = (i = this._getObjectProperty(t, s)) != null ? i : "", n = n.replace(r, function () {
-          return "" + o;
-        });
-      }return n;
-    }, e.prototype._getObjectProperty = function (e, t) {
-      var n, r;t = t.replace(/\[(\w+)\]/g, ".$1"), r = t.split(".");while (r.length) {
-        n = r.shift();if (!(e != null && n in e)) return null;e = e[n];
-      }return e;
-    }, e.prototype._sortBy = function (e, t, n) {
-      var r;return r = function r(e, _r) {
-        var i, s;return i = this._getObjectProperty(e, t), s = this._getObjectProperty(_r, t), n ? i > s ? 1 : -1 : i < s ? 1 : -1;
-      }, e.sort(r.bind(this)), e;
-    }, e.prototype._filter = function (e, t) {
-      var n, r, i, s, o;n = [], r = function r(e) {
-        if (t(e)) return n.push(e);
-      };for (i = 0, o = e.length; i < o; i++) {
-        s = e[i], r(s);
-      }return n;
-    }, e;
-  }(), function (e, t) {
-    return  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (t),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (typeof module === "undefined" ? "undefined" : _typeof(module)) == "object" && module.exports ? module.exports = t() : e.Instafeed = t();
-  }(this, function () {
-    return e;
-  });
-}).call(this);
-
-/***/ }),
-
-/***/ 151:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(152);
+var content = __webpack_require__(153);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -15097,7 +15098,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(10)(content, options);
+var update = __webpack_require__(12)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -15115,29 +15116,29 @@ if(false) {
 
 /***/ }),
 
-/***/ 152:
+/***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(200)(undefined);
+exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "/*!\nChosen, a Select Box Enhancer for jQuery and Prototype\nby Patrick Filler for Harvest, http://getharvest.com\n\nVersion 1.7.0\nFull source at https://github.com/harvesthq/chosen\nCopyright (c) 2011-2017 Harvest http://getharvest.com\n\nMIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md\nThis file is generated by `grunt build`, do not edit it by hand.\n*/\n\n/* @group Base */\n.chosen-container {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 13px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.chosen-container * {\n  box-sizing: border-box;\n}\n\n.chosen-container .chosen-drop {\n  position: absolute;\n  top: 100%;\n  z-index: 1010;\n  width: 100%;\n  border: 1px solid #aaa;\n  border-top: 0;\n  background: #fff;\n  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);\n  clip: rect(0, 0, 0, 0);\n}\n\n.chosen-container.chosen-with-drop .chosen-drop {\n  clip: auto;\n}\n\n.chosen-container a {\n  cursor: pointer;\n}\n\n.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {\n  margin-right: 4px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  font-weight: normal;\n  color: #999999;\n}\n\n.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {\n  content: \":\";\n  padding-left: 2px;\n  vertical-align: top;\n}\n\n/* @end */\n/* @group Single Chosen */\n.chosen-container-single .chosen-single {\n  position: relative;\n  display: block;\n  overflow: hidden;\n  padding: 0 0 0 8px;\n  height: 25px;\n  border: 1px solid #aaa;\n  border-radius: 5px;\n  background-color: #fff;\n  background: linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%);\n  background-clip: padding-box;\n  box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);\n  color: #444;\n  text-decoration: none;\n  white-space: nowrap;\n  line-height: 24px;\n}\n\n.chosen-container-single .chosen-default {\n  color: #999;\n}\n\n.chosen-container-single .chosen-single span {\n  display: block;\n  overflow: hidden;\n  margin-right: 26px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.chosen-container-single .chosen-single-with-deselect span {\n  margin-right: 38px;\n}\n\n.chosen-container-single .chosen-single abbr {\n  position: absolute;\n  top: 6px;\n  right: 26px;\n  display: block;\n  width: 12px;\n  height: 12px;\n  background: url(" + __webpack_require__(8) + ") -42px 1px no-repeat;\n  font-size: 1px;\n}\n\n.chosen-container-single .chosen-single abbr:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-single.chosen-disabled .chosen-single abbr:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-single .chosen-single div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: block;\n  width: 18px;\n  height: 100%;\n}\n\n.chosen-container-single .chosen-single div b {\n  display: block;\n  width: 100%;\n  height: 100%;\n  background: url(" + __webpack_require__(8) + ") no-repeat 0px 2px;\n}\n\n.chosen-container-single .chosen-search {\n  position: relative;\n  z-index: 1010;\n  margin: 0;\n  padding: 3px 4px;\n  white-space: nowrap;\n}\n\n.chosen-container-single .chosen-search input[type=\"text\"] {\n  margin: 1px 0;\n  padding: 4px 20px 4px 5px;\n  width: 100%;\n  height: auto;\n  outline: 0;\n  border: 1px solid #aaa;\n  background: url(" + __webpack_require__(8) + ") no-repeat 100% -20px;\n  font-size: 1em;\n  font-family: sans-serif;\n  line-height: normal;\n  border-radius: 0;\n}\n\n.chosen-container-single .chosen-drop {\n  margin-top: -1px;\n  border-radius: 0 0 4px 4px;\n  background-clip: padding-box;\n}\n\n.chosen-container-single.chosen-container-single-nosearch .chosen-search {\n  position: absolute;\n  clip: rect(0, 0, 0, 0);\n}\n\n/* @end */\n/* @group Results */\n.chosen-container .chosen-results {\n  color: #444;\n  position: relative;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 0 4px 4px 0;\n  padding: 0 0 0 4px;\n  max-height: 240px;\n  -webkit-overflow-scrolling: touch;\n}\n\n.chosen-container .chosen-results li {\n  display: none;\n  margin: 0;\n  padding: 5px 6px;\n  list-style: none;\n  line-height: 15px;\n  word-wrap: break-word;\n  -webkit-touch-callout: none;\n}\n\n.chosen-container .chosen-results li.active-result {\n  display: list-item;\n  cursor: pointer;\n}\n\n.chosen-container .chosen-results li.disabled-result {\n  display: list-item;\n  color: #ccc;\n  cursor: default;\n}\n\n.chosen-container .chosen-results li.highlighted {\n  background-color: #3875d7;\n  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);\n  color: #fff;\n}\n\n.chosen-container .chosen-results li.no-results {\n  color: #777;\n  display: list-item;\n  background: #f4f4f4;\n}\n\n.chosen-container .chosen-results li.group-result {\n  display: list-item;\n  font-weight: bold;\n  cursor: default;\n}\n\n.chosen-container .chosen-results li.group-option {\n  padding-left: 15px;\n}\n\n.chosen-container .chosen-results li em {\n  font-style: normal;\n  text-decoration: underline;\n}\n\n/* @end */\n/* @group Multi Chosen */\n.chosen-container-multi .chosen-choices {\n  position: relative;\n  overflow: hidden;\n  margin: 0;\n  padding: 0 5px;\n  width: 100%;\n  height: auto;\n  border: 1px solid #aaa;\n  background-color: #fff;\n  background-image: linear-gradient(#eee 1%, #fff 15%);\n  cursor: text;\n}\n\n.chosen-container-multi .chosen-choices li {\n  float: left;\n  list-style: none;\n}\n\n.chosen-container-multi .chosen-choices li.search-field {\n  margin: 0;\n  padding: 0;\n  white-space: nowrap;\n}\n\n.chosen-container-multi .chosen-choices li.search-field input[type=\"text\"] {\n  margin: 1px 0;\n  padding: 0;\n  height: 25px;\n  outline: 0;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none;\n  color: #999;\n  font-size: 100%;\n  font-family: sans-serif;\n  line-height: normal;\n  border-radius: 0;\n  width: 25px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice {\n  position: relative;\n  margin: 3px 5px 3px 0;\n  padding: 3px 20px 3px 5px;\n  border: 1px solid #aaa;\n  max-width: 100%;\n  border-radius: 3px;\n  background-color: #eeeeee;\n  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);\n  background-size: 100% 19px;\n  background-repeat: repeat-x;\n  background-clip: padding-box;\n  box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);\n  color: #333;\n  line-height: 13px;\n  cursor: default;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice span {\n  word-wrap: break-word;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {\n  position: absolute;\n  top: 4px;\n  right: 3px;\n  display: block;\n  width: 12px;\n  height: 12px;\n  background: url(" + __webpack_require__(8) + ") -42px 1px no-repeat;\n  font-size: 1px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-disabled {\n  padding-right: 5px;\n  border: 1px solid #ccc;\n  background-color: #e4e4e4;\n  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);\n  color: #666;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-focus {\n  background: #d4d4d4;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {\n  background-position: -42px -10px;\n}\n\n.chosen-container-multi .chosen-results {\n  margin: 0;\n  padding: 0;\n}\n\n.chosen-container-multi .chosen-drop .result-selected {\n  display: list-item;\n  color: #ccc;\n  cursor: default;\n}\n\n/* @end */\n/* @group Active  */\n.chosen-container-active .chosen-single {\n  border: 1px solid #5897fb;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single {\n  border: 1px solid #aaa;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n  background-image: linear-gradient(#eee 20%, #fff 80%);\n  box-shadow: 0 1px 0 #fff inset;\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single div {\n  border-left: none;\n  background: transparent;\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single div b {\n  background-position: -18px 2px;\n}\n\n.chosen-container-active .chosen-choices {\n  border: 1px solid #5897fb;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n\n.chosen-container-active .chosen-choices li.search-field input[type=\"text\"] {\n  color: #222 !important;\n}\n\n/* @end */\n/* @group Disabled Support */\n.chosen-disabled {\n  opacity: 0.5 !important;\n  cursor: default;\n}\n\n.chosen-disabled .chosen-single {\n  cursor: default;\n}\n\n.chosen-disabled .chosen-choices .search-choice .search-choice-close {\n  cursor: default;\n}\n\n/* @end */\n/* @group Right to Left */\n.chosen-rtl {\n  text-align: right;\n}\n\n.chosen-rtl .chosen-single {\n  overflow: visible;\n  padding: 0 8px 0 0;\n}\n\n.chosen-rtl .chosen-single span {\n  margin-right: 0;\n  margin-left: 26px;\n  direction: rtl;\n}\n\n.chosen-rtl .chosen-single-with-deselect span {\n  margin-left: 38px;\n}\n\n.chosen-rtl .chosen-single div {\n  right: auto;\n  left: 3px;\n}\n\n.chosen-rtl .chosen-single abbr {\n  right: auto;\n  left: 26px;\n}\n\n.chosen-rtl .chosen-choices li {\n  float: right;\n}\n\n.chosen-rtl .chosen-choices li.search-field input[type=\"text\"] {\n  direction: rtl;\n}\n\n.chosen-rtl .chosen-choices li.search-choice {\n  margin: 3px 5px 3px 0;\n  padding: 3px 5px 3px 19px;\n}\n\n.chosen-rtl .chosen-choices li.search-choice .search-choice-close {\n  right: auto;\n  left: 4px;\n}\n\n.chosen-rtl.chosen-container-single .chosen-results {\n  margin: 0 0 4px 4px;\n  padding: 0 4px 0 0;\n}\n\n.chosen-rtl .chosen-results li.group-option {\n  padding-right: 15px;\n  padding-left: 0;\n}\n\n.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {\n  border-right: none;\n}\n\n.chosen-rtl .chosen-search input[type=\"text\"] {\n  padding: 4px 5px 4px 20px;\n  background: url(" + __webpack_require__(8) + ") no-repeat -30px -20px;\n  direction: rtl;\n}\n\n.chosen-rtl.chosen-container-single .chosen-single div b {\n  background-position: 6px 2px;\n}\n\n.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {\n  background-position: -12px 2px;\n}\n\n/* @end */\n/* @group Retina compatibility */\n@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {\n  .chosen-rtl .chosen-search input[type=\"text\"],\n  .chosen-container-single .chosen-single abbr,\n  .chosen-container-single .chosen-single div b,\n  .chosen-container-single .chosen-search input[type=\"text\"],\n  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,\n  .chosen-container .chosen-results-scroll-down span,\n  .chosen-container .chosen-results-scroll-up span {\n    background-image: url(" + __webpack_require__(153) + ") !important;\n    background-size: 52px 37px !important;\n    background-repeat: no-repeat !important;\n  }\n}\n\n/* @end */\n", ""]);
+exports.push([module.i, "/*!\nChosen, a Select Box Enhancer for jQuery and Prototype\nby Patrick Filler for Harvest, http://getharvest.com\n\nVersion 1.7.0\nFull source at https://github.com/harvesthq/chosen\nCopyright (c) 2011-2017 Harvest http://getharvest.com\n\nMIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md\nThis file is generated by `grunt build`, do not edit it by hand.\n*/\n\n/* @group Base */\n.chosen-container {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 13px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.chosen-container * {\n  box-sizing: border-box;\n}\n\n.chosen-container .chosen-drop {\n  position: absolute;\n  top: 100%;\n  z-index: 1010;\n  width: 100%;\n  border: 1px solid #aaa;\n  border-top: 0;\n  background: #fff;\n  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);\n  clip: rect(0, 0, 0, 0);\n}\n\n.chosen-container.chosen-with-drop .chosen-drop {\n  clip: auto;\n}\n\n.chosen-container a {\n  cursor: pointer;\n}\n\n.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {\n  margin-right: 4px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  font-weight: normal;\n  color: #999999;\n}\n\n.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {\n  content: \":\";\n  padding-left: 2px;\n  vertical-align: top;\n}\n\n/* @end */\n/* @group Single Chosen */\n.chosen-container-single .chosen-single {\n  position: relative;\n  display: block;\n  overflow: hidden;\n  padding: 0 0 0 8px;\n  height: 25px;\n  border: 1px solid #aaa;\n  border-radius: 5px;\n  background-color: #fff;\n  background: linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%);\n  background-clip: padding-box;\n  box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(0, 0, 0, 0.1);\n  color: #444;\n  text-decoration: none;\n  white-space: nowrap;\n  line-height: 24px;\n}\n\n.chosen-container-single .chosen-default {\n  color: #999;\n}\n\n.chosen-container-single .chosen-single span {\n  display: block;\n  overflow: hidden;\n  margin-right: 26px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.chosen-container-single .chosen-single-with-deselect span {\n  margin-right: 38px;\n}\n\n.chosen-container-single .chosen-single abbr {\n  position: absolute;\n  top: 6px;\n  right: 26px;\n  display: block;\n  width: 12px;\n  height: 12px;\n  background: url(" + __webpack_require__(9) + ") -42px 1px no-repeat;\n  font-size: 1px;\n}\n\n.chosen-container-single .chosen-single abbr:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-single.chosen-disabled .chosen-single abbr:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-single .chosen-single div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: block;\n  width: 18px;\n  height: 100%;\n}\n\n.chosen-container-single .chosen-single div b {\n  display: block;\n  width: 100%;\n  height: 100%;\n  background: url(" + __webpack_require__(9) + ") no-repeat 0px 2px;\n}\n\n.chosen-container-single .chosen-search {\n  position: relative;\n  z-index: 1010;\n  margin: 0;\n  padding: 3px 4px;\n  white-space: nowrap;\n}\n\n.chosen-container-single .chosen-search input[type=\"text\"] {\n  margin: 1px 0;\n  padding: 4px 20px 4px 5px;\n  width: 100%;\n  height: auto;\n  outline: 0;\n  border: 1px solid #aaa;\n  background: url(" + __webpack_require__(9) + ") no-repeat 100% -20px;\n  font-size: 1em;\n  font-family: sans-serif;\n  line-height: normal;\n  border-radius: 0;\n}\n\n.chosen-container-single .chosen-drop {\n  margin-top: -1px;\n  border-radius: 0 0 4px 4px;\n  background-clip: padding-box;\n}\n\n.chosen-container-single.chosen-container-single-nosearch .chosen-search {\n  position: absolute;\n  clip: rect(0, 0, 0, 0);\n}\n\n/* @end */\n/* @group Results */\n.chosen-container .chosen-results {\n  color: #444;\n  position: relative;\n  overflow-x: hidden;\n  overflow-y: auto;\n  margin: 0 4px 4px 0;\n  padding: 0 0 0 4px;\n  max-height: 240px;\n  -webkit-overflow-scrolling: touch;\n}\n\n.chosen-container .chosen-results li {\n  display: none;\n  margin: 0;\n  padding: 5px 6px;\n  list-style: none;\n  line-height: 15px;\n  word-wrap: break-word;\n  -webkit-touch-callout: none;\n}\n\n.chosen-container .chosen-results li.active-result {\n  display: list-item;\n  cursor: pointer;\n}\n\n.chosen-container .chosen-results li.disabled-result {\n  display: list-item;\n  color: #ccc;\n  cursor: default;\n}\n\n.chosen-container .chosen-results li.highlighted {\n  background-color: #3875d7;\n  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);\n  color: #fff;\n}\n\n.chosen-container .chosen-results li.no-results {\n  color: #777;\n  display: list-item;\n  background: #f4f4f4;\n}\n\n.chosen-container .chosen-results li.group-result {\n  display: list-item;\n  font-weight: bold;\n  cursor: default;\n}\n\n.chosen-container .chosen-results li.group-option {\n  padding-left: 15px;\n}\n\n.chosen-container .chosen-results li em {\n  font-style: normal;\n  text-decoration: underline;\n}\n\n/* @end */\n/* @group Multi Chosen */\n.chosen-container-multi .chosen-choices {\n  position: relative;\n  overflow: hidden;\n  margin: 0;\n  padding: 0 5px;\n  width: 100%;\n  height: auto;\n  border: 1px solid #aaa;\n  background-color: #fff;\n  background-image: linear-gradient(#eee 1%, #fff 15%);\n  cursor: text;\n}\n\n.chosen-container-multi .chosen-choices li {\n  float: left;\n  list-style: none;\n}\n\n.chosen-container-multi .chosen-choices li.search-field {\n  margin: 0;\n  padding: 0;\n  white-space: nowrap;\n}\n\n.chosen-container-multi .chosen-choices li.search-field input[type=\"text\"] {\n  margin: 1px 0;\n  padding: 0;\n  height: 25px;\n  outline: 0;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none;\n  color: #999;\n  font-size: 100%;\n  font-family: sans-serif;\n  line-height: normal;\n  border-radius: 0;\n  width: 25px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice {\n  position: relative;\n  margin: 3px 5px 3px 0;\n  padding: 3px 20px 3px 5px;\n  border: 1px solid #aaa;\n  max-width: 100%;\n  border-radius: 3px;\n  background-color: #eeeeee;\n  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);\n  background-size: 100% 19px;\n  background-repeat: repeat-x;\n  background-clip: padding-box;\n  box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);\n  color: #333;\n  line-height: 13px;\n  cursor: default;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice span {\n  word-wrap: break-word;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {\n  position: absolute;\n  top: 4px;\n  right: 3px;\n  display: block;\n  width: 12px;\n  height: 12px;\n  background: url(" + __webpack_require__(9) + ") -42px 1px no-repeat;\n  font-size: 1px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {\n  background-position: -42px -10px;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-disabled {\n  padding-right: 5px;\n  border: 1px solid #ccc;\n  background-color: #e4e4e4;\n  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);\n  color: #666;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-focus {\n  background: #d4d4d4;\n}\n\n.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {\n  background-position: -42px -10px;\n}\n\n.chosen-container-multi .chosen-results {\n  margin: 0;\n  padding: 0;\n}\n\n.chosen-container-multi .chosen-drop .result-selected {\n  display: list-item;\n  color: #ccc;\n  cursor: default;\n}\n\n/* @end */\n/* @group Active  */\n.chosen-container-active .chosen-single {\n  border: 1px solid #5897fb;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single {\n  border: 1px solid #aaa;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n  background-image: linear-gradient(#eee 20%, #fff 80%);\n  box-shadow: 0 1px 0 #fff inset;\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single div {\n  border-left: none;\n  background: transparent;\n}\n\n.chosen-container-active.chosen-with-drop .chosen-single div b {\n  background-position: -18px 2px;\n}\n\n.chosen-container-active .chosen-choices {\n  border: 1px solid #5897fb;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n\n.chosen-container-active .chosen-choices li.search-field input[type=\"text\"] {\n  color: #222 !important;\n}\n\n/* @end */\n/* @group Disabled Support */\n.chosen-disabled {\n  opacity: 0.5 !important;\n  cursor: default;\n}\n\n.chosen-disabled .chosen-single {\n  cursor: default;\n}\n\n.chosen-disabled .chosen-choices .search-choice .search-choice-close {\n  cursor: default;\n}\n\n/* @end */\n/* @group Right to Left */\n.chosen-rtl {\n  text-align: right;\n}\n\n.chosen-rtl .chosen-single {\n  overflow: visible;\n  padding: 0 8px 0 0;\n}\n\n.chosen-rtl .chosen-single span {\n  margin-right: 0;\n  margin-left: 26px;\n  direction: rtl;\n}\n\n.chosen-rtl .chosen-single-with-deselect span {\n  margin-left: 38px;\n}\n\n.chosen-rtl .chosen-single div {\n  right: auto;\n  left: 3px;\n}\n\n.chosen-rtl .chosen-single abbr {\n  right: auto;\n  left: 26px;\n}\n\n.chosen-rtl .chosen-choices li {\n  float: right;\n}\n\n.chosen-rtl .chosen-choices li.search-field input[type=\"text\"] {\n  direction: rtl;\n}\n\n.chosen-rtl .chosen-choices li.search-choice {\n  margin: 3px 5px 3px 0;\n  padding: 3px 5px 3px 19px;\n}\n\n.chosen-rtl .chosen-choices li.search-choice .search-choice-close {\n  right: auto;\n  left: 4px;\n}\n\n.chosen-rtl.chosen-container-single .chosen-results {\n  margin: 0 0 4px 4px;\n  padding: 0 4px 0 0;\n}\n\n.chosen-rtl .chosen-results li.group-option {\n  padding-right: 15px;\n  padding-left: 0;\n}\n\n.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {\n  border-right: none;\n}\n\n.chosen-rtl .chosen-search input[type=\"text\"] {\n  padding: 4px 5px 4px 20px;\n  background: url(" + __webpack_require__(9) + ") no-repeat -30px -20px;\n  direction: rtl;\n}\n\n.chosen-rtl.chosen-container-single .chosen-single div b {\n  background-position: 6px 2px;\n}\n\n.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {\n  background-position: -12px 2px;\n}\n\n/* @end */\n/* @group Retina compatibility */\n@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {\n  .chosen-rtl .chosen-search input[type=\"text\"],\n  .chosen-container-single .chosen-single abbr,\n  .chosen-container-single .chosen-single div b,\n  .chosen-container-single .chosen-search input[type=\"text\"],\n  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,\n  .chosen-container .chosen-results-scroll-down span,\n  .chosen-container .chosen-results-scroll-up span {\n    background-image: url(" + __webpack_require__(154) + ") !important;\n    background-size: 52px 37px !important;\n    background-repeat: no-repeat !important;\n  }\n}\n\n/* @end */\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, exports) {
 
 module.exports = "/images/vendor/chosen-js/chosen-sprite@2x.png?614fad616d014daf5367e068505cad35";
 
 /***/ }),
 
-/***/ 154:
+/***/ 155:
 /***/ (function(module, exports) {
 
 (function() {
@@ -16453,7 +16454,7 @@ module.exports = "/images/vendor/chosen-js/chosen-sprite@2x.png?614fad616d014daf
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -18457,89 +18458,6 @@ $(window).on('load', function () {
 
 /***/ }),
 
-/***/ 200:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
 /***/ 3:
 /***/ (function(module, exports) {
 
@@ -19377,6 +19295,88 @@ $(window).on('load', function () {
 /***/ }),
 
 /***/ 8:
+/***/ (function(module, exports) {
+
+window.ProductTour;!function (e) {
+  ProductTour = function ProductTour(t) {
+    function n() {
+      var n = e(".cd-tour-wrapper"),
+          s = n.children("li"),
+          a = s.length,
+          v = e(".cd-cover-layer"),
+          f = e(".cd-more-info"),
+          m = e("#cd-tour-trigger");e(".overlay-tour").css({ display: "block" }), o(s, a), t.html ? (e(".cd-next").html(t.next), e(".cd-prev").html(t.prev)) : (e(".cd-next").text(t.next), e(".cd-prev").text(t.prev)), e(u[c()]).addClass("tour-target-element"), m.on("click", function () {
+        n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
+      }), f.on("click", ".cd-prev", function (t) {
+        !e(t.target).hasClass("inactive") && l(s, v, "prev");
+      }), f.on("click", ".cd-next", function (t) {
+        !e(t.target).hasClass("inactive") && l(s, v, "next");
+      }), f.on("click", ".cd-close", function (o) {
+        r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element));
+      }), f.on("swiperight", function (t) {
+        e(this).find(".cd-prev").hasClass("inactive") || "mobile" != d() || l(s, v, "prev");
+      }), f.on("swipeleft", function (t) {
+        e(this).find(".cd-next").hasClass("inactive") || "mobile" != d() || l(s, v, "next");
+      }), e(document).keyup(function (o) {
+        "37" != o.which || s.filter(".is-selected").find(".cd-prev").hasClass("inactive") ? "39" != o.which || s.filter(".is-selected").find(".cd-next").hasClass("inactive") ? "27" == o.which && (r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element))) : l(s, v, "next") : l(s, v, "prev");
+      }), n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
+    }function o(t, n) {
+      e(".cd-nav").length > 0 && e(".cd-nav").remove();var o = '<div class="cd-nav"><span><b class="cd-actual-step">1</b> of ' + n + '</span><ul class="cd-tour-nav"><li><a href="javascript:;" class="cd-prev">&#8617; Previous</a></li><li><a href="javascript:;" class="cd-next">Next &#8618;</a></li></ul></div><a href="javascript:;" class="cd-close">Close</a>';t.each(function (t) {
+        var i = e(this),
+            s = t + 1,
+            a = s < n ? "" : "inactive",
+            l = 1 == s ? "inactive" : "";e(o).find(".cd-next").addClass(a).end().find(".cd-prev").addClass(l).end().find(".cd-actual-step").html(s).end().appendTo(i.children(".cd-more-info"));
+      });
+    }function i(e, t) {
+      e.addClass("is-selected").removeClass("move-left"), s(e.children(".cd-more-info")), a(t);
+    }function s(t) {
+      if (!(e(window).width() < 768)) {
+        var n = e(u[c()]).offset().top,
+            o = e(u[c()]).height();n < e(window).scrollTop() && e("body,html").animate({ scrollTop: n - o }, "slow"), n + o > e(window).scrollTop() + e(window).height() && e("body,html").animate({ scrollTop: n - o }, "slow");
+      }
+    }function a(e) {
+      e.addClass("is-visible").on("webkitAnimationEnd oanimationend msAnimationEnd animationend", function () {
+        e.removeClass("is-visible");
+      });
+    }function l(n, o, s) {
+      var a = n.filter(".is-selected"),
+          l = "desktop" == d() ? 300 : 0;a.removeClass("is-selected"), e(u[c()]).removeClass("tour-target-element"), "next" == s && a.addClass("move-left"), setTimeout(function () {
+        "next" == s ? i(a.next(), o) : i(a.prev(), o), e(u[c()]).addClass("tour-target-element"), e.isFunction(t.onChanged) && t.onChanged(e(p[c()].element));
+      }, l);
+    }function c() {
+      var t = e(".cd-tour-wrapper"),
+          n = t.children("li"),
+          o = 0;return n.each(function (t, n) {
+        e(n).hasClass("is-selected") && (o = t);
+      }), o;
+    }function r(t, n, o) {
+      t.removeClass("is-selected move-left"), n.removeClass("active"), o.removeClass("is-visible"), e(".overlay-tour").css({ display: "none" }), e(u[c()]).removeClass("tour-target-element");
+    }function d() {
+      return window.getComputedStyle(document.querySelector(".cd-tour-wrapper"), "::before").getPropertyValue("content").replace(/"/g, "").replace(/'/g, "");
+    }var v = !1,
+        p = [],
+        u = [];t.next = t.next ? t.next : "Next", t.prev = t.prev ? t.prev : "Previous", t.html = "html" in t && t.html, t.overlay = !("overlay" in t) || t.overlay, t.onStart = "function" == typeof t.onStart ? t.onStart : void 0, t.onChanged = "function" == typeof t.onChanged ? t.onChanged : void 0, t.onClosed = "function" == typeof t.onClosed ? t.onClosed : void 0, this.startTour = function () {
+      e.fn.exists = function () {
+        return this.length > 0;
+      }, e(".cd-tour-wrapper").exists() && n(), e.isFunction(t.onStart) && t.onStart();
+    }, this.steps = function (n) {
+      if (!(n instanceof Array)) return void console.error("Expecting an array of tour items or steps.");if (v) return void console.warn("Tour steps has already been added, you can't add step on the fly, coming on next version");p = n;var o = "<ul class='cd-tour-wrapper'>",
+          i = "<div><li class='cd-single-step'><span>Step</span><div class='cd-more-info'><h2></h2><p></p><img src=''></div></li></div>",
+          s = "";e.each(n, function (t, n) {
+        n.element = n.element ? n.element : void 0, n.title = n.title ? n.title : void 0, n.content = n.content ? n.content : "", n.image = n.image ? n.image : "images/sample.jpg", n.position = n.position ? n.position : "bottom", void 0 == n.element ? n.element = "body" : n.element += ":first", u.push(n.element);var o = e(i);if (void 0 != n.title ? e("h2", o).text(n.title) : e("h2", o).remove(), e("p", o).text(n.content), e(".cd-more-info", o).addClass(n.position), e("img", o).attr("src", n.image), n.element) {
+          var a = e(n.element).outerWidth() / 2,
+              l = e(n.element).innerHeight() / 2,
+              c = e(n.element).offset().top + -12 + l,
+              r = e(n.element).offset().left + a;e("li.cd-single-step", o).css({ top: c, left: r, height: "10px", width: "10px" });
+        }s += o.html();
+      }), o += s + "</ul>", e("body").append(o), t.overlay && e("body").append("<div class='overlay-tour'></div>"), v = !0;
+    };
+  };
+}(jQuery);
+
+/***/ }),
+
+/***/ 9:
 /***/ (function(module, exports) {
 
 module.exports = "/images/vendor/chosen-js/chosen-sprite.png?8b55a822e72b8fd5e2ee069236f2d797";

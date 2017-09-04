@@ -14,7 +14,9 @@
 			<tbody>
 			<tr>
 				<td align="left" bgcolor="#383838" style="padding: 7px 10px 6px 38px; color: #FFCD06; font-size: 32px;">
-					<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="KeepMoving" width="171">
+					<a href="/">
+						<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="KeepMoving" width="171">
+					</a>
 				</td>
 			</tr>
 			<tr>
@@ -55,7 +57,7 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tbody>
 									<tr>
-										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} contacto@kipmuving.com</td>
+										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a></td>
 									</tr>
 									<tr>
 										<td style="padding-top: 17px;">{{ trans('emails.with_regards') }}</td>
