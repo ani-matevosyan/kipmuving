@@ -1,10 +1,79 @@
-import './product.tour';
-import 'chosen-js/chosen.css';
-import 'chosen-js';
-import './../../../public/libs/prettyPhoto/jquery.prettyPhoto';
-
+require('./common');
+require('../../../public/libs/product-tour/product-tour.min');
+window.moment = require('../../../public/js/moment');
+require('jcf/dist/js/jcf');
+require('jcf/dist/js/jcf.select');
+window.Instafeed = require('../../../public/libs/instafeed/instafeed.min');
+require('./product.tour');
+require('chosen-js/chosen.css');
+require('chosen-js');
+require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
+require('magnific-popup');
 
 $(document).ready(function(){
+
+
+    if($("#image-tour").length){
+        $("#image-tour").magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            closeOnContentClick: false,
+            closeBtnInside: false,
+            mainClass: 'mfp-with-zoom mfp-img-mobile',
+            image: {
+                verticalFit: true
+            },
+            gallery: {
+                enabled: true
+            },
+            zoom: {
+                enabled: true,
+                duration: 300,
+                opener: function(element) {
+                    return element.find('img');
+                }
+            }
+        });
+    }
+
+    jcf.setOptions('Select', {
+        wrapNative: false,
+        wrapNativeOnMobile: false,
+        maxVisibleItems: 5
+    });
+    jcf.replace('select:not(.dropdown-activity)');
+
+    $('[data-datepicker]').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
+
+    $('#reserve-date').datepicker('option', 'onSelect', function (dt) {
+        $.ajax({
+            type: 'POST',
+            url: '/offer/date/set',
+            data: {
+                date: dt,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function () {
+                $('#reserve-date-sd').val(dt);
+            }
+        });
+    });
+
+    $('#reserve-date-sd').datepicker('option', 'onSelect', function (dt) {
+        $.ajax({
+            type: 'POST',
+            url: '/offer/date/set',
+            data: {
+                date: dt,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function () {
+                $('#reserve-date').val(dt);
+            }
+        });
+    });
 
     if($('.dropdown-activity').length){
         let yourSelect = $(".dropdown-activity"),
@@ -44,6 +113,8 @@ $(document).ready(function(){
             error: function(){
                 location.reload();
             }
+        }).done(() => {
+            $(".loader").remove();
         });
     }
 
@@ -71,12 +142,11 @@ $(document).ready(function(){
                 $('#message-modal #message').text('Sorry. There is some problem with transferring data to the server. Please try again after reload');
                 $('#message-modal').modal('show');
                 setTimeout(function(){
-                    // location.reload();
+                    location.reload();
                 },2000);
             }
         }).done(function(){
             getsuprogram();
-            $(".loader").remove();
             $('html, body').animate({scrollTop: '0px'}, 800);
         });
     });
@@ -94,7 +164,6 @@ $(document).ready(function(){
             },
             success: function(){
                 pickedel.remove();
-                getsuprogram();
                 if($(".offers-list li").length === 0 ){
                     $("section.widget.summary").slideUp();
                 }
@@ -103,14 +172,14 @@ $(document).ready(function(){
                     jQuery('#calendar').fullCalendar('refetchEvents');
                 }
                 if(window.location.pathname === '/reserve'){
-                    // location.reload();
+                    location.reload();
                 }
             },
             error: function(){
-                // location.reload();
+                location.reload();
             }
         }).done(function(){
-            $(".loader").remove();
+            getsuprogram();
         });
         return false;
     });
@@ -153,10 +222,9 @@ $(document).ready(function(){
                 timeRange: hours
             },
             error: function(){
-                // location.reload();
+                location.reload();
             }
         }).done(function(){
-            getsuprogram();
             $.ajax({
                 type: "GET",
                 url: "/activities/getselectedoffers",
@@ -175,7 +243,7 @@ $(document).ready(function(){
                     location.reload();
                 }
             }).done(function(){
-                $(".loader").remove();
+                getsuprogram();
             });
         });
         return false;

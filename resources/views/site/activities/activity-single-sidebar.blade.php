@@ -99,7 +99,7 @@
 			{{--})(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');--}}
 		{{--</script>--}}
 	{{--</div>--}}
-	<div class="img-tour">
+	<div class="img-tour" id="image-tour">
 		@if (count($activity->images) > 0)
 			<div class="row">
 				<div class="col-sm-12">

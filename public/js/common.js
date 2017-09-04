@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 162);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10326,30 +10326,11 @@ return jQuery;
 
 /***/ }),
 
-/***/ 167:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(168);
+module.exports = __webpack_require__(2);
 
-
-/***/ }),
-
-/***/ 168:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-
-$(document).ready(function () {
-
-    //Activity comments script
-
-    $(".comments-block__answer-button").click(function (e) {
-        e.preventDefault();
-        $("#comments-block__form").find("input[name=comment_id]").val($(this).attr('href'));
-        var answerText = $("#comments-block__form").attr("data-answerText");
-        $("#comments-block__form").find(".comments-block__send-button").text(answerText);
-    });
-});
 
 /***/ }),
 

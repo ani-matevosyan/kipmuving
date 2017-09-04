@@ -3,35 +3,6 @@
 {{-- Content --}}
 @section('content')
 
-	{{--<section class="activities-hero" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">--}}
-
-		{{--<div class="container">--}}
-			{{--@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])--}}
-		{{--</div>--}}
-
-		{{--@if(isset($slider_activities) && count($slider_activities) > 0)--}}
-			{{--<div class="activities-slider-wrapper">--}}
-				{{--<div class="container">--}}
-					{{--<header>--}}
-						{{--<h2>{{ trans('main.the_most_requested') }}</h2>--}}
-						{{--<p>{{ trans('main.below_are_the_activities') }}</p>--}}
-					{{--</header>--}}
-					{{--<div id="activities-slider" class="csHidden">--}}
-						{{--@foreach($slider_activities as $activity)--}}
-							{{--<div class="item">--}}
-								{{--<a href="{{ action('ActivityController@getActivity', $activity->id) }}">--}}
-									{{--<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" alt="{{ $activity->name }}"/>--}}
-									{{--<h3>{{ $activity->name }}</h3>--}}
-								{{--</a>--}}
-							{{--</div>--}}
-						{{--@endforeach--}}
-					{{--</div>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-		{{--@endif--}}
-
-	{{--</section>--}}
-
 	<main id="main">
 		<section class="visited-activities-section">
 			<div class="container">

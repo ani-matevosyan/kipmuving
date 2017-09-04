@@ -60,7 +60,7 @@
 										<header class="s-program__header s-program__header_subscription">
 											<h3 class="s-program__title s-program__title_subscription">{{ trans('main.receive_offers') }}</h3>
 											<p class="s-program__offers-count">
-												<span id="count-activities">{{ count($special_offers) }}</span>
+												<span id="count-special-offers">{{ count($special_offers) }}</span>
 												@if(count($special_offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
 											</p>
 										</header>

@@ -1,8 +1,9 @@
 @import "./common";
-@import "../../../public/libs/fullcalendar/fullcalendar";
+@import "../../../node_modules/fullcalendar/dist/fullcalendar";
 @import "./components/reservation-sidebar";
 @import "./components/export-button";
 @import "./components/loader";
+
 
 .calendar-page-header{
   max-width: 600px;

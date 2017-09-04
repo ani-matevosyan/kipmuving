@@ -6,9 +6,6 @@ return [
           'css/home-style.css'
         ],
         'scripts' => [
-          'libs/product-tour/product-tour.min.js',
-          'libs/jcf/js/jcf.js',
-          'libs/jcf/js/jcf.select.js',
           'js/home-scripts.js'
         ]
     ],
@@ -49,8 +46,7 @@ return [
           'css/reservation-style.css',
         ],
         'scripts' => [
-          'js/product.tour.js',
-          'libs/product-tour/product-tour.min.js',
+          'js/reservation-scripts.js'
         ]
     ],
 
@@ -72,6 +68,11 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
+        'libs/jquery/jquery-3.1.0.min.js',
+        'libs/bootstrap/js/bootstrap.min.js',
+        'libs/jcf/js/jcf.js',
+        'libs/jcf/js/jcf.select.js',
+        'libs/jquery-ui/datepicker/jquery-ui.js',
         'libs/instafeed/instafeed.min.js',
         'js/instafeed-settings.js',
         'js/free-pages-scripts.js'
@@ -83,9 +84,12 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
+        'libs/jquery/jquery-3.1.0.min.js',
+        'libs/bootstrap/js/bootstrap.min.js',
         'libs/instafeed/instafeed.min.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
+        'libs/jquery-ui/datepicker/jquery-ui.js',
         'js/ResizeSensor.min.js',
         'libs/mapbox-gl/mapbox-gl.js',
         'js/free-pages-scripts.js'
@@ -97,9 +101,12 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
+        'libs/jquery/jquery-3.1.0.min.js',
+        'libs/bootstrap/js/bootstrap.min.js',
         'libs/instafeed/instafeed.min.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
+        'libs/jquery-ui/datepicker/jquery-ui.js',
         'js/ResizeSensor.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
         'js/free-pages-scripts.js'
@@ -111,9 +118,12 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
+        'libs/jquery/jquery-3.1.0.min.js',
+        'libs/bootstrap/js/bootstrap.min.js',
         'libs/instafeed/instafeed.min.js',
         'libs/jcf/js/jcf.js',
         'libs/jcf/js/jcf.select.js',
+        'libs/jquery-ui/datepicker/jquery-ui.js',
         'js/ResizeSensor.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
         'js/free-pages-scripts.js'
@@ -124,17 +134,9 @@ return [
 
   'calendar' => [
     'styles' => [
-      [
-        'media' => 'print',
-        'link' => 'libs/fullcalendar/fullcalendar.print.css'
-      ],
       'css/calendar-style.css'
     ],
     'scripts' => [
-      'libs/fullcalendar/lib/moment.min.js',
-      'libs/fullcalendar/fullcalendar.min.js',
-      'libs/fullcalendar/es.js',
-      'libs/fullcalendar/pt.js',
       'js/calendarpage-scripts.js'
     ]
   ],
@@ -147,10 +149,6 @@ return [
         'css/agency-style.css'
       ],
       'scripts' => [
-        'libs/instafeed/instafeed.min.js',
-        'js/instafeed-settings.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap',
         'js/agency-scripts.js',
       ]
@@ -174,11 +172,6 @@ return [
         'css/activity-style.css'
       ],
       'scripts' => [
-        'libs/product-tour/product-tour.min.js',
-        'js/moment.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
-        'libs/instafeed/instafeed.min.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap',
         'js/activity-scripts.js'
       ]
@@ -189,7 +182,6 @@ return [
         'css/activities-style.css'
       ],
       'scripts' => [
-        'libs/jquery-ui/slider/jquery-ui.min.js',
         'js/activities-scripts.js'
       ]
     ]

@@ -1,5 +1,5 @@
 
-$(window).load(function(){
+$(window).on('load', function(){
 
     var isDesctop = $(window).width() > 767;
 

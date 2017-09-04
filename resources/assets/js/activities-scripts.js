@@ -1,26 +1,14 @@
+require("./common");
+require("../../../public/libs/jquery-ui/slider/jquery-ui.min");
+
+
+
 $(document).ready(function(){
-
-    if($("#activities-slider").length){
-        $("#activities-slider").owlCarousel({
-            autoPlay: 3000,
-            pagination: false,
-            navigation: true,
-            navigationText: [
-                "<span class='glyphicon glyphicon-menu-left'></span>",
-                "<span class='glyphicon glyphicon-menu-right'></span>"
-            ],
-            items: 3,
-            itemsDesktop: [1199, 3],
-            itemsDesktopSmall: [979, 3]
-
-        });
-        $('#activities-slider').removeClass('csHidden');
-    }
 
     //Opening and closing mobile filter modal
 
 
-    var filtersModal = $(".filters-modal");
+    let filtersModal = $(".filters-modal");
     $(".btn-open-filters").click(function(e){
         e.preventDefault();
         filtersModal.show();
@@ -68,16 +56,16 @@ $(document).ready(function(){
 
         $(".all-activities").html("<div class='loader'><div class='loader__inside'></div></div>");
 
-        var filterData = {
+        let filterData = {
             'style': [],
             'period': [],
             'price': []
         };
 
-        var activeFilters = 0;
+        let activeFilters = 0;
 
         $(".filter-item input[type=checkbox]").each(function(){
-            var thisName = $(this).attr('name');
+            let thisName = $(this).attr('name');
             if($(this).is(":checked")){
                 activeFilters++;
                 if(thisName == 'style'){

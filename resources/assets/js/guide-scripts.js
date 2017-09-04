@@ -1,3 +1,6 @@
+require('./common');
+
+
 $(document).ready(function(){
 
     //Activity comments script

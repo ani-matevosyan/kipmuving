@@ -1,7 +1,7 @@
+window.$ = window.jQuery = require('jquery');
+require('../../../public/libs/bootstrap/js/bootstrap');
+
 $(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip({
-        'container': 'body'
-    });
 
     //BURGER
     var opened = false;
@@ -117,7 +117,7 @@ $(document).ready(function () {
 });
 
 //TRIPADVISOR WIDGET CUSTOMIZE
-$(window).load(function(){
+$(window).on('load', function(){
 
     if (window.location.pathname.indexOf('/free/') === 0){
         $(".opiniones").css("visibility", "visible");

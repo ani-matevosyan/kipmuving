@@ -1,5 +1,6 @@
-import 'jcf/dist/js/jcf';
-import 'jcf/dist/js/jcf.select';
+require('./common');
+require('jcf/dist/js/jcf');
+require('jcf/dist/js/jcf.select');
 
 $(document).ready(function(){
 

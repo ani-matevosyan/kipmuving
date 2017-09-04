@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 184);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10326,30 +10326,102 @@ return jQuery;
 
 /***/ }),
 
-/***/ 167:
+/***/ 12:
+/***/ (function(module, exports) {
+
+window.ProductTour;!function (e) {
+  ProductTour = function ProductTour(t) {
+    function n() {
+      var n = e(".cd-tour-wrapper"),
+          s = n.children("li"),
+          a = s.length,
+          v = e(".cd-cover-layer"),
+          f = e(".cd-more-info"),
+          m = e("#cd-tour-trigger");e(".overlay-tour").css({ display: "block" }), o(s, a), t.html ? (e(".cd-next").html(t.next), e(".cd-prev").html(t.prev)) : (e(".cd-next").text(t.next), e(".cd-prev").text(t.prev)), e(u[c()]).addClass("tour-target-element"), m.on("click", function () {
+        n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
+      }), f.on("click", ".cd-prev", function (t) {
+        !e(t.target).hasClass("inactive") && l(s, v, "prev");
+      }), f.on("click", ".cd-next", function (t) {
+        !e(t.target).hasClass("inactive") && l(s, v, "next");
+      }), f.on("click", ".cd-close", function (o) {
+        r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element));
+      }), f.on("swiperight", function (t) {
+        e(this).find(".cd-prev").hasClass("inactive") || "mobile" != d() || l(s, v, "prev");
+      }), f.on("swipeleft", function (t) {
+        e(this).find(".cd-next").hasClass("inactive") || "mobile" != d() || l(s, v, "next");
+      }), e(document).keyup(function (o) {
+        "37" != o.which || s.filter(".is-selected").find(".cd-prev").hasClass("inactive") ? "39" != o.which || s.filter(".is-selected").find(".cd-next").hasClass("inactive") ? "27" == o.which && (r(s, n, v), e.isFunction(t.onClosed) && t.onClosed(e(p[c()].element))) : l(s, v, "next") : l(s, v, "prev");
+      }), n.hasClass("active") || (n.addClass("active"), i(s.eq(0), v));
+    }function o(t, n) {
+      e(".cd-nav").length > 0 && e(".cd-nav").remove();var o = '<div class="cd-nav"><span><b class="cd-actual-step">1</b> of ' + n + '</span><ul class="cd-tour-nav"><li><a href="javascript:;" class="cd-prev">&#8617; Previous</a></li><li><a href="javascript:;" class="cd-next">Next &#8618;</a></li></ul></div><a href="javascript:;" class="cd-close">Close</a>';t.each(function (t) {
+        var i = e(this),
+            s = t + 1,
+            a = s < n ? "" : "inactive",
+            l = 1 == s ? "inactive" : "";e(o).find(".cd-next").addClass(a).end().find(".cd-prev").addClass(l).end().find(".cd-actual-step").html(s).end().appendTo(i.children(".cd-more-info"));
+      });
+    }function i(e, t) {
+      e.addClass("is-selected").removeClass("move-left"), s(e.children(".cd-more-info")), a(t);
+    }function s(t) {
+      if (!(e(window).width() < 768)) {
+        var n = e(u[c()]).offset().top,
+            o = e(u[c()]).height();n < e(window).scrollTop() && e("body,html").animate({ scrollTop: n - o }, "slow"), n + o > e(window).scrollTop() + e(window).height() && e("body,html").animate({ scrollTop: n - o }, "slow");
+      }
+    }function a(e) {
+      e.addClass("is-visible").on("webkitAnimationEnd oanimationend msAnimationEnd animationend", function () {
+        e.removeClass("is-visible");
+      });
+    }function l(n, o, s) {
+      var a = n.filter(".is-selected"),
+          l = "desktop" == d() ? 300 : 0;a.removeClass("is-selected"), e(u[c()]).removeClass("tour-target-element"), "next" == s && a.addClass("move-left"), setTimeout(function () {
+        "next" == s ? i(a.next(), o) : i(a.prev(), o), e(u[c()]).addClass("tour-target-element"), e.isFunction(t.onChanged) && t.onChanged(e(p[c()].element));
+      }, l);
+    }function c() {
+      var t = e(".cd-tour-wrapper"),
+          n = t.children("li"),
+          o = 0;return n.each(function (t, n) {
+        e(n).hasClass("is-selected") && (o = t);
+      }), o;
+    }function r(t, n, o) {
+      t.removeClass("is-selected move-left"), n.removeClass("active"), o.removeClass("is-visible"), e(".overlay-tour").css({ display: "none" }), e(u[c()]).removeClass("tour-target-element");
+    }function d() {
+      return window.getComputedStyle(document.querySelector(".cd-tour-wrapper"), "::before").getPropertyValue("content").replace(/"/g, "").replace(/'/g, "");
+    }var v = !1,
+        p = [],
+        u = [];t.next = t.next ? t.next : "Next", t.prev = t.prev ? t.prev : "Previous", t.html = "html" in t && t.html, t.overlay = !("overlay" in t) || t.overlay, t.onStart = "function" == typeof t.onStart ? t.onStart : void 0, t.onChanged = "function" == typeof t.onChanged ? t.onChanged : void 0, t.onClosed = "function" == typeof t.onClosed ? t.onClosed : void 0, this.startTour = function () {
+      e.fn.exists = function () {
+        return this.length > 0;
+      }, e(".cd-tour-wrapper").exists() && n(), e.isFunction(t.onStart) && t.onStart();
+    }, this.steps = function (n) {
+      if (!(n instanceof Array)) return void console.error("Expecting an array of tour items or steps.");if (v) return void console.warn("Tour steps has already been added, you can't add step on the fly, coming on next version");p = n;var o = "<ul class='cd-tour-wrapper'>",
+          i = "<div><li class='cd-single-step'><span>Step</span><div class='cd-more-info'><h2></h2><p></p><img src=''></div></li></div>",
+          s = "";e.each(n, function (t, n) {
+        n.element = n.element ? n.element : void 0, n.title = n.title ? n.title : void 0, n.content = n.content ? n.content : "", n.image = n.image ? n.image : "images/sample.jpg", n.position = n.position ? n.position : "bottom", void 0 == n.element ? n.element = "body" : n.element += ":first", u.push(n.element);var o = e(i);if (void 0 != n.title ? e("h2", o).text(n.title) : e("h2", o).remove(), e("p", o).text(n.content), e(".cd-more-info", o).addClass(n.position), e("img", o).attr("src", n.image), n.element) {
+          var a = e(n.element).outerWidth() / 2,
+              l = e(n.element).innerHeight() / 2,
+              c = e(n.element).offset().top + -12 + l,
+              r = e(n.element).offset().left + a;e("li.cd-single-step", o).css({ top: c, left: r, height: "10px", width: "10px" });
+        }s += o.html();
+      }), o += s + "</ul>", e("body").append(o), t.overlay && e("body").append("<div class='overlay-tour'></div>"), v = !0;
+    };
+  };
+}(jQuery);
+
+/***/ }),
+
+/***/ 184:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(168);
+module.exports = __webpack_require__(185);
 
 
 /***/ }),
 
-/***/ 168:
+/***/ 185:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-
-$(document).ready(function () {
-
-    //Activity comments script
-
-    $(".comments-block__answer-button").click(function (e) {
-        e.preventDefault();
-        $("#comments-block__form").find("input[name=comment_id]").val($(this).attr('href'));
-        var answerText = $("#comments-block__form").attr("data-answerText");
-        $("#comments-block__form").find(".comments-block__send-button").text(answerText);
-    });
-});
+__webpack_require__(12);
+__webpack_require__(7);
 
 /***/ }),
 
@@ -11161,6 +11233,123 @@ if (typeof jQuery === 'undefined') {
     };
   });
 }(jQuery);
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports) {
+
+
+$(window).on('load', function () {
+
+    var isDesctop = $(window).width() > 767;
+
+    $(window).resize(function () {
+        isDesctop = $(window).width() > 767;
+    });
+
+    if (typeof Storage !== "undefined" && isDesctop) {
+        if (window.location.pathname === '/home' || window.location.pathname === '/') {
+            if (localStorage.hometour !== "visited") {
+                homeTour();
+            }
+            $(".info-tour").show();
+        }
+        if (window.location.pathname.indexOf('/activity/') === 0) {
+            if (localStorage.activitytour !== "visited") {
+                activitytour();
+            }
+            $(".info-tour").show();
+        }
+        if (window.location.pathname === '/reserve') {
+            if (localStorage.reservationtour !== "visited") {
+                reservationtour();
+            }
+            $(".info-tour").show();
+        }
+    }
+
+    function homeTour() {
+        var productTour_home = new ProductTour({
+            overlay: true
+        });
+        productTour_home.steps([{
+            element: '#activity-form',
+            title: 'Busque su actividad',
+            content: 'Busque las actividades que quiere hacer y seleccione la fecha que estará en Pucón.',
+            image: 'images/tour/home-tour-1.jpg'
+        }, {
+            element: '#guia',
+            title: 'Guia de Pucón',
+            content: 'Preparamos una guia completa de Pucón con las actividades más buscadas y también tours gratuitos que puede hacer.',
+            image: 'images/tour/home-tour-3.jpg'
+        }]);
+        productTour_home.startTour();
+        localStorage.hometour = "visited";
+    }
+
+    function activitytour() {
+        var productTour_activity = new ProductTour({
+            overlay: true
+        });
+        productTour_activity.steps([{
+            element: '.jcf-select-hours',
+            title: 'Los horarios',
+            content: 'Algunas actividades poseen dos horarios distintos, elija aquel que más le acomode',
+            image: '../images/tour/activity-tour-2.jpg'
+        }, {
+            element: '.btn-reserve',
+            title: 'La fecha',
+            content: 'Recuerde de seleccionar la fecha correcta para la actividad que quiere hacer',
+            image: '../images/tour/activity-tour-3.jpg'
+        }, {
+            element: '#program-schedule',
+            title: 'Incluya la actividad',
+            content: 'Presione el botón AGREGAR, para incluir en su carrito de actividades',
+            image: '../images/tour/activity-tour-4.jpg'
+        }, {
+            element: '#reserve-date',
+            title: 'Su carrito',
+            content: 'Luego presionar AGREGAR, sus actividades estarán en su carrito. Para finalizar su reserva, presione MI AGENDA',
+            image: '../images/tour/home-tour-2.jpg'
+        }]);
+        productTour_activity.startTour();
+        localStorage.activitytour = "visited";
+    }
+
+    function reservationtour() {
+        var productTour_activity = new ProductTour({
+            overlay: true
+        });
+        productTour_activity.steps([{
+            element: '#reservetour1',
+            title: 'Atento a las condiciones de las agencias',
+            content: 'Cada actividad y agencia tiene sus propias condiciones. Esté atento cuales son.',
+            image: '../images/tour/reserve-tour-1.jpg'
+        }, {
+            element: '.btn-reservar.reserve',
+            title: 'Reservar',
+            content: 'Para confirmar sus actividades, presione el botón y pague la tarifa de reserva.',
+            image: '../images/tour/reserve-tour-2.jpg'
+        }]);
+        productTour_activity.startTour();
+        localStorage.reservationtour = "visited";
+    }
+
+    $(".info-tour").click(function () {
+        if (isDesctop) {
+            if (window.location.pathname === '/home' || window.location.pathname === '/') {
+                homeTour();
+            } else if (window.location.pathname === '/activities') {
+                activitiesTour();
+            } else if (window.location.pathname.indexOf('/activity/') === 0) {
+                activitytour();
+            } else if (window.location.pathname === '/reserve') {
+                reservationtour();
+            }
+        }
+    });
+});
 
 /***/ })
 

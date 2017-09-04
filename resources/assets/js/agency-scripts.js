@@ -1,4 +1,22 @@
+require('./common');
+require('jcf/dist/js/jcf');
+require('jcf/dist/js/jcf.select');
+window.Instafeed = require('../../../public/libs/instafeed/instafeed.min');
+require('./instafeed-settings');
+require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
+
 $(document).ready(function(){
+
+    jcf.setOptions('Select', {
+        wrapNative: false,
+        wrapNativeOnMobile: false,
+        maxVisibleItems: 5
+    });
+    jcf.replace('select');
+
+    $('[data-datepicker]').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
 
     function getsuprogram(){
         $.ajax({

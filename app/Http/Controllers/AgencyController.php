@@ -23,6 +23,7 @@ class AgencyController extends Controller
 			'imageIndex' => $imageIndex,
 			'agencies'   => Agency::where('region', '=', $region)->get(),
 			'count'      => [
+        'special_offers' => count(session('basket.special')),
 				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total'   => $offer->getSelectedOffersTotal(),
@@ -42,6 +43,7 @@ class AgencyController extends Controller
 			'scripts' => config('resources.agencies.single.scripts'),
 			'agency'  => $_agency->getAgency($id),
 			'count'   => [
+        'special_offers' => count(session('basket.special')),
 				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total'   => $offer->getSelectedOffersTotal(),

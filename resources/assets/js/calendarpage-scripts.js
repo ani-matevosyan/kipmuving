@@ -1,3 +1,6 @@
+require('./common');
+require('fullcalendar');
+
 $(document).ready(function(){
 
 
@@ -7,7 +10,6 @@ $(document).ready(function(){
             url: "/activities/getsuprogram",
             data: "",
             success: response => {
-                console.log(response);
                 $("#count-activities").text(response.data.offers);
                 $("#count-special-offers").text(response.data.special_offers);
             },
@@ -181,8 +183,7 @@ $(document).ready(function(){
     //------------------- END Generate link --------------
 
     function calendarCalc(){
-        let totalcost = 0,
-            totaldisc;
+        let totalcost = 0;
         $("#instant-booking-list .basket-list__item" ).each( function(){
             let totalcostprep = ($(this).find(".basket-list__price").text());
             totalcost += parseInt(totalcostprep.split('.').join(""));
@@ -252,4 +253,4 @@ $(document).ready(function(){
     });
 
 
-})
+});
