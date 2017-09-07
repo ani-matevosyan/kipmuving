@@ -1,9 +1,10 @@
 @import "./common";
 @import "../../../public/libs/jquery-ui/slider/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
-@import "../../../public/libs/instafeed/instafeed";
 @import "../../../public/libs/tripadvisor/tripadvisor";
-@import "../../../public/libs/mapbox-gl/mapbox-gl";
+@import "../../../node_modules/mapbox-gl/dist/mapbox-gl";
+
+@import "components/instafeed";
 
 .your-reservation.activity h1{
   font-weight: 700;

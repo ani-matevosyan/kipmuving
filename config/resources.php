@@ -68,13 +68,6 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
-        'libs/jquery/jquery-3.1.0.min.js',
-        'libs/bootstrap/js/bootstrap.min.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
-        'libs/jquery-ui/datepicker/jquery-ui.js',
-        'libs/instafeed/instafeed.min.js',
-        'js/instafeed-settings.js',
         'js/free-pages-scripts.js'
       ]
     ],
@@ -84,14 +77,6 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
-        'libs/jquery/jquery-3.1.0.min.js',
-        'libs/bootstrap/js/bootstrap.min.js',
-        'libs/instafeed/instafeed.min.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
-        'libs/jquery-ui/datepicker/jquery-ui.js',
-        'js/ResizeSensor.min.js',
-        'libs/mapbox-gl/mapbox-gl.js',
         'js/free-pages-scripts.js'
       ]
     ],
@@ -101,15 +86,8 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
-        'libs/jquery/jquery-3.1.0.min.js',
-        'libs/bootstrap/js/bootstrap.min.js',
-        'libs/instafeed/instafeed.min.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
-        'libs/jquery-ui/datepicker/jquery-ui.js',
-        'js/ResizeSensor.min.js',
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
-        'js/free-pages-scripts.js'
+        'js/free-pages-scripts.js',
+        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
       ]
     ],
 
@@ -118,15 +96,8 @@ return [
         'css/free-style.css'
       ],
       'scripts' => [
-        'libs/jquery/jquery-3.1.0.min.js',
-        'libs/bootstrap/js/bootstrap.min.js',
-        'libs/instafeed/instafeed.min.js',
-        'libs/jcf/js/jcf.js',
-        'libs/jcf/js/jcf.select.js',
-        'libs/jquery-ui/datepicker/jquery-ui.js',
-        'js/ResizeSensor.min.js',
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps',
-        'js/free-pages-scripts.js'
+        'js/free-pages-scripts.js',
+        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
       ]
     ]
   ],

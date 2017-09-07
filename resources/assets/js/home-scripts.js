@@ -1,10 +1,10 @@
 require('./common');
 require('../../../public/libs/product-tour/product-tour.min');
+require('./product.tour');
 require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 require('owl.carousel/dist/assets/owl.carousel.css');
 require('owl.carousel');
-require('./product.tour');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 
 $(document).ready(function(){

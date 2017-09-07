@@ -1,7 +1,7 @@
 require('./common');
 require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
-window.Instafeed = require('../../../public/libs/instafeed/instafeed.min');
+window.Instafeed = require('instafeed.js');
 require('./instafeed-settings');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 

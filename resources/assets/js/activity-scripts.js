@@ -3,7 +3,7 @@ require('../../../public/libs/product-tour/product-tour.min');
 window.moment = require('../../../public/js/moment');
 require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
-window.Instafeed = require('../../../public/libs/instafeed/instafeed.min');
+window.Instafeed = require('instafeed.js');
 require('./product.tour');
 require('chosen-js/chosen.css');
 require('chosen-js');
