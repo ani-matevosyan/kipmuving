@@ -17,6 +17,7 @@
     "/css/user-account-style.css": "/css/user-account-style.css",
     "/css/user-reservations-style.css": "/css/user-reservations-style.css",
     "/js/home-scripts.js": "/js/home-scripts.js",
+    "/js/free-pages-scripts.js": "/js/free-pages-scripts.js",
     "/js/agency-scripts.js": "/js/agency-scripts.js",
     "/js/user-reservations-scripts.js": "/js/user-reservations-scripts.js",
     "/js/reservation-scripts.js": "/js/reservation-scripts.js",
@@ -26,6 +27,5 @@
     "/js/send-offer-scripts.js": "/js/send-offer-scripts.js",
     "/js/product.tour.js": "/js/product.tour.js",
     "/js/instafeed-settings.js": "/js/instafeed-settings.js",
-    "/js/free-pages-scripts.js": "/js/free-pages-scripts.js",
     "/js/fixed-sidebar.js": "/js/fixed-sidebar.js"
 }

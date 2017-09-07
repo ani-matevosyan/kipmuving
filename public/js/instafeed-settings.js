@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 176);
+/******/ 	return __webpack_require__(__webpack_require__.s = 179);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 16:
+/***/ 12:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -167,8 +167,8 @@ $(document).ready(function () {
 			}
 		});
 		feed2_2.run();
-	};
-	if ($("#instafeed2_3").length) {
+    }
+    if ($("#instafeed2_3").length) {
 		var feed2_3 = new Instafeed({
 			get: 'tagged',
 			tagName: 'saltodelclaro',
@@ -238,10 +238,10 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 176:
+/***/ 179:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(16);
+module.exports = __webpack_require__(12);
 
 
 /***/ })

@@ -10842,556 +10842,6 @@ body {
   border-radius: 4px;
 }
 
-.tooltip > .tooltip-inner {
-  background-color: #ffeedb;
-  color: #000000;
-  border: 0;
-  border-radius: 6px;
-  padding: 5px 14px;
-  width: 118px;
-  line-height: 1;
-}
-
-/* Tooltip on top */
-.hover-tooltip {
-  margin-top: 9px;
-}
-
-.tooltip.top .tooltip-arrow {
-  bottom: -10px;
-  margin-left: -9px;
-  border-width: 5px 8px 0;
-  border-top-color: #ffeedb;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #ffeedb;
-  -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-  -moz-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-  -ms-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-  -o-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-  filter: drop-shadow(0 1px 0px rgba(0, 0, 0, 0.4));
-}
-
-.tooltip.in {
-  opacity: 1;
-}
-
-.tooltip.top {
-  padding: 0px;
-  margin-top: -13px;
-}
-
-/* === Home Page Section ==== */
-.complete-wizard {
-  background-color: #262626;
-  padding: 30px 25px 40px 25px;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.complete-wizard .content-wizard-heading {
-  color: #ffffff;
-  background-color: #383d4f;
-  width: 100%;
-  text-align: center;
-  /* End heading */
-}
-
-.complete-wizard .content-wizard-heading:after {
-  content: "";
-  border-top: 20px solid #383d4f;
-  border-left: 22px solid transparent;
-  border-right: 22px solid transparent;
-  /* bottom: 0px; */
-  position: absolute;
-  left: 26%;
-  margin-left: -18px;
-  width: 0;
-  height: 0;
-}
-
-.complete-wizard .content-wizard-heading h1 {
-  font-size: 46px;
-  line-height: 50px;
-  font-weight: 400;
-  vertical-align: middle;
-  display: inline-block;
-  padding-right: 25px;
-  margin: auto;
-}
-
-@media (max-width: 767px) {
-  .complete-wizard .content-wizard-heading h1 {
-    font-size: 29px;
-    line-height: 1.3;
-  }
-}
-
-.complete-wizard .content-wizard-heading img {
-  display: inline-block;
-  padding: 20px 5px 20px 25px;
-  margin: auto;
-}
-
-@media (max-width: 767px) {
-  .complete-wizard .content-wizard-heading img {
-    padding: 10px 1px 20px 1px;
-  }
-}
-
-/* ====description ===*/
-.content-wizard-desc {
-  color: #ffffff;
-  background-color: #4b8384;
-  width: 100%;
-  text-align: center;
-}
-
-.content-wizard-desc:after {
-  content: "";
-  border-top: 20px solid #4b8384;
-  border-left: 22px solid transparent;
-  border-right: 22px solid transparent;
-  /* bottom: 0px; */
-  position: absolute;
-  right: 27%;
-  margin-left: -21px;
-  width: 0;
-  height: 0;
-}
-
-.content-wizard-desc .wizar-box {
-  float: left;
-  display: inline-block;
-  text-align: center;
-  padding-left: 0px;
-  list-style-type: none;
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-@media (max-width: 767px) {
-  .content-wizard-desc .wizar-box {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-.content-wizard-desc .wizar-box li {
-  float: left;
-}
-
-.content-wizard-desc .wizar-box a {
-  width: 92px;
-  color: #ffffff;
-  display: block;
-  position: relative;
-  text-align: center;
-  background: transparent;
-  text-decoration: none;
-}
-
-.content-wizard-desc .wizar-box .icon {
-  display: block;
-  margin: 0 auto 4px;
-}
-
-.content-wizard-desc .wizar-box img {
-  margin: auto;
-  height: 56px;
-}
-
-.content-wizard-desc .separator {
-  padding-top: 3px;
-}
-
-@media (max-width: 767px) {
-  .content-wizard-desc .separator img {
-    display: none;
-  }
-}
-
-.content-wizard-desc .complete-desc {
-  padding-top: 10px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-@media (max-width: 767px) {
-  .content-wizard-desc .complete-desc {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-.content-wizard-desc h3 {
-  text-align: left;
-  font-size: 20px;
-  line-height: 1.3;
-  color: #ffffff;
-}
-
-@media (max-width: 767px) {
-  .content-wizard-desc h3 {
-    margin-top: 0px;
-    line-height: 1.3;
-  }
-}
-
-/* ====End description ===*/
-/* ====irao section  ===*/
-.irao {
-  background-color: #74b46f;
-  color: #ffffff;
-}
-
-.irao:after {
-  content: "";
-  height: 10px;
-  background-color: #b6c173;
-  border-bottom: 10px;
-  border-color: #fff;
-  position: absolute;
-  left: 0;
-  margin-left: 25px;
-  margin-right: 25px;
-  right: 0;
-}
-
-.irao img {
-  display: inline-block;
-  margin: auto;
-  margin-left: 25px;
-  margin-top: 16px;
-}
-
-@media (max-width: 767px) {
-  .irao img {
-    width: 15px;
-    height: 25px;
-    margin-top: 3px;
-  }
-}
-
-.irao .text-sec {
-  padding-top: 20px;
-  padding-bottom: 15px;
-}
-
-.irao .text-sec .right-text {
-  text-align: right;
-}
-
-@media (max-width: 767px) {
-  .irao .text-sec .right-text {
-    text-align: left;
-    font-size: 15px;
-  }
-}
-
-.irao .text-sec strong {
-  font-size: 20px;
-  text-align: right;
-  line-height: 2.8;
-  vertical-align: middle;
-}
-
-@media (max-width: 910px) {
-  .irao .text-sec strong {
-    line-height: 1.3;
-  }
-}
-
-@media (max-width: 767px) {
-  .irao .text-sec strong {
-    font-size: 15px;
-    padding-top: 15px;
-  }
-}
-
-.irao .text-sec h2 {
-  display: inline-block;
-  text-transform: uppercase;
-  font-weight: 400;
-  text-align: left;
-  margin-top: 12px;
-}
-
-@media (max-width: 767px) {
-  .irao .text-sec h2 {
-    margin-top: 2px;
-    font-size: 25px;
-  }
-}
-
-.irao .text-sec .rio-h {
-  padding-left: 0;
-}
-
-@media (max-width: 767px) {
-  .irao .text-sec .rio-h {
-    padding-left: 15px;
-  }
-}
-
-/* ==== End irao section ===*/
-/* === End Home Page Section ==== */
-/* === Guia Page==== */
-.your-reservation.activity .all-activities h1 {
-  color: #000000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.your-reservation.activity .all-activities div:first-child.col {
-  padding-right: 3px;
-}
-
-.your-reservation.activity .all-activities .col + .col {
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-.your-reservation.activity .all-activities .col a {
-  outline: none;
-  display: block;
-  position: relative;
-}
-
-.your-reservation.activity .btn-primary {
-  float: right;
-  min-width: 100px;
-  background: #eab011;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-}
-
-@media (max-width: 767px) {
-  .your-reservation.activity .btn-primary {
-    float: none;
-    margin: 0 0 10px 10px;
-  }
-}
-
-.your-reservation.activity .btn-primary:hover {
-  opacity: 0.8;
-}
-
-.play-info {
-  margin-top: 15px;
-}
-
-.play-info img {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-left: 0px;
-}
-
-.play-info p {
-  display: inline-block;
-  vertical-align: text-top;
-}
-
-.opiniones {
-  visibility: hidden;
-}
-
-.termas .opiniones {
-  display: block;
-  font-size: 13px;
-  vertical-align: bottom;
-  position: relative;
-  top: 15px;
-  text-align: center;
-  right: 15px;
-  margin-right: -40px;
-  z-index: 1;
-}
-
-@media (max-width: 767px) {
-  .termas .opiniones {
-    margin-right: 0;
-    display: inline-block;
-    margin-left: 25px;
-  }
-}
-
-.termas .opiniones:before {
-  content: "TripAdvisor Traveler Rating";
-  font-size: 13px;
-  color: #589442;
-}
-
-.termas .opiniones a {
-  color: #589442;
-}
-
-.detail-desc {
-  margin-top: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
-@media (max-width: 767px) {
-  .detail-desc {
-    padding-left: 10px;
-  }
-}
-
-.left-col {
-  padding-left: 0px;
-  margin-top: 20px;
-}
-
-@media (max-width: 767px) {
-  .left-col .mobile-left .pull-right {
-    float: none !important;
-  }
-}
-
-.right-col {
-  padding-right: 0px;
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.right-col img {
-  margin-left: 10px;
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-}
-
-.right-col h4 {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: bold;
-  padding-left: 5px;
-  padding-right: 10px;
-}
-
-.right-col strong {
-  color: #e12570;
-  display: inline-block;
-}
-
-.leaflet-fade-anim .leaflet-tile-loaded {
-  display: block;
-}
-
-.leaflet-fade-anim .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
-  display: block;
-  overflow: visible;
-}
-
-.sub-tab-sub-sec-red h3 {
-  color: #d54141;
-}
-
-.sub-tab-sub-sec-red p {
-  margin-bottom: 1px;
-}
-
-.sub-tab-sub-sec-red p span {
-  color: #d54141;
-}
-
-.sub-tab-sub-sec-red .sub-tab-sec {
-  padding-top: 5px;
-  padding-bottom: 2px;
-}
-
-.sub-tab-sub-sec-green h3 {
-  color: #1187bf;
-}
-
-.sub-tab-sub-sec-green p {
-  margin-bottom: 1px;
-}
-
-.sub-tab-sub-sec-green p span {
-  color: #1187bf;
-}
-
-.sub-tab-sub-sec-green .sub-tab-sec {
-  padding-top: 5px;
-  padding-bottom: 2px;
-}
-
-.pop-up-model .modal .modal-dialog {
-  width: 100%;
-}
-
-.pop-up-model .modal .modal-header {
-  background-color: #0a1f1f;
-}
-
-.pop-up-model .modal .modal-header h3 {
-  margin: 0px;
-}
-
-.pop-up-model .modal-body iframe {
-  width: 100%;
-  height: 500px;
-}
-
-.fancy-button {
-  color: #ffffff;
-}
-
-.fancy-button a {
-  outline: none;
-  text-decoration: none;
-  display: block;
-  border-radius: 5px;
-  color: #ffffff;
-  overflow: hidden;
-  padding: 2px;
-  background-color: #8a41c4;
-}
-
-.fancy-button a .button-text {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.fancy-button a .button-text p {
-  margin: 0px;
-}
-
-/* ===== Flicker slides ==== */
-.right-col .flicker {
-  position: relative;
-  height: 600px;
-  padding-bottom: 106%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@media (max-width: 767px) {
-  .right-col .flicker {
-    height: 0;
-  }
-}
-
-/* ===== End Flicker slides ==== */
-/* === End Guia Page==== */
-@media (max-width: 767px) {
-  .main-container {
-    float: left;
-    position: relative;
-    left: 50%;
-  }
-  .fixer-container {
-    float: left;
-    position: relative;
-    left: -50%;
-  }
-}
-
 .csHidden {
   display: none;
 }
@@ -12974,69 +12424,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
   display: block;
 }
 
-#CDSWIDSSP .widSSPData .widSSPBranding dt.widSSPTagline,
-#CDSWIDSSP .widSSPData .widSSPH18,
-#CDSWIDSSP.widSSPnarrow .widSSPData .widSSPH11,
-#CDSWIDSSP.widSSPnarrow .widSSPData .widSSPAll,
-#CDSWIDSSP .widSSPData .widSSPLegal {
-  display: none;
-}
-
-#CDSWIDSSP .widSSPData {
-  margin-top: -7px;
-}
-
-#CDSWIDSSP .widSSPData .widSSPBranding {
-  border-bottom: none;
-  width: 34px;
-  left: 63px;
-  top: 1px;
-  overflow: hidden;
-  position: absolute;
-}
-
-#CDSWIDSSP .widSSPData {
-  background-color: transparent;
-}
-
-@media (max-width: 767px) {
-  #CDSWIDSSP .widSSPData .widSSPBranding {
-    left: 8px;
-  }
-}
-
-#m-box-2 .termas .opiniones {
-  z-index: 1;
-}
-
-#CDSWIDSSP .widSSPData .widSSPSummary a {
-  position: absolute;
-  height: 26px;
-  color: transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100px;
-  right: 73px;
-  display: block;
-}
-
-#CDSWIDSSP.widSSPnarrow .widSSPData .widSSPTrvlRtng .widSSPOverall {
-  text-align: center;
-}
-
-#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall img {
-  margin: 3px 6px 4px 30px;
-}
-
-#CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div {
-  white-space: nowrap;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-}
-
 .mapboxgl-map {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   overflow: hidden;
@@ -13570,6 +12957,69 @@ a.mapboxgl-ctrl-logo {
   /* stylelint-enable */
 }
 
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPBranding dt.widSSPTagline,
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPH18,
+.TA_selfserveprop #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPH11,
+.TA_selfserveprop #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPAll,
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPLegal {
+  display: none;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData {
+  margin-top: -7px;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPBranding {
+  border-bottom: none;
+  width: 34px;
+  left: 44px;
+  top: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData {
+  background-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPBranding {
+    left: 8px;
+  }
+}
+
+#m-box-2 .termas .opiniones {
+  z-index: 1;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPSummary a {
+  position: absolute;
+  height: 26px;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100px;
+  right: 73px;
+  display: block;
+}
+
+.TA_selfserveprop #CDSWIDSSP.widSSPnarrow .widSSPData .widSSPTrvlRtng .widSSPOverall {
+  text-align: center;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall img {
+  margin: 3px 6px 4px 30px;
+}
+
+.TA_selfserveprop #CDSWIDSSP .widSSPData .widSSPTrvlRtng .widSSPOverall div {
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 6px auto 0;
+}
+
 #myModalX .modal-dialog {
   width: 600px;
 }
@@ -13667,6 +13117,224 @@ a.mapboxgl-ctrl-logo {
   }
 }
 
+.play-info {
+  margin-top: 15px;
+}
+
+.play-info img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 0px;
+}
+
+.play-info p {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.opiniones {
+  visibility: hidden;
+}
+
+.termas .opiniones {
+  display: block;
+  font-size: 13px;
+  vertical-align: bottom;
+  position: relative;
+  top: 15px;
+  text-align: center;
+  right: 15px;
+  margin-right: -40px;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .termas .opiniones {
+    margin-right: 0;
+    display: inline-block;
+    margin-left: 25px;
+  }
+}
+
+.termas .opiniones:before {
+  content: "TripAdvisor Traveler Rating";
+  font-size: 13px;
+  color: #589442;
+}
+
+.termas .opiniones a {
+  color: #589442;
+}
+
+.detail-desc {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .detail-desc {
+    padding-left: 10px;
+  }
+}
+
+.left-col {
+  padding-left: 0px;
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .left-col .mobile-left .pull-right {
+    float: none !important;
+  }
+}
+
+.right-col {
+  padding-right: 0px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.right-col img {
+  margin-left: 10px;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.right-col h4 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.right-col strong {
+  color: #e12570;
+  display: inline-block;
+}
+
+.sub-tab-sub-sec-red h3 {
+  color: #d54141;
+}
+
+.sub-tab-sub-sec-red p {
+  margin-bottom: 1px;
+}
+
+.sub-tab-sub-sec-red p span {
+  color: #d54141;
+}
+
+.sub-tab-sub-sec-red .sub-tab-sec {
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.sub-tab-sub-sec-green h3 {
+  color: #1187bf;
+}
+
+.sub-tab-sub-sec-green p {
+  margin-bottom: 1px;
+}
+
+.sub-tab-sub-sec-green p span {
+  color: #1187bf;
+}
+
+.sub-tab-sub-sec-green .sub-tab-sec {
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.pop-up-model .modal .modal-dialog {
+  width: 100%;
+}
+
+.pop-up-model .modal .modal-header {
+  background-color: #0a1f1f;
+}
+
+.pop-up-model .modal .modal-header h3 {
+  margin: 0px;
+}
+
+.pop-up-model .modal-body iframe {
+  width: 100%;
+  height: 500px;
+}
+
+/* ===== Flicker slides ==== */
+.right-col .flicker {
+  position: relative;
+  height: 600px;
+  padding-bottom: 106%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767px) {
+  .right-col .flicker {
+    height: 0;
+  }
+}
+
+/* ===== End Flicker slides ==== */
+/* === Guia Page==== */
+.your-reservation.activity .all-activities h1 {
+  color: #000000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.your-reservation.activity .all-activities div:first-child.col {
+  padding-right: 3px;
+}
+
+.your-reservation.activity .all-activities .col + .col {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.your-reservation.activity .all-activities .col a {
+  outline: none;
+  display: block;
+  position: relative;
+}
+
+.your-reservation.activity .btn-primary {
+  float: right;
+  min-width: 100px;
+  background: #eab011;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.activity .btn-primary {
+    float: none;
+    margin: 0 0 10px 10px;
+  }
+}
+
+.your-reservation.activity .btn-primary:hover {
+  opacity: 0.8;
+}
+
+.leaflet-fade-anim .leaflet-tile-loaded {
+  display: block;
+}
+
+.leaflet-fade-anim .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+  display: block;
+  overflow: visible;
+}
+
+/* === End Guia Page==== */
 .your-reservation.activity h1 {
   font-weight: 700;
   font-size: 30px;

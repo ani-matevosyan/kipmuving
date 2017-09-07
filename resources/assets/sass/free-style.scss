@@ -1,10 +1,174 @@
 @import "./common";
 @import "../../../public/libs/jquery-ui/slider/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
-@import "../../../public/libs/tripadvisor/tripadvisor";
 @import "../../../node_modules/mapbox-gl/dist/mapbox-gl";
 
+@import "components/tripadvisor";
 @import "components/instafeed";
+
+.play-info {
+  margin-top: 15px; }
+.play-info img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 0px; }
+.play-info p {
+  display: inline-block;
+  vertical-align: text-top; }
+
+.opiniones{
+  visibility: hidden;
+}
+
+.termas .opiniones {
+  display: block;
+  font-size: 13px;
+  vertical-align: bottom;
+  position: relative;
+  top: 15px;
+  text-align: center;
+  right: 15px;
+  margin-right: -40px;
+  z-index: 1;}
+@media (max-width: 767px){
+  .termas .opiniones{
+    margin-right: 0;
+    display: inline-block;
+    margin-left: 25px;
+  }
+}
+.termas .opiniones:before {
+  content: "TripAdvisor Traveler Rating";
+  font-size: 13px;
+  color: #589442; }
+.termas .opiniones a {
+  color: #589442; }
+
+.detail-desc {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px; }
+@media (max-width: 767px) {
+  .detail-desc {
+    padding-left: 10px; } }
+
+
+.left-col {
+  padding-left: 0px;
+  margin-top: 20px; }
+@media (max-width: 767px) {
+  .left-col .mobile-left .pull-right {
+    float: none !important; }
+}
+
+.right-col {
+  padding-right: 0px;
+  margin-top: 20px;
+  padding-top: 10px;}
+.right-col img {
+  margin-left: 10px;
+  display: inline-block;
+  width: 28px;
+  height: 28px; }
+.right-col h4 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 10px; }
+.right-col strong {
+  color: #e12570;
+  display: inline-block; }
+
+
+.sub-tab-sub-sec-red h3 {
+  color: #d54141; }
+.sub-tab-sub-sec-red p {
+  margin-bottom: 1px; }
+.sub-tab-sub-sec-red p span {
+  color: #d54141; }
+.sub-tab-sub-sec-red .sub-tab-sec {
+  padding-top: 5px;
+  padding-bottom: 2px; }
+
+.sub-tab-sub-sec-green h3 {
+  color: #1187bf; }
+.sub-tab-sub-sec-green p {
+  margin-bottom: 1px; }
+.sub-tab-sub-sec-green p span {
+  color: #1187bf; }
+.sub-tab-sub-sec-green .sub-tab-sec {
+  padding-top: 5px;
+  padding-bottom: 2px; }
+
+.pop-up-model .modal .modal-dialog {
+  width: 100%; }
+.pop-up-model .modal .modal-header {
+  background-color: #0a1f1f; }
+.pop-up-model .modal .modal-header h3 {
+  margin: 0px; }
+.pop-up-model .modal-body iframe {
+  width: 100%;
+  height: 500px; }
+
+/* ===== Flicker slides ==== */
+.right-col .flicker {
+  position: relative;
+  height: 600px;
+  padding-bottom: 106%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
+@media (max-width: 767px) {
+  .right-col .flicker {
+    height: 0; } }
+
+/* ===== End Flicker slides ==== */
+
+/* === Guia Page==== */
+.your-reservation.activity .all-activities h1 {
+  color: #000000;
+  font-size: 35px;
+  font-weight: bold; }
+.your-reservation.activity .all-activities div:first-child.col {
+  padding-right: 3px; }
+.your-reservation.activity .all-activities .col + .col {
+  padding-left: 3px;
+  padding-right: 3px; }
+.your-reservation.activity .all-activities .col a {
+  outline: none;
+  display: block;
+  position: relative; }
+
+
+.your-reservation.activity .btn-primary {
+  float: right;
+  min-width: 100px;
+  background: #eab011;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.activity .btn-primary {
+    float: none;
+    margin: 0 0 10px 10px;
+  }
+}
+
+.your-reservation.activity .btn-primary:hover {
+  opacity: 0.8;
+}
+
+.leaflet-fade-anim .leaflet-tile-loaded {
+  display: block; }
+.leaflet-fade-anim .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+  display: block;
+  overflow: visible; }
+
+
+/* === End Guia Page==== */
 
 .your-reservation.activity h1{
   font-weight: 700;

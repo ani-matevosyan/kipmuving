@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 178);
+/******/ 	return __webpack_require__(__webpack_require__.s = 181);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 178:
+/***/ 181:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(179);
+module.exports = __webpack_require__(182);
 
 
 /***/ }),
 
-/***/ 179:
+/***/ 182:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -115,7 +115,7 @@ $(document).ready(function () {
 
     $(".pick-discount__button").on('click', function (e) {
         e.preventDefault();
-        var price = $(this).data('price').split('.').join("");;
+        var price = $(this).data('price').split('.').join("");
         $(this).parent().parent().parent().find(".pick-discount__price-input").val(price);
     });
 });

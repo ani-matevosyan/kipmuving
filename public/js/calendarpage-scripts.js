@@ -73,8 +73,8 @@
 //! license : MIT
 //! momentjs.com
 
-;(function (global, factory) {
-     true ? module.exports = factory() :
+(function (global, factory) {
+                true ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     global.moment = factory()
 }(this, (function () { 'use strict';
@@ -4531,7 +4531,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
 
 /***/ }),
 /* 1 */
@@ -7382,8 +7382,8 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
-var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
+}
+    var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
 
@@ -15613,7 +15613,9 @@ if (typeof jQuery === 'undefined') {
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -15641,8 +15643,6 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 15 */,
-/* 16 */,
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15650,8 +15650,8 @@ module.exports = function(module) {
 //! locale : Afrikaans [af]
 //! author : Werner Mollentze : https://github.com/wernerm
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15730,8 +15730,8 @@ return af;
 //! author : Ahmed Elkhatib
 //! author : forabi https://github.com/forabi
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15875,8 +15875,8 @@ return ar;
 //! locale : Arabic (Algeria) [ar-dz]
 //! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -15939,8 +15939,8 @@ return arDz;
 //! locale : Arabic (Kuwait) [ar-kw]
 //! author : Nusret Parlak: https://github.com/nusretparlak
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16003,8 +16003,8 @@ return arKw;
 //! locale : Arabic (Lybia) [ar-ly]
 //! author : Ali Hmer: https://github.com/kikoanis
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16135,8 +16135,8 @@ return arLy;
 //! author : ElFadili Yassine : https://github.com/ElFadiliY
 //! author : Abdel Said : https://github.com/abdelsaid
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16199,8 +16199,8 @@ return arMa;
 //! locale : Arabic (Saudi Arabia) [ar-sa]
 //! author : Suhail Alkowaileet : https://github.com/xsoh
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16309,8 +16309,8 @@ return arSa;
 //! locale  :  Arabic (Tunisia) [ar-tn]
 //! author : Nader Toukabri : https://github.com/naderio
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16373,8 +16373,8 @@ return arTn;
 //! locale : Azerbaijani [az]
 //! author : topchiyev : https://github.com/topchiyev
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16485,8 +16485,8 @@ return az;
 //! author: Praleska: http://praleska.pro/
 //! Author : Menelion Elensúle : https://github.com/Oire
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16622,8 +16622,8 @@ return be;
 //! locale : Bulgarian [bg]
 //! author : Krasen Borisov : https://github.com/kraz
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16717,8 +16717,8 @@ return bg;
 //! locale : Bengali [bn]
 //! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16841,8 +16841,8 @@ return bn;
 //! locale : Tibetan [bo]
 //! author : Thupten N. Chakrishar : https://github.com/vajradog
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -16965,8 +16965,8 @@ return bo;
 //! locale : Breton [br]
 //! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17079,8 +17079,8 @@ return br;
 //! author : Nedim Cholich : https://github.com/frontyard
 //! based on (hr) translation by Bojan Marković
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17226,8 +17226,8 @@ return bs;
 //! locale : Catalan [ca]
 //! author : Juan G. Hurtado : https://github.com/juanghurtado
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17319,8 +17319,8 @@ return ca;
 //! locale : Czech [cs]
 //! author : petrbela : https://github.com/petrbela
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17496,8 +17496,8 @@ return cs;
 //! locale : Chuvash [cv]
 //! author : Anatoly Mironov : https://github.com/mirontoli
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17565,8 +17565,8 @@ return cv;
 //! author : Robert Allen : https://github.com/robgallen
 //! author : https://github.com/ryangreaves
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17650,8 +17650,8 @@ return cy;
 //! locale : Danish [da]
 //! author : Ulrik Nielsen : https://github.com/mrbase
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17717,8 +17717,8 @@ return da;
 //! author: Menelion Elensúle: https://github.com/Oire
 //! author : Mikolaj Dadela : https://github.com/mik01aj
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17801,8 +17801,8 @@ return de;
 //! author : Martin Groller : https://github.com/MadMG
 //! author : Mikolaj Dadela : https://github.com/mik01aj
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17882,8 +17882,8 @@ return deAt;
 //! locale : German (Switzerland) [de-ch]
 //! author : sschueller : https://github.com/sschueller
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -17965,8 +17965,8 @@ return deCh;
 //! locale : Maldivian [dv]
 //! author : Jawish Hameed : https://github.com/jawish
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18070,8 +18070,8 @@ return dv;
 //! locale : Greek [el]
 //! author : Aggelos Karalias : https://github.com/mehiel
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18175,8 +18175,8 @@ return el;
 //! locale : English (Australia) [en-au]
 //! author : Jared Morse : https://github.com/jarcoal
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18247,8 +18247,8 @@ return enAu;
 //! locale : English (Canada) [en-ca]
 //! author : Jonathan Abourbih : https://github.com/jonbca
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18315,8 +18315,8 @@ return enCa;
 //! locale : English (United Kingdom) [en-gb]
 //! author : Chris Gedrim : https://github.com/chrisgedrim
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18387,8 +18387,8 @@ return enGb;
 //! locale : English (Ireland) [en-ie]
 //! author : Chris Cartlidge : https://github.com/chriscartlidge
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18459,8 +18459,8 @@ return enIe;
 //! locale : English (New Zealand) [en-nz]
 //! author : Luke McGregor : https://github.com/lukemcgregor
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18533,8 +18533,8 @@ return enNz;
 //! author : Mia Nordentoft Imperatori : https://github.com/miestasmia
 //! comment : miestasmia corrected the translation by colindean
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18609,8 +18609,8 @@ return eo;
 //! locale : Spanish [es]
 //! author : Julio Napurí : https://github.com/julionc
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18696,8 +18696,8 @@ return es;
 //! moment.js locale configuration
 //! locale : Spanish (Dominican Republic) [es-do]
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18785,8 +18785,8 @@ return esDo;
 //! author : Henry Kehlmann : https://github.com/madhenry
 //! improvements : Illimar Tambek : https://github.com/ragulka
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18869,8 +18869,8 @@ return et;
 //! locale : Basque [eu]
 //! author : Eneko Illarramendi : https://github.com/eillarra
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -18940,8 +18940,8 @@ return eu;
 //! locale : Persian [fa]
 //! author : Ebrahim Byagowi : https://github.com/ebraminio
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19052,8 +19052,8 @@ return fa;
 //! locale : Finnish [fi]
 //! author : Tarmo Aidantausta : https://github.com/bleadof
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19164,8 +19164,8 @@ return fi;
 //! locale : Faroese [fo]
 //! author : Ragnar Johannesen : https://github.com/ragnar123
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19229,8 +19229,8 @@ return fo;
 //! locale : French [fr]
 //! author : John Fischer : https://github.com/jfroffice
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19317,8 +19317,8 @@ return fr;
 //! locale : French (Canada) [fr-ca]
 //! author : Jonathan Abourbih : https://github.com/jonbca
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19396,8 +19396,8 @@ return frCa;
 //! locale : French (Switzerland) [fr-ch]
 //! author : Gaspard Bucher : https://github.com/gaspard
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19479,8 +19479,8 @@ return frCh;
 //! locale : Frisian [fy]
 //! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19559,8 +19559,8 @@ return fy;
 //! locale : Scottish Gaelic [gd]
 //! author : Jon Ashdown : https://github.com/jonashdown
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19640,8 +19640,8 @@ return gd;
 //! locale : Galician [gl]
 //! author : Juan G. Hurtado : https://github.com/juanghurtado
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19722,8 +19722,8 @@ return gl;
 //! locale : Konkani Latin script [gom-latn]
 //! author : The Discoverer : https://github.com/WikiDiscoverer
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19851,8 +19851,8 @@ return gomLatn;
 //! author : Moshe Simantov : https://github.com/DevelopmentIL
 //! author : Tal Ater : https://github.com/TalAter
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -19953,8 +19953,8 @@ return he;
 //! locale : Hindi [hi]
 //! author : Mayank Singhal : https://github.com/mayanksinghal
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20082,8 +20082,8 @@ return hi;
 //! locale : Croatian [hr]
 //! author : Bojan Marković : https://github.com/bmarkovic
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20232,8 +20232,8 @@ return hr;
 //! locale : Hungarian [hu]
 //! author : Adam Brunner : https://github.com/adambrunner
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20346,8 +20346,8 @@ return hu;
 //! locale : Armenian [hy-am]
 //! author : Armendarabyan : https://github.com/armendarabyan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20447,8 +20447,8 @@ return hyAm;
 //! author : Mohammad Satrio Utomo : https://github.com/tyok
 //! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20534,8 +20534,8 @@ return id;
 //! locale : Icelandic [is]
 //! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20667,8 +20667,8 @@ return is;
 //! author : Lorenzo : https://github.com/aliem
 //! author: Mattia Larentis: https://github.com/nostalgiaz
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20741,8 +20741,8 @@ return it;
 //! locale : Japanese [ja]
 //! author : LI Long : https://github.com/baryon
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20827,8 +20827,8 @@ return ja;
 //! author : Rony Lantip : https://github.com/lantip
 //! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -20914,8 +20914,8 @@ return jv;
 //! locale : Georgian [ka]
 //! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21008,8 +21008,8 @@ return ka;
 //! locale : Kazakh [kk]
 //! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21100,8 +21100,8 @@ return kk;
 //! locale : Cambodian [km]
 //! author : Kruy Vanna : https://github.com/kruyvanna
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21163,8 +21163,8 @@ return km;
 //! locale : Kannada [kn]
 //! author : Rajeev Naik : https://github.com/rajeevnaikte
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21295,8 +21295,8 @@ return kn;
 //! author : Kyungwook, Park : https://github.com/kyungw00k
 //! author : Jeeeyul Lee <jeeeyul@gmail.com>
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21368,8 +21368,8 @@ return ko;
 //! locale : Kyrgyz [ky]
 //! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21462,8 +21462,8 @@ return ky;
 //! author : mweimerskirch : https://github.com/mweimerskirch
 //! author : David Raison : https://github.com/kwisatz
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21603,8 +21603,8 @@ return lb;
 //! locale : Lao [lo]
 //! author : Ryan Hart : https://github.com/ryanhart2
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21678,8 +21678,8 @@ return lo;
 //! locale : Lithuanian [lt]
 //! author : Mindaugas Mozūras : https://github.com/mmozuras
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21801,8 +21801,8 @@ return lt;
 //! author : Kristaps Karlsons : https://github.com/skakri
 //! author : Jānis Elmeris : https://github.com/JanisE
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -21902,8 +21902,8 @@ return lv;
 //! locale : Montenegrin [me]
 //! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22018,8 +22018,8 @@ return me;
 //! locale : Maori [mi]
 //! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22087,8 +22087,8 @@ return mi;
 //! locale : Macedonian [mk]
 //! author : Borislav Mickov : https://github.com/B0k0
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22182,8 +22182,8 @@ return mk;
 //! locale : Malayalam [ml]
 //! author : Floyd Pink : https://github.com/floydpink
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22269,8 +22269,8 @@ return ml;
 //! author : Harshad Kale : https://github.com/kalehv
 //! author : Vivek Athalye : https://github.com/vnathalye
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22432,8 +22432,8 @@ return mr;
 //! locale : Malay [ms]
 //! author : Weldan Jamili : https://github.com/weldan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22520,8 +22520,8 @@ return ms;
 //! note : DEPRECATED, the correct one is [ms]
 //! author : Weldan Jamili : https://github.com/weldan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22609,8 +22609,8 @@ return msMy;
 //! author : David Rossellat : https://github.com/gholadr
 //! author : Tin Aung Lin : https://github.com/thanyawzinmin
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22709,8 +22709,8 @@ return my;
 //! authors : Espen Hovlandsdal : https://github.com/rexxars
 //!           Sigurd Gartmann : https://github.com/sigurdga
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22776,8 +22776,8 @@ return nb;
 //! locale : Nepalese [ne]
 //! author : suvash : https://github.com/suvash
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22905,8 +22905,8 @@ return ne;
 //! author : Joris Röling : https://github.com/jorisroling
 //! author : Jacob Middag : https://github.com/middagj
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -22998,8 +22998,8 @@ return nl;
 //! author : Joris Röling : https://github.com/jorisroling
 //! author : Jacob Middag : https://github.com/middagj
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23090,8 +23090,8 @@ return nlBe;
 //! locale : Nynorsk [nn]
 //! author : https://github.com/mechuwind
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23155,8 +23155,8 @@ return nn;
 //! locale : Punjabi (India) [pa-in]
 //! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23284,8 +23284,8 @@ return paIn;
 //! locale : Polish [pl]
 //! author : Rafal Hirsz : https://github.com/evoL
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23396,8 +23396,8 @@ return pl;
 //! locale : Portuguese [pt]
 //! author : Jefferson : https://github.com/jalex79
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23466,8 +23466,8 @@ return pt;
 //! locale : Portuguese (Brazil) [pt-br]
 //! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23533,8 +23533,8 @@ return ptBr;
 //! author : Vlad Gurdiga : https://github.com/gurdiga
 //! author : Valentin Agachi : https://github.com/avaly
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23614,8 +23614,8 @@ return ro;
 //! Author : Menelion Elensúle : https://github.com/Oire
 //! author : Коренберг Марк : https://github.com/socketpair
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23800,8 +23800,8 @@ return ru;
 //! locale : Sindhi [sd]
 //! author : Narain Sagar : https://github.com/narainsagar
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23903,8 +23903,8 @@ return sd;
 //! locale : Northern Sami [se]
 //! authors : Bård Rolstad Henriksen : https://github.com/karamell
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -23969,8 +23969,8 @@ return se;
 //! locale : Sinhalese [si]
 //! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24046,8 +24046,8 @@ return si;
 //! author : Martin Minka : https://github.com/k2s
 //! based on work of petrbela : https://github.com/petrbela
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24200,8 +24200,8 @@ return sk;
 //! locale : Slovenian [sl]
 //! author : Robert Sedovšek : https://github.com/sedovsek
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24369,8 +24369,8 @@ return sl;
 //! author : Menelion Elensúle : https://github.com/Oire
 //! author : Oerd Cukalla : https://github.com/oerd
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24442,8 +24442,8 @@ return sq;
 //! locale : Serbian [sr]
 //! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24557,8 +24557,8 @@ return sr;
 //! locale : Serbian Cyrillic [sr-cyrl]
 //! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24672,8 +24672,8 @@ return srCyrl;
 //! locale : siSwati [ss]
 //! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24766,8 +24766,8 @@ return ss;
 //! locale : Swedish [sv]
 //! author : Jens Alm : https://github.com/ulmus
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24840,8 +24840,8 @@ return sv;
 //! locale : Swahili [sw]
 //! author : Fahad Kassim : https://github.com/fadsel
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -24904,8 +24904,8 @@ return sw;
 //! locale : Tamil [ta]
 //! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25039,8 +25039,8 @@ return ta;
 //! locale : Telugu [te]
 //! author : Krishna Chaitanya Thota : https://github.com/kcthota
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25134,8 +25134,8 @@ return te;
 //! author : Joshua Brooks : https://github.com/joshbrooks
 //! author : Onorio De J. Afonso : https://github.com/marobo
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25206,8 +25206,8 @@ return tet;
 //! locale : Thai [th]
 //! author : Kridsada Thanabulpong : https://github.com/sirn
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25278,8 +25278,8 @@ return th;
 //! locale : Tagalog (Philippines) [tl-ph]
 //! author : Dan Hagman : https://github.com/hagmandan
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25345,8 +25345,8 @@ return tlPh;
 //! locale : Klingon [tlh]
 //! author : Dominika Kruk : https://github.com/amaranthrose
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25471,8 +25471,8 @@ return tlh;
 //! authors : Erhan Gundogan : https://github.com/erhangundogan,
 //!           Burak Yiğit Kaya: https://github.com/BYK
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25566,8 +25566,8 @@ return tr;
 //! author : Robin van der Vliet : https://github.com/robin0van0der0v
 //! author : Iustì Canun
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25661,8 +25661,8 @@ return tzl;
 //! locale : Central Atlas Tamazight [tzm]
 //! author : Abdel Said : https://github.com/abdelsaid
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25724,8 +25724,8 @@ return tzm;
 //! locale : Central Atlas Tamazight Latin [tzm-latn]
 //! author : Abdel Said : https://github.com/abdelsaid
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25788,8 +25788,8 @@ return tzmLatn;
 //! author : zemlanin : https://github.com/zemlanin
 //! Author : Menelion Elensúle : https://github.com/Oire
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -25944,8 +25944,8 @@ return uk;
 //! author : Sawood Alam : https://github.com/ibnesayeed
 //! author : Zack : https://github.com/ZackVision
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26047,8 +26047,8 @@ return ur;
 //! locale : Uzbek [uz]
 //! author : Sardor Muminov : https://github.com/muminoff
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26110,8 +26110,8 @@ return uz;
 //! locale : Uzbek Latin [uz-latn]
 //! author : Rasulbek Mirzayev : github.com/Rasulbeeek
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26173,8 +26173,8 @@ return uzLatn;
 //! locale : Vietnamese [vi]
 //! author : Bang Nguyen : https://github.com/bangnk
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26257,8 +26257,8 @@ return vi;
 //! locale : Pseudo [x-pseudo]
 //! author : Andrew Hood : https://github.com/andrewhood125
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26330,8 +26330,8 @@ return xPseudo;
 //! locale : Yoruba Nigeria [yo]
 //! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26396,8 +26396,8 @@ return yo;
 //! author : suupic : https://github.com/suupic
 //! author : Zeno Zeng : https://github.com/zenozeng
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26513,8 +26513,8 @@ return zhCn;
 //! author : Chris Lam : https://github.com/hehachris
 //! author : Konstantin : https://github.com/skfd
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -26622,8 +26622,8 @@ return zhHk;
 //! author : Ben : https://github.com/ben-lin
 //! author : Chris Lam : https://github.com/hehachris
 
-;(function (global, factory) {
-    true ? factory(__webpack_require__(0)) :
+(function (global, factory) {
+            true ? factory(__webpack_require__(0)) :
    typeof define === 'function' && define.amd ? define(['../moment'], factory) :
    factory(global.moment)
 }(this, (function (moment) { 'use strict';
@@ -27041,9 +27041,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 	}
 })(function($, moment) {
 
-;;
-
-var FC = $.fullCalendar = {
+    var FC = $.fullCalendar = {
 	version: "3.5.0",
 	// When introducing internal API incompatibilities (where fullcalendar plugins would break),
 	// the minor version of the calendar should be upped (ex: 2.7.2 -> 2.8.0)
@@ -27118,8 +27116,6 @@ var complexOptions = [ // names of options that are objects whose properties sho
 function mergeOptions(optionObjs) {
 	return mergeProps(optionObjs, complexOptions);
 }
-
-;;
 
 // exports
 FC.applyAll = applyAll;
@@ -28041,14 +28037,12 @@ function debounce(func, wait, immediate) {
 	};
 }
 
-;;
-
-/*
-GENERAL NOTE on moments throughout the *entire rest* of the codebase:
-All moments are assumed to be ambiguously-zoned unless otherwise noted,
-with the NOTABLE EXCEOPTION of start/end dates that live on *Event Objects*.
-Ambiguously-TIMED moments are assumed to be ambiguously-zoned by nature.
-*/
+    /*
+    GENERAL NOTE on moments throughout the *entire rest* of the codebase:
+    All moments are assumed to be ambiguously-zoned unless otherwise noted,
+    with the NOTABLE EXCEOPTION of start/end dates that live on *Event Objects*.
+    Ambiguously-TIMED moments are assumed to be ambiguously-zoned by nature.
+    */
 
 var ambigDateOfMonthRegex = /^\s*\d{4}-\d\d$/;
 var ambigTimeOrZoneRegex =
@@ -28383,8 +28377,7 @@ function englishMoment(mom) {
 	return mom;
 }
 
-;;
-(function() {
+    (function() {
 
 // exports
 FC.formatDate = formatDate;
@@ -28792,8 +28785,7 @@ function queryMostGranularFormatUnit(formatStr) {
 	}
 
 	return null;
-};
-
+}
 })();
 
 // quick local references
@@ -28801,9 +28793,7 @@ var formatDate = FC.formatDate;
 var formatRange = FC.formatRange;
 var oldMomentFormat = FC.oldMomentFormat;
 
-;;
-
-FC.Class = Class; // export
+    FC.Class = Class; // export
 
 // Class that all other classes will inherit from
 function Class() { }
@@ -28855,9 +28845,7 @@ function extendClass(superClass, members) {
 	return subClass;
 }
 
-;;
-
-var EmitterMixin = FC.EmitterMixin = {
+    var EmitterMixin = FC.EmitterMixin = {
 
 	// jQuery-ification via $(this) allows a non-DOM object to have
 	// the same event handling capabilities (including namespaces).
@@ -28934,12 +28922,10 @@ var EmitterMixin = FC.EmitterMixin = {
 
 };
 
-;;
-
-/*
-Utility methods for easily listening to events on another object,
-and more importantly, easily unlistening from them.
-*/
+    /*
+    Utility methods for easily listening to events on another object,
+    and more importantly, easily unlistening from them.
+    */
 var ListenerMixin = FC.ListenerMixin = (function() {
 	var guid = 0;
 	var ListenerMixin = {
@@ -28996,9 +28982,7 @@ var ListenerMixin = FC.ListenerMixin = (function() {
 	};
 	return ListenerMixin;
 })();
-;;
-
-var ParsableModelMixin = {
+    var ParsableModelMixin = {
 
 	standardPropMap: {}, // will be cloned by allowRawProps
 
@@ -29074,9 +29058,7 @@ var ParsableModelMixin_copyVerbatimStandardProps = function(src, dest) {
 	}
 };
 
-;;
-
-var Model = Class.extend(EmitterMixin, ListenerMixin, {
+    var Model = Class.extend(EmitterMixin, ListenerMixin, {
 
 	_props: null,
 	_watchers: null,
@@ -29392,9 +29374,7 @@ Model.watch = function(/* same arguments as this.watch() */) {
 FC.Model = Model;
 
 
-;;
-
-var Promise = {
+    var Promise = {
 
 	construct: function(executor) {
 		var deferred = $.Deferred();
@@ -29459,9 +29439,7 @@ function attachImmediatelyRejectingThen(promise) {
 
 FC.Promise = Promise;
 
-;;
-
-var TaskQueue = Class.extend(EmitterMixin, {
+    var TaskQueue = Class.extend(EmitterMixin, {
 
 	q: null,
 	isPaused: false,
@@ -29540,9 +29518,7 @@ var TaskQueue = Class.extend(EmitterMixin, {
 
 FC.TaskQueue = TaskQueue;
 
-;;
-
-var RenderQueue = TaskQueue.extend({
+    var RenderQueue = TaskQueue.extend({
 
 	waitsByNamespace: null,
 	waitNamespace: null,
@@ -29718,21 +29694,19 @@ var RenderQueue = TaskQueue.extend({
 
 FC.RenderQueue = RenderQueue;
 
-;;
-
-/* A rectangular panel that is absolutely positioned over other content
-------------------------------------------------------------------------------------------------------------------------
-Options:
-	- className (string)
-	- content (HTML string or jQuery element set)
-	- parentEl
-	- top
-	- left
-	- right (the x coord of where the right edge should be. not a "CSS" right)
-	- autoHide (boolean)
-	- show (callback)
-	- hide (callback)
-*/
+    /* A rectangular panel that is absolutely positioned over other content
+    ------------------------------------------------------------------------------------------------------------------------
+    Options:
+        - className (string)
+        - content (HTML string or jQuery element set)
+        - parentEl
+        - top
+        - left
+        - right (the x coord of where the right edge should be. not a "CSS" right)
+        - autoHide (boolean)
+        - show (callback)
+        - hide (callback)
+    */
 
 var Popover = Class.extend(ListenerMixin, {
 
@@ -29886,17 +29860,15 @@ var Popover = Class.extend(ListenerMixin, {
 
 });
 
-;;
+    /*
+    A cache for the left/right/top/bottom/width/height values for one or more elements.
+    Works with both offset (from topleft document) and position (from offsetParent).
 
-/*
-A cache for the left/right/top/bottom/width/height values for one or more elements.
-Works with both offset (from topleft document) and position (from offsetParent).
-
-options:
-- els
-- isHorizontal
-- isVertical
-*/
+    options:
+    - els
+    - isHorizontal
+    - isVertical
+    */
 var CoordCache = FC.CoordCache = Class.extend({
 
 	els: null, // jQuery set (assumed to be siblings)
@@ -30144,10 +30116,8 @@ var CoordCache = FC.CoordCache = Class.extend({
 
 });
 
-;;
-
-/* Tracks a drag's mouse movement, firing various handlers
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Tracks a drag's mouse movement, firing various handlers
+    ----------------------------------------------------------------------------------------------------------------------*/
 // TODO: use Emitter
 
 var DragListener = FC.DragListener = Class.extend(ListenerMixin, {
@@ -30456,10 +30426,9 @@ var DragListener = FC.DragListener = Class.extend(ListenerMixin, {
 
 });
 
-;;
-/*
-this.scrollEl is set in DragListener
-*/
+    /*
+    this.scrollEl is set in DragListener
+    */
 DragListener.mixin({
 
 	isAutoScroll: false,
@@ -30642,14 +30611,12 @@ DragListener.mixin({
 	}
 
 });
-;;
-
-/* Tracks mouse movements over a component and raises events about which hit the mouse is over.
-------------------------------------------------------------------------------------------------------------------------
-options:
-- subjectEl
-- subjectCenter
-*/
+    /* Tracks mouse movements over a component and raises events about which hit the mouse is over.
+    ------------------------------------------------------------------------------------------------------------------------
+    options:
+    - subjectEl
+    - subjectCenter
+    */
 
 var HitDragListener = DragListener.extend({
 
@@ -30855,17 +30822,15 @@ function isHitPropsWithin(subHit, superHit) {
 	return true;
 }
 
-;;
+    /*
+    Listens to document and window-level user-interaction events, like touch events and mouse events,
+    and fires these events as-is to whoever is observing a GlobalEmitter.
+    Best when used as a singleton via GlobalEmitter.get()
 
-/*
-Listens to document and window-level user-interaction events, like touch events and mouse events,
-and fires these events as-is to whoever is observing a GlobalEmitter.
-Best when used as a singleton via GlobalEmitter.get()
-
-Normalizes mouse/touch events. For examples:
-- ignores the the simulated mouse events that happen after a quick tap: mousemove+mousedown+mouseup+click
-- compensates for various buggy scenarios where a touchend does not fire
-*/
+    Normalizes mouse/touch events. For examples:
+    - ignores the the simulated mouse events that happen after a quick tap: mousemove+mousedown+mouseup+click
+    - compensates for various buggy scenarios where a touchend does not fire
+    */
 
 FC.touchMouseIgnoreWait = 500;
 
@@ -31080,10 +31045,8 @@ var GlobalEmitter = Class.extend(ListenerMixin, EmitterMixin, {
 
 })();
 
-;;
-
-/* Creates a clone of an element and lets it track the mouse as it moves
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Creates a clone of an element and lets it track the mouse as it moves
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 var MouseFollower = Class.extend(ListenerMixin, {
 
@@ -31274,9 +31237,7 @@ var MouseFollower = Class.extend(ListenerMixin, {
 
 });
 
-;;
-
-var ChronoComponent = Model.extend({
+    var ChronoComponent = Model.extend({
 
 	children: null,
 
@@ -31892,18 +31853,16 @@ var ChronoComponent = Model.extend({
 
 });
 
-;;
-
-/* An abstract class comprised of a "grid" of areas that each represent a specific datetime
-----------------------------------------------------------------------------------------------------------------------
-Contains:
-- hit system
-- range->footprint->seg pipeline
-- initializing day click
-- initializing selection system
-- initializing mouse/touch handlers for everything
-- initializing event rendering-related options
-*/
+    /* An abstract class comprised of a "grid" of areas that each represent a specific datetime
+    ----------------------------------------------------------------------------------------------------------------------
+    Contains:
+    - hit system
+    - range->footprint->seg pipeline
+    - initializing day click
+    - initializing selection system
+    - initializing mouse/touch handlers for everything
+    - initializing event rendering-related options
+    */
 
 var Grid = FC.Grid = ChronoComponent.extend({
 
@@ -32274,9 +32233,7 @@ var Grid = FC.Grid = ChronoComponent.extend({
 
 });
 
-;;
-
-Grid.mixin({
+    Grid.mixin({
 
 	// Creates a listener that tracks the user's drag across day elements, for day clicking.
 	buildDayClickListener: function() {
@@ -32321,9 +32278,7 @@ Grid.mixin({
 
 });
 
-;;
-
-Grid.mixin({
+    Grid.mixin({
 
 	// Creates a listener that tracks the user's drag across day elements, for day selecting.
 	buildDaySelectListener: function() {
@@ -32436,9 +32391,7 @@ Grid.mixin({
 
 });
 
-;;
-
-Grid.mixin({
+    Grid.mixin({
 
 	// Generates an array of classNames to be used for the rendering business hours overlay. Called by the fill system.
 	// Called by fillSegHtml.
@@ -32492,9 +32445,7 @@ Grid.mixin({
 
 });
 
-;;
-
-Grid.mixin({
+    Grid.mixin({
 
 	segs: null, // the *event* segments currently rendered in the grid. TODO: rename to `eventSegs`
 
@@ -32795,14 +32746,12 @@ Grid.mixin({
 
 });
 
-;;
-
-/*
-Contains:
-- event clicking/mouseover/mouseout
-- things that are common to event dragging AND resizing
-- event helper rendering
-*/
+    /*
+    Contains:
+    - event clicking/mouseover/mouseout
+    - things that are common to event dragging AND resizing
+    - event helper rendering
+    */
 Grid.mixin({
 
 	// self-config, overridable by subclasses
@@ -33046,12 +32995,10 @@ Grid.mixin({
 
 });
 
-;;
-
-/*
-Wired up via Grid.event-interation.js by calling
-buildSegDragListener
-*/
+    /*
+    Wired up via Grid.event-interation.js by calling
+    buildSegDragListener
+    */
 Grid.mixin({
 
 	isDraggingSeg: false, // is a segment being dragged? boolean
@@ -33287,12 +33234,10 @@ Grid.mixin({
 
 });
 
-;;
-
-/*
-Wired up via Grid.event-interation.js by calling
-startSegResize
-*/
+    /*
+    Wired up via Grid.event-interation.js by calling
+    startSegResize
+    */
 Grid.mixin({
 
 	isResizingSeg: false, // is a segment being resized? boolean
@@ -33504,12 +33449,10 @@ Grid.mixin({
 
 });
 
-;;
-
-/*
-Wired up via Grid.js by calling
-externalDragStart
-*/
+    /*
+    Wired up via Grid.js by calling
+    externalDragStart
+    */
 Grid.mixin({
 
 	isDraggingExternal: false, // jqui-dragging an external element? boolean
@@ -33736,9 +33679,7 @@ function getDraggedElMeta(el) {
 	return { eventProps: eventProps, startTime: startTime, duration: duration, stick: stick };
 }
 
-;;
-
-Grid.mixin({
+    Grid.mixin({
 
 	/* Fill System (highlight, background events, business hours)
 	--------------------------------------------------------------------------------------------------------------------
@@ -33845,12 +33786,10 @@ Grid.mixin({
 
 });
 
-;;
-
-/*
-A set of rendering and date-related methods for a visual component comprised of one or more rows of day columns.
-Prerequisite: the object being mixed into needs to be a *Grid*
-*/
+    /*
+    A set of rendering and date-related methods for a visual component comprised of one or more rows of day columns.
+    Prerequisite: the object being mixed into needs to be a *Grid*
+    */
 var DayTableMixin = FC.DayTableMixin = {
 
 	breakOnWeeks: false, // should create a new row for each week?
@@ -34273,10 +34212,8 @@ var DayTableMixin = FC.DayTableMixin = {
 
 };
 
-;;
-
-/* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
-----------------------------------------------------------------------------------------------------------------------*/
+    /* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 
@@ -34760,10 +34697,8 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 
 });
 
-;;
-
-/* Event-rendering methods for the DayGrid class
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Event-rendering methods for the DayGrid class
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 DayGrid.mixin({
 
@@ -35079,10 +35014,8 @@ function compareDaySegCols(a, b) {
 	return a.leftCol - b.leftCol;
 }
 
-;;
-
-/* Methods relate to limiting the number events for a given day on a DayGrid
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Methods relate to limiting the number events for a given day on a DayGrid
+    ----------------------------------------------------------------------------------------------------------------------*/
 // NOTE: all the segs being passed around in here are foreground segs
 
 DayGrid.mixin({
@@ -35471,10 +35404,8 @@ DayGrid.mixin({
 
 });
 
-;;
-
-/* A component that renders one or more columns of vertical time slots
-----------------------------------------------------------------------------------------------------------------------*/
+    /* A component that renders one or more columns of vertical time slots
+    ----------------------------------------------------------------------------------------------------------------------*/
 // We mixin DayTable, even though there is only a single row of days
 
 var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
@@ -36018,11 +35949,9 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 
 });
 
-;;
-
-/* Methods for rendering SEGMENTS, pieces of content that live on the view
- ( this file is no longer just for events )
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Methods for rendering SEGMENTS, pieces of content that live on the view
+     ( this file is no longer just for events )
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 TimeGrid.mixin({
 
@@ -36642,10 +36571,8 @@ function isSlotSegCollision(seg1, seg2) {
 	return seg1.bottom > seg2.top && seg1.top < seg2.bottom;
 }
 
-;;
-
-/* An abstract class from which other views inherit from
-----------------------------------------------------------------------------------------------------------------------*/
+    /* An abstract class from which other views inherit from
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 var View = FC.View = ChronoComponent.extend({
 
@@ -37223,8 +37150,8 @@ var View = FC.View = ChronoComponent.extend({
 
 
 	applyDateScroll: function(scroll) {
-		; // subclasses must implement
-	},
+		 // subclasses must implement
+    },
 
 
 	/* Height Freezing
@@ -37723,9 +37650,7 @@ function convertEventsPayloadToLegacyArray(eventsPayload) {
 	return legacyEvents;
 }
 
-;;
-
-View.mixin({
+    View.mixin({
 
 	// range the view is formally responsible for.
 	// for example, a month view might have 1st-31st, excluding padded dates
@@ -38159,11 +38084,9 @@ View.mixin({
 
 });
 
-;;
-
-/*
-Embodies a div that has potential scrollbars
-*/
+    /*
+    Embodies a div that has potential scrollbars
+    */
 var Scroller = FC.Scroller = Class.extend({
 
 	el: null, // the guaranteed outer element
@@ -38280,8 +38203,7 @@ var Scroller = FC.Scroller = Class.extend({
 
 });
 
-;;
-function Iterator(items) {
+    function Iterator(items) {
     this.items = items || [];
 }
 
@@ -38298,10 +38220,8 @@ Iterator.prototype.proxyCall = function(methodName) {
     return results;
 };
 
-;;
-
-/* Toolbar with buttons and title
-----------------------------------------------------------------------------------------------------------------------*/
+    /* Toolbar with buttons and title
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 function Toolbar(calendar, toolbarOptions) {
 	var t = this;
@@ -38557,9 +38477,7 @@ function Toolbar(calendar, toolbarOptions) {
 
 }
 
-;;
-
-var Calendar = FC.Calendar = Class.extend(EmitterMixin, {
+    var Calendar = FC.Calendar = Class.extend(EmitterMixin, {
 
 	view: null, // current View object
 	viewsByType: null, // holds all instantiated view instances, current or not
@@ -38904,10 +38822,9 @@ var Calendar = FC.Calendar = Class.extend(EmitterMixin, {
 
 });
 
-;;
-/*
-Options binding/triggering system.
-*/
+    /*
+    Options binding/triggering system.
+    */
 Calendar.mixin({
 
 	dirDefaults: null, // option defaults related to LTR or RTL
@@ -39052,9 +38969,7 @@ Calendar.mixin({
 
 });
 
-;;
-
-Calendar.mixin({
+    Calendar.mixin({
 
 	defaultAllDayEventDuration: null,
 	defaultTimedEventDuration: null,
@@ -39302,9 +39217,7 @@ Calendar.mixin({
 
 });
 
-;;
-
-Calendar.mixin({
+    Calendar.mixin({
 
 	viewSpecCache: null, // cache of view definitions (initialized in Calendar.js)
 
@@ -39468,9 +39381,7 @@ Calendar.mixin({
 
 });
 
-;;
-
-Calendar.mixin({
+    Calendar.mixin({
 
 	el: null,
 	contentEl: null,
@@ -39778,9 +39689,7 @@ Calendar.mixin({
 
 });
 
-;;
-
-Calendar.mixin({
+    Calendar.mixin({
 
 	header: null,
 	footer: null,
@@ -39880,9 +39789,7 @@ Calendar.mixin({
 
 });
 
-;;
-
-var BUSINESS_HOUR_EVENT_DEFAULTS = {
+    var BUSINESS_HOUR_EVENT_DEFAULTS = {
 	start: '09:00',
 	end: '17:00',
 	dow: [ 1, 2, 3, 4, 5 ], // monday - friday
@@ -39987,12 +39894,10 @@ Calendar.prototype.buildBusinessDef = function(wholeDay, rawDef) {
 	);
 };
 
-;;
-
-/*
-determines if eventInstanceGroup is allowed,
-in relation to other EVENTS and business hours.
-*/
+    /*
+    determines if eventInstanceGroup is allowed,
+    in relation to other EVENTS and business hours.
+    */
 Calendar.prototype.isEventInstanceGroupAllowed = function(eventInstanceGroup) {
 	var eventDef = eventInstanceGroup.getEventDef();
 	var eventFootprints = this.eventRangesToEventFootprints(eventInstanceGroup.getAllEventRanges());
@@ -40344,9 +40249,7 @@ Calendar.prototype.footprintsIntersect = function(footprint0, footprint1) {
 	return footprint0.unzonedRange.intersectsWith(footprint1.unzonedRange);
 };
 
-;;
-
-Calendar.mixin({
+    Calendar.mixin({
 
 	// Sources
 	// ------------------------------------------------------------------------------------
@@ -40554,9 +40457,7 @@ function filterLegacyEventInstances(legacyEventInstances, legacyQuery) {
 	}
 }
 
-;;
-
-Calendar.defaults = {
+    Calendar.defaults = {
 
 	titleRangeSeparator: ' \u2013 ', // en dash
 	monthYearFormat: 'MMMM YYYY', // required for en. other locales rely on datepicker computable option
@@ -40672,9 +40573,7 @@ Calendar.rtlDefaults = { // right-to-left defaults
 	}
 };
 
-;;
-
-var localeOptionHash = FC.locales = {}; // initialize and expose
+    var localeOptionHash = FC.locales = {}; // initialize and expose
 
 
 // TODO: document the structure and ordering of a FullCalendar locale file
@@ -40871,9 +40770,7 @@ function getMomentLocaleData(localeCode) {
 // Also, sets it as the default.
 FC.locale('en', Calendar.englishDefaults);
 
-;;
-
-var UnzonedRange = FC.UnzonedRange = Class.extend({
+    var UnzonedRange = FC.UnzonedRange = Class.extend({
 
 	startMs: null, // if null, no start constraint
 	endMs: null, // if null, no end constraint
@@ -41058,11 +40955,9 @@ function compareUnzonedRanges(range1, range2) {
 	return range1.startMs - range2.startMs; // earlier ranges go first
 }
 
-;;
-
-/*
-Meant to be immutable
-*/
+    /*
+    Meant to be immutable
+    */
 var ComponentFootprint = FC.ComponentFootprint = Class.extend({
 
 	unzonedRange: null,
@@ -41087,9 +40982,7 @@ var ComponentFootprint = FC.ComponentFootprint = Class.extend({
 
 });
 
-;;
-
-var EventManager = Class.extend(EmitterMixin, ListenerMixin, {
+    var EventManager = Class.extend(EmitterMixin, ListenerMixin, {
 
 	currentPeriod: null,
 
@@ -41441,9 +41334,7 @@ function isSourcesEquivalent(source0, source1) {
 	return source0.getPrimitive() == source1.getPrimitive();
 }
 
-;;
-
-var EventPeriod = Class.extend(EmitterMixin, {
+    var EventPeriod = Class.extend(EmitterMixin, {
 
 	start: null,
 	end: null,
@@ -41785,9 +41676,7 @@ var EventPeriod = Class.extend(EmitterMixin, {
 
 });
 
-;;
-
-var EventDefParser = {
+    var EventDefParser = {
 
 	parse: function(eventInput, source) {
 		if (
@@ -41803,9 +41692,7 @@ var EventDefParser = {
 
 };
 
-;;
-
-var EventDef = FC.EventDef = Class.extend(ParsableModelMixin, {
+    var EventDef = FC.EventDef = Class.extend(ParsableModelMixin, {
 
 	source: null, // required
 
@@ -42052,9 +41939,7 @@ EventDef.parse = function(rawInput, source) {
 	return false;
 };
 
-;;
-
-var SingleEventDef = EventDef.extend({
+    var SingleEventDef = EventDef.extend({
 
 	dateProfile: null,
 
@@ -42132,9 +42017,7 @@ SingleEventDef.allowRawProps({ // false = manually process
 	allDay: false
 });
 
-;;
-
-var RecurringEventDef = EventDef.extend({
+    var RecurringEventDef = EventDef.extend({
 
 	startTime: null, // duration
 	endTime: null, // duration, or null
@@ -42254,9 +42137,7 @@ RecurringEventDef.allowRawProps({ // false = manually process
 	dow: false
 });
 
-;;
-
-var EventInstance = Class.extend({
+    var EventInstance = Class.extend({
 
 	def: null, // EventDef
 	dateProfile: null, // EventDateProfile
@@ -42280,12 +42161,10 @@ var EventInstance = Class.extend({
 
 });
 
-;;
-
-/*
-It's expected that there will be at least one EventInstance,
-OR that an explicitEventDef is assigned.
-*/
+    /*
+    It's expected that there will be at least one EventInstance,
+    OR that an explicitEventDef is assigned.
+    */
 var EventInstanceGroup = Class.extend({
 
 	eventInstances: null,
@@ -42361,11 +42240,9 @@ var EventInstanceGroup = Class.extend({
 
 });
 
-;;
-
-/*
-Meant to be immutable
-*/
+    /*
+    Meant to be immutable
+    */
 var EventDateProfile = Class.extend({
 
 	start: null,
@@ -42466,9 +42343,7 @@ EventDateProfile.parse = function(rawProps, source) {
 	return new EventDateProfile(start, end, calendar);
 };
 
-;;
-
-var EventRange = Class.extend({
+    var EventRange = Class.extend({
 
 	unzonedRange: null,
 	eventDef: null,
@@ -42486,9 +42361,7 @@ var EventRange = Class.extend({
 
 });
 
-;;
-
-var EventFootprint = FC.EventFootprint = Class.extend({
+    var EventFootprint = FC.EventFootprint = Class.extend({
 
 	componentFootprint: null,
 	eventDef: null,
@@ -42511,9 +42384,7 @@ var EventFootprint = FC.EventFootprint = Class.extend({
 
 });
 
-;;
-
-var EventDefMutation = FC.EventDefMutation = Class.extend({
+    var EventDefMutation = FC.EventDefMutation = Class.extend({
 
 	// won't ever be empty. will be null instead.
 	// callers should use setDateMutation for setting.
@@ -42613,9 +42484,7 @@ EventDefMutation.createFromRawProps = function(eventInstance, newRawProps, large
 	return defMutation;
 };
 
-;;
-
-var EventDefDateMutation = Class.extend({
+    var EventDefDateMutation = Class.extend({
 
 	clearEnd: false,
 	forceTimed: false,
@@ -42787,9 +42656,7 @@ EventDefDateMutation.createFromDiff = function(dateProfile0, dateProfile1, large
 	return mutation;
 };
 
-;;
-
-function eventDefsToEventInstances(eventDefs, unzonedRange) {
+    function eventDefsToEventInstances(eventDefs, unzonedRange) {
 	var eventInstances = [];
 	var i;
 
@@ -42827,9 +42694,7 @@ function eventFootprintsToComponentFootprints(eventFootprints) {
 	});
 }
 
-;;
-
-var EventSource = Class.extend(ParsableModelMixin, {
+    var EventSource = Class.extend(ParsableModelMixin, {
 
 	calendar: null,
 
@@ -42984,9 +42849,7 @@ EventSource.parse = function(rawInput, calendar) {
 
 FC.EventSource = EventSource;
 
-;;
-
-var EventSourceParser = {
+    var EventSourceParser = {
 
 	sourceClasses: [],
 
@@ -43015,9 +42878,7 @@ var EventSourceParser = {
 
 FC.EventSourceParser = EventSourceParser;
 
-;;
-
-var ArrayEventSource = EventSource.extend({
+    var ArrayEventSource = EventSource.extend({
 
 	rawEventDefs: null, // unparsed
 	eventDefs: null,
@@ -43121,9 +42982,7 @@ EventSourceParser.registerClass(ArrayEventSource);
 
 FC.ArrayEventSource = ArrayEventSource;
 
-;;
-
-var FuncEventSource = EventSource.extend({
+    var FuncEventSource = EventSource.extend({
 
 	func: null,
 
@@ -43189,9 +43048,7 @@ EventSourceParser.registerClass(FuncEventSource);
 
 FC.FuncEventSource = FuncEventSource;
 
-;;
-
-var JsonFeedEventSource = EventSource.extend({
+    var JsonFeedEventSource = EventSource.extend({
 
 	// these props must all be manually set before calling fetch
 	startParam: null,
@@ -43340,9 +43197,7 @@ EventSourceParser.registerClass(JsonFeedEventSource);
 
 FC.JsonFeedEventSource = JsonFeedEventSource;
 
-;;
-
-var ThemeRegistry = FC.ThemeRegistry = {
+    var ThemeRegistry = FC.ThemeRegistry = {
 
 	themeClassHash: {},
 
@@ -43366,9 +43221,7 @@ var ThemeRegistry = FC.ThemeRegistry = {
 
 };
 
-;;
-
-var Theme = FC.Theme = Class.extend({
+    var Theme = FC.Theme = Class.extend({
 
 	classes: {},
 	iconClasses: {},
@@ -43457,9 +43310,7 @@ var Theme = FC.Theme = Class.extend({
 
 });
 
-;;
-
-var StandardTheme = Theme.extend({
+    var StandardTheme = Theme.extend({
 
 	classes: {
 		widget: 'fc-unthemed',
@@ -43504,9 +43355,7 @@ var StandardTheme = Theme.extend({
 
 ThemeRegistry.register('standard', StandardTheme);
 
-;;
-
-var JqueryUiTheme = Theme.extend({
+    var JqueryUiTheme = Theme.extend({
 
 	classes: {
 		widget: 'ui-widget',
@@ -43553,9 +43402,7 @@ var JqueryUiTheme = Theme.extend({
 
 ThemeRegistry.register('jquery-ui', JqueryUiTheme);
 
-;;
-
-var BootstrapTheme = Theme.extend({
+    var BootstrapTheme = Theme.extend({
 
 	classes: {
 		widget: 'fc-bootstrap3',
@@ -43599,10 +43446,8 @@ var BootstrapTheme = Theme.extend({
 
 ThemeRegistry.register('bootstrap3', BootstrapTheme);
 
-;;
-
-/* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
-----------------------------------------------------------------------------------------------------------------------*/
+    /* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
+    ----------------------------------------------------------------------------------------------------------------------*/
 // It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
 // It is responsible for managing width/height.
 
@@ -43679,8 +43524,8 @@ var BasicView = FC.BasicView = View.extend({
 			else {
 				this.cellWeekNumbersVisible = false;
 				this.colWeekNumbersVisible = true;
-			};
-		}
+            }
+        }
 		this.dayGrid.numbersVisible = this.dayNumbersVisible ||
 			this.cellWeekNumbersVisible || this.colWeekNumbersVisible;
 
@@ -43937,10 +43782,8 @@ var basicDayGridMethods = {
 
 };
 
-;;
-
-/* A month view with day cells running in rows (one-per-week) and columns
-----------------------------------------------------------------------------------------------------------------------*/
+    /* A month view with day cells running in rows (one-per-week) and columns
+    ----------------------------------------------------------------------------------------------------------------------*/
 
 var MonthView = FC.MonthView = BasicView.extend({
 
@@ -43987,9 +43830,7 @@ var MonthView = FC.MonthView = BasicView.extend({
 
 });
 
-;;
-
-fcViews.basic = {
+    fcViews.basic = {
 	'class': BasicView
 };
 
@@ -44010,10 +43851,8 @@ fcViews.month = {
 		fixedWeekCount: true
 	}
 };
-;;
-
-/* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
-----------------------------------------------------------------------------------------------------------------------*/
+    /* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
+    ----------------------------------------------------------------------------------------------------------------------*/
 // Is a manager for the TimeGrid subcomponent and possibly the DayGrid subcomponent (if allDaySlot is on).
 // Responsible for managing width/height.
 
@@ -44451,9 +44290,7 @@ var agendaDayGridMethods = {
 
 };
 
-;;
-
-var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
+    var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
 
 // potential nice values for the slot-duration and interval-duration
 // from largest to smallest
@@ -44483,11 +44320,9 @@ fcViews.agendaWeek = {
 	type: 'agenda',
 	duration: { weeks: 1 }
 };
-;;
-
-/*
-Responsible for the scroller, and forwarding event-related actions into the "grid"
-*/
+    /*
+    Responsible for the scroller, and forwarding event-related actions into the "grid"
+    */
 var ListView = View.extend({
 
 	grid: null,
@@ -44792,9 +44627,7 @@ var ListViewGrid = Grid.extend({
 
 });
 
-;;
-
-fcViews.list = {
+    fcViews.list = {
 	'class': ListView,
 	buttonTextKey: 'list', // what to lookup in locale files
 	defaults: {
@@ -44837,9 +44670,7 @@ fcViews.listYear = {
 	}
 };
 
-;;
-
-return FC; // export for Node/CommonJS
+    return FC; // export for Node/CommonJS
 });
 
 /***/ }),
@@ -45080,14 +44911,14 @@ var map = {
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
+}
+        function webpackContextResolve(req) {
 	var id = map[req];
 	if(!(id + 1)) // check for number or string
 		throw new Error("Cannot find module '" + req + "'.");
 	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
+}
+        webpackContext.keys = function webpackContextKeys() {
 	return Object.keys(map);
 };
 webpackContext.resolve = webpackContextResolve;
