@@ -14843,33 +14843,11 @@ $(document).ready(function () {
         $(".pick-curr").removeClass("pressed");
     });
 
-    $('.payu-btn').click(function (event) {
-        event.preventDefault();
-        var thisBtn = $(this);
-        thisBtn.attr('disabled', true);
-        $.ajax({
-            type: "GET",
-            url: "/reserve/payu",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function success(data) {
-                for (key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        $('form[name=payuform]>input[name=' + key + ']').val(data[key]);
-                    }
-                }
-                thisBtn.attr('disabled', false);
-                document.payuform.submit();
-            }
-        });
-    });
-
     // --------------------------- Program schedule restriction --------------------
 
 
     $("#program-schedule .btn").click(function (e) {
-        if ($("#program_activities").attr('data-activities') == '0') {
+        if ($("#program_activities").attr('data-activities') == '0' && $("#program_subscriptions").data('subscriptions') === '0') {
             e.preventDefault();
             $('#message-modal #message').text('Debes incluir primero alguna actividad');
             $('#message-modal').modal('show');
@@ -14878,24 +14856,6 @@ $(document).ready(function () {
 
     // --------------------------- END Program schedule restriction --------------------
 
-    jQuery('#map-modal').on("shown.bs.modal", function () {
-
-        var lat = jQuery(this).data('lat'),
-            lng = jQuery(this).data('lng');
-        var title = jQuery(this).data('title');
-        var latLng = new google.maps.LatLng(lat, lng);
-        var myOptions = {
-            zoom: 15,
-            center: latLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-container"), myOptions);
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            title: title
-        });
-    });
 
     //------------------- DISPLAYING CAPTCHA--------------------
 
@@ -26783,6 +26743,79 @@ $(document).ready(function () {
         });
     }
 
+    function calendarCalc() {
+        var totalcost = 0;
+        $("#instant-booking-list .basket-list__item").each(function () {
+            var totalcostprep = $(this).find(".basket-list__price").text();
+            totalcost += parseInt(totalcostprep.split('.').join(""));
+        });
+        $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
+    }
+
+    $('#instant-booking-list').on("click", ".basket-list__delete-button", function (e) {
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        var oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent(),
+            itemsCount = $(this).parent().parent().find('.basket-list__item').length;
+        $.ajax({
+            type: 'POST',
+            url: "/offer/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: function success() {
+                var itemsCount = pickedel.parent().find('.basket-list__item').length - 1;
+                pickedel.remove();
+                if (itemsCount < 1) {
+                    $("#offers-basket").remove();
+                    if ($("#special-offers-basket").find('.basket-list__item').length < 1) {
+                        window.location.replace(document.location.origin + '/activities');
+                    }
+                } else {
+                    calendarCalc();
+                }
+                jQuery('#calendar').fullCalendar('refetchEvents');
+            },
+            error: function error() {
+                location.reload();
+            }
+        }).done(function () {
+            getsuprogram();
+        });
+    });
+
+    $("#receive-offers-list").on('click', '.basket-list__delete-button', function (e) {
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        var oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: "/offer/special/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: function success() {
+                var itemsCount = pickedel.parent().find('.basket-list__item').length - 1;
+                pickedel.remove();
+                if (itemsCount < 1) {
+                    $("#special-offers-basket").remove();
+                    if ($("#offers-basket").find('.basket-list__item').length < 1) {
+                        window.location.replace(document.location.origin + '/activities');
+                    }
+                }
+            },
+            error: function error(err) {
+                location.reload();
+            }
+        }).done(function () {
+            getsuprogram();
+        });
+    });
+
     //-------------------CALENDAR PLUGIN --------------
     if ($('#calendar').length) {
         var viewdate = $("#calendar").attr("data-date"),
@@ -26917,6 +26950,18 @@ $(document).ready(function () {
 
     //------------------- END CALENDAR PLUGIN --------------
 
+    var cancel_offer_id = void 0;
+    $(".delete_offer a").click(function (e) {
+        cancel_offer_id = $(this).attr('href');
+        e.preventDefault();
+        $("#myModal").modal();
+    });
+
+    $("#confirm_cancel").click(function (e) {
+        e.preventDefault();
+        window.location.href = cancel_offer_id;
+    });
+
     //------------------- Generate link --------------
 
     var generated = false;
@@ -26944,76 +26989,6 @@ $(document).ready(function () {
     });
 
     //------------------- END Generate link --------------
-
-    function calendarCalc() {
-        var totalcost = 0;
-        $("#instant-booking-list .basket-list__item").each(function () {
-            var totalcostprep = $(this).find(".basket-list__price").text();
-            totalcost += parseInt(totalcostprep.split('.').join(""));
-        });
-        $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
-    }
-
-    $('#instant-booking-list').on("click", ".basket-list__delete-button", function (e) {
-        e.preventDefault();
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        var oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent();
-        $.ajax({
-            type: 'POST',
-            url: "/offer/remove",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                oid: oid
-            },
-            success: function success() {
-                pickedel.remove();
-                calendarCalc();
-                jQuery('#calendar').fullCalendar('refetchEvents');
-            },
-            error: function error() {
-                location.reload();
-            }
-        }).done(function () {
-            getsuprogram();
-        });
-    });
-
-    $("#receive-offers-list").on('click', '.basket-list__delete-button', function (e) {
-        e.preventDefault();
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        var oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent();
-        $.ajax({
-            type: 'POST',
-            url: "/offer/special/remove",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                oid: oid
-            },
-            success: function success() {
-                pickedel.remove();
-            },
-            error: function error(err) {
-                console.error(err);
-                // location.reload();
-            }
-        }).done(function () {
-            getsuprogram();
-        });
-    });
-
-    var cancel_offer_id = void 0;
-    $(".delete_offer a").click(function (e) {
-        cancel_offer_id = $(this).attr('href');
-        e.preventDefault();
-        $("#myModal").modal();
-    });
-
-    $("#confirm_cancel").click(function (e) {
-        e.preventDefault();
-        window.location.href = cancel_offer_id;
-    });
 });
 
 /***/ }),

@@ -66,7 +66,7 @@
 								<strong class="price" data-unit-price="{{ $offer->price }}">
 									<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub>{{ number_format($offer->price, 0, '.', '.') }}
 								</strong>
-								<a href="#" class="btn btn-primary btn-reserve"
+								<a href="#" class="btn select-activity__add-button"
 									data-offer-id="{{ $offer->id }}">{{ trans('main.add') }}</a>
 							</div>
 						</div>

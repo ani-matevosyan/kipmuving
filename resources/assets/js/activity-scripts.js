@@ -106,7 +106,7 @@ $(document).ready(function(){
             data: "",
             success: response => {
                 $("#program_activities").text(response.data.offers).attr('data-activities' ,response.data.offers);
-                $("#program_subscriptions").text(response.data.special_offers);
+                $("#program_subscriptions").text(response.data.special_offers).attr('data-subscriptions', response.data.special_offers);
                 $("#program_persons").text(response.data.persons);
                 $("#program_total").text(response.data.total);
             },
@@ -190,7 +190,7 @@ $(document).ready(function(){
         return false;
     });
 
-    $('.btn-reserve').click(function(){
+    $('.select-activity__add-button').click(function(){
         var dt = $("#reserve-date").val();
         if (dt === '') {
             $('#message-modal #message').text('Seleccione primero la fecha.');

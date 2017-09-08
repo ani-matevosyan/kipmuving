@@ -10714,89 +10714,6 @@ module.exports = "/images/vendor/chosen-js/chosen-sprite.png?8b55a822e72b8fd5e2e
 
 /***/ }),
 
-/***/ 13:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
 /***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11370,7 +11287,7 @@ $(document).ready(function () {
             data: "",
             success: function success(response) {
                 $("#program_activities").text(response.data.offers).attr('data-activities', response.data.offers);
-                $("#program_subscriptions").text(response.data.special_offers);
+                $("#program_subscriptions").text(response.data.special_offers).attr('data-subscriptions', response.data.special_offers);
                 $("#program_persons").text(response.data.persons);
                 $("#program_total").text(response.data.total);
             },
@@ -11454,7 +11371,7 @@ $(document).ready(function () {
         return false;
     });
 
-    $('.btn-reserve').click(function () {
+    $('.select-activity__add-button').click(function () {
         var dt = $("#reserve-date").val();
         if (dt === '') {
             $('#message-modal #message').text('Seleccione primero la fecha.');
@@ -13222,7 +13139,7 @@ if(false) {
 /***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)(undefined);
+exports = module.exports = __webpack_require__(205)(undefined);
 // imports
 
 
@@ -16504,33 +16421,11 @@ $(document).ready(function () {
         $(".pick-curr").removeClass("pressed");
     });
 
-    $('.payu-btn').click(function (event) {
-        event.preventDefault();
-        var thisBtn = $(this);
-        thisBtn.attr('disabled', true);
-        $.ajax({
-            type: "GET",
-            url: "/reserve/payu",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function success(data) {
-                for (key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        $('form[name=payuform]>input[name=' + key + ']').val(data[key]);
-                    }
-                }
-                thisBtn.attr('disabled', false);
-                document.payuform.submit();
-            }
-        });
-    });
-
     // --------------------------- Program schedule restriction --------------------
 
 
     $("#program-schedule .btn").click(function (e) {
-        if ($("#program_activities").attr('data-activities') == '0') {
+        if ($("#program_activities").attr('data-activities') == '0' && $("#program_subscriptions").data('subscriptions') === '0') {
             e.preventDefault();
             $('#message-modal #message').text('Debes incluir primero alguna actividad');
             $('#message-modal').modal('show');
@@ -16539,24 +16434,6 @@ $(document).ready(function () {
 
     // --------------------------- END Program schedule restriction --------------------
 
-    jQuery('#map-modal').on("shown.bs.modal", function () {
-
-        var lat = jQuery(this).data('lat'),
-            lng = jQuery(this).data('lng');
-        var title = jQuery(this).data('title');
-        var latLng = new google.maps.LatLng(lat, lng);
-        var myOptions = {
-            zoom: 15,
-            center: latLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-container"), myOptions);
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            title: title
-        });
-    });
 
     //------------------- DISPLAYING CAPTCHA--------------------
 
@@ -16587,6 +16464,89 @@ $(window).on('load', function () {
         $("#CDSWIDSSP .widSSPData .widSSPBranding dt a img, #CDSWIDSSP .widSSPData .widSSPBranding dt a:link img").attr("src", "/images/logo-trip.png");
     }
 });
+
+/***/ }),
+
+/***/ 205:
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
 
 /***/ }),
 

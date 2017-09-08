@@ -10341,6 +10341,30 @@ __webpack_require__(2);
 __webpack_require__(9);
 __webpack_require__(7);
 
+$(document).ready(function () {
+    $('.payu-btn').click(function (event) {
+        event.preventDefault();
+        var thisBtn = $(this);
+        thisBtn.attr('disabled', true);
+        $.ajax({
+            type: "GET",
+            url: "/reserve/payu",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function success(data) {
+                for (key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        $('form[name=payuform]>input[name=' + key + ']').val(data[key]);
+                    }
+                }
+                thisBtn.attr('disabled', false);
+                document.payuform.submit();
+            }
+        });
+    });
+});
+
 /***/ }),
 
 /***/ 2:
@@ -10392,33 +10416,11 @@ $(document).ready(function () {
         $(".pick-curr").removeClass("pressed");
     });
 
-    $('.payu-btn').click(function (event) {
-        event.preventDefault();
-        var thisBtn = $(this);
-        thisBtn.attr('disabled', true);
-        $.ajax({
-            type: "GET",
-            url: "/reserve/payu",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function success(data) {
-                for (key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        $('form[name=payuform]>input[name=' + key + ']').val(data[key]);
-                    }
-                }
-                thisBtn.attr('disabled', false);
-                document.payuform.submit();
-            }
-        });
-    });
-
     // --------------------------- Program schedule restriction --------------------
 
 
     $("#program-schedule .btn").click(function (e) {
-        if ($("#program_activities").attr('data-activities') == '0') {
+        if ($("#program_activities").attr('data-activities') == '0' && $("#program_subscriptions").data('subscriptions') === '0') {
             e.preventDefault();
             $('#message-modal #message').text('Debes incluir primero alguna actividad');
             $('#message-modal').modal('show');
@@ -10427,24 +10429,6 @@ $(document).ready(function () {
 
     // --------------------------- END Program schedule restriction --------------------
 
-    jQuery('#map-modal').on("shown.bs.modal", function () {
-
-        var lat = jQuery(this).data('lat'),
-            lng = jQuery(this).data('lng');
-        var title = jQuery(this).data('title');
-        var latLng = new google.maps.LatLng(lat, lng);
-        var myOptions = {
-            zoom: 15,
-            center: latLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-container"), myOptions);
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            title: title
-        });
-    });
 
     //------------------- DISPLAYING CAPTCHA--------------------
 

@@ -22,6 +22,79 @@ $(document).ready(function(){
         });
     }
 
+    function calendarCalc(){
+        let totalcost = 0;
+        $("#instant-booking-list .basket-list__item" ).each( function(){
+            let totalcostprep = ($(this).find(".basket-list__price").text());
+            totalcost += parseInt(totalcostprep.split('.').join(""));
+        });
+        $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
+    }
+
+    $('#instant-booking-list').on("click", ".basket-list__delete-button", function(e){
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent(),
+            itemsCount = $(this).parent().parent().find('.basket-list__item').length;
+        $.ajax({
+            type: 'POST',
+            url: "/offer/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: () => {
+                let itemsCount = pickedel.parent().find('.basket-list__item').length - 1;
+                pickedel.remove();
+                if(itemsCount < 1){
+                    $("#offers-basket").remove();
+                    if($("#special-offers-basket").find('.basket-list__item').length < 1){
+                        window.location.replace(document.location.origin+'/activities');
+                    }
+                }else{
+                    calendarCalc();
+                }
+                jQuery('#calendar').fullCalendar('refetchEvents');
+            },
+            error: () => {
+                location.reload();
+            }
+        }).done(() => {
+            getsuprogram();
+        });
+    });
+
+    $("#receive-offers-list").on('click', '.basket-list__delete-button', function(e){
+        e.preventDefault();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let oid = $(this).parent().prevAll().length,
+            pickedel = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: "/offer/special/remove",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                oid: oid
+            },
+            success: () => {
+                let itemsCount = pickedel.parent().find('.basket-list__item').length - 1;
+                pickedel.remove();
+                if(itemsCount < 1){
+                    $("#special-offers-basket").remove();
+                    if($("#offers-basket").find('.basket-list__item').length < 1){
+                        window.location.replace(document.location.origin+'/activities');
+                    }
+                }
+            },
+            error: err => {
+                location.reload();
+            }
+        }).done(() => {
+            getsuprogram();
+        });
+    });
+
     //-------------------CALENDAR PLUGIN --------------
     if($('#calendar').length){
         let viewdate = $("#calendar").attr("data-date"),
@@ -154,6 +227,18 @@ $(document).ready(function(){
 
     //------------------- END CALENDAR PLUGIN --------------
 
+    let cancel_offer_id;
+    $(".delete_offer a").click(function(e){
+        cancel_offer_id = $(this).attr('href');
+        e.preventDefault();
+        $("#myModal").modal();
+    });
+
+    $("#confirm_cancel").click(function(e){
+        e.preventDefault();
+        window.location.href = cancel_offer_id;
+    });
+
     //------------------- Generate link --------------
 
     var generated = false;
@@ -181,76 +266,5 @@ $(document).ready(function(){
     });
 
     //------------------- END Generate link --------------
-
-    function calendarCalc(){
-        let totalcost = 0;
-        $("#instant-booking-list .basket-list__item" ).each( function(){
-            let totalcostprep = ($(this).find(".basket-list__price").text());
-            totalcost += parseInt(totalcostprep.split('.').join(""));
-        });
-        $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
-    }
-
-    $('#instant-booking-list').on("click", ".basket-list__delete-button", function(e){
-        e.preventDefault();
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        let oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent();
-        $.ajax({
-            type: 'POST',
-            url: "/offer/remove",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                oid: oid
-            },
-            success: () => {
-                pickedel.remove();
-                calendarCalc();
-                jQuery('#calendar').fullCalendar('refetchEvents');
-            },
-            error: () => {
-                location.reload();
-            }
-        }).done(() => {
-            getsuprogram();
-        });
-    });
-
-    $("#receive-offers-list").on('click', '.basket-list__delete-button', function(e){
-        e.preventDefault();
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        let oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent();
-        $.ajax({
-            type: 'POST',
-            url: "/offer/special/remove",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                oid: oid
-            },
-            success: () => {
-                pickedel.remove();
-            },
-            error: err => {
-                console.error(err);
-                // location.reload();
-            }
-        }).done(() => {
-            getsuprogram();
-        });
-    });
-
-    let cancel_offer_id;
-    $(".delete_offer a").click(function(e){
-        cancel_offer_id = $(this).attr('href');
-        e.preventDefault();
-        $("#myModal").modal();
-    });
-
-    $("#confirm_cancel").click(function(e){
-        e.preventDefault();
-        window.location.href = cancel_offer_id;
-    });
-
 
 });

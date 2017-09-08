@@ -30,7 +30,7 @@
 						<section class="s-program">
 							<div class="s-program__content @if(session('currency.type') === 'BRL') s-program__content_brl-curr @endif">
 								@if(isset($selectedOffers) && count($selectedOffers) > 0)
-									<div class="s-program__basket">
+									<div class="s-program__basket" id="offers-basket">
 										<header class="s-program__header">
 											<h3 class="s-program__title">{{ trans('main.instant_booking') }}</h3>
 											<p class="s-program__offers-count">
@@ -56,7 +56,7 @@
 									</div>
 								@endif
 								@if(isset($special_offers) && count($special_offers) > 0)
-									<div class="s-program__basket">
+									<div class="s-program__basket" id="special-offers-basket">
 										<header class="s-program__header s-program__header_subscription">
 											<h3 class="s-program__title s-program__title_subscription">{{ trans('main.receive_offers') }}</h3>
 											<p class="s-program__offers-count">

@@ -14602,6 +14602,21 @@ img.mfp-img {
   border-bottom: 1px solid #d9d9d9;
 }
 
+.select-activity__add-button {
+  color: #fff;
+  float: right;
+  min-width: 100px;
+  background-color: #eab011;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.select-activity__add-button:focus, .select-activity__add-button:hover {
+  color: #fff;
+  background-color: #ffc311;
+}
+
 .select-activity .timing1 {
   border: none;
   margin: 21px 0 0;
