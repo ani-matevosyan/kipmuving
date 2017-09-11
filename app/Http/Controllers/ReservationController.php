@@ -101,7 +101,11 @@ class ReservationController extends Controller
 
 		$reservation = $this->getReservationData($selected_offer, $s_offer->price);
 
-		return view('emails.reservar.admin', ['user' => \auth()->user(), 'reservation' => $reservation]);
+//		return view('emails.reservations.confirm-to-agency', ['user' => \auth()->user(), 'reservation' => $reservation]);
+//		return view('emails.reservations.confirm-to-user', ['user' => \auth()->user(), 'reservation' => $reservation]);
+
+
+
 
 		dd($reservation);
 
