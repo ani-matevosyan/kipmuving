@@ -11,10 +11,10 @@ $(document).ready(function(){
 
     $("#accept-modal__button_success").click(function(e){
 
-       let offerId = $("#accept-offer-modal").data('offer-id'),
+       let offerId = $("#accept-offer-modal").attr('data-offer-id'),
            timeRange;
        if($("#accept-offer-modal__your-hours_time").length){
-           timeRange = $("#accept-offer-modal__your-hours_time").data('timerange');
+           timeRange = $("#accept-offer-modal__your-hours_time").attr('data-timerange');
            $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
        }else{
            timeRange = $("#accept-offer-modal__time-select").val();
@@ -40,25 +40,27 @@ $(document).ready(function(){
                 'id': offerId,
                 'timerange': timeRange
             },
-            success: function(data){
-                console.log(data);
-                $("#accept-offer-modal").modal('hide');
-                location.reload();
+            success: response => {
+                if(response.success === true){
+                  $("#accept-offer-modal").modal('hide');
+                  location.reload();
+                }
             },
-            error: function(err){
+            error: err => {
                 console.log(err);
-            },
-          complete: () => {
-            $(".loader").remove();
-          }
+                $(".loader").remove();
+            }
         });
     });
 
+    let pickHours = $("#accept-offer-modal__select-hours").detach(),
+        yourHours = $("#accept-offer-modal__your-hours").detach();
     $(".special-offers__button").click(function(e){
         e.preventDefault();
-        let offer_id = $(this).parent().parent().data('offer-id');
-        if(offer_id !== $("#accept-offer-modal").data('offer-id')) {
+        let offer_id = $(this).parent().parent().attr('data-offer-id');
+        if(offer_id !== $("#accept-offer-modal").attr('data-offer-id')) {
             $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+            $("#accept-offer-modal__select-hours, #accept-offer-modal__your-hours").remove();
             $.ajax({
                 type: 'GET',
                 url: '/offer/special/confirm',
@@ -68,8 +70,6 @@ $(document).ready(function(){
                 success: function (data) {
                     $("#accept-offer-modal__agency-name").text(data.agency_name);
                     $("#accept-offer-modal__price").text(numberWithDots(data.price));
-                    let pickHours = $("#accept-offer-modal__select-hours").detach(),
-                        yourHours = $("#accept-offer-modal__your-hours").detach();
                     if(data.timeranges.length < 2){
                         yourHours.appendTo('#accept-modal__info');
                         $("#accept-offer-modal__your-hours_time").text(data.timeranges[0].start+' - '+data.timeranges[0].end).attr('data-timerange', data.timeranges[0].start+'-'+data.timeranges[0].end);
@@ -97,7 +97,7 @@ $(document).ready(function(){
 
     $("#info-modal__accept-button").click(function(e){
        e.preventDefault();
-       let offerId = $("#info-modal").data('offer-id');
+       let offerId = $("#info-modal").attr('data-offer-id');
        $("#info-modal").modal('hide');
        $("#info-modal").on('hidden.bs.modal', function(){
            $(".special-offers__item[data-offer-id="+offerId+"]").find(".special-offers__button").trigger('click');
@@ -107,8 +107,8 @@ $(document).ready(function(){
 
     $(".special-offers__info-button").click(function(e){
         e.preventDefault();
-        let offer_id = $(this).parent().parent().data('offer-id');
-        if(offer_id !== $("#info-modal").data('offer-id')){
+        let offer_id = $(this).parent().parent().attr('data-offer-id');
+        if(offer_id !== $("#info-modal").attr('data-offer-id')){
             $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
             $.ajax({
                 type: 'POST',
@@ -190,7 +190,7 @@ $(document).ready(function(){
     var activity_checked = false;
 
     $('.to_print').on('click', function(e){
-        var printText = $(this).data('print-text');
+        var printText = $(this).attr('data-print-text');
         e.preventDefault();
         if(!activity_checked){
             $(".check_activity").show();
