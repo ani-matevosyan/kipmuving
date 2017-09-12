@@ -86,31 +86,42 @@ class ReservationController extends Controller
 
 	public function reserveSpecialOffer(Request $request)
 	{
+		if(!$user = auth()->user())
+			return redirect()->to('/login');
+
 		$s_offer = SpecialOffer::find($request['id']);
-		$s_offer->timerange = explode('-', $request['timerange']);
+		$timerange = explode('-', $request['timerange']);
 
 		$selected_offer [] = [
 			'offer_id' => $s_offer->offer->id,
 			'date'     => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
 			'persons'  => $s_offer->persons,
 			'time'     => [
-				'start' => $s_offer->timerange[0],
-				'end'   => $s_offer->timerange[1],
+				'start' => $timerange[0],
+				'end'   => $timerange[1],
 			],
 		];
 
 		$reservation = $this->getReservationData($selected_offer, $s_offer->price);
 
-//		return view('emails.reservations.confirm-to-agency', ['user' => \auth()->user(), 'reservation' => $reservation]);
-//		return view('emails.reservations.confirm-to-user', ['user' => \auth()->user(), 'reservation' => $reservation]);
+		#Email to user
+		Mail::send('emails.reservations.confirm-to-user', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user) {
+			$message->from('contacto@keepmoving.co', 'Keepmoving team');
+			$message->to('sanek.solodovnikov.94@gmail.com', $user->first_name . ' ' . $user->last_name)->subject('Your Keepmoving.co reservation');
+		});
 
+		#Email to agency
+		Mail::send('emails.reservations.confirm-to-agency', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user) {
+			$message->from('contacto@keepmoving.co', 'Keepmoving team');
+			$message->to('sanek.solodovnikov.94@gmail.com')->subject('Keepmoving.co reservation');
+		});
 
+		$s_offer->active = false;
+		$s_offer->save();
 
+		$this->createReservation($reservation->offers, $user, 'kipmuving', uniqid(), 'Success', true, $s_offer->price);
 
-		dd($reservation);
-
-		dd($s_offer);
-
+		return response()->json(['success' => true]);
 	}
 
 	#Cancel reservation
@@ -139,15 +150,15 @@ class ReservationController extends Controller
 							$reservation->save();
 
 //							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
-//								$message->from('contacto@keepmoving.co', 'Kipmuving team');
+//								$message->from('contacto@keepmoving.co', 'Keepmoving team');
 ////							$user->email
-//								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Kipmuving.com');
+//								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Keepmoving.co');
 //							});
 //
 //							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
-//								$message->from('contacto@keepmoving.co', 'Kipmuving team');
+//								$message->from('contacto@keepmoving.co', 'Keepmoving team');
 ////							$reservation_data->offers[0]->agency->email
-//								$message->to($reservation_data->offers[0]->agency->email)->subject('Kipmuving.com canceled reservation');
+//								$message->to($reservation_data->offers[0]->agency->email)->subject('Keepmoving.co canceled reservation');
 //							});
 
 							return redirect()->back();
@@ -161,7 +172,7 @@ class ReservationController extends Controller
 	}
 
 	#Create reservation and save to DB
-	private function createReservation($offers, $user, $type, $uid, $status_code, $status = false)
+	private function createReservation($offers, $user, $type, $uid, $status_code, $status = false, $new_price = null)
 	{
 		foreach ($offers as $key => $offer) {
 			$reservation = new Reservation();
@@ -175,6 +186,13 @@ class ReservationController extends Controller
 			$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->toDateString();
 			$reservation->time_range = $offer->reservation['time']['start'] . '-' . $offer->reservation['time']['end'];
 			$reservation->payment_uid = $uid;
+
+			#Special offer reservation
+			if ($new_price) {
+				$reservation->is_special_offer = true;
+				$reservation->offer_price = $new_price;
+			}
+
 			$reservation->save();
 		}
 	}
@@ -232,13 +250,13 @@ class ReservationController extends Controller
 		#Send email about reservation to user
 		Mail::send('emails.reservar.user', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user) {
 			$message->from('contacto@keepmoving.co', 'Kipmuving team');
-			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your Kipmuving.com reservations');
+			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your Keepmoving.co reservations');
 		});
 
 		#Send email about reservation to admin
 //		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
-//			$message->from('contacto@keepmoving.co', 'Kipmuving team');
-//			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Kipmuving.com reservations');
+//			$message->from('contacto@keepmoving.co', 'Keepmoving team');
+//			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Keepmoving.co reservations');
 //		});
 
 		$agency_reservations = $reservations;
@@ -251,8 +269,8 @@ class ReservationController extends Controller
 //				'user'         => $user,
 //				'total'        => $item->sum('reservation.total')
 //			], function ($message) use ($agency_email) {
-//				$message->from('contacto@keepmoving.co', 'Kipmuving team');
-//				$message->to($agency_email)->subject('Kipmuving.com reservation');
+//				$message->from('contacto@keepmoving.co', 'Keepmoving team');
+//				$message->to($agency_email)->subject('Keepmoving.co reservation');
 //			});
 //		}
 	}
