@@ -16,10 +16,11 @@ $(document).ready(function(){
             error: err => {
                 console.log(err);
                 location.reload();
-            }
-        }).done(() => {
+            },
+          complete: () => {
             $(".loader").remove();
-        });
+          }
+        })
     }
 
     function calendarCalc(){
@@ -59,10 +60,11 @@ $(document).ready(function(){
             },
             error: () => {
                 location.reload();
-            }
-        }).done(() => {
+            },
+          complete: () => {
             getsuprogram();
-        });
+          }
+        })
     });
 
     $("#receive-offers-list").on('click', '.basket-list__delete-button', function(e){
@@ -89,10 +91,11 @@ $(document).ready(function(){
             },
             error: err => {
                 location.reload();
-            }
-        }).done(() => {
+            },
+          complete: () => {
             getsuprogram();
-        });
+          }
+        })
     });
 
     //-------------------CALENDAR PLUGIN --------------
@@ -241,7 +244,7 @@ $(document).ready(function(){
 
     //------------------- Generate link --------------
 
-    var generated = false;
+    let generated = false;
     $("#generate-link").click(function(e){
         e.preventDefault();
         var outputBlock = $(this).parent().find('input'),

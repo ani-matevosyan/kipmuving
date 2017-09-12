@@ -10,10 +10,12 @@ $(document).ready(function(){
     }
 
     $("#accept-modal__button_success").click(function(e){
+
        let offerId = $("#accept-offer-modal").data('offer-id'),
            timeRange;
        if($("#accept-offer-modal__your-hours_time").length){
            timeRange = $("#accept-offer-modal__your-hours_time").data('timerange');
+           $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
        }else{
            timeRange = $("#accept-offer-modal__time-select").val();
            if(timeRange === ''){
@@ -30,22 +32,26 @@ $(document).ready(function(){
                return false;
            }
        }
-       $.ajax({
-           type: 'POST',
-           url: '/offer/special/confirm',
-           data: {
-               '_token': $('meta[name="csrf-token"]').attr('content'),
-               'id': offerId,
-               'timerange': timeRange
-           },
-           success: function(data){
-               console.log(data);
-               $("#accept-offer-modal").modal('hide');
-           },
-           error: function(err){
-               console.log(err);
-           }
-       });
+        $.ajax({
+            type: 'POST',
+            url: '/offer/special/confirm',
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'id': offerId,
+                'timerange': timeRange
+            },
+            success: function(data){
+                console.log(data);
+                $("#accept-offer-modal").modal('hide');
+                location.reload();
+            },
+            error: function(err){
+                console.log(err);
+            },
+          complete: () => {
+            $(".loader").remove();
+          }
+        });
     });
 
     $(".special-offers__button").click(function(e){
@@ -78,11 +84,12 @@ $(document).ready(function(){
                 },
                 error: function (data) {
                     console.error(data);
-                }
-            }).done(function () {
+                },
+              complete: () => {
                 $(".loader").remove();
                 $("#accept-offer-modal").modal('show');
-            })
+              }
+            });
         }else{
             $("#accept-offer-modal").modal('show');
         }
@@ -127,11 +134,12 @@ $(document).ready(function(){
                 },
                 error: function(data){
                     console.log(data);
-                }
-            }).done(function(){
+                },
+              complete: () => {
                 $(".loader").remove();
                 $("#info-modal").modal('show');
-            });
+              }
+            })
         }else{
             $("#info-modal").modal('show');
         }

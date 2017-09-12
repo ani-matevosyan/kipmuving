@@ -44,22 +44,6 @@ $(document).ready(function(){
 
     var accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
 
-    function deccaroPlatesHeight(){
-        $(".guide-places-plate").css('height', 'auto');
-        $(".guide-places-plates").each(function(){
-            var maxHeight = 0;
-            $(this).find('.guide-places-plate').each(function(){
-                if($(this).outerHeight() > maxHeight)
-                    maxHeight = $(this).outerHeight();
-            });
-            $(this).find('.guide-places-plate').height(maxHeight);
-        });
-    }
-
-    if($(".guide-places-plates").length){
-        deccaroPlatesHeight();
-    }
-
     $(".guide-places-plate").click(function(){
         var thisWrapper = $(this).parent();
         var details_div = thisWrapper.find('.guide-place-plate-details');
@@ -151,4 +135,22 @@ $(document).ready(function(){
         })
     });
 
+});
+
+$(window).on('load', () => {
+  function deccaroPlatesHeight(){
+    $(".guide-places-plate").css('height', 'auto');
+    $(".guide-places-plates").each(function(){
+      var maxHeight = 0;
+      $(this).find('.guide-places-plate').each(function(){
+        if($(this).outerHeight() > maxHeight)
+          maxHeight = $(this).outerHeight();
+      });
+      $(this).find('.guide-places-plate').height(maxHeight);
+    });
+  }
+
+  if($(".guide-places-plates").length){
+    deccaroPlatesHeight();
+  }
 });

@@ -1,6 +1,6 @@
 require('./common');
 require('../../../public/libs/product-tour/product-tour.min');
-window.moment = require('../../../public/js/moment');
+window.moment = require('moment');
 require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 window.Instafeed = require('instafeed.js');
@@ -112,10 +112,11 @@ $(document).ready(function(){
             },
             error: function(){
                 location.reload();
-            }
-        }).done(() => {
+            },
+          complete: () => {
             $(".loader").remove();
-        });
+          }
+        })
     }
 
     $("#get-offers-button").click(function(){
@@ -144,11 +145,12 @@ $(document).ready(function(){
                 setTimeout(function(){
                     location.reload();
                 },2000);
-            }
-        }).done(function(){
+            },
+          complete: () => {
             getsuprogram();
             $('html, body').animate({scrollTop: '0px'}, 800);
-        });
+          }
+        })
     });
 
     jQuery('.offers-list').on("click", "a", function(){
@@ -177,10 +179,11 @@ $(document).ready(function(){
             },
             error: function(){
                 location.reload();
-            }
-        }).done(function(){
+            },
+          complete: () => {
             getsuprogram();
-        });
+          }
+        })
         return false;
     });
 
@@ -223,28 +226,30 @@ $(document).ready(function(){
             },
             error: function(){
                 location.reload();
-            }
-        }).done(function(){
+            },
+          complete: () => {
             $.ajax({
-                type: "GET",
-                url: "/activities/getselectedoffers",
-                data: "",
-                success: function(data){
-                    var lastel = data.data[data.data.length - 1];
-                    if($(".offers-list li").length === 0){
-                        $("section.widget.summary").slideDown();
-                    }
-                    var formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
-                    $(".offers-list").append("<li><a href='"+document.location.origin+"/offers/remove/"+offer_id+"'>"+ formattedDate   + " - "+ lastel.name+"</a>");
-
-                    $('html, body').animate({scrollTop: '0px'}, 800);
-                },
-                error: function(){
-                    location.reload();
+              type: "GET",
+              url: "/activities/getselectedoffers",
+              data: "",
+              success: function(data){
+                var lastel = data.data[data.data.length - 1];
+                if($(".offers-list li").length === 0){
+                  $("section.widget.summary").slideDown();
                 }
-            }).done(function(){
+                var formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
+                $(".offers-list").append("<li><a href='"+document.location.origin+"/offers/remove/"+offer_id+"'>"+ formattedDate   + " - "+ lastel.name+"</a>");
+
+                $('html, body').animate({scrollTop: '0px'}, 800);
+              },
+              error: function(){
+                location.reload();
+              },
+              complete: () => {
                 getsuprogram();
-            });
+              }
+            })
+          }
         });
         return false;
     });
