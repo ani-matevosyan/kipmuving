@@ -73,8 +73,8 @@ class SpecialOffersController extends Controller
 
 		$data = [
 			'user_name'        => $s_offer->user->first_name . ' ' . $s_offer->user->last_name,
-			'activity_name'    => $s_offer->offer->activity->name,
-			'agency_name'      => $s_offer->offer->agency->name,
+			'activity_name'    => $s_offer->offer->activity['name'],
+			'agency_name'      => $s_offer->offer->agency['name'],
 			'date'             => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
 			'persons'          => $s_offer->persons,
 			'price'            => $s_offer->offer->real_price,
@@ -90,10 +90,9 @@ class SpecialOffersController extends Controller
 			$s_offer->save();
 		} else return redirect()->back()->with('message', 'Sorry, you have already sent this offer to the user.');
 
-		//TODO change email
-		Mail::send('emails.special-offers.special-offers-to-user', ['data' => $data], function ($message) use ($data) {
+		Mail::send('emails.special-offers.special-offers-to-user', ['data' => $data], function ($message) use ($data, $s_offer) {
 			$message->from('contacto@keepmoving.co', 'Kipmuving team');
-			$message->to(config('app.admin_email'))->subject('You received a special offer: ' . $data['activity_name']);
+			$message->to($s_offer->user->email)->subject('You received a special offer: ' . $data['activity_name']);
 		});
 
 		return redirect()->back()->with('message', 'Great, we send email to user. Many thanks!');

@@ -18,7 +18,7 @@
 							<li class="your-offers__item your-offers__item_special">
 								<h3 class="your-offers__name">
 									<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $offers[0]->offer->activity->id]) }}">
-										{{ $offers[0]->offer->activity->name }}</a>
+										{{ $offers[0]->offer->activity['name'] }}</a>
 								</h3>
 								<div class="your-offers__info-block">
 									<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>:
@@ -32,7 +32,7 @@
 								<ul class="special-offers your-offers__special-offers">
 									@foreach($offers as $offer)
 										<li class="special-offers__item" data-offer-id="{{ $offer->id }}">
-											<h4 class="special-offers__agency">{{ $offer->offer->agency->name }}</h4>
+											<h4 class="special-offers__agency">{{ $offer->offer->agency['name'] }}</h4>
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
 												<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
