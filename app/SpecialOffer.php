@@ -21,12 +21,14 @@ class SpecialOffer extends Model
 		$offers = session('basket.special');
 		$data = [];
 
-		foreach ($offers as $offer) {
-			$data []= [
-				'activity' => Activity::find($offer['activity_id']),
-				'date' => $offer['date'],
-				'persons' => $offer['persons']
-			];
+		if (count($offers) > 0) {
+			foreach ($offers as $offer) {
+				$data []= [
+					'activity' => Activity::find($offer['activity_id']),
+					'date' => $offer['date'],
+					'persons' => $offer['persons']
+				];
+			}
 		}
 
 		return $data;
