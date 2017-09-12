@@ -69,6 +69,12 @@ return [
 		'model' => \App\FreeActivity::class
 	],
 	[
+		'title' => "Reservations",
+		'priority' => 6,
+		'icon'  => 'fa fa-handshake-o',
+		'model' => \App\Reservation::class
+	],
+	[
 		'title' => "Users",
 		'priority' => 100,
 		'icon'  => 'fa fa-users',

@@ -15,17 +15,17 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 		$display = AdminDisplay::datatables()->setColumns([
 			$id = AdminColumn::text('id', '#')
 				->setHtmlAttribute('class', 'text-center'),
-			$status = AdminColumn::custom('Status')
+			$status = AdminColumn::custom('S.O.')
 				->setHtmlAttribute('class', 'text-center')
 				->setCallback(function ($instance) {
-					return $instance->status
-						? '<i class="fa fa-check" style="color: #79cc32;"></i>'
-						: '<i class="fa fa-times" style="color: #fa3242;"></i>';
+					return $instance->is_special_offer
+						? '<img src="../images/sale.png" width="24px" height="24px">'
+						: '';
 				}),
-			$type = AdminColumn::text('type', 'Type')
-				->setHtmlAttribute('class', 'text-center'),
-			$status_code = AdminColumn::text('status_code', 'Code')
-				->setHtmlAttribute('class', 'text-center'),
+//			$type = AdminColumn::text('type', 'Type')
+//				->setHtmlAttribute('class', 'text-center'),
+//			$status_code = AdminColumn::text('status_code', 'Code')
+//				->setHtmlAttribute('class', 'text-center'),
 			$user = AdminColumn::text('name', 'User')
 				->setHtmlAttribute('class', 'text-center'),
 			$activity = AdminColumn::relatedLink('offer.activity.name', 'Activity')
@@ -42,13 +42,20 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 			$price = AdminColumn::text('offer.real_price', 'Price')
 				->setHtmlAttribute('class', 'text-center'),
 			$sum = AdminColumn::text('sum', 'Sum')
+				->setHtmlAttribute('class', 'text-center'),
+			$offer_price = AdminColumn::custom('Offer price')
 				->setHtmlAttribute('class', 'text-center')
+				->setCallback(function ($instance) {
+					return $instance->is_special_offer
+						? $instance->offer_price
+						: '-';
+				})
 		]);
 		
 		$id->getHeader()->setHtmlAttribute('class', 'text-center');
 		$status->getHeader()->setHtmlAttribute('class', 'text-center');
-		$type->getHeader()->setHtmlAttribute('class', 'text-center');
-		$status_code->getHeader()->setHtmlAttribute('class', 'text-center');
+//		$type->getHeader()->setHtmlAttribute('class', 'text-center');
+//		$status_code->getHeader()->setHtmlAttribute('class', 'text-center');
 		$user->getHeader()->setHtmlAttribute('class', 'text-center');
 		$activity->getHeader()->setHtmlAttribute('class', 'text-center');
 		$agency->getHeader()->setHtmlAttribute('class', 'text-center');
@@ -57,7 +64,8 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 		$persons->getHeader()->setHtmlAttribute('class', 'text-center');
 		$price->getHeader()->setHtmlAttribute('class', 'text-center');
 		$sum->getHeader()->setHtmlAttribute('class', 'text-center');
-		
+		$offer_price->getHeader()->setHtmlAttribute('class', 'text-center');
+
 		$display->setOrder([[0, 'desc']]);
 		
 		$display->paginate(10);
