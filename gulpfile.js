@@ -5,65 +5,65 @@ var gulp         = require('gulp'),
     babel        = require('gulp-babel'),
     uglify       = require('gulp-uglify'),
     pump         = require('pump'),
-    rename       = require('gulp-rename');
+    rename       = require('gulp-rename'),
+    webpack      = require('webpack-stream'),
+    named        = require('vinyl-named');
 
-gulp.task('sass', function(){
-    return gulp.src('./public/scss/**/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 15 version'],
-            cascade: false
-        }))
-        .pipe(sourcemaps.write("../maps"))
-        .pipe(gulp.dest('./public/css'))
+gulp.task('sass', function(cb){
+    pump(
+        [
+            gulp.src('./resources/assets/sass/**/*.scss'),
+            sourcemaps.init(),
+            sass({outputStyle: 'compressed'}).on('error', sass.logError),
+            autoprefixer({
+                browsers: ['last 15 version'],
+                cascade: false
+            }),
+            sourcemaps.write("../maps"),
+            gulp.dest('./public/css')
+        ],
+        cb
+    )
 });
 
-gulp.task('scripts', function(){
-   return gulp.src('./public/js/src/*.js')
-       .pipe(sourcemaps.init())
-       // .pipe(uglify())
-       .pipe(sourcemaps.write("../maps"))
-       .pipe(gulp.dest("./public/js"));
+gulp.task('scripts1', function(cb){
+    pump(
+        [
+            gulp.src('./resources/assets/js/src1/**/*.js'),
+            uglify(),
+            rename({ suffix: '.min' }),
+            gulp.dest('./public/js/')
+        ],
+        cb
+    )
 });
 
-gulp.task('compress', function(cb){
-   pump(
-       [
-           gulp.src('./public/js/src/*.js'),
-           uglify(),
-           rename({ suffix: '.min' }),
-           gulp.dest('./public/js')
-       ],
-       cb
-   )
+gulp.task('scripts2', function(cb){
+    pump(
+        [
+            gulp.src('./resources/assets/js/src2/**/*.js'),
+            babel({presets: ['es2015']}),
+            named(),
+            webpack({
+                module:{
+                    loaders: [
+                        { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+                        { test: /\.(png|jpg|gif)$/, use: ['url-loader'] }
+                    ]
+                }
+            }),
+            uglify(),
+            rename({ suffix: '.min' }),
+            gulp.dest('./public/js/')
+        ],
+        cb
+    )
 });
 
-gulp.task('watch', ['sass', 'compress'], function() {
-    gulp.watch('./public/scss/**/*.scss', ['sass']);
-    gulp.watch('./public/js/src/*.js', ['compress']);
+gulp.task('watch', ['sass', 'scripts1', 'scripts2'], function() {
+    gulp.watch('./resources/assets/sass/**/*.scss', ['sass']);
+    gulp.watch('./resources/assets/js/src1/**/*.js', ['scripts1']);
+    gulp.watch('./resources/assets/js/src2/**/*.js', ['scripts2']);
 });
 
 gulp.task('default', ['watch']);
-
-
-
-// const elixir = require('laravel-elixir');
-//
-// require('laravel-elixir-vue-2');
-//
-// /*
-//  |--------------------------------------------------------------------------
-//  | Elixir Asset Management
-//  |--------------------------------------------------------------------------
-//  |
-//  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
-//  | for your Laravel application. By default, we are compiling the Sass
-//  | file for our application, as well as publishing vendor resources.
-//  |
-//  */
-//
-// elixir(mix => {
-//     mix.sass('app.scss')
-//        .webpack('app.js');
-// });

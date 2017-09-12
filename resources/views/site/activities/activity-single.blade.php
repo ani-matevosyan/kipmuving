@@ -53,21 +53,40 @@
 												<div class="clearfix"></div>
 											</div>
 										@endif
-										<nav class="subnav">
-											<div class="date-time">
-												<div class="text-field">
-													<input id="reserve-date"
-													       type="text"
-													       data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-													       placeholder=""
-													       value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
-												</div>
+										<div class="get-offers">
+											<button class="get-offers__button" id="get-offers-button" data-activity-id="{{ $activity->id }}">Quiero recibir ofertas</button>
+											<div class="get-offers__date-persons">
+												<input id="reserve-date"
+													   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
+													   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+													   class="get-offers__datepicker">
+												<select id="get-offers-persons"
+														class="get-offers__persons-select"
+														data-currencySign="@if(session('currency.type') === 'BRL') R$ @else $ @endif">
+													<option selected value="">{{ trans('main.persons') }}</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+												</select>
 											</div>
-											<ul role="tablist">
-												<li>{{ trans('main.sort_by') }}</li>
-												<li class="active"><a href="#tab2" data-toggle="tab">{{ trans('main.recommendation') }}</a></li>
-												<li><a href="#tab3" data-toggle="tab">{{ trans('main.lowest_price') }}</a></li>
-												<li><a href="#tab4" data-toggle="tab">{{ trans('main.includes_more_services') }}</a></li>
+										</div>
+										<div class="divider">
+											<span class="divider__text">o reserve imediamente</span>
+										</div>
+										<nav class="offers-navigation">
+											<ul role="tablist" class="offers-navigation__list">
+												<li class="offers-navigation__item active">
+													<a href="#tab2" class="offers-navigation__link" data-toggle="tab">{{ trans('main.recommendation') }}</a>
+												</li>
+												<li class="offers-navigation__item">
+													<a href="#tab3" class="offers-navigation__link" data-toggle="tab">{{ trans('main.lowest_price') }}</a>
+												</li>
+												<li class="offers-navigation__item">
+													<a href="#tab4" class="offers-navigation__link" data-toggle="tab">{{ trans('main.includes_more_services') }}</a>
+												</li>
 											</ul>
 										</nav>
 									</div>

@@ -26,7 +26,7 @@
 		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
 		<ul class="offers-list">
 			@foreach ($offers['selected'] as $offer)
-				<li><a href="#">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}
+				<li><a href="{{ action('OfferController@remove') }}/{{$offer['offer_id']}}">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}
 						- {{ $offer['name'] }}</a></li>
 			@endforeach
 		</ul>
@@ -99,7 +99,7 @@
 			{{--})(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');--}}
 		{{--</script>--}}
 	{{--</div>--}}
-	<div class="img-tour">
+	<div class="img-tour" id="image-tour">
 		@if (count($activity->images) > 0)
 			<div class="row">
 				<div class="col-sm-12">

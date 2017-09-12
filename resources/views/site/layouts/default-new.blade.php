@@ -83,6 +83,12 @@
 										</a>
 									</li>
 									<li>
+										<a href="{{ action('UserController@getUserReservations') }}" class="btn btn-primary orange-btn"
+										   title="{{ trans('main.my_reservations') }}">
+											{{ trans('main.my_reservations') }}
+										</a>
+									</li>
+									<li>
 										<a href="{{ url('/logout') }}" class="btn btn-primary orange-btn"
 										   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 										   title="{{ trans('main.log_out') }}">{{ trans('main.log_out') }}</a>
@@ -250,25 +256,6 @@
 			<div class="modal-footer">
 				<a href="#" class="btn btn-success btn-confirm">CONFIRMAR</a>
 				<a href="#" class="btn btn-warning" data-dismiss="modal">CANCELAR</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="map-modal">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-						aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">MAPA</h4>
-			</div>
-			<div class="modal-body">
-				<div id="map-container" style="width: 100%; height: 500px"></div>
-			</div>
-			<div class="modal-footer">
-				<!-- <a href="#" class="btn btn-success btn-confirm">CONFIRMAR</a> -->
-				<a href="#" class="btn btn-warning" data-dismiss="modal">CERRAR</a>
 			</div>
 		</div>
 	</div>

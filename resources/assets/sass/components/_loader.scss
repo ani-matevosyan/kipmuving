@@ -1,0 +1,43 @@
+.loader{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__inner{
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: #fff;
+    transform-origin:  50% 50% ;
+    animation: loader 1s ease-in-out infinite;
+    &:before,
+    &:after{
+      content: "";
+      position: absolute;
+      background-color: rgba(255, 255, 255, .5);
+      top: 0;
+      height: 12px;
+      width: 12px;
+      border-radius: 12px;
+    }
+    &:before{
+      left: -25px;
+    }
+    &:after{
+      left: 25px;
+    }
+  }
+}
+
+@keyframes loader{
+  0%{transform:rotate(0deg);}
+  50%{transform:rotate(180deg);}
+  100%{transform:rotate(180deg);}
+}

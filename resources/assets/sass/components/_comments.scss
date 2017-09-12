@@ -1,0 +1,176 @@
+/********************Comments block****************************/
+
+.comments-block{
+  width: 100%;
+  max-width: 770px;
+  &__header{
+    position: relative;
+    padding: 19px 0 0 72px;
+    background: url('../images/faq-icon-l.png') no-repeat;
+    background-size: 56px 40px;
+    background-position: 0 17px;
+    margin-left: -4px
+  }
+  &__titles{
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 4px;
+    margin-right: 18px;
+    max-width: calc( 100% - 100px );
+    &_registered{
+      max-width: none;
+      display: block;
+    }
+  }
+}
+
+//@TODO make it in nested SASS style
+
+.comments-block__title{
+  font-size: 20px;
+  font-weight: 700;
+  color: #242c3a;
+  margin: 0 0 2px;
+}
+
+.comments-block__description{
+  margin: 0;
+}
+
+.comments-block__form{
+  position: relative;
+  padding-right: 100px;
+  margin: 5px 0 -20px;
+}
+
+.comments-block__textarea{
+  resize: vertical;
+  width: 100%;
+  border: 2px solid #d5d7db;
+  border-radius: 4px;
+}
+
+.comments-block__send-button{
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+
+.comments-block__enter-button{
+  vertical-align: bottom;
+}
+
+.comments-block__comments{
+  padding: 0;
+  margin: 23px 0 0;
+  list-style: none;
+}
+
+.comments-block__comment{
+  position: relative;
+  padding: 0 0 0 40px;
+  margin-bottom: 18px;
+}
+
+.comments-block__comment-header{
+  padding: 7px 0 0;
+  color: #242c3a;
+}
+
+.comments-block__user-image{
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 2px solid #aaaaaa;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.comments-block__user-name{
+  margin-right: 10px;
+}
+
+.comments-block__date{
+  font-size: 13px;
+}
+
+.comments-block__text{
+  margin: 0;
+}
+
+.comments-block__comment_answer{
+  background: #f0f0f0;
+  margin-left: 40px;
+  margin-top: 0;
+  padding: 16px 38px;
+}
+
+.comments-block__comment_answer:before{
+  content: "\e253";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  position: absolute;
+  left: 27px;
+  top: -10px;
+  color: #f0f0f0;
+}
+
+.comments-block__answer-button{
+  color: #242c3a;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 600px){
+
+  .comments-block__header{
+    margin-left: 0
+  }
+
+  .comments-block__titles{
+    display: block;
+    max-width: none;
+    margin: 0 0 6px;
+  }
+
+  .comments-block__form{
+    padding: 0;
+  }
+
+  .comments-block__textarea{
+    margin-bottom: 5px;
+  }
+
+  .comments-block__send-button{
+    position: relative;
+    bottom: 0;
+  }
+
+  .comments-block__comment_answer{
+    margin-left: 0;
+  }
+  .comments-block__comment_answer:before{
+    left: 57px;
+  }
+}
+
+.btn-dark-blue{
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 700;
+  background-color: #2e394d;
+  padding: 5px 13px;
+  &:hover,
+  &:focus{
+    color: #fff;
+    background: #4b5b77;
+  }
+}

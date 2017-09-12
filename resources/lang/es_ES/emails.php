@@ -7,7 +7,7 @@ return [
 	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!',
 	'please_activate_your_account_here'   => 'Por favor activa tu cuenta aquí',
 	'with_regards'                        => 'Saludos',
-	'kipmuving_team'                      => 'Equipo Kip Muving Chile',
+	'kipmuving_team'                      => 'Equipo KeepMoving',
 	
 	#User reservation email
 	'many_thanks_for_booking'             => 'Muchas gracias por reservar con Kipmuving. Sigue abajo la confirmación de tu reserva.',
@@ -29,5 +29,24 @@ return [
 	'any_questions'                       => 'Cualquier duda por favor, escríbenos. Estaremos atentos a lo que necesites. Nuestro correo es',
 	'and_also_by_phone'                   => 'y también por el teléfono',
 	'or_whatsapp'                         => 'o por el whatsapp',
-	'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia'
+	'must_be_paid_at_agency'              => 'Este valor deberá ser pago en la agencia',
+
+  #Special offers emails
+  'you_received_special_offer'          => 'Você recebeu uma oferta especial',
+  'date'                                => 'Fecha',
+  'your_price'                          => 'Tu precio',
+  'original_price'                      => 'Precio original',
+  'offer_price'                         => 'Precio de oferta',
+  'offer_valid'                         => 'La oferta es válida hasta',
+  'go_to_my_offers'                     => 'Ir a mis ofertas',
+
+  #Reservations confirmation
+  'congratulations'                     => '¡Felicitaciones! Tienes una reserva confirmada',
+  'guests_information'                  => 'Información de los huéspedes',
+  'phone_number'                        => 'Número de teléfono',
+  'now_you_can_talk'                    => 'Ahora, puede hablar directamente con su invitado y decirle los detalles.',
+  'thank_you_very_much'                 => 'Muchas gracias por reservar con',
+  'below_you_have'                      => 'A continuación tiene la confirmación de su reserva.',
+  'what_do_you_have_to_do'              => '¿Qué tienes que hacer ahora? Puede ponerse en contacto con la agencia o esperar que escriban.',
+  'what_includes'                       => 'Que incluye',
 ];

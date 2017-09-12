@@ -1,0 +1,38 @@
+.time-select{
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 28px;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    background: url('../images/clock.svg') no-repeat;
+    background-size: contain;
+  }
+  .jcf-select{
+    min-width: 114px;
+    border: 2px solid #f2cf6a;
+    height: auto;
+    text-align: left;
+    .jcf-select-text{
+      color: #e3ab07;
+      font-size: 14px;
+      font-weight: 700;
+      margin:{
+        top: 2px;
+        bottom: 4px;
+        right: 15px;
+        left: 11px;
+      }
+    }
+    .jcf-select-opener{
+      display: none;
+    }
+  }
+}

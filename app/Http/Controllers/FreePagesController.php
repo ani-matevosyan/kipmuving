@@ -9,97 +9,93 @@ use Illuminate\Support\Facades\Route;
 
 class FreePagesController extends Controller
 {
-  public function index(Offer $offer)
-  {
-    $prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+	public function index(Offer $offer)
+	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
-    if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-      return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide']);
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide']);
 
-    $data = [
-      'styles' => config('resources.free.walking.styles'),
-      'scripts' => config('resources.free.walking.scripts'),
-      'count' => [
-        'offers' => count(session('selectedOffers')) + count(session('freeActivities')),
-        'persons' => $offer->getSelectedOffersPersons(),
-        'total' => $offer->getSelectedOffersTotal()
-      ]
-    ];
+		$data = [
+			'styles'  => config('resources.free.walking.styles'),
+			'scripts' => config('resources.free.walking.scripts'),
+			'count'   => [
+				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
+				'persons' => $offer->getSelectedOffersPersons(),
+				'total'   => $offer->getSelectedOffersTotal(),
+			],
+		];
 
-    return view('site.free.caminhando', $data);
-  }
+		return view('site.free.caminhando', $data);
+	}
 
-  public function getBicicleta(Offer $offer)
-  {
-    $prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+	public function getBicicleta(Offer $offer)
+	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
-    if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-      return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-bicycle']);
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-bicycle']);
 
+		$data = [
+			'styles'     => config('resources.free.bicycle.styles'),
+			'scripts'    => config('resources.free.bicycle.scripts'),
+			'activities' => $this->getMapPoints(),
+		];
 
-    $data = [
-      'styles' => config('resources.free.bicycle.styles'),
-      'scripts' => config('resources.free.bicycle.scripts'),
-      'activities' => $this->getMapPoints()
-    ];
+		return view('site.free.bicicleta', $data);
+	}
 
-    return view('site.free.bicicleta', $data);
-  }
+	public function getDecarro(Offer $offer)
+	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 
-  public function getDecarro(Offer $offer)
-  {
-    $prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+		$data = [
+			'styles'     => config('resources.free.bus.styles'),
+			'scripts'    => config('resources.free.bus.scripts'),
+			'activities' => $this->getMapPoints(),
+		];
 
-    if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-      return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
+		return view('site.free.decarro', $data);
+	}
 
+	public function getTourcultural(Offer $offer)
+	{
+		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
-    $data = [
-      'styles' => config('resources.free.bus.styles'),
-      'scripts' => config('resources.free.bus.scripts'),
-      'activities' => $this->getMapPoints()
-    ];
+		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
+			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 
-    return view('site.free.decarro', $data);
-  }
+		$data = [
+			'styles'     => config('resources.free.cultural.styles'),
+			'scripts'    => config('resources.free.cultural.scripts'),
+			'activities' => $this->getMapPoints(),
+		];
 
-  public function getTourcultural(Offer $offer)
-  {
-    $prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
+		return view('site.free.tourcultural', $data);
+	}
 
-    if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
-      return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
+	public function getMapPoints()
+	{
+		$region = session('cities.current') ? session('cities.current') : 'pucon';
 
+		$activities = FreeActivity::where('region', '=', $region)->get();
 
-    $data = [
-      'styles' => config('resources.free.cultural.styles'),
-      'scripts' => config('resources.free.cultural.scripts'),
-      'activities' => $this->getMapPoints()
-    ];
+		return $activities;
+	}
 
-    return view('site.free.tourcultural', $data);
-  }
+	public function addActivity(Request $request)
+	{
+		$basket = session('basket');
+		$basket['free'] [] = [
+			'id'         => $request['id'],
+			'date'       => $request['date'],
+			'hours_from' => $request['hours_from'],
+			'hours_to'   => $request['hours_to'],
+		];
 
-  public function getMapPoints()
-  {
-    $region = session('cities.current') ? session('cities.current') : 'pucon';
-
-    $activities = FreeActivity::where('region', '=', $region)->get();
-
-    return $activities;
-  }
-
-  public function addActivity(Request $request)
-  {
-    $activities = session('freeActivities');
-    $activities[] = [
-      'id' => $request['id'],
-      'date' => $request['date'],
-      'hours_from' => $request['hours_from'],
-      'hours_to' => $request['hours_to']
-    ];
-
-    session()->put('freeActivities', $activities);
-  }
+		session()->put('basket', $basket);
+	}
 }

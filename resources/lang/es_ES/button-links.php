@@ -13,7 +13,10 @@ return [
 	'go_to_guide'        => 'Ir a la guía',
 	'view'               => 'Visualizar',
 	'see_all_activities' => 'Ver todas las actividades',
-    'confirm'            => 'Confirmar',
-    'free'               => 'Gratuitos',
-    'answer'             => 'Responder'
+  'confirm'            => 'Confirmar',
+  'free'               => 'Gratuitos',
+  'answer'             => 'Responder',
+  'accept'             => 'Aceptar',
+  'yes'                => 'Sí',
+  'no'                 => 'No',
 ];

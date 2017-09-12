@@ -74,6 +74,21 @@ Route::post('/activity/comment/add', 'ActivityController@addComment');
 Route::post('/offer/date/set', 'OfferController@setDate');
 Route::post('/offer/reserve', 'OfferController@reserve');
 Route::post('/offer/remove', 'OfferController@remove');
+Route::get('/offer/remove/{oid}', 'OfferController@removeFromBasket')
+	->where('oid', '[0-9]+');
+#Special offers
+Route::post('/offer/special/add', 'SpecialOffersController@addToBasket');
+Route::get('/offer/special/remove/{oid}', 'SpecialOffersController@removeFromBasket')
+	->where('oid', '[0-9]+');
+Route::post('/offer/special/remove', 'SpecialOffersController@removeFromBasketPost');
+Route::get('/send-offer/{uid}', 'SpecialOffersController@sendOfferPage')
+	->where('uid', '[a-zA-Z0-9]+');
+Route::get('/send-offer', 'SpecialOffersController@sendOffer');
+Route::get('/reserve/special-offer', 'ReservationController@reserveSpecialOffer');
+Route::post('/offer/special/info', 'SpecialOffersController@getJsonInfo');
+Route::get('/offer/special/confirm', 'SpecialOffersController@getConfirmOfferJsonData');
+Route::post('/offer/special/confirm', 'ReservationController@reserveSpecialOffer');
+
 
 
 #Agencies
@@ -93,6 +108,7 @@ Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
 Route::get('/user/confirm/', 'UserController@getConfirmEmail');
 Route::post('/user/confirm/', 'UserController@sendConfirmEmail');
 Route::get('/user', 'UserController@getUser');
+Route::get('/user/reservations', 'UserController@getUserReservations');
 Route::post('/user/{id}/edit', 'UserController@updateUser')
 	->where('id', '[0-9]+');
 Route::post('/user/{id}/avatarupdate', 'UserController@updateUsersAvatar')

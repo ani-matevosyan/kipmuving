@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,7 +42,13 @@ class User extends Authenticatable
 	
 	public function reservations()
 	{
-		return $this->hasMany('App\Reservation', 'user_id', 'id');
+		return $this->hasMany(Reservation::class, 'user_id', 'id');
+	}
+
+	public function special_offers()
+	{
+		return $this->hasMany(SpecialOffer::class, 'user_id', 'id')
+			->where('special_offers.active', true);
 	}
 	
 	public function getAvatarAttribute()

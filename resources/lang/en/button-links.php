@@ -13,7 +13,10 @@ return [
 	'go_to_guide'        => 'Go to guide',
 	'view'               => 'View',
 	'see_all_activities' => 'See all activities',
-    'confirm'            => 'Confirm',
-    'free'               => 'Free',
-    'answer'             => 'Answer'
+  'confirm'            => 'Confirm',
+  'free'               => 'Free',
+  'answer'             => 'Answer',
+  'accept'             => 'Accept',
+  'yes'                => 'Yes',
+  'no'                 => 'No',
 ];

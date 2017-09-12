@@ -35,9 +35,10 @@ class ActivityController extends Controller
 				->get(),
 			'activities'        => $activity->getAllActivities(),
 			'count'             => [
-				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
-				'persons' => $offer->getSelectedOffersPersons(),
-				'total'   => $offer->getSelectedOffersTotal(),
+			  'special_offers' => count(session('basket.special')),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+				'persons'        => $offer->getSelectedOffersPersons(),
+				'total'          => $offer->getSelectedOffersTotal(),
 			],
 		];
 
@@ -46,10 +47,14 @@ class ActivityController extends Controller
 
 	public function getSuProgram(Offer $offer)
 	{
+		$s_offers = \session('basket.special');
+		$s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
+
 		$data = [
-			'offers'  => count($offer->getSelectedOffers()),
-			'persons' => $offer->getSelectedOffersPersons(),
-			'total'   => $offer->getSelectedOffersTotal(),
+			'offers'         => count($offer->getSelectedOffers()),
+			'special_offers' => count($s_offers),
+			'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
+			'total'          => $offer->getSelectedOffersTotal(),
 		];
 
 		return ['data' => $data];
@@ -85,9 +90,10 @@ class ActivityController extends Controller
 				'selected' => $_offer->getSelectedOffers(),
 			],
 			'count'          => [
-				'offers'  => count(session('selectedOffers')) + count(session('freeActivities')),
-				'persons' => $_offer->getSelectedOffersPersons(),
-				'total'   => $_offer->getSelectedOffersTotal(),
+        'special_offers' => count(session('basket.special')),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+				'persons'        => $_offer->getSelectedOffersPersons(),
+				'total'          => $_offer->getSelectedOffersTotal(),
 			],
 			'title'          => empty($activity->name) ? null : $activity->name,
 		];

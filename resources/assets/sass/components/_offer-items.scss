@@ -1,0 +1,174 @@
+.accordion > li {
+  padding: 20px 0 0;
+}
+
+.accordion > li.active .more-detail:after {
+  background: #c26708;
+}
+
+.accordion > li.active .more-detail .opener {
+  color: #c26708;
+}
+
+.accordion > li.active .more-detail .opener:before {
+  background-position: -16px -184px;
+}
+
+.accordion > li.active .more-detail .less {
+  display: inline;
+}
+
+.accordion > li.active .more-detail .more {
+  display: none;
+}
+
+.accordion header {
+  margin: 0 0 20px;
+}
+
+.accordion .sub-title {
+  display: block;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .accordion .sub-title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+.accordion .sub-title span {
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.accordion .text {
+  overflow: hidden;
+}
+
+.adventure .accordion .text{
+  margin-top: 12px;
+}
+
+.accordion > .offer-item{
+  position: relative;
+  padding-left: 93px;
+}
+
+@media (max-width: 767px) {
+  .activity .accordion > li {
+    padding: 0;
+  }
+  .activity .accordion header{
+    padding: 25px 0 0 10px;
+  }
+}
+
+
+.accordion {
+  max-width: 713px;
+}
+
+@media (max-width: 991px) {
+  .accordion {
+    margin-bottom: 20px;
+  }
+}
+
+.new .list-box ul{
+  padding: 0;
+  list-style: none;
+}
+
+
+.new .list-box ul li{
+  margin: 0 0 6px;
+  position: relative;
+}
+
+.new .list-box > ul li:before{
+  content: "\2022";
+  position: absolute;
+  left: -13px;
+  top: -1px;
+  color: #4F4F4F;
+}
+
+.list-box .title {
+  display: block;
+  font-weight: bold;
+  padding: 0 0 5px 0;
+}
+
+.list-box .list {
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.list-box .list li {
+  position: relative;
+  padding: 0 0 5px 10px;
+}
+
+.list-box .list li:after {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 9px;
+  color: #089f02;
+}
+
+.accordion h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.accordion h2 a {
+  color: #000;
+}
+
+.accordion h2 a:hover {
+  color: #0dce05;
+}
+
+@media (max-width: 767px) {
+  .accordion h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.accordion .ico {
+  float: left;
+  margin: 0;
+  width: 80px;
+  position: absolute;
+  left: 0;
+  top: 23px;
+}
+
+.accordion .ico img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .accordion .ico {
+    width: 40px;
+    margin: 5px 10px 0 0;
+  }
+}
