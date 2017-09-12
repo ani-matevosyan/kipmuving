@@ -14,8 +14,10 @@
 						ducimus eum explicabo pariatur quaerat vitae! Dolores earum neque perferendis veniam voluptas. Nam.</p>
 				</header>
 
-				@if(session()->has('message') || isset($message))
-					<h3>{{ session('message') . $message }} </h3>
+				@if(session()->has('message'))
+					<h3>{{ session('message') }} </h3>
+				@elseif(isset($message))
+					<h3>{{ $message }} </h3>
 				@else
 					@if(isset($offer))
 						<ul class="special-offers-list">

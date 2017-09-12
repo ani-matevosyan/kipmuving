@@ -81,7 +81,7 @@ class ReservationController extends Controller
 			$this->subscribeSpecialOffers();
 		}
 
-		return redirect()->action('UserController@getUser');
+		return redirect()->action('UserController@getUserReservations');
 	}
 
 	public function reserveSpecialOffer(Request $request)
@@ -241,7 +241,7 @@ class ReservationController extends Controller
 			}
 		}
 
-//		session()->forget('basket.special');
+		session()->forget('basket.special');
 	}
 
 	#Sending emails
