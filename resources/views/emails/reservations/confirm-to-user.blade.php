@@ -27,7 +27,7 @@
 							<td style="border-bottom: 1px solid #e0e0e0; padding-bottom: 16px;">
 								<p style="margin: 0 0 0 0">{{ trans('emails.hello') }} <strong>{{ $user->first_name . ' ' . $user->last_name }},</strong></p>
 								<p style="margin: 0 0 0 0">{{ trans('emails.thank_you_very_much') }} <strong>
-										<a href="/" style="color: #191919; text-decoration: none;">KeepMoving</a></strong> {{ trans('emails.below_you_have') }}
+										<a href="/" style="color: #191919; text-decoration: none;">KeepMoving</a></strong>. {{ trans('emails.below_you_have') }}
 								</p>
 								<p style="margin: 20px 0 0 0">{{ trans('emails.what_do_you_have_to_do') }}</p>
 							</td>
@@ -57,7 +57,7 @@
 														<td style="border-left: 1px solid #191919; padding-left: 13px;">
 															<a href="mailto:{{ $offer->agency->email }}" style="color: #191919; text-decoration: none;">{{ $offer->agency->email }}</a>
 														</td>
-														@if(isset($offer->agency->whatsapp))
+														@if($offer->agency->whatsapp)
 															<td style="border-left: 1px solid #191919; padding-left: 13px;">
 																{{ $offer->agency->whatsapp }}
 															</td>

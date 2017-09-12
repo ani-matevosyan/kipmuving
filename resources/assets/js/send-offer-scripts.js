@@ -1,3 +1,5 @@
+require('./common');
+
 $(document).ready(function(){
 
     // function sendData(s_offer_uid, price){

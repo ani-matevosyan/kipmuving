@@ -43,7 +43,7 @@ $(document).ready(function(){
             success: response => {
                 if(response.success === true){
                   $("#accept-offer-modal").modal('hide');
-                  location.reload();
+                  // location.reload();
                 }
             },
             error: err => {
