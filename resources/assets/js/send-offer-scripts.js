@@ -37,7 +37,7 @@ $(document).ready(function(){
 
     $(".pick-discount__button").on('click', function(e){
         e.preventDefault();
-        var price = $(this).data('price').split('.').join("");;
+        let price = $(this).data('price').split('.').join("");
         $(this).parent().parent().parent().find(".pick-discount__price-input").val(price);
     });
 

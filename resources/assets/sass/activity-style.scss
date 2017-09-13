@@ -646,6 +646,10 @@
       color: #fff;
       background-color: #ffc311;
     }
+    @media screen and (max-width: 1149px) and (min-width: 992px), screen and (max-width:  767px){
+      float: none;
+      margin-bottom: 10px;
+    }
   }
 }
 

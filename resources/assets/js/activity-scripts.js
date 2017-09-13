@@ -120,7 +120,6 @@ $(document).ready(function(){
     }
 
     $("#get-offers-button").click(function(){
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         let activityId = $(this).data('activity-id'),
             date = $("#reserve-date").val(),
             persons = $("#get-offers-persons").val();
@@ -129,6 +128,7 @@ $(document).ready(function(){
             $('#message-modal').modal('show');
             return false;
         }
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         $.ajax({
             type: "POST",
             url: "/offer/special/add",

@@ -56,11 +56,11 @@ class SpecialOffersController extends Controller
 		];
 
 		if (isset($data['offer']) && $data['offer']->created_at->addDays(2) <= Carbon::now())
-			return view('site.home.send-offer-page', [
+			return view('site.offers.send-offer-page', [
 				'message' => 'Sorry, you should send an offer to '.$data['offer']->created_at->addDays(2)->format('d/m/Y - H:i:s ')
 			]);
 		else
-			return view('site.home.send-offer-page', $data);
+			return view('site.offers.send-offer-page', $data);
 	}
 
 	public function sendOffer(Request $request)
