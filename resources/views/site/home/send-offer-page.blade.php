@@ -47,7 +47,7 @@
 								<div class="pick-discount special-offers-list__pick-discount">
 									<p class="pick-discount__info">
 										{{ trans('main.send_special_offer') }} {{ trans('main.with_discount_at') }}
-										<strong>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $offer->offer_date)->format('d/m/Y') }}:</strong>
+										<strong>{{ $offer->created_at->addDay()->format('d/m/Y') }}:</strong>
 									</p>
 
 									@if($errors->has('price'))
