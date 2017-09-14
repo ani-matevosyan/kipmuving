@@ -120,7 +120,6 @@ $(document).ready(function(){
     }
 
     $("#get-offers-button").click(function(){
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         let activityId = $(this).data('activity-id'),
             date = $("#reserve-date").val(),
             persons = $("#get-offers-persons").val();
@@ -129,6 +128,7 @@ $(document).ready(function(){
             $('#message-modal').modal('show');
             return false;
         }
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         $.ajax({
             type: "POST",
             url: "/offer/special/add",
@@ -183,7 +183,7 @@ $(document).ready(function(){
           complete: () => {
             getsuprogram();
           }
-        })
+        });
         return false;
     });
 
@@ -194,20 +194,20 @@ $(document).ready(function(){
     });
 
     $('.select-activity__add-button').click(function(){
-        var dt = $("#reserve-date").val();
+        let dt = $("#reserve-date").val();
         if (dt === '') {
             $('#message-modal #message').text('Seleccione primero la fecha.');
             $('#message-modal').modal('show');
             return false;
         }
-        var offer_id = jQuery(this).data('offer-id');
-        var persona = $("#get-offers-persons").val();
+        let offer_id = jQuery(this).data('offer-id');
+        let persona = $("#get-offers-persons").val();
         if (persona === '') {
             $('#message-modal #message').text('Seleccione primero la cantidad de personas de esta actividad.');
             $('#message-modal').modal('show');
             return false;
         }
-        var hours = $(this).parents('.offer-item').find('select.hours').val();
+        let hours = $(this).parents('.offer-item').find('select.hours').val();
         if (hours === '') {
             $('#message-modal #message').text('Seleccione primero la cantidad de horario de esta actividad.');
             $('#message-modal').modal('show');
@@ -265,7 +265,7 @@ $(document).ready(function(){
 
     });
 
-    var accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
+    let accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
 
     if($("#instafeed5").length) {
         var activityTag = $("#instafeed5").attr("data-tag");

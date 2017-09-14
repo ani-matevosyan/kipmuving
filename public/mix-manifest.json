@@ -1,6 +1,6 @@
 {
-    "/js/calendarpage-scripts.js": "/js/calendarpage-scripts.js",
     "/js/activity-scripts.js": "/js/activity-scripts.js",
+    "/js/calendarpage-scripts.js": "/js/calendarpage-scripts.js",
     "/js/activities-scripts.js": "/js/activities-scripts.js",
     "/css/about-style.css": "/css/about-style.css",
     "/css/activities-style.css": "/css/activities-style.css",
@@ -22,9 +22,9 @@
     "/js/user-reservations-scripts.js": "/js/user-reservations-scripts.js",
     "/js/reservation-scripts.js": "/js/reservation-scripts.js",
     "/js/user-account-scripts.js": "/js/user-account-scripts.js",
+    "/js/send-offer-scripts.js": "/js/send-offer-scripts.js",
     "/js/guide-scripts.js": "/js/guide-scripts.js",
     "/js/common.js": "/js/common.js",
-    "/js/send-offer-scripts.js": "/js/send-offer-scripts.js",
     "/js/product.tour.js": "/js/product.tour.js",
     "/js/instafeed-settings.js": "/js/instafeed-settings.js",
     "/js/fixed-sidebar.js": "/js/fixed-sidebar.js"
