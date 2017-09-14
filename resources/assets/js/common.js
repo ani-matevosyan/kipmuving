@@ -49,7 +49,7 @@ $(document).ready(function () {
 
 
     $("#program-schedule .btn").click(function(e){
-       if($("#program_activities").attr('data-activities') == '0' && $("#program_subscriptions").data('subscriptions') === '0'){
+       if(!($("#program_activities").attr('data-activities') !== '0' || $("#program_subscriptions").attr('data-subscriptions') !== '0')){
            e.preventDefault();
            $('#message-modal #message').text('Debes incluir primero alguna actividad');
            $('#message-modal').modal('show');

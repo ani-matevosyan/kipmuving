@@ -104,6 +104,17 @@
     &:last-child{
       margin-right: 0;
     }
+    &_focus{
+      .pick-discount{
+        &__end-price{
+          font-weight: 700;
+          color: #E5495C;
+        }
+        &__button{
+          border-color: #5E5E5E;
+        }
+      }
+    }
     @media screen and (max-width: 400px){
       margin:{
         right: 0;
@@ -114,8 +125,8 @@
   }
   &__button{
     display: block;
-    width: 72px;
-    padding: 5px 0;
+    width: 68px;
+    padding: 3px 0;
     color: #fff;
     font-weight: 700;
     font-size: 16px;
@@ -123,6 +134,7 @@
     border-radius: 3px;
     margin-bottom: 4px;
     cursor: pointer;
+    border: 2px solid transparent;
     &:hover,
     &:focus{
       color: #fff;
@@ -176,6 +188,9 @@
     font-size: 15px;
     padding: 3px 11px;
     margin-right: 8px;
+    &_hidden-val{
+      color: transparent;
+    }
     &::placeholder{
       color: #343434;
     }
