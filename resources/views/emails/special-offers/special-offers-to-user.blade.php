@@ -38,11 +38,11 @@
 											<h2 style="font-weight: 700; font-size: 26px; color: #323e5b; margin: 0 0 3px 0;">{{ $data['activity_name'] }}</h2>
 											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.date') }}</strong>: {{ $data['date'] }}</p>
 											<p style="margin: 0 0 0 0"><strong>{{ trans('main.persons') }}</strong>: {{ $data['persons'] }}</p>
-											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.your_price') }}</strong>: $ {{ number_format($data['price'], 0, '.', ' ') }}</p>
-											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.original_price') }}</strong>: $ {{ number_format($data['total_price'], 0, '.', ' ') }}</p>
+											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.your_price') }}</strong>: $ {{ number_format($data['price'], 0, '.', '.') }}</p>
+											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.original_price') }}</strong>: $ {{ number_format($data['total_price'], 0, '.', '.') }}</p>
 											<p style="margin: 19px 0 0 0"><strong>{{ trans('main.agency') }}</strong>: <strong style="color: #3097d2">{{ $data['agency_name'] }}</strong></p>
 											<p style="margin: 0 0 0 0">
-												<strong>{{ trans('emails.offer_price') }}</strong>: <strong style="color: #3097d2">$ {{ number_format($data['new_total_price'], 0, '.', ' ') }}</strong>
+												<strong>{{ trans('emails.offer_price') }}</strong>: <strong style="color: #3097d2">$ {{ number_format($data['new_total_price'], 0, '.', '.') }}</strong>
 											</p>
 											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.offer_valid') }}</strong>: {{ $data['offer_valid_date'] }}</p>
 											<a href="{{ action('UserController@getUserReservations') }}" style="font-size: 14px; color: #ffffff; text-transform: uppercase; font-weight: 700; background: #198ccd; border-radius: 4px; display: inline-block; text-decoration: none; padding: 5px 14px 5px 14px; margin-top: 31px;">{{ trans('emails.go_to_my_offers') }}</a>

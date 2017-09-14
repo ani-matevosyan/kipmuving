@@ -59,7 +59,7 @@
 													<strong>{{ trans('emails.phone_number') }}</strong>: {{ $user->phone }}
 												</p>
 												<p style="margin: 20px 0 0 0; font-size: 17px;">
-													<strong>{{ trans('emails.offer_price') }}</strong>: <strong style="color: #3097d2;">$ {{ number_format($reservation->total['CLP'], 0, '.', ' ') }}</strong>
+													<strong>{{ trans('emails.offer_price') }}</strong>: <strong style="color: #3097d2;">$ {{ number_format($reservation->total['CLP'], 0, '.', '.') }}</strong>
 												</p>
 											</td>
 										</tr>

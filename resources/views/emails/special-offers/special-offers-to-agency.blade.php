@@ -36,8 +36,8 @@
 											<h2 style="font-weight: 700; font-size: 26px; color: #323e5b; margin: 0 0 3px 0;">{{ $data['activity_name'] }}</h2>
 											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.date') }}</strong>: {{ $data['date'] }}</p>
 											<p style="margin: 0 0 0 0"><strong>{{ trans('main.persons') }}</strong>: {{ $data['persons'] }}</p>
-											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.your_price') }}</strong>: $ {{ number_format($data['offer_price'], 0, '.', ' ') }}</p>
-											<p style="margin: 0 0 0 0"><strong>{{ trans('main.total') }}</strong>: $ {{ number_format($data['total_price'], 0, '.', ' ') }}</p>
+											<p style="margin: 0 0 0 0"><strong>{{ trans('emails.your_price') }}</strong>: $ {{ number_format($data['offer_price'], 0, '.', '.') }}</p>
+											<p style="margin: 0 0 0 0"><strong>{{ trans('main.total') }}</strong>: $ {{ number_format($data['total_price'], 0, '.', '.') }}</p>
 											<a href="{{ action('SpecialOffersController@sendOfferPage', ['uid' => $data['uid']]) }}" style="font-size: 14px; color: #ffffff; text-transform: uppercase; font-weight: 700; background: #198ccd; border-radius: 4px; display: inline-block; text-decoration: none; padding: 5px 14px 5px 14px; margin-top: 31px;">{{ trans('main.send_special_offer') }}</a>
 										</td>
 									</tr>
