@@ -58,34 +58,36 @@
 					</header>
 					<ul class="your-offers">
 						@foreach($user->reservations->where('status', true) as $reservation)
-							<li class="your-offers__item">
-								<h3 class="your-offers__name">
-									<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
-										{{ $reservation->offer->activity['name'] }}</a>
-								</h3>
-								<div class="your-offers__info-block">
-									<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: {{ $reservation->offer->agency['name'] }}</p>
-									<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: {{ $reservation->offer->agency['address'] }}</p>
-								</div>
-								<div class="your-offers__info-block">
-									<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>:
-										{{ \Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y') }}</p>
-									<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: {{ $reservation->offer->duration }} hrs</p>
-									<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: {{ date("H:i", strtotime($reservation->time['start'])) }}
-										{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
-									<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
-								</div>
-								@if($reservation->is_special_offer)
-									<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">
+							@if($reservation->offer)
+								<li class="your-offers__item">
+									<h3 class="your-offers__name">
+										<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
+											{{ $reservation->offer->activity['name'] }}</a>
+									</h3>
+									<div class="your-offers__info-block">
+										<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: {{ $reservation->offer->agency['name'] }}</p>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: {{ $reservation->offer->agency['address'] }}</p>
+									</div>
+									<div class="your-offers__info-block">
+										<p class="your-offers__paragraph"><strong>{{ trans('form.day') }}</strong>:
+											{{ \Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y') }}</p>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.duration') }}</strong>: {{ $reservation->offer->duration }} hrs</p>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.schedule') }}</strong>: {{ date("H:i", strtotime($reservation->time['start'])) }}
+											{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
+									</div>
+									@if($reservation->is_special_offer)
+										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">
 											$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span></p>
-								@else
-									<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
-											$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
-								@endif
-								<div class="your-offers__cancel">
-									<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
-								</div>
-							</li>
+									@else
+										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
+												$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
+									@endif
+									<div class="your-offers__cancel">
+										<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+									</div>
+								</li>
+							@endif
 						@endforeach
 					</ul>
 				</section>
