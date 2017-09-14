@@ -1,3 +1,5 @@
+@import "../../../node_modules/owl.carousel/dist/assets/owl.carousel";
+
 @import "./common";
 @import "../../../public/libs/jquery-ui/slider/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
@@ -422,7 +424,7 @@
 }
 
 .s_viagem>.container{
-  background: url(../images/viagem_bg.png) no-repeat;
+  background: url(../../images/viagem_bg.png) no-repeat;
   background-position: right center;
 }
 
@@ -500,7 +502,7 @@
 
 .best-price-section__header-wrapper{
   display: inline-block;
-  background-image: url('../images/sale.png');
+  background-image: url('../../images/sale.png');
   background-repeat: no-repeat;
   background-position: 0 4px;
   padding-left: 101px;

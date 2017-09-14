@@ -87,7 +87,9 @@ return [
       ],
       'scripts' => [
         'js/free-pages-scripts.js',
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+        [
+          'link' => 'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+        ]
       ]
     ],
 
@@ -97,7 +99,9 @@ return [
       ],
       'scripts' => [
         'js/free-pages-scripts.js',
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+        [
+          'link' => 'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initGuideMaps'
+        ]
       ]
     ]
   ],
@@ -120,7 +124,9 @@ return [
         'css/agency-style.css'
       ],
       'scripts' => [
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap',
+        [
+          'link' =>  'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap'
+        ],
         'js/agency-scripts.js',
       ]
     ],
@@ -143,7 +149,9 @@ return [
         'css/activity-style.css'
       ],
       'scripts' => [
-        'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap',
+        [
+          'link' => 'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap'
+        ],
         'js/activity-scripts.js'
       ]
     ],

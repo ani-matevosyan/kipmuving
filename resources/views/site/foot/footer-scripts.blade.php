@@ -1,8 +1,12 @@
 @if(isset($scripts) && count($scripts) > 0)
 	@foreach($scripts as $script)
-		<script type="text/javascript" src="{{ asset($script) }}"></script>
+		@if(is_array($script))
+			<script type="text/javascript" src="{{ $script['link'] }}"></script>
+		@else
+			<script type="text/javascript" src="{{ asset(elixir($script)) }}"></script>
+		@endif
 	@endforeach
 @else
-	<script type="text/javascript" src="{{ asset('js/common.js') }}"></script>
+	<script type="text/javascript" src="{{ asset(elixir('js/common.js')) }}"></script>
 @endif
 

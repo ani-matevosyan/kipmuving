@@ -1,6 +1,6 @@
 @import "../../../public/libs/bootstrap/css/bootstrap";
-@import "../../../public/css/fonts";
 
+@import "./components/fonts";
 @import "./components/main-header";
 @import "./components/program-schedule";
 
@@ -349,7 +349,7 @@ body {
   width: 31px;
   height: 28px;
   position: absolute;
-  background: url(../images/ico26.png) no-repeat;
+  background: url(../../../images/ico26.png) no-repeat;
 }
 
 .important-txt h2 {
@@ -854,7 +854,7 @@ body {
   top: 0;
   right: auto;
   bottom: auto;
-  background: url(../images/ico12.png) no-repeat;
+  background: url(../../../images/ico12.png) no-repeat;
 }
 
 @media (max-width: 639px) {
@@ -929,7 +929,7 @@ body {
   margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
-  background: url(../images/sprite.png) no-repeat -49px -85px;
+  background: url(../../../images/sprite.png) no-repeat -49px -85px;
 }
 
 .registration .subrow {
@@ -1166,7 +1166,7 @@ body {
   top: 0;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat 0 -108px;
+  background: url(../../../images/sprite.png) no-repeat 0 -108px;
 }
 
 .social-likes ul a.facebook {
@@ -1302,7 +1302,7 @@ body {
   margin: 8px 20px 0 0;
   display: inline-block;
   vertical-align: top;
-  background: url(../images/sprite.png) no-repeat 0 -132px;
+  background: url(../../../images/sprite.png) no-repeat 0 -132px;
 }
 
 @media (max-width: 639px) {
@@ -1381,7 +1381,7 @@ body {
   top: 3px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -57px -181px;
+  background: url(../../../images/sprite.png) no-repeat -57px -181px;
 }
 
 .your-reservation .important {
@@ -1404,7 +1404,7 @@ body {
   top: 16px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat 0 -159px;
+  background: url(../../../images/sprite.png) no-repeat 0 -159px;
 }
 
 .your-reservation .important .title {
@@ -1471,7 +1471,7 @@ body {
   margin: 0 5px 0 0;
   display: inline-block;
   vertical-align: middle;
-  background: url(../images/sprite.png) no-repeat 0 -184px;
+  background: url(../../../images/sprite.png) no-repeat 0 -184px;
 }
 
 .your-reservation .more-detail .less {
@@ -1505,17 +1505,17 @@ body {
   top: 12px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -34px -137px;
+  background: url(../../../images/sprite.png) no-repeat -34px -137px;
 }
 
 .your-reservation .timing li.time:after {
-  background: url(../images/clock.svg) no-repeat;
+  background: url(../../../images/clock.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
 
 .your-reservation .timing li.person:after {
-  background: url(../images/happy.svg) no-repeat;
+  background: url(../../../images/happy.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
@@ -1581,7 +1581,7 @@ body {
   top: 2px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -27px -159px;
+  background: url(../../../images/sprite.png) no-repeat -27px -159px;
 }
 
 .your-reservation .cancel .title {
@@ -1611,7 +1611,7 @@ body {
   top: 7px;
   right: auto;
   bottom: auto;
-  background: url(../images/ico8.png) no-repeat;
+  background: url(../../../images/ico8.png) no-repeat;
 }
 
 @media (max-width: 767px) {
@@ -1741,7 +1741,7 @@ body {
   content: '';
   height: 16px;
   position: absolute;
-  background: url(../images/sprite.png) no-repeat -53px -160px;
+  background: url(../../../images/sprite.png) no-repeat -53px -160px;
 }
 
 .your-reservation .date-time input[type="text"] {
@@ -1928,7 +1928,7 @@ body {
   margin: 1px 3px 0 0;
   display: inline-block;
   vertical-align: top;
-  background: url(../images/sprite.png) no-repeat -88px -211px;
+  background: url(../../../images/sprite.png) no-repeat -88px -211px;
 }
 
 .table .caption {
@@ -1987,7 +1987,7 @@ body {
   top: 2px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -47px -61px;
+  background: url(../../../images/sprite.png) no-repeat -47px -61px;
 }
 
 .table .caption time {
@@ -2017,7 +2017,7 @@ body {
   top: 5px;
   right: 5px;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -46px -37px;
+  background: url(../../../images/sprite.png) no-repeat -46px -37px;
 }
 
 .table .caption .expand {
@@ -2028,7 +2028,7 @@ body {
   top: auto;
   right: auto;
   bottom: 14px;
-  background: url(../images/sprite.png) no-repeat 0 -211px;
+  background: url(../../../images/sprite.png) no-repeat 0 -211px;
 }
 
 .table .caption .delete {
@@ -2039,7 +2039,7 @@ body {
   top: auto;
   right: 14px;
   bottom: 14px;
-  background: url(../images/sprite.png) no-repeat -30px -209px;
+  background: url(../../../images/sprite.png) no-repeat -30px -209px;
 }
 
 .table .btn-next,
@@ -2051,7 +2051,7 @@ body {
   top: 20px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat 0 -235px;
+  background: url(../../../images/sprite.png) no-repeat 0 -235px;
 }
 
 @media (max-width: 1279px) {
@@ -2271,7 +2271,7 @@ body {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background: url(../images/ico-close2.png) no-repeat;
+  background: url(../../../images/ico-close2.png) no-repeat;
 }
 
 @media (max-width: 767px) {
@@ -2393,7 +2393,7 @@ body {
 .social-login-button__facebook{
   background-color: #5067b1;
   color: #fff;
-  background-image: url('../images/facebook-full-white.svg');
+  background-image: url('../../../images/facebook-full-white.svg');
   background-size: 18px;
   background-position-x: 16px;
 }
@@ -2404,7 +2404,7 @@ body {
 }
 
 .social-login-button__google{
-  background-image: url('../images/google-logo.svg');
+  background-image: url('../../../images/google-logo.svg');
   background-size: 21px;
   background-position-x: 14px;
 }

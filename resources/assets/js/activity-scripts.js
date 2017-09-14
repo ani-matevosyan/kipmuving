@@ -5,7 +5,6 @@ require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 window.Instafeed = require('instafeed.js');
 require('./product.tour');
-require('chosen-js/chosen.css');
 require('chosen-js');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 require('magnific-popup');

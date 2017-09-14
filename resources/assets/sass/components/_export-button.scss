@@ -1,5 +1,5 @@
 .export-button{
-  background: #343b4e url("../images/phone.png") no-repeat;
+  background: #343b4e url("../../images/phone.png") no-repeat;
   background-size: 16px 20px;
   background-position: 11px center;
   color: #fff;
@@ -11,6 +11,6 @@
     color: #fff;
   }
   &:active{
-    background-image: url("../images/phone.png");
+    background-image: url("../../images/phone.png");
   }
 }

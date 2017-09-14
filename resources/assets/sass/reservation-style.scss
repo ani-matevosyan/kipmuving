@@ -54,7 +54,7 @@
         margin-left: 10px;
         width: 23px;
         height: 23px;
-        background-image: url(../images/sale-icon.png);
+        background-image: url(../../images/sale-icon.png);
         background-size: contain;
       }
     }
@@ -193,7 +193,7 @@
       width: 18px;
       height: 16px;
       background-size: contain;
-      background-image: url('../images/warning.svg');
+      background-image: url('../../images/warning.svg');
       background-repeat: no-repeat;
     }
   }
@@ -227,10 +227,10 @@
       background-size: contain;
     }
     &_time:before{
-      background-image: url('../images/clock.svg');
+      background-image: url('../../images/clock.svg');
     }
     &_persons:before{
-      background-image: url('../images/happy.svg');
+      background-image: url('../../images/happy.svg');
     }
     &_special{
       display: inline-block;

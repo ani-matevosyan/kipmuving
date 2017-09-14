@@ -4,6 +4,7 @@
 @import "../../../public/libs/jquery-ui/slider/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
 @import "../../../node_modules/magnific-popup/dist/magnific-popup";
+@import "../../../node_modules/chosen-js/chosen";
 
 //Components
 @import "components/instafeed";
@@ -101,7 +102,7 @@
   top: 3px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -88px -230px;
+  background: url(../../../images/sprite.png) no-repeat -88px -230px;
 }
 
 .your-reservation .widget ul.chosen-results li:after{
@@ -176,7 +177,7 @@
   top: -2px;
   width: 22px;
   height: 20px;
-  background: url(../images/warning.svg) no-repeat;
+  background: url(../../../images/warning.svg) no-repeat;
   background-size: contain;
 }
 
@@ -281,7 +282,7 @@
   position: absolute;
   width: 30px;
   height: 23px;
-  background: url('../images/faq-icon.png') no-repeat;
+  background: url('../../../images/faq-icon.png') no-repeat;
   background-size: contain;
   left: -40px;
   top: -4px;
@@ -338,7 +339,7 @@
   position: absolute;
   height: 35px;
   width: 30px;
-  background: url(../images/location-point.svg) no-repeat;
+  background: url(../../../images/location-point.svg) no-repeat;
   background-size: contain;
   left: 8px;
   top: 1px;
@@ -499,7 +500,7 @@
 
 .activity-instagram .activity-tag{
   padding-left: 27px;
-  background-image: url("../images/instagram.svg");
+  background-image: url("../../../images/instagram.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 19px;
@@ -697,7 +698,7 @@
   top: 17px;
   right: auto;
   bottom: auto;
-  background: url(../images/happy.svg) no-repeat;
+  background: url(../../../images/happy.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
@@ -705,7 +706,7 @@
 .timing1 li.profile.hours:after{
   width: 22px;
   height: 22px;
-  background: url(../images/clock.svg) no-repeat;
+  background: url(../../../images/clock.svg) no-repeat;
   background-size: contain;
   background-position: center center;
   top: 43px;
@@ -758,7 +759,7 @@
   top: 8px;
   right: auto;
   bottom: auto;
-  background: url(../images/calendar.svg) no-repeat;
+  background: url(../../../images/calendar.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
@@ -856,7 +857,7 @@
       display: inline-block;
       width: 23px;
       height: 23px;
-      background-image: url(../images/sale-icon.png);
+      background-image: url(../../../images/sale-icon.png);
       vertical-align: middle;
       margin-right: 7px;
     }
@@ -891,7 +892,7 @@
     border: none;
     font-size: 17px;
     outline: none;
-    background: transparent url('../images/calendar-white.svg') no-repeat;
+    background: transparent url('../../../images/calendar-white.svg') no-repeat;
     background-position: 0px 5px;
     background-size: 15px;
     text-align: right;

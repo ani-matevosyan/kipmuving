@@ -48,7 +48,7 @@
       margin-left: 10px;
       width: 23px;
       height: 23px;
-      background-image: url(../images/sale-icon.png);
+      background-image: url(../../images/sale-icon.png);
       -webkit-background-size: contain;
       background-size: contain;
     }
@@ -59,7 +59,7 @@
     top: 8px;
     border-radius: 3px;
     background-color: #ebebeb;
-    background-image: url('../images/printer-green-icon.png');
+    background-image: url('../../images/printer-green-icon.png');
     background-repeat: no-repeat;
     background-size: 18px;
     background-position: 12px 6px;
@@ -188,7 +188,7 @@
       position: relative;
       width: 23px;
       height: 23px;
-      background: url(../images/cancel-button.svg) no-repeat;
+      background: url(../../images/cancel-button.svg) no-repeat;
       background-size: contain;
       margin-right: 8px;
       top: -2px;
@@ -296,7 +296,7 @@
     height: 14px;
     border: none;
     outline: none;
-    background: transparent url(../images/information-symbol-grey.svg) no-repeat;
+    background: transparent url(../../images/information-symbol-grey.svg) no-repeat;
     background-size: contain;
     position: absolute;
     top: 0;
@@ -656,7 +656,7 @@
   top: 10px;
   right: auto;
   bottom: auto;
-  background: url(../images/sprite.png) no-repeat -35px -230px;
+  background: url(../../images/sprite.png) no-repeat -35px -230px;
 }
 
 .profile-block .tablist a:hover {
@@ -922,7 +922,7 @@
   margin: 50px 0 0 5px;
   display: inline-block;
   vertical-align: top;
-  background: url(../images/ico-close.png) no-repeat;
+  background: url(../../images/ico-close.png) no-repeat;
 }
 
 .profile-block .item-list .remove span {
@@ -937,7 +937,7 @@
 
 .profile-block .item-list .remove:hover:before {
   margin: 30px 0 0 5px;
-  background: url(../images/ico-close1.png) no-repeat;
+  background: url(../../images/ico-close1.png) no-repeat;
 }
 
 .profile-block .item-list .remove:hover span {
@@ -1093,7 +1093,7 @@
   top: 0;
   width: 23px;
   height: 23px;
-  background: url(../images/cancel-button.svg) no-repeat;
+  background: url(../../images/cancel-button.svg) no-repeat;
   background-size: contain;
 }
 
@@ -1120,13 +1120,13 @@
 }
 
 .timing li.time:after {
-  background: url(../images/clock.svg) no-repeat;
+  background: url(../../images/clock.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
 
 .timing li.person:after {
-  background: url(../images/happy.svg) no-repeat;
+  background: url(../../images/happy.svg) no-repeat;
   background-size: contain;
   background-position: center center;
 }
