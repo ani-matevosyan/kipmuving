@@ -36,7 +36,6 @@
 											<div class="special-offers__right-part">
 												<span class="price special-offers__price">$ {{ number_format($offer->price, 0, ".", ".") }}</span>
 												<button class="special-offers__button">{{ trans('button-links.accept') }}</button>
-                                                {{--<button class="special-offers__button" data-toggle="modal" data-target="#accept-offer-modal">{{ trans('button-links.accept') }}</button>--}}
 												<button class="special-offers__info-button"></button>
 											</div>
 										</li>
@@ -61,6 +60,9 @@
 							@if($reservation->offer)
 								<li class="your-offers__item">
 									<h3 class="your-offers__name">
+										{{--Для спеціальних оферт--}}
+										{{--<a class="your-offers__name-link your-offers__name-link_special" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">--}}
+											{{--{{ $reservation->offer->activity['name'] }}</a>--}}
 										<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
 											{{ $reservation->offer->activity['name'] }}</a>
 									</h3>
@@ -76,6 +78,8 @@
 											{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
 										<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
 									</div>
+									{{--Для спеціальних оферт--}}
+									{{--<span class="price price_line-through"> $ 100.000</span>--}}
 									@if($reservation->is_special_offer)
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">
 											$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span></p>

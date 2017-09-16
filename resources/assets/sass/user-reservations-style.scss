@@ -152,6 +152,26 @@
     &:focus{
       color: #44506d;
     }
+    &_special{
+      color: #0081CC;
+      position: relative;
+      &:hover,
+      &:focus{
+        color: #00a0f7;
+      }
+      &:before{
+        content: '';
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        background-image: url(../../../images/sale.png);
+        background-size: contain;
+        vertical-align: middle;
+        margin-right: 2px;
+        position: relative;
+        top: -2px;
+      }
+    }
   }
   &__paragraph{
     margin: 0 0 3px;
@@ -209,6 +229,14 @@
   color: #ebb414;
   font-weight: 700;
   font-size: 16px;
+  &_line-through{
+    text-decoration: line-through;
+    color: #868686;
+    margin:{
+      left: 4px;
+      right: 6px;
+    }
+  }
 }
 
 %inline-block{
