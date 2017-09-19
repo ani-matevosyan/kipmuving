@@ -41,9 +41,14 @@
 										</li>
 									@endforeach
 								</ul>
-								<div class="your-offers__cancel">
-									<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
-								</div>
+
+								@if(\Carbon\Carbon::createFromFormat('Y-m-d',$offers[0]->offer_date) >= \Carbon\Carbon::now())
+									<div class="your-offers__cancel">
+										<a href="{{ action('SpecialOffersController@unsubscribeOffer', ['uid' => $offers[0]->subscription_uid]) }}"
+											 class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+									</div>
+								@endif
+
 							</li>
 						@endforeach
 					</ul>

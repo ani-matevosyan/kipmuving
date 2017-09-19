@@ -93,7 +93,7 @@
 
 						</ul>
 					@else
-						<h3>Sorry, we do not have such a record or you have already sent this offer to the user.</h3>
+						<h3>Sorry, we do not have such a record or you have already sent this offer to the user or user canceled the subscription to receive offers for this activity.</h3>
 					@endif
 				@endif
 
