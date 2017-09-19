@@ -80,7 +80,7 @@
                         style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
 						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
-							<a target="_blank" href="http://www.kipmuving.com/">
+							<a target="_blank" href="/">
 								<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0" style="width:180px !important;">
 							</a>
 						</span>
@@ -91,7 +91,7 @@
                         <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td style="font-size:14px; line-height:20px; color:#000000; padding-top:45px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
-                                    <strong>Hola {{ $reservations['0']->agency->name }}</strong><br>
+                                    <strong>Hola {{ $reservations['0']->agency['name'] }}</strong><br>
                                     El pasajero <span style="color:#980e25">{{ $user->first_name.' '.$user->last_name }}</span>, cancelo las actividades abajo:
                                 </td>
                             </tr>
@@ -106,15 +106,15 @@
                                                         <tr>
                                                             <td width="51" height="39" valign="middle"
                                                                 style="font-size:0; line-height:0; padding-right:20px;">
-                                                                <img src="{{ url($offer->activity->image_icon) }}"
+                                                                <img src="{{ url($offer->activity['image_icon']) }}"
                                                                      alt="activity image" align="left" vspace="0" hspace="0">
                                                             </td>
                                                             <td>
                                                                 <h2 style="margin-top:0; margin-bottom:0;"><span
-                                                                            style="font-size:22px; line-height:20px; color:#089f02;">{{ $offer->activity->name }}</span>
+                                                                            style="font-size:22px; line-height:20px; color:#089f02;">{{ $offer->activity['name'] }}</span>
                                                                 </h2>
                                                                 <strong
-                                                                        style="font-size:16px; line-height:20px; font-weight:normal; display:block">{{ $offer->agency->name }}<span style="font-size: 12px; display: inline-block; margin-left: 10px;">{{ $offer->agency->address }}</span></strong>
+                                                                        style="font-size:16px; line-height:20px; font-weight:normal; display:block">{{ $offer->agency['name'] }}<span style="font-size: 12px; display: inline-block; margin-left: 10px;">{{ $offer->agency['address'] }}</span></strong>
                                                             </td>
                                                         </tr>
                                                     </table>
