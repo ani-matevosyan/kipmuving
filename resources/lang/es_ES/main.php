@@ -53,6 +53,11 @@ return [
   'best'                        => 'mejor',
   'you_are_the'                 => 'Eres el ',
   'winner'                      => 'vencedor',
+  'you_deserve_to_choose'       => 'Mereces elegir el mejor',
+  'why_search_for_low'          => '¿Para que buscar los precios bajos si ellos pueden ir hasta ti?',
+  'i_want_to_receive'           => 'Quiero recibir ofertas',
+  'enter'                       => 'Entra en',
+  'choose_the_best_adventures'  => 'elija las mejores aventuras que en poco tiempo empezará a llegar tentadoras ofertas de las agencias. Decida por aquella que tiene el mejor precio, calidad y servicio. Invista el tiempo de su viaje en lo más importante: disfrutar!',
 	
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',

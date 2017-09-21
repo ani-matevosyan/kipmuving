@@ -62,3 +62,15 @@ elixir((mix) => {
       'js/reservation-scripts.js'
     ])
 });
+
+
+
+// elixir((mix) => {
+//   mix.sass('about-style.scss')
+//     .sass('home-style.scss')
+//     .webpack('home-scripts.js')
+//     .version([
+//       'css/home-style.css',
+//       'js/home-scripts.js'
+//     ])
+// });

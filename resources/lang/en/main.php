@@ -53,9 +53,12 @@ return [
   'best'                        => 'best',
   'you_are_the'                 => 'You are the ',
   'winner'                      => 'winner',
+  'you_deserve_to_choose'       => 'You deserve to choose the best',
+  'why_search_for_low'          => 'Why search for low prices if they can come to you?',
+  'i_want_to_receive'           => 'I want to receive offers',
+  'enter'                       => 'Enter',
+  'choose_the_best_adventures'  => 'choose the best adventures which in short time will begin to arrive tempting offers from agencies. Decide for the one that has the best price, quality and service. Invest the time of your trip in the most important thing: enjoy!',
 
-
-	
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',
 	'has_an_agreement'                      => 'has an agreement with local agencies and therefore we have',

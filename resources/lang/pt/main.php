@@ -53,6 +53,11 @@ return [
   'best'                        => 'melhor',
   'you_are_the'                 => 'Você é o ',
   'winner'                      => 'vencedor',
+  'you_deserve_to_choose'       => 'Você merece escolher o melhor',
+  'why_search_for_low'          => 'Por que procurar preços baixos se eles podem chegar até você?',
+  'i_want_to_receive'           => 'Quero receber ofertas',
+  'enter'                       => 'Entre em',
+  'choose_the_best_adventures'  => 'escolha as melhores aventuras que, em pouco tempo, começarão a chegar a ofertas tentadoras das agências. Decida o que tem o melhor preço, qualidade e serviço. Invista o tempo de sua viagem no mais importante: aproveite!',
 
   'how_does_it_work'                      => 'Como funciona',
   'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',
