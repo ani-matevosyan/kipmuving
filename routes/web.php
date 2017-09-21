@@ -88,6 +88,8 @@ Route::get('/reserve/special-offer', 'ReservationController@reserveSpecialOffer'
 Route::post('/offer/special/info', 'SpecialOffersController@getJsonInfo');
 Route::get('/offer/special/confirm', 'SpecialOffersController@getConfirmOfferJsonData');
 Route::post('/offer/special/confirm', 'ReservationController@reserveSpecialOffer');
+Route::get('/offer/special/cancel/{id}', 'SpecialOffersController@unsubscribeOffer')
+	->where('id', '[0-9a-z]+');
 
 
 

@@ -48,8 +48,11 @@ class User extends Authenticatable
 	public function special_offers()
 	{
 		return $this->hasMany(SpecialOffer::class, 'user_id', 'id')
-			->where('special_offers.active', true)
-			->where('created_at', '>', Carbon::now()->subDays(3)->toDateTimeString());
+			->where([
+				['special_offers.active', true],
+				['special_offers.cancelled', false],
+				['created_at', '>', Carbon::now()->subDays(3)->toDateTimeString()],
+			]);
 	}
 	
 	public function getAvatarAttribute()

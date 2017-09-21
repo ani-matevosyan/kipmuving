@@ -41,9 +41,14 @@
 										</li>
 									@endforeach
 								</ul>
-								<div class="your-offers__cancel">
-									<a href="#" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
-								</div>
+
+								@if(\Carbon\Carbon::createFromFormat('Y-m-d',$offers[0]->offer_date) >= \Carbon\Carbon::now())
+									<div class="your-offers__cancel">
+										<a href="{{ action('SpecialOffersController@unsubscribeOffer', ['uid' => $offers[0]->subscription_uid]) }}"
+											 class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+									</div>
+								@endif
+
 							</li>
 						@endforeach
 					</ul>
@@ -60,11 +65,13 @@
 							@if($reservation->offer)
 								<li class="your-offers__item">
 									<h3 class="your-offers__name">
-										{{--Для спеціальних оферт--}}
-										{{--<a class="your-offers__name-link your-offers__name-link_special" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">--}}
-											{{--{{ $reservation->offer->activity['name'] }}</a>--}}
-										<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
-											{{ $reservation->offer->activity['name'] }}</a>
+										@if($reservation->is_special_offer)
+											<a class="your-offers__name-link your-offers__name-link_special" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
+												{{ $reservation->offer->activity['name'] }}</a>
+										@else
+											<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
+												{{ $reservation->offer->activity['name'] }}</a>
+										@endif
 									</h3>
 									<div class="your-offers__info-block">
 										<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: {{ $reservation->offer->agency['name'] }}</p>
@@ -79,17 +86,23 @@
 										<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
 									</div>
 									{{--Для спеціальних оферт--}}
-									{{--<span class="price price_line-through"> $ 100.000</span>--}}
+
 									@if($reservation->is_special_offer)
-										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">
-											$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span></p>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>:
+											<span class="price price_line-through"> $ {{ number_format($reservation->offer->real_price * $reservation->persons, 0, ".", ".") }}</span>
+											<span class="price">$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span>
+										</p>
 									@else
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
 												$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
 									@endif
-									<div class="your-offers__cancel">
-										<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}" class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
-									</div>
+									
+									@if(\Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date) >= \Carbon\Carbon::now())
+										<div class="your-offers__cancel">
+											<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}"
+												 class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+										</div>
+									@endif
 								</li>
 							@endif
 						@endforeach

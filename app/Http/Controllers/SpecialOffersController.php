@@ -52,12 +52,13 @@ class SpecialOffersController extends Controller
 			'offer'   => SpecialOffer::where([
 				['uid', '=', $uid],
 				['active', false],
+				['cancelled', false]
 			])->first(),
 		];
 
 		if (isset($data['offer']) && $data['offer']->created_at->addDay() <= Carbon::now())
 			return view('site.offers.send-offer-page', [
-				'message' => 'Sorry, you should send an offer to '.$data['offer']->created_at->addDay()->format('d/m/Y - H:i:s ')
+				'message' => 'Sorry, you should send an offer to ' . $data['offer']->created_at->addDay()->format('d/m/Y - H:i:s '),
 			]);
 		else
 			return view('site.offers.send-offer-page', $data);
@@ -96,6 +97,23 @@ class SpecialOffersController extends Controller
 		});
 
 		return redirect()->back()->with('message', 'Great, we send email to user. Many thanks!');
+	}
+
+	public function unsubscribeOffer($uid)
+	{
+		if (!$user = auth()->user())
+			abort(503);
+
+		$s_offers = SpecialOffer::where('subscription_uid', '=', $uid)->get();
+
+		if (count($s_offers) > 0) {
+			foreach ($s_offers as $s_offer) {
+				$s_offer->cancelled = true;
+				$s_offer->save();
+			}
+		}
+
+		return redirect()->back();
 	}
 
 	public function getJsonInfo(Request $request)
