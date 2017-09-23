@@ -51,7 +51,7 @@ class ActivityController extends Controller
 		$s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
 
 		$data = [
-			'offers'         => count($offer->getSelectedOffers()),
+			'offers'         => count($offer->getSelectedOffers()) + count(\session('basket.free')),
 			'special_offers' => count($s_offers),
 			'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
 			'total'          => $offer->getSelectedOffersTotal(),
