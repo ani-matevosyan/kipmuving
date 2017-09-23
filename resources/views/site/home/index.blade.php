@@ -47,7 +47,7 @@
 							<strong class="video-section__strong">{{ trans('main.why_search_for_low') }}</strong>
 							{{ trans('main.enter') }} KeepMoving.co, {{ trans('main.choose_the_best_adventures') }}
 						</p>
-						<button class="video-section__button">{{ trans('main.i_want_to_receive') }}</button>
+						<a href="{{ action('ActivityController@index') }}" class="video-section__button">{{ trans('main.i_want_to_receive') }}</a>
 					</div>
 					<div class="col-md-6">
 						<div class="video-section__video-container">

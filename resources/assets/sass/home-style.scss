@@ -362,10 +362,12 @@
     text-transform: uppercase;
     font-size: 20px;
     background-color: #0081CC;
+    display: inline-block;
     border: none;
     outline: none;
     transition: all .3s ease;
     transform: rotate(-3deg);
+    box-shadow: 9px 11px 13px -5px rgba(133,133,133,1);
     &:before{
       content: '';
       display: inline-block;
@@ -375,6 +377,18 @@
       background-size: contain;
       vertical-align: middle;
       margin-right: 6px;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      right: 24px;
+      top: 43%;
+      width: 39px;
+      height: 53px;
+      transform: rotate(3deg);
+      background-image: url('../../images/pointer.png');
+      background-size: contain;
+      pointer-events: none;
     }
     &:hover,
     &:focus{
@@ -388,6 +402,10 @@
       padding: 11px 27px;
       font-size: 18px;
       transform: none;
+      box-shadow: 1px 8px 13px -5px #858585;
+      &:after{
+        display: none;
+      }
     }
   }
   &__video-container{
