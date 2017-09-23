@@ -18,7 +18,7 @@ class CalendarController extends Controller
 		$selectedOffers = $_offer->getSelectedOffers();
 		$freeActivities = session('basket.free');
 
-		if (count($selectedOffers) + count($freeActivities) <= 0)
+		if (count($selectedOffers) + count($freeActivities) + count(session('basket.special')) <= 0)
 			return redirect()->to(action('ActivityController@index'));
 
 		$data = [
