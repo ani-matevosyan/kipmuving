@@ -61,6 +61,9 @@ return [
   'win'                         => 'Gane',
   'buy_in_stores'               => 'Para ocupar en las tiendas',
   'in_marks'                    => 'en las marcas',
+  'make_reservation_and'        => 'Haga una reserva y',
+  'discount'                    => 'descuento',
+  'in'                          => 'en',
 
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',

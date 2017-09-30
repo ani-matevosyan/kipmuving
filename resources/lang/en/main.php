@@ -61,6 +61,9 @@ return [
   'win'                         => 'Win',
   'buy_in_stores'               => 'Buy in stores',
   'in_marks'                    => 'in marks',
+  'make_reservation_and'        => 'Make a reservation and',
+  'discount'                    => 'discount',
+  'in'                          => 'in',
 
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',

@@ -61,6 +61,9 @@ return [
   'win'                         => 'Ganhe',
   'buy_in_stores'               => 'PARA OCUPAR NAS LOJAS',
   'in_marks'                    => 'NAS MARCAS',
+  'make_reservation_and'        => 'Faça uma reserva e',
+  'discount'                    => 'desconto',
+  'in'                          => 'em',
 
   'how_does_it_work'                      => 'Como funciona',
   'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',

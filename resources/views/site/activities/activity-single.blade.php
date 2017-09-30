@@ -2,6 +2,20 @@
 
 {{-- Content --}}
 @section('content')
+	<div class="activity-banner">
+		<p>{{ trans('main.make_reservation_and') }} <strong>{{ trans('main.win') }} 10% {{ trans('main.discount') }}</strong> {{ trans('main.in') }}</p>
+		<ul>
+			<li>
+				<img src="{{ asset('images/volkanica-logo_small.png') }}" alt="Volcanica logo">
+			</li>
+			<li>
+				<img src="{{ asset('images/fjallraven-logo_small.png') }}" alt="Fjallraven logo">
+			</li>
+			<li>
+				<img src="{{ asset('images/salewa-logo_small.png') }}" alt="Salewa Chile logo">
+			</li>
+		</ul>
+	</div>
 	<section class="visual activity-single"
 	         @if ($activity->image) style="background-image: url('/{{ $activity['image'] }}')" @endif>
 		<div class="gradoverlay"></div>
