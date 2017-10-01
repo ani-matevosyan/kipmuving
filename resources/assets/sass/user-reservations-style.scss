@@ -23,6 +23,7 @@
     padding: 11px 5px;
     position: relative;
     margin-bottom: 22px;
+    text-align: center;
     &_special{
       background-color: #008DD0;
     }
@@ -39,7 +40,6 @@
     font-size: 25px;
     color: #fff;
     margin: 0;
-    text-align: center;
     &_special:after{
       content: '';
       position: relative;
@@ -76,6 +76,16 @@
     &:hover,
     &:focus{
       background-color: #fdfdfd;
+    }
+    @media screen and (max-width: 1199px){
+      position: relative;
+      right: 0;
+      top: 0;
+      margin-top: 10px;
+    }
+    @media screen and (max-width: 470px){
+      padding: 7px 18px;
+      background-image: none;
     }
   }
 }
@@ -150,7 +160,7 @@
     color: #323e5b;
     &:hover,
     &:focus{
-      color: #44506d;
+      color: #607293;
     }
     &_special{
       color: #0081CC;
@@ -222,6 +232,40 @@
   &__special-offers{
     border-top: 1px solid #e5e5e5;
     padding-top: 10px;
+  }
+}
+
+.user-page-header{
+  position: relative;
+  max-width: none;
+  .btn{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    @media screen and (max-width: 600px){
+      position: relative;
+      bottom: 0;
+      margin-top: 15px;
+    }
+  }
+}
+
+.coupon-button{
+  padding: 7px 16px 7px 48px;
+  color: #fff;
+  background-color: #8A4260;
+  text-transform: none;
+  font-size: 15px;
+  background-image: url(../../images/printer-white-icon.png);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 20px 6px;
+  &:active,
+  &:hover,
+  &:focus{
+    color: #fff;
+    background-image: url(../../images/printer-white-icon.png);
+    background-color: #c24e8d;
   }
 }
 

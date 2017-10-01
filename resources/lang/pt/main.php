@@ -348,4 +348,13 @@ return [
   'with_discount_at'   => 'com desconto em 10 de maio',
   'or'                 => 'ou',
   'total_price'        => 'preço total',
+
+  'cut'             => 'corte',
+  'each_voucher'    => 'cada voucher e traga',
+  'separately'      => 'separadamente',
+  'to_each_agency'  => 'para cada agência',
+  'congratulations' => 'Felicidades',
+  'you_won_10'      => 'Você ganhou 10% de desconto em Volkanica nas marcas Sjallraven e Salewa.',
+  'store_located'   => 'A loja está em',
+  'valid_until'     => 'Válido até',
 ];

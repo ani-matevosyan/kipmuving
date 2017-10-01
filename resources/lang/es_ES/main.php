@@ -348,4 +348,13 @@ return [
   'with_discount_at'   => 'con descuento en',
   'or'                 => 'o',
   'total_price'        => 'precio total',
+
+  'cut'             => 'Recorta',
+  'each_voucher'    => 'cada voucher y lleve',
+  'separately'      => 'separadamente',
+  'to_each_agency'  => 'a cada agencia',
+  'congratulations' => 'Felicitaciones',
+  'you_won_10'      => 'Ganaste 10% de descuento en Volkanica en las marcas Fjallraven y Salewa',
+  'store_located'   => 'La tienda está ubicada en',
+  'valid_until'     => 'Válido hasta',
 ];

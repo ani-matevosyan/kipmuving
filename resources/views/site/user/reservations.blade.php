@@ -7,6 +7,7 @@
 			<header class="user-page-header user-reservations-page__header">
 				<h1 class="user-page-header__title">{{ trans('main.my_adventures') }}</h1>
 				<p class="user-page-header__description">{{ trans('main.here_you_will_find_adventures') }}</p>
+				<button id="coupon-button" data-name="{{ auth()->user()->first_name }}" data-date="{{ \Carbon\Carbon::now()->addMonth(3)->format('d-m-Y') }}" class="btn coupon-button">{{ trans('main.print_btn').' '.trans('main.discount') }} Volcanica</button>
 			</header>
 			@if(isset($user->special_offers) && count($user->special_offers) > 0)
 				<section class="s-offers">
@@ -58,7 +59,7 @@
 				<section class="s-offers">
 					<header class="s-offers__header">
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
-						{{--<button class="s-offers__print-button">{{ trans('main.select_to_print') }}</button>--}}
+						{{--<button class="s-offers__print-button" id="print-activities">{{ trans('main.select_to_print') }}</button>--}}
 					</header>
 					<ul class="your-offers">
 						@foreach($user->reservations->where('status', true) as $reservation)
@@ -350,4 +351,18 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		window.translateData = {
+		  'print': '{{ trans('main.print_btn') }}',
+		  'and': '{{ trans('main.and') }}',
+		  'cut': '{{ trans('main.cut') }}',
+		  'each_voucher': '{{ trans('main.each_voucher') }}',
+		  'separately': '{{ trans('main.separately') }}',
+		  'to_each_agency': '{{ trans('main.to_each_agency') }}',
+          'congratulations': '{{ trans('main.congratulations') }}',
+          'you_won_10': '{{ trans('main.you_won_10') }}',
+          'store_located': '{{ trans('main.store_located') }}',
+          'valid_until': '{{ trans('main.valid_until') }}'
+		}
+	</script>
 @stop

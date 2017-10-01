@@ -148,7 +148,7 @@ $(document).ready(function(){
     //Print option
 
     function openPrintDialogue(){
-        var printItemHeader = '<div class="print-item-header">' +
+        let printItemHeader = '<div class="print-item-header">' +
             '<a href="'+document.location.origin+'">' +
             '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
             '</a>' +
@@ -158,21 +158,21 @@ $(document).ready(function(){
                 '</div>';
 
         $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
-            .appendTo('body')
+        .appendTo('body')
             .contents()
             .find('head')
-            .append("<link rel='stylesheet' type='text/css' media='print' href='"+document.location.origin+"/css/print-style.css'>")
+            .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/print-style.css'>`)
             .parent()
             .find('body')
-            .append('<div class="print-header">' +
-                '<img src="/images/printer.svg" alt="Printer icon">' +
-                '<img src="http://kipmuving.lo/images/cut.svg" alt="Scissors icon">' +
-                '<span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>' +
-                '</div>');
+            .append(`<div class="print-header">
+                <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+                <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+                <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+                </div>`);
 
         $(".check_activity input[type=checkbox]:checked").each(function(){
 
-            var item = $(this).parent().parent().find('.order-item').clone();
+            let item = $(this).parent().parent().find('.order-item').clone();
 
             item.prepend(printItemHeader);
             item.append(printItemFooter);
@@ -187,10 +187,10 @@ $(document).ready(function(){
     }
 
 
-    var activity_checked = false;
+    let activity_checked = false;
 
     $('.to_print').on('click', function(e){
-        var printText = $(this).attr('data-print-text');
+        let printText = $(this).attr('data-print-text');
         e.preventDefault();
         if(!activity_checked){
             $(".check_activity").show();
@@ -202,8 +202,55 @@ $(document).ready(function(){
             }else{
                 $("#printWarning").modal("show");
             }
-
         }
     });
+
+
+  let activityChecked = false;
+  $("#print-activities").click(function(e){
+     e.preventDefault();
+
+  });
+
+  $("#coupon-button").click(function(e){
+      e.preventDefault();
+      let userName = $(this).attr('data-name'),
+        date = $(this).attr('data-date');
+    $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+      .appendTo('body')
+      .contents()
+      .find('head')
+      .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/coupon-print.css'>`)
+      .parent()
+      .find('body')
+      .append(`
+        <div class="print-header">
+            <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+            <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+            <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+        </div>
+        <div class="coupon">
+            <header>
+                <img src="${document.location.origin}/images/salewa-logo_black.png" alt="Salewa Chile logo">
+                <img src="${document.location.origin}/images/fjallraven-logo_black.png" alt="Fjallraven logo">
+                <img src="${document.location.origin}/images/volkanica-logo_black.png" alt="Volkanica logo">
+            </header>
+            <div class="coupon__body">
+                <h1><strong>${window.translateData.congratulations} ${userName}!</strong></h1>
+                <h2>${window.translateData.you_won_10}</h2>
+                <h3>${window.translateData.store_located} <strong>Fresia # 275 local 6, Pucón</strong></h3>
+                <h4>${window.translateData.valid_until} ${date}</h4>
+            </div>
+            <footer>
+              ${document.location.origin}
+            </footer>
+        </div>
+       `);
+
+    setTimeout(function(){
+      window.frames["myiframe"].print();
+      $("#printFrame").remove();
+    },1000);
+  });
 
 });
