@@ -6,6 +6,7 @@
 		<section class="s-banner">
 			<div class="s-banner__form-container">
 				<form action="/activity/search" class="banner-form" method="post">
+					{{ csrf_field() }}
 					<select class="banner-form__select" name="activity_id">
 						@foreach ($activitiesList as $item)
 							<option value="{{ $item->id }}">{{ $item->name }}</option>
