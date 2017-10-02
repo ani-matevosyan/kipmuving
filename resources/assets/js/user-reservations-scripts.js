@@ -271,7 +271,7 @@ $(document).ready(function(){
                                   <span><strong>${window.translateData.summary}</strong>: $ ${value.reservation_total}</span>
                               </li>
                               <li class="person">
-                                  <img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="information-list__image">
+                                  <img src="${document.location.origin}/images/happy.svg" alt="Person icon" class="information-list__image">
                                   <span><strong>${value.reservation_persons}</strong> ${window.translateData.persons}</span>
                               </li>
                           </ul>
