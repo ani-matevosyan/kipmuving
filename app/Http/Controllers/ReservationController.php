@@ -126,7 +126,7 @@ class ReservationController extends Controller
 
 	public function getPrintData(Request $request)
 	{
-		$reservation_ids = [124];
+		$reservation_ids = $request['ids'];
 		$data = [];
 
 		foreach ($reservation_ids as $reservation_id) {
