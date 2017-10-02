@@ -58,6 +58,9 @@ return [
   'i_want_to_receive'           => 'I want to receive offers',
   'enter'                       => 'Enter',
   'choose_the_best_adventures'  => 'choose the best adventures which in short time will begin to arrive tempting offers from agencies. Decide for the one that has the best price, quality and service. Invest the time of your trip in the most important thing: enjoy!',
+  'win'                         => 'Win',
+  'buy_in_stores'               => 'Buy in stores',
+  'in_marks'                    => 'in marks',
 
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',

@@ -3,38 +3,83 @@
 {{-- Content --}}
 @section('content')
 	<main id="main">
-		<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">
-			<div class="gradoverlay"></div>
-			<div class="caption">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12">
-							<form action="/activity/search" class="activity-form" id="activity-form" method="post">
-								{{ csrf_field() }}
-								<strong class="title">{{ trans('main.what_activities_search') }}</strong>
-								<div class="holder">
-									<select class="form-control" id="activity_id" name="activity_id">
-										@foreach ($activitiesList as $item)
-											<option value="{{ $item->id }}">{{ $item->name }}</option>
-										@endforeach
-									</select>
-									<div class="text-field">
-										<input id="activity_date"
-													 type="text"
-													 name="activity_date"
-													 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-													 placeholder="{{ trans('form.date') }}"
-													 class="form-control"
-													 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-									</div>
-									<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">
-								</div>
-							</form>
-						</div>
+		<section class="s-banner">
+			<div class="s-banner__form-container">
+				<form action="/activity/search" class="banner-form" method="post">
+					<select class="banner-form__select" name="activity_id">
+						@foreach ($activitiesList as $item)
+							<option value="{{ $item->id }}">{{ $item->name }}</option>
+						@endforeach
+					</select>
+					<input name="activity_date"
+						   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+						   placeholder="{{ trans('form.date') }}"
+						   class="banner-form__date"
+						   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+					<input type="submit" value="{{ trans('button-links.search') }}" class="btn banner-form__submit">
+				</form>
+			</div>
+			<div class="s-banner__content">
+				<a href="{{ action('ActivityController@index') }}" class="s-banner__link"></a>
+				<ul class="s-banner__partners">
+					<li>
+						<img src="{{ asset('images/salewa-logo.png') }}" alt="Salewa Chile logo">
+					</li>
+					<li>
+						<img src="{{ asset('images/fjallraven-logo.png') }}" alt="Fjallraven logo">
+					</li>
+					<li>
+						<img src="{{ asset('images/volkanica-logo.png') }}" alt="Volkanica logo">
+					</li>
+				</ul>
+				<div class="s-banner__proposal">
+					<div class="s-banner__title">
+						<strong>{{ trans('main.win') }}</strong>
+						<strong>10%</strong>
+					</div>
+					<div class="s-banner__description">
+						<p>
+							{{ trans('main.buy_in_stores') }}
+							<strong>Volkanica</strong>
+							{{ trans('main.in_marks') }}
+							<strong>Fjallraven {{ trans('main.and') }} Salewa</strong>
+						</p>
 					</div>
 				</div>
 			</div>
 		</section>
+		{{--<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">--}}
+			{{--<div class="gradoverlay"></div>--}}
+			{{--<div class="caption">--}}
+				{{--<div class="container">--}}
+					{{--<div class="row">--}}
+						{{--<div class="col-xs-12">--}}
+							{{--<form action="/activity/search" class="activity-form" id="activity-form" method="post">--}}
+								{{--{{ csrf_field() }}--}}
+								{{--<strong class="title">{{ trans('main.what_activities_search') }}</strong>--}}
+								{{--<div class="holder">--}}
+									{{--<select class="form-control" id="activity_id" name="activity_id">--}}
+										{{--@foreach ($activitiesList as $item)--}}
+											{{--<option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+										{{--@endforeach--}}
+									{{--</select>--}}
+									{{--<div class="text-field">--}}
+										{{--<input id="activity_date"--}}
+													 {{--type="text"--}}
+													 {{--name="activity_date"--}}
+													 {{--value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"--}}
+													 {{--placeholder="{{ trans('form.date') }}"--}}
+													 {{--class="form-control"--}}
+													 {{--data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>--}}
+									{{--</div>--}}
+									{{--<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">--}}
+								{{--</div>--}}
+							{{--</form>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</section>--}}
 		<section class="video-section">
 			<div class="container">
 				<div class="row">
@@ -61,12 +106,21 @@
 				</div>
 			</div>
 		</section>
+
+		{{--To delete--}}
+		{{--{{ trans('main.you_have_preference') }}--}}
+		{{--{{ trans('main.choose_dates_and_activities') }}--}}
+		{{--{{ trans('main.agencies_will_send') }}--}}
+		{{--{{ trans('main.and_you_can') }}--}}
+		{{--{{ trans('main.price&quality') }}--}}
+		{{--{{ asset('/images/mountains.svg') }}--}}
+
 		{{--<section class="best-price-section">--}}
 			{{--<div class="container">--}}
 				{{--<header class="best-price-section__header">--}}
 					{{--<div class="best-price-section__header-wrapper">--}}
 						{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
-						{{--<p class="best-price-section__title-description">{{ trans('main.you_have_preference') }}</p>--}}
+						{{--<p class="best-price-section__title-description"></p>--}}
 					{{--</div>--}}
 				{{--</header>--}}
 				{{--<div class="best-price-section__content">--}}

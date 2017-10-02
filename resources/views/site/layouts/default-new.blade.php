@@ -116,9 +116,9 @@
 							<li>
 								<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 							</li>
-							<li>
-								<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>
-							</li>
+							{{--<li>--}}
+								{{--<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>--}}
+							{{--</li>--}}
 							<li>
 								<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
 							</li>

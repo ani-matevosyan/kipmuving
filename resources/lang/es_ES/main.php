@@ -58,7 +58,10 @@ return [
   'i_want_to_receive'           => 'Quiero recibir ofertas',
   'enter'                       => 'Entra en',
   'choose_the_best_adventures'  => 'elija las mejores aventuras que en poco tiempo empezará a llegar tentadoras ofertas de las agencias. Decida por aquella que tiene el mejor precio, calidad y servicio. Invista el tiempo de su viaje en lo más importante: disfrutar!',
-	
+  'win'                         => 'Gane',
+  'buy_in_stores'               => 'Para ocupar en las tiendas',
+  'in_marks'                    => 'en las marcas',
+
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',
 	'has_an_agreement'                      => 'tienen un acuerdo de 10% menos en todas las activiades. Por esto tenemos precios preferenciales. Arma tu',
