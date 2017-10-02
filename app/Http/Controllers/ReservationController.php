@@ -124,6 +124,34 @@ class ReservationController extends Controller
 		return response()->json(['success' => true]);
 	}
 
+	public function getPrintData(Request $request)
+	{
+		$reservation_ids = $request['ids'];
+		$data = [];
+
+		foreach ($reservation_ids as $reservation_id) {
+			$reservation = Reservation::find($reservation_id);
+
+			if ($reservation) {
+				$data []= [
+					'activity_icon'       => $reservation->offer->activity->image_icon,
+					'activity_name'       => $reservation->offer->activity['name'],
+					'activity_duration'   => $reservation->offer->duration,
+					'activity_schedule'   => $reservation->offer->schedule,
+					'agency_name'         => $reservation->offer->agency['name'],
+					'agency_address'      => $reservation->offer->agency['address'],
+					'offer_price'         => round($reservation->offer->price * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN),
+					'offer_includes'      => $reservation->offer->includes,
+					'reservation_date'    => $reservation->reserve_date,
+					'reservation_persons' => $reservation->persons,
+					'reservation_total'   => round($reservation->offer->price * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN) * $reservation->persons,
+				];
+			}
+		}
+
+		return $data;
+	}
+
 	#Cancel reservation
 	public static function cancelReservation($id)
 	{
