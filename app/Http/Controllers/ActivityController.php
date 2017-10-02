@@ -22,6 +22,9 @@ class ActivityController extends Controller
 
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
 
+		$s_offers = \session('basket.special');
+		$s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
+
 		$imageIndex = rand(1, 3); //1-3
 		$data = [
 			'styles'            => config('resources.activities.list.styles'),
@@ -35,9 +38,9 @@ class ActivityController extends Controller
 				->get(),
 			'activities'        => $activity->getAllActivities(),
 			'count'             => [
-			  'special_offers' => count(session('basket.special')),
+			  'special_offers' => count($s_offers),
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
-				'persons'        => $offer->getSelectedOffersPersons(),
+				'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
 				'total'          => $offer->getSelectedOffersTotal(),
 			],
 		];
@@ -51,7 +54,7 @@ class ActivityController extends Controller
 		$s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
 
 		$data = [
-			'offers'         => count($offer->getSelectedOffers()),
+			'offers'         => count($offer->getSelectedOffers()) + count(\session('basket.free')),
 			'special_offers' => count($s_offers),
 			'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
 			'total'          => $offer->getSelectedOffersTotal(),

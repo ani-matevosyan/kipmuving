@@ -16,10 +16,9 @@ class CalendarController extends Controller
 	{
 		$_offer = new Offer();
 		$selectedOffers = $_offer->getSelectedOffers();
+		$freeActivities = session('basket.free');
 
-//		dd($selectedOffers);
-
-		if (count($selectedOffers) <= 0)
+		if (count($selectedOffers) + count($freeActivities) + count(session('basket.special')) <= 0)
 			return redirect()->to(action('ActivityController@index'));
 
 		$data = [
@@ -42,8 +41,8 @@ class CalendarController extends Controller
 		$selectedOffers = session('basket.offers');
 		$freeActivities = session('basket.free');
 
-		if (count($selectedOffers) <= 0)
-			abort(404);
+		if (count($selectedOffers) + count($freeActivities) <= 0 ) abort(404);
+
 		$colors = ['#28975d', '#afa318', '#4a8b8d', '#ebb414'];
 		$results = [];
 

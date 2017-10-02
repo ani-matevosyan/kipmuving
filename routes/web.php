@@ -180,6 +180,7 @@ Route::post('/pagseguro/notification', [
 	'uses' => '\laravel\pagseguro\Platform\Laravel5\NotificationController@notification',
 	'as'   => 'pagseguro.notification',
 ]);
+Route::post('/reservation/print', 'ReservationController@getPrintData');
 
 #Proposals
 Route::post('/proposals/save', 'ProposalController@saveProposal');
