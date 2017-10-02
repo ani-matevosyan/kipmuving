@@ -232,12 +232,12 @@ $(document).ready(function(){
               .parent()
               .find('body')
               .append(`
-          <div class="print-header">
-              <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
-              <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
-              <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
-          </div>
-         `);
+                <div class="print-header">
+                    <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+                    <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+                    <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+                </div>
+              `);
             $.each(response, function(key, value){
               let youMustTakeList = `<ul>`;
               $.each(value.offer_includes, function(key, value){
@@ -248,7 +248,6 @@ $(document).ready(function(){
               <div class="print-item">
                 ${printItemHeader}
                 <header>
-                    <div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>
                     <h2>${value.activity_name}</h2>
                     <span><strong>${value.agency_name}</strong> ${value.agency_address}</span>
                 </header>
@@ -278,6 +277,8 @@ $(document).ready(function(){
                  ${printItemFooter}
               </div>
             `;
+              //Agency icon
+            // <div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>
               // Pay in agency item
             // <li class="money">
             //     <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">
