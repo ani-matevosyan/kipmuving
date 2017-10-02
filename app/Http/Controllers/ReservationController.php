@@ -126,7 +126,7 @@ class ReservationController extends Controller
 
 	public function getPrintData(Request $request)
 	{
-		$reservation_ids = $request['ids'];
+		$reservation_ids = [124];
 		$data = [];
 
 		foreach ($reservation_ids as $reservation_id) {
@@ -134,7 +134,7 @@ class ReservationController extends Controller
 
 			if ($reservation) {
 				$data [] = [
-					'activity_icon'         => $reservation->offer->activity->image_icon,
+					'activity_icon'         => file_exists(public_path($reservation->offer->activity->image_icon)) ? $reservation->offer->activity->image_icon : null,
 					'activity_name'         => $reservation->offer->activity['name'],
 					'activity_duration'     => $reservation->offer->duration,
 					'activity_schedule'     => $reservation->offer->schedule,
