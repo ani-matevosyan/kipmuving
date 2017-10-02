@@ -237,7 +237,7 @@ $(document).ready(function(){
                     <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
                     <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
                 </div>
-              `);
+                `);
             $.each(response, function(key, value){
               let youMustTakeList = `<ul>`;
               $.each(value.offer_includes, function(key, value){
@@ -247,8 +247,11 @@ $(document).ready(function(){
               let item = `
               <div class="print-item">
                 ${printItemHeader}
-                <header>
-                    <h2>${value.activity_name}</h2>
+                <header>`;
+              if(value.activity_icon !== null){
+                item +=`<div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>`
+              }
+                item +=`<h2>${value.activity_name}</h2>
                     <span><strong>${value.agency_name}</strong> ${value.agency_address}</span>
                 </header>
                   <div class="row">
@@ -277,8 +280,6 @@ $(document).ready(function(){
                  ${printItemFooter}
               </div>
             `;
-              //Agency icon
-            // <div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>
               // Pay in agency item
             // <li class="money">
             //     <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">

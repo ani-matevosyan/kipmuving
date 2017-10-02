@@ -65,7 +65,6 @@ elixir((mix) => {
 });
 
 
-//
 // elixir((mix) => {
 //   mix.sass('user-reservations-style.scss')
 //     .webpack('user-reservations-scripts.js')
@@ -75,4 +74,4 @@ elixir((mix) => {
 //       'css/user-reservations-style.css',
 //       'js/user-reservations-scripts.js'
 //     ])
-// });
+// });/
