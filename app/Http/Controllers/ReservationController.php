@@ -133,18 +133,20 @@ class ReservationController extends Controller
 			$reservation = Reservation::find($reservation_id);
 
 			if ($reservation) {
-				$data []= [
-					'activity_icon'       => $reservation->offer->activity->image_icon,
-					'activity_name'       => $reservation->offer->activity['name'],
-					'activity_duration'   => $reservation->offer->duration,
-					'activity_schedule'   => $reservation->offer->schedule,
-					'agency_name'         => $reservation->offer->agency['name'],
-					'agency_address'      => $reservation->offer->agency['address'],
-					'offer_price'         => round($reservation->offer->price * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN),
-					'offer_includes'      => $reservation->offer->includes,
-					'reservation_date'    => $reservation->reserve_date,
-					'reservation_persons' => $reservation->persons,
-					'reservation_total'   => round($reservation->offer->price * (1 - config('kipmuving.discount')), 2, PHP_ROUND_HALF_EVEN) * $reservation->persons,
+				$data [] = [
+					'activity_icon'         => $reservation->offer->activity->image_icon,
+					'activity_name'         => $reservation->offer->activity['name'],
+					'activity_duration'     => $reservation->offer->duration,
+					'activity_schedule'     => $reservation->offer->schedule,
+					'agency_name'           => $reservation->offer->agency['name'],
+					'agency_address'        => $reservation->offer->agency['address'],
+					'offer_price'           => round($reservation->offer->price, 2, PHP_ROUND_HALF_EVEN),
+					'offer_includes'        => $reservation->offer->includes,
+					'reservation_date'      => Carbon::createFromFormat('Y-m-d', $reservation->reserve_date)->format('d/m/Y'),
+					'reservation_persons'   => $reservation->persons,
+					'reservation_total'     => round($reservation->offer->price, 2, PHP_ROUND_HALF_EVEN) * $reservation->persons,
+					'reservation_new_total' => $reservation->offer_price ? $reservation->offer_price : 0,
+					'special_offer'         => $reservation->is_special_offer ? true : false,
 				];
 			}
 		}
