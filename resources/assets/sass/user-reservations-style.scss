@@ -23,6 +23,7 @@
     padding: 11px 5px;
     position: relative;
     margin-bottom: 22px;
+    text-align: center;
     &_special{
       background-color: #008DD0;
     }
@@ -39,7 +40,6 @@
     font-size: 25px;
     color: #fff;
     margin: 0;
-    text-align: center;
     &_special:after{
       content: '';
       position: relative;
@@ -77,6 +77,19 @@
     &:focus{
       background-color: #fdfdfd;
     }
+    @media screen and (max-width: 1199px){
+      position: relative;
+      right: 0;
+      top: 0;
+      margin-top: 10px;
+    }
+    @media screen and (max-width: 991px){
+      display: none;
+    }
+    @media screen and (max-width: 470px){
+      padding: 7px 18px;
+      background-image: none;
+    }
   }
 }
 
@@ -87,6 +100,11 @@
   flex-wrap: wrap;
   font-size: 15px;
   margin-right: -60px;
+  &_show-checkboxes{
+    .your-offers__check-offer{
+      display: block;
+    }
+  }
   @media screen and (max-width: 600px){
     margin-right: 0;
   }
@@ -139,6 +157,40 @@
       }
     }
   }
+  &__check-offer{
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    z-index: 900;
+    border: 2px solid #000;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-radius: 2px;
+    cursor: pointer;
+    display: none;
+    input[type=checkbox]{
+      display: none;
+      &:checked ~ .glyphicon{
+        opacity: 1;
+      }
+    }
+    .glyphicon{
+      position: absolute;
+      top: -6px;
+      left: 0;
+      margin: 0;
+      font-size: 18px;
+      color: #089f02;
+      opacity: 0;
+    }
+    &:hover .glyphicon{
+      opacity: 0.5;
+    }
+    @media screen and (max-width: 991px){
+      display: none !important;
+    }
+  }
   &__name{
     text-transform: uppercase;
     font-size: 24px;
@@ -150,7 +202,7 @@
     color: #323e5b;
     &:hover,
     &:focus{
-      color: #44506d;
+      color: #607293;
     }
     &_special{
       color: #0081CC;
@@ -222,6 +274,40 @@
   &__special-offers{
     border-top: 1px solid #e5e5e5;
     padding-top: 10px;
+  }
+}
+
+.user-page-header{
+  position: relative;
+  max-width: none;
+  .btn{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    @media screen and (max-width: 600px){
+      position: relative;
+      bottom: 0;
+      margin-top: 15px;
+    }
+  }
+}
+
+.coupon-button{
+  padding: 7px 16px 7px 48px;
+  color: #fff;
+  background-color: #8A4260;
+  text-transform: none;
+  font-size: 15px;
+  background-image: url(../../images/printer-white-icon.png);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 20px 6px;
+  &:active,
+  &:hover,
+  &:focus{
+    color: #fff;
+    background-image: url(../../images/printer-white-icon.png);
+    background-color: #c24e8d;
   }
 }
 
@@ -1211,28 +1297,24 @@
   border-radius: 2px;
   cursor: pointer;
   display: none;
-}
-
-.check_activity input{
-  display: none;
-}
-
-.check_activity .glyphicon{
-  position: absolute;
-  top: -6px;
-  left: 0;
-  margin: 0;
-  font-size: 18px;
-  color: #089f02;
-  opacity: 0;
-}
-
-.check_activity:hover .glyphicon{
-  opacity: 0.5;
-}
-
-.check_activity input[type=checkbox]:checked ~ .glyphicon{
-  opacity: 1;
+  input[type=checkbox]{
+    display: none;
+    &:checked ~ .glyphicon{
+      opacity: 1;
+    }
+  }
+  .glyphicon{
+    position: absolute;
+    top: -6px;
+    left: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #089f02;
+    opacity: 0;
+  }
+  &:hover .glyphicon{
+    opacity: 0.5;
+  }
 }
 
 @media screen and (max-width: 560px){

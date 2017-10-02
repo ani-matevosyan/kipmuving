@@ -61,6 +61,9 @@ return [
   'win'                         => 'Win',
   'buy_in_stores'               => 'Buy in stores',
   'in_marks'                    => 'in marks',
+  'make_reservation_and'        => 'Make a reservation and',
+  'discount'                    => 'discount',
+  'in'                          => 'in',
 
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',
@@ -320,31 +323,39 @@ return [
 	#New 3 - 21.06.17
 	'summary' => 'Summary',
 
-    #Who we are page
-    'emerged_from_the_need'   => ' emerged from the need to offer the visitor of Pucón the best option of choice of the tourist agency and also to expand his possibilities of walks in the city. By means of agreements with the agencies, we can benefit:',
-    'easy_to_find'            => 'Easy to find',
-    'all_agencies_and'        => ' all agencies and activities in one place',
-    'build_complete_panorama' => 'Build a complete panorama',
-    'in_the_city_and'         => ' in the city and schedule your trip',
-    'and_for_the_agency'      => 'And for the agency, the benefits are:',
-    'high_visibility'         => 'High visibility',
-    'better_competitiveness'  => 'Better competitiveness',
-    'independent_of_location' => ', independent of the physical location, and for the quality of service and price',
-    'so'                      => 'So ',
-    'urges_to_meet'           => ' urges to meet a need for the adventure industry, where the user has more options and agencies more visibility. And the user only collaborates with 3% of the total value of their activities. This serves to cover expenses and continue to improve the web application.',
-    'who_made'                => 'Who made ',
-    'creator_and_designer'    => 'Creator and Designer',
-    'developer'               => 'Developer',
-    'credits'                 => 'Credits',
+  #Who we are page
+  'emerged_from_the_need'   => ' emerged from the need to offer the visitor of Pucón the best option of choice of the tourist agency and also to expand his possibilities of walks in the city. By means of agreements with the agencies, we can benefit:',
+  'easy_to_find'            => 'Easy to find',
+  'all_agencies_and'        => ' all agencies and activities in one place',
+  'build_complete_panorama' => 'Build a complete panorama',
+  'in_the_city_and'         => ' in the city and schedule your trip',
+  'and_for_the_agency'      => 'And for the agency, the benefits are:',
+  'high_visibility'         => 'High visibility',
+  'better_competitiveness'  => 'Better competitiveness',
+  'independent_of_location' => ', independent of the physical location, and for the quality of service and price',
+  'so'                      => 'So ',
+  'urges_to_meet'           => ' urges to meet a need for the adventure industry, where the user has more options and agencies more visibility. And the user only collaborates with 3% of the total value of their activities. This serves to cover expenses and continue to improve the web application.',
+  'who_made'                => 'Who made ',
+  'creator_and_designer'    => 'Creator and Designer',
+  'developer'               => 'Developer',
+  'credits'                 => 'Credits',
 
-    #FAQ
-    'ask'                      => 'Ask question',
-    'you_should_be_registered' => 'To ask you have to log in',
+  #FAQ
+  'ask'                      => 'Ask question',
+  'you_should_be_registered' => 'To ask you have to log in',
 
-    #Special offer
-    "send_special_offer" => 'Send a special offer',
-    'with_discount_at'   => 'with discount at',
-    'or'                 => 'or',
-    'total_price'        => 'total price',
+  #Special offer
+  "send_special_offer" => 'Send a special offer',
+  'with_discount_at'   => 'with discount at',
+  'or'                 => 'or',
+  'total_price'        => 'total price',
 
+  'cut'             => 'cut',
+  'each_voucher'    => 'each voucher and bring',
+  'separately'      => 'separately',
+  'to_each_agency'  => 'to each agency',
+  'congratulations' => 'Congratulations',
+  'you_won_10'      => 'You won a 10% discount on Volkanica in the brands Fjallraven and Salewa',
+  'store_located'   => 'The store is located in',
+  'valid_until'     => 'Valid until',
 ];

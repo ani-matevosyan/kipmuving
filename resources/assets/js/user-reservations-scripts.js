@@ -147,32 +147,27 @@ $(document).ready(function(){
 
     //Print option
 
+  const printItemHeader = `<div class="print-item-header"><img src="${document.location.origin}/images/KeepMoving_logo_grey.svg" alt="Kipmuving logo"></a></div>`,
+        printItemFooter = `<div class="print-item-footer">www.keepmoving.co</div>`;
+
     function openPrintDialogue(){
-        var printItemHeader = '<div class="print-item-header">' +
-            '<a href="'+document.location.origin+'">' +
-            '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
-            '</a>' +
-            '</div>',
-            printItemFooter = '<div class="print-item-footer">' +
-                '<a href="'+document.location.origin+'">www.kipmuving.com</a>' +
-                '</div>';
 
         $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
-            .appendTo('body')
+        .appendTo('body')
             .contents()
             .find('head')
-            .append("<link rel='stylesheet' type='text/css' media='print' href='"+document.location.origin+"/css/print-style.css'>")
+            .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/print-style.css'>`)
             .parent()
             .find('body')
-            .append('<div class="print-header">' +
-                '<img src="/images/printer.svg" alt="Printer icon">' +
-                '<img src="http://kipmuving.lo/images/cut.svg" alt="Scissors icon">' +
-                '<span><strong>Imprima</strong> y <strong>Recorte</strong> cada <strong>vousher</strong> y lleve <strong>separadamente</strong> a cada agencia</span>' +
-                '</div>');
+            .append(`<div class="print-header">
+                <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+                <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+                <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+                </div>`);
 
         $(".check_activity input[type=checkbox]:checked").each(function(){
 
-            var item = $(this).parent().parent().find('.order-item').clone();
+            let item = $(this).parent().parent().find('.order-item').clone();
 
             item.prepend(printItemHeader);
             item.append(printItemFooter);
@@ -187,10 +182,10 @@ $(document).ready(function(){
     }
 
 
-    var activity_checked = false;
+    let activity_checked = false;
 
     $('.to_print').on('click', function(e){
-        var printText = $(this).attr('data-print-text');
+        let printText = $(this).attr('data-print-text');
         e.preventDefault();
         if(!activity_checked){
             $(".check_activity").show();
@@ -202,8 +197,149 @@ $(document).ready(function(){
             }else{
                 $("#printWarning").modal("show");
             }
-
         }
     });
+
+  let activityChecked = false;
+  $("#print-activities").click(function(e){
+     e.preventDefault();
+     let printText = $(this).attr('data-print-text');
+      if(activityChecked){
+        let checkedOffersIds = [];
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        if($(".your-offers__check-offer input[type=checkbox]:checked").length == 0){
+          $(".loader").remove();
+          $("#printWarning").modal("show");
+          return false;
+        }
+        $(".your-offers__check-offer input[type=checkbox]:checked").each(function(){
+          checkedOffersIds.push(parseInt($(this).val()));
+        });
+        $.ajax({
+          type: "POST",
+          url: "/reservation/print",
+          data: {
+            '_token': $('meta[name="csrf-token"]').attr('content'),
+            ids: checkedOffersIds
+          },
+          success: response => {
+            $(".loader").remove();
+            $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+              .appendTo('body')
+              .contents()
+              .find('head')
+              .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/activity-print.css'>`)
+              .parent()
+              .find('body')
+              .append(`
+          <div class="print-header">
+              <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+              <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+              <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+          </div>
+         `);
+            $.each(response, function(key, value){
+              let youMustTakeList = `<ul>`;
+              $.each(value.offer_includes, function(key, value){
+                youMustTakeList += `<li>${value}</li>`;
+              });
+              youMustTakeList +=`</ul>`;
+              let item = `
+              <div class="print-item">
+                ${printItemHeader}
+                <header>
+                    <div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>
+                    <h2>${value.activity_name}</h2>
+                    <span><strong>${value.agency_name}</strong> ${value.agency_address}</span>
+                </header>
+                  <div class="row">
+                      <div class="col">
+                          <div class="list-box">
+                              <strong>${window.translateData.you_must_take}</strong>
+                              ${youMustTakeList}
+                          </div>
+                      </div>
+                      <div class="col">
+                          <ul class="information-list">
+                              <li class="time">
+                                  <img src="${document.location.origin}/images/clock.svg" alt="Time icon" class="information-list__image">
+                                  <strong class="title">${window.translateData.day}: ${value.reservation_date}</strong>
+                                  <span><strong>${window.translateData.duration}</strong>: ${value.activity_duration} hr</span>
+                                  <span><strong>${window.translateData.schedule}</strong>: ${value.activity_schedule.start} to ${value.activity_schedule.end}</span>
+                                  <span><strong>${window.translateData.summary}</strong>: $ ${value.reservation_total}</span>
+                              </li>
+                              <li class="person">
+                                  <img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="information-list__image">
+                                  <span><strong>${value.reservation_persons}</strong> ${window.translateData.persons}</span>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                 ${printItemFooter}
+              </div>
+            `;
+              // Pay in agency item
+            // <li class="money">
+            //     <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">
+            //     <span>Pay in agency</span>
+            //     <strong class="title">CLP $ ${parseInt(value.reservations_total) * 0.9}</strong>
+            //   </li>
+              $("#printFrame").contents().find('body').append(item);
+            });
+            setTimeout(function(){
+              window.frames["myiframe"].print();
+              $("#printFrame").remove();
+            },1000);
+          },
+          error: err => {
+            $(".loader").remove();
+            console.log(err);
+          }
+        });
+      }else{
+        $("#your-offers-list").addClass('your-offers_show-checkboxes');
+        $(this).text(`${printText}!`);
+        activityChecked = true;
+      }
+  });
+
+  $("#coupon-button").click(function(e){
+      e.preventDefault();
+      let userName = $(this).attr('data-name'),
+        date = $(this).attr('data-date');
+    $('<iframe name="myiframe" id="CouponFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+      .appendTo('body')
+      .contents()
+      .find('head')
+      .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/coupon-print.css'>`)
+      .parent()
+      .find('body')
+      .append(`
+        <div class="print-header">
+            <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+            <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+            <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+        </div>
+        <div class="coupon">
+            <header>
+                <img src="${document.location.origin}/images/salewa-logo_black.png" alt="Salewa Chile logo">
+                <img src="${document.location.origin}/images/fjallraven-logo_black.png" alt="Fjallraven logo">
+                <img src="${document.location.origin}/images/volkanica-logo_black.png" alt="Volkanica logo">
+            </header>
+            <div class="coupon__body">
+                <h1><strong>${window.translateData.congratulations} ${userName}!</strong></h1>
+                <h2>${window.translateData.you_won_10}</h2>
+                <h3>${window.translateData.store_located} <strong>Fresia # 275 local 6, Pucón</strong></h3>
+                <h4>${window.translateData.valid_until} ${date}</h4>
+            </div>
+            <footer>www.keepmoving.co</footer>
+        </div>
+       `);
+
+    setTimeout(function(){
+      window.frames["myiframe"].print();
+      $("#CouponFrame").remove();
+    },1000);
+  });
 
 });

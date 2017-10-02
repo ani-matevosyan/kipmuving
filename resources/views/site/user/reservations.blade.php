@@ -7,6 +7,7 @@
 			<header class="user-page-header user-reservations-page__header">
 				<h1 class="user-page-header__title">{{ trans('main.my_adventures') }}</h1>
 				<p class="user-page-header__description">{{ trans('main.here_you_will_find_adventures') }}</p>
+				<button id="coupon-button" data-name="{{ auth()->user()->first_name }}" data-date="{{ \Carbon\Carbon::now()->addMonth(3)->format('d-m-Y') }}" class="btn coupon-button">{{ trans('main.print_btn').' '.trans('main.discount') }} Volcanica</button>
 			</header>
 			@if(isset($user->special_offers) && count($user->special_offers) > 0)
 				<section class="s-offers">
@@ -58,12 +59,16 @@
 				<section class="s-offers">
 					<header class="s-offers__header">
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
-						{{--<button class="s-offers__print-button">{{ trans('main.select_to_print') }}</button>--}}
+						<button class="s-offers__print-button" id="print-activities" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.select_to_print') }}</button>
 					</header>
-					<ul class="your-offers">
+					<ul class="your-offers" id="your-offers-list">
 						@foreach($user->reservations->where('status', true) as $reservation)
 							@if($reservation->offer)
 								<li class="your-offers__item">
+									<label class="your-offers__check-offer">
+										<input type="checkbox" value="{{ $reservation->id }}">
+										<i class="glyphicon glyphicon-ok"></i>
+									</label>
 									<h3 class="your-offers__name">
 										@if($reservation->is_special_offer)
 											<a class="your-offers__name-link your-offers__name-link_special" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
@@ -85,8 +90,6 @@
 											{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
 										<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
 									</div>
-									{{--Для спеціальних оферт--}}
-
 									@if($reservation->is_special_offer)
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>:
 											<span class="price price_line-through"> $ {{ number_format($reservation->offer->real_price * $reservation->persons, 0, ".", ".") }}</span>
@@ -195,7 +198,7 @@
 																{{--<li class="person">--}}
 																	{{--<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">--}}
 																	{{--<strong>--}}
-																		{{--<span>{{ $reservation->persons }}</span> {{ trans('persons') }}--}}
+																		{{--<span>{{ $reservation->persons }}</span> {{ trans('main.persons') }}--}}
 																	{{--</strong>--}}
 																{{--</li>--}}
 															{{--@endif--}}
@@ -350,4 +353,24 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		window.translateData = {
+		  'print': '{{ trans('main.print_btn') }}',
+		  'and': '{{ trans('main.and') }}',
+		  'cut': '{{ trans('main.cut') }}',
+		  'each_voucher': '{{ trans('main.each_voucher') }}',
+		  'separately': '{{ trans('main.separately') }}',
+		  'to_each_agency': '{{ trans('main.to_each_agency') }}',
+          'congratulations': '{{ trans('main.congratulations') }}',
+          'you_won_10': '{{ trans('main.you_won_10') }}',
+          'store_located': '{{ trans('main.store_located') }}',
+          'valid_until': '{{ trans('main.valid_until') }}',
+		  'you_must_take': '{{ trans('main.you_must_take') }}',
+		  'day': '{{ trans('emails.day') }}',
+		  'duration': '{{ trans('main.duration') }}',
+		  'schedule': '{{ trans('main.schedule') }}',
+		  'summary': '{{ trans('main.summary') }}',
+		  'persons': '{{ trans('main.persons_s') }}'
+		}
+	</script>
 @stop

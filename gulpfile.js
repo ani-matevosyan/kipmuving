@@ -11,10 +11,12 @@ elixir((mix) => {
     .sass('guide-style.scss')
     .sass('home-style.scss')
     .sass('print-style.scss')
+    .sass('activity-print.scss')
     .sass('reservation-style.scss')
     .sass('send-offer-style.scss')
     .sass('user-account-style.scss')
     .sass('user-reservations-style.scss')
+    .sass('coupon-print.scss')
     .webpack('activities-scripts.js')
     .webpack('activity-scripts.js')
     .webpack('agency-scripts.js')
@@ -40,7 +42,6 @@ elixir((mix) => {
       'css/free-style.css',
       'css/guide-style.css',
       'css/home-style.css',
-      'css/print-style.css',
       'css/reservation-style.css',
       'css/send-offer-style.css',
       'css/user-account-style.css',
@@ -64,13 +65,14 @@ elixir((mix) => {
 });
 
 
-
+//
 // elixir((mix) => {
-//   mix.sass('about-style.scss')
-//     .sass('home-style.scss')
-//     .webpack('home-scripts.js')
+//   mix.sass('user-reservations-style.scss')
+//     .webpack('user-reservations-scripts.js')
+//     .sass('print-style.scss')
+//     .sass('activity-print.scss')
 //     .version([
-//       'css/home-style.css',
-//       'js/home-scripts.js'
+//       'css/user-reservations-style.css',
+//       'js/user-reservations-scripts.js'
 //     ])
 // });

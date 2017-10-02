@@ -61,6 +61,9 @@ return [
   'win'                         => 'Gane',
   'buy_in_stores'               => 'Para ocupar en las tiendas',
   'in_marks'                    => 'en las marcas',
+  'make_reservation_and'        => 'Haga una reserva y',
+  'discount'                    => 'descuento',
+  'in'                          => 'en',
 
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',
@@ -345,4 +348,13 @@ return [
   'with_discount_at'   => 'con descuento en',
   'or'                 => 'o',
   'total_price'        => 'precio total',
+
+  'cut'             => 'Recorta',
+  'each_voucher'    => 'cada voucher y lleve',
+  'separately'      => 'separadamente',
+  'to_each_agency'  => 'a cada agencia',
+  'congratulations' => 'Felicitaciones',
+  'you_won_10'      => 'Ganaste 10% de descuento en Volkanica en las marcas Fjallraven y Salewa',
+  'store_located'   => 'La tienda está ubicada en',
+  'valid_until'     => 'Válido hasta',
 ];
