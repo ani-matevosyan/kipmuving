@@ -200,100 +200,107 @@ $(document).ready(function(){
         }
     });
 
-
-  let testData = {
-    'icon': 'images/image-none.jpg',
-    'activity_name': 'Trekking Volcán Quetrupillan',
-    'agency_name': 'Patagonia Experience',
-    'agency_address': 'Oficina 1 Lincoyan 243 / Oficina 2: Avda. O\'Higgins 461',
-    'you_must_take': [
-      'Transporte ida y vuelta',
-      'Guía Profesional',
-      'Entrada a los Parques',
-      'Seguro de accidentes',
-      'Crampones'
-    ],
-    'date': '03/08/2017',
-    'duration': '9',
-    'schedule': [
-      '06:15',
-      '15:00'
-    ],
-    'summary': '47',
-    'persons': '3',
-    'price_in_agency': '30000'
-  };
-
   let activityChecked = false;
   $("#print-activities").click(function(e){
      e.preventDefault();
-    $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
-      .appendTo('body')
-      .contents()
-      .find('head')
-      .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/activity-print.css'>`)
-      .parent()
-      .find('body')
-      .append(`
-        <div class="print-header">
-            <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
-            <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
-            <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
-        </div>
-       `);
-
-
-    let youMustTakeList = `<ul>`;
-    $.each(testData.you_must_take, function(key, value){
-      youMustTakeList += `<li>${value}</li>`;
-    });
-    youMustTakeList +=`</ul>`;
-    let item = `
-      <div class="print-item">
-        ${printItemHeader}
-        <header>
-            <div class="icon"><img src="${document.location.origin}/${testData.icon}" alt="${testData.activity_name}"></div>
-            <h2>${testData.activity_name}</h2>
-            <span><strong>${testData.agency_name}</strong> ${testData.agency_address}</span>
-        </header>
-          <div class="row">
-              <div class="col">
-                  <div class="list-box">
-                      <strong>You must take</strong>
-                      ${youMustTakeList}
-                  </div>
-              </div>
-              <div class="col">
-                  <ul class="information-list">
-                      <li class="time">
-                          <img src="${document.location.origin}/images/clock.svg" alt="Time icon" class="information-list__image">
-                          <strong class="title">Day: ${testData.date}</strong>
-                          <span><strong>Duration</strong>: ${testData.duration} hr</span>
-                          <span><strong>Schedule</strong>: ${testData.schedule[0]} to ${testData.schedule[1]}</span>
-                          <span><strong>Summary</strong>: USD $ ${testData.summary}</span>
-                      </li>
-                      <li class="person">
-                          <img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="information-list__image">
-                          <span><strong>${testData.persons}</strong> persons</span>
-                      </li>
-                      <li class="money">
-                          <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">
-                          <span>Pay in agency</span>
-                          <strong class="title">CLP $ ${testData.price_in_agency}</strong>
-                      </li>
-                  </ul>
-              </div>
+     let printText = $(this).attr('data-print-text');
+      if(activityChecked){
+        let checkedOffersIds = [];
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        if($(".your-offers__check-offer input[type=checkbox]:checked").length == 0){
+          $(".loader").remove();
+          $("#printWarning").modal("show");
+          return false;
+        }
+        $(".your-offers__check-offer input[type=checkbox]:checked").each(function(){
+          checkedOffersIds.push(parseInt($(this).val()));
+        });
+        $.ajax({
+          type: "POST",
+          url: "/reservation/print",
+          data: {
+            '_token': $('meta[name="csrf-token"]').attr('content'),
+            ids: checkedOffersIds
+          },
+          success: response => {
+            $(".loader").remove();
+            $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+              .appendTo('body')
+              .contents()
+              .find('head')
+              .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/activity-print.css'>`)
+              .parent()
+              .find('body')
+              .append(`
+          <div class="print-header">
+              <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+              <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+              <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
           </div>
-         ${printItemFooter}
-      </div>
-    `;
-
-    $("#printFrame").contents().find('body').append(item);
-
-    setTimeout(function(){
-      window.frames["myiframe"].print();
-      $("#printFrame").remove();
-    },1000);
+         `);
+            $.each(response, function(key, value){
+              let youMustTakeList = `<ul>`;
+              $.each(value.offer_includes, function(key, value){
+                youMustTakeList += `<li>${value}</li>`;
+              });
+              youMustTakeList +=`</ul>`;
+              let item = `
+              <div class="print-item">
+                ${printItemHeader}
+                <header>
+                    <div class="icon"><img src="${document.location.origin}/${value.activity_icon}" alt="${value.activity_name}"></div>
+                    <h2>${value.activity_name}</h2>
+                    <span><strong>${value.agency_name}</strong> ${value.agency_address}</span>
+                </header>
+                  <div class="row">
+                      <div class="col">
+                          <div class="list-box">
+                              <strong>${window.translateData.you_must_take}</strong>
+                              ${youMustTakeList}
+                          </div>
+                      </div>
+                      <div class="col">
+                          <ul class="information-list">
+                              <li class="time">
+                                  <img src="${document.location.origin}/images/clock.svg" alt="Time icon" class="information-list__image">
+                                  <strong class="title">${window.translateData.day}: ${value.reservation_date}</strong>
+                                  <span><strong>${window.translateData.duration}</strong>: ${value.activity_duration} hr</span>
+                                  <span><strong>${window.translateData.schedule}</strong>: ${value.activity_schedule.start} to ${value.activity_schedule.end}</span>
+                                  <span><strong>${window.translateData.summary}</strong>: $ ${value.reservation_total}</span>
+                              </li>
+                              <li class="person">
+                                  <img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="information-list__image">
+                                  <span><strong>${value.reservation_persons}</strong> ${window.translateData.persons}</span>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                 ${printItemFooter}
+              </div>
+            `;
+              // Pay in agency item
+            // <li class="money">
+            //     <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">
+            //     <span>Pay in agency</span>
+            //     <strong class="title">CLP $ ${parseInt(value.reservations_total) * 0.9}</strong>
+            //   </li>
+              $("#printFrame").contents().find('body').append(item);
+            });
+            setTimeout(function(){
+              window.frames["myiframe"].print();
+              $("#printFrame").remove();
+            },1000);
+          },
+          error: err => {
+            $(".loader").remove();
+            console.log(err);
+          }
+        });
+      }else{
+        $("#your-offers-list").addClass('your-offers_show-checkboxes');
+        $(this).text(`${printText}!`);
+        activityChecked = true;
+      }
   });
 
   $("#coupon-button").click(function(e){

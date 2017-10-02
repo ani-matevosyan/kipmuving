@@ -59,12 +59,16 @@
 				<section class="s-offers">
 					<header class="s-offers__header">
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
-						<button class="s-offers__print-button" id="print-activities">{{ trans('main.select_to_print') }}</button>
+						<button class="s-offers__print-button" id="print-activities" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.select_to_print') }}</button>
 					</header>
-					<ul class="your-offers">
+					<ul class="your-offers" id="your-offers-list">
 						@foreach($user->reservations->where('status', true) as $reservation)
 							@if($reservation->offer)
 								<li class="your-offers__item">
+									<label class="your-offers__check-offer">
+										<input type="checkbox" value="{{ $reservation->id }}">
+										<i class="glyphicon glyphicon-ok"></i>
+									</label>
 									<h3 class="your-offers__name">
 										@if($reservation->is_special_offer)
 											<a class="your-offers__name-link your-offers__name-link_special" href="{{ action('ActivityController@getActivity', ['id' => $reservation->offer->activity]) }}">
@@ -86,8 +90,6 @@
 											{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}</p>
 										<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $reservation->persons }}</p>
 									</div>
-									{{--Для спеціальних оферт--}}
-
 									@if($reservation->is_special_offer)
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>:
 											<span class="price price_line-through"> $ {{ number_format($reservation->offer->real_price * $reservation->persons, 0, ".", ".") }}</span>
@@ -111,135 +113,135 @@
 				</section>
 			@endif
 
-			<div class="profile-block">
-				<div class="my_profile">
-					@if(isset($user->reservations))
-						<div class="my-adventures">
-							<header class="my-adventures__header">
-								<h2 class="my-adventures__title">{{ trans('main.my_adventures') }}</h2>
-								<p class="my-adventures__subtitle">{{ trans('main.here_you_will_find_adventures') }}</p>
-								@ability('admin,developer', '')
-								<a href="{{ action('CalendarController@generateICS') }}" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>
-								@endability()
-							</header>
-							<ul class="item-list">
-								@foreach ($user->reservations->where('status', true) as $reservation)
-									@if(isset($reservation->offer))
-										<li>
-											<label class="check_activity">
-												<input type="checkbox" name="to_print" value="{{$reservation['id']}}">
-												<i class="glyphicon glyphicon-ok"></i>
-											</label>
-											<div class="order-item">
-												<header>
-													@if(isset($reservation->offer->activity['image_icon']))
-														<div class="ico">
-															<img alt="image description"
-																	 src="{{ asset($reservation->offer->activity['image_icon']) }}"
-																	 onerror="this.src='{{ asset('/images/image-none.jpg') }}';">
-														</div>
-													@endif
-													<div class="text">
-														@if (isset($reservation->offer->activity['id']) && isset($reservation->offer->activity['name']))
-															<h2>
-																<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"
-																	 data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>
-															</h2>
-														@endif
+			{{--<div class="profile-block">--}}
+				{{--<div class="my_profile">--}}
+					{{--@if(isset($user->reservations))--}}
+						{{--<div class="my-adventures">--}}
+							{{--<header class="my-adventures__header">--}}
+								{{--<h2 class="my-adventures__title">{{ trans('main.my_adventures') }}</h2>--}}
+								{{--<p class="my-adventures__subtitle">{{ trans('main.here_you_will_find_adventures') }}</p>--}}
+								{{--@ability('admin,developer', '')--}}
+								{{--<a href="{{ action('CalendarController@generateICS') }}" class="btn export-button my-adventures__export-button">{{ trans('main.export_calendar')}}</a>--}}
+								{{--@endability()--}}
+							{{--</header>--}}
+							{{--<ul class="item-list">--}}
+								{{--@foreach ($user->reservations->where('status', true) as $reservation)--}}
+									{{--@if(isset($reservation->offer))--}}
+										{{--<li>--}}
+											{{--<label class="check_activity">--}}
+												{{--<input type="checkbox" name="to_print" value="{{$reservation['id']}}">--}}
+												{{--<i class="glyphicon glyphicon-ok"></i>--}}
+											{{--</label>--}}
+											{{--<div class="order-item">--}}
+												{{--<header>--}}
+													{{--@if(isset($reservation->offer->activity['image_icon']))--}}
+														{{--<div class="ico">--}}
+															{{--<img alt="image description"--}}
+																	 {{--src="{{ asset($reservation->offer->activity['image_icon']) }}"--}}
+																	 {{--onerror="this.src='{{ asset('/images/image-none.jpg') }}';">--}}
+														{{--</div>--}}
+													{{--@endif--}}
+													{{--<div class="text">--}}
+														{{--@if (isset($reservation->offer->activity['id']) && isset($reservation->offer->activity['name']))--}}
+															{{--<h2>--}}
+																{{--<a href="{{ action('ActivityController@getActivity', $reservation->offer->activity['id']) }}" data-toggle="modal"--}}
+																	 {{--data-target="#myModal">{{ $reservation->offer->activity['name'] }}</a>--}}
+															{{--</h2>--}}
+														{{--@endif--}}
 
-														@if(isset($reservation->offer->agency->name) && isset($reservation->offer->agency->address))
-															<strong class="sub-title">
-																{{ $reservation->offer->agency->name }} <span
-																		class="agency-address">{{ $reservation->offer->agency->address }}</span>
-															</strong>
-														@endif
-													</div>
-												</header>
-												<div class="cols-row">
-													<div class="col">
-														<div class="list-box">
-															<strong class="title">{{ trans('main.you_must_take') }}</strong>
-															<ul class="list">
-																@if(count($reservation->offer->includes) > 0)
-																	@foreach ($reservation->offer->includes as $include)
-																		<li>{{ $include }}</li>
-																	@endforeach
-																@endif
-															</ul>
-														</div>
-													</div>
-													<div class="col">
-														<ul class="timing">
-															@if(isset($reservation->reserve_date) && isset($reservation->offer->duration) && isset($reservation->time['start'])
-																&& isset($reservation->time['end']) && isset($reservation->offer->price) && isset($reservation->persons))
-																<li class="time">
-																	<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">
-																	<strong class="title">{{ trans('emails.day') }}
-																		: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>
-																	<strong>
-																		<span>{{ trans('main.duration') }} : </span> {{ $reservation->offer->duration }} hrs
-																	</strong>
-																	@if ($reservation->time)
-																		<strong>
-																			<span>{{ trans('main.schedule') }} :</span> {{ date("H:i", strtotime($reservation->time['start'])) }}
-																			{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}
-																		</strong>
-																	@endif
-																	<strong>
-																		<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}
-																		$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}
-																	</strong>
-																</li>
-															@endif
+														{{--@if(isset($reservation->offer->agency->name) && isset($reservation->offer->agency->address))--}}
+															{{--<strong class="sub-title">--}}
+																{{--{{ $reservation->offer->agency->name }} <span--}}
+																		{{--class="agency-address">{{ $reservation->offer->agency->address }}</span>--}}
+															{{--</strong>--}}
+														{{--@endif--}}
+													{{--</div>--}}
+												{{--</header>--}}
+												{{--<div class="cols-row">--}}
+													{{--<div class="col">--}}
+														{{--<div class="list-box">--}}
+															{{--<strong class="title">{{ trans('main.you_must_take') }}</strong>--}}
+															{{--<ul class="list">--}}
+																{{--@if(count($reservation->offer->includes) > 0)--}}
+																	{{--@foreach ($reservation->offer->includes as $include)--}}
+																		{{--<li>{{ $include }}</li>--}}
+																	{{--@endforeach--}}
+																{{--@endif--}}
+															{{--</ul>--}}
+														{{--</div>--}}
+													{{--</div>--}}
+													{{--<div class="col">--}}
+														{{--<ul class="timing">--}}
+															{{--@if(isset($reservation->reserve_date) && isset($reservation->offer->duration) && isset($reservation->time['start'])--}}
+																{{--&& isset($reservation->time['end']) && isset($reservation->offer->price) && isset($reservation->persons))--}}
+																{{--<li class="time">--}}
+																	{{--<img src="{{ asset('images/clock.svg') }}" alt="Time icon" class="timing-icon">--}}
+																	{{--<strong class="title">{{ trans('emails.day') }}--}}
+																		{{--: {{ date("d/m/Y", strtotime($reservation->reserve_date)) }}</strong>--}}
+																	{{--<strong>--}}
+																		{{--<span>{{ trans('main.duration') }} : </span> {{ $reservation->offer->duration }} hrs--}}
+																	{{--</strong>--}}
+																	{{--@if ($reservation->time)--}}
+																		{{--<strong>--}}
+																			{{--<span>{{ trans('main.schedule') }} :</span> {{ date("H:i", strtotime($reservation->time['start'])) }}--}}
+																			{{--{{ trans('emails.to') }} {{ date("H:i", strtotime($reservation->time['end'])) }}--}}
+																		{{--</strong>--}}
+																	{{--@endif--}}
+																	{{--<strong>--}}
+																		{{--<span>{{ trans('main.summary') }}: </span>{{ session('currency.type') }}--}}
+																		{{--$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}--}}
+																	{{--</strong>--}}
+																{{--</li>--}}
+															{{--@endif--}}
 
-															@if(isset($reservation->persons))
-																<li class="person">
-																	<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">
-																	<strong>
-																		<span>{{ $reservation->persons }}</span> {{ trans('persons') }}
-																	</strong>
-																</li>
-															@endif
+															{{--@if(isset($reservation->persons))--}}
+																{{--<li class="person">--}}
+																	{{--<img src="{{ asset('images/happy.svg') }}" alt="Person icon" class="timing-icon">--}}
+																	{{--<strong>--}}
+																		{{--<span>{{ $reservation->persons }}</span> {{ trans('main.persons') }}--}}
+																	{{--</strong>--}}
+																{{--</li>--}}
+															{{--@endif--}}
 
-															@if(isset($reservation->offer->real_price) && isset($reservation->persons))
-																<li class="money">
-																	<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">
-																	<strong>Pagar en agencia</strong>
-																	<strong class="title">CLP
-																		$ {{ number_format(($reservation->offer->real_price * $reservation->persons), 0, ".", ".") }}</strong>
-																</li>
-															@endif
+															{{--@if(isset($reservation->offer->real_price) && isset($reservation->persons))--}}
+																{{--<li class="money">--}}
+																	{{--<img src="{{ asset('images/coin.svg') }}" alt="Coin icon" class="timing-icon">--}}
+																	{{--<strong>Pagar en agencia</strong>--}}
+																	{{--<strong class="title">CLP--}}
+																		{{--$ {{ number_format(($reservation->offer->real_price * $reservation->persons), 0, ".", ".") }}</strong>--}}
+																{{--</li>--}}
+															{{--@endif--}}
 
-															@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())
-															<div class="delete_offer">
-																<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>
-															</div>
-															@endif
-														</ul>
-													</div>
-												</div>
-											</div>
-										</li>
-									@endif
-								@endforeach
-							</ul>
-							<div class="print_notification_wrapper">
-								<span>{{ trans('main.you_can_print') }} </span>
-								<a href="#" class="btn btn-success to_print" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>
-							</div>
-						</div>
-					@endif
+															{{--@if(\Carbon\Carbon::parse($reservation->reserve_date) > \Carbon\Carbon::now())--}}
+															{{--<div class="delete_offer">--}}
+																{{--<a href="{{ action('ReservationController@cancelReservation', $reservation->id) }}">{{ trans('main.cancel_activity') }}</a>--}}
+															{{--</div>--}}
+															{{--@endif--}}
+														{{--</ul>--}}
+													{{--</div>--}}
+												{{--</div>--}}
+											{{--</div>--}}
+										{{--</li>--}}
+									{{--@endif--}}
+								{{--@endforeach--}}
+							{{--</ul>--}}
+							{{--<div class="print_notification_wrapper">--}}
+								{{--<span>{{ trans('main.you_can_print') }} </span>--}}
+								{{--<a href="#" class="btn btn-success to_print" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.pick_activities_btn') }}</a>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+					{{--@endif--}}
 
-					@if(isset($user->special_offers))
-						<ul>
-							@foreach($user->special_offers as $offer)
-								<li>{{ $offer->offer->activity->name }} - {{ $offer->offer_date }}</li>
-							@endforeach
-						</ul>
-					@endif
+					{{--@if(isset($user->special_offers))--}}
+						{{--<ul>--}}
+							{{--@foreach($user->special_offers as $offer)--}}
+								{{--<li>{{ $offer->offer->activity->name }} - {{ $offer->offer_date }}</li>--}}
+							{{--@endforeach--}}
+						{{--</ul>--}}
+					{{--@endif--}}
 
-				</div>
-			</div>
+				{{--</div>--}}
+			{{--</div>--}}
 		</div>
 	</main>
 
@@ -362,7 +364,13 @@
           'congratulations': '{{ trans('main.congratulations') }}',
           'you_won_10': '{{ trans('main.you_won_10') }}',
           'store_located': '{{ trans('main.store_located') }}',
-          'valid_until': '{{ trans('main.valid_until') }}'
+          'valid_until': '{{ trans('main.valid_until') }}',
+		  'you_must_take': '{{ trans('main.you_must_take') }}',
+		  'day': '{{ trans('emails.day') }}',
+		  'duration': '{{ trans('main.duration') }}',
+		  'schedule': '{{ trans('main.schedule') }}',
+		  'summary': '{{ trans('main.summary') }}',
+		  'persons': '{{ trans('main.persons_s') }}'
 		}
 	</script>
 @stop
