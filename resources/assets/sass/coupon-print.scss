@@ -33,7 +33,7 @@ a{
   box-sizing: border-box;
 }
 
-//@media print{
+@media print{
   .print-header{
     position: relative;
     background-color: #e5e5e5 !important;
@@ -119,4 +119,4 @@ a{
     }
   }
 
-//}
+}

@@ -147,15 +147,10 @@ $(document).ready(function(){
 
     //Print option
 
+  const printItemHeader = `<div class="print-item-header"><img src="${document.location.origin}/images/KeepMoving_logo_grey.svg" alt="Kipmuving logo"></a></div>`,
+        printItemFooter = `<div class="print-item-footer">www.keepmoving.co</div>`;
+
     function openPrintDialogue(){
-        let printItemHeader = '<div class="print-item-header">' +
-            '<a href="'+document.location.origin+'">' +
-            '<img src="'+document.location.origin+'/images/KipMuving-darkgrey.svg" alt="Kipmuving logo">' +
-            '</a>' +
-            '</div>',
-            printItemFooter = '<div class="print-item-footer">' +
-                '<a href="'+document.location.origin+'">www.kipmuving.com</a>' +
-                '</div>';
 
         $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
         .appendTo('body')
@@ -206,17 +201,106 @@ $(document).ready(function(){
     });
 
 
+  let testData = {
+    'icon': 'images/image-none.jpg',
+    'activity_name': 'Trekking Volcán Quetrupillan',
+    'agency_name': 'Patagonia Experience',
+    'agency_address': 'Oficina 1 Lincoyan 243 / Oficina 2: Avda. O\'Higgins 461',
+    'you_must_take': [
+      'Transporte ida y vuelta',
+      'Guía Profesional',
+      'Entrada a los Parques',
+      'Seguro de accidentes',
+      'Crampones'
+    ],
+    'date': '03/08/2017',
+    'duration': '9',
+    'schedule': [
+      '06:15',
+      '15:00'
+    ],
+    'summary': '47',
+    'persons': '3',
+    'price_in_agency': '30000'
+  };
+
   let activityChecked = false;
   $("#print-activities").click(function(e){
      e.preventDefault();
+    $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+      .appendTo('body')
+      .contents()
+      .find('head')
+      .append(`<link rel='stylesheet' type='text/css' media='print' href='${document.location.origin}/css/activity-print.css'>`)
+      .parent()
+      .find('body')
+      .append(`
+        <div class="print-header">
+            <img src="${document.location.origin}/images/printer.svg" alt="Printer icon">
+            <img src="${document.location.origin}/images/cut.svg" alt="Scissors icon">
+            <span><strong>${window.translateData.print}</strong> ${window.translateData.and} <strong>${window.translateData.cut}</strong> ${window.translateData.each_voucher} <strong>${window.translateData.separately}</strong> ${window.translateData.to_each_agency}</span>
+        </div>
+       `);
 
+
+    let youMustTakeList = `<ul>`;
+    $.each(testData.you_must_take, function(key, value){
+      youMustTakeList += `<li>${value}</li>`;
+    });
+    youMustTakeList +=`</ul>`;
+    let item = `
+      <div class="print-item">
+        ${printItemHeader}
+        <header>
+            <div class="icon"><img src="${document.location.origin}/${testData.icon}" alt="${testData.activity_name}"></div>
+            <h2>${testData.activity_name}</h2>
+            <span><strong>${testData.agency_name}</strong> ${testData.agency_address}</span>
+        </header>
+          <div class="row">
+              <div class="col">
+                  <div class="list-box">
+                      <strong>You must take</strong>
+                      ${youMustTakeList}
+                  </div>
+              </div>
+              <div class="col">
+                  <ul class="information-list">
+                      <li class="time">
+                          <img src="${document.location.origin}/images/clock.svg" alt="Time icon" class="information-list__image">
+                          <strong class="title">Day: ${testData.date}</strong>
+                          <span><strong>Duration</strong>: ${testData.duration} hr</span>
+                          <span><strong>Schedule</strong>: ${testData.schedule[0]} to ${testData.schedule[1]}</span>
+                          <span><strong>Summary</strong>: USD $ ${testData.summary}</span>
+                      </li>
+                      <li class="person">
+                          <img src="http://kipmuving.lo/images/happy.svg" alt="Person icon" class="information-list__image">
+                          <span><strong>${testData.persons}</strong> persons</span>
+                      </li>
+                      <li class="money">
+                          <img src="http://kipmuving.lo/images/coin.svg" alt="Person icon" class="information-list__image">
+                          <span>Pay in agency</span>
+                          <strong class="title">CLP $ ${testData.price_in_agency}</strong>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+         ${printItemFooter}
+      </div>
+    `;
+
+    $("#printFrame").contents().find('body').append(item);
+
+    setTimeout(function(){
+      window.frames["myiframe"].print();
+      $("#printFrame").remove();
+    },1000);
   });
 
   $("#coupon-button").click(function(e){
       e.preventDefault();
       let userName = $(this).attr('data-name'),
         date = $(this).attr('data-date');
-    $('<iframe name="myiframe" id="printFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
+    $('<iframe name="myiframe" id="CouponFrame" frameBorder="0" height="0" style="position: absolute; bottom: 0; pointer-events: none">')
       .appendTo('body')
       .contents()
       .find('head')
@@ -241,15 +325,13 @@ $(document).ready(function(){
                 <h3>${window.translateData.store_located} <strong>Fresia # 275 local 6, Pucón</strong></h3>
                 <h4>${window.translateData.valid_until} ${date}</h4>
             </div>
-            <footer>
-              ${document.location.origin}
-            </footer>
+            <footer>www.keepmoving.co</footer>
         </div>
        `);
 
     setTimeout(function(){
       window.frames["myiframe"].print();
-      $("#printFrame").remove();
+      $("#CouponFrame").remove();
     },1000);
   });
 
