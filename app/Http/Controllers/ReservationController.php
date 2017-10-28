@@ -236,35 +236,35 @@ class ReservationController extends Controller
 			$subscription_uid = uniqid() . uniqid();
 
 			foreach ($activity->offers as $a_offer) {
-				$uid = uniqid() . uniqid();
+				if ($a_offer->agency['email']) {
+					$uid = uniqid() . uniqid();
 
+					$data = [
+						'agency_name'   => $a_offer->agency['name'],
+						'activity_name' => $activity->name,
+						'date'          => $offer['date'],
+						'persons'       => $offer['persons'],
+						'offer_price'   => $a_offer['real_price'],
+						'total_price'   => $a_offer['real_price'] * $offer['persons'],
+						'uid'           => $uid,
+					];
 
-				$data = [
-					'agency_name'   => $a_offer->agency['name'],
-					'activity_name' => $activity->name,
-					'date'          => $offer['date'],
-					'persons'       => $offer['persons'],
-					'offer_price'   => $a_offer['real_price'],
-					'total_price'   => $a_offer['real_price'] * $offer['persons'],
-					'uid'           => $uid,
-				];
+					$s_offer = new SpecialOffer();
 
-				$s_offer = new SpecialOffer();
+					$s_offer->user_id = auth()->user()['id'];
+					$s_offer->offer_id = $a_offer->id;
+					$s_offer->offer_date = Carbon::createFromFormat('d/m/Y', $offer['date'])->toDateString();
+					$s_offer->persons = $offer['persons'];
+					$s_offer->subscription_uid = $subscription_uid;
+					$s_offer->uid = $uid;
 
-				$s_offer->user_id = auth()->user()['id'];
-				$s_offer->offer_id = $a_offer->id;
-				$s_offer->offer_date = Carbon::createFromFormat('d/m/Y', $offer['date'])->toDateString();
-				$s_offer->persons = $offer['persons'];
-				$s_offer->subscription_uid = $subscription_uid;
-				$s_offer->uid = $uid;
+					$s_offer->save();
 
-				$s_offer->save();
-
-				Mail::send('emails.special-offers.special-offers-to-agency', ['data' => $data], function ($message) use ($data, $a_offer){
-					$message->from('contacto@keepmoving.co', 'Kipmuving team');
-					$message->to($a_offer->agency['email'])->subject('You received a special offer: '.$data['activity_name']);
-				});
-
+					Mail::send('emails.special-offers.special-offers-to-agency', ['data' => $data], function ($message) use ($data, $a_offer){
+						$message->from('contacto@keepmoving.co', 'Kipmuving team');
+						$message->to($a_offer->agency['email'])->subject('You received a special offer: '.$data['activity_name']);
+					});
+				}
 			}
 		}
 
