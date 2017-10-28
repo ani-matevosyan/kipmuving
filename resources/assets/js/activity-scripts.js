@@ -259,17 +259,18 @@ $(document).ready(function(){
     $(".comments-block__answer-button").click(function(e){
         e.preventDefault();
         $("#comments-block__form").find("input[name=comment_id]").val($(this).attr('href'));
-        var answerText = $("#comments-block__form").attr("data-answerText");
+        let answerText = $("#comments-block__form").attr("data-answerText");
         $("#comments-block__form").find(".comments-block__send-button").text(answerText);
 
     });
 
-    let accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
+    let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
 
     if($("#instafeed5").length) {
-        var activityTag = $("#instafeed5").attr("data-tag");
-        var feed5 = new Instafeed({
+        let activityTag = $("#instafeed5").attr("data-tag");
+        let feed5 = new Instafeed({
             get: 'tagged',
+            clientId: '3190829681',
             tagName: activityTag,
             target: 'instafeed5',
             accessToken: accessToken,
@@ -278,7 +279,7 @@ $(document).ready(function(){
             after: function () {
                 $('#instafeed5 a').click(function (e) {
                     e.preventDefault();
-                    var urlOfThis = $(this)[0].href;
+                    let urlOfThis = $(this)[0].href;
                     if ($("#the-image img")) {
                         $("#the-image img").remove();
                     }
@@ -292,7 +293,7 @@ $(document).ready(function(){
             },
             success: function (data) {
                 $.each(data.data, function (i, v) {
-                    var url = v.images.standard_resolution.url;
+                    let url = v.images.standard_resolution.url;
                     $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
                 });
             }

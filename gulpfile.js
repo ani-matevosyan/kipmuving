@@ -66,12 +66,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('user-reservations-style.scss')
-//     .webpack('user-reservations-scripts.js')
-//     .sass('print-style.scss')
-//     .sass('activity-print.scss')
+//   mix.sass('send-offer-style.scss')
+//     .webpack('activity-scripts.js')
 //     .version([
-//       'css/user-reservations-style.css',
-//       'js/user-reservations-scripts.js'
+//       'css/send-offer-style.css',
+//       'js/activity-scripts.js'
 //     ])
-// });/
+// });
