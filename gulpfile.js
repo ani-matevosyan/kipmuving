@@ -64,7 +64,7 @@ elixir((mix) => {
     ])
 });
 
-
+//
 // elixir((mix) => {
 //   mix.sass('send-offer-style.scss')
 //     .webpack('activity-scripts.js')

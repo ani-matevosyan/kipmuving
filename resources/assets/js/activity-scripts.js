@@ -264,13 +264,15 @@ $(document).ready(function(){
 
     });
 
+    // let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
     let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
 
-    if($("#instafeed5").length) {
+
+  if($("#instafeed5").length) {
         let activityTag = $("#instafeed5").attr("data-tag");
         let feed5 = new Instafeed({
             get: 'tagged',
-            clientId: '3190829681',
+            clientId: '5c6e97dc2fb647c688aa305a83a6876b',
             tagName: activityTag,
             target: 'instafeed5',
             accessToken: accessToken,

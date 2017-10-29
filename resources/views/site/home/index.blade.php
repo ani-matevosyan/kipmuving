@@ -189,66 +189,66 @@
 			</section>
 		@endif
 
-		<section id="guia" class="s_guia">
-			<div class="container">
-				<div class="col-md-5 col-md-push-2">
-					<div class="section_title">
-						<h2>
-							@if(app()->getLocale() == 'es_ES' || app()->getLocale() == 'pt')
-								<span class="size1">{{ trans('main.guide') }}</span>
-								<span class="size4">{{ trans('main.complete') }}</span>
-								<span class="size2">pucon</span>
-								<span class="size3">{{ trans('main.free') }}</span>
-							@elseif(app()->getLocale() == 'en')
-								<span class="size4">{{ trans('main.complete') }}</span>
-								<span class="size2">pucon</span>
-								<span class="size1">{{ trans('main.guide') }}</span>
-								<span class="size3">{{ trans('main.free') }}</span>
-							@endif
-						</h2>
-					</div>
-				</div>
-				<div class="col-md-2 col-md-pull-5">
-					<ul>
-						<li>
-							<a href="{{ action('FreePagesController@getBicicleta') }}">
-								<img src="{{ asset('images/bicycle-grey.svg') }}" alt="bicycle">
-							</a>
-							{{ trans('main.bicycle') }}
-						</li>
-						<li>
-							<a href="{{ action('FreePagesController@getDecarro') }}">
-								<img src="{{ asset('images/bus-grey.svg') }}" alt="bus">
-							</a>
-							{{ trans('main.bus') }}
-						</li>
-						<li>
-							<a href="{{ action('FreePagesController@getTourcultural') }}">
-								<img src="{{ asset('images/car-grey.svg') }}" alt="car">
-							</a>
-							{{ trans('main.car') }}
-						</li>
-						<li>
-							<a href="{{ action('FreePagesController@index') }}">
-								<img src="{{ asset('images/hikking-grey.svg') }}" alt="hikking">
-							</a>
-							{{ trans('main.walking') }}
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-5">
-					<div class="go-to-guide">
-						<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}
-						</p>
-						<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>
-						<a href="{{ action('FreePagesController@index') }}" class="btn-orange">
-							<img src="{{ asset('images/arrow.png') }}" alt="">
-							{{ trans('button-links.go_to_guide') }}
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
+		{{--<section id="guia" class="s_guia">--}}
+			{{--<div class="container">--}}
+				{{--<div class="col-md-5 col-md-push-2">--}}
+					{{--<div class="section_title">--}}
+						{{--<h2>--}}
+							{{--@if(app()->getLocale() == 'es_ES' || app()->getLocale() == 'pt')--}}
+								{{--<span class="size1">{{ trans('main.guide') }}</span>--}}
+								{{--<span class="size4">{{ trans('main.complete') }}</span>--}}
+								{{--<span class="size2">pucon</span>--}}
+								{{--<span class="size3">{{ trans('main.free') }}</span>--}}
+							{{--@elseif(app()->getLocale() == 'en')--}}
+								{{--<span class="size4">{{ trans('main.complete') }}</span>--}}
+								{{--<span class="size2">pucon</span>--}}
+								{{--<span class="size1">{{ trans('main.guide') }}</span>--}}
+								{{--<span class="size3">{{ trans('main.free') }}</span>--}}
+							{{--@endif--}}
+						{{--</h2>--}}
+					{{--</div>--}}
+				{{--</div>--}}
+				{{--<div class="col-md-2 col-md-pull-5">--}}
+					{{--<ul>--}}
+						{{--<li>--}}
+							{{--<a href="{{ action('FreePagesController@getBicicleta') }}">--}}
+								{{--<img src="{{ asset('images/bicycle-grey.svg') }}" alt="bicycle">--}}
+							{{--</a>--}}
+							{{--{{ trans('main.bicycle') }}--}}
+						{{--</li>--}}
+						{{--<li>--}}
+							{{--<a href="{{ action('FreePagesController@getDecarro') }}">--}}
+								{{--<img src="{{ asset('images/bus-grey.svg') }}" alt="bus">--}}
+							{{--</a>--}}
+							{{--{{ trans('main.bus') }}--}}
+						{{--</li>--}}
+						{{--<li>--}}
+							{{--<a href="{{ action('FreePagesController@getTourcultural') }}">--}}
+								{{--<img src="{{ asset('images/car-grey.svg') }}" alt="car">--}}
+							{{--</a>--}}
+							{{--{{ trans('main.car') }}--}}
+						{{--</li>--}}
+						{{--<li>--}}
+							{{--<a href="{{ action('FreePagesController@index') }}">--}}
+								{{--<img src="{{ asset('images/hikking-grey.svg') }}" alt="hikking">--}}
+							{{--</a>--}}
+							{{--{{ trans('main.walking') }}--}}
+						{{--</li>--}}
+					{{--</ul>--}}
+				{{--</div>--}}
+				{{--<div class="col-md-5">--}}
+					{{--<div class="go-to-guide">--}}
+						{{--<p><span>{{ trans('main.all_answers_here') }}</span> {{ trans('main.what_you_need_to_know_to_enjoy') }}--}}
+						{{--</p>--}}
+						{{--<p class="tegs"><span>{{ trans('main.maps_guides_addresses_suggestions') }}</span></p>--}}
+						{{--<a href="{{ action('FreePagesController@index') }}" class="btn-orange">--}}
+							{{--<img src="{{ asset('images/arrow.png') }}" alt="">--}}
+							{{--{{ trans('button-links.go_to_guide') }}--}}
+						{{--</a>--}}
+					{{--</div>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</section>--}}
 
 		@if(count($random_activities) > 0)
 			<section class="activities-slider-section">
