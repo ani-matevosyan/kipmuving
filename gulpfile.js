@@ -64,12 +64,12 @@ elixir((mix) => {
     ])
 });
 
-//
+
 // elixir((mix) => {
-//   mix.sass('send-offer-style.scss')
+//   mix.sass('activity-style.scss')
 //     .webpack('activity-scripts.js')
 //     .version([
-//       'css/send-offer-style.css',
+//       'css/activity-style.css',
 //       'js/activity-scripts.js'
 //     ])
 // });

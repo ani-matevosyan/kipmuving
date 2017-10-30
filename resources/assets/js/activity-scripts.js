@@ -272,8 +272,9 @@ $(document).ready(function(){
         let activityTag = $("#instafeed5").attr("data-tag");
         let feed5 = new Instafeed({
             get: 'tagged',
-            clientId: '5c6e97dc2fb647c688aa305a83a6876b',
+            clientId: 'b87843634cd34fc8baa56399f4609991',
             tagName: activityTag,
+            userId: '3468302324',
             target: 'instafeed5',
             accessToken: accessToken,
             template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
