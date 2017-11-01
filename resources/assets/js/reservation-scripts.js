@@ -1,6 +1,6 @@
 require('./common');
-require('../../../public/libs/product-tour/product-tour.min');
-require('./product.tour');
+// require('../../../public/libs/product-tour/product-tour.min');
+// require('./product.tour');
 
 $(document).ready(function(){
     $('.payu-btn').click(function (event) {

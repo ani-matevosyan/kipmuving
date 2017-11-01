@@ -48,7 +48,34 @@
 							</div>
 						</article>
 						<div class="row">
-							<div class="col-md-7 col-sm-12 col-xs-12">
+							<div class="col-md-4 col-md-push-7 col-md-offset-1 col-sm-12 col-xs-12">
+								<aside class="agency-aside">
+									<div class="map-block">
+										<div id="map" style="width: 100%; height: 300px"></div>
+										<script type="text/javascript">
+											function initAgencyMap() {
+												var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
+												var myOptions = {
+													zoom: 15,
+													center: latLng,
+													mapTypeId: google.maps.MapTypeId.ROADMAP
+												};
+												var map = new google.maps.Map(document.getElementById("map"), myOptions);
+												var marker = new google.maps.Marker({
+													position: latLng,
+													map: map,
+													title: '{{ $agency->name }}'
+												});
+											}
+										</script>
+									</div>
+									<div class="ta-code">
+										{!! $agency->tripadvisor_code !!}
+									</div>
+									@include('site.offers.offers_quickinfo')
+								</aside>
+							</div>
+							<div class="col-md-7 col-md-pull-5 col-sm-12 col-xs-12">
 								<section class="post-box">
 									<div class="performed-act">
 										<h2>{{ trans('main.realized_activities') }}</h2>
@@ -60,31 +87,6 @@
 										@endforeach
 									</ul>
 								</section>
-							</div>
-							<div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
-								@include('site.offers.offers_quickinfo')
-								<div class="map-block">
-									<div id="map" style="width: 100%; height: 300px"></div>
-									<script type="text/javascript">
-										function initAgencyMap() {
-											var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
-											var myOptions = {
-												zoom: 15,
-												center: latLng,
-												mapTypeId: google.maps.MapTypeId.ROADMAP
-											};
-											var map = new google.maps.Map(document.getElementById("map"), myOptions);
-											var marker = new google.maps.Marker({
-												position: latLng,
-												map: map,
-												title: '{{ $agency->name }}'
-											});
-										}
-									</script>
-								</div>
-								<div class="ta-code">
-									{!! $agency->tripadvisor_code !!}
-								</div>
 							</div>
 						</div>
 					</div>

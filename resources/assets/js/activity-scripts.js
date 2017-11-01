@@ -1,10 +1,10 @@
 require('./common');
-require('../../../public/libs/product-tour/product-tour.min');
+// require('../../../public/libs/product-tour/product-tour.min');
+// require('./product.tour');
 window.moment = require('moment');
 require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 window.Instafeed = require('instafeed.js');
-require('./product.tour');
 require('chosen-js');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 require('magnific-popup');
@@ -265,16 +265,14 @@ $(document).ready(function(){
     });
 
     // let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
-    let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
+    let accessToken = '3190829681.1677ed0.b0866db3b4c74af39e28ef7a0d730844';
 
 
   if($("#instafeed5").length) {
         let activityTag = $("#instafeed5").attr("data-tag");
         let feed5 = new Instafeed({
             get: 'tagged',
-            clientId: 'b87843634cd34fc8baa56399f4609991',
             tagName: activityTag,
-            userId: '3468302324',
             target: 'instafeed5',
             accessToken: accessToken,
             template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',

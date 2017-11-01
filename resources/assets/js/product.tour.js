@@ -1,7 +1,7 @@
 
 $(window).on('load', function(){
 
-    var isDesctop = $(window).width() > 767;
+    let isDesctop = $(window).width() > 767;
 
     $(window).resize(function () {
         isDesctop = $(window).width() > 767;
@@ -29,7 +29,7 @@ $(window).on('load', function(){
     }
 
     function homeTour(){
-        var productTour_home = new ProductTour({
+        let productTour_home = new ProductTour({
             overlay: true
         });
         productTour_home.steps([{
@@ -48,7 +48,7 @@ $(window).on('load', function(){
     }
 
     function activitytour(){
-        var productTour_activity = new ProductTour({
+        let productTour_activity = new ProductTour({
             overlay: true
         });
         productTour_activity.steps([{

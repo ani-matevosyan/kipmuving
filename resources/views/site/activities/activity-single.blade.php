@@ -230,4 +230,11 @@
 	</div>
 	<!-- MODAL END -->
 	<div id="data"></div> <!-- Keep this div for instafeed information -->
+
+
+	<script>
+		window.translateData = {
+
+		}
+	</script>
 @stop

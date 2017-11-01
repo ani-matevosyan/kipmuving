@@ -4,10 +4,53 @@
 @import "components/instafeed";
 @import "components/offer-items";
 
+.accordion{
+  @media screen and (max-width: 500px) {
+    & > .offer-item {
+      padding-left: 15px;
+    }
+    .ico {
+      display: none;
+    }
+  }
+}
+
+
+.agency-aside{
+  position: relative;
+  padding-top: 160px;
+  @media screen and (max-width: 991px){
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
 .program-schedule{
-  float: none;
-  display: inline-block;
-  margin: 0 0 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  @media screen and (max-width: 991px){
+    position: relative;
+    margin-top: 18px;
+  }
+  @media screen and (max-width: 640px){
+    float: left;
+  }
+}
+
+.ta-code{
+  @media screen and (max-width: 991px){
+    float: left;
+  }
+  @media screen and (max-width: 640px){
+    float: none;
+  }
 }
 
 .your-reservation.adventure .program-schedule .btn-primary{
@@ -126,11 +169,9 @@
   overflow: visible;
   text-overflow: clip;
   white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-  .your-reservation.adventure .price {
-    padding: 0 0 10px;
+  @media screen and (max-width: 767px){
+    padding: 10px 0;
+    text-align: left;
   }
 }
 
@@ -260,18 +301,32 @@
   display: block;
 }
 
-.your-reservation.new .timing1 li.cal:after {
-  width: 18px;
-  content: '';
-  height: 18px;
-  position: absolute;
-  left: 0;
-  top: 8px;
-  right: auto;
-  bottom: auto;
-  background: url(../../images/calendar.svg) no-repeat;
-  background-size: contain;
-  background-position: center center;
+.timing1 li.cal{
+  input{
+    border: 1px solid #cdcdcd;
+    padding: 6px 12px;
+    width: 100%;
+    @media screen and (max-width: 767px){
+      max-width: 160px;
+    }
+  }
+  &:after{
+    width: 18px;
+    content: '';
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    right: auto;
+    bottom: auto;
+    background: url(../../images/calendar.svg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+.timing1 li.cal input[type=text] {
+
 }
 
 .your-reservation.new .timing1 strong {
@@ -354,30 +409,36 @@
   }
 }
 
-.main-post .agency-photo-wrapp img {
-  width: 100%;
-  display: block;
-  height: auto;
-}
-
-.main-post .agency-gallery{
-  position: relative;
-}
-
-.main-post .agency-tag{
-  position: absolute;
-  bottom: 10px;
-  padding-left: 27px;
-  background-image: url("../../images/instagram.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 19px;
-  line-height: 19px;
-  color: #e12570;
-}
-
-.main-post .agency-tag:before{
-  content: "@";
+.main-post{
+  .agency-photo-wrapp{
+    @media screen and (max-width: 991px){
+      margin: 0 auto 25px;
+      max-width: 350px;
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+  }
+  .agency-gallery{
+    position: relative;
+  }
+  .agency-tag{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding-left: 27px;
+    background-image: url("../../images/instagram.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 19px;
+    line-height: 19px;
+    color: #e12570;
+    &:before{
+      content: "@";
+    }
+  }
 }
 
 
