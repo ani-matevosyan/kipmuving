@@ -42,20 +42,20 @@ $(document).ready(function(){
 
     //Deccaro plates
 
-    var accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
+    var accessToken = '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b';
 
     $(".guide-places-plate").click(function(){
-        var thisWrapper = $(this).parent();
-        var details_div = thisWrapper.find('.guide-place-plate-details');
+        let thisWrapper = $(this).parent();
+        let details_div = thisWrapper.find('.guide-place-plate-details');
         if(thisWrapper.attr('data-opened')==='true'){
             thisWrapper.attr('data-opened', 'false');
             thisWrapper.css('margin-bottom', '15px');
             details_div.css({'display': 'none', 'visibility': 'hidden'});
             ResizeSensor.detach(details_div);
         }else{
-            var thisPlate = thisWrapper;
+            let thisPlate = thisWrapper;
             $(".guide-places-plate").each(function () {
-                var wrapper = $(this).parent();
+                let wrapper = $(this).parent();
                 if(wrapper.attr('data-opened')==='true'){
                     if(wrapper!=thisPlate){
                         wrapper.attr('data-opened', 'false');

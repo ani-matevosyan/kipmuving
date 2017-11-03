@@ -264,8 +264,6 @@ $(document).ready(function(){
 
     });
 
-    // let accessToken = '3468302324.1677ed0.64b268f8b7de4e02ae3d900a1355c089';
-    let accessToken = '3190829681.1677ed0.b0866db3b4c74af39e28ef7a0d730844';
 
 
   if($("#instafeed5").length) {
@@ -274,7 +272,7 @@ $(document).ready(function(){
             get: 'tagged',
             tagName: activityTag,
             target: 'instafeed5',
-            accessToken: accessToken,
+            accessToken: '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b',
             template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
             limit: 16,
             after: function () {

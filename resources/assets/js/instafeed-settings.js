@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-	var accessToken = '4884336.ba4c844.7012da712056426bb3a379ca367b7eb0';
+	let accessToken = '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b';
 
 	if($("#instafeed1").length){
-		var feed1 = new Instafeed({
+		let feed1 = new Instafeed({
 			get: 'tagged',
 			tagName: 'pucon',
 			target: 'instafeed1',
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		feed1.run();
 	}
 	if($("#instafeed2_1").length){
-		var feed2_1 = new Instafeed({
+		let feed2_1 = new Instafeed({
 			get: 'tagged',
 			tagName: 'rioturbio',
 			target: 'instafeed2_1',
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		feed2_1.run();
 	}
 	if($("#instafeed2_2").length){
-		var feed2_2 = new Instafeed({
+		let feed2_2 = new Instafeed({
 			get: 'tagged',
 			tagName: 'ojosdelcaburgua',
 			target: 'instafeed2_2',
@@ -99,7 +99,7 @@ $(document).ready(function(){
 		feed2_2.run();
 	};
 	if($("#instafeed2_3").length){
-		var feed2_3 = new Instafeed({
+		let feed2_3 = new Instafeed({
 			get: 'tagged',
 			tagName: 'saltodelclaro',
 			target: 'instafeed2_3',
@@ -132,10 +132,10 @@ $(document).ready(function(){
 	}
 
 	if($("#instafeed4").length){
-		var agencyId  = $("#instafeed4").attr("data-instagram-id");
-		var feed4 = new Instafeed({
+		let agencyId  = $("#instafeed4").attr("data-instagram-id");
+		let feed4 = new Instafeed({
 			get: 'user',
-            userId: agencyId,
+			userId: agencyId,
 			target: 'instafeed4',
 			accessToken : accessToken,
 			template: '<div class="col-sm-2 col-xs-3 in-image-agency"><a href="{{link}}"><img style="width: 86px !important; height: 86px !important;" src="{{image}}"/></a></div>',

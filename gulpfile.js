@@ -66,10 +66,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('agency-style.scss')
+//   mix.sass('activity-style.scss')
 //     .webpack('activity-scripts.js')
 //     .version([
-//       'css/agency-style.css',
+//       'css/activity-style.css',
 //       'js/activity-scripts.js'
 //     ])
 // });
