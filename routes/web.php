@@ -155,6 +155,9 @@ Route::get('/guide/comment/add', 'GuideController@addComment');
 
 #About
 Route::get('/about', 'AboutController@index');
+Route::get('/privacy-policy', function(){
+  return view('site.about.privacy-policy');
+});
 
 
 #Calendar

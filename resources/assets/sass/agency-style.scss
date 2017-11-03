@@ -4,6 +4,12 @@
 @import "components/instafeed";
 @import "components/offer-items";
 
+.post-box{
+  @media screen and (max-width: 767px){
+    padding-bottom: 30px;
+  }
+}
+
 .accordion{
   @media screen and (max-width: 500px) {
     & > .offer-item {
@@ -64,7 +70,7 @@
 
 @media (max-width: 767px) {
   .your-reservation.adventure {
-    padding: 20px 0 0;
+    padding: 20px 0 40px;
   }
 }
 
