@@ -714,6 +714,10 @@
   top: 43px;
 }
 
+.timing1 li.profile.hours.without_choice:after{
+  display: none;
+}
+
 .timing1 li.profile .jcf-select .jcf-select-opener{
   display: none;
 }
