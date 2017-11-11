@@ -14,7 +14,9 @@
 			<tbody>
 			<tr>
 				<td align="left" bgcolor="#383838" style="padding: 7px 10px 6px 38px; color: #FFCD06; font-size: 32px;">
-					<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="KeepMoving" width="171">
+					<a href="{{ asset('/') }}">
+						<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="KeepMoving" width="171">
+					</a>
 				</td>
 			</tr>
 			<tr>

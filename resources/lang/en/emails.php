@@ -49,4 +49,10 @@ return [
   'below_you_have'                      => 'Below you have the confirmation of your reservation.',
   'what_do_you_have_to_do'              => 'What do you have to do now? You can contact the agency or expect them to write.',
   'what_includes'                       => 'What includes',
+  'you_have'                            => 'You have',
+  'reserves_for'                        => 'reserves for',
+  'of_the'                              => 'of the',
+  'now_we_suggest'                      => 'Now we suggest to do',
+  'you_get_in_touch'                    => 'get in touch with the client',
+  'and_explain_your_terms'              => 'and explain your payment terms and the closing details',
 ];

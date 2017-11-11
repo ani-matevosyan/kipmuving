@@ -49,4 +49,10 @@ return [
   'below_you_have'                      => 'A continuación tiene la confirmación de su reserva.',
   'what_do_you_have_to_do'              => '¿Qué tienes que hacer ahora? Puede ponerse en contacto con la agencia o esperar que escriban.',
   'what_includes'                       => 'Que incluye',
+  'you_have'                            => 'Tiene',
+  'reserves_for'                        => 'reserva para',
+  'of_the'                              => 'de las',
+  'now_we_suggest'                      => 'Ahora que sugerimos hacer',
+  'you_get_in_touch'                    => 'que entres en contacto con el pasajero',
+  'and_explain_your_terms'              => 'y explique sus condiciones de pago y cierre los detalles',
 ];
