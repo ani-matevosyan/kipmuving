@@ -19,6 +19,7 @@ return [
 	'birthday'                         => 'Cumpleaños',
 	'month'                            => 'Mes',
 	'day'                              => 'Día',
+  'day_s'                            => 'dia',
 	'year'                             => 'Año',
 	'news_subscribe'                   => 'Subscríbete a las noticias',
 	'phone'                            => 'Teléfono',

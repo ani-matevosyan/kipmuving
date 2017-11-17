@@ -19,6 +19,7 @@ return [
 	'birthday'                         => 'Aniversário',
 	'month'                            => 'Mês',
 	'day'                              => 'Dia',
+  'day_s'                            => 'dia',
 	'year'                             => 'Ano',
 	'news_subscribe'                   => 'Quero receber cupons por email',
 	'phone'                            => 'Telefone-pt',

@@ -198,7 +198,7 @@ return [
   'your_panorama_in_pucon'             => 'Seu panorama em Pucón',
   'here_is_your_schedule'              => 'Aqui está sua agenda. Este é o panorama que você está criando nas suas férias em  Pucón. Você pode continuar incluindo atividades ou finalizar a reserva. Para isto, presione o botão ',
   'reserve'                            => 'Reservar',
-  'reserve_s'                          => 'reservar',
+  'reserve_s'                          => 'reserva',
   'reserves'                           => 'reservas',
   'include_more_activities'            => 'INCLUIR MAIS ATIVIDADES',
   'the_are_activities_of_the_same_day' => 'Há atividades no mesmo dia. Por favor, deixe apenas uma actividade ao dia antes de continuar com sua reserva. Você pode mover a atividade para outro dia ou simplesmente eliminá-la.',

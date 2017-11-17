@@ -161,7 +161,7 @@
 													<h2 style="font-weight: 700; font-size: 36px; margin: 0; margin-bottom: 5px; line-height: 1;">
 														<a href="{{ asset('/activity').'/'.$offer->activity_id }}" style="color: #323e5b; text-decoration: none;">{{ $offer->activity->name }}</a>
 													</h2>
-													<p style="margin: 0 0 0 0; line-height: 1;">{{ trans('main.for') }} <strong style="font-size: 20px; color: #980e25;">{{ $offer->reservation['date'] }}</strong></p>
+													<p style="margin: 0 0 0 0; line-height: 1;">{{ trans('form.day_s') }} <strong style="font-size: 20px; color: #980e25;">{{ $offer->reservation['date'] }}</strong></p>
 													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.persons_s') }} <strong style="font-size: 20px; color: #980e25;">{{ $offer->reservation['persons'] }}</strong></p>
 													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.activity') }} <strong style="font-size: 20px; color: #980e25;">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }}</strong></p>
 													<?php $totalprice += $offer->real_price * $offer->reservation['persons'] ?>
@@ -183,7 +183,7 @@
 										<tbody>
 										<tr>
 											<td style="padding-top: 22px;">
-												{{ trans('emails.now_we_suggest') }}: <strong>{{ trans('emails.you_get_in_touch') }}</strong> {{ trans('emails.and_explain_your_terms') }}.
+												{{ trans('emails.now_we_suggest') }}: <strong>{{ trans('emails.you_get_in_touch') }} {{ trans('emails.and_explain_your_terms') }}</strong>.
 											</td>
 										</tr>
 										<tr>

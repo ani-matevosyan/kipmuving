@@ -19,6 +19,7 @@ return [
 	'birthday'                         => 'Birthday',
 	'month'                            => 'Month',
 	'day'                              => 'Day',
+  'day_s'                            => 'day',
 	'year'                             => 'Year',
 	'news_subscribe'                   => 'I would like to receive coupons by email',
 	'phone'                            => 'Phone',
