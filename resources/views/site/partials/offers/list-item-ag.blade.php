@@ -35,7 +35,10 @@
 						<ul class="timing1">
 							<li class="time">
 								@if($offer->duration)
-									<strong><span>{{ trans('main.duration') }}:</span> {{ $offer->duration }}hrs </strong>
+									<strong>{{ trans('main.duration') }}:<span> {{ $offer->duration }}hrs </span></strong>
+								@endif
+								@if($offer->available_time)
+									<strong>{{ trans('main.schedule') }}: <span>{{ $offer->schedule['start'] }} - {{ $offer->schedule['end'] }}</span></strong>
 								@endif
 								{{--@if($offer['start_time'] && $offer['end_time'])--}}
 									{{--<strong><span>{{ trans('main.schedule') }}--}}
@@ -56,10 +59,12 @@
 									</select>
 								</li>
 								@if($offer->available_time)
-									<li class="profile hours">
+									<li class="profile hours" @if(count($offer->available_time) < 2) style="display: none" @endif>
 										<label for="select-hours-{{$offer->id}}">Elija la opcion de horario</label>
 										<select id="select-hours-{{$offer->id}}" class="hours">
-											<option value="" selected>{{ trans('main.schedule') }}</option>
+											@if(count($offer->available_time) > 1)
+												<option value="" selected>{{ trans('main.schedule') }}</option>
+											@endif
 											@if(is_array($offer->available_time))
 												@foreach($offer->available_time as $time)
 													<option value="{{ $time['start'].'-'.$time['end'] }}">{{ $time['start'].'-'.$time['end'] }}</option>
