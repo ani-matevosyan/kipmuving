@@ -33,15 +33,10 @@ $(window).on('load', function(){
             overlay: true
         });
         productTour_home.steps([{
-            element: '#activity-form',
+            element: '#main',
             title: 'Busque su actividad',
             content: 'Busque las actividades que quiere hacer y seleccione la fecha que estará en Pucón.',
             image: 'images/tour/home-tour-1.jpg'
-        },{
-            element: '#guia',
-            title: 'Guia de Pucón',
-            content: 'Preparamos una guia completa de Pucón con las actividades más buscadas y también tours gratuitos que puede hacer.',
-            image: 'images/tour/home-tour-3.jpg'
         }]);
         productTour_home.startTour();
         localStorage.hometour = "visited";
