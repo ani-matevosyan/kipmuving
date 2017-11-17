@@ -47,7 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <p class="credits">{{ trans('main.credits') }}: <a target="_blank" href="http://flaticon.com/">http://flaticon.com/</a></p>
+                    <p class="credits">{{ trans('main.credits') }}: <a target="_blank" rel="nofollow noopener" href="http://flaticon.com/">http://flaticon.com/</a></p>
                 </div>
             </div>
         </section>
