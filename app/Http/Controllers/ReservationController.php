@@ -33,7 +33,7 @@ class ReservationController extends Controller
 	private $persons = 0;
 
 	#Display reservations (/reserve)
-	public function index()
+	public function index(Offer $offer)
 	{
 		if (!($user = Auth::user()))
 			return redirect('/login');
@@ -43,6 +43,9 @@ class ReservationController extends Controller
 		if (count($selected_offers) + count(session('basket.special')) < 1)
 			return redirect()->action('ActivityController@index');
 
+		$s_offers = \session('basket.special');
+		$s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
+
 		$reservations = $this->getReservationData($selected_offers);
 
 		$data = [
@@ -51,6 +54,12 @@ class ReservationController extends Controller
 			'user'           => $user,
 			'reservation'    => $reservations,
 			'special_offers' => $this->getSpecialOffersData(),
+			'count'             => [
+				'special_offers' => count($s_offers),
+				  'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+				  'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
+				  'total'          => $offer->getSelectedOffersTotal(),
+			]
 		];
 
 		return view('site.reservar.su-reservar', $data);

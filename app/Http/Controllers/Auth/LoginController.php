@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Offer;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -37,11 +38,18 @@ class LoginController extends Controller
     $this->middleware('guest', ['except' => 'logout']);
   }
 
-  public function showLoginForm()
+  public function showLoginForm(Offer $offer)
   {
+
+    $s_offers = \session('basket.special');
+
     $data = [
       'styles' => config('resources.login.styles'),
-      'scripts' => config('resources.login.scripts')
+      'scripts' => config('resources.login.scripts'),
+      'count'             => [
+				'special_offers' => count($s_offers),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+			]
     ];
 
     if (!session()->has('url.intended')) {

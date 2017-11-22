@@ -21,6 +21,8 @@ class CalendarController extends Controller
 		if (count($selectedOffers) + count($freeActivities) + count(session('basket.special')) <= 0)
 			return redirect()->to(action('ActivityController@index'));
 
+		$s_offers = \session('basket.special');
+
 		$data = [
 			'styles'         => config('resources.calendar.styles'),
 			'scripts'        => config('resources.calendar.scripts'),
@@ -28,6 +30,7 @@ class CalendarController extends Controller
 			'special_offers' => SpecialOffer::getSpecialOffers(),
 			'viewDate'       => Carbon::parse(session('selectedDate'))->format('Y-m-d'),
 			'count'          => [
+				'special_offers' => count($s_offers),
 				'offers'  => count($_offer->getSelectedOffers()),
 				'persons' => $_offer->getSelectedOffersPersons(),
 			],

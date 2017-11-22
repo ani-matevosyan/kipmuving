@@ -67,29 +67,41 @@ class UserController extends Controller
 		return Redirect::to('/login')->with('info', 'On your email was send email message');
 	}
 
-	public function getUser()
+	public function getUser(Offer $offer)
 	{
 		if (!$user = Auth::user())
 			return redirect()->to('/login');
+
+		$s_offers = \session('basket.special');
 
 		$data = [
 			'styles'  => config('resources.user.account.styles'),
 			'scripts' => config('resources.user.account.scripts'),
 			'user'    => $user,
+			'count'             => [
+				'special_offers' => count($s_offers),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+			]
 		];
 
 		return view('site.user.index', $data);
 	}
 
-	public function getUserReservations()
+	public function getUserReservations(Offer $offer)
 	{
 		if (!$user = Auth::user())
 			return redirect()->to('/login');
 
+		$s_offers = \session('basket.special');
+		
 		$data = [
 			'styles'  => config('resources.user.reservations.styles'),
 			'scripts' => config('resources.user.reservations.scripts'),
 			'user'    => $user,
+			'count'             => [
+				'special_offers' => count($s_offers),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+			]
 		];
 
 		return view('site.user.reservations', $data);

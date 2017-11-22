@@ -4,22 +4,6 @@
 @section('content')
 	<main id="main">
 		<section class="s-banner">
-			<div class="s-banner__form-container">
-				<form action="/activity/search" class="banner-form" method="post">
-					{{ csrf_field() }}
-					<select class="banner-form__select" name="activity_id">
-						@foreach ($activitiesList as $item)
-							<option value="{{ $item->id }}">{{ $item->name }}</option>
-						@endforeach
-					</select>
-					<input name="activity_date"
-						   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-						   placeholder="{{ trans('form.date') }}"
-						   class="banner-form__date"
-						   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-					<input type="submit" value="{{ trans('button-links.search') }}" class="btn banner-form__submit">
-				</form>
-			</div>
 			<div class="s-banner__content">
 				<a href="{{ action('ActivityController@index') }}" class="s-banner__link"></a>
 				<ul class="s-banner__partners">
@@ -40,47 +24,28 @@
 					</div>
 					<div class="s-banner__description">
 						<p>
-							{{ trans('main.buy_in_stores') }}
-							<strong>Volkanica</strong>
-							{{ trans('main.in_marks') }}
-							<strong>Fjallraven {{ trans('main.and') }} Salewa</strong>
+							{{ trans('main.buy_in_stores') }} Volkanica {{ trans('main.in_marks') }} Fjallraven {{ trans('main.and') }} Salewa
 						</p>
 					</div>
 				</div>
 			</div>
+			<div class="s-banner__form-container">
+				<form action="/activity/search" class="banner-form" method="post">
+					{{ csrf_field() }}
+					<select class="banner-form__select" name="activity_id">
+						@foreach ($activitiesList as $item)
+							<option value="{{ $item->id }}">{{ $item->name }}</option>
+						@endforeach
+					</select>
+					<input name="activity_date"
+						   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
+						   placeholder="{{ trans('form.date') }}"
+						   class="banner-form__date"
+						   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
+					<input type="submit" value="{{ trans('button-links.search') }}" class="btn banner-form__submit">
+				</form>
+			</div>
 		</section>
-		{{--<section class="visual home" style="background-image: url({{ url('/images/img0'.$imageIndex.'.jpg') }})">--}}
-			{{--<div class="gradoverlay"></div>--}}
-			{{--<div class="caption">--}}
-				{{--<div class="container">--}}
-					{{--<div class="row">--}}
-						{{--<div class="col-xs-12">--}}
-							{{--<form action="/activity/search" class="activity-form" id="activity-form" method="post">--}}
-								{{--{{ csrf_field() }}--}}
-								{{--<strong class="title">{{ trans('main.what_activities_search') }}</strong>--}}
-								{{--<div class="holder">--}}
-									{{--<select class="form-control" id="activity_id" name="activity_id">--}}
-										{{--@foreach ($activitiesList as $item)--}}
-											{{--<option value="{{ $item->id }}">{{ $item->name }}</option>--}}
-										{{--@endforeach--}}
-									{{--</select>--}}
-									{{--<div class="text-field">--}}
-										{{--<input id="activity_date"--}}
-													 {{--type="text"--}}
-													 {{--name="activity_date"--}}
-													 {{--value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"--}}
-													 {{--placeholder="{{ trans('form.date') }}"--}}
-													 {{--class="form-control"--}}
-													 {{--data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>--}}
-									{{--</div>--}}
-									{{--<input type="submit" value="{{ trans('button-links.search') }}" class="btn btn-primary">--}}
-								{{--</div>--}}
-							{{--</form>--}}
-						{{--</div>--}}
-					{{--</div>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-		{{--</section>--}}
 		<section class="video-section">
 			<div class="container">
 				<div class="row">
@@ -107,65 +72,6 @@
 				</div>
 			</div>
 		</section>
-
-		{{--To delete--}}
-		{{--{{ trans('main.you_have_preference') }}--}}
-		{{--{{ trans('main.choose_dates_and_activities') }}--}}
-		{{--{{ trans('main.agencies_will_send') }}--}}
-		{{--{{ trans('main.and_you_can') }}--}}
-		{{--{{ trans('main.price&quality') }}--}}
-		{{--{{ asset('/images/mountains.svg') }}--}}
-
-		{{--<section class="best-price-section">--}}
-			{{--<div class="container">--}}
-				{{--<header class="best-price-section__header">--}}
-					{{--<div class="best-price-section__header-wrapper">--}}
-						{{--<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>--}}
-						{{--<p class="best-price-section__title-description"></p>--}}
-					{{--</div>--}}
-				{{--</header>--}}
-				{{--<div class="best-price-section__content">--}}
-					{{--<p class="best-price-section__summary">--}}
-						{{--<strong>{{ trans('main.choose_dates_and_activities') }}</strong>--}}
-						{{--{{ trans('main.agencies_will_send') }}--}}
-						{{--<strong>{{ trans('main.offers') }}</strong>--}}
-						{{--{{ trans('main.and_you_can') }}--}}
-						{{--<strong>{{ trans('main.price&quality') }}</strong>.--}}
-					{{--</p>--}}
-					{{--<ul class="steps-list">--}}
-						{{--<li class="steps-list__item">--}}
-							{{--<figure class="steps-list__figure">--}}
-								{{--<img src="{{ asset('/images/mountains.svg') }}" alt="Mountains icon" style="width: 37px" class="steps-list__icon">--}}
-								{{--<figcaption class="steps-list__figcaption">1</figcaption>--}}
-							{{--</figure>--}}
-							{{--<p class="steps-list__name">{{ trans('main.choose_the') }}<strong class="steps-list__bold-text">{{ trans('main.activities') }}</strong></p>--}}
-						{{--</li>--}}
-						{{--<li class="steps-list__item">--}}
-							{{--<figure class="steps-list__figure">--}}
-								{{--<img src="{{ asset('/images/percentage-discount.svg') }}" alt="Percent icon" style="width: 26px" class="steps-list__icon">--}}
-								{{--<figcaption class="steps-list__figcaption">2</figcaption>--}}
-							{{--</figure>--}}
-							{{--<p class="steps-list__name">{{ trans('main.receive_the') }}<strong class="steps-list__bold-text">{{ trans('main.offers') }}</strong></p>--}}
-						{{--</li>--}}
-						{{--<li class="steps-list__item">--}}
-							{{--<figure class="steps-list__figure">--}}
-								{{--<img src="{{ asset('/images/point-at.svg') }}" alt="Point at icon" style="width: 33px" class="steps-list__icon">--}}
-								{{--<figcaption class="steps-list__figcaption">3</figcaption>--}}
-							{{--</figure>--}}
-							{{--<p class="steps-list__name">{{ trans('main.decide_the') }}<strong class="steps-list__bold-text">{{ trans('main.best') }}</strong></p>--}}
-						{{--</li>--}}
-						{{--<li class="steps-list__item">--}}
-							{{--<figure class="steps-list__figure">--}}
-								{{--<img src="{{ asset('/images/cup.svg') }}" alt="Cup icon" style="width: 32px" class="steps-list__icon">--}}
-								{{--<figcaption class="steps-list__figcaption">4</figcaption>--}}
-							{{--</figure>--}}
-							{{--<p class="steps-list__name">{{ trans('main.you_are_the') }}<strong class="steps-list__bold-text">{{ trans('main.winner') }}</strong></p>--}}
-						{{--</li>--}}
-					{{--</ul>--}}
-				{{--</div>--}}
-			{{--</div>--}}
-		{{--</section>--}}
-
 
 		@if(count($slider_activities) > 0)
 			<section class="activities-slider-section">

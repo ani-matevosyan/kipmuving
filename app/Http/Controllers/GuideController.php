@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\GuideComment;
+use App\Offer;
 use Illuminate\Http\Request;
 
 class GuideController extends Controller
@@ -10,11 +11,17 @@ class GuideController extends Controller
 
   private $data = [];
 
-  public function __construct()
+  public function __construct(Offer $offer)
   {
+    $s_offers = \session('basket.special');
+
     $this->data = [
       'styles' => config('resources.guide.styles'),
-      'scripts' => config('resources.guide.scripts')
+      'scripts' => config('resources.guide.scripts'),
+      'count'             => [
+				'special_offers' => count($s_offers),
+				  'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+			]
     ];
   }
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use Carbon\Carbon;
+use App\Offer;
 
 class RegisterController extends Controller
 {
@@ -64,11 +65,18 @@ class RegisterController extends Controller
     ]);
   }
 
-  public function showRegistrationForm()
+  public function showRegistrationForm(Offer $offer)
   {
+
+    $s_offers = \session('basket.special');
+
     $data = [
       'styles' => config('resources.register.styles'),
-      'scripts' => config('resources.register.scripts')
+      'scripts' => config('resources.register.scripts'),
+      'count'             => [
+				'special_offers' => count($s_offers),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+			]
     ];
 
     return view('auth.register', $data);

@@ -16,116 +16,114 @@
 {{--{{ dd(session('cities')) }}--}}
 <body>
 <div class="main-wrapper">
-
-	<header class="main_header">
+	<header class="main-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-xs-6">
-                    <div class="logo">
-                        <a href="{{ action('HomeController@index') }}">
-                            <img src="{{ asset('/images/KeepMoving_logo.svg') }}"
-                                 alt="image description"
-                                 onerror="this.onerror=null; this.src='{{ asset('/images/logo.svg') }}'">
-                        </a>
-                    </div>
+				<div class="col-md-3 col-sm-4">
+					<div class="logo">
+						<a href="{{ asset('/') }}">
+							<img src="{{ asset('/images/keepmoving-temp-logo.png') }}" alt="The Trip Choice logo">
+						</a>
+					</div>
 				</div>
-				<div class="col-lg-3 col-lg-push-6 col-md-4 col-md-push-5 col-xs-6">
-					<div class="header-panel">
-						<div class="burger-menu">
-							<div class="burger"></div>
+				<div class="mobile-sidebar">
+					<header>
+						<div class="mobile-sidebar__logo">
+							<a href="{{ asset('/') }}">
+								<img src="{{ asset('/images/keepmoving-temp-logo.png') }}" alt="The Trip Choice logo">
+							</a>
 						</div>
-						<div class="country">
-							<div class="pick-lang">
-								<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
-									  alt="image description" class="current-lang">
-								<span class="glyphicon glyphicon-triangle-top"></span>
-								<ul class="choose-menu choose-lang">
+						<button class="mobile-sidebar__close-btn"></button>
+					</header>
+					<div class="col-md-4 col-md-push-5 col-sm-8">
+						<div class="main-header__right-side">
+							{{--  <span class="info-btn"></span>  --}}
+							<div class="dropdown language">
+								<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<img src="{{ asset('/images/'.$currentLocale['code'].'-flag.svg') }}"
+										alt="image description">
+								</span>
+								<ul class="dropdown-menu">
 									@foreach($locales as $locale)
-										@if($locale['code'] != 'en')
 										<li>
 											<a href="{{ action('LocaleController@setLocale', $locale['code']) }}">
 												<img src="{{ asset('/images/'.$locale['code'].'-flag.svg') }}"
-													  alt="image description">
+														alt="image description">
+												<span>{{ $locale['name'] }}</span>
 											</a>
 										</li>
-										@endif
 									@endforeach
 								</ul>
 							</div>
-							<div class="pick-curr">
-								<span class="current-curr">{{ session('currency.type') }} $</span>
-								<span class="glyphicon glyphicon-triangle-top"></span>
-								<ul class="choose-menu choose-curr">
+							<div class="dropdown currency">
+								<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									{{ session('currency.type') }} $
+								</span>
+								<ul class="dropdown-menu">
 									@foreach(session('currencies') as $currency)
 										@continue($currency == session('currency.type'))
-										<li><a
-													href="{{ action('CurrencyController@setCurrency', $currency) }}">{{ $currency }}</a>
+										<li>
+											<a href="{{ action('CurrencyController@setCurrency', $currency) }}">{{ $currency }}</a>
 										</li>
 									@endforeach
 								</ul>
 							</div>
-						</div>
-						@if (!Auth::guest())
-							<div class="btn-holder dropdown">
-								<div class="avatar-wrapp">
-										<img src="{{ asset($currentUser['avatar']) }}"
-											  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-											  alt="Account name">
+							<div class="divider"></div>
+							@if (!Auth::guest())
+								<div class="dropdown profile">
+									<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="auth" title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
+										{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
+									</span>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="{{ action('UserController@getUser') }}" title="{{ trans('main.my_account') }}">
+												{{ trans('main.my_account') }}
+											</a>
+										</li>
+										<li>
+											<a href="{{ action('UserController@getUserReservations') }}" title="{{ trans('main.my_reservations') }}">
+												{{ trans('main.my_reservations') }}
+											</a>
+										</li>
+										<li>
+											<form id="logout-form" action="{{ url('/logout') }}" method="POST">
+												<button type="submit">{{ trans('main.log_out') }}</button>
+											</form>
+										</li>
+									</ul>
 								</div>
-								<a href="#" data-toggle="dropdown" title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}" class="btn btn-primary orange-btn">
-									{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="{{ action('UserController@getUser') }}" class="btn btn-primary orange-btn"
-										   title="{{ trans('main.my_account') }}">
-											{{ trans('main.my_account') }}
-										</a>
-									</li>
-									<li>
-										<a href="{{ action('UserController@getUserReservations') }}" class="btn btn-primary orange-btn"
-										   title="{{ trans('main.my_reservations') }}">
-											{{ trans('main.my_reservations') }}
-										</a>
-									</li>
-									<li>
-										<a href="{{ url('/logout') }}" class="btn btn-primary orange-btn"
-										   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-										   title="{{ trans('main.log_out') }}">{{ trans('main.log_out') }}</a>
-										<form id="logout-form" action="{{ url('/logout') }}" method="POST"
-											  style="display: none;">
-										</form>
-									</li>
-								</ul>
-							</div>
-						@else
-							<div class="btn-holder btn-holder_withoutavatar">
-								<a href="{{ url('/login') }}"
-									class="btn btn-primary orange-btn">{{ trans('button-links.login') }}</a>
-							</div>
-						@endif
-						<div class="info-tour"></div>
+							@else
+								<a href="{{ url('/login') }}" class="auth">{{ trans('button-links.login') }}</a>
+							@endif
+							<a href="{{ action('ReservationController@index') }}" class="shopping-cart">
+								<img src="{{ asset('/images/shopping-cart-icon.png') }}" alt="Shopping cart icon">
+								<span>{{ $count['special_offers'] + $count['offers'] }}</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-5 col-md-pull-4 col-xs-12">
+						<nav>
+							<ul>
+								<li>
+									<a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
+								</li>
+								<li>
+									<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
+								</li>
+								{{--  <li>
+									<a href="#">Roterios</a>
+								</li>  --}}
+								<li>
+									<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
-				<div class="col-lg-6 col-lg-pull-3 col-md-5 col-md-pull-4 col-xs-12">
-					<nav class="top_nav">
-						<ul>
-							<li>
-								<a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
-							</li>
-							<li>
-								<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
-							</li>
-							{{--<li>--}}
-								{{--<a href="{{ action('FreePagesController@index') }}">{{ trans('button-links.free') }}</a>--}}
-							{{--</li>--}}
-							<li>
-								<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
-							</li>
-						</ul>
-						<div class="nav-cover"></div>
-					</nav>
+				<div class="burger">
+					<span></span>
 				</div>
+				<div class="main-header__overlay"></div>
 			</div>
 		</div>
 	</header>

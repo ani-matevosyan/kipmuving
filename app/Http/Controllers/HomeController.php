@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
-	public function index()
+	public function index(Offer $offer)
 	{
 
 		if (session('cities.entrance') === false)
@@ -28,6 +28,8 @@ class HomeController extends Controller
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'home']);
 
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
+
+		$s_offers = \session('basket.special');
 
 		$data = [
 			'styles'            => config('resources.home.styles'),
@@ -52,6 +54,10 @@ class HomeController extends Controller
 				->inRandomOrder()
 				->get(),
 			'activitiesList'    => Activity::getActivitiesList(),
+			'count'             => [
+				'special_offers' => count($s_offers),
+				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
+			]
 		];
 
 		if (session('cities.current') == 'atacama')

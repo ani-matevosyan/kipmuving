@@ -41,11 +41,6 @@ return [
   'google_map_path'                   => 'Google Maps cabelo Caminho',
 
   'the_best_price'              => 'Receba o melhor preço',
-  'you_have_preference'         => 'Você tem a preferência',
-  'choose_dates_and_activities' => 'Escolha datas e atividades',
-  'agencies_will_send'          => '. As agências enviar-lhe-ão ',
-  'and_you_can'                 => ' e você pode decidir qual melhor agência você gosta da relação ',
-  'price&quality'               => 'preço/qualidade',
   'choose_the'                  => 'Escolha o ',
   'receive_the'                 => 'Receba o',
   'offers'                      => 'ofertas',

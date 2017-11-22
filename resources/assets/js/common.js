@@ -3,47 +3,10 @@ require('../../../public/libs/bootstrap/js/bootstrap');
 
 $(document).ready(function () {
 
-    //BURGER
-    var opened = false;
-    $(".burger-menu").click(function () {
-        if(!opened){
-            $(this).toggleClass("menu-on");
-            $(".top_nav").addClass("active");
-            $("body").css("overflow-y", "hidden");
-            opened = true;
-        }
+    $(".main-header .burger, .mobile-sidebar__close-btn, .main-header__overlay").click(function(){
+        $(".main-header").toggleClass('open');
+        $("body").toggleClass('mobile-menu-open');
     });
-    $(".nav-cover").click(function(){
-        if(opened){
-            $(".burger-menu").toggleClass("menu-on");
-            $(".top_nav").removeClass("active");
-            $("body").css("overflow-y", "visible");
-            opened = false;
-        }
-    });
-
-    var langPressed = false;
-    var currPressed = false;
-
-    $(".current-lang, .choose-lang").click(function(e){
-        $(".pick-curr").removeClass("pressed");
-        $(".pick-lang").addClass("pressed");
-        langPressed = true;
-        e.stopPropagation();
-    });
-
-    $(".current-curr, .choose-curr").click(function(e){
-        $(".pick-lang").removeClass("pressed");
-        $(".pick-curr").addClass("pressed");
-        currPressed = true;
-        e.stopPropagation();
-    });
-
-    $(document).click(function(){
-        $(".pick-lang").removeClass("pressed");
-        $(".pick-curr").removeClass("pressed");
-    });
-
 
     // --------------------------- Program schedule restriction --------------------
 

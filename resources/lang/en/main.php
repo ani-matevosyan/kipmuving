@@ -41,11 +41,6 @@ return [
   'google_map_path'                   => 'Google Maps path',
 
   'the_best_price'              => 'Receive the best price',
-  'you_have_preference'         => 'You have the preference',
-  'choose_dates_and_activities' => 'Choose dates and activities',
-  'agencies_will_send'          => '. Agencies will send you offers',
-  'and_you_can'                 => ' and you can decide which best agency you like the ',
-  'price&quality'               => 'price/quality ratio',
   'choose_the'                  => 'Choose the ',
   'receive_the'                 => 'Receive the ',
   'offers'                      => 'offers',

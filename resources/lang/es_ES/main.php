@@ -41,11 +41,6 @@ return [
   'google_map_path'                   => 'Caminho pelo Google Maps',
 
   'the_best_price'              => 'Reciba el mejor precio',
-  'you_have_preference'         => 'Tu tienes la preferencia',
-  'choose_dates_and_activities' => 'Elija las fechas y las actividades',
-  'agencies_will_send'          => '. Las agencias te enviarán ',
-  'and_you_can'                 => ' y usted puede decidir la que mejor agencia te agrada relación ',
-  'price&quality'               => 'precio/calidad',
   'choose_the'                  => 'Elija las ',
   'receive_the'                 => 'Reciba las ',
   'offers'                      => 'ofertas',
