@@ -59,6 +59,7 @@ return [
   'make_reservation_and'        => 'Make a reservation and',
   'discount'                    => 'discount',
   'in'                          => 'in',
+  'select_an_activity'          => 'Select an activity',
 
 	'how_does_it_work'                      => 'How does it work',
 	'best_deals'                            => 'The best deals, simple and fast. Create your panorama',
@@ -92,8 +93,9 @@ return [
 	
 	'where_we_are' => 'Where we are',
 	'contact_us'   => 'Contact us',
-    'who_are_we'   => 'Who are we',
-    'contact'      => 'Contact',
+  'who_are_we'   => 'Who are we',
+  'contact'      => 'Contact',
+  'made_with'    => 'Made with',
 	
 	
 	'home'                                   => 'Home',

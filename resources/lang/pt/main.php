@@ -59,6 +59,7 @@ return [
   'make_reservation_and'        => 'Faça uma reserva e',
   'discount'                    => 'desconto',
   'in'                          => 'em',
+  'select_an_activity'          => 'Selecione uma atividade',
 
   'how_does_it_work'                      => 'Como funciona',
   'best_deals'                            => 'As melhores ofertas, simples e rápido. Crie seu panorama',
@@ -94,6 +95,7 @@ return [
   'contact_us'   => 'Entre em contato conosco',
   'who_are_we'   => 'Quem somos',
   'contact'      => 'Contate-nos',
+  'made_with'    => 'Feito com',
 
 
   'home'                                   => 'Principal',

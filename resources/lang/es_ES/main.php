@@ -59,6 +59,7 @@ return [
   'make_reservation_and'        => 'Haga una reserva y',
   'discount'                    => 'descuento',
   'in'                          => 'en',
+  'select_an_activity'          => 'Seleccione una actividad',
 
 	'how_does_it_work'                      => 'Como funciona',
 	'best_deals'                            => 'Todas las actividades y agencias de Pucón en un solo lugar',
@@ -94,6 +95,7 @@ return [
 	'contact_us'   => 'Contáctanos',
   'who_are_we'   => 'Quien Somos',
   'contact'      => 'Contacto',
+  'made_with'    => 'Hecho con',
 	
 	
 	'home'                                   => 'Inicio',

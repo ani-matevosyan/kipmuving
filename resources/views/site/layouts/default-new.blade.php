@@ -140,6 +140,7 @@
 							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
 						</ul>
 					</nav>
+					<div class="made-with">{{ trans('main.made_with') }} <span class="heart"></span></div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-xs-12 foot-block">
 					<strong class="title">{{ trans('main.where_we_are') }}</strong>

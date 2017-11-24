@@ -32,7 +32,8 @@
 			<div class="s-banner__form-container">
 				<form action="/activity/search" class="banner-form" method="post">
 					{{ csrf_field() }}
-					<select class="banner-form__select" name="activity_id">
+					<select class="banner-form__select" name="activity_id" required>
+						<option selected value="">{{ trans('main.select_an_activity') }}</option>
 						@foreach ($activitiesList as $item)
 							<option value="{{ $item->id }}">{{ $item->name }}</option>
 						@endforeach
@@ -46,8 +47,8 @@
 				</form>
 			</div>
 		</section>
-		<section class="video-section">
-			<div class="container">
+		<div class="container">
+			<section class="video-section">
 				<div class="row">
 					<div class="col-md-6">
 						<header class="video-section__header">
@@ -55,7 +56,7 @@
 							<p class="video-section__description">{{ trans('main.you_deserve_to_choose') }}</p>
 						</header>
 						<p class="video-section__text">
-							<strong class="video-section__strong">{{ trans('main.why_search_for_low') }}</strong>
+							<span>{{ trans('main.why_search_for_low') }}</span>
 							{{ trans('main.enter') }} KeepMoving.co, {{ trans('main.choose_the_best_adventures') }}
 						</p>
 						<a href="{{ action('ActivityController@index') }}" class="video-section__button">{{ trans('main.i_want_to_receive') }}</a>
@@ -70,8 +71,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 
 		@if(count($slider_activities) > 0)
 			<section class="activities-slider-section">
