@@ -12,6 +12,7 @@ $(document).ready(function(){
             success: response => {
                 $("#count-activities").text(response.data.offers);
                 $("#count-special-offers").text(response.data.special_offers);
+                $("#header-cart").text(response.data.offers + response.data.special_offers);
             },
             error: err => {
                 console.log(err);
@@ -203,6 +204,7 @@ $(document).ready(function(){
                 oid: oid
             },
             success: function(){
+                location.reload();
                 jQuery('#calendar').fullCalendar('refetchEvents');
                 getsuprogram();
                 $( ".offers-list li" ).each( function(index){

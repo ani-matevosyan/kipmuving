@@ -12,7 +12,7 @@ body.mobile-menu-open{
 .main-header{
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
-  background-color: #5693d2;
+  background-color: #0993e1;
   padding: 19px 0;
   position: relative;
   &.open{
@@ -52,7 +52,8 @@ body.mobile-menu-open{
     }
   }
   .logo{
-    width: 201px;
+    width: 185px;
+    padding: 3px 0;
     img{
       width: 100%;
     }
@@ -91,6 +92,16 @@ body.mobile-menu-open{
           text-align: center;
         }
       }
+    }
+  }
+  &__divider{
+    height: 18px;
+    width: 1px;
+    background: #6193b9;
+    @extend .inline-block_middle;
+    margin: 0 12px 0 8px;
+    @media screen and (max-width: 767px){
+      display: none;
     }
   }
   &__right-side{
@@ -163,16 +174,6 @@ body.mobile-menu-open{
         .dropdown-menu{
           right: -14px;
         }
-      }
-    }
-    .divider{
-      height: 18px;
-      width: 1px;
-      background: #6193b9;
-      @extend .inline-block_middle;
-      margin: 0 12px 0 8px;
-      @media screen and (max-width: 767px){
-        display: none;
       }
     }
     .profile{
@@ -267,7 +268,7 @@ body.mobile-menu-open{
     &>header{
       display: none;
       position: relative;
-      padding: 15px 0;
+      padding: 15px 0 12px;
       border-bottom: 1px solid #70a2d6;
     }
     &__logo{
@@ -321,7 +322,7 @@ body.mobile-menu-open{
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
-      background-color: #5693d2;
+      background-color: #0993e1;
       z-index: 9999;
       &>header{
         display: block;

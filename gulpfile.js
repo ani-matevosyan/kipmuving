@@ -66,10 +66,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('home-style.scss')
-//     .webpack('home-scripts.js')
+//   mix.sass('calendar-style.scss')
+//     .webpack('calendarpage-scripts.js')
 //     .version([
-//       'css/home-style.css',
-//       'js/home-scripts.js'
+//       'css/calendar-style.css',
+//       'js/calendarpage-scripts.js'
 //     ])
 // });

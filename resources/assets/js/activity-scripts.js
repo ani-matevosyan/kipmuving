@@ -108,6 +108,7 @@ $(document).ready(function(){
                 $("#program_subscriptions").text(response.data.special_offers).attr('data-subscriptions', response.data.special_offers);
                 $("#program_persons").text(response.data.persons);
                 $("#program_total").text(response.data.total);
+                $("#header-cart").text(response.data.offers + response.data.special_offers);
             },
             error: function(){
                 location.reload();

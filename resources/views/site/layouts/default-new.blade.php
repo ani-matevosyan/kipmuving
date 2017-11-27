@@ -22,7 +22,7 @@
 				<div class="col-md-3 col-sm-4">
 					<div class="logo">
 						<a href="{{ asset('/') }}">
-							<img src="{{ asset('/images/keepmoving-temp-logo.png') }}" alt="The Trip Choice logo">
+							<img src="{{ asset('/images/thetripchoice_logo.svg') }}" alt="The Trip Choice logo">
 						</a>
 					</div>
 				</div>
@@ -30,7 +30,7 @@
 					<header>
 						<div class="mobile-sidebar__logo">
 							<a href="{{ asset('/') }}">
-								<img src="{{ asset('/images/keepmoving-temp-logo.png') }}" alt="The Trip Choice logo">
+								<img src="{{ asset('/images/thetripchoice_logo.svg') }}" alt="The Trip Choice logo">
 							</a>
 						</div>
 						<button class="mobile-sidebar__close-btn"></button>
@@ -68,7 +68,7 @@
 									@endforeach
 								</ul>
 							</div>
-							<div class="divider"></div>
+							<div class="main-header__divider"></div>
 							@if (!Auth::guest())
 								<div class="dropdown profile">
 									<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="auth" title="{{ $currentUser['username'] ? $currentUser['username'] : $currentUser['first_name'] }}">
@@ -96,8 +96,8 @@
 								<a href="{{ url('/login') }}" class="auth">{{ trans('button-links.login') }}</a>
 							@endif
 							<a href="{{ action('ReservationController@index') }}" class="shopping-cart">
-								<img src="{{ asset('/images/shopping-cart-icon.png') }}" alt="Shopping cart icon">
-								<span>{{ $count['special_offers'] + $count['offers'] }}</span>
+								<img src="{{ asset('/images/cart.svg') }}" alt="Shopping cart icon">
+								<span id="header-cart">{{ $count['special_offers'] + $count['offers'] }}</span>
 							</a>
 						</div>
 					</div>

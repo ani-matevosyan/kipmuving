@@ -24,14 +24,19 @@ $(document).ready(function(){
             url: "/activities/getsuprogram",
             data: "",
             success: function(data){
+                console.log(data);
                 $("#program_activities").text(data.data.offers);
                 $("#program_activities").attr('data-activities' ,data.data.offers);
                 $("#program_persons").text(data.data.persons);
                 $("#program_total").text(data.data.total);
+                $("#header-cart").text(data.data.offers + data.data.special_offers);
             },
             error: function(){
                 location.reload();
-            }
+            },
+          complete: () => {
+            $(".loader").remove();
+          }
         });
     }
 
@@ -40,28 +45,29 @@ $(document).ready(function(){
     }
 
     jQuery('.persona').on("change", function(){
-        var priceElem = $(this).parents('.offer-item').find('.price');
-        var currency = $(this).parents('.offer-item').find('.price sub').html();
-        var unit_price = 0 + priceElem.data('unit-price');
+        let priceElem = $(this).parents('.offer-item').find('.price');
+        let currency = $(this).parents('.offer-item').find('.price sub').html();
+        let unit_price = 0 + priceElem.data('unit-price');
 
         priceElem.html('<sub>'+currency+'</sub>' + numberWithDots(Math.round($(this).val() * unit_price)));
     });
 
     jQuery('.btn-reserve-ag').click(function(){
-        var dt = jQuery(this).parents('.offer-item').find('.reserve-date').val();
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        let dt = jQuery(this).parents('.offer-item').find('.reserve-date').val();
         if (dt == '') {
             $('#message-modal #message').text('Please choose the date first.');
             $('#message-modal').modal('show');
             return false;
         }
-        var offer_id = jQuery(this).data('offer-id');
-        var persona = $(this).parents('.offer-item').find('.persona').val();
+        let offer_id = jQuery(this).data('offer-id');
+        let persona = $(this).parents('.offer-item').find('.persona').val();
         if (persona == '') {
             $('#message-modal #message').text('Choose persona first.');
             $('#message-modal').modal('show');
             return false;
         }
-        var hours = $(this).parents('.offer-item').find('select.hours').val();
+        let hours = $(this).parents('.offer-item').find('select.hours').val();
         if (hours == '') {
             $('#message-modal #message').text('Choose time.');
             $('#message-modal').modal('show');
