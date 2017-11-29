@@ -60,6 +60,7 @@ body.mobile-menu-open{
   }
   nav{
     padding: 9px 0;
+    text-rendering: optimizeLegibility;
     @media screen and (max-width: 991px){
       border-top: 1px solid #70a2d6;
       margin-top: 10px;

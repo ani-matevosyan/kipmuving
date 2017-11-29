@@ -1,0 +1,59 @@
+@font-face{
+  font-family:"PT-Sans";
+  font-style:normal;
+  font-weight:400;
+  src:url("../../fonts/PTSans/PTSans-Regular.ttf") format('truetype'),
+      url("../../fonts/PTSans/PTSans-Regular.otf") format('opentype'),
+      url("../../fonts/PTSans/PTSans-Regular.eot") format('embedded-opentype'),
+      url("../../fonts/PTSans/PTSans-Regular.woff2") format('woff2'),
+      url("../../fonts/PTSans/PTSans-Regular.woff") format('woff'),
+      url("../../fonts/PTSans/PTSans-Regular.eot?#iefix") format('embedded-opentype');
+}
+
+@font-face{
+  font-family:"PT-Sans";
+  font-style:normal;
+  font-weight:700;
+  src:url("../../fonts/PTSans/PTSans-Bold.ttf") format('truetype'),
+      url("../../fonts/PTSans/PTSans-Bold.otf") format('opentype'),
+      url("../../fonts/PTSans/PTSans-Bold.eot") format('embedded-opentype'),
+      url("../../fonts/PTSans/PTSans-Bold.woff2") format('woff2'),
+      url("../../fonts/PTSans/PTSans-Bold.woff") format('woff'),
+      url("../../fonts/PTSans/PTSans-Bold.eot?#iefix") format('embedded-opentype');
+}
+
+@font-face{
+  font-family:"Dosis";
+  font-style:normal;
+  font-weight:500;
+  src:url("../../fonts/Dosis/Dosis-Medium.ttf") format('truetype'),
+      url("../../fonts/Dosis/Dosis-Medium.otf") format('opentype'),
+      url("../../fonts/Dosis/Dosis-Medium.eot") format('embedded-opentype'),
+      url("../../fonts/Dosis/Dosis-Medium.woff2") format('woff2'),
+      url("../../fonts/Dosis/Dosis-Medium.woff") format('woff'),
+      url("../../fonts/Dosis/Dosis-Medium.eot?#iefix") format('embedded-opentype');
+}
+
+@font-face{
+  font-family:"Dosis";
+  font-style:normal;
+  font-weight:700;
+  src:url("../../fonts/Dosis/Dosis-Bold.ttf") format('truetype'),
+      url("../../fonts/Dosis/Dosis-Bold.otf") format('opentype'),
+      url("../../fonts/Dosis/Dosis-Bold.eot") format('embedded-opentype'),
+      url("../../fonts/Dosis/Dosis-Bold.woff2") format('woff2'),
+      url("../../fonts/Dosis/Dosis-Bold.woff") format('woff'),
+      url("../../fonts/Dosis/Dosis-Bold.eot?#iefix") format('embedded-opentype');
+}
+
+@font-face{
+  font-family:"Dosis";
+  font-style:normal;
+  font-weight:800;
+  src:url("../../fonts/Dosis/Dosis-ExtraBold.ttf") format('truetype'),
+      url("../../fonts/Dosis/Dosis-ExtraBold.otf") format('opentype'),
+      url("../../fonts/Dosis/Dosis-ExtraBold.eot") format('embedded-opentype'),
+      url("../../fonts/Dosis/Dosis-ExtraBold.woff2") format('woff2'),
+      url("../../fonts/Dosis/Dosis-ExtraBold.woff") format('woff'),
+      url("../../fonts/Dosis/Dosis-ExtraBold.eot?#iefix") format('embedded-opentype');
+}

@@ -1,29 +1,9 @@
 @import "../../../public/libs/bootstrap/css/bootstrap";
 
-@import "./components/fonts";
-@import "./components/main-header";
-@import "./components/main-footer";
-@import "./components/program-schedule";
-
-@-webkit-viewport {
-  width: device-width;
-}
-
-@-moz-viewport {
-  width: device-width;
-}
-
-@-ms-viewport {
-  width: device-width;
-}
-
-@-o-viewport {
-  width: device-width;
-}
-
-@viewport {
-  width: device-width;
-}
+@import "./components/core/fonts";
+@import "./components/core/main-header";
+@import "./components/core/main-footer";
+@import "./components/core/program-schedule";
 
 main{
   min-height: calc( 100vh - 365px );
