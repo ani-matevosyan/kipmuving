@@ -1,43 +1,46 @@
-<section class="widget select-box">
-	<h2>{{ trans('main.select') }}</h2>
-	<p>{{ trans('main.the_activity_you_want_to_change') }}</p>
-	<div class="text-field">
-		<select class="form-control dropdown-activity" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;" data-noresulttext="There is no activity ">
-			@foreach ($activitiesList as $item)
-				<option value="{{ $item->id }}" @if($item->id == $activity->id) selected @endif>{{ $item->name }}</option>
-			@endforeach
-		</select>
-	</div>
+<section class="activity-basket">
+	<header>{{ trans('emails.hello') }} <strong>Rafael</strong>, {{ trans('main.here_is_the_view') }}:</header>
+	<dl>
+		<dt>{{ trans('main.confirmed') }}:</dt>
+		<dd>
+			<ul class="activity-basket__confirms-list">
+				{{--<li>--}}
+					{{--<button></button>--}}
+					{{--15/11 - Rafting Bajo--}}
+				{{--</li>--}}
+				{{--<li>--}}
+					{{--<button></button>--}}
+					{{--16/11 - Volcán--}}
+				{{--</li>--}}
+				@if($offers['selected'])
+					@foreach ($offers['selected'] as $offer)
+						<li>
+							<button data-offer-id="{{$offer['offer_id']}}"></button>
+							{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }} {{ $offer['name'] }}
+						</li>
+					@endforeach
+				@endif
+			</ul>
+		</dd>
+	</dl>
+	<dl>
+		<dt>{{ trans('main.receive_offers') }}:</dt>
+		<dd><span id="program_subscriptions">{{ $count['special_offers'] }}</span></dd>
+		{{--{{ trans('main.still_no_offers') }}--}}
+	</dl>
+	<dl>
+		<dt>{{ trans('main.persons') }}:</dt>
+		<dd><span id="program_persons">{{ $count['persons'] }}</span></dd>
+	</dl>
+	<dl>
+		<dt>{{ trans('main.total_of') }}:</dt>
+		<dd>$ <span id="program_total">{{ number_format($count['total'], 0, ".", ".") }}</span></dd>
+	</dl>
+	<footer>
+		<a href="{{ action('CalendarController@index') }}" class="activity-basket__to-calendar">{{ trans('button-links.my_agenda') }}</a>
+		<a href="{{ action('ReservationController@index') }}" class="activity-basket__to-reserve">{{ trans('main.reserve') }}</a>
+	</footer>
 </section>
-<section class="widget the-day">
-	<h2>{{ trans('main.the_day') }}</h2>
-	<p>{{ trans('main.of_this_activity') }}</p>
-	<form action="#" class="raised-form-x" style="max-width:150px;">
-		<div class="text-field has-ico calender">
-			<input id="reserve-date-sd" type="text"
-					 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-					 placeholder="Fecha" class="form-control"
-					 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
-		</div>
-	</form>
-</section>
-@if($offers['selected'])
-	<section class="widget summary">
-		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
-		<ul class="offers-list">
-			@foreach ($offers['selected'] as $offer)
-				<li><a href="{{ action('OfferController@remove') }}/{{$offer['offer_id']}}">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}
-						- {{ $offer['name'] }}</a></li>
-			@endforeach
-		</ul>
-	</section>
-@else
-	<section class="widget summary" style="display:none">
-		<h2>{{ trans('main.summary_of_your_panorama') }}:</h2>
-		<ul class="offers-list">
-		</ul>
-	</section>
-@endif
 <section class="important-block">
 	<div class="box alert">
 		<p>{{ trans('main.important') }} {{ trans('main.about_this_activity') }}</p>

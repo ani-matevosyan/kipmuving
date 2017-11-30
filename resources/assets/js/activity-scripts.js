@@ -40,7 +40,7 @@ $(document).ready(function(){
         wrapNativeOnMobile: false,
         maxVisibleItems: 5
     });
-    jcf.replace('select:not(.dropdown-activity)');
+    jcf.replace('select:not(#activity-search)');
 
     $('[data-datepicker]').datepicker({
         dateFormat: 'dd/mm/yy'
@@ -53,35 +53,18 @@ $(document).ready(function(){
             data: {
                 date: dt,
                 '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function () {
-                $('#reserve-date-sd').val(dt);
             }
         });
     });
 
-    $('#reserve-date-sd').datepicker('option', 'onSelect', function (dt) {
-        $.ajax({
-            type: 'POST',
-            url: '/offer/date/set',
-            data: {
-                date: dt,
-                '_token': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function () {
-                $('#reserve-date').val(dt);
-            }
-        });
+  if($('#activity-search').length){
+    let yourSelect = $("#activity-search"),
+      notFoundText = yourSelect.attr("data-noresulttext");
+    yourSelect.chosen({
+      disable_search_threshold: 10,
+      no_results_text: notFoundText
     });
-
-    if($('.dropdown-activity').length){
-        let yourSelect = $(".dropdown-activity"),
-            notFoundText = yourSelect.attr("data-noresulttext");
-        yourSelect.chosen({
-            disable_search_threshold: 10,
-            no_results_text: notFoundText
-        });
-    }
+  }
 
 
     function numberWithDots(x) {
@@ -104,7 +87,7 @@ $(document).ready(function(){
             url: "/activities/getsuprogram",
             data: "",
             success: response => {
-                $("#program_activities").text(response.data.offers).attr('data-activities' ,response.data.offers);
+                // $("#program_activities").text(response.data.offers).attr('data-activities' ,response.data.offers);
                 $("#program_subscriptions").text(response.data.special_offers).attr('data-subscriptions', response.data.special_offers);
                 $("#program_persons").text(response.data.persons);
                 $("#program_total").text(response.data.total);
@@ -153,7 +136,7 @@ $(document).ready(function(){
         })
     });
 
-    jQuery('.offers-list').on("click", "a", function(){
+    jQuery('.activity-basket__confirms-list').on("click", "button", function(){
         $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         let oid = $(this).parent().prevAll().length,
             pickedel = $(this).parent();
@@ -166,16 +149,6 @@ $(document).ready(function(){
             },
             success: function(){
                 pickedel.remove();
-                if($(".offers-list li").length === 0 ){
-                    $("section.widget.summary").slideUp();
-                }
-                if (window.location.pathname === '/calendar'){
-                    calendarCalc();
-                    jQuery('#calendar').fullCalendar('refetchEvents');
-                }
-                if(window.location.pathname === '/reserve'){
-                    location.reload();
-                }
             },
             error: function(){
                 location.reload();
@@ -184,7 +157,6 @@ $(document).ready(function(){
             getsuprogram();
           }
         });
-        return false;
     });
 
     jQuery('.raised-form').submit(function(e) {
@@ -233,13 +205,14 @@ $(document).ready(function(){
               url: "/activities/getselectedoffers",
               data: "",
               success: function(data){
-                var lastel = data.data[data.data.length - 1];
-                if($(".offers-list li").length === 0){
-                  $("section.widget.summary").slideDown();
-                }
-                var formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
-                $(".offers-list").append("<li><a href='"+document.location.origin+"/offers/remove/"+offer_id+"'>"+ formattedDate   + " - "+ lastel.name+"</a>");
-
+                let lastel = data.data[data.data.length - 1];
+                let formattedDate = moment(lastel.date, "DD/MM/YYYY").format('DD/MM');
+                $(".activity-basket__confirms-list").append(`
+                  <li>
+                    <button data-offer-id="${offer_id}"></button>
+                    ${formattedDate} ${lastel.name}
+                  </li>
+                `);
                 $('html, body').animate({scrollTop: '0px'}, 800);
               },
               error: function(){

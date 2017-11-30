@@ -91,11 +91,14 @@ return [
   'all_agencies_together'       => 'Todas as agências juntas',
   'what_you_can_see_here'       => 'Para que sair caminhando se você pode ver tudo aqui?',
 
-  'where_we_are' => 'Onde Estamos',
-  'contact_us'   => 'Entre em contato conosco',
-  'who_are_we'   => 'Quem somos',
-  'contact'      => 'Contate-nos',
-  'made_with'    => 'Feito com',
+  'where_we_are'     => 'Onde Estamos',
+  'contact_us'       => 'Entre em contato conosco',
+  'who_are_we'       => 'Quem somos',
+  'contact'          => 'Contate-nos',
+  'made_with'        => 'Feito com',
+  'confirmed'        => 'Confirmadas',
+  'here_is_the_view' => 'este é o seu panorama',
+  'still_no_offers'  => 'Ainda não tem ofertas',
 
 
   'home'                                   => 'Principal',

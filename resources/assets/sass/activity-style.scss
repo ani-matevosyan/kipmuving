@@ -1,6 +1,6 @@
 //Libraries
 @import "./common";
-@import "../../../public/libs/product-tour/product-tour.min";
+//@import "../../../public/libs/product-tour/product-tour.min";
 @import "../../../public/libs/jquery-ui/slider/jquery-ui.min";
 @import "../../../public/libs/jcf/css/jcf.custom";
 @import "../../../node_modules/magnific-popup/dist/magnific-popup";
@@ -10,10 +10,63 @@
 @import "components/instafeed";
 @import "components/offer-items";
 @import "components/comments";
-@import "components/devider";
 @import "components/loader";
 @import "components/activity-banner";
 
+.visual{
+  height: 264px;
+  overflow: visible;
+  margin-bottom: 45px;
+}
+
+.activity-search{
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  text-align: right;
+  width: 100%;
+}
+
+.chosen-container{
+  text-align: left;
+  font-size: 15px;
+}
+
+.chosen-container-single .chosen-single{
+  border: none;
+  padding: 10px 0 10px 47px;
+  height: auto;
+  line-height: 1;
+  border-radius: 4px;
+  background: #ffffff url(../../images/magnifier-tool.png) no-repeat 16px center;
+  background-size: 18px;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single{
+  border: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #ffffff url(../../images/magnifier-tool.png) no-repeat 16px center;
+  box-shadow: 0 1px 0 #fff inset;
+}
+
+.chosen-container-single .chosen-search input[type=text]{
+  color: #000;
+}
+
+.chosen-container .chosen-results li{
+  padding: 5px 9px;
+  color: #656565;
+}
+
+.chosen-container .chosen-results li.highlighted{
+  background: #eab011;
+  color: #fff;
+}
+
+.accordion .sub-title{
+  line-height: 30px;
+}
 
 @media screen and (min-width: 992px){
   .your-reservation.activity.add>.row{
@@ -29,7 +82,7 @@
     width: calc( 100% - 22px);
     height: 100%;
     left: 0;
-    background: #ededed;
+    background: #f8f8f8;
     margin: 0 11px;
   }
 }
@@ -41,7 +94,7 @@
   margin: 0 0 0 30px;
 }
 
-.your-reservation .widget {
+.widget {
   color: #fff;
   padding: 20px;
   font-size: 13px;
@@ -49,53 +102,12 @@
   font-weight: 400;
 }
 
-.your-reservation .widget.select-box {
-  background: #283C5C;
-}
-
-.your-reservation .widget.select-box .chosen-container-single .chosen-search input[type=text]{
-  color: #000;
-}
-
-.your-reservation .widget.select-box .text-field {
-  width: 80%;
-}
-
-.your-reservation .widget.select-box .chosen-container-single .chosen-single{
-  background: #fff;
-  border-color: transparent;
-  padding: 1px 0 2px 11px;
-  height: auto;
-}
-
-.your-reservation .widget.select-box .chosen-container .chosen-results li{
-  padding: 5px 9px;
-  color: #656565;
-}
-
-.your-reservation .widget.select-box .chosen-container .chosen-results li.highlighted{
-  background: #eab011;
-  color: #fff;
-}
-
-.your-reservation .widget.the-day {
-  background: #25354D;
-}
-
-.your-reservation .widget.the-day .raised-form {
-  max-width: 120px;
-}
-
-.your-reservation .widget.summary {
-  background: #1A2838;
-}
-
-.your-reservation .widget ul li {
+.widget ul li {
   position: relative;
   padding: 0 0 5px 20px;
 }
 
-.your-reservation .widget ul li:after {
+.widget ul li:after {
   width: 12px;
   content: '';
   height: 12px;
@@ -107,11 +119,11 @@
   background: url(../../../images/sprite.png) no-repeat -88px -230px;
 }
 
-.your-reservation .widget ul.chosen-results li:after{
+.widget ul.chosen-results li:after{
   display: none;
 }
 
-.your-reservation .widget h2 {
+.widget h2 {
   color: #fff;
   margin: 0 0 10px;
   font-size: 17px;
@@ -119,15 +131,16 @@
   font-weight: 700;
 }
 
-.your-reservation .widget p {
+.widget p {
   margin: 0 0 10px;
 }
 
 .important-block {
   overflow: hidden;
   margin: 10px 0 0;
-  background: #ededed;
+  background: #f8f8f8;
   padding: 0 20px 300px;
+  border-radius: 4px;
 }
 
 @media (max-width: 767px) {
@@ -413,20 +426,116 @@
   }
 }
 
-.title-box p {
-  margin: 0 0 20px;
+.activity-basket{
+  background-color: #fcfbeb;
+  border-radius: 4px;
+  padding: 14px 10px 11px 25px;
+  font-size: 15px;
+  header{
+    margin-bottom: 19px;
+  }
+  dl{
+    margin-bottom: 9px;
+    &:after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  dt,dd{
+    float: left;
+  }
+  dt{
+    width: 35%;
+    text-align: right;
+  }
+  dd{
+    width: 65%;
+    padding-left: 8px;
+  }
+  &__confirms-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li{
+      position: relative;
+      padding-left: 18px;
+    }
+    button{
+      position: absolute;
+      border: none;
+      outline: none;
+      background-color: #ebb414;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 0;
+      &:before{
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 2px;
+        background-color: #f9edc0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+  footer{
+    border-top: 1px solid #e2e1d3;
+    padding-top: 7px;
+    text-align: right;
+    a{
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: 700;
+      &:hover,
+      &:focus{
+        opacity: 0.6;
+      }
+    }
+  }
+  &__to-calendar{
+    color: #dea709;
+    background: url('../../images/calendar-orange.svg') no-repeat 0 center;
+    background-size: 15px;
+    padding-left: 24px;
+    &:hover,
+    &:focus{
+      color: #dea709;
+    }
+  }
+  &__to-reserve{
+    background: #ebb414 url('../../images/check-icon.png') no-repeat 7px center;
+    background-size: 19px;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 8px 11px 8px 33px;
+    margin-left: 21px;
+    &:hover,
+    &:focus{
+      color: #ffffff;
+    }
+  }
 }
 
 .activity-title{
-  margin-bottom: 21px;
+  margin-bottom: 12px;
 }
 
 .activity .activity-title {
   h1 {
     font-weight: 700;
-    font-size: 38px;
-    text-transform: uppercase;
-    color: #283C5C;
+    font-family: 'Dosis', sans-serif;
+    font-size: 40px;
+    color: #000000;
     line-height: 1;
     @media screen and (max-width: 767px) {
       font-size: 32px;
@@ -435,18 +544,12 @@
       font-size: 28px;
     }
   }
-  p{
-    margin: 0;
-    color: #7F8590;
-    text-transform: uppercase;
-    font-size: 17px;
-  }
 }
 
 .activity-description{
-  font-size: 14px;
-  display: block;
-  margin-bottom: 30px;
+  font-size: 15px;
+  margin: 0 0 46px;
+  line-height: 1.6;
 }
 
 .weather-box {
@@ -807,6 +910,8 @@
   float: left;
   line-height: 1;
   font-weight: 700;
+  font-size: 31px;
+  font-family: 'Dosis', sans-serif;
 }
 
 .your-reservation .accordion h2 a:hover{
@@ -843,29 +948,38 @@
   height: 49px;
   color: #fff;
   font-weight: 700;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 .get-offers{
   font-size: 0;
   &__button{
     @extend %get-offers-item;
-    width: 58%;
-    background-color: #0081CC;
+    width: 46%;
+    background-color: #5c81c2;
     text-transform: uppercase;
-    font-size: 19px;
-    line-height: 49px;
-    text-align: center;
-    margin-right: 6px;
+    font-weight: 800;
+    font-family: 'Dosis', sans-serif;
+    line-height: 47px;
+    margin-right: 17px;
+    text-align: left;
     border: none;
     outline: none;
+    position: relative;
+    padding-left: 90px;
+    transition: all 150ms ease;
     &:before{
+      position: absolute;
       content: '';
-      display: inline-block;
-      width: 23px;
-      height: 23px;
-      background-image: url(../../../images/sale-icon.png);
-      vertical-align: middle;
-      margin-right: 7px;
+      top: 0;
+      left: 0;
+      border-radius: 5px;
+      width: 80px;
+      height: 100%;
+      background: url(../../../images/percent-icon.png) 20px center no-repeat #405a87;
+      background-size: 29px;
+      clip-path: polygon(0 0,78% 0,100% 52%,76% 100%,0 100%);
     }
     &:hover,
     &:focus{
@@ -874,10 +988,11 @@
     }
   }
   &__date-persons{
+    font-size: 0;
     @extend %get-offers-item;
-    font-size: 14px;
-    width: calc( 42% - 6px );
-    background-color: #AD3A4B;
+    width: calc( 54% - 17px );
+    background-color: #fcfbeb;
+    color: #dfa600;
     padding:{
       top: 11px;
       bottom: 11px;
@@ -893,12 +1008,23 @@
       clear: both;
     }
   }
+  &__sub-col{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 45%;
+    height: 29px;
+    text-align: center;
+    &:first-child{
+      width: 55%;
+      border-right: 1px solid #cac9bc;
+    }
+  }
   &__datepicker{
-    width: 116px;
+    width: 119px;
     border: none;
-    font-size: 17px;
     outline: none;
-    background: transparent url('../../../images/calendar-white.svg') no-repeat;
+    background: transparent url('../../../images/calendar-orange.svg') no-repeat;
     background-position: 0px 5px;
     background-size: 15px;
     text-align: right;
@@ -908,21 +1034,21 @@
 .jcf-select-get-offers__persons-select{
   width: auto;
   min-width: 90px;
-  font-weight: 400;
-  border-color: #8C1A2C;
+  border: none;
   height: auto;
-  float: right;
+  background-color: transparent;
   .jcf-select-text{
-    color: #AD3A4B;
+    color: #dfa600;
     margin:{
       top: 4px;
       bottom: 4px;
+      right: 25px;
     }
   }
   .jcf-select-opener {
     width: 22px;
     &:after {
-      border-top-color: #AD3A4B;
+      border-top-color: #dfa600;
       border-width: 6px 5px 0;
       top: 10px;
       right: 6px;
@@ -936,6 +1062,37 @@
     width: 100%;
     margin-bottom: 5px;
   }
+}
+
+.divider{
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+  margin: 0;
+  padding: 29px 0 15px;
+}
+
+.divider:before{
+  content: '';
+  height: 1px;
+  width: 100%;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  background-color: #e5e5e5;
+}
+
+.divider__text{
+  background-color: #fff;
+  padding: 0 15px;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  display: inline-block;
+  color: #BDBDBD;
 }
 
 //Offers navigation

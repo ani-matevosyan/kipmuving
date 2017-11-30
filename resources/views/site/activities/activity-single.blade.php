@@ -16,23 +16,24 @@
 			</li>
 		</ul>
 	</div>
-	<section class="visual activity-single"
-	         @if ($activity->image) style="background-image: url('/{{ $activity['image'] }}')" @endif>
+	<section class="visual" @if ($activity->image) style="background-image: url('/{{ $activity['image'] }}')" @endif>
 		<div class="gradoverlay"></div>
+		<div class="activity-search">
+			<div class="container">
+				<select id="activity-search" onchange="window.location = '{{ URL::to('activity' ) }}/' + this.value;" data-noresulttext="There is no activity">
+					@foreach ($activitiesList as $item)
+						<option value="{{ $item->id }}" @if($item->id == $activity->id) selected @endif>{{ $item->name }}</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
 	</section>
 
 	<main id="main">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<ul class="breadcrumb">
-						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-						<li><a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a></li>
-						@if($activity->name)
-							<li>{{ strtoupper($activity->name) }}</li>
-						@endif
-					</ul>
-					@include('site.offers.offers_quickinfo')
+					{{--@include('site.offers.offers_quickinfo')--}}
 					<div class="your-reservation activity add new">
 						<div class="row">
 							<div id="activity-single-sidebar" class="col-md-4 col-sm-12 col-xs-12">
@@ -43,14 +44,11 @@
 									@if($activity->name)
 										<h1>{{ $activity->name }}</h1>
 									@endif
-									@if($activity->subtitle)
-										<p>{{ $activity->subtitle }}</p>
-									@endif
 								</header>
 								<section class="post-box">
 									<div class="title-box">
 										@if($activity->description)
-											<span class="activity-description">{{ $activity->description }}</span>
+											<p class="activity-description">{{ $activity->description }}</p>
 										@endif
 										@if ($activity->weather_embed)
 											<div class="weather-box">
@@ -70,21 +68,25 @@
 										<div class="get-offers">
 											<button class="get-offers__button" id="get-offers-button" data-activity-id="{{ $activity->id }}">{{ trans('main.i_want_to_receive') }}</button>
 											<div class="get-offers__date-persons">
-												<input id="reserve-date"
+												<div class="get-offers__sub-col">
+													<input id="reserve-date"
 													   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 													   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
 													   class="get-offers__datepicker">
-												<select id="get-offers-persons"
-														class="get-offers__persons-select"
-														data-currencySign="@if(session('currency.type') === 'BRL') R$ @else $ @endif">
-													<option selected value="">{{ trans('main.persons') }}</option>
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-												</select>
+												</div>
+												<div class="get-offers__sub-col">
+													<select id="get-offers-persons"
+															class="get-offers__persons-select"
+															data-currencySign="@if(session('currency.type') === 'BRL') R$ @else $ @endif">
+														<option selected value="">{{ trans('main.persons') }}</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+													</select>
+												</div>
 											</div>
 										</div>
 										<div class="divider">

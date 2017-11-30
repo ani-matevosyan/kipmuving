@@ -285,14 +285,12 @@ body {
   background-repeat: no-repeat;
 }
 
-.visual.activities-all,
-.visual.activity-single {
+.visual.activities-all{
   height: 220px;
 }
 
 @media (max-width: 505px){
-  .visual.activities-all,
-  .visual.activity-single {
+  .visual.activities-all{
     height: 315px;
   }
 }
