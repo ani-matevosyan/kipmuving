@@ -157,7 +157,7 @@
 								<a href="https://www.facebook.com/KipMuving-693742520728748/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
 							</li>
 							<li>
-								<a href="https://www.instagram.com/keepmoving.co/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
+								<a href="https://www.instagram.com/thetripchoice/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
 							</li>
 						</ul>
 					</div>

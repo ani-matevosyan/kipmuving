@@ -4,14 +4,6 @@
 		<dt>{{ trans('main.confirmed') }}:</dt>
 		<dd>
 			<ul class="activity-basket__confirms-list">
-				{{--<li>--}}
-					{{--<button></button>--}}
-					{{--15/11 - Rafting Bajo--}}
-				{{--</li>--}}
-				{{--<li>--}}
-					{{--<button></button>--}}
-					{{--16/11 - Volcán--}}
-				{{--</li>--}}
 				@if($offers['selected'])
 					@foreach ($offers['selected'] as $offer)
 						<li>
@@ -25,8 +17,7 @@
 	</dl>
 	<dl>
 		<dt>{{ trans('main.receive_offers') }}:</dt>
-		<dd><span id="program_subscriptions">{{ $count['special_offers'] }}</span></dd>
-		{{--{{ trans('main.still_no_offers') }}--}}
+		<dd><span id="program_subscriptions">@if($count['special_offers'] > 0) {{ $count['special_offers'] }} @else {{ trans('main.still_no_offers') }} @endif</span></dd>
 	</dl>
 	<dl>
 		<dt>{{ trans('main.persons') }}:</dt>
@@ -43,9 +34,7 @@
 </section>
 <section class="important-block">
 	<div class="box alert">
-		<p>{{ trans('main.important') }} {{ trans('main.about_this_activity') }}</p>
-		<strong class="title">{{ trans('main.minimum_age') }}
-			: <span>{{ $activity['min_age'] }} {{ trans('main.years') }}</span></strong>
+		<p>{{ trans('main.minimum_age') }}: <strong>{{ $activity['min_age'] }} {{ trans('main.years') }}</strong></p>
 	</div>
 	@if($activity->carry)
 		<div class="box bring">
@@ -68,60 +57,38 @@
 			</ul>
 		</div>
 	@endif
-	{{--<div class="box faq">--}}
-		{{--<strong class="title">Preguntas Freentes</strong>--}}
-		{{--<ul>--}}
-			{{--<li>Como chegar a Pucon</li>--}}
-			{{--<li>Tiempo</li>--}}
-			{{--<li>Barrios y Zonas</li>--}}
-			{{--<li>Compras</li>--}}
-			{{--<li>Onde ficar</li>--}}
-			{{--<li>Que comer</li>--}}
-			{{--<li>Transportes</li>--}}
-			{{--<li>Vida noturna</li>--}}
-			{{--<li>Dinheiro</li>--}}
-		{{--</ul>--}}
-	{{--</div>--}}
+	@if ($activity->instagram_name)
+		<div class="activity-instagram">
+			<span class="activity-tag">{{ $activity->instagram_name }}</span>
+			<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>
+			<div class="clearfix"></div>
+		</div>
+	@endif
 	@if($activity->tripadvisor_code)
 		<div class="box tripadvisor">
 			{!! $activity->tripadvisor_code !!}
 		</div>
 	@endif
-	{{--<div class="booking">--}}
-		{{--<ins class="bookingaff" data-aid="1279314" data-target_aid="" data-prod="dfl2" data-width="100%" data-height="auto" data-lang="xb" data-currency="USD" data-dest_id="-897376" data-dest_type="city" data-df_duration="1" data-df_num_properties="5">--}}
-			{{--<!-- Anything inside will go away once widget is loaded. -->--}}
-			{{--<a href="//www.booking.com?aid=">Booking.com</a>--}}
-		{{--</ins>--}}
-		{{--<script type="text/javascript">--}}
-			{{--(function(d, sc, u) {--}}
-				{{--var s = d.createElement(sc), p = d.getElementsByTagName(sc)[0];--}}
-				{{--s.type = 'text/javascript';--}}
-				{{--s.async = true;--}}
-				{{--s.src = u + '?v=' + (+new Date());--}}
-				{{--p.parentNode.insertBefore(s,p);--}}
-			{{--})(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');--}}
-		{{--</script>--}}
+	{{--<div class="img-tour" id="image-tour">--}}
+		{{--@if (count($activity->images) > 0)--}}
+			{{--<div class="row">--}}
+				{{--<div class="col-sm-12">--}}
+					{{--<a href="/{{ $activity->images[0] }}" rel="prettyPhoto[gallery1]">--}}
+						{{--<img src="/{{ $activity->images[0] }}" onerror="this.src='/images/image-none.jpg';">--}}
+					{{--</a>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--@endif--}}
+		{{--<div class="row">--}}
+			{{--@for($i = 1; $i < count($activity->images); $i++)--}}
+				{{--<div class="col-sm-6">--}}
+					{{--<a href="/{{ $activity->images[$i] }}" rel="prettyPhoto[gallery1]">--}}
+						{{--<img src="/{{ $activity->images[$i] }}" onerror="this.src='/images/image-none.jpg';">--}}
+					{{--</a>--}}
+				{{--</div>--}}
+			{{--@endfor--}}
+		{{--</div>--}}
 	{{--</div>--}}
-	<div class="img-tour" id="image-tour">
-		@if (count($activity->images) > 0)
-			<div class="row">
-				<div class="col-sm-12">
-					<a href="/{{ $activity->images[0] }}" rel="prettyPhoto[gallery1]">
-						<img src="/{{ $activity->images[0] }}" onerror="this.src='/images/image-none.jpg';">
-					</a>
-				</div>
-			</div>
-		@endif
-		<div class="row">
-			@for($i = 1; $i < count($activity->images); $i++)
-				<div class="col-sm-6">
-					<a href="/{{ $activity->images[$i] }}" rel="prettyPhoto[gallery1]">
-						<img src="/{{ $activity->images[$i] }}" onerror="this.src='/images/image-none.jpg';">
-					</a>
-				</div>
-			@endfor
-		</div>
-	</div>
 	<div class="location">
 		<header>
 			<h3>{{ trans('main.where_is') }}</h3>

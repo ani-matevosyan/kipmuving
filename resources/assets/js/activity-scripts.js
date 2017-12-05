@@ -87,10 +87,9 @@ $(document).ready(function(){
             url: "/activities/getsuprogram",
             data: "",
             success: response => {
-                // $("#program_activities").text(response.data.offers).attr('data-activities' ,response.data.offers);
-                $("#program_subscriptions").text(response.data.special_offers).attr('data-subscriptions', response.data.special_offers);
+                $("#program_subscriptions").text((response.data.special_offers > 0) ? response.data.special_offers : window.translateData.still_no_offers);
                 $("#program_persons").text(response.data.persons);
-                $("#program_total").text(response.data.total);
+                $("#program_total").text(numberWithDots(response.data.total));
                 $("#header-cart").text(response.data.offers + response.data.special_offers);
             },
             error: function(){
@@ -248,7 +247,7 @@ $(document).ready(function(){
             target: 'instafeed5',
             accessToken: '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b',
             template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
-            limit: 16,
+            limit: 12,
             after: function () {
                 $('#instafeed5 a').click(function (e) {
                     e.preventDefault();

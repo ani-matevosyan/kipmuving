@@ -57,16 +57,8 @@
 												{!! $activity->weather_embed !!}
 											</div>
 										@endif
-
-										@if ($activity->instagram_name)
-											<div class="activity-instagram">
-												<span class="activity-tag">{{ $activity->instagram_name }}</span>
-												<div id="instafeed5" class="instafeed" data-tag="{{ $activity->instagram_name }}"></div>
-												<div class="clearfix"></div>
-											</div>
-										@endif
 										<div class="get-offers">
-											<button class="get-offers__button" id="get-offers-button" data-activity-id="{{ $activity->id }}">{{ trans('main.i_want_to_receive') }}</button>
+											<button class="get-offers__button @if((\Carbon\Carbon::now()->month) > 11 || (\Carbon\Carbon::now()->month) < 3) get-offers__button_disabled @endif" id="get-offers-button" @if((\Carbon\Carbon::now()->month) > 11 || (\Carbon\Carbon::now()->month) < 3) disabled @endif data-activity-id="{{ $activity->id }}">{{ trans('main.i_want_to_receive') }} <span>{{ trans('main.available_from') }} <strong>{{ trans('main.march_to_december') }}</strong></span></button>
 											<div class="get-offers__date-persons">
 												<div class="get-offers__sub-col">
 													<input id="reserve-date"
@@ -236,7 +228,7 @@
 
 	<script>
 		window.translateData = {
-
+          still_no_offers: '{{ trans('main.still_no_offers') }}'
 		}
 	</script>
 @stop

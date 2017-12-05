@@ -50,17 +50,13 @@
   vertical-align: middle;
 }
 
-.accordion .text {
-  overflow: hidden;
-}
-
 .adventure .accordion .text{
   margin-top: 12px;
 }
 
 .accordion > .offer-item{
   position: relative;
-  padding-left: 93px;
+  padding-left: 99px;
 }
 
 @media (max-width: 767px) {
@@ -97,7 +93,7 @@
 .new .list-box > ul li:before{
   content: "\2022";
   position: absolute;
-  left: -13px;
+  left: -11px;
   top: -1px;
   color: #4F4F4F;
 }
