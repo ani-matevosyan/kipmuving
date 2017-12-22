@@ -198,3 +198,6 @@ Route::get('/reserve/payu/redirect', 'ReservationController@paymentPayURedirect'
 Route::post('/reserve/payu/notification', 'ReservationController@paymentPayUNotifications');
 Route::get('/reserve/payu', 'ReservationController@paymentPayU');
 //Route::get('/reserve/payu', 'ReservationController@getPayU');
+
+
+Route::get('/routes', 'RoutesController@index');

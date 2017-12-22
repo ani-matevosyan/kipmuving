@@ -33,9 +33,9 @@
 
 								<div class="custom-checkbox">
 									<input type="checkbox" name="agencies[]" id="agency-{{ $agency->id }}" value="{{ $agency->id }}">
-									<div class="custom-checkbox-mark"></div>
+									<div class="custom-checkbox__mark"></div>
+									{{ $agency->name }}
 								</div>
-								<label for="agency-{{ $agency->id }}">{{ $agency->name }}</label>
 
 							</li>
 						@endforeach
@@ -55,10 +55,9 @@
 							<li>
 								<div class="custom-checkbox">
 									<input type="checkbox" name="agencies[]" id="agency-{{ $agency->id }}" value="{{ $agency->id }}">
-									<div class="custom-checkbox-mark"></div>
+									<div class="custom-checkbox__mark"></div>
+									{{ $agency->name }}
 								</div>
-								<label for="agency-{{ $agency->id }}">{{ $agency->name }}</label>
-
 							</li>
 						@endforeach
 					</ul>
@@ -121,44 +120,47 @@
 			margin-bottom: 10px;
 		}
 
-		.custom-checkbox{
+		.custom-checkbox {
+			position: relative;
+			margin: 0;
+			font-weight: 400;
+			cursor: pointer;
+		}
+
+		.custom-checkbox input[type=checkbox] {
+			display: none;
+		}
+
+		.custom-checkbox input[type=checkbox]:checked ~ .custom-checkbox__mark:before {
+			display: block;
+		}
+
+		.custom-checkbox__mark {
 			display: inline-block;
 			vertical-align: middle;
 			width: 14px;
 			height: 14px;
 			border: 1px solid #d9d9d9;
 			border-radius: 2px;
-			margin-right: 2px;
+			margin-right: 4px;
 			position: relative;
+			top: -2px;
 		}
 
-		.custom-checkbox input[type=checkbox]{
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			opacity: 0;
-			margin: 0;
-			z-index: 1;
-		}
-
-		.custom-checkbox-mark{
+		.custom-checkbox__mark:before {
+			content: '';
 			position: absolute;
 			height: 5px;
 			width: 12px;
 			top: 50%;
 			left: 43%;
-			border: 1px solid #00a651;
+			border: solid #00a651;
 			border-width: 0 0 2px 2px;
 			-webkit-transform: rotate(-45deg);
-			-ms-transform: rotate(-45deg);
 			transform: rotate(-45deg);
 			display: none;
 			margin: -4px 0 0 -5px;
 			pointer-events: none;
-		}
-
-		.custom-checkbox input[type=checkbox]:checked + .custom-checkbox-mark{
-			display: block;
 		}
 
 		.message-wrapper{

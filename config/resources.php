@@ -188,5 +188,11 @@ return [
     'scripts' => [
 
     ]
+  ],
+
+  'routes' => [
+    'styles' => [
+      'css/routes.css'
+    ]
   ]
 ];

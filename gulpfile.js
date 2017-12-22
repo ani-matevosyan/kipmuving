@@ -17,6 +17,7 @@ elixir((mix) => {
     .sass('user-account-style.scss')
     .sass('user-reservations-style.scss')
     .sass('coupon-print.scss')
+    .sass('routes.scss')
     .webpack('activities-scripts.js')
     .webpack('activity-scripts.js')
     .webpack('agency-scripts.js')
@@ -46,6 +47,7 @@ elixir((mix) => {
       'css/send-offer-style.css',
       'css/user-account-style.css',
       'css/user-reservations-style.css',
+      'css/routes.css',
       'js/activities-scripts.js',
       'js/activity-scripts.js',
       'js/agency-scripts.js',

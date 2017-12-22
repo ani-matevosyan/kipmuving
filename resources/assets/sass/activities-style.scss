@@ -2,6 +2,7 @@
 @import "../../../public/libs/product-tour/product-tour.min";
 
 @import "components/activity-banner";
+@import "components/custom-checkbox";
 
 .program-schedule_activities{
   margin-top: -40px;
@@ -327,12 +328,6 @@
   display: block;
 }
 
-.filters-group label{
-  vertical-align: middle;
-  margin: 0;
-  font-weight: 400;
-}
-
 .filter-item{
   margin-bottom: 3px;
   position: relative;
@@ -343,47 +338,6 @@
   top: 5px;
   right: 85px;
   width: 13px;
-}
-
-
-.custom-checkbox{
-  display: inline-block;
-  vertical-align: middle;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  margin-right: 2px;
-  position: relative;
-}
-
-.custom-checkbox input[type=checkbox]{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  margin: 0;
-  z-index: 1;
-}
-
-.custom-checkbox-mark{
-  position: absolute;
-  height: 5px;
-  width: 12px;
-  top: 50%;
-  left: 43%;
-  border: solid #00a651;
-  border-width: 0 0 2px 2px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  display: none;
-  margin: -4px 0 0 -5px;
-  pointer-events: none;
-}
-
-.custom-checkbox input[type=checkbox]:checked + .custom-checkbox-mark{
-  display: block;
 }
 
 /*JQuery UI input range*/

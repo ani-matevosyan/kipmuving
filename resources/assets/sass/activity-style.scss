@@ -5,7 +5,6 @@
 @import "../../../public/libs/jcf/css/jcf.custom";
 @import "../../../node_modules/magnific-popup/dist/magnific-popup";
 @import "../../../node_modules/chosen-js/chosen";
-
 //Components
 @import "components/instafeed";
 @import "components/offer-items";
@@ -13,13 +12,13 @@
 @import "components/loader";
 @import "components/activity-banner";
 
-.visual{
+.visual {
   height: 264px;
   overflow: visible;
   margin-bottom: 45px;
 }
 
-.activity-search{
+.activity-search {
   position: absolute;
   bottom: 14px;
   left: 0;
@@ -27,12 +26,12 @@
   width: 100%;
 }
 
-.chosen-container{
+.chosen-container {
   text-align: left;
   font-size: 15px;
 }
 
-.chosen-container-single .chosen-single{
+.chosen-container-single .chosen-single {
   border: none;
   padding: 10px 0 10px 47px;
   height: auto;
@@ -42,7 +41,7 @@
   background-size: 18px;
 }
 
-.chosen-container-active.chosen-with-drop .chosen-single{
+.chosen-container-active.chosen-with-drop .chosen-single {
   border: none;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -50,36 +49,36 @@
   box-shadow: 0 1px 0 #fff inset;
 }
 
-.chosen-container-single .chosen-search input[type=text]{
+.chosen-container-single .chosen-search input[type=text] {
   color: #000;
 }
 
-.chosen-container .chosen-results li{
+.chosen-container .chosen-results li {
   padding: 5px 9px;
   color: #656565;
 }
 
-.chosen-container .chosen-results li.highlighted{
+.chosen-container .chosen-results li.highlighted {
   background: #eab011;
   color: #fff;
 }
 
-.accordion .sub-title{
+.accordion .sub-title {
   line-height: 30px;
 }
 
-@media screen and (min-width: 992px){
-  .your-reservation.activity.add>.row{
+@media screen and (min-width: 992px) {
+  .your-reservation.activity.add > .row {
     display: flex;
   }
-  .your-reservation.activity #activity-single-sidebar{
+  .your-reservation.activity #activity-single-sidebar {
     overflow: hidden;
     position: relative;
   }
-  .your-reservation.activity #activity-single-sidebar .important-block:after{
+  .your-reservation.activity #activity-single-sidebar .important-block:after {
     content: '';
     position: absolute;
-    width: calc( 100% - 22px);
+    width: calc(100% - 22px);
     height: 100%;
     left: 0;
     background: #f8f8f8;
@@ -119,7 +118,7 @@
   background: url(../../../images/sprite.png) no-repeat -88px -230px;
 }
 
-.widget ul.chosen-results li:after{
+.widget ul.chosen-results li:after {
   display: none;
 }
 
@@ -157,17 +156,17 @@
   }
 }
 
-.important-block .box ul{
+.important-block .box ul {
   padding: 0;
   list-style: none;
 }
 
-.important-block .box ul li{
+.important-block .box ul li {
   margin: 0 0 6px;
   position: relative;
 }
 
-.important-block .box > ul li:before{
+.important-block .box > ul li:before {
   content: "\2022";
   position: absolute;
   left: -13px;
@@ -176,13 +175,13 @@
 
 }
 
-.important-block .box.alert p{
+.important-block .box.alert p {
   font-family: 'PT-Sans', sans-serif;
   font-size: 15px;
   color: #000000;
   margin: 5px 0 0;
   position: relative;
-  &:before{
+  &:before {
     position: absolute;
     content: '';
     left: -34px;
@@ -192,30 +191,30 @@
     background: url(../../../images/warning.svg) no-repeat;
     background-size: contain;
   }
-  strong{
+  strong {
     color: #882233;
   }
 }
 
-.important-block .box.tripadvisor{
+.important-block .box.tripadvisor {
   margin: 0;
   padding: 10px 0 22px;
   border-bottom: 0;
 }
 
-.important-block .box.tripadvisor #CDSWIDSSP{
+.important-block .box.tripadvisor #CDSWIDSSP {
   margin: auto;
 }
 
-.important-block .box.tripadvisor #CDSWIDSSP .widSSPData{
+.important-block .box.tripadvisor #CDSWIDSSP .widSSPData {
   background-color: transparent;
 }
 
-.important-block .box.tripadvisor #CDSWIDSSP .widSSPData sup{
+.important-block .box.tripadvisor #CDSWIDSSP .widSSPData sup {
   top: 0;
 }
 
-.important-block .box.tripadvisor #CDSWIDSSP img{
+.important-block .box.tripadvisor #CDSWIDSSP img {
   background-color: transparent;
 }
 
@@ -269,7 +268,6 @@
   bottom: auto;
 }
 
-
 .img-tour {
   overflow: hidden;
 }
@@ -281,7 +279,7 @@
   object-fit: cover;
 }
 
-.img-tour .row>div {
+.img-tour .row > div {
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
@@ -293,12 +291,12 @@
   padding: 20px 0 0;
 }
 
-.location header{
+.location header {
   padding-left: 41px;
   position: relative;
 }
 
-.location header:before{
+.location header:before {
   content: '';
   position: absolute;
   height: 35px;
@@ -330,23 +328,23 @@
   margin: 3px 0 20px;
 }
 
-@media(max-width: 991px){
-  .important-block{
+@media(max-width: 991px) {
+  .important-block {
     padding-bottom: 30px;
     margin-bottom: 35px;
   }
   .important-block .box.tripadvisor,
   .important-block .img-tour,
-  .important-block .location{
+  .important-block .location {
     display: none;
   }
-  .img-tour img{
+  .img-tour img {
     height: 234px;
   }
 }
 
-@media(max-width: 767px){
-  .img-tour img{
+@media(max-width: 767px) {
+  .img-tour img {
     height: auto;
   }
 }
@@ -374,42 +372,42 @@
   }
 }
 
-.activity-basket{
+.activity-basket {
   background-color: #fcfbeb;
   border-radius: 4px;
   padding: 14px 10px 11px 25px;
   font-size: 15px;
-  header{
+  header {
     margin-bottom: 19px;
   }
-  dl{
+  dl {
     margin-bottom: 9px;
-    &:after{
+    &:after {
       content: '';
       display: table;
       clear: both;
     }
   }
-  dt,dd{
+  dt, dd {
     float: left;
   }
-  dt{
+  dt {
     width: 35%;
     text-align: right;
   }
-  dd{
+  dd {
     width: 65%;
     padding-left: 8px;
   }
-  &__confirms-list{
+  &__confirms-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    li{
+    li {
       position: relative;
       padding-left: 18px;
     }
-    button{
+    button {
       position: absolute;
       border: none;
       outline: none;
@@ -422,7 +420,7 @@
       bottom: 0;
       margin: auto;
       padding: 0;
-      &:before{
+      &:before {
         content: '';
         position: absolute;
         width: 6px;
@@ -436,31 +434,31 @@
       }
     }
   }
-  footer{
+  footer {
     border-top: 1px solid #e2e1d3;
     padding-top: 7px;
     text-align: right;
-    a{
+    a {
       display: inline-block;
       vertical-align: middle;
       font-weight: 700;
       &:hover,
-      &:focus{
+      &:focus {
         opacity: 0.6;
       }
     }
   }
-  &__to-calendar{
+  &__to-calendar {
     color: #dea709;
     background: url('../../images/calendar-orange.svg') no-repeat 0 center;
     background-size: 15px;
     padding-left: 24px;
     &:hover,
-    &:focus{
+    &:focus {
       color: #dea709;
     }
   }
-  &__to-reserve{
+  &__to-reserve {
     background: #ebb414 url('../../images/check-icon.png') no-repeat 7px center;
     background-size: 19px;
     color: #ffffff;
@@ -468,13 +466,13 @@
     padding: 8px 11px 8px 33px;
     margin-left: 21px;
     &:hover,
-    &:focus{
+    &:focus {
       color: #ffffff;
     }
   }
 }
 
-.activity-title{
+.activity-title {
   margin-bottom: 12px;
 }
 
@@ -494,7 +492,7 @@
   }
 }
 
-.activity-description{
+.activity-description {
   font-size: 15px;
   margin: 0 0 46px;
   line-height: 1.6;
@@ -511,15 +509,15 @@
   background: #f7f7f7;
   border-style: solid;
   border-width: 1px 0;
-  @media screen and (max-width: 991px){
+  @media screen and (max-width: 991px) {
     display: none;
   }
-  iframe{
+  iframe {
     border: 0;
     width: 100%;
     display: block;
   }
-  h2{
+  h2 {
     color: #963d4c !important;
     margin: 0 0 20px;
     font-size: 23px;
@@ -528,22 +526,21 @@
   }
 }
 
-
-.activity-instagram{
+.activity-instagram {
   padding: 29px 0 0;
   border-top: 1px solid #dfdfdf;
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 767px) {
     margin: 0 auto 7px;
     max-width: 600px;
   }
-  .instafeed{
+  .instafeed {
     margin-left: -11px;
     margin-top: 13px;
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       margin-left: 0;
     }
   }
-  .activity-tag{
+  .activity-tag {
     padding-left: 36px;
     background-image: url(../../../images/instagram.svg);
     background-repeat: no-repeat;
@@ -552,41 +549,40 @@
     line-height: 27px;
     color: #e12570;
     display: inline-block;
-    &:before{
+    &:before {
       content: "#";
     }
   }
 }
 
-
 .in-image-activity,
-.in-image-activity>a>img{
+.in-image-activity > a > img {
   width: 103px;
   height: 103px;
 }
 
-@media screen and (max-width: 1149px) and (min-width: 992px){
+@media screen and (max-width: 1149px) and (min-width: 992px) {
   .in-image-activity,
-  .in-image-activity>a>img{
+  .in-image-activity > a > img {
     width: 77px;
     height: 77px;
   }
 }
 
-@media screen and (max-width:767px){
-  .in-image-activity{
+@media screen and (max-width: 767px) {
+  .in-image-activity {
     width: 25%;
     height: auto;
     padding: 0;
   }
-  .in-image-activity>a>img{
+  .in-image-activity > a > img {
     width: 100%;
     height: auto;
   }
 }
 
-@media screen and (max-width: 480px){
-  .in-image-activity{
+@media screen and (max-width: 480px) {
+  .in-image-activity {
     width: 33.3333%;
   }
 
@@ -598,7 +594,7 @@
   position: relative;
 }
 
-.your-reservation .subnav:after{
+.your-reservation .subnav:after {
   content: "";
   position: absolute;
   left: 0;
@@ -622,8 +618,8 @@
   vertical-align: top;
 }
 
-@media screen and (max-width: 1139px) and (min-width: 992px){
-  .your-reservation .subnav ul li{
+@media screen and (max-width: 1139px) and (min-width: 992px) {
+  .your-reservation .subnav ul li {
     padding: 0 9px;
   }
 }
@@ -672,15 +668,14 @@
   text-decoration: underline;
 }
 
-
-.offer-item-desc{
+.offer-item-desc {
   margin: 10px;
   font-size: 13px;
 }
 
-.select-activity{
+.select-activity {
   border-bottom: 1px solid #d9d9d9;
-  &__add-button{
+  &__add-button {
     color: #fff;
     float: right;
     min-width: 100px;
@@ -689,24 +684,24 @@
     line-height: 20px;
     font-weight: 700;
     &:focus,
-    &:hover{
+    &:hover {
       color: #fff;
       background-color: #ffc311;
     }
-    @media screen and (max-width: 1149px) and (min-width: 992px), screen and (max-width:  767px){
+    @media screen and (max-width: 1149px) and (min-width: 992px), screen and (max-width: 767px) {
       float: none;
       margin-bottom: 10px;
     }
   }
 }
 
-.select-activity .timing1{
+.select-activity .timing1 {
   border: none;
   margin: 21px 0 0;
 }
 
 @media (max-width: 767px) {
-  .select-activity .timing1{
+  .select-activity .timing1 {
     padding-bottom: 0;
   }
 }
@@ -723,7 +718,7 @@
   padding-left: 30px;
 }
 
-.timing1 li.time{
+.timing1 li.time {
   min-height: 40px;
 }
 
@@ -731,7 +726,7 @@
   padding: 10px 0 3px 30px;
 }
 
-.timing1 li.profile.hours{
+.timing1 li.profile.hours {
   padding: 0 0 13px 30px;
 }
 
@@ -749,7 +744,7 @@
   background-position: center center;
 }
 
-.timing1 li.profile.hours:after{
+.timing1 li.profile.hours:after {
   width: 22px;
   height: 22px;
   background: url(../../../images/clock.svg) no-repeat;
@@ -758,43 +753,44 @@
   top: 43px;
 }
 
-.timing1 li.profile.hours.without_choice:after{
+.timing1 li.profile.hours.without_choice:after {
   display: none;
 }
 
-.timing1 li.profile .jcf-select .jcf-select-opener{
+.timing1 li.profile .jcf-select .jcf-select-opener {
   display: none;
 }
 
-.timing1 li.profile .jcf-select{
+.timing1 li.profile .jcf-select {
   border: 2px solid #FDD164;
 }
 
-@media screen and (max-width: 767px){
-  .timing1 li.profile .jcf-select{
+@media screen and (max-width: 767px) {
+  .timing1 li.profile .jcf-select {
     width: auto;
   }
 }
 
-.timing1 li.profile .jcf-select .jcf-select-text{
+.timing1 li.profile .jcf-select .jcf-select-text {
   color: #F5AD00;
   font-weight: bold;
 }
 
-.timing1 li.profile .jcf-select .jcf-select-opener:after{
+.timing1 li.profile .jcf-select .jcf-select-opener:after {
   border-color: #fff transparent transparent;
 }
 
-.timing1 li.profile.hours .jcf-select{
+.timing1 li.profile.hours .jcf-select {
   min-width: 100px;
   width: auto;
 }
 
 .timing1 li.profile.hours strong,
-.timing1 li.profile.hours label{
+.timing1 li.profile.hours label {
   margin-bottom: 3px;
 }
-.timing1 li.profile.hours label{
+
+.timing1 li.profile.hours label {
   display: block;
   margin-bottom: 18px;
   font-weight: 400;
@@ -831,7 +827,6 @@
   white-space: nowrap;
 }
 
-
 @media (max-width: 767px) {
   .your-reservation.activity .price {
     padding: 0 0 10px 12px;
@@ -843,11 +838,11 @@
   padding: 0;
 }
 
-.tab-content{
+.tab-content {
   padding-top: 26px;
 }
 
-.your-reservation .accordion h2{
+.your-reservation .accordion h2 {
   float: left;
   line-height: 1;
   font-weight: 700;
@@ -855,27 +850,27 @@
   font-family: 'Dosis', sans-serif;
 }
 
-.your-reservation .accordion h2 a:hover{
+.your-reservation .accordion h2 a:hover {
   color: #f8be00;
 }
 
-.your-reservation .accordion>.offer-item{
+.your-reservation .accordion > .offer-item {
   border-bottom: 1px solid #e5e5e5;
 }
 
-@media screen and (max-width: 1149px) and (min-width: 992px){
-  .select-activity>.row>div{
+@media screen and (max-width: 1149px) and (min-width: 992px) {
+  .select-activity > .row > div {
     width: 100%;
   }
-  .select-activity>.row>.col-md-4{
+  .select-activity > .row > .col-md-4 {
     padding-left: 44px;
   }
 
-  .your-reservation.activity .price{
+  .your-reservation.activity .price {
     text-align: left;
     padding-bottom: 10px;
   }
-  .your-reservation.activity .btn-primary{
+  .your-reservation.activity .btn-primary {
     float: none;
     margin-bottom: 15px;
   }
@@ -883,7 +878,7 @@
 
 // Get offers block
 
-%get-offers-item{
+%get-offers-item {
   display: inline-block;
   vertical-align: top;
   height: 49px;
@@ -893,9 +888,9 @@
   font-size: 18px;
 }
 
-.get-offers{
+.get-offers {
   font-size: 0;
-  &__button{
+  &__button {
     @extend %get-offers-item;
     width: 46%;
     background-color: #5c81c2;
@@ -910,21 +905,24 @@
     position: relative;
     padding-left: 90px;
     transition: all 150ms ease;
-    &_disabled{
+    &_disabled {
       cursor: pointer;
-      &:after{
+      &:after {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.5);
         border-radius: 4px;
         z-index: 1;
       }
+      &:hover span {
+        display: block;
+      }
     }
-    span{
+    span {
       position: absolute;
       display: none;
       top: -34px;
@@ -938,7 +936,7 @@
       text-transform: none;
       font-size: 14px;
       line-height: 1;
-      &:after{
+      &:after {
         content: '';
         width: 0;
         height: 0;
@@ -952,12 +950,12 @@
         bottom: -5px;
         left: 10px;
       }
-      strong{
+      strong {
         display: inline;
         font-weight: 700;
       }
     }
-    &:before{
+    &:before {
       position: absolute;
       content: '';
       top: 0;
@@ -967,51 +965,48 @@
       height: 100%;
       background: url(../../../images/percent-icon.png) 20px center no-repeat #405a87;
       background-size: 29px;
-      clip-path: polygon(0 0,78% 0,100% 52%,76% 100%,0 100%);
+      clip-path: polygon(0 0, 78% 0, 100% 52%, 76% 100%, 0 100%);
     }
     &:hover,
-    &:focus{
+    &:focus {
       color: #fff;
       background-color: #2B9ECC;
-      span{
-        display: block;
-      }
     }
   }
-  &__date-persons{
+  &__date-persons {
     font-size: 0;
     @extend %get-offers-item;
-    width: calc( 54% - 17px );
+    width: calc(54% - 17px);
     background-color: #fcfbeb;
     color: #dfa600;
-    padding:{
+    padding: {
       top: 11px;
       bottom: 11px;
       right: 17px;
       left: 30px;
     }
-    @media screen and (max-width: 1149px) and (min-width: 992px){
+    @media screen and (max-width: 1149px) and (min-width: 992px) {
       padding-left: 15px;
     }
-    &:after{
+    &:after {
       content: '';
       display: table;
       clear: both;
     }
   }
-  &__sub-col{
+  &__sub-col {
     display: inline-block;
     vertical-align: middle;
     font-size: 18px;
     width: 45%;
     height: 29px;
     text-align: center;
-    &:first-child{
+    &:first-child {
       width: 55%;
       border-right: 1px solid #cac9bc;
     }
   }
-  &__datepicker{
+  &__datepicker {
     width: 119px;
     border: none;
     outline: none;
@@ -1022,15 +1017,15 @@
   }
 }
 
-.jcf-select-get-offers__persons-select{
+.jcf-select-get-offers__persons-select {
   width: auto;
   min-width: 90px;
   border: none;
   height: auto;
   background-color: transparent;
-  .jcf-select-text{
+  .jcf-select-text {
     color: #dfa600;
-    margin:{
+    margin: {
       top: 4px;
       bottom: 4px;
       right: 25px;
@@ -1047,15 +1042,15 @@
   }
 }
 
-@media screen and (max-width: 700px){
-  %get-offers-item{
+@media screen and (max-width: 700px) {
+  %get-offers-item {
     display: block;
     width: 100%;
     margin-bottom: 5px;
   }
 }
 
-.divider{
+.divider {
   text-align: center;
   position: relative;
   font-size: 13px;
@@ -1063,7 +1058,7 @@
   padding: 29px 0 15px;
 }
 
-.divider:before{
+.divider:before {
   content: '';
   height: 1px;
   width: 100%;
@@ -1075,7 +1070,7 @@
   background-color: #e5e5e5;
 }
 
-.divider__text{
+.divider__text {
   background-color: #fff;
   padding: 0 15px;
   position: relative;
@@ -1088,40 +1083,40 @@
 
 //Offers navigation
 
-.offers-navigation{
+.offers-navigation {
   background-color: #EEEEEE;
   padding: 9px 0;
-  &__list{
+  &__list {
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
   }
-  &__item{
+  &__item {
     display: inline-block;
     vertical-align: top;
     margin-right: 29px;
     font-size: 12px;
-    &:last-child{
+    &:last-child {
       margin-right: 0;
     }
-    @media screen and (max-width: 450px){
+    @media screen and (max-width: 450px) {
       display: block;
       margin: 0 0 10px;
       font-size: 14px;
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
     }
   }
-  .active>a{
+  .active > a {
     font-weight: 700;
   }
-  &__link{
+  &__link {
     color: #000;
     &:hover,
     &:visited,
-    &:focus{
+    &:focus {
       color: #000;
     }
   }

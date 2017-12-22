@@ -1,0 +1,39 @@
+.custom-checkbox{
+  position: relative;
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+  input[type=checkbox]{
+    display: none;
+    &:checked ~ .custom-checkbox__mark:before{
+      display: block;
+    }
+  }
+  &__mark{
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+    &:before{
+      content:'';
+      position: absolute;
+      height: 5px;
+      width: 12px;
+      top: 50%;
+      left: 43%;
+      border: solid #00a651;
+      border-width: 0 0 2px 2px;
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      display: none;
+      margin: -4px 0 0 -5px;
+      pointer-events: none;
+    }
+  }
+}

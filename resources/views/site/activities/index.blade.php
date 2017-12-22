@@ -61,65 +61,65 @@
 									<div class="row">
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="trekking-style" value="Trekking">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="trekking-style">Trekking</label>
+													<span class="custom-checkbox__mark"></span>
+													Trekking
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="accion-style" value="Aire">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="accion-style">Accion</label>
+													<span class="custom-checkbox__mark"></span>
+													Accion
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="nieve-style" value="Nieve">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="nieve-style">Nieve</label>
+													<span class="custom-checkbox__mark"></span>
+													Nieve
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="rio-style" value="Rio">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="rio-style">Rio</label>
+													<span class="custom-checkbox__mark"></span>
+													Rio
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="relax-style" value="Relax">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="relax-style">Relax</label>
+													<span class="custom-checkbox__mark"></span>
+													Relax
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="cultural-style" value="Familia">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="cultural-style">Cultural</label>
+													<span class="custom-checkbox__mark"></span>
+													Cultural
+												</label>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="style" id="сiclismo-style" value="Ciclismo">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="сiclismo-style">Ciclismo</label>
+													<span class="custom-checkbox__mark"></span>
+													Ciclismo
+												</label>
 											</div>
 										</div>
 									</div>
@@ -133,39 +133,39 @@
 									<div class="row">
 										<div class="col-sm-12 col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="period" id="day-period" value="Actividad Diurna">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="day-period">Actividad Diurna</label>
+													<span class="custom-checkbox__mark"></span>
+													Actividad Diurna
+												</label>
 											</div>
 										</div>
 										<div class="col-sm-12 col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="period" id="night-period" value="Actividad Noturna">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="night-period">Actividad Noturna</label>
+													<span class="custom-checkbox__mark"></span>
+													Actividad Noturna
+												</label>
 											</div>
 										</div>
 										<div class="col-sm-12 col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="period" id="summer-period" value="Verano">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="summer-period">Verano</label>
+													<span class="custom-checkbox__mark"></span>
+													Verano
+												</label>
 												<img src="{{ asset('/images/day.svg') }}" alt="Day">
 											</div>
 										</div>
 										<div class="col-sm-12 col-xs-6">
 											<div class="filter-item">
-												<div class="custom-checkbox">
+												<label class="custom-checkbox">
 													<input type="checkbox" name="period" id="winter-period" value="Invierno">
-													<div class="custom-checkbox-mark"></div>
-												</div>
-												<label for="winter-period">Invierno</label>
+													<span class="custom-checkbox__mark"></span>
+													Invierno
+												</label>
 												<img src="{{ asset('/images/cloud-icon.png') }}" alt="Cloud icon">
 											</div>
 										</div>
