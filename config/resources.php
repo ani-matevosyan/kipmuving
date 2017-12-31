@@ -3,10 +3,10 @@
 return [
     'home' => [
         'styles' => [
-          'css/home-style.css'
+          'css/home.css'
         ],
         'scripts' => [
-          'js/home-scripts.js'
+          'js/home.js'
         ]
     ],
 
@@ -193,6 +193,9 @@ return [
   'routes' => [
     'styles' => [
       'css/routes.css'
+    ],
+    'scripts' => [
+      'js/routes.js'
     ]
   ]
 ];

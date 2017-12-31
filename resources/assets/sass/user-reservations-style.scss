@@ -325,17 +325,6 @@
   }
 }
 
-%inline-block{
-  &_middle{
-    display: inline-block;
-    vertical-align: middle;
-  }
-  &_top{
-    display: inline-block;
-    vertical-align: top;
-  }
-}
-
 .special-offers{
   font-size: 0;
   padding-left: 0;

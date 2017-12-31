@@ -345,159 +345,114 @@
 .activities-slider-section{
   background: #fff;
   padding: 54px 0 24px;
+  &__header{
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 46px;
+    color: #575757;
+    margin: 0 0 6px;
+    line-height: 1;
+    @media screen and (max-width: 579px){
+      font-size: 34px;
+    }
+    @media screen and (max-width: 399px){
+      font-size: 26px;
+    }
+  }
+  &__sub-title{
+    margin: 0;
+    font-size: 20px;
+    color: #747474;
+    line-height: 1;
+    @media screen and (max-width: 767px){
+      font-size: 18px;
+    }
+  }
 }
-
-.activities-slider-section__header{
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-.activities-slider-section__title{
-  font-weight: 700;
-  font-size: 46px;
-  color: #575757;
-  margin: 0 0 6px;
-  line-height: 1;
-}
-
-.activities-slider-section__sub-title{
-  margin: 0;
-  font-size: 20px;
-  color: #747474;
-  line-height: 1;
-}
-
-
 
 .activities-slider{
   position: relative;
+  &__link{
+    color: #000;
+    &:hover,
+    &:focus,
+    &:visited{
+      color: #000;
+    }
+  }
+  &__image{
+    height: 184px;
+    object-fit: cover;
+    @media screen and (max-width: 767px){
+      height: 130px;
+    }
+    @media screen and (max-width: 399px){
+      height: 180px;
+    }
+  }
+  &__name{
+    font-weight: 700;
+    margin: 14px 0 5px;
+    @media screen and (max-width: 579px){
+      font-size: 20px;
+    }
+  }
+  &__description{
+    margin: 0;
+  }
 }
 
-.activities-slider__link,
-.activities-slider__link:hover,
-.activities-slider__link:focus,
-.activities-slider__link:visited{
-  color: #000;
-}
-
-.activities-slider__image{
-  height: 184px;
-  object-fit: cover;
-  -o-object-fit: cover;
-}
-
-.activities-slider__name{
-  font-weight: 700;
-  margin: 14px 0 5px;
-}
-
-.activities-slider__description{
-  margin: 0;
-}
-
-.activities-slider__arrow{
+.owl-arrow{
   width: 35px;
   height: 35px;
   background: #fff;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   position: absolute;
   top: 87px;
   cursor: pointer;
-}
-
-.activities-slider__arrow:before{
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border: solid #303030;
-  border-width: 0 0 3px 3px;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-
-.activities-slider__arrow_previous{
-  left: -15px;
-  -webkit-box-shadow: -3px 0 9px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: -3px 0 9px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: -3px 0 9px 0 rgba(0, 0, 0, 0.25);
-}
-.activities-slider__arrow_previous:before{
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.activities-slider__arrow_next {
-  right: -15px;
-  -webkit-box-shadow: 3px 0 9px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 3px 0 9px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 3px 0 9px 0 rgba(0, 0, 0, 0.25);
-}
-.activities-slider__arrow_next:before{
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -ms-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-}
-
-@media screen and (max-width: 767px){
-
-  .activities-slider-section__sub-title{
-    font-size: 18px;
-  }
-
-  .activities-slider__image{
-    height: 130px;
-  }
-
-  .activities-slider__arrow{
+  border: 1px solid #e6e6e6;
+  @media screen and (max-width: 767px){
     top: 50px;
   }
-
-  .activities-slider__arrow_previous{
-    left: 0;
-  }
-
-  .activities-slider__arrow_next{
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 579px){
-
-  .activities-slider-section__title{
-    font-size: 34px;
-  }
-
-  .activities-slider__name{
-    font-size: 20px;
-  }
-
-}
-
-@media screen and (max-width: 399px){
-
-  .activities-slider-section__title{
-    font-size: 26px;
-  }
-
-  .activities-slider__image{
-    height: 180px;
-  }
-
-  .activities-slider__arrow{
+  @media screen and (max-width: 399px){
     top: 80px;
   }
-
+  &:before{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: solid #303030;
+    border-width: 0 0 3px 3px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  &_previous{
+    left: -15px;
+    &:before{
+      transform: rotate(45deg);
+      left: 3px;
+    }
+    @media screen and (max-width: 767px){
+      left: 0;
+    }
+  }
+  &_next{
+    right: -15px;
+    &:before{
+      transform: rotate(-135deg);
+      right: 3px;
+    }
+    @media screen and (max-width: 767px){
+      right: 0;
+    }
+  }
 }
 
 /**********END Activities slider section*************/

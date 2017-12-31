@@ -9,7 +9,7 @@ elixir((mix) => {
     .sass('common.scss')
     .sass('free-style.scss')
     .sass('guide-style.scss')
-    .sass('home-style.scss')
+    .sass('home.scss')
     .sass('print-style.scss')
     .sass('activity-print.scss')
     .sass('reservation-style.scss')
@@ -26,7 +26,7 @@ elixir((mix) => {
     .webpack('fixed-sidebar.js')
     .webpack('free-pages-scripts.js')
     .webpack('guide-scripts.js')
-    .webpack('home-scripts.js')
+    .webpack('home.js')
     .webpack('instafeed-settings.js')
     .webpack('product.tour.js')
     .webpack('send-offer-scripts.js')
@@ -42,7 +42,7 @@ elixir((mix) => {
       'css/common.css',
       'css/free-style.css',
       'css/guide-style.css',
-      'css/home-style.css',
+      'css/home.css',
       'css/reservation-style.css',
       'css/send-offer-style.css',
       'css/user-account-style.css',
@@ -56,7 +56,7 @@ elixir((mix) => {
       'js/fixed-sidebar.js',
       'js/free-pages-scripts.js',
       'js/guide-scripts.js',
-      'js/home-scripts.js',
+      'js/home.js',
       'js/instafeed-settings.js',
       'js/product.tour.js',
       'js/send-offer-scripts.js',
@@ -68,10 +68,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('activity-style.scss')
-//     .webpack('activity-scripts.js')
+//   mix.sass('home.scss')
+//     .webpack('home.js')
 //     .version([
-//       'css/activity-style.css',
-//       'js/activity-scripts.js'
+//       'css/home.css',
+//       'js/home.js'
 //     ])
 // });

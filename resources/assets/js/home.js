@@ -30,8 +30,8 @@ $(document).ready(function(){
         navElement: "div",
         rewind: true,
         navClass: [
-            "activities-slider__arrow activities-slider__arrow_previous",
-            "activities-slider__arrow activities-slider__arrow_next"
+          "owl-arrow owl-arrow_previous",
+          "owl-arrow owl-arrow_next"
         ],
         navText: [],
         responsive: {

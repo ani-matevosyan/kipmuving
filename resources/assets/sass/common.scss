@@ -1,3 +1,24 @@
+%clearboth{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+%inline-block{
+  &_middle{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &_top{
+    display: inline-block;
+    vertical-align: top;
+  }
+  &_bottom{
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
 @import "../../../public/libs/bootstrap/css/bootstrap";
 
 @import "./components/core/fonts";
@@ -6,16 +27,19 @@
 @import "./components/core/program-schedule";
 
 main{
-  min-height: calc( 100vh - 365px );
+  min-height: calc( 100vh - 368px );
   @media screen and (max-width: 991px){
-    min-height: calc( 100vh - 477px );
+    min-height: calc( 100vh - 627px );
   }
   @media screen and (max-width: 767px){
-    min-height: calc( 100vh - 715px )
+    min-height: calc( 100vh - 717px )
   }
-  @media screen and (max-width: 540px){
-    min-height: calc( 100vh - 719px )
-  }
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .main-wrapper{

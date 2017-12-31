@@ -905,8 +905,9 @@
     position: relative;
     padding-left: 90px;
     transition: all 150ms ease;
-    &_disabled {
-      cursor: pointer;
+    &_disabled,
+    &_disabled[disabled]{
+      cursor: not-allowed;
       &:after {
         content: '';
         position: absolute;
