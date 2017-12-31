@@ -65,7 +65,7 @@ $(document).ready(function () {
       }
     }else{
       if(getOffersButton.prop("disabled")){
-        getOffersButton.removeClass("get-offers__button_disabled").prop("disabled", falsea);
+        getOffersButton.removeClass("get-offers__button_disabled").prop("disabled", false);
       }
     }
   });
