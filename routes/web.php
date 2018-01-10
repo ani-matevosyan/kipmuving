@@ -200,4 +200,4 @@ Route::get('/reserve/payu', 'ReservationController@paymentPayU');
 //Route::get('/reserve/payu', 'ReservationController@getPayU');
 
 
-Route::get('/routes', 'RoutesController@index');
+Route::get('/routes/home', 'RoutesController@index');

@@ -33,6 +33,7 @@ elixir((mix) => {
     .webpack('user-account-scripts.js')
     .webpack('user-reservations-scripts.js')
     .webpack('reservation-scripts.js')
+    .webpack('routes.js')
     .version([
       'css/about-style.css',
       'css/activities-style.css',
@@ -62,16 +63,17 @@ elixir((mix) => {
       'js/send-offer-scripts.js',
       'js/user-account-scripts.js',
       'js/user-reservations-scripts.js',
-      'js/reservation-scripts.js'
+      'js/reservation-scripts.js',
+      'js/routes.js'
     ])
 });
 
 
 // elixir((mix) => {
 //   mix.sass('home.scss')
-//     .webpack('home.js')
+//     .webpack('routes.js')
 //     .version([
 //       'css/home.css',
-//       'js/home.js'
+//       'js/routes.js'
 //     ])
 // });
