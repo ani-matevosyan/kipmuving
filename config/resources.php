@@ -121,22 +121,22 @@ return [
 
     'single' => [
       'styles' => [
-        'css/agency-style.css'
+        'css/agencies.css'
       ],
       'scripts' => [
         [
           'link' =>  'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initAgencyMap'
         ],
-        'js/agency-scripts.js',
+        'js/agencies.js',
       ]
     ],
 
     'list' => [
       'styles' => [
-
+        'css/agencies.css'
       ],
       'scripts' => [
-
+        'js/agencies.js',
       ]
     ]
   ],
@@ -146,22 +146,22 @@ return [
 
     'single' => [
       'styles' => [
-        'css/activity-style.css'
+        'css/activity.css'
       ],
       'scripts' => [
         [
           'link' => 'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap'
         ],
-        'js/activity-scripts.js'
+        'js/activity.js'
       ]
     ],
 
     'list' => [
       'styles' => [
-        'css/activities-style.css'
+        'css/activities.css'
       ],
       'scripts' => [
-        'js/activities-scripts.js'
+        'js/activities.js'
       ]
     ]
   ],

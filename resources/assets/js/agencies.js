@@ -4,8 +4,11 @@ require('jcf/dist/js/jcf.select');
 window.Instafeed = require('instafeed.js');
 require('./instafeed-settings');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
+require('jquery-lazyload');
 
 $(document).ready(function(){
+
+  $(".lazyload").lazyload();
 
     jcf.setOptions('Select', {
         wrapNative: false,

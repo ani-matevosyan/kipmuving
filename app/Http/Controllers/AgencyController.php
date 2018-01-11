@@ -20,6 +20,8 @@ class AgencyController extends Controller
 
 		$imageIndex = rand(1, 4); //1-4
 		$data = [
+      'styles'  => config('resources.agencies.list.styles'),
+      'scripts' => config('resources.agencies.list.scripts'),
 			'imageIndex' => $imageIndex,
 			'agencies'   => Agency::where('region', '=', $region)->get(),
 			'count'      => [

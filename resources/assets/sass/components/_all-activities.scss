@@ -1,0 +1,140 @@
+.all-activities {
+  padding-top: 25px;
+  @media (max-width: 767px){
+    padding: 20px 0;
+  }
+  &.all-activities-header{
+    padding: 0;
+  }
+  header{
+    overflow: hidden;
+    text-align: left;
+    margin: 0 0 20px;
+    @media (max-width: 767px){
+      margin: 0 auto 20px;
+    }
+  }
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 700;
+    @media (max-width: 767px){
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 700;
+    }
+  }
+  h2 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    a{
+      color: #000;
+      &:hover {
+        color: #eab011;
+      }
+    }
+  }
+  .btn-holder {
+    text-align: center;
+  }
+  .btn-success {
+    padding: 10px;
+    min-width: 200px;
+    font-size: 15px;
+  }
+  .btn-primary {
+    color: #fff;
+    padding: 7px 10px;
+    border-radius: 3px;
+    background: #eab011;
+    display: inline-block;
+    vertical-align: middle;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  .col {
+    margin-bottom: 30px;
+  }
+  .img-holder {
+    overflow: hidden;
+    margin: 0 0 10px;
+    position: relative;
+    padding-top: 71%;
+    img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      object-fit: cover;
+    }
+  }
+  .price {
+    color: #eab011;
+    display: block;
+    margin: 0 0 20px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    span {
+      color: #000;
+      margin: 0 10px 0 0;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 400;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    sub {
+      bottom: 0;
+    }
+  }
+  .subnav {
+    float: right;
+    margin: 35px 0 0;
+    background: #ededed;
+    border: 1px solid #ccc;
+    @media (max-width: 991px){
+      float: none;
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+  .subnav ul {
+    padding: 8px 0;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    li {
+      padding: 0 13px;
+      display: inline-block;
+      vertical-align: top;
+
+      &.active{
+        a{
+          color: #dc7f3c;
+        }
+      }
+      @media (max-width: 767px){
+        display: block;
+        padding: 5px 13px;
+      }
+    }
+    a {
+      color: #000;
+      &:hover{
+        color: #dc7f3c;
+      }
+    }
+  }
+}

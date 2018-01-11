@@ -4,6 +4,7 @@
 @import "components/instafeed";
 @import "components/offer-items";
 @import "components/loader";
+@import "components/all-activities";
 
 .post-box{
   @media screen and (max-width: 767px){
@@ -37,7 +38,7 @@
   }
 }
 
-.program-schedule{
+.program-schedule_agency{
   position: absolute;
   top: 0;
   left: 0;
@@ -417,14 +418,26 @@
 
 .main-post{
   .agency-photo-wrapp{
+    position: relative;
+    padding-top: 72%;
     @media screen and (max-width: 991px){
       margin: 0 auto 25px;
       max-width: 350px;
+      padding-top: 0;
+      height: 250px;
+    }
+    @media screen and (max-width: 400px){
+      height: 200px;
     }
     img {
       width: 100%;
-      display: block;
-      height: auto;
+      height: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      margin: auto;
+      object-fit: cover;
     }
   }
   .agency-gallery{

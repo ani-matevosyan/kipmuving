@@ -28,7 +28,9 @@
 					@foreach($slider_activities as $activity)
 						<div class="top-activities__item">
 							<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="top-activities__link">
-								<img src="{{ asset($activity->image_thumb) }}" alt="{{ $activity->name }}" class="top-activities__image">
+								<figure>
+									<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ asset($activity->image_thumb) }}" alt="{{ $activity->name }}" class="top-activities__image lazyload">
+								</figure>
 								<div class="top-activities__info">
 									<h3 class="top-activities__name">{{ $activity->name }}</h3>
 									<p class="top-activities__description">{{ $activity->short_description }}</p>

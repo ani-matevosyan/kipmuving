@@ -4,7 +4,7 @@
 @section('content')
 	<main id="main">
 		<section class="s-banner">
-			<div class="s-banner__content">
+			<div class="s-banner__content lazyload" data-original="{{ asset('images/banner-background.jpg') }}">
 				<a href="{{ action('ActivityController@index') }}" class="s-banner__link"></a>
 				<ul class="s-banner__partners">
 					<li>
@@ -85,7 +85,9 @@
 						@foreach($slider_activities as $activity)
 							<div class="activities-slider__item">
 								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
-									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+									<figure>
+										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+									</figure>
 									<h3 class="activities-slider__name">{{ $activity->name }}</h3>
 									<p class="activities-slider__description">{{ $activity->short_description }}</p>
 								</a>
@@ -168,7 +170,9 @@
 						@foreach($random_activities as $activity)
 							<div class="activities-slider__item">
 								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
-									<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+									<figure>
+										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+									</figure>
 									<h3 class="activities-slider__name">{{ $activity->name }}</h3>
 									<p class="activities-slider__description">{{ $activity->short_description }}</p>
 								</a>

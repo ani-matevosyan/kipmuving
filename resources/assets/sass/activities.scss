@@ -3,6 +3,7 @@
 
 @import "components/activity-banner";
 @import "components/custom-checkbox";
+@import "components/all-activities";
 
 .program-schedule_activities{
   margin-top: -40px;
@@ -634,13 +635,8 @@
 }
 
 .top-activities{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   &__link,
   &__link:hover,
@@ -650,11 +646,17 @@
   &__item{
     width: calc( (100%/4) - 15px );
   }
+  figure{
+    position: relative;
+    padding-top: 36%;
+  }
   &__image{
-    height: 93px;
+    position: absolute;
+    top: 0;
+    left: 0;
     object-fit: cover;
-    -o-object-fit: cover;
     width: 100%;
+    height: 100%;
   }
   &__info{
     padding: 0 18px;

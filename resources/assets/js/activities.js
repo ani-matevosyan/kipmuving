@@ -1,11 +1,13 @@
 require("./common");
 require("../../../public/libs/jquery-ui/slider/jquery-ui.min");
-
+require('jquery-lazyload');
 
 
 $(document).ready(function(){
 
     //Opening and closing mobile filter modal
+
+  $(".lazyload").lazyload();
 
 
     let filtersModal = $(".filters-modal");

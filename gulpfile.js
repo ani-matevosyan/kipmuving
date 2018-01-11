@@ -2,9 +2,9 @@ const elixir = require('laravel-elixir');
 
 elixir((mix) => {
   mix.sass('about-style.scss')
-    .sass('activities-style.scss')
-    .sass('activity-style.scss')
-    .sass('agency-style.scss')
+    .sass('activities.scss')
+    .sass('activity.scss')
+    .sass('agencies.scss')
     .sass('calendar-style.scss')
     .sass('common.scss')
     .sass('free-style.scss')
@@ -18,9 +18,9 @@ elixir((mix) => {
     .sass('user-reservations-style.scss')
     .sass('coupon-print.scss')
     .sass('routes.scss')
-    .webpack('activities-scripts.js')
-    .webpack('activity-scripts.js')
-    .webpack('agency-scripts.js')
+    .webpack('activities.js')
+    .webpack('activity.js')
+    .webpack('agencies.js')
     .webpack('calendarpage-scripts.js')
     .webpack('common.js')
     .webpack('fixed-sidebar.js')
@@ -36,9 +36,9 @@ elixir((mix) => {
     .webpack('routes.js')
     .version([
       'css/about-style.css',
-      'css/activities-style.css',
-      'css/activity-style.css',
-      'css/agency-style.css',
+      'css/activities.css',
+      'css/activity.css',
+      'css/agencies.css',
       'css/calendar-style.css',
       'css/common.css',
       'css/free-style.css',
@@ -49,9 +49,9 @@ elixir((mix) => {
       'css/user-account-style.css',
       'css/user-reservations-style.css',
       'css/routes.css',
-      'js/activities-scripts.js',
-      'js/activity-scripts.js',
-      'js/agency-scripts.js',
+      'js/activities.js',
+      'js/activity.js',
+      'js/agencies.js',
       'js/calendarpage-scripts.js',
       'js/common.js',
       'js/fixed-sidebar.js',
@@ -70,10 +70,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('home.scss')
-//     .webpack('routes.js')
+//   mix.sass('activity.scss')
+//     .webpack('activity.js')
 //     .version([
-//       'css/home.css',
-//       'js/routes.js'
+//       'css/activity.css',
+//       'js/activity.js'
 //     ])
 // });

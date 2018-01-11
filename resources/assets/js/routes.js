@@ -1,6 +1,6 @@
 require('./common');
 require('owl.carousel');
-require('jquery-lazyload/jquery.lazyload');
+require('jquery-lazyload');
 
 $(document).ready(function(){
 

@@ -1,8 +1,8 @@
 <div class="img-holder">
 	<a href="{{ action('ActivityController@getActivity', $activity->id) }}">
-		<img src="{{ asset($activity->image_thumb) }}"
+		<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ asset($activity->image_thumb) }}"
 				 onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-				 alt="{{ $activity->name }}">
+				 alt="{{ $activity->name }}" class="lazyload">
 	</a>
 </div>
 <div class="caption">

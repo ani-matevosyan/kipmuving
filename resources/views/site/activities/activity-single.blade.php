@@ -17,7 +17,7 @@
             </li>
         </ul>
     </div>
-    <section class="visual" @if ($activity->image) style="background-image: url('/{{ $activity['image'] }}')" @endif>
+    <section class="visual lazyload" @if ($activity->image) data-original="/{{ $activity['image'] }}" @endif>
         <div class="gradoverlay"></div>
         <div class="activity-search">
             <div class="container">

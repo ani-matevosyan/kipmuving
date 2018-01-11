@@ -5,8 +5,11 @@ require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 require('owl.carousel');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
+require('jquery-lazyload');
 
 $(document).ready(function(){
+
+    $(".lazyload").lazyload();
 
     jcf.setOptions('Select', {
         wrapNative: false,

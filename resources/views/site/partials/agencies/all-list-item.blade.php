@@ -1,9 +1,9 @@
 @if($agency)
 	<div class="img-holder">
 		<a href="{{ action('AgencyController@getAgency', $agency->id) }}">
-			<img src="{{ asset($agency->image) }}"
+			<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ asset($agency->image) }}"
 				  onerror="this.src='{{ asset('/images/image-none.jpg') }}';"
-				  alt="image description">
+				  alt="image description" class="lazyload">
 		</a>
 	</div>
 	<div class="caption">

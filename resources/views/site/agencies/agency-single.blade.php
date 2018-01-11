@@ -23,7 +23,7 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="agency-photo-wrapp">
-											<img src="/{{ $agency->image }}" alt="image description" onerror="this.src='/images/image-none.jpg';">
+											<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/{{ $agency->image }}" alt="image description" onerror="this.src='/images/image-none.jpg';" class="lazyload">
 										</div>
 									</div>
 									<div class="col-md-8">
@@ -72,7 +72,7 @@
 									<div class="ta-code">
 										{!! $agency->tripadvisor_code !!}
 									</div>
-									@include('site.offers.offers_quickinfo')
+									@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_agency'])
 								</aside>
 							</div>
 							<div class="col-md-7 col-md-pull-5 col-sm-12 col-xs-12">

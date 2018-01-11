@@ -436,21 +436,12 @@
     margin: 0 -7px;
     font-size: 0;
     width: auto;
-    li{
+    .activities-slider__item{
       display: none;
       width: 25%;
       padding: 0 7px;
       &:nth-child(-n+4){
         display: inline-block;
-      }
-      figure{
-        &:before{
-          display: none;
-        }
-      }
-      img,
-      figcaption{
-        display: none;
       }
       @media screen and (max-width: 991px){
         width: 33.333%;

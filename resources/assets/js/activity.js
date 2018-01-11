@@ -8,8 +8,11 @@ window.Instafeed = require('instafeed.js');
 require('chosen-js');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 require('magnific-popup');
+require('jquery-lazyload');
 
 $(document).ready(function () {
+
+  $(".lazyload").lazyload();
 
 
   if ($("#image-tour").length) {

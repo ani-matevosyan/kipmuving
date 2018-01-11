@@ -1,19 +1,19 @@
-%clearboth{
+%clearboth {
   content: '';
   display: table;
   clear: both;
 }
 
-%inline-block{
-  &_middle{
+%inline-block {
+  &_middle {
     display: inline-block;
     vertical-align: middle;
   }
-  &_top{
+  &_top {
     display: inline-block;
     vertical-align: top;
   }
-  &_bottom{
+  &_bottom {
     display: inline-block;
     vertical-align: bottom;
   }
@@ -26,23 +26,23 @@
 @import "./components/core/main-footer";
 @import "./components/core/program-schedule";
 
-main{
-  min-height: calc( 100vh - 368px );
-  @media screen and (max-width: 991px){
-    min-height: calc( 100vh - 627px );
+main {
+  min-height: calc(100vh - 368px);
+  @media screen and (max-width: 991px) {
+    min-height: calc(100vh - 627px);
   }
-  @media screen and (max-width: 767px){
-    min-height: calc( 100vh - 717px )
+  @media screen and (max-width: 767px) {
+    min-height: calc(100vh - 717px)
   }
 }
 
-ul{
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.main-wrapper{
+.main-wrapper {
   overflow-x: hidden;
   position: relative;
 }
@@ -59,11 +59,11 @@ ul{
   display: block;
 }
 
-.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus{
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
   outline: none;
 }
 
-.btn:active, .btn.active{
+.btn:active, .btn.active {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -201,7 +201,7 @@ body > .jcf-select-drop {
   z-index: 9999;
 }
 
-body > .ui-datepicker{
+body > .ui-datepicker {
   z-index: 9999 !important;
 }
 
@@ -254,40 +254,6 @@ body {
   position: relative;
 }
 
-.all-activities {
-  padding-top: 25px;
-}
-
-.all-activities.all-activities-header{
-  padding: 0;
-}
-
-@media (max-width: 767px) {
-  .all-activities {
-    padding: 20px 0;
-  }
-}
-
-.all-activities header {
-  text-align: center;
-  margin: 0 auto 40px;
-}
-
-@media (max-width: 767px) {
-  .all-activities header {
-    margin: 0 auto 20px;
-  }
-}
-
-.all-activities .btn-holder {
-  text-align: center;
-}
-
-.all-activities .btn-success {
-  padding: 10px;
-  min-width: 200px;
-}
-
 .raised-form {
   margin: 0 auto;
   padding: 0 5% 0 3%;
@@ -299,36 +265,37 @@ body {
   }
 }
 
-
 .visual {
   overflow: hidden;
   position: relative;
-  background: #0f2e2e;
+  background: #c3c3c3;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-.visual.activities-all{
+.visual.activities-all {
   height: 220px;
 }
 
-@media (max-width: 505px){
-  .visual.activities-all{
+@media (max-width: 505px) {
+  .visual.activities-all {
     height: 315px;
   }
 }
 
-.visual .gradoverlay{
+.visual .gradoverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.2+0,0+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear,  left top, left bottom,  from(rgba(0,0,0,0.2)),to(rgba(0,0,0,0)));
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.2+0,0+100 */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
 }
 
 .important-txt {
@@ -540,7 +507,6 @@ body {
   display: none;
 }
 
-
 .breadcrumb {
   margin: 0;
   color: #000;
@@ -578,7 +544,7 @@ body {
   padding: 20px 0 50px;
 }
 
-.registration.registration-login{
+.registration.registration-login {
   max-width: 440px;
 }
 
@@ -649,37 +615,37 @@ body {
   }
 }
 
-.registration .rememberme{
+.registration .rememberme {
   text-align: right;
   margin-top: -10px;
 }
 
-.registration .subscribe_check{
+.registration .subscribe_check {
   margin-top: 1px;
 }
 
-.registration .subscribe_check label{
+.registration .subscribe_check label {
   padding: 0
 }
 
-.registration .rememberme label{
+.registration .rememberme label {
   display: inline-block;
 }
 
-.registration .confirmlogin{
+.registration .confirmlogin {
   text-align: right;
   margin-top: -15px;
 }
 
-.registration .confirmregistration{
+.registration .confirmregistration {
   text-align: right;
 }
 
-.registration .confirmlogin a{
+.registration .confirmlogin a {
   color: #089f02;
 }
 
-.registration .confirmlogin a:hover{
+.registration .confirmlogin a:hover {
   color: #045b00;
 }
 
@@ -1122,7 +1088,7 @@ body {
     line-height: 30px;
     font-weight: 700;
   }
-  .your-reservation .offer-item .list-box{
+  .your-reservation .offer-item .list-box {
     margin-left: 25px;
   }
 }
@@ -1187,18 +1153,18 @@ body {
   margin: 0;
 }
 
-.your-reservation .cancellation_rules{
+.your-reservation .cancellation_rules {
   background: #78313d;
   color: #fff;
   padding: 11px 0 16px 50px;
   font-size: 13px;
 }
 
-.your-reservation .cancellation_rules p{
+.your-reservation .cancellation_rules p {
   margin: 0;
 }
 
-.your-reservation .cancellation_rules p span{
+.your-reservation .cancellation_rules p span {
   font-family: "PT-Sans", sans-serif;
   font-weight: 700;
 }
@@ -1364,8 +1330,6 @@ body {
   font-weight: 700;
 }
 
-
-
 .your-reservation.activity .head {
   border: 0;
   position: relative;
@@ -1407,7 +1371,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  .your-reservation.activity .head{
+  .your-reservation.activity .head {
     padding-top: 10px;
   }
 }
@@ -1428,26 +1392,26 @@ body {
   }
 }
 
-.your-reservation .offer-item h2{
+.your-reservation .offer-item h2 {
   color: #000;
   font-size: 28px;
   line-height: 32px;
 }
 
 @media (max-width: 767px) {
-  .your-reservation .offer-item h2{
+  .your-reservation .offer-item h2 {
     font-size: 20px;
     line-height: 24px;
     font-weight: 400;
   }
 }
 
-.your-reservation .offer-item h2 a{
+.your-reservation .offer-item h2 a {
   color: #000;
 }
 
 .your-reservation.activity h2 a:hover,
-.your-reservation.adventure h2 a:hover{
+.your-reservation.adventure h2 a:hover {
   color: #089f02;
 }
 
@@ -1587,7 +1551,6 @@ body {
   display: block;
   height: auto;
 }
-
 
 .map-block {
   overflow: hidden;
@@ -1857,144 +1820,6 @@ body {
   }
 }
 
-.all-activities header {
-  overflow: hidden;
-  margin: 0 0 20px;
-}
-
-.all-activities h1 {
-  margin: 0;
-  font-size: 36px;
-  line-height: 40px;
-  font-weight: 700;
-}
-
-@media (max-width: 767px) {
-  .all-activities h1 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    line-height: 30px;
-    font-weight: 700;
-  }
-}
-
-.all-activities .col {
-  margin-bottom: 30px;
-}
-
-.all-activities .img-holder {
-  overflow: hidden;
-  margin: 0 0 10px;
-}
-
-.all-activities .img-holder img {
-  width: 100%;
-  display: block;
-  height: auto;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.all-activities h2 {
-  margin: 0 0 5px;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 700;
-}
-
-.all-activities h2 a {
-  color: #000;
-}
-
-.all-activities h2 a:hover {
-  color: #eab011;
-}
-
-.all-activities .price {
-  color: #eab011;
-  display: block;
-  margin: 0 0 20px;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 700;
-}
-
-.all-activities .price span {
-  color: #000;
-  margin: 0 10px 0 0;
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 400;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.all-activities .price sub {
-  bottom: 0;
-}
-
-.all-activities .btn-primary {
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 3px;
-  background: #eab011;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.all-activities .btn-primary:hover {
-  opacity: 0.8;
-}
-
-
-.all-activities .subnav {
-  float: right;
-  margin: 35px 0 0;
-  background: #ededed;
-  border: 1px solid #ccc;
-}
-
-@media (max-width: 991px) {
-  .all-activities .subnav {
-    float: none;
-    margin: 0;
-    overflow: hidden;
-  }
-}
-
-.all-activities .subnav ul {
-  padding: 8px 0;
-  overflow: hidden;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 700;
-}
-
-.all-activities .subnav ul li {
-  padding: 0 13px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-@media (max-width: 767px) {
-  .all-activities .subnav ul li {
-    display: block;
-    padding: 5px 13px;
-  }
-}
-
-.all-activities .subnav ul li.active a {
-  color: #dc7f3c;
-}
-
-.all-activities .subnav ul a {
-  color: #000;
-}
-
-.all-activities .subnav ul a:hover {
-  color: #dc7f3c;
-}
-
 .modal-content {
   padding: 1px;
   border-radius: 0;
@@ -2061,12 +1886,15 @@ body {
   font-weight: 400;
   border-radius: 0;
 }
+
 .your-reservation .btn-pay.paypal {
   background: #ebb414;
 }
+
 .your-reservation .btn-pay.stripe {
   background: #517bda;
 }
+
 .your-reservation .more-detail .opener {
   z-index: 1;
 }
@@ -2079,24 +1907,20 @@ body {
 .popover {
   max-width: 600px;
 }
+
 .popover .popover-title {
   color: #089f02;
   font-size: 30px;
 }
+
 .popover img {
   max-height: 180px;
 }
+
 .popover a {
   color: #089f02;
 }
 
-.all-activities header {
-  text-align: left;
-  margin: 0 0 20px;
-}
-.all-activities .btn-success {
-  font-size: 15px;
-}
 .img-chart {
   width: 100%;
   max-width: 300px;
@@ -2106,38 +1930,36 @@ body {
   border-radius: 4px;
 }
 
-
-.csHidden{
+.csHidden {
   display: none;
 }
 
-
 /********** Log in page *******************/
 
-.login-page{
+.login-page {
   padding: 29px 0 50px;
 }
 
-.login-page__title{
+.login-page__title {
   font-weight: 700;
   margin: 0 0 10px;
 }
 
-.login-page__description{
+.login-page__description {
   margin: 0;
 }
 
-.login-content{
+.login-content {
   max-width: 356px;
   padding-left: 64px;
   position: relative;
 }
 
-.login-content__social-buttons{
+.login-content__social-buttons {
   margin: 42px 0 0;
 }
 
-.social-login-button{
+.social-login-button {
   display: block;
   font-size: 17px;
   background-color: #e5e5e5;
@@ -2151,12 +1973,12 @@ body {
   border-radius: 3px;
 }
 
-.social-login-button:hover{
+.social-login-button:hover {
   color: #000;
   background-color: #f7f3f3;
 }
 
-.social-login-button__facebook{
+.social-login-button__facebook {
   background-color: #5067b1;
   color: #fff;
   background-image: url('../../../images/facebook-full-white.svg');
@@ -2164,25 +1986,25 @@ body {
   background-position-x: 16px;
 }
 
-.social-login-button__facebook:hover{
+.social-login-button__facebook:hover {
   color: #fff;
   background-color: #697dbf;
 }
 
-.social-login-button__google{
+.social-login-button__google {
   background-image: url('../../../images/google-logo.svg');
   background-size: 21px;
   background-position-x: 14px;
 }
 
-.login-content__text-between{
+.login-content__text-between {
   text-align: center;
   position: relative;
   font-size: 13px;
   margin: 15px 0 14px;
 }
 
-.login-content__text-between:before{
+.login-content__text-between:before {
   content: '';
   height: 1px;
   width: 100%;
@@ -2194,7 +2016,7 @@ body {
   background-color: #e5e5e5;
 }
 
-.login-content__text-between-inside{
+.login-content__text-between-inside {
   background-color: #fff;
   padding: 0 15px;
   position: relative;
@@ -2205,16 +2027,16 @@ body {
   color: #BDBDBD;
 }
 
-.blue-checkbox{
+.blue-checkbox {
   margin: 0;
   cursor: pointer;
 }
 
-.blue-checkbox__input{
+.blue-checkbox__input {
   display: none;
 }
 
-.blue-checkbox__mark{
+.blue-checkbox__mark {
   width: 12px;
   height: 12px;
   display: inline-block;
@@ -2226,15 +2048,15 @@ body {
   position: relative;
 }
 
-.blue-checkbox__input:checked ~ .blue-checkbox__mark{
+.blue-checkbox__input:checked ~ .blue-checkbox__mark {
   background-color: #5b8dfc;
 }
 
-.blue-checkbox__input:checked ~ .blue-checkbox__mark:before{
+.blue-checkbox__input:checked ~ .blue-checkbox__mark:before {
   display: block;
 }
 
-.blue-checkbox__mark:before{
+.blue-checkbox__mark:before {
   content: '';
   position: absolute;
   display: none;
@@ -2247,7 +2069,7 @@ body {
   top: 1px;
 }
 
-.blue-checkbox__text{
+.blue-checkbox__text {
   font-size: 13px;
   font-weight: 400;
   display: inline-block;
@@ -2255,31 +2077,32 @@ body {
   margin-left: 3px;
 }
 
-.login-form{
+.login-form {
   padding: 0 0 30px;
 }
 
-.login-form__group{
+.login-form__group {
   margin-bottom: 10px;
 }
 
-.login-form__group_links{
+.login-form__group_links {
   margin: -6px 0 9px;
 }
-.login-form__group_links:after{
+
+.login-form__group_links:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.login-form__label{
+.login-form__label {
   position: absolute;
   right: 87.8%;
   font-weight: 400;
   margin-top: 7px;
 }
 
-.login-form__input{
+.login-form__input {
   border: 1px solid #c8c8c8;
   background: transparent;
   outline: 0;
@@ -2288,19 +2111,20 @@ body {
   width: 100%;
 }
 
-.login-form__register-link{
+.login-form__register-link {
   float: right;
   margin-top: 2px;
 }
 
-.green-link{
+.green-link {
   color: #089f02;
 }
-.green-link:hover{
+
+.green-link:hover {
   color: #14cc0d;
 }
 
-.orange-button{
+.orange-button {
   display: inline-block;
   background: #ebb414;
   -webkit-border-radius: 3px;
@@ -2314,25 +2138,25 @@ body {
   padding: 10px 14px;
 }
 
-.orange-button_block{
+.orange-button_block {
   display: block;
   width: 100%;
 }
 
-@media screen and (max-width: 767px) and (min-width: 481px){
-  .login-page{
+@media screen and (max-width: 767px) and (min-width: 481px) {
+  .login-page {
     padding: 29px 0 50px 15px;
   }
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
 
-  .login-content{
+  .login-content {
     margin: 0 auto;
     padding: 0;
   }
 
-  .login-form__label{
+  .login-form__label {
     position: relative;
     right: auto;
     margin: 10px 0;
