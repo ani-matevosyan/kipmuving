@@ -283,6 +283,7 @@ return [
   'first_choose_the_time'         => 'Primeiro, escolha o horário',
   'available_timerange'           => 'Faixa de tempo disponível',
   'here_your_personal_info'       => 'Aqui estão suas informações pessoais. Você pode atualizá-las a qualquer momento.',
+  'guest'                         => 'convidado',
   'the_frontal_photos'            => 'As fotos frontais são muito importantes para que os anfitriões e hóspedes possam se conhecer melhor. Hospedar uma paisagem não é tão divertido… Por favor, suba uma foto na qual se veja claramente seu rosto.',
   'i_am'                          => 'Sou',
   'sex'                           => 'Sexo',

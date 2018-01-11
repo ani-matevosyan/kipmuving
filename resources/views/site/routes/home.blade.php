@@ -133,7 +133,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -160,7 +160,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -187,7 +187,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -214,7 +214,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -241,7 +241,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -268,7 +268,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -295,7 +295,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>
@@ -322,7 +322,7 @@
                                 <a href="#">
                                     <img class="lazyload"
                                          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
-                                         data-original="{{ asset('/images/uploads/0a5ad231df8d41eaef2c1da9e74d7ed3.jpg') }}"
+                                         data-original="{{ asset('/uploads/activity/_zNYN9-2.jpg') }}"
                                          alt="Title of activity">
                                 </a>
                             </figure>

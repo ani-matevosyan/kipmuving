@@ -284,6 +284,7 @@ return [
   'first_choose_the_time'         => 'First, choose the time',
   'available_timerange'           => 'Available time range',
   'here_your_personal_info'       => 'Here are your personal information. You can update it at any time.',
+  'guest'                         => 'guest',
 	'the_frontal_photos'            => 'The frontal photos are very important so that the hosts and guests get to know each other better. Host a landscape is not that fun! Please upload a photo that clearly shows your face.',
 	'i_am'                          => 'I am',
 	'sex'                           => 'Sex',
