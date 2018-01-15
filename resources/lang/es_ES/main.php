@@ -363,4 +363,8 @@ return [
   'you_won_10'      => 'Ganaste 10% de descuento en Volkanica en las marcas Fjallraven y Salewa',
   'store_located'   => 'La tienda está ubicada en',
   'valid_until'     => 'Válido hasta',
+
+  'choose_the_day'  => 'Elija el día',
+  'when_it_will_be' => 'Cuando sería el horario',
+  'to'              => 'a',
 ];

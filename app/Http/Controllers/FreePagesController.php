@@ -11,6 +11,9 @@ class FreePagesController extends Controller
 {
 	public function index(Offer $offer)
 	{
+
+    $s_offers = \session('basket.special');
+
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
@@ -20,6 +23,7 @@ class FreePagesController extends Controller
 			'styles'  => config('resources.free.walking.styles'),
 			'scripts' => config('resources.free.walking.scripts'),
 			'count'   => [
+        'special_offers' => count($s_offers),
 				'offers'  => count(session('basket.offers')) + count(session('basket.free')),
 				'persons' => $offer->getSelectedOffersPersons(),
 				'total'   => $offer->getSelectedOffersTotal(),
@@ -31,12 +35,19 @@ class FreePagesController extends Controller
 
 	public function getBicicleta(Offer $offer)
 	{
+
+    $s_offers = \session('basket.special');
+
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-bicycle']);
 
 		$data = [
+		  'count'      => [
+        'special_offers' => count($s_offers),
+        'offers'  => count(session('basket.offers')) + count(session('basket.free')),
+      ],
 			'styles'     => config('resources.free.bicycle.styles'),
 			'scripts'    => config('resources.free.bicycle.scripts'),
 			'activities' => $this->getMapPoints(),
@@ -47,12 +58,19 @@ class FreePagesController extends Controller
 
 	public function getDecarro(Offer $offer)
 	{
+
+    $s_offers = \session('basket.special');
+
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 
 		$data = [
+      'count'      => [
+        'special_offers' => count($s_offers),
+        'offers'  => count(session('basket.offers')) + count(session('basket.free')),
+      ],
 			'styles'     => config('resources.free.bus.styles'),
 			'scripts'    => config('resources.free.bus.scripts'),
 			'activities' => $this->getMapPoints(),
@@ -63,12 +81,19 @@ class FreePagesController extends Controller
 
 	public function getTourcultural(Offer $offer)
 	{
+
+    $s_offers = \session('basket.special');
+
 		$prefix = str_replace('/', '', Route::current()->getAction()['prefix']);
 
 		if (in_array($prefix, session('cities.list')) && $prefix != session('cities.current'))
 			return redirect()->action('CityController@setCity', ['prefix' => $prefix, 'route' => 'guide-car']);
 
 		$data = [
+      'count'      => [
+        'special_offers' => count($s_offers),
+        'offers'  => count(session('basket.offers')) + count(session('basket.free')),
+      ],
 			'styles'     => config('resources.free.cultural.styles'),
 			'scripts'    => config('resources.free.cultural.scripts'),
 			'activities' => $this->getMapPoints(),

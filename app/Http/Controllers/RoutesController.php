@@ -23,4 +23,19 @@ class RoutesController extends Controller
     return view('site.routes.home', $data);
   }
 
+  public function suggestion(Offer $offer)
+  {
+    $s_offers = \session('basket.special');
+    $data = [
+      'styles' => config('resources.routes.styles'),
+      'scripts' => config('resources.routes.scripts'),
+      'count'             => [
+        'special_offers' => count($s_offers),
+        'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+      ]
+    ];
+
+    return view('site.routes.suggestion', $data);
+  }
+
 }

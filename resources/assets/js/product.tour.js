@@ -11,7 +11,7 @@ $(window).on('load', function(){
         if (window.location.pathname === '/home' || window.location.pathname === '/') {
             if(localStorage.hometour !== "visited"){
                 homeTour();
-           }
+            }
            $(".info-tour").show();
         }
         if (window.location.pathname.indexOf('/activity/') === 0) {

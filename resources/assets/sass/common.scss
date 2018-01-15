@@ -141,66 +141,6 @@ a:hover, a:focus, a:active {
   text-decoration: none;
 }
 
-/* custom select styles */
-.jcf-select {
-  width: 100%;
-  height: 34px;
-  overflow: hidden;
-  min-width: 150px;
-  position: relative;
-  background: #fff;
-  border-radius: 2px;
-  border: 1px solid #cdcdcd;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.jcf-select select {
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.jcf-select .jcf-select-text {
-  color: #000;
-  display: block;
-  cursor: default;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin: 6px 20px 0 9px;
-}
-
-.jcf-select .jcf-select-opener {
-  position: absolute;
-  text-align: center;
-  background: transparent;
-  width: 26px;
-  bottom: 0;
-  right: 0;
-  top: 0;
-}
-
-.jcf-select .jcf-select-opener:after {
-  width: 0;
-  height: 0;
-  content: '';
-  border-style: solid;
-  border-width: 4px 4px 0;
-  border-color: #000 transparent transparent;
-  position: absolute;
-  left: auto;
-  top: 14px;
-  right: 9px;
-  bottom: auto;
-}
-
-body > .jcf-select-drop {
-  position: absolute;
-  margin: -1px 0 0;
-  z-index: 9999;
-}
-
 body > .ui-datepicker {
   z-index: 9999 !important;
 }
@@ -1924,10 +1864,6 @@ body {
 .img-chart {
   width: 100%;
   max-width: 300px;
-}
-
-.jcf-select {
-  border-radius: 4px;
 }
 
 .csHidden {

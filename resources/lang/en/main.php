@@ -364,4 +364,8 @@ return [
   'you_won_10'      => 'You won a 10% discount on Volkanica in the brands Fjallraven and Salewa',
   'store_located'   => 'The store is located in',
   'valid_until'     => 'Valid until',
+
+  'choose_the_day'  => 'Choose the day',
+  'when_it_will_be' => 'When it will be',
+  'to'              => 'to',
 ];
