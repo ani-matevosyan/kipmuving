@@ -13,7 +13,7 @@ class RoutesController extends Controller
     $s_offers = \session('basket.special');
     $data = [
       'styles' => config('resources.routes.styles'),
-      'scripts' => config('resources.routes.scripts'),
+      'scripts' => config('resources.routes.scripts.home'),
       'count'             => [
         'special_offers' => count($s_offers),
         'offers'         => count(session('basket.offers')) + count(session('basket.free'))
@@ -28,7 +28,7 @@ class RoutesController extends Controller
     $s_offers = \session('basket.special');
     $data = [
       'styles' => config('resources.routes.styles'),
-      'scripts' => config('resources.routes.scripts'),
+      'scripts' => config('resources.routes.scripts.single'),
       'count'             => [
         'special_offers' => count($s_offers),
         'offers'         => count(session('basket.offers')) + count(session('basket.free'))

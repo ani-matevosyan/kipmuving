@@ -195,7 +195,15 @@ return [
       'css/routes.css'
     ],
     'scripts' => [
-      'js/routes.js'
+      'home' => [
+        'js/routes.js'
+      ],
+      'single' => [
+        [
+          'link' => 'https://maps.google.com/maps/api/js?key=AIzaSyBED1xxwdz2aeMSXBDtJwItnDn7apYZjF8&callback=initMap'
+        ],
+        'js/routes.js'
+      ]
     ]
   ]
 ];

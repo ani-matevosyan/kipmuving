@@ -605,7 +605,39 @@
                     </ul>
                 </div>
                 <aside class="s-suggestion__aside">
-                    aside
+                    <div class="s-suggestion__map" id="map"></div>
+                    <script>
+                        var activitiesList = [
+                          ['Activity1', -39.272946, -71.972477, 1],
+                          ['Activity2', -39.270768, -71.994586, 2],
+                          ['Activity3', -39.276549, -71.977806, 3],
+                          ['Activity4', -39.284650, -71.993613, 4]
+                        ];
+
+                      function initMap() {
+                        var latLng = new google.maps.LatLng(-39.27535, -71.97380);
+                        var myOptions = {
+                          zoom: 15,
+                          center: latLng,
+                        };
+                        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                        var bounds  = new google.maps.LatLngBounds();
+                        for (var i = 0; i < activitiesList.length; i++){
+                          var activity = activitiesList[i];
+                          var image = '{{ asset('images/routes-suggestion-markers/marker') }}'+activity[3]+'.png';
+                          let loc = new google.maps.LatLng(activity[1], activity[2]);
+                          var marker = new google.maps.Marker({
+                            position: {lat: activity[1], lng: activity[2]},
+                            map: map,
+                            title: activity[0],
+                            icon: image
+                          });
+                          bounds.extend(loc);
+                        }
+                        map.fitBounds(bounds);
+                        map.panToBounds(bounds);
+                      }
+                    </script>
                 </aside>
             </section>
         </div>

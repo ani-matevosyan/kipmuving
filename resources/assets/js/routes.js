@@ -27,11 +27,14 @@ $(document).ready(function(){
             e.preventDefault();
             let urlOfThis = $(this)[0].href;
             if($("#the-image img")) {
-              $("#the-image img").remove();
+              $("#the-image").html('');
             }
             $.each($("#data span"), function(i,v){
               if($(this).attr('data-link') == urlOfThis) {
                 $("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
+                if($(this).attr('data-location') !== 'undefined'){
+                  $("#the-image").append("<p style='margin:10px 0 0 30px; font-size: 12px;'>"+$(this).attr('data-location')+"</p>");
+                }
               }
             });
             $("#myModalX").modal('show');
@@ -42,7 +45,7 @@ $(document).ready(function(){
           if(data.data.length > 6) data.data.splice(5, (data.data.length - 6));
           $.each(data.data, function(i,v){
             let url = v.images.standard_resolution.url;
-            $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\"></span>");
+            $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + v.location.name + "\"></span>");
           });
         }
       });

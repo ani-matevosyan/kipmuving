@@ -284,12 +284,7 @@ $(document).ready(function () {
       success: function (data) {
         $.each(data.data, function (i, v) {
           let url = v.images.standard_resolution.url;
-          // console.log(v);
-          if(v.location){
-            var locationName = v.location.name;
-            console.log(locationName);
-          }
-          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + locationName + "\"></span>");
+          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + v.location.name + "\"></span>");
         });
       }
     });
