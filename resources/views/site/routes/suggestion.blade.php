@@ -33,8 +33,7 @@
                                     <header>
                                         <div class="days-list__header-content">
                                             <h4>
-                                                <img src="{{ asset('images/information-symbol-grey2.svg') }}" alt="information icon">
-                                                Base Volcán
+                                                <a href="#">Base Volcán</a>
                                             </h4>
                                             <p>Tenemos todas las rutas que necesitas para disfrutar cómodamente sobre tu
                                                 cuatro ruedas de los principales de la ciudad, como los ojos del Caburgua,
@@ -47,17 +46,15 @@
                                     </header>
                                     <div class="days-list__instagram-block days-list__instagram-block_loading" id="instafeed1" data-location-id="1827155880871933"></div>
                                     <footer>
-                                        <div class="days-list__first-label-container">
-                                            <label>{{ trans('main.choose_the_day') }}</label>
-                                        </div>
-                                        <label>{{ trans('main.when_it_will_be') }}</label>
-                                        <form action="">
-                                            <div class="days-list__calendar">
+                                        <form class="routes-activity-form">
+                                            <div class="routes-activity-form__calendar">
+                                                <label>{{ trans('main.choose_the_day') }}</label>
                                                 <input type="text" name="date"
                                                        data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
                                                        value="" required>
                                             </div>
-                                            <div class="days-list__time">
+                                            <div class="routes-activity-form__time">
+                                                <label>{{ trans('main.when_it_will_be') }}</label>
                                                 <select name="hours_from" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -109,7 +106,7 @@
                                                     <option value="23:00">23:00</option>
                                                     <option value="23:30">23:30</option>
                                                 </select>
-                                                <span class="days-list__divider">{{ trans('main.to') }}</span>
+                                                <span class="routes-activity-form__divider">{{ trans('main.to') }}</span>
                                                 <select name="hours_to" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -162,7 +159,7 @@
                                                     <option value="23:30">23:30</option>
                                                 </select>
                                             </div>
-                                            <div class="days-list__buttons-holder">
+                                            <div class="routes-activity-form__buttons-holder">
                                                 <button class="btn">{{ trans('main.add') }}</button>
                                             </div>
                                         </form>
@@ -172,8 +169,7 @@
                                     <header>
                                         <div class="days-list__header-content">
                                             <h4>
-                                                <img src="{{ asset('images/information-symbol-grey2.svg') }}" alt="information icon">
-                                                Caburgua
+                                                <a href="#">Caburgua</a>
                                             </h4>
                                             <p>Tenemos todas las rutas que necesitas para disfrutar cómodamente sobre tu
                                                 cuatro ruedas de los principales de la ciudad, como los ojos del Caburgua,
@@ -186,17 +182,15 @@
                                     </header>
                                     <div class="days-list__instagram-block days-list__instagram-block_loading" id="instafeed2" data-location-id="214784264"></div>
                                     <footer>
-                                        <div class="days-list__first-label-container">
-                                            <label>{{ trans('main.choose_the_day') }}</label>
-                                        </div>
-                                        <label>{{ trans('main.when_it_will_be') }}</label>
-                                        <form action="">
-                                            <div class="days-list__calendar">
+                                        <form class="routes-activity-form">
+                                            <div class="routes-activity-form__calendar">
+                                                <label>{{ trans('main.choose_the_day') }}</label>
                                                 <input type="text" name="date"
                                                        data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
                                                        value="" required>
                                             </div>
-                                            <div class="days-list__time">
+                                            <div class="routes-activity-form__time">
+                                                <label>{{ trans('main.when_it_will_be') }}</label>
                                                 <select name="hours_from" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -248,7 +242,7 @@
                                                     <option value="23:00">23:00</option>
                                                     <option value="23:30">23:30</option>
                                                 </select>
-                                                <span class="days-list__divider">{{ trans('main.to') }}</span>
+                                                <span class="routes-activity-form__divider">{{ trans('main.to') }}</span>
                                                 <select name="hours_to" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -301,7 +295,7 @@
                                                     <option value="23:30">23:30</option>
                                                 </select>
                                             </div>
-                                            <div class="days-list__buttons-holder">
+                                            <div class="routes-activity-form__buttons-holder">
                                                 <button class="btn">{{ trans('main.add') }}</button>
                                             </div>
                                         </form>
@@ -326,8 +320,7 @@
                                     <header>
                                         <div class="days-list__header-content">
                                             <h4>
-                                                <img src="{{ asset('images/information-symbol-grey2.svg') }}" alt="information icon">
-                                                Hong Kong
+                                                <a href="#">Hong Kong</a>
                                             </h4>
                                             <p>Tenemos todas las rutas que necesitas para disfrutar cómodamente sobre tu
                                                 cuatro ruedas de los principales de la ciudad, como los ojos del Caburgua,
@@ -340,17 +333,15 @@
                                     </header>
                                     <div class="days-list__instagram-block days-list__instagram-block_loading" id="instafeed3" data-location-id="214424288"></div>
                                     <footer>
-                                        <div class="days-list__first-label-container">
-                                            <label>{{ trans('main.choose_the_day') }}</label>
-                                        </div>
-                                        <label>{{ trans('main.when_it_will_be') }}</label>
-                                        <form action="">
-                                            <div class="days-list__calendar">
+                                        <form class="routes-activity-form">
+                                            <div class="routes-activity-form__calendar">
+                                                <label>{{ trans('main.choose_the_day') }}</label>
                                                 <input type="text" name="date"
                                                        data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
                                                        value="" required>
                                             </div>
-                                            <div class="days-list__time">
+                                            <div class="routes-activity-form__time">
+                                                <label>{{ trans('main.when_it_will_be') }}</label>
                                                 <select name="hours_from" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -402,7 +393,7 @@
                                                     <option value="23:00">23:00</option>
                                                     <option value="23:30">23:30</option>
                                                 </select>
-                                                <span class="days-list__divider">{{ trans('main.to') }}</span>
+                                                <span class="routes-activity-form__divider">{{ trans('main.to') }}</span>
                                                 <select name="hours_to" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -455,7 +446,7 @@
                                                     <option value="23:30">23:30</option>
                                                 </select>
                                             </div>
-                                            <div class="days-list__buttons-holder">
+                                            <div class="routes-activity-form__buttons-holder">
                                                 <button class="btn">{{ trans('main.add') }}</button>
                                             </div>
                                         </form>
@@ -465,8 +456,7 @@
                                     <header>
                                         <div class="days-list__header-content">
                                             <h4>
-                                                <img src="{{ asset('images/information-symbol-grey2.svg') }}" alt="information icon">
-                                                Volcán Villarrica
+                                                <a href="#">Volcán Villarrica</a>
                                             </h4>
                                             <p>Tenemos todas las rutas que necesitas para disfrutar cómodamente sobre tu
                                                 cuatro ruedas de los principales de la ciudad, como los ojos del Caburgua,
@@ -479,17 +469,15 @@
                                     </header>
                                     <div class="days-list__instagram-block days-list__instagram-block_loading" id="instafeed4" data-location-id="217765593"></div>
                                     <footer>
-                                        <div class="days-list__first-label-container">
-                                            <label>{{ trans('main.choose_the_day') }}</label>
-                                        </div>
-                                        <label>{{ trans('main.when_it_will_be') }}</label>
-                                        <form action="">
-                                            <div class="days-list__calendar">
+                                        <form class="routes-activity-form">
+                                            <div class="routes-activity-form__calendar">
+                                                <label>{{ trans('main.choose_the_day') }}</label>
                                                 <input type="text" name="date"
                                                        data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
                                                        value="" required>
                                             </div>
-                                            <div class="days-list__time">
+                                            <div class="routes-activity-form__time">
+                                                <label>{{ trans('main.when_it_will_be') }}</label>
                                                 <select name="hours_from" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -541,7 +529,7 @@
                                                     <option value="23:00">23:00</option>
                                                     <option value="23:30">23:30</option>
                                                 </select>
-                                                <span class="days-list__divider">{{ trans('main.to') }}</span>
+                                                <span class="routes-activity-form__divider">{{ trans('main.to') }}</span>
                                                 <select name="hours_to" required>
                                                     <option selected disabled value=""></option>
                                                     <option value="00:00">00:00</option>
@@ -594,7 +582,7 @@
                                                     <option value="23:30">23:30</option>
                                                 </select>
                                             </div>
-                                            <div class="days-list__buttons-holder">
+                                            <div class="routes-activity-form__buttons-holder">
                                                 <button class="btn">{{ trans('main.add') }}</button>
                                             </div>
                                         </form>
@@ -625,7 +613,7 @@
                         for (var i = 0; i < activitiesList.length; i++){
                           var activity = activitiesList[i];
                           var image = '{{ asset('images/routes-suggestion-markers/marker') }}'+activity[3]+'.png';
-                          let loc = new google.maps.LatLng(activity[1], activity[2]);
+                          var loc = new google.maps.LatLng(activity[1], activity[2]);
                           var marker = new google.maps.Marker({
                             position: {lat: activity[1], lng: activity[2]},
                             map: map,

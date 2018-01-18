@@ -38,4 +38,19 @@ class RoutesController extends Controller
     return view('site.routes.suggestion', $data);
   }
 
+  public function activity(Offer $offer)
+  {
+    $s_offers = \session('basket.special');
+    $data = [
+      'styles' => config('resources.routes.styles'),
+      'scripts' => config('resources.routes.scripts.single'),
+      'count'             => [
+        'special_offers' => count($s_offers),
+        'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+      ]
+    ];
+
+    return view('site.routes.activity', $data);
+  }
+
 }

@@ -53,6 +53,51 @@ $(document).ready(function(){
     });
   }
 
+
+  if($("#routes-activity-instagram").length){
+
+      let thisTagName = $("#routes-activity-instagram").attr('data-tag');
+
+      let feed = new Instafeed({
+        get: 'tagged',
+        tagName: thisTagName,
+        target: 'routes-activity-instagram',
+        accessToken : accessToken,
+        template: '<div class="routes-activity__instagram-item"><a href="{{link}}"><img src="{{image}}"/></a></div>',
+        limit: 10,
+        after: function(){
+          $('#routes-activity-instagram a').click(function(e){
+            e.preventDefault();
+            let urlOfThis = $(this)[0].href;
+            if($("#the-image img")) {
+              $("#the-image").html('');
+            }
+            $.each($("#data span"), function(i,v){
+              if($(this).attr('data-link') == urlOfThis) {
+                $("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
+                if($(this).attr('data-location') !== 'undefined'){
+                  $("#the-image").append("<p style='margin:10px 0 0 30px; font-size: 12px;'>"+$(this).attr('data-location')+"</p>");
+                }
+              }
+            });
+            $("#myModalX").modal('show');
+          });
+        },
+        success: function(data){
+          $('#routes-activity-instagram').removeClass('routes-activity__instagram_loading');
+          $.each(data.data, function(i,v){
+            let url = v.images.standard_resolution.url;
+            let locationName;
+            if(v.location){
+              locationName = v.location.name;
+            }
+            $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + locationName + "\"></span>");
+          });
+        }
+      });
+      feed.run();
+  }
+
   jcf.setOptions('Select', {
     wrapNative: false,
     wrapNativeOnMobile: false,
@@ -64,7 +109,7 @@ $(document).ready(function(){
     dateFormat: 'dd/mm/yy'
   });
 
-  $("img.lazyload").lazyload();
+  $(".lazyload").lazyload();
 
   $(".s-own-plans__slider").owlCarousel({
     items: 1,

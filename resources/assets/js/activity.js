@@ -283,8 +283,11 @@ $(document).ready(function () {
       },
       success: function (data) {
         $.each(data.data, function (i, v) {
-          let url = v.images.standard_resolution.url;
-          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + v.location.name + "\"></span>");
+          let locationName;
+          if(v.location){
+            locationName = v.location.name;
+          }
+          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + locationName + "\"></span>");
         });
       }
     });

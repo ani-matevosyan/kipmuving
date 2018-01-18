@@ -615,14 +615,27 @@
     float: left;
     width: 62%;
     padding-right: 31px;
+    @media screen and (max-width: 991px){
+      width: 100%;
+    }
   }
   &__aside{
     float: left;
     width: 38%;
+    @media screen and (max-width: 991px){
+      width: 100%;
+    }
   }
   &__map{
     height: 605px;
     background-color: #f2f2f2;
+    margin-bottom: 50px;
+    @media screen and (max-width: 1199px){
+      height: 510px;
+    }
+    @media screen and (max-width: 450px){
+      height: 310px;
+    }
   }
 }
 
@@ -642,6 +655,9 @@
   &__item{
     position: relative;
     padding-bottom: 64px;
+    &:last-child{
+      padding-bottom: 25px;
+    }
     &:after{
       content: '';
       position: absolute;
@@ -671,10 +687,12 @@
       }
     }
     h4{
-      color: #242c3a;
       font-weight: 700;
       font-size: 25px;
       margin: 0;
+      a{
+        color: #242c3a;
+      }
     }
     header{
       position: relative;
@@ -683,14 +701,10 @@
       font-size: 14px;
     }
   }
-  &__first-label-container{
-    width: 176px;
-    padding-left: 45px;
-    display: inline-block;
-  }
   &__header-content{
     display: inline-block;
     cursor: pointer;
+    padding-left: 24px;
     &:before{
       content: '';
       display: none;
@@ -700,12 +714,17 @@
       right: 0;
       height: 40px;
     }
-    img{
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
       width: 16px;
       height: 16px;
-      position: relative;
-      top: -3px;
-      margin-right: 3px;
+      background: url('../../images/information-symbol-grey2.svg') no-repeat;
+      background-size: contain;
+      margin: auto;
     }
     p{
       position: absolute;
@@ -747,19 +766,57 @@
       }
     }
   }
+  &__instagram-block{
+    font-size: 0;
+    margin: 21px 0 15px;
+    height: 88px;
+    @media screen and (max-width: 600px){
+      height: auto;
+    }
+    &_loading{
+      background-color: #f2f2f2;
+      @media screen and (max-width: 600px){
+        height: 88px;
+      }
+    }
+  }
+  &__instagram-item{
+    @extend %inline-block_middle;
+    height: 88px;
+    width: 14%;
+    &:first-child{
+      width: 30%;
+    }
+    @media screen and (max-width: 600px){
+      width: 33.333%;
+      &:first-child{
+        width: 33.3333%;
+      }
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.routes-activity-form{
   &__calendar,
   &__time{
-    @extend %inline-block_top;
+    @extend %inline-block_bottom;
     position: relative;
     &:before{
       content: '';
       position: absolute;
       margin: auto;
-      top: 0;
-      bottom: 0;
+      top: 27px;
       left: 15px;
       background-size: contain;
       background-repeat: no-repeat;
+    }
+    label{
+      display: block;
     }
   }
   &__calendar{
@@ -781,9 +838,22 @@
         outline: none;
       }
     }
+    label{
+      padding-left: 15px;
+    }
+    @media screen and (max-width: 500px){
+      display: block;
+      margin-bottom: 7px;
+      label{
+        padding-left: 0;
+      }
+    }
   }
   &__time{
     padding-left: 39px;
+    @media screen and (max-width: 500px){
+      padding-left: 35px;
+    }
     &:before{
       width: 18px;
       height: 18px;
@@ -839,7 +909,13 @@
   }
   &__buttons-holder{
     margin-left: 4px;
-    @extend %inline-block_middle;
+    @extend %inline-block_bottom;
+    @media screen and (max-width: 500px){
+      display: block;
+      margin-left: 0;
+      margin-top: 15px;
+      padding-left: 35px;
+    }
   }
   .btn{
     color: #fff;
@@ -850,20 +926,165 @@
     padding: 6px 16px;
     margin-right: 9px;
   }
+}
+
+.routes-activity-hero{
+  height: 262px;
+  background: #f2f2f2 no-repeat;
+  background-size: cover;
+}
+
+.routes-activity{
+  padding: 29px 0 69px;
+  &:after{
+    @extend %clearboth;
+  }
+  &__info-block,
+  &__instagram-block,
+  &__tripadvisor-block{
+    float: left;
+  }
+  &__info-block{
+    width: 51%;
+    header{
+      color: #242c3a;
+      margin-bottom: 20px;
+      span,
+      h1{
+        @extend %inline-block_middle;
+      }
+      span{
+        font-size: 30px;
+        font-weight: 700;
+        position: relative;
+        padding-right: 39px;
+        &:after{
+          content: '';
+          position: absolute;
+          height: 16px;
+          width: 16px;
+          border: solid #707070;
+          border-width: 3px 3px 0 0;
+          transform: rotate(45deg);
+          right: 13px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+      h1{
+        font-size: 23px;
+        margin: 0;
+      }
+    }
+    &>p{
+      font-size: 15px;
+    }
+  }
+  &__tabs{
+    text-align: left;
+    a.yello-button {
+      color: #ffffff;
+      background-color: #ebb414;
+      text-transform: uppercase;
+      font-size: 14px;
+      text-decoration: none;
+      outline: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      margin: auto;
+    }
+    .nav-pills{
+      @media screen and (max-width: 600px){
+        margin-bottom: 10px;
+      }
+      &>li {
+        color: #000000;
+        padding: 0 10px 17px;
+        border-radius: 0;
+        &:not(:first-child){
+          @media screen and (min-width:601px){
+            border-left: 1px solid #cccccc;
+          }
+        }
+        &.active{
+          @media screen and (max-width: 600px){
+            background: #eeeeee;
+          }
+          @media screen and (min-width: 601px){
+            &:after{
+              content: '';
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              right: 0;
+              margin: auto;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 9px 11px 9px;
+              border-color: transparent transparent #eeeeee transparent;
+              filter: drop-shadow(0px -1px 0px #d1d1d1);
+            }
+          }
+        }
+        @media screen and (max-width: 600px){
+          float: none;
+        }
+        img,
+        .link-info{
+          @extend %inline-block_middle;
+        }
+        .link-info {
+          padding-left: 10px;
+          font-size: 15px;
+          p {
+            margin: 0;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  &__tabs-content{
+    border: 1px solid #d1d1d1;
+    margin-bottom: 18px;
+  }
+  &__map{
+    height: 196px;
+    background-color: #f2f2f2;
+  }
   &__instagram-block{
+    width: 29%;
+    padding: 0 33px 0 21px;
+    &>header{
+      background: url(../../images/instagram.svg) no-repeat left center;
+      background-size: 28px;
+      padding-left: 37px;
+      line-height: 28px;
+      color: #e12570;
+      margin-bottom: 23px;
+    }
+  }
+  &__instagram{
     font-size: 0;
-    margin: 21px 0 15px;
-    height: 88px;
     &_loading{
       background-color: #f2f2f2;
+      height: 410px;
     }
   }
   &__instagram-item{
     @extend %inline-block_middle;
-    height: 88px;
-    width: 14%;
-    &:first-child{
-      width: 30%;
+    height: 82px;
+    width: 50%;
+    &:nth-child(odd){
+      width: 66%;
+    }
+    &:nth-child(even){
+      width: 34%;
     }
     img{
       width: 100%;
@@ -871,4 +1092,8 @@
       object-fit: cover;
     }
   }
+  &__tripadvisor-block{
+    width: 20%;
+  }
 }
+
