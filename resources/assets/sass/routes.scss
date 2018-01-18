@@ -930,8 +930,14 @@
 
 .routes-activity-hero{
   height: 262px;
-  background: #f2f2f2 no-repeat;
+  background: #f2f2f2 no-repeat center;
   background-size: cover;
+  @media screen and (max-width: 650px){
+    height: 190px;
+  }
+  @media screen and (max-width: 470px){
+    height: 150px;
+  }
 }
 
 .routes-activity{
@@ -946,9 +952,19 @@
   }
   &__info-block{
     width: 51%;
+    @media screen and (max-width: 991px){
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: 470px){
+      float: none;
+    }
     header{
       color: #242c3a;
       margin-bottom: 20px;
+      @media screen and (max-width: 550px){
+        text-align: center;
+      }
       span,
       h1{
         @extend %inline-block_middle;
@@ -958,6 +974,11 @@
         font-weight: 700;
         position: relative;
         padding-right: 39px;
+        @media screen and (max-width: 550px){
+          display: block;
+          padding-bottom: 40px;
+          padding-right: 0;
+        }
         &:after{
           content: '';
           position: absolute;
@@ -970,6 +991,13 @@
           top: 0;
           bottom: 0;
           margin: auto;
+          @media screen and (max-width: 550px){
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: 13px;
+            border-width: 0 3px 3px 0;
+          }
         }
       }
       h1{
@@ -1060,6 +1088,19 @@
   &__instagram-block{
     width: 29%;
     padding: 0 33px 0 21px;
+    @media screen and (max-width: 991px){
+      width: 60%;
+      padding-left: 0;
+    }
+    @media screen and (max-width: 767px){
+      width: 50%;
+      padding-right: 15px;
+    }
+    @media screen and (max-width: 470px){
+      padding: 0;
+      width: 100%;
+      float: none;
+    }
     &>header{
       background: url(../../images/instagram.svg) no-repeat left center;
       background-size: 28px;
@@ -1094,6 +1135,19 @@
   }
   &__tripadvisor-block{
     width: 20%;
+    @media screen and (max-width: 991px){
+      width: auto;
+      float: right;
+      max-width: 40%;
+    }
+    @media screen and (max-width: 767px){
+      max-width: 50%;
+    }
+    @media screen and (max-width: 470px){
+      max-width: none;
+      width: 100%;
+      float: none;
+    }
   }
 }
 
