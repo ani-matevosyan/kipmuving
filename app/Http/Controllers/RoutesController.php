@@ -45,24 +45,24 @@ class RoutesController extends Controller
 
 	public function filterSuggestions(Request $request)
 	{
-		$weather = $request['weather'] ?: null;
-		$time = $request['time'] ?: null;
-		$intensity = $request['intensity'] ?: null;
-		$category = $request['category'] ?: null;
+		$weather = $request['weather'] ? explode(',', $request['weather']) : null;
+		$time = $request['time'] ? explode(',', $request['time']) : null;
+		$intensity = $request['intensity'] ? explode(',', $request['intensity']) : null;
+		$categories = $request['categories'] ? explode(',', $request['categories']) : null;
 
 		$suggestions = Suggestion::query();
 
 		if ($weather)
-			$suggestions = $suggestions->where('weather', '=', $weather);
+			$suggestions = $suggestions->whereIn('weather', $weather);
 
 		if ($time)
-			$suggestions = $suggestions->where('time_of_day', '=', $time);
+			$suggestions = $suggestions->whereIn('time_of_day', $time);
 
 		if ($intensity)
-			$suggestions = $suggestions->where('intensity', '=', $intensity);
+			$suggestions = $suggestions->whereIn('intensity', $intensity);
 
-		if ($category)
-			$suggestions = $suggestions->where('category', '=', $category);
+		if ($categories)
+			$suggestions = $suggestions->whereIn('category', $categories);
 
 		$suggestions = $suggestions->get();
 
