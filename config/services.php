@@ -38,12 +38,12 @@ return [
 	'facebook' => [
 		'client_id'     => '109798136385162',
 		'client_secret' => '709e550d73545f40920a35f27cdcc319',
-		'redirect'      => 'http://keepmoving.co/auth/facebook/callback',
+		'redirect'      => 'https://aventuraschile.com/auth/facebook/callback',
 	],
 	'google' => [
 		'client_id'     => '426565676169-oabbvgrvtj8cd90bgtftlqtbebpjkg74.apps.googleusercontent.com',
 		'client_secret' => 'ncnebkzQtAfjb9gCAYFa--W3',
-		'redirect'      => 'http://keepmoving.co/auth/gplus/callback',
+		'redirect'      => 'https://aventuraschile.com/auth/gplus/callback',
 	]
 
 ];
