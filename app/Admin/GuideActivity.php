@@ -55,6 +55,7 @@ AdminSection::registerModel(FreeActivity::class, function (ModelConfiguration $m
 				], 2)
 				->addColumn([
 					AdminFormElement::select('page', 'PAGE')->required()->setOptions([
+						'walking'    => 'Walking',
 						'bus'      => 'By car or bus',
 						'cultural' => 'Cultural tour',
 						'bicycle'  => 'Bicycle'

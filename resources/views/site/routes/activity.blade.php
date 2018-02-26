@@ -1,21 +1,17 @@
 @extends('site.layouts.default-new')
 
 @section('content')
+
     <main>
-        <div class="routes-activity-hero lazyload" data-original="{{ asset('uploads/activity/_7ATus-1.jpg') }}"></div>
+        <div class="routes-activity-hero lazyload" data-original="{{ asset($free_activity->image) }}"></div>
         <section class="routes-activity">
             <div class="container">
                 <div class="routes-activity__info-block">
                     <header>
-                        <span>Villarrica</span>
-                        <h1>Caminhando</h1>
+                        <span>{{ $free_activity->name }}</span>
+                        <h1>{{ $free_activity_category ?: $free_activity_category }}</h1>
                     </header>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        has been the industry's standard dummy text ever since the 1500s, when an
-                        printer took a galley of type and scrambled it to make a type specimen boo
-                        ived not only five centuries, but also the leap into electronic typesetting, rema
-                        tially unchanged. It was popularised in the 1960s with the release of Letraset
-                        taining Lorem Ipsum passages, and more recently with desktop publish</p>
+                    <p>{{ $free_activity->description }}</p>
                     <div class="routes-activity__tabs">
                         <ul class="nav nav-pills">
                             <li class="active">
@@ -33,8 +29,8 @@
                                     function initMap(){
                                       var pucon = {lat: -39.279351, lng: -71.968676};
                                       var thispoint = {
-                                        lat: -26.385061,
-                                        lng: -70.046095 };
+                                        lat: {{ $free_activity->latitude }},
+                                        lng: {{ $free_activity->longitude }} };
                                       var latLng = new google.maps.LatLng(thispoint);
                                       var myOptions = {
                                         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -61,7 +57,7 @@
                                       var marker = new google.maps.Marker({
                                         position: latLng,
                                         map: map,
-                                        title: 'Caminhando'
+                                        title: '{{ $free_activity_category ?: $free_activity_category }}'
                                       });
                                     }
                                 </script>
@@ -187,17 +183,13 @@
                     </form>
                 </div>
                 <div class="routes-activity__instagram-block">
-                    <header>#termasmenetue</header>
-                    <div class="routes-activity__instagram routes-activity__instagram_loading" id="routes-activity-instagram" data-tag="termasmenetue"></div>
+                    <header>#{{ $free_activity->instagram_id }}</header>
+                    <div class="routes-activity__instagram routes-activity__instagram_loading" id="routes-activity-instagram" data-tag="{{ $free_activity->instagram_id }}"></div>
                 </div>
                 <div class="routes-activity__tripadvisor-block">
-                    <div id="TA_selfserveprop883" class="TA_selfserveprop">
-                        <ul id="1d5xTzTf8tDP" class="TA_links SnpLGahqg">
-                            <li id="87CiP61nH" class="q9aQ7hWJLBv">
-                                <a target="_blank" href="https://www.tripadvisor.ru/"><img src="https://www.tripadvisor.ru/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
-                            </li>
-                        </ul>
-                    </div>
+                    @if($free_activity->tripadvisor_code)
+                        {!! $free_activity->tripadvisor_code !!}
+                    @endif
                     <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=883&amp;locationId=2069432&amp;lang=ru&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
                 </div>
             </div>

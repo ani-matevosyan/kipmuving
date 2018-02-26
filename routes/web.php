@@ -201,5 +201,10 @@ Route::get('/reserve/payu', 'ReservationController@paymentPayU');
 
 
 Route::get('/routes/home', 'RoutesController@index');
-Route::get('/routes/suggestion', 'RoutesController@suggestion');
-Route::get('/routes/activity', 'RoutesController@activity');
+Route::get('/routes/filter', 'RoutesController@filterSuggestions');
+Route::get('/routes/suggestions/{id}', 'RoutesController@suggestion')
+	->name('suggestions-single')
+	->where('id', '[0-9]+');
+Route::get('/routes/activities/{id}', 'RoutesController@activity')
+	->name('routes-single')
+	->where('id', '[0-9]+');

@@ -75,6 +75,12 @@ return [
 		'model' => \App\Reservation::class
 	],
 	[
+		'title' => "Suggestions",
+		'priority' => 7,
+		'icon'  => 'fa fa-thumbs-up',
+		'model' => \App\Suggestion::class
+	],
+	[
 		'title' => "Users",
 		'priority' => 100,
 		'icon'  => 'fa fa-users',
