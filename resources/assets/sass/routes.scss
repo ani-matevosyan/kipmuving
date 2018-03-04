@@ -6,6 +6,7 @@
 
 @import "./components/custom-checkbox";
 @import "./components/instafeed";
+@import "./components/filter-loader";
 
 .s-plans{
   background-color: #f2f2f2;
@@ -338,6 +339,12 @@
       @media screen and (max-width: 410px){
         width: 100%;
       }
+    }
+    h4{
+      margin: 0;
+      font-size: 20px;
+      text-align: center;
+      padding: 50px 0;
     }
   }
   figure{

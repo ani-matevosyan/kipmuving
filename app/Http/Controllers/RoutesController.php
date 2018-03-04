@@ -45,10 +45,11 @@ class RoutesController extends Controller
 
 	public function filterSuggestions(Request $request)
 	{
-		$weather = $request['weather'] ? explode(',', $request['weather']) : null;
-		$time = $request['time'] ? explode(',', $request['time']) : null;
-		$intensity = $request['intensity'] ? explode(',', $request['intensity']) : null;
-		$categories = $request['categories'] ? explode(',', $request['categories']) : null;
+		$filters = json_decode($request->data);
+		$weather = $filters->weather ? $filters->weather : null;
+		$time = $filters->time ? $filters->time : null;
+		$intensity = $filters->intensity ? $filters->intensity : null;
+		$categories = $filters->categories ? $filters->categories : null;
 
 		$suggestions = Suggestion::query();
 
