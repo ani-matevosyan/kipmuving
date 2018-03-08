@@ -30,20 +30,21 @@
                                                 </h4>
                                                 <p>{{ $item->activity->description }}</p>
                                             </div>
-                                        </header>
-                                        	<div class="days-list__instagram-block days-list__instagram-block_loading" data-instagram-id="{{ $item->activity_type == 'free' ? $item->activity->instagram_id : $item->activity->instagram_name }}" data-location-id="214784264"></div>
+										</header>
+										{{--  <div class="days-list__instagram-block days-list__instagram-block_loading" id="instagram{{ $item->activity_id }}" @if($item->activity_type == 'free') data-tag="{{ $item->activity->instagram_id }}" @else data-location-id="{{ $item->activity->instagram_name }}"  @endif></div>  --}}
+										<div class="days-list__instagram-block days-list__instagram-block_loading" id="instagram{{ $item->activity_id }}" data-location-id="6889842" data-tag="sportcar"></div>										
                                         <footer>
                                             @if($item->activity_type == 'free')
-																							<form class="routes-activity-form">
+										<form class="routes-activity-form" data-id="{{ $item->activity_id }}">
 																							<div class="routes-activity-form__calendar">
 																								<label>{{ trans('main.choose_the_day') }}</label>
 																								<input type="text" name="date"
 																											 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
-																											 value="" required>
+																											 value="">
 																							</div>
 																							<div class="routes-activity-form__time">
 																								<label>{{ trans('main.when_it_will_be') }}</label>
-																								<select name="hours_from" required>
+																								<select name="hours_from">
 																									<option selected disabled value=""></option>
 																									<option value="00:00">00:00</option>
 																									<option value="00:30">00:30</option>
@@ -95,7 +96,7 @@
 																									<option value="23:30">23:30</option>
 																								</select>
 																								<span class="routes-activity-form__divider">{{ trans('main.to') }}</span>
-																								<select name="hours_to" required>
+																								<select name="hours_to">
 																									<option selected disabled value=""></option>
 																									<option value="00:00">00:00</option>
 																									<option value="00:30">00:30</option>
@@ -148,7 +149,7 @@
 																								</select>
 																							</div>
 																							<div class="routes-activity-form__buttons-holder">
-																								<button class="btn">{{ trans('main.add') }}</button>
+																								<button type="submit" class="btn">{{ trans('main.add') }}</button>
 																							</div>
 																						</form>
 																						@elseif($item->activity_type == 'paid')
@@ -199,23 +200,26 @@
                 </aside>
             </section>
         </div>
-        <div id="myModalX" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="the-image">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="data"></div>
     </main>
+
+	<div id="myModalX" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div id="the-image">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('main.close') }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="data"></div>
+
+	
 
 @stop

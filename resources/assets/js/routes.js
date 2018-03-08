@@ -14,23 +14,28 @@ $(document).ready(function () {
     $(".days-list__instagram-block").each(function () {
 
       let blockId = $(this).attr('id'),
-        locationId = $(this).attr('data-location-id');
+        locationId = $(this).attr('data-location-id'),
+        tag = $(this).attr('data-tag'),
+        target = typeof locationId == 'undefined' ? 'tagged' : 'location';
 
       let feed = new Instafeed({
-        get: 'location',
-        locationId: locationId,
+        get: target,
+        tagName: tag,
+        locationId,
         target: blockId,
         accessToken: accessToken,
         template: '<div class="days-list__instagram-item"><a href="{{link}}"><img src="{{image}}"/></a></div>',
         after: function () {
           $(`#${blockId} a`).click(function (e) {
             e.preventDefault();
-            let urlOfThis = $(this)[0].href;
+            let urlOfThis = $(this)[0].href,
+              picked = false;
             if ($("#the-image img")) {
               $("#the-image").html('');
             }
             $.each($("#data span"), function (i, v) {
-              if ($(this).attr('data-link') == urlOfThis) {
+              if ($(this).attr('data-link') == urlOfThis && !picked) {
+                picked = true;
                 $("#the-image").append("<img src=\"" + $(this).attr('data-url') + "\"/>");
                 if ($(this).attr('data-location') !== 'undefined') {
                   $("#the-image").append("<p style='margin:10px 0 0 30px; font-size: 12px;'>" + $(this).attr('data-location') + "</p>");
@@ -44,8 +49,12 @@ $(document).ready(function () {
           $(`#${blockId}`).removeClass('days-list__instagram-block_loading');
           if (data.data.length > 6) data.data.splice(5, (data.data.length - 6));
           $.each(data.data, function (i, v) {
-            let url = v.images.standard_resolution.url;
-            $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + v.location.name + "\"></span>");
+            let url = v.images.standard_resolution.url,
+              locationName;
+            if (v.location) {
+              locationName = v.location.name;
+            }
+            $("#data").append(`<span data-link="${v.link}" data-url="${url}" data-location="${locationName}"></span>`);
           });
         }
       });
@@ -97,6 +106,43 @@ $(document).ready(function () {
     });
     feed.run();
   }
+
+  $(".routes-activity-form").on('submit', function (e) {
+    e.preventDefault();
+    let activityId = $(this).attr('data-id'),
+      dateField = $(this).find('input[name=date]').val(),
+      timeFromField = $(this).find('select[name=hours_from]').val(),
+      timeToField = $(this).find('select[name=hours_to]').val();
+    if (!dateField || !timeFromField || !timeToField) {
+      $("#message-modal .modal-header").removeClass('modal-header_error').addClass('modal-header_warning')
+      $("#message-modal .modal-title").text('Warning');
+      $("#message-modal .modal-body").html('<p id="message">Please fill all fields</p>');
+      $("#message-modal").modal('show');
+      return false;
+    }
+    $.ajax({
+      type: "GET",
+      url: "/free/activity/add",
+      data: {
+        id: activityId,
+        date: dateField,
+        hours_from: timeFromField,
+        hours_to: timeToField
+      },
+      success: function () {
+        $("#message-modal .modal-header").removeClass('modal-header_error modal-header_warning')
+        $("#message-modal .modal-title").text('Success');
+        $("#message-modal .modal-body").html('<p id="message">Your activity was added to your calendar</p>');
+        $("#message-modal").modal('show');
+      },
+      error: function (err) {
+        $("#message-modal .modal-header").removeClass('modal-header_warning').addClass('modal-header_error');
+        $("#message-modal .modal-title").text('Error');
+        $("#message-modal .modal-body").html(`<p id="message">Error: ${JSON.parse(err)}</p>`);
+        $("#message-modal").modal('show');
+      }
+    })
+  })
 
   jcf.setOptions('Select', {
     wrapNative: false,
@@ -199,7 +245,7 @@ $(document).ready(function () {
 
     console.log(data);
 
-    if(data.length > 0){
+    if (data.length > 0) {
       $.each(data, function (index, value) {
         suggestionsHTML += `
           <li>
@@ -219,12 +265,12 @@ $(document).ready(function () {
               </ul>
               <div class="suggested-plans__intensity">
         `
-        for (let i = 0; i < 4; i++){
-          if((i+1) === value.intensity){
+        for (let i = 0; i < 4; i++) {
+          if ((i + 1) === value.intensity) {
             suggestionsHTML += `
               <span class="chosen"></span>
             `
-          }else{
+          } else {
             suggestionsHTML += `
               <span></span>
             `
@@ -236,7 +282,7 @@ $(document).ready(function () {
           </li>
         `;
       })
-    }else{
+    } else {
       suggestionsHTML = "<h4>Sorry, there is no result by your search</h4>"
     }
 

@@ -706,6 +706,17 @@
     }
     footer{
       font-size: 14px;
+      .btn{
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: none;
+        background-color: #fbb417;
+        padding: 6px 16px;
+        &:hover{
+          background-color: #ffd579;
+        }
+      }
     }
   }
   &__header-content{
@@ -925,12 +936,6 @@
     }
   }
   .btn{
-    color: #fff;
-    font-weight: 700;
-    font-size: 15px;
-    text-transform: none;
-    background-color: #fbb417;
-    padding: 6px 16px;
     margin-right: 9px;
   }
 }
