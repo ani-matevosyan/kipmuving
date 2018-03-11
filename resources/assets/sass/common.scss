@@ -1770,6 +1770,12 @@ body {
   border: 0;
   color: #fff;
   background: #55cb2e;
+  &_warning{
+    background: #e1b71d;  
+  }
+  &_error{
+    background: #e11d1d;
+  }
 }
 
 .modal .modal-header h4 {

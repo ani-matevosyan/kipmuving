@@ -42,17 +42,17 @@
 								<h3>It can be made</h3>
 								<div class="filters__list">
 									<label class="custom-checkbox">
-										<input type="checkbox" name="when" value="Morning">
+										<input type="checkbox" name="time" value="Morning">
 										<span class="custom-checkbox__mark"></span>
 										Morning
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="when" value="Afternoon">
+										<input type="checkbox" name="time" value="Afternoon">
 										<span class="custom-checkbox__mark"></span>
 										Afternoon
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="when" value="Night">
+										<input type="checkbox" name="time" value="Night">
 										<span class="custom-checkbox__mark"></span>
 										Night
 									</label>
@@ -83,31 +83,31 @@
 								<h3>That has</h3>
 								<div class="filters__list filters__list_3">
 									<label class="custom-checkbox">
-										<input type="checkbox" name="contains" value="Hiking">
+										<input type="checkbox" name="categories" value="hiking">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/hiking-icon.png') }}" alt="Hiking icon">
 										Hiking
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="contains" value="View">
+										<input type="checkbox" name="categories" value="view">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/photo-icon.png') }}" alt="Photo icon">
 										View
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="contains" value="Ski">
+										<input type="checkbox" name="categories" value="ski">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/ski-icon.png') }}" alt="Ski icon">
 										Ski
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="contains" value="Bicycle">
+										<input type="checkbox" name="categories" value="bicycle">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/bicycle-icon.png') }}" alt="Bicycle icon">
 										Bicycle
 									</label>
 									<label class="custom-checkbox">
-										<input type="checkbox" name="contains" value="Climbing">
+										<input type="checkbox" name="categories" value="climbing">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/climbing-icon.png') }}" alt="Climbing icon">
 										Climbing

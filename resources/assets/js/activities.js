@@ -56,7 +56,7 @@ $(document).ready(function(){
 
     function collectData(){
 
-        $(".all-activities").html("<div class='loader'><div class='loader__inside'></div></div>");
+        $(".all-activities").html("<div class='filter-loader'><div class='filter-loader__inside'></div></div>");
 
         let filterData = {
             'style': [],
