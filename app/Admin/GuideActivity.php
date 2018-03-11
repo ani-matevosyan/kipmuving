@@ -8,7 +8,7 @@ AdminSection::registerModel(FreeActivity::class, function (ModelConfiguration $m
 
 //	$model->enableAccessCheck();
 	
-	$model->setTitle('Guide activities');
+	$model->setTitle('Free activities');
 	
 	$model->onDisplay(function () {
 		$display = AdminDisplay::datatables()->setColumns([
@@ -69,14 +69,17 @@ AdminSection::registerModel(FreeActivity::class, function (ModelConfiguration $m
 				], 2),
 			AdminFormElement::columns()
 				->addColumn([
-					AdminFormElement::text('instagram_id', 'Instagram')->required()
-				], 4)
+					AdminFormElement::text('instagram_id', 'Instagram tag')
+				], 3)
+				->addColumn([
+					AdminFormElement::text('instagram_location_id', 'Instagram location ID')->required()
+				], 3)
 				->addColumn([
 					AdminFormElement::text('latitude', 'Latitude')->required()
-				], 4)
+				], 3)
 				->addColumn([
 					AdminFormElement::text('longitude', 'Longitude')->required()
-				], 4),
+				], 3),
 			AdminFormElement::text('short_description', 'Short description')->required(),
 			AdminFormElement::textarea('description', 'Description')->required(),
 			AdminFormElement::columns()
