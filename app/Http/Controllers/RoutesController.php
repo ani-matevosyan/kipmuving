@@ -70,6 +70,7 @@ class RoutesController extends Controller
 		$data = [];
 		foreach ($suggestions as $suggestion) {
 			$data [] = [
+				'id'                => $suggestion->id,
 				'image'             => $suggestion->image,
 				'name'              => $suggestion->name,
 				'short_description' => $suggestion->short_description,
