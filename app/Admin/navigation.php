@@ -63,7 +63,7 @@ return [
 		'model' => \App\Reservation::class
 	],
 	[
-		'title' => "Guide activities",
+		'title' => "Free activities",
 		'priority' => 5,
 		'icon'  => 'fa fa-map-marker',
 		'model' => \App\FreeActivity::class
