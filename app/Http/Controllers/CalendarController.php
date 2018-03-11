@@ -94,16 +94,16 @@ class CalendarController extends Controller
 					'backgroundColor'     => '#FF8040',
 					'borderColor'         => '#FF8040',
 					'durationEditable'    => false,
-					'guide_activity_id'   => $activity->id,
+					'guide_activity_id'   => $activity['id'],
 					'date'                => $freeActivity['date'],
 					'start'               => $start,
 					'end'                 => $end,
 					'start_time'          => Carbon::parse($freeActivity['hours_from'])->format('H:i'),
 					'end_time'            => Carbon::parse($freeActivity['hours_to'])->format('H:i'),
 					'hours'               => $freeActivity['hours_to'] - $freeActivity['hours_from'],
-					'bus_est_expenditure' => $activity->bus_est_expenditure,
-					'bus_est_service'     => $activity->bus_est_service,
-					'title'               => $activity->name,
+					'bus_est_expenditure' => $activity['bus_est_expenditure'],
+					'bus_est_service'     => $activity['bus_est_service'],
+					'title'               => $activity['name'],
 				];
 			}
 		}
