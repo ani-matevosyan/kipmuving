@@ -23,6 +23,13 @@ class Suggestion extends Model
 		return $this->hasMany(SuggestionDay::class, 'suggestion_id', 'id');
 	}
 
+	public function scopeWithActivities($query)
+	{
+		return $query->whereHas('days', function ($query) {
+			$query->has('activities');
+		});
+	}
+
 	public function getMapPointsAttribute()
 	{
 		if ($this->attributes['id']) {

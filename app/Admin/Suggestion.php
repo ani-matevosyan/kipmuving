@@ -42,6 +42,66 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 		return $display;
 	});
 
+	$model->onCreate(function () {
+
+		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
+
+		$tabs = AdminDisplay::tabbed([
+			'Suggestion' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::text('name', 'Name')->required(),
+
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::textarea('short_description', 'Short description')->required(),
+					], 4)
+					->addColumn([
+						AdminFormElement::textarea('description', 'Description')->required(),
+					], 8),
+
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::select('weather', 'Weather')->required()->setOptions([
+							'sun'  => 'Sun',
+							'cold' => 'Cold',
+							'warm' => 'Warm',
+							'rain' => 'Rain',
+						]),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('time_of_day', 'Time of day')->required()->setOptions([
+							'morning'   => 'Morning',
+							'afternoon' => 'Afternoon',
+							'night'     => 'Night',
+						]),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('intensity', 'Intensity')->required()->setOptions([
+							'1' => '1',
+							'2' => '2',
+							'3' => '3',
+							'4' => '4',
+						]),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('category', 'Category')->required()->setOptions([
+							'hiking'   => 'Hiking',
+							'view'     => 'View',
+							'ski'      => 'Ski',
+							'bicycle'  => 'Bicycle',
+							'climbing' => 'Climbing',
+						]),
+					], 3)
+					->addColumn([
+						AdminFormElement::image('image', 'Image'),
+					], 12),
+			]),
+		]);
+
+		$form->addElement($tabs);
+
+		return $form;
+	});
+
 	$model->onEdit(function ($id) {
 
 		$suggestion = Suggestion::find($id);
@@ -96,7 +156,10 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 							'bicycle'  => 'Bicycle',
 							'climbing' => 'Climbing',
 						]),
-					], 3),
+					], 3)
+					->addColumn([
+						AdminFormElement::image('image', 'Image'),
+					], 12),
 				$days
 			]),
 		]);

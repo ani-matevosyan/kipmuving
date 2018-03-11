@@ -22,6 +22,29 @@ AdminSection::registerModel(SuggestionDay::class, function (ModelConfiguration $
 		return $display;
 	});
 
+	$model->onCreate(function () {
+		$form = AdminForm::panel();
+
+		$tabs = AdminDisplay::tabbed([
+			'Suggestion' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::text('order_', 'Order')->required(),
+					], 3)
+					->addColumn([
+						AdminFormElement::text('name', 'Name')->required(),
+					], 9),
+				AdminFormElement::textarea('description', 'Description')->required(),
+				AdminFormElement::hidden('suggestion_id')
+					->setDefaultValue(request()['suggestion_id'])
+			]),
+		]);
+
+		$form->addElement($tabs);
+
+		return $form;
+	});
+
 	$model->onEdit(function ($id) {
 		$form = AdminForm::panel();
 

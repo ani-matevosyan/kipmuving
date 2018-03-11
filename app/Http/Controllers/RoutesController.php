@@ -21,7 +21,7 @@ class RoutesController extends Controller
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
 			],
 			'free_activities' => $this->getFreeActivities(),
-			'suggestions'     => Suggestion::get(),
+			'suggestions'     => Suggestion::withActivities()->get(),
 		];
 
 		return view('site.routes.home', $data);

@@ -13,7 +13,7 @@
 				@if($suggestion->days && $suggestion->days->count() > 0)
 					<div class="s-suggestion__content">
 						<ul class="days-list">
-							@foreach($suggestion->days as $day)
+							@foreach($suggestion->days->sortBy('order_') as $day)
 								<li class="days-list__item">
 									<header class="days-list__header">
 										<h3>{{ $day->name }}</h3>
@@ -21,7 +21,7 @@
 									</header>
 									@if($day->activities)
 										<ul class="days-list__activity-list">
-											@foreach($day->activities as $item)
+											@foreach($day->activities->sortBy('order_') as $item)
 												<li>
 													<header>
 														<div class="days-list__header-content">

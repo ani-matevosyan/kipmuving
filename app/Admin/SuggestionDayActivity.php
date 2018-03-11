@@ -25,6 +25,33 @@ AdminSection::registerModel(SuggestionDayActivity::class, function (ModelConfigu
 		return $display;
 	});
 
+	$model->onCreate(function () {
+		$form = AdminForm::panel();
+
+		$tabs = AdminDisplay::tabbed([
+			'Suggestion Day Activity' => new \SleepingOwl\Admin\Form\FormElements([
+				AdminFormElement::columns()
+					->addColumn([
+						AdminFormElement::text('order_', 'Order')->required(),
+					], 3)
+					->addColumn([
+						AdminFormElement::select('activity_type', 'Activity type')
+							->required()
+							->setOptions([
+								'paid' => 'Paid',
+								'free' => 'Free',
+							]),
+						AdminFormElement::hidden('suggestion_day_id')
+							->setDefaultValue(request()['suggestion_day_id'])
+					], 3)
+			]),
+		]);
+
+		$form->addElement($tabs);
+
+		return $form;
+	});
+
 	$model->onEdit(function ($id) {
 		$form = AdminForm::panel();
 
