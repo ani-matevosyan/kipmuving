@@ -287,7 +287,7 @@ $(document).ready(function () {
           if(v.location){
             locationName = v.location.name;
           }
-          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + url + "\" data-location=\"" + locationName + "\"></span>");
+          $("#data").append("<span data-link=\"" + v.link + "\" data-url=\"" + v.url + "\" data-location=\"" + locationName + "\"></span>");
         });
       }
     });
