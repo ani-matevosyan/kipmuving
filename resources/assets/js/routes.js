@@ -115,8 +115,8 @@ $(document).ready(function () {
       timeToField = $(this).find('select[name=hours_to]').val();
     if (!dateField || !timeFromField || !timeToField) {
       $("#message-modal .modal-header").removeClass('modal-header_error').addClass('modal-header_warning')
-      $("#message-modal .modal-title").text('Warning');
-      $("#message-modal .modal-body").html('<p id="message">Please fill all fields</p>');
+      $("#message-modal .modal-title").text(window.translateData.warning);
+      $("#message-modal .modal-body").html(`<p id="message">${window.translateData.please_fill_fields}</p>`);
       $("#message-modal").modal('show');
       return false;
     }
@@ -131,14 +131,15 @@ $(document).ready(function () {
       },
       success: function () {
         $("#message-modal .modal-header").removeClass('modal-header_error modal-header_warning')
-        $("#message-modal .modal-title").text('Success');
-        $("#message-modal .modal-body").html('<p id="message">Your activity was added to your calendar</p>');
+        $("#message-modal .modal-title").text(window.translateData.success);
+        $("#message-modal .modal-body").html(`<p id="message">${window.translateData.your_activity_was_added}</p>`);
         $("#message-modal").modal('show');
       },
       error: function (err) {
+        console.log(err);
         $("#message-modal .modal-header").removeClass('modal-header_warning').addClass('modal-header_error');
-        $("#message-modal .modal-title").text('Error');
-        $("#message-modal .modal-body").html(`<p id="message">Error: ${JSON.parse(err)}</p>`);
+        $("#message-modal .modal-title").text(window.translateData.error);
+        $("#message-modal .modal-body").html(`<p id="message">${window.translateData.error_occured}</p>`);
         $("#message-modal").modal('show');
       }
     })
@@ -233,6 +234,10 @@ $(document).ready(function () {
       },
       success: function (data) {
         outputResults(data);
+      },
+      error: function(err){
+        console.log(err);
+        $(".suggested-plans > ul").html(`<h4 class='error'>${window.translateData.error_occured}</h4>`);
       }
     });
 
@@ -243,20 +248,18 @@ $(document).ready(function () {
     let suggestionsList = $(".suggested-plans > ul"),
       suggestionsHTML = "";
 
-    console.log(data);
-
     if (data.length > 0) {
       $.each(data, function (index, value) {
         suggestionsHTML += `
           <li>
             <figure>
-              <a href="${window.location.origin}/suggestions/${value.id}">
+              <a href="${window.location.origin}/routes/suggestions/${value.id}">
                 <img src="${value.image}" alt="name">
               </a>
             </figure>
             <div class="suggested-plans__description">
               <h3>
-                <a href="${window.location.origin}/suggestions/${value.id}">${value.name}</a></h3>
+                <a href="${window.location.origin}/routes/suggestions/${value.id}">${value.name}</a></h3>
                 <p>${value.short_description}</p>
             </div>
             <footer>
@@ -283,7 +286,7 @@ $(document).ready(function () {
         `;
       })
     } else {
-      suggestionsHTML = "<h4>Sorry, there is no result by your search</h4>"
+      suggestionsHTML = `<h4>${window.translateData.no_result_by_search}</h4>`
     }
 
     suggestionsList.html(suggestionsHTML);

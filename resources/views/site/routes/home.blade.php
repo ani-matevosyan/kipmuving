@@ -6,60 +6,60 @@
 		<section class="s-plans">
 			<div class="container">
 				<div class="filters">
-					<button class="filters__open-modal" id="open-filters">Filters <span></span></button>
+					<button class="filters__open-modal" id="open-filters">{{ trans('main.filters') }} <span></span></button>
 					<div class="filters__modal" id="filters-modal">
 						<div class="filters__buttons">
-							<button id="confirm-filters">Confirm <span></span></button>
-							<button id="cancel-filters">Cancel</button>
+							<button id="confirm-filters">{{ trans('button-links.confirm') }} <span></span></button>
+							<button id="cancel-filters">{{ trans('main.cancel') }}</button>
 						</div>
 						<div class="filters__container">
 							<div class="filters__block">
-								<h3>How is the weather</h3>
+								<h3>{{ trans('main.how_is_the_weather') }}</h3>
 								<div class="filters__list filters__list_2">
 									<label class="custom-checkbox">
 										<input type="checkbox" name="weather" value="Sun">
 										<span class="custom-checkbox__mark"></span>
-										Sun
+										{{ trans('main.sun') }}
 									</label>
 									<label class="custom-checkbox">
 										<input type="checkbox" name="weather" value="Cold">
 										<span class="custom-checkbox__mark"></span>
-										Cold
+										{{ trans('main.cold') }}
 									</label>
 									<label class="custom-checkbox">
 										<input type="checkbox" name="weather" value="Warm">
 										<span class="custom-checkbox__mark"></span>
-										Warm
+										{{ trans('main.warm') }}
 									</label>
 									<label class="custom-checkbox">
 										<input type="checkbox" name="weather" value="Rain">
 										<span class="custom-checkbox__mark"></span>
-										Rain
+										{{ trans('main.rain') }}
 									</label>
 								</div>
 							</div>
 							<div class="filters__block">
-								<h3>It can be made</h3>
+								<h3>{{ trans('main.it_can_be_made') }}</h3>
 								<div class="filters__list">
 									<label class="custom-checkbox">
 										<input type="checkbox" name="time" value="Morning">
 										<span class="custom-checkbox__mark"></span>
-										Morning
+										{{ trans('main.morning') }}
 									</label>
 									<label class="custom-checkbox">
 										<input type="checkbox" name="time" value="Afternoon">
 										<span class="custom-checkbox__mark"></span>
-										Afternoon
+										{{ trans('main.afternoon') }}
 									</label>
 									<label class="custom-checkbox">
 										<input type="checkbox" name="time" value="Night">
 										<span class="custom-checkbox__mark"></span>
-										Night
+										{{ trans('main.night') }}
 									</label>
 								</div>
 							</div>
 							<div class="filters__block">
-								<h3>The intensity</h3>
+								<h3>{{ trans('main.the_intensity') }}</h3>
 								<div class="filters__intensity-checkboxes">
 									<label>
 										<input type="checkbox" name="intensity" value="1">
@@ -80,37 +80,37 @@
 								</div>
 							</div>
 							<div class="filters__block">
-								<h3>That has</h3>
+								<h3>{{ trans('main.that_has') }}</h3>
 								<div class="filters__list filters__list_3">
-									<label class="custom-checkbox">
+									<label class="custom-checkbox" title="{{ trans('main.hiking') }}">
 										<input type="checkbox" name="categories" value="hiking">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/hiking-icon.png') }}" alt="Hiking icon">
-										Hiking
+										{{ trans('main.hiking') }}
 									</label>
-									<label class="custom-checkbox">
+									<label class="custom-checkbox" title="{{ trans('main.view(the)') }}">
 										<input type="checkbox" name="categories" value="view">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/photo-icon.png') }}" alt="Photo icon">
-										View
+										{{ trans('main.view(the)') }}
 									</label>
-									<label class="custom-checkbox">
+									<label class="custom-checkbox" title="{{ trans('main.ski') }}">
 										<input type="checkbox" name="categories" value="ski">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/ski-icon.png') }}" alt="Ski icon">
-										Ski
+										{{ trans('main.ski') }}
 									</label>
-									<label class="custom-checkbox">
+									<label class="custom-checkbox" title="{{ trans('main.bicycle') }}">
 										<input type="checkbox" name="categories" value="bicycle">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/bicycle-icon.png') }}" alt="Bicycle icon">
-										Bicycle
+										{{ trans('main.bicycle') }}
 									</label>
-									<label class="custom-checkbox">
+									<label class="custom-checkbox" title="{{ trans('main.climbing') }}">
 										<input type="checkbox" name="categories" value="climbing">
 										<span class="custom-checkbox__mark"></span>
 										<img src="{{ asset('/images/climbing-icon.png') }}" alt="Climbing icon">
-										Climbing
+										{{ trans('main.climbing') }}
 									</label>
 								</div>
 							</div>
@@ -119,13 +119,9 @@
 				</div>
 				<div class="suggested-plans">
 					<header>
-						<h2>Suggested Plans</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the
-							industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-							of type
-							and scrambled it to make a type spec</p>
-						<a href="#" class="see-all-link">See all</a>
+						<h2>{{ trans('main.popular_routes') }}</h2>
+						<p>{{ trans('main.we_separated_some_routes') }}</p>
+						<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
 					</header>
 					<ul>
 						@foreach($suggestions as $suggestion)
@@ -352,13 +348,13 @@
 		@if(isset($free_activities) && count($free_activities) > 0)
 			<section class="s-own-plans">
 				<div class="container">
-					<h2>Create you own landscape</h2>
+					<h2>{{ trans('main.create_your_own_landscape') }}</h2>
 					@if($free_activities->where('page', '=', 'walking')->count() > 0)
 						<div class="s-own-plans__plan-block">
 							<header>
-								<h3>Caminhando</h3>
-								<p>Conhcer Pucón caminhando. Principais ruas e seus atrativos</p>
-								<a href="#" class="see-all-link">See all</a>
+								<h3>{{ trans('main.walking') }}</h3>
+								<p>{{ trans('main.discover_pucon_walking') }}</p>
+								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'walking')->take(5)->shuffle() as $item)
@@ -380,9 +376,9 @@
 					@if($free_activities->where('page', '=', 'cultural')->count() > 0)
 						<div class="s-own-plans__plan-block">
 							<header>
-								<h3>Tour Cultural</h3>
-								<p>Conheça Pucón pelos Mapuches uma experiencia inesquecível</p>
-								<a href="#" class="see-all-link">See all</a>
+								<h3>{{ trans('main.cultural_tour') }}</h3>
+								<p>{{ trans('main.pucon_mapuches') }}</p>
+								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'cultural')->take(5)->shuffle() as $item)
@@ -404,9 +400,9 @@
 					@if($free_activities->where('page', '=', 'bus')->count() > 0)
 						<div class="s-own-plans__plan-block">
 							<header>
-								<h3>De Carro ou Ônibus</h3>
-								<p>Os passeios tradicionais que a maioria dos turistas fazem</p>
-								<a href="#" class="see-all-link">See all</a>
+								<h3>{{ trans('main.by_car_or_bus') }}</h3>
+								<p>{{ trans('main.traditional_tours') }}</p>
+								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'bus')->take(5)->shuffle() as $item)
@@ -428,9 +424,9 @@
 					@if($free_activities->where('page', '=', 'bicycle')->count() > 0)
 						<div class="s-own-plans__plan-block">
 							<header>
-								<h3>Bicicleta</h3>
-								<p>Trilhas e roteiros que pode pedalar e conhcer coisas bacanas</p>
-								<a href="#" class="see-all-link">See all</a>
+								<h3>{{ trans('main.bicycle') }}</h3>
+								<p>{{ trans('main.tracks_and_routes') }}</p>
+								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'bicycle')->take(5)->shuffle() as $item)
@@ -452,5 +448,12 @@
 			</section>
 		@endif
 	</main>
+
+	<script>
+		window.translateData = {
+			error_occured: "{{ trans('main.error_occured') }}",
+			no_result_by_search: "{{ trans('main.no_result_by_search') }}"
+		}
+	</script>
 
 @stop

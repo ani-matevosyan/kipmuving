@@ -225,6 +225,15 @@
 	</div>
 	<div id="data"></div>
 
-
+	<script>
+		window.translateData = {
+			your_activity_was_added: "{{ trans('main.your_activity_was_added') }}",
+			please_fill_fields: "{{ trans('main.please_fill_fields') }}",
+			warning: "{{ trans('main.warning') }}",
+			success: "{{ trans('main.success') }}",
+			error: "{{ trans('main.error') }}",
+			error_occured: "{{ trans('main.error_occured') }}"
+		}
+	</script>
 
 @stop

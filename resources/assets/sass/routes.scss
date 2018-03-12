@@ -159,6 +159,9 @@
       width: 352px;
       .custom-checkbox{
         width: 33.333%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       @media screen and (max-width: 1149px){
         width: 255px;
@@ -345,6 +348,9 @@
       font-size: 20px;
       text-align: center;
       padding: 50px 0;
+      &.error{
+        color: #e11d1d;
+      }
     }
   }
   figure{
