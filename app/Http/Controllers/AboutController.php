@@ -22,4 +22,18 @@ class AboutController extends Controller
     return view('site.about.index', $data);
   }
 
+  public function privacyPolicy(Offer $offer)
+  {
+    $s_offers = \session('basket.special');
+    $data = [
+      'styles' => config('resources.about.styles'),
+      'count'             => [
+				'special_offers' => count($s_offers),
+				  'offers'         => count(session('basket.offers')) + count(session('basket.free'))
+			]
+    ];
+
+    return view('site.about.privacy-policy', $data);
+  }
+
 }
