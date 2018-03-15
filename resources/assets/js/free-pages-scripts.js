@@ -42,7 +42,7 @@ $(document).ready(function(){
 
     //Deccaro plates
 
-    var accessToken = '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b';
+    var accessToken = '3468302324.ba4c844.14cdb6234cde4beb825b5b67ad86bfd3';
 
     $(".guide-places-plate").click(function(){
         let thisWrapper = $(this).parent();

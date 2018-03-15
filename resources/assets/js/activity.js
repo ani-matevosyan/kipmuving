@@ -260,7 +260,7 @@ $(document).ready(function () {
       get: 'tagged',
       tagName: activityTag,
       target: 'instafeed5',
-      accessToken: '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b',
+      accessToken: '3468302324.ba4c844.14cdb6234cde4beb825b5b67ad86bfd3',
       template: '<div class="col-xs-2 in-image-activity"><a href="{{link}}"><img src="{{image}}"/></a></div>',
       limit: 12,
       after: function () {

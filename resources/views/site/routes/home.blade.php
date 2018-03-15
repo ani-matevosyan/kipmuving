@@ -121,7 +121,7 @@
 					<header>
 						<h2>{{ trans('main.popular_routes') }}</h2>
 						<p>{{ trans('main.we_separated_some_routes') }}</p>
-						<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
+						{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 					</header>
 					<ul>
 						@foreach($suggestions as $suggestion)
@@ -354,7 +354,7 @@
 							<header>
 								<h3>{{ trans('main.walking') }}</h3>
 								<p>{{ trans('main.discover_pucon_walking') }}</p>
-								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
+								{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'walking')->take(5)->shuffle() as $item)
@@ -378,7 +378,7 @@
 							<header>
 								<h3>{{ trans('main.cultural_tour') }}</h3>
 								<p>{{ trans('main.pucon_mapuches') }}</p>
-								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
+								{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'cultural')->take(5)->shuffle() as $item)
@@ -402,7 +402,7 @@
 							<header>
 								<h3>{{ trans('main.by_car_or_bus') }}</h3>
 								<p>{{ trans('main.traditional_tours') }}</p>
-								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
+								{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'bus')->take(5)->shuffle() as $item)
@@ -426,7 +426,7 @@
 							<header>
 								<h3>{{ trans('main.bicycle') }}</h3>
 								<p>{{ trans('main.tracks_and_routes') }}</p>
-								<a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>
+								{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 							</header>
 							<ul class="s-own-plans__slider owl-carousel csHidden">
 								@foreach($free_activities->where('page', '=', 'bicycle')->take(5)->shuffle() as $item)

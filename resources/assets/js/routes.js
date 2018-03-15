@@ -8,7 +8,7 @@ window.Instafeed = require('instafeed.js');
 
 $(document).ready(function () {
 
-  let accessToken = '3190829681.e029fea.c40a8be5bdb04454892d3d8fb4c1908b';
+  let accessToken = '3468302324.ba4c844.14cdb6234cde4beb825b5b67ad86bfd3';
 
   if ($(".days-list__instagram-block").length) {
     $(".days-list__instagram-block").each(function () {
@@ -24,6 +24,7 @@ $(document).ready(function () {
         locationId,
         target: blockId,
         accessToken: accessToken,
+        clientId: 'c24308a45e2e4f6f8f47ddf35e507b92',
         template: '<div class="days-list__instagram-item"><a href="{{link}}"><img src="{{image}}"/></a></div>',
         after: function () {
           $(`#${blockId} a`).click(function (e) {
@@ -71,7 +72,7 @@ $(document).ready(function () {
       get: 'tagged',
       tagName: thisTagName,
       target: 'routes-activity-instagram',
-      accessToken: accessToken,
+      clientId: 'c24308a45e2e4f6f8f47ddf35e507b92',
       template: '<div class="routes-activity__instagram-item"><a href="{{link}}"><img src="{{image}}"/></a></div>',
       limit: 10,
       after: function () {
