@@ -110,9 +110,9 @@
 								<li>
 									<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 								</li>
-								{{--  <li>
-									<a href="#">Roterios</a>
-								</li>  --}}
+								<li>
+									<a href="{{ action('RoutesController@index') }}">{{ trans('main.routes') }}</a>
+								</li>
 								<li>
 									<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
 								</li>

@@ -400,5 +400,6 @@ return [
   'warning'                   => 'Warning',
   'error'                     => 'Error',
   'success'                   => 'Success',
-  'no_result_by_search'       => 'Sorry, there is no result by your search',            
+  'no_result_by_search'       => 'Sorry, there is no result by your search',
+  'routes'                    => 'Routes',            
 ];

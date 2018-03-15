@@ -401,4 +401,5 @@ return [
   'error'                     => 'Error',
   'success'                   => 'Éxito',
   'no_result_by_search'       => 'Lo sentimos, no hay resultados por su búsqueda',  
+  'routes'                    => 'Rutas',
 ];
