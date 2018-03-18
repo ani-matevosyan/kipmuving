@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
 
     $(".btn-confirm-filters").click(function(e){
-       e.preventDefault();
+       e.preventDefault(); 
         filtersModal.hide();
         $('body').css('overflow-y', 'auto');
     });

@@ -70,10 +70,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('routes.scss')
-//     .webpack('routes.js')
+//   mix.sass('activities.scss')
+//     .webpack('activities.js')
 //     .version([
-//       'css/routes.css',
-//       'js/routes.js'
+//       'css/activities.css',
+//       'js/activities.js'
 //     ])
 // });
