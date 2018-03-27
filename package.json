@@ -1,7 +1,7 @@
 {
-  "name": "keepmoving",
+  "name": "aventuraschile",
   "version": "1.0.0",
-  "description": "KeepMoving is a web project that guide tourist in Pucon",
+  "description": "Aventuras Chile is a web project that guide tourist in Pucon",
   "private": true,
   "scripts": {
     "prod": "gulp --production",

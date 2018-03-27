@@ -14,8 +14,8 @@ elixir((mix) => {
     .sass('activity-print.scss')
     .sass('reservation-style.scss')
     .sass('send-offer-style.scss')
-    .sass('user-account-style.scss')
-    .sass('user-reservations-style.scss')
+    .sass('user-account.scss')
+    .sass('user-reservations.scss')
     .sass('coupon-print.scss')
     .sass('routes.scss')
     .webpack('activities.js')
@@ -30,8 +30,8 @@ elixir((mix) => {
     .webpack('instafeed-settings.js')
     .webpack('product.tour.js')
     .webpack('send-offer-scripts.js')
-    .webpack('user-account-scripts.js')
-    .webpack('user-reservations-scripts.js')
+    .webpack('user-account.js')
+    .webpack('user-reservations.js')
     .webpack('reservation-scripts.js')
     .webpack('routes.js')
     .version([
@@ -46,8 +46,8 @@ elixir((mix) => {
       'css/home.css',
       'css/reservation-style.css',
       'css/send-offer-style.css',
-      'css/user-account-style.css',
-      'css/user-reservations-style.css',
+      'css/user-account.css',
+      'css/user-reservations.css',
       'css/routes.css',
       'js/activities.js',
       'js/activity.js',
@@ -61,8 +61,8 @@ elixir((mix) => {
       'js/instafeed-settings.js',
       'js/product.tour.js',
       'js/send-offer-scripts.js',
-      'js/user-account-scripts.js',
-      'js/user-reservations-scripts.js',
+      'js/user-account.js',
+      'js/user-reservations.js',
       'js/reservation-scripts.js',
       'js/routes.js'
     ])
@@ -70,10 +70,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('activities.scss')
-//     .webpack('activities.js')
+//   mix.sass('user-reservations.scss')
+//     .webpack('user-reservations.js')
 //     .version([
-//       'css/activities.css',
-//       'js/activities.js'
+//       'css/user-reservations.css',
+//       'js/user-reservations.js'
 //     ])
 // });

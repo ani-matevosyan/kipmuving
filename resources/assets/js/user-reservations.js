@@ -147,8 +147,8 @@ $(document).ready(function(){
 
     //Print option
 
-  const printItemHeader = `<div class="print-item-header"><img src="${document.location.origin}/images/KeepMoving_logo_grey.svg" alt="Kipmuving logo"></a></div>`,
-        printItemFooter = `<div class="print-item-footer">www.keepmoving.co</div>`;
+  const printItemHeader = `<div class="print-item-header"><img src="${document.location.origin}/images/aventuraschile_logo.png" alt="Kipmuving logo"></a></div>`,
+        printItemFooter = `<div class="print-item-footer">www.aventuraschile.com</div>`;
 
     function openPrintDialogue(){
 
@@ -334,7 +334,7 @@ $(document).ready(function(){
                 <h3>${window.translateData.store_located} <strong>Fresia # 275 local 6, Pucón</strong></h3>
                 <h4>${window.translateData.valid_until} ${date}</h4>
             </div>
-            <footer>www.keepmoving.co</footer>
+            <footer>www.aventuraschile.com</footer>
         </div>
        `);
 

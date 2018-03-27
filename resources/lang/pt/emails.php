@@ -7,7 +7,7 @@ return [
 	'confirm_mail_message'                => 'Confirme seu e-mail!',
 	'please_activate_your_account_here'   => 'Por favor, ative sua conta aqui',
 	'with_regards'                        => 'Abraços',
-	'kipmuving_team'                      => 'Equipe KeepMoving',
+	'aventuraschile_team'                      => 'Equipe Aventuras Chile',
 
 	#User reservation email
 	'many_thanks_for_booking'             => 'Muito obrigado por reservar com Kipmuving. Segue abaixo a confirmação da sua reserva.',

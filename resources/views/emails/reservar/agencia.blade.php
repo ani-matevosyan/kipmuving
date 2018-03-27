@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>KeepMoving</title>
+	<title>Aventuras Chile</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 </head>
 <body style="font-family: 'PT Sans', sans-serif; font-size: 15px; font-weight: 400;  min-width: 320px !important; margin: 0; padding: 0; color: #000000;">
@@ -107,10 +107,10 @@
 					{{--<td id="footer" class="footer">--}}
 						{{--<p>--}}
 							{{--{{ trans('emails.any_questions') }}--}}
-							{{--<a href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a>--}}
+							{{--<a href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a>--}}
 						{{--</p>--}}
 						{{--<p>{{ trans('emails.with_regards') }}</p>--}}
-						{{--<p style="margin-bottom: 0">{{ trans('emails.kipmuving_team') }}</p>--}}
+						{{--<p style="margin-bottom: 0">{{ trans('emails.aventuraschile_team') }}</p>--}}
 						{{--<a href="#" style="color:#000000; text-decoration:none;">{{ url('/') }}</a>--}}
 					{{--</td>--}}
 				{{--</tr>--}}
@@ -128,7 +128,7 @@
 					<td align="left" style="padding-top: 7px; padding-right: 10px; padding-bottom: 6px; padding-left: 38px; color: #FFCD06; font-size: 32px;">
 						<div style="border-bottom: 1px solid #dddddd; padding-bottom: 5px; padding-top: 33px;">
 							<a href="{{ asset('/') }}">
-								<img src="{{ asset('/images/KeepMoving_logo_black.svg') }}" style="margin-left: -8px;" alt="KeepMoving" width="171">
+								<img src="{{ asset('/images/KeepMoving_logo_black.svg') }}" style="margin-left: -8px;" alt="Aventuras Chile" width="171">
 							</a>
 						</div>
 					</td>
@@ -187,13 +187,13 @@
 											</td>
 										</tr>
 										<tr>
-											<td style="padding-top: 22px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a></td>
+											<td style="padding-top: 22px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a></td>
 										</tr>
 										<tr>
 											<td style="padding-top: 22px;">
 												<p style="margin: 0;">{{ trans('emails.with_regards') }}</p>
-												<p style="margin: 0;">{{ trans('emails.kipmuving_team') }}</p>
-												<a style="text-decoration: none; color: #191919;" href="/">keepmoving.co</a>
+												<p style="margin: 0;">{{ trans('emails.aventuraschile_team') }}</p>
+												<a style="text-decoration: none; color: #191919;" href="/">aventuraschile.com</a>
 											</td>
 										</tr>
 										</tbody>

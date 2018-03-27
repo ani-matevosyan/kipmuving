@@ -99,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="mailto:contacto@keepmoving.co" class="email">contacto@keepmoving.co</a>
+                    <a href="mailto:contacto@aventuraschile.com" class="email">contacto@aventuraschile.com</a>
                 </div>
             </div>
         </div>

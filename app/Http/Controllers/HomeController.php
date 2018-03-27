@@ -151,7 +151,7 @@ class HomeController extends Controller
 		$homeMail->save();
 
 		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
-			$message->from('contacto@keepmoving.co', 'Kipmuving team');
+			$message->from('contacto@aventuraschile.com', 'Kipmuving team');
 			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
 		});
 

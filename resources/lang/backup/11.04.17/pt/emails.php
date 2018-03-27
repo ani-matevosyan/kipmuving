@@ -7,7 +7,7 @@ return [
 	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!-pt',
 	'please_activate_your_account_here'   => 'Please activate your account here-pt',
 	'with_regards'                        => 'With regards-pt',
-	'kipmuving_team'                      => 'Kip Muving Chile team-pt',
+	'aventuraschile_team'                      => 'Kip Muving Chile team-pt',
 	
 	#User reservation email
 	'many_thanks_for_booking'             => 'muchas gracias por reservar con Kipmuving. Sigue abajo la confirmación de su reserva.',

@@ -82,7 +82,7 @@
 							<br>
 							Cualquier duda por favor, escribíamos. Estaremos
 							atentos a lo que necesites. Nuestro correo es
-							<a href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a> y también por el teléfono
+							<a href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a> y también por el teléfono
 							+56 45 2444035. O por el whatsapp +56962266304
 							<br>
 							<br>

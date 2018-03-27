@@ -157,10 +157,10 @@
                     <td id="footer" class="footer">
                         <p>
                             {{ trans('emails.any_questions') }}
-                            <a href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a>
+                            <a href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a>
                         </p>
                         <p>{{ trans('emails.with_regards') }}</p>
-                        <p style="margin-bottom: 0">{{ trans('emails.kipmuving_team') }}</p>
+                        <p style="margin-bottom: 0">{{ trans('emails.aventuraschile_team') }}</p>
                         <a href="#" style="color:#000000; text-decoration:none;">{{ url('/') }}</a>
                     </td>
                 </tr>

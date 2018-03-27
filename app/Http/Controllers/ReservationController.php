@@ -115,14 +115,14 @@ class ReservationController extends Controller
 
 		#Email to user
 		Mail::send('emails.reservations.confirm-to-user', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user) {
-			$message->from('contacto@keepmoving.co', 'Keepmoving team');
-			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your Keepmoving.co reservation');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your AventurasChile.com reservation');
 		});
 
 		#Email to agency
 		Mail::send('emails.reservations.confirm-to-agency', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user, $s_offer) {
-			$message->from('contacto@keepmoving.co', 'Keepmoving team');
-			$message->to($s_offer->offer->agency->email)->subject('Keepmoving.co reservation');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->to($s_offer->offer->agency->email)->subject('AventurasChile.com reservation');
 		});
 
 		$s_offer->active = false;
@@ -189,13 +189,13 @@ class ReservationController extends Controller
 							$reservation->save();
 
 							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
-								$message->from('contacto@keepmoving.co', 'Keepmoving team');
-								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on Keepmoving.co');
+								$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on AventurasChile.com');
 							});
 
 							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
-								$message->from('contacto@keepmoving.co', 'Keepmoving team');
-								$message->to($reservation_data->offers[0]->agency->email)->subject('Keepmoving.co canceled reservation');
+								$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+								$message->to($reservation_data->offers[0]->agency->email)->subject('AventurasChile.com canceled reservation');
 							});
 
 							return redirect()->back();
@@ -270,7 +270,7 @@ class ReservationController extends Controller
 					$s_offer->save();
 
 					Mail::send('emails.special-offers.special-offers-to-agency', ['data' => $data], function ($message) use ($data, $a_offer){
-						$message->from('contacto@keepmoving.co', 'Kipmuving team');
+						$message->from('contacto@aventuraschile.com', 'Kipmuving team');
 						$message->to($a_offer->agency['email'])->subject('You received a special offer: '.$data['activity_name']);
 					});
 				}
@@ -285,14 +285,14 @@ class ReservationController extends Controller
 	{
 		#Send email about reservation to user
 		Mail::send('emails.reservar.user', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user) {
-			$message->from('contacto@keepmoving.co', 'Kipmuving team');
-			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your Keepmoving.co reservations');
+			$message->from('contacto@aventuraschile.com', 'Kipmuving team');
+			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your AventurasChile.com reservations');
 		});
 
 		#Send email about reservation to admin
 		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
-			$message->from('contacto@keepmoving.co', 'Keepmoving team');
-			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' Keepmoving.co reservations');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' AventurasChile.com reservations');
 		});
 
 		$agency_reservations = $reservations;
@@ -305,8 +305,8 @@ class ReservationController extends Controller
 				'user'         => $user,
 				'total'        => $item->sum('reservation.total')
 			], function ($message) use ($agency_email) {
-				$message->from('contacto@keepmoving.co', 'Keepmoving team');
-				$message->to($agency_email)->subject('Keepmoving.co reservation');
+				$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+				$message->to($agency_email)->subject('AventurasChile.com reservation');
 			});
 		}
 	}

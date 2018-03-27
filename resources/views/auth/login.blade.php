@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="login-page">
 				<h1 class="login-page__title">{{ trans('main.login') }}</h1>
-				<p class="login-page__description">{{ trans('main.log_in_at') }}<strong>KeepMoving</strong>{{ trans('main.or_register') }}</p>
+				<p class="login-page__description">{{ trans('main.log_in_at') }}<strong>Aventuras Chile</strong>{{ trans('main.or_register') }}</p>
 
 				@if(session()->has('error'))
 					<div class="alert alert-danger" role="alert">
@@ -25,7 +25,7 @@
 					<div class="login-content__social-buttons">
 						<a class="social-login-button social-login-button__facebook" href="{{ route('auth.facebook') }}">{{ trans('main.login_with') }}<strong>Facebook</strong></a>
 						<a class="social-login-button social-login-button__google" href="{{ route('auth.google') }}">{{ trans('main.login_with') }}<strong>Google</strong></a>
-						<p class="login-content__text-between"><span class="login-content__text-between-inside">{{ trans('main.or_with_your_password') }}KeepMoving</span></p>
+						<p class="login-content__text-between"><span class="login-content__text-between-inside">{{ trans('main.or_with_your_password') }}Aventuras Chile</span></p>
 					</div>
 					<form method="POST" action="/login" accept-charset="UTF-8" class="login-form">
 						{{ csrf_field() }}

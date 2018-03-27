@@ -24,18 +24,18 @@ return [
     'user' => [
         'account' => [
             'styles' => [
-                'css/user-account-style.css'
+                'css/user-account.css'
             ],
             'scripts' => [
-                'js/user-account-scripts.js'
+                'js/user-account.js'
             ]
         ],
         'reservations' => [
             'styles' => [
-                'css/user-reservations-style.css'
+                'css/user-reservations.css'
             ],
             'scripts' => [
-                'js/user-reservations-scripts.js'
+                'js/user-reservations.js'
             ]
         ]
     ],

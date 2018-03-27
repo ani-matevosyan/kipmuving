@@ -6,7 +6,7 @@
         <section class="s_about_page">
             <div class="container">
                 <div class="about_content">
-                    <p><strong>KeepMoving</strong>{{ trans('main.emerged_from_the_need') }}</p>
+                    <p><strong>Aventuras Chile</strong>{{ trans('main.emerged_from_the_need') }}</p>
                     <ul>
                         <li>
                             <img src="{{ asset('images/target.svg') }}" alt="Target" class="item-icon">
@@ -28,9 +28,9 @@
                             <strong>{{ trans('main.better_competitiveness') }}</strong>{{ trans('main.independent_of_location') }}
                         </li>
                     </ul>
-                    <p>{{ trans('main.so') }}<strong>KeepMoving</strong>{{ trans('main.urges_to_meet') }}</p>
+                    <p>{{ trans('main.so') }}<strong>Aventuras Chile</strong>{{ trans('main.urges_to_meet') }}</p>
                     <div class="whosmaking">
-                        <p>{{ trans('main.who_made') }}<strong>KeepMoving</strong>:</p>
+                        <p>{{ trans('main.who_made') }}<strong>Aventuras Chile</strong>:</p>
                         <ul>
                             <li>
                                 <img src="{{ asset('images/rafael_zarro.jpg') }}" alt="Rafael Zarro">

@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>KeepMoving</title>
+	<title>Aventuras Chile</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 </head>
 <body style="font-family: 'PT Sans', sans-serif; font-size: 16px; font-weight: 400;  min-width: 320px !important; margin: 0; padding: 0; color: #191919;">
@@ -15,7 +15,7 @@
 			<tr>
 				<td align="left" bgcolor="#383838" style="padding: 7px 10px 6px 38px; color: #FFCD06; font-size: 32px;">
 					<a href="/">
-						<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="KeepMoving" width="171">
+						<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="Aventuras Chile" width="171">
 					</a>
 				</td>
 			</tr>
@@ -57,15 +57,15 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">
 									<tbody>
 									<tr>
-										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@keepmoving.co">contacto@keepmoving.co</a></td>
+										<td style="padding-top: 17px;">{{ trans('emails.any_questions') }} <a style="color: #191919; text-decoration: none;" href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a></td>
 									</tr>
 									<tr>
 										<td style="padding-top: 17px;">{{ trans('emails.with_regards') }}</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 17px;">
-											<strong style="display: block">{{ trans('emails.kipmuving_team') }}</strong>
-											<a style="text-decoration: none; color: #191919;" href="/">keepmoving.co</a>
+											<strong style="display: block">{{ trans('emails.aventuraschile_team') }}</strong>
+											<a style="text-decoration: none; color: #191919;" href="/">aventuraschile.com</a>
 										</td>
 									</tr>
 									</tbody>

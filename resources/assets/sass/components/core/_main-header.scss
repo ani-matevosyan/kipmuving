@@ -13,7 +13,7 @@ body.mobile-menu-open{
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   background-color: #0993e1;
-  padding: 19px 0;
+  padding: 7px 0;
   position: relative;
   &.open{
     .mobile-sidebar{
@@ -52,14 +52,14 @@ body.mobile-menu-open{
     }
   }
   .logo{
-    width: 185px;
-    padding: 3px 0;
+    width: 164px;
+    padding-bottom: 5px;
     img{
       width: 100%;
     }
   }
   nav{
-    padding: 9px 0;
+    padding: 20px 0;
     text-rendering: optimizeLegibility;
     @media screen and (max-width: 991px){
       border-top: 1px solid #70a2d6;
@@ -106,7 +106,7 @@ body.mobile-menu-open{
     }
   }
   &__right-side{
-    padding: 9px 0;
+    padding: 19px 0;
     text-align: right;
     position: relative;
     .info-btn{

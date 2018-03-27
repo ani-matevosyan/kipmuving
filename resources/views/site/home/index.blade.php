@@ -57,7 +57,7 @@
 						</header>
 						<p class="video-section__text">
 							<span>{{ trans('main.why_search_for_low') }}</span>
-							{{ trans('main.enter') }} KeepMoving.co, {{ trans('main.choose_the_best_adventures') }}
+							{{ trans('main.enter') }} aventuraschile.com, {{ trans('main.choose_the_best_adventures') }}
 						</p>
 						<a href="{{ action('ActivityController@index') }}" class="video-section__button">{{ trans('main.i_want_to_receive') }}</a>
 					</div>

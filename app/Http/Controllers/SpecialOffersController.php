@@ -92,7 +92,7 @@ class SpecialOffersController extends Controller
 		} else return redirect()->back()->with('message', 'Sorry, you have already sent this offer to the user.');
 
 		Mail::send('emails.special-offers.special-offers-to-user', ['data' => $data], function ($message) use ($data, $s_offer) {
-			$message->from('contacto@keepmoving.co', 'Kipmuving team');
+			$message->from('contacto@aventuraschile.com', 'Kipmuving team');
 			$message->to($s_offer->user->email)->subject('You received a special offer: ' . $data['activity_name']);
 		});
 

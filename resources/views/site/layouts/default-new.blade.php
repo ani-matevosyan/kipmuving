@@ -5,9 +5,9 @@
 	@include('site.head.metatags')
 
 	@if(isset($title))
-		<title>TheTripChoice: {{ $title }}</title>
+		<title>Aventuras Chile: {{ $title }}</title>
 	@else
-		<title>TheTripChoice</title>
+		<title>Aventuras Chile</title>
 	@endif
 
 	@include('site.head.styles')
@@ -22,7 +22,7 @@
 				<div class="col-md-3 col-sm-4">
 					<div class="logo">
 						<a href="{{ asset('/') }}">
-							<img src="{{ asset('/images/thetripchoice_logo.svg') }}" alt="The Trip Choice logo">
+							<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="Aventuras Chile logo">
 						</a>
 					</div>
 				</div>
@@ -30,7 +30,7 @@
 					<header>
 						<div class="mobile-sidebar__logo">
 							<a href="{{ asset('/') }}">
-								<img src="{{ asset('/images/thetripchoice_logo.svg') }}" alt="The Trip Choice logo">
+								<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="Aventuras Chile logo">
 							</a>
 						</div>
 						<button class="mobile-sidebar__close-btn"></button>
@@ -107,9 +107,9 @@
 								<li>
 									<a href="{{ action('ActivityController@index') }}">{{ trans('button-links.activities') }}</a>
 								</li>
-								<li>
+								{{--  <li>
 									<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
-								</li>
+								</li>  --}}
 								<li>
 									<a href="{{ action('RoutesController@index') }}">{{ trans('main.routes') }}</a>
 								</li>
@@ -134,7 +134,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2 col-sm-4 col-xs-12 foot-block">
-					<strong class="title">KeepMoving</strong>
+					<strong class="title">Aventuras Chile</strong>
 					<nav class="footer-nav">
 						<ul>
 							<li><a href="{{ action('AboutController@index') }}">{{ trans('main.who_are_we') }}</a></li>
@@ -157,7 +157,7 @@
 								<a href="https://www.facebook.com/KipMuving-693742520728748/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/facebook-dark-blue.svg') }}" width="13px" alt="facebook logo"></a>
 							</li>
 							<li>
-								<a href="https://www.instagram.com/thetripchoice/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
+								<a href="https://www.instagram.com/Aventuras Chile/" rel="nofollow noopener" target="_blank"><img src="{{ asset('/images/instagram-dark-blue.svg') }}" width="13px" alt="instagram logo"></a>
 							</li>
 						</ul>
 					</div>

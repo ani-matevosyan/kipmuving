@@ -56,7 +56,7 @@ class AgencyEmailsController extends Controller
 				$message = nl2br($message);
 				
 				Mail::send('emails.agency-emails', ['msg' => $message], function ($message) use ($agency) {
-					$message->from('contacto@keepmoving.co', 'Kipmuving team');
+					$message->from('contacto@aventuraschile.com', 'Kipmuving team');
 					$message->to($agency->email)->subject('Kipmuving.com information');
 				});
 //				return view('emails.agency-emails', ['msg' => $message]);

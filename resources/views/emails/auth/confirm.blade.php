@@ -70,7 +70,7 @@
 						{{ trans('emails.with_regards') }}
 						<br>
 						<br>
-						{{ trans('emails.kipmuving_team') }}
+						{{ trans('emails.aventuraschile_team') }}
 						<br>
 						<br>
 						<br>
