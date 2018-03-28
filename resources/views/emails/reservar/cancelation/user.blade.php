@@ -66,21 +66,21 @@
 		}
 
 		.timing li.time:after {
-			background: url(http://kipmuving.com/images/clock.svg) no-repeat;
+			background: url({{ asset('images/clock.svg') }}) no-repeat;
 			background-size: contain;
 			background-position: center center;
 			top: 2px;
 		}
 
 		.timing li.person:after {
-			background: url(/images/happy.svg) no-repeat;
+			background: url({{ asset('images/happy.svg') }}) no-repeat;
 			background-size: contain;
 			background-position: center center;
 			top: 10px;
 		}
 
 		.timing li.money:after {
-			background: url(/images/coin.svg) no-repeat;
+			background: url({{ asset('images/coin.svg') }}) no-repeat;
 			background-size: contain;
 			background-position: center center;
 			top: 18px;
@@ -122,7 +122,7 @@
 			top: 16px;
 			right: auto;
 			bottom: auto;
-			background: url(/images/warning-white.svg) no-repeat;
+			background: url({{ asset('images/warning-white.svg') }}) no-repeat;
 			background-size: contain;
 			background-position: center center;
 		}
@@ -159,7 +159,7 @@
 						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
 							<a target="_blank" href="/">
-								<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0"
+								<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="" align="left" vspace="0" hspace="0"
 										 style="width:180px !important;">
 							</a>
 						</span>

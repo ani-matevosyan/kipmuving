@@ -44,7 +44,7 @@ return [
 	
 	'for_the_organization'           => 'ES DESTINADA A LA ORGANIZACIÓN',
 	'parks_for_chili'                => 'PARQUES PARA CHILE',
-	'kipmuving_is_aware_that_nature' => 'Kipmuving está consciente de que la naturaleza nos mueve y queremos ayudar a mantenerla para que podamos seguir disfrutando de sus maravillas. Con esto donamos 1% de nuestra comisión para la preservación de los parques chilenos junto con la Fundación Parques para Chile',
+	'aventuraschile_is_aware_that_nature' => 'Aventuras Chile está consciente de que la naturaleza nos mueve y queremos ayudar a mantenerla para que podamos seguir disfrutando de sus maravillas. Con esto donamos 1% de nuestra comisión para la preservación de los parques chilenos junto con la Fundación Parques para Chile',
 	
 	'activities_in_pucon'         => 'Las actividades en Pucón',
 	'first_choose_your_itinerary' => 'Primero elija su itinerario, lo que le gustaria hacer y vea lo que resulta',
@@ -198,7 +198,7 @@ return [
 	'spa_value'                => 'Valor das termas',
 	'include_in_my_panorama'   => 'INCLUIR NO MEU PANORAMA',
 	
-	'to_confirm_reservation'   => 'Para confirmar la reserva, por favor, registrase en Kipmuving o si ya eres registrado, haga login con su email y clave.',
+	'to_confirm_reservation'   => 'Para confirmar la reserva, por favor, registrase en Aventuras Chile o si ya eres registrado, haga login con su email y clave.',
 	'sign_up_using_your_email' => 'Regístrate utilizando tu dirección de correo eletrónico',
 	'reservation'              => 'Reserva',
 	'you_must_take'            => 'Debes llevar',

@@ -44,7 +44,7 @@ return [
 	
 	'for_the_organization'           => 'It is for the organization',
 	'parks_for_chili'                => 'Parks for Chili',
-	'kipmuving_is_aware_that_nature' => 'Kipmuving is aware that nature moves us and we want to help maintain it so that we can continue to enjoy its wonders. With this we donated 1% of our commission for the preservation of the Chilean parks along with the Parks Foundation for Chile',
+	'aventuraschile_is_aware_that_nature' => 'Aventuras Chile is aware that nature moves us and we want to help maintain it so that we can continue to enjoy its wonders. With this we donated 1% of our commission for the preservation of the Chilean parks along with the Parks Foundation for Chile',
 	
 	'activities_in_pucon'         => 'Activities in Pucón',
 	'first_choose_your_itinerary' => 'First choose your itinerary, what you would like to do and see what results',
@@ -199,7 +199,7 @@ return [
 	'spa_value'                => 'Spa value',
 	'include_in_my_panorama'   => 'INCLUDE IN MY PANORAMA',
 	
-	'to_confirm_reservation'   => 'To confirm the reservation, please register in Kipmuving or if you are already registered, login with your email and password.',
+	'to_confirm_reservation'   => 'To confirm the reservation, please register in Aventuras Chile or if you are already registered, login with your email and password.',
 	'sign_up_using_your_email' => 'Sign up using your email address',
 	'reservation'              => 'Reservation',
 	'you_must_take'            => 'You must take',

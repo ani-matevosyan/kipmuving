@@ -24,7 +24,7 @@ return [
 	'phone'                            => 'Phone',
 	'phone_placeholder'                => 'As Whatsapp, e.g. +56962266304',
 	'accept_terms'                     => 'By registering, I accept the Terms of Service, the Privacy and Cookie Policy, the refund policy and the KipMuving Guarantee Terms.',
-	'already_member'                   => 'Already a member of Kipmuving?',
+	'already_member'                   => 'Already a member of Aventuras Chile?',
 	'date'                             => 'Date',
 	'name'                             => 'Name',
 	'message'                          => 'Message'

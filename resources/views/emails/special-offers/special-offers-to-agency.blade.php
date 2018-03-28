@@ -15,7 +15,7 @@
 			<tr>
 				<td align="left" bgcolor="#383838" style="padding: 7px 10px 6px 38px; color: #FFCD06; font-size: 32px;">
 					<a href="{{ asset('/') }}">
-						<img src="{{ asset('/images/KeepMoving_logo.svg') }}" style="display: block;" alt="Aventuras Chile" width="171">
+						<img src="{{ asset('/images/aventuraschile_logo.png') }}" style="display: block;" alt="Aventuras Chile" width="171">
 					</a>
 				</td>
 			</tr>

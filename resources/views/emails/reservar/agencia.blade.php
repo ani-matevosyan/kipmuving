@@ -18,7 +18,7 @@
 						{{--<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;--}}
 						{{--height:auto !important; overflow:hidden;">--}}
 							{{--<a target="_blank" href="/">--}}
-								{{--<img src="{{ asset('/images/logo-new.svg') }}" alt="" align="left" vspace="0" hspace="0" style="width:180px !important;">--}}
+								{{--<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="" align="left" vspace="0" hspace="0" style="width:180px !important;">--}}
 							{{--</a>--}}
 						{{--</span>--}}
 					{{--</td>--}}
@@ -128,7 +128,7 @@
 					<td align="left" style="padding-top: 7px; padding-right: 10px; padding-bottom: 6px; padding-left: 38px; color: #FFCD06; font-size: 32px;">
 						<div style="border-bottom: 1px solid #dddddd; padding-bottom: 5px; padding-top: 33px;">
 							<a href="{{ asset('/') }}">
-								<img src="{{ asset('/images/KeepMoving_logo_black.svg') }}" style="margin-left: -8px;" alt="Aventuras Chile" width="171">
+								<img src="{{ asset('/images/aventuraschile_logo.png') }}" style="margin-left: -8px;" alt="Aventuras Chile" width="171">
 							</a>
 						</div>
 					</td>

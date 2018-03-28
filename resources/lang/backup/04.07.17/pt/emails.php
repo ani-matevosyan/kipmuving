@@ -10,7 +10,7 @@ return [
 	'aventuraschile_team'                      => 'Equipe Kip Muving Chile',
 	
 	#User reservation email
-	'many_thanks_for_booking'             => 'Muito obrigado por reservar com Kipmuving. Segue abaixo a confirmação da sua reserva.',
+	'many_thanks_for_booking'             => 'Muito obrigado por reservar com Aventuras Chile. Segue abaixo a confirmação da sua reserva.',
 	'what_will_we_do_now'                 => 'O que faremos agora? Confirmaremos todos os passeios com as agências. Sabemos que alguns estão sujeitos a disponibilidade, devido à quantidade de pessoas e também ao clima. Caso alguma atividade não ocorra, voltaremos a comunicar-nos com você, para oferecer-lhe outra opção.',
 	'activities_you_booked'               => 'Atividades que você reservou',
 	'you_must_take'                       => 'Deve levar',

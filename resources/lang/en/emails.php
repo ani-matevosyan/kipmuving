@@ -10,7 +10,7 @@ return [
 	'aventuraschile_team'                      => 'Aventuras Chile team',
 	
 	#User reservation email
-	'many_thanks_for_booking'             => 'many thanks for booking with Kipmuving. Please follow the confirmation of your reservation below.',
+	'many_thanks_for_booking'             => 'many thanks for booking with Aventuras Chile. Please follow the confirmation of your reservation below.',
 	'what_will_we_do_now'                 => 'What will we do now? We will confirm all the walks with the agencies. We know that some are subject to availability by the number of people and also the weather. If any activity does not happen, we will contact you again to offer another option.',
 	'activities_you_booked'               => 'Activities you booked',
 	'you_must_take'                       => 'You must take',

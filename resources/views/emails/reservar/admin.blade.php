@@ -447,7 +447,7 @@
 											<tr>
 												<td class="mcnImageContent"
 													 style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;"
-													 valign="top"><a href="/"><img alt="" src="{{ url('/images/logo-new.svg') }}"
+													 valign="top"><a href="/"><img alt="" src="{{ url('/images/aventuraschile_logo.png') }}"
 																			 style="max-width:180px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
 																			 class="mcnImage" align="left" width="340"></a></td>
 											</tr>

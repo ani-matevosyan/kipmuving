@@ -15,7 +15,7 @@
 					<div class="col-md-9 col-sm-12 col-xs-12">
 						<form class="registration reser">
 							<h1>Inicia sesión</h1>
-							<p>Para confirmar la reserva, por favor, registrase en Kipmuving o si ya eres registrado, haga login con su email y clave.</p>
+							<p>Para confirmar la reserva, por favor, registrase en Aventuras Chile o si ya eres registrado, haga login con su email y clave.</p>
 							<div class="holder">
 								<div class="social-likes add">
 									<!-- <ul>
@@ -26,7 +26,7 @@
 								</div>
 							</div>
 							<footer>
-								<div class="text-logout">¿Ya eres miembro de <a href="/login">Kipmuving?</a> Iniciar sesión</div>
+								<div class="text-logout">¿Ya eres miembro de <a href="/login">Aventuras Chile?</a> Iniciar sesión</div>
 							</footer>
 						</form>
 					</div>

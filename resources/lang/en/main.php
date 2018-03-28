@@ -74,7 +74,7 @@ return [
 	
 	'for_the_organization'           => 'It is for the organization',
 	'parks_for_chili'                => 'Parks for Chile',
-	'kipmuving_is_aware_that_nature' => 'Kipmuving is aware that nature moves us and we want to help maintaining it so that we can continue to enjoy its wonders. With this we donate 1% of our commission for the preservation of the Chilean parks along with the Parks Foundation for Chile',
+	'aventuraschile_is_aware_that_nature' => 'Aventuras Chile is aware that nature moves us and we want to help maintaining it so that we can continue to enjoy its wonders. With this we donate 1% of our commission for the preservation of the Chilean parks along with the Parks Foundation for Chile',
 	
 	'activities_in_pucon'         => 'Activities in Pucón',
 	'first_choose_your_itinerary' => 'First choose your itinerary, what you would like to do, and see what results',

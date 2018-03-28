@@ -15,8 +15,8 @@
 <body>
 <header>
 	<h1>
-		<span>Kipmuving</span>
-		<a href="#"><img src="{{ url('/images/KipMuving-white.svg') }}" alt="Kipmuving logo"></a>
+		<span>Aventuras Chile</span>
+		<a href="#"><img src="{{ url('/images/KipMuving-white.svg') }}" alt="Aventuras Chile logo"></a>
 	</h1>
 </header>
 
@@ -42,7 +42,7 @@
 </div>
 <footer>
 
-	<a href="/" class="kipmuving">www.kipmuving.com</a>
+	<a href="/" class="aventuraschile">www.aventuraschile.com</a>
 	<div class="soc-links">
 		<a href="#"><img src="{{ url('/images/instagram-white.svg') }}" alt="instagram"></a>
 		<a href="#"><img src="{{ url('/images/facebook.svg') }}" alt="facebook"></a>

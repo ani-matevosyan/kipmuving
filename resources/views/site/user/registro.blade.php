@@ -108,7 +108,7 @@
 
 								<footer>
 									<input type="submit" value="REGISTRAR" class="btn btn-primary">
-									<div class="text-logout">¿Ya eres miembro de <a href="/login">Kipmuving?</a> Iniciar sesión</div>
+									<div class="text-logout">¿Ya eres miembro de <a href="/login">Aventuras Chile?</a> Iniciar sesión</div>
 								</footer>
 							</div>
 						</form>

@@ -24,7 +24,7 @@ return [
 	'phone'                            => 'Telefone-pt',
 	'phone_placeholder'                => 'Como Whatsapp, exemplo: +55 962266304',
 	'accept_terms'                     => 'Ao registrar-me, aceito as Condicoes do serviço, a Política de Privacidade e Cookies, a Política de reembolso e as Condições da Garantia de KipMuving',
-	'already_member'                   => 'Já é membro de Kipmuving?',
+	'already_member'                   => 'Já é membro de Aventuras Chile?',
 	'date'                             => 'Data',
 	'name'                             => 'Nome-pt',
 	'message'                          => 'Mensagem'

@@ -74,7 +74,7 @@ return [
 	
 	'for_the_organization'           => 'ES DESTINADA A LA ORGANIZACIÓN',
 	'parks_for_chili'                => 'PARQUES PARA CHILE',
-	'kipmuving_is_aware_that_nature' => 'Kipmuving está consciente de que la naturaleza nos mueve y queremos ayudar a mantenerla para que podamos seguir disfrutando de sus maravillas. Con esto donamos el 1% de nuestra ganancia para la preservación de los parques chilenos junto con la Fundación Parques para Chile',
+	'aventuraschile_is_aware_that_nature' => 'Aventuras Chile está consciente de que la naturaleza nos mueve y queremos ayudar a mantenerla para que podamos seguir disfrutando de sus maravillas. Con esto donamos el 1% de nuestra ganancia para la preservación de los parques chilenos junto con la Fundación Parques para Chile',
 	
 	'activities_in_pucon'         => 'Algunas actividades en Pucón',
 	'first_choose_your_itinerary' => 'Primero elige tu itinerario, lo que te gustaría hacer y mira lo que resulta',
