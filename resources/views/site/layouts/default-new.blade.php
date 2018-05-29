@@ -311,5 +311,9 @@
 
 {{--/Scripts--}}
 
+<script>
+    window.FCSP = 'a7159e9ba0d267713e72384e8a748dc4';
+</script>
+<script src="https://chat-assets.frontapp.com/v1/chat.bundle.js"></script>
 </body>
 </html>
