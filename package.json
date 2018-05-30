@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "prod": "gulp --production",
-    "dev": "gulp watch --max_old_space_size=2000"
+    "dev": "gulp watch"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
