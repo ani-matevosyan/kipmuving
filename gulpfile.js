@@ -70,10 +70,10 @@ elixir((mix) => {
 
 
 // elixir((mix) => {
-//   mix.sass('user-reservations.scss')
-//     .webpack('user-reservations.js')
+//   mix.sass('home.scss')
+//     .webpack('home.js')
 //     .version([
-//       'css/user-reservations.css',
-//       'js/user-reservations.js'
+//       'css/home.css',
+//       'js/home.js'
 //     ])
 // });

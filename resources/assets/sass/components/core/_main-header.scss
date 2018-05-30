@@ -12,8 +12,9 @@ body.mobile-menu-open{
 .main-header{
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
-  background-color: #0993e1;
+  background-color:rgba(0,0,0,0.5);
   padding: 7px 0;
+  margin-top: 9px;
   position: relative;
   &.open{
     .mobile-sidebar{
@@ -52,11 +53,41 @@ body.mobile-menu-open{
     }
   }
   .logo{
-    width: 164px;
+    width: 254px;
     padding-bottom: 5px;
     img{
       width: 100%;
     }
+    .logo_a {
+      float: left;
+    }
+    .pucon-state {
+      float: right;
+      margin-top: 17px;
+      font-size: 18px;
+      color: rgb(220,135,0);
+      font-weight: bold;
+      border-left: 1px solid rgb(220,135,0);
+      height: 29px;
+      padding-left: 14px;
+      padding-top: 5px;
+      cursor: pointer;
+      .glyphicon-triangle-bottom{
+        font-size: 12px;
+      }
+      .dropdown-menu {
+        background-color: #808080;
+        &>li>a{
+          color: white;
+          &:hover{
+            background-color: #747474;
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+
   }
   nav{
     padding: 20px 0;
@@ -133,7 +164,7 @@ body.mobile-menu-open{
     }
     .dropdown-menu{
       border-radius: 0;
-      background-color: #2263a7;
+      background-color: #808080;
       box-shadow: none;
       min-width: 0;
       left: auto;
@@ -146,7 +177,7 @@ body.mobile-menu-open{
           color: #ffffff;
           &:hover,
           &:focus{
-            background-color: #2b93eb;
+            background-color: #747474;
             opacity: 1;
           }
         }
@@ -323,7 +354,7 @@ body.mobile-menu-open{
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
-      background-color: #0993e1;
+      background-color:#808080;
       z-index: 9999;
       &>header{
         display: block;

@@ -21,9 +21,19 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-4">
 					<div class="logo">
-						<a href="{{ asset('/') }}">
+						<a href="{{ asset('/') }}" class="logo_a">
 							<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="Aventuras Chile logo">
 						</a>
+						<div class="dropdown pucon-state">
+							<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Pucon <span class="glyphicon glyphicon-triangle-bottom"></span>
+							</span>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Pucon</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 				<div class="mobile-sidebar">
