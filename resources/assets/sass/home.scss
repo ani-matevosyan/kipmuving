@@ -513,11 +513,37 @@
 
 
 .s-banner{
-  &__form-container{
-    background-color: #0b4463;
-    padding: 16px 0;
-    text-align: center;
+  position: relative;
+  &__slider{
     position: relative;
+    width:100%;
+    z-index: 0;
+    .owl-item {
+      width:100%;
+      height: 507px;
+    }
+    .item {
+      height: 100vh;
+      width: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    @for $i from 1 through 7 {
+      #item-#{$i}{
+        background-image: url('../../images/homeSliderImages/#{$i}.jpg');
+      }
+    }
+  }
+  &__form-container{
+    text-align: center;
+    position: absolute;
+    bottom: 40px;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    @media screen and (max-width: 600px){
+      bottom: 80px;
+    }
   }
   &__link{
     display: block;

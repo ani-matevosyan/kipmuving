@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /**
- * Owl Carousel v2.2.0
- * Copyright 2013-2016 David Deutsch
- * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
  */
 /*
  *  Owl Carousel - Core
@@ -18,7 +18,9 @@
 
 .owl-carousel .owl-stage {
   position: relative;
-  -ms-touch-action: pan-Y;
+  touch-action: manipulation;
+  -moz-backface-visibility: hidden;
+  /* fix firefox animation glitch */
 }
 
 .owl-carousel .owl-stage:after {
@@ -37,6 +39,16 @@
   -webkit-transform: translate3d(0px, 0px, 0px);
 }
 
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
 .owl-carousel .owl-item {
   position: relative;
   min-height: 1px;
@@ -49,7 +61,6 @@
 .owl-carousel .owl-item img {
   display: block;
   width: 100%;
-  -webkit-transform-style: preserve-3d;
 }
 
 .owl-carousel .owl-nav.disabled,
@@ -61,11 +72,20 @@
 .owl-carousel .owl-nav .owl-next,
 .owl-carousel .owl-dot {
   cursor: pointer;
-  cursor: hand;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel button.owl-dot {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
 }
 
 .owl-carousel.owl-loaded {
@@ -86,6 +106,7 @@
 }
 
 .owl-carousel.owl-drag .owl-item {
+  touch-action: pan-y;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -150,9 +171,20 @@
 /*
  * 	Owl Carousel - Lazy Load Plugin
  */
+.owl-carousel .owl-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the owl-item that breaks page layouts
+		 */
+}
+
 .owl-carousel .owl-item .owl-lazy {
   opacity: 0;
   transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+  max-height: 0;
 }
 
 .owl-carousel .owl-item img.owl-lazy {
@@ -7892,12 +7924,14 @@ button.close {
 }
 
 .main-header {
+  z-index: 1;
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 7px 0;
-  margin-top: 9px;
-  position: relative;
+  margin-top: 5px;
+  position: absolute;
+  width: 100%;
 }
 
 .main-header.open .mobile-sidebar {
@@ -12881,11 +12915,69 @@ body > .jcf-select-drop.jcf-drop-flipped {
 }
 
 /**********END Activities slider section*************/
-.s-banner__form-container {
-  background-color: #0b4463;
-  padding: 16px 0;
-  text-align: center;
+.s-banner {
   position: relative;
+}
+
+.s-banner__slider {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.s-banner__slider .owl-item {
+  width: 100%;
+  height: 507px;
+}
+
+.s-banner__slider .item {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.s-banner__slider #item-1 {
+  background-image: url("../../images/homeSliderImages/1.jpg");
+}
+
+.s-banner__slider #item-2 {
+  background-image: url("../../images/homeSliderImages/2.jpg");
+}
+
+.s-banner__slider #item-3 {
+  background-image: url("../../images/homeSliderImages/3.jpg");
+}
+
+.s-banner__slider #item-4 {
+  background-image: url("../../images/homeSliderImages/4.jpg");
+}
+
+.s-banner__slider #item-5 {
+  background-image: url("../../images/homeSliderImages/5.jpg");
+}
+
+.s-banner__slider #item-6 {
+  background-image: url("../../images/homeSliderImages/6.jpg");
+}
+
+.s-banner__slider #item-7 {
+  background-image: url("../../images/homeSliderImages/7.jpg");
+}
+
+.s-banner__form-container {
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+  background-color: transparent;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .s-banner__form-container {
+    bottom: 80px;
+  }
 }
 
 .s-banner__link {

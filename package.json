@@ -23,6 +23,6 @@
     "magnific-popup": "^1.1.0",
     "mapbox-gl": "^0.44.1",
     "moment": "^2.20.1",
-    "owl.carousel": "^2.2.0"
+    "owl.carousel": "^2.3.2"
   }
 }

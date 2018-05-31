@@ -18,6 +18,19 @@ $(document).ready(function(){
     });
     jcf.replace('select');
 
+    $('.s-banner__slider').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:0,
+        stagePadding:0,
+        smartSpeed:450,
+        autoplay: true,
+        loop: true,
+        touchDrag: false,
+        mouseDrag: false,
+    });
+
     $('[data-datepicker]').datepicker({
         dateFormat: 'dd/mm/yy'
     });

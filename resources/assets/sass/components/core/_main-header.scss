@@ -10,12 +10,14 @@ body.mobile-menu-open{
 }
 
 .main-header{
+  z-index: 1;
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   background-color:rgba(0,0,0,0.5);
   padding: 7px 0;
-  margin-top: 9px;
-  position: relative;
+  margin-top: 5px;
+  position: absolute;
+  width: 100%;
   &.open{
     .mobile-sidebar{
       right: 0;

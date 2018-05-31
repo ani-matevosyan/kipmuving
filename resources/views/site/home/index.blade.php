@@ -3,31 +3,16 @@
 {{-- Content --}}
 @section('content')
 	<main id="main">
+
 		<section class="s-banner">
-			<div class="s-banner__content lazyload" data-original="{{ asset('images/banner-background.jpg') }}">
-				<a href="{{ action('ActivityController@index') }}" class="s-banner__link"></a>
-				<ul class="s-banner__partners">
-					<li>
-						<img src="{{ asset('images/salewa-logo.png') }}" alt="Salewa Chile logo">
-					</li>
-					<li>
-						<img src="{{ asset('images/fjallraven-logo.png') }}" alt="Fjallraven logo">
-					</li>
-					<li>
-						<img src="{{ asset('images/volkanica-logo.png') }}" alt="Volkanica logo">
-					</li>
-				</ul>
-				<div class="s-banner__proposal">
-					<div class="s-banner__title">
-						<strong>{{ trans('main.win') }}</strong>
-						<strong>10%</strong>
-					</div>
-					<div class="s-banner__description">
-						<p>
-							{{ trans('main.buy_in_stores') }} Volkanica {{ trans('main.in_marks') }} Fjallraven {{ trans('main.and') }} Salewa
-						</p>
-					</div>
-				</div>
+			<div class="owl-carousel owl-theme s-banner__slider">
+				<div class="item" id="item-1"></div>
+				<div class="item" id="item-2"></div>
+				<div class="item" id="item-3"></div>
+				<div class="item" id="item-4"></div>
+				<div class="item" id="item-5"></div>
+				<div class="item" id="item-6"></div>
+				<div class="item" id="item-7"></div>
 			</div>
 			<div class="s-banner__form-container">
 				<form action="/activity/search" class="banner-form" method="post">
@@ -47,6 +32,7 @@
 				</form>
 			</div>
 		</section>
+
 		<div class="container">
 			<section class="video-section">
 				<div class="row">
