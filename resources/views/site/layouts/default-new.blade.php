@@ -17,7 +17,7 @@
 <body>
 <div class="main-wrapper">
 	<header class="main-header">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3 col-sm-4">
 					<div class="logo">

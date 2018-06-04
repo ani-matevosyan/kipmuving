@@ -78,11 +78,11 @@ body.mobile-menu-open{
         font-size: 12px;
       }
       .dropdown-menu {
-        background-color: #808080;
+        background-color: rgba(0,0,0,0.6);
         &>li>a{
           color: white;
           &:hover{
-            background-color: #747474;
+            background-color: rgba(0,0,0,1);
             opacity: 1;
           }
         }
@@ -166,7 +166,7 @@ body.mobile-menu-open{
     }
     .dropdown-menu{
       border-radius: 0;
-      background-color: #808080;
+      background-color: rgba(0,0,0,0.6);
       box-shadow: none;
       min-width: 0;
       left: auto;
@@ -179,7 +179,7 @@ body.mobile-menu-open{
           color: #ffffff;
           &:hover,
           &:focus{
-            background-color: #747474;
+            background-color: rgba(0,0,0,1);
             opacity: 1;
           }
         }
@@ -356,7 +356,7 @@ body.mobile-menu-open{
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
-      background-color:#808080;
+      background-color:rgba(0,0,0,0.8);
       z-index: 9999;
       &>header{
         display: block;

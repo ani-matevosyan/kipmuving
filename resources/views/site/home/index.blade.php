@@ -33,27 +33,58 @@
 			</div>
 		</section>
 
-		<div class="container">
-			<section class="video-section">
+		{{--todo add translations--}}
+		<div>
+			<section class="best-price-section">
 				<div class="row">
-					<div class="col-md-6">
-						<header class="video-section__header">
-							<h2 class="video-section__title">{{ trans('main.the_best_price') }}</h2>
-							<p class="video-section__description">{{ trans('main.you_deserve_to_choose') }}</p>
+					<div class="col-sm-6 best-price">
+						<header class="best-price-section__header">
+							<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>
 						</header>
-						<p class="video-section__text">
+						<p class="best-price-section__text">
 							<span>{{ trans('main.why_search_for_low') }}</span>
 							{{ trans('main.enter') }} aventuraschile.com, {{ trans('main.choose_the_best_adventures') }}
 						</p>
-						<a href="{{ action('ActivityController@index') }}" class="video-section__button">{{ trans('main.i_want_to_receive') }}</a>
+						{{--<div class="pantalla-img"></div>--}}
+						<img class="pantalla-img" src="{{ asset('images/pantella.jpg') }}">
 					</div>
-					<div class="col-md-6">
-						<div class="video-section__video-container">
-							@if( app()->getLocale() === 'pt' )
-								<iframe src="https://www.youtube.com/embed/lr-TlHPJWCo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-							@else
-								<iframe src="https://www.youtube.com/embed/N_x9OJHMLvI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-							@endif
+					<div class="col-sm-6 free-guide">
+						{{--<div class="vectorial-img"></div>--}}
+						<img class="vectorial-img" src="{{ asset('images/vectorial.png') }}">
+						<div class="row">
+							<div class="col-xs-6 free-guide__textFG">
+								<p class="guia">
+									Guia
+									<span class="gratuito">
+									Gratuito
+								</span>
+								</p>
+							</div>
+							<div class="col-xs-6 free-guide__textMB">
+								<p class="hecho">
+									Hecho por  quien sabe:
+									<span class="guias">
+									guias locales
+								</span>
+								</p>
+							</div>
+						</div>
+						<div class="row free-guide__textText">
+							<p>
+								A diferença: feito por guias locais.
+							</p>
+							<p>
+								Tienen la experienciay saben cuales son las mejores actividades.
+								Todas as respostas estão aquí. O que você precisa saber
+								para aproveitar seus dias em Pucón no melhor estilo.
+							</p>
+							<p>
+								Mapas, Guias, Endereços, Sugestões
+							</p>
+						</div>
+						<div class="row free-guide__GO">
+							<span class="glyphicon glyphicon-menu-right"></span>
+							<span>Ir ao guía</span>
 						</div>
 					</div>
 				</div>
@@ -62,7 +93,7 @@
 
 		@if(count($slider_activities) > 0)
 			<section class="activities-slider-section">
-				<div class="container">
+				<div class="container-fluid">
 					<header class="activities-slider-section__header">
 						<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
 						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
@@ -147,7 +178,7 @@
 
 		@if(count($random_activities) > 0)
 			<section class="activities-slider-section">
-				<div class="container">
+				<div class="container-fluid">
 					<header class="activities-slider-section__header">
 						<h2 class="activities-slider-section__title">{{ trans('main.some_activities_in_pucon') }}</h2>
 						<p class="activities-slider-section__sub-title">{{ trans('main.first_choose_your_itinerary') }}</p>
