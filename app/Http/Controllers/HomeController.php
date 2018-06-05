@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
+use App\Suggestion;
 
 class HomeController extends Controller
 {
@@ -57,9 +58,9 @@ class HomeController extends Controller
 			'count'             => [
 				'special_offers' => count($s_offers),
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
-			]
+			],
+            'suggestions'     => Suggestion::withActivities()->get(),
 		];
-
 		if (session('cities.current') == 'atacama')
 			return view('site.home.atacama-index', $data);
 

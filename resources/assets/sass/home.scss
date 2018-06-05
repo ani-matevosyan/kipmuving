@@ -468,17 +468,23 @@
 
 .activities-slider-section{
   background: #fff;
-  padding: 54px 0 24px;
+  padding: 77px 0 24px;
+
+  .see-all-link{
+    float: right;
+    color: #777777;
+  }
   &__header{
     text-align: center;
     margin-bottom: 36px;
   }
   &__title{
+    font-family: "Dosis";
     font-weight: 700;
     font-size: 46px;
-    color: #575757;
+    color: rgb(235,180,20);
     margin: 0 0 6px;
-    line-height: 1;
+    line-height: 1.3;
     @media screen and (max-width: 579px){
       font-size: 34px;
     }
@@ -487,7 +493,8 @@
     }
   }
   &__sub-title{
-    margin: 0;
+    font-family: "Dosis";
+    margin: 15px 0 0;
     font-size: 20px;
     color: #747474;
     line-height: 1;
@@ -650,13 +657,14 @@
       height: 0px;
     }
     .item {
-      height: 100vh;
+      //height: 100vh;
       width: 100%;
+      height: 100%;
       background-size: cover;
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
     }
-    @for $i from 1 through 7 {
+    @for $i from 1 through 4 {
       #item-#{$i}{
         background-image: url('../../images/homeSliderImages/#{$i}.jpg');
       }
@@ -877,6 +885,128 @@
     &:active{
       color: #fff;
       background-color: #fa9c00;
+    }
+  }
+}
+
+.suggested-plans{
+  p{
+    margin: 0;
+  }
+  &>ul{
+    margin: 0 -9px;
+    font-size: 0;
+    &>li{
+      @extend %inline-block_top;
+      font-size: 15px;
+      padding: 0 9px 9px;
+      width: 25%;
+      @media screen and (max-width: 991px){
+        width: 33.333%;
+      }
+      @media screen and (max-width: 666px){
+        width: 50%;
+      }
+      @media screen and (max-width: 410px){
+        width: 100%;
+      }
+    }
+    h4{
+      margin: 0;
+      font-size: 20px;
+      text-align: center;
+      padding: 50px 0;
+      &.error{
+        color: #e11d1d;
+      }
+    }
+  }
+  figure{
+    width: 100%;
+    padding-top: 99%;
+    position: relative;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 8px 0 7px;
+    a{
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  p{
+    margin: 0 0 8px;
+  }
+  &__description{
+    padding: 0 18px;
+    border-bottom: 1px solid #d9d9d9;
+    @media screen and (max-width: 500px){
+      padding: 0;
+    }
+  }
+  footer{
+    padding: 12px 0;
+    ul{
+      float: left;
+    }
+    li{
+      @extend %inline-block_middle;
+      margin-right: 20px;
+    }
+    img{
+      opacity: 0.7;
+    }
+    &:after{
+      @extend %clearboth;
+    }
+  }
+  &__intensity{
+    float: right;
+    font-size: 0;
+    margin-right: 28px;
+    span{
+      @extend %inline-block_bottom;
+      margin-right: 1px;
+      width: 10px;
+      height: 8px;
+      &.chosen{
+        height: 17px;
+      }
+      &:nth-child(1){
+        background-color: #e2e2e2;
+        &.chosen{
+          background-color: #f2d274;
+        }
+      }
+      &:nth-child(2){
+        background-color: #d0d0d0;
+        &.chosen{
+          background-color: #f0834c;
+        }
+      }
+      &:nth-child(3){
+        background-color: #999999;
+        &.chosen{
+          background-color: #c8553b;
+        }
+      }
+      &:nth-child(4){
+        background-color: #7f7f7f;
+        &.chosen{
+          background-color: #8c4231;
+        }
+      }
     }
   }
 }

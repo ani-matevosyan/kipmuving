@@ -10,9 +10,6 @@
 				<div class="item" id="item-2"></div>
 				<div class="item" id="item-3"></div>
 				<div class="item" id="item-4"></div>
-				<div class="item" id="item-5"></div>
-				<div class="item" id="item-6"></div>
-				<div class="item" id="item-7"></div>
 			</div>
 			<div class="s-banner__form-container">
 				<form action="/activity/search" class="banner-form" method="post">
@@ -34,62 +31,105 @@
 		</section>
 
 		{{--todo add translations--}}
-		<div>
-			<section class="best-price-section">
-				<div class="row">
-					<div class="col-sm-6 best-price">
-						<header class="best-price-section__header">
-							<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>
-						</header>
-						<p class="best-price-section__text">
-							<span>{{ trans('main.why_search_for_low') }}</span>
-							{{ trans('main.enter') }} aventuraschile.com, {{ trans('main.choose_the_best_adventures') }}
-						</p>
-						{{--<div class="pantalla-img"></div>--}}
-						<img class="pantalla-img" src="{{ asset('images/pantella.jpg') }}">
+
+		<section class="best-price-section">
+			<div class="row">
+				<div class="col-sm-6 best-price">
+					<header class="best-price-section__header">
+						<h2 class="best-price-section__title">{{ trans('main.the_best_price') }}</h2>
+					</header>
+					<p class="best-price-section__text">
+						<span>{{ trans('main.why_search_for_low') }}</span>
+						{{ trans('main.enter') }} aventuraschile.com, {{ trans('main.choose_the_best_adventures') }}
+					</p>
+					{{--<div class="pantalla-img"></div>--}}
+					<img class="pantalla-img" src="{{ asset('images/pantella.jpg') }}">
+				</div>
+				<div class="col-sm-6 free-guide">
+					{{--<div class="vectorial-img"></div>--}}
+					<img class="vectorial-img" src="{{ asset('images/vectorial.png') }}">
+					<div class="row">
+						<div class="col-xs-6 free-guide__textFG">
+							<p class="guia">
+								Guia
+								<span class="gratuito">
+								Gratuito
+							</span>
+							</p>
+						</div>
+						<div class="col-xs-6 free-guide__textMB">
+							<p class="hecho">
+								Hecho por  quien sabe:
+								<span class="guias">
+								guias locales
+							</span>
+							</p>
+						</div>
 					</div>
-					<div class="col-sm-6 free-guide">
-						{{--<div class="vectorial-img"></div>--}}
-						<img class="vectorial-img" src="{{ asset('images/vectorial.png') }}">
-						<div class="row">
-							<div class="col-xs-6 free-guide__textFG">
-								<p class="guia">
-									Guia
-									<span class="gratuito">
-									Gratuito
-								</span>
-								</p>
+					<div class="row free-guide__textText">
+						<p>
+							A diferença: feito por guias locais.
+						</p>
+						<p>
+							Tienen la experienciay saben cuales son las mejores actividades.
+							Todas as respostas estão aquí. O que você precisa saber
+							para aproveitar seus dias em Pucón no melhor estilo.
+						</p>
+						<p>
+							Mapas, Guias, Endereços, Sugestões
+						</p>
+					</div>
+					<div class="row free-guide__GO">
+						<span class="glyphicon glyphicon-menu-right"></span>
+						<span>Ir ao guía</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		@if(count($random_activities) > 0)
+			<section class="activities-slider-section suggested-plans">
+				<div class="container-fluid">
+					<header class="activities-slider-section__header">
+						<h2 class="activities-slider-section__title">Suggestions of routes</h2>
+						<p class="activities-slider-section__sub-title">We have some ideas for you</p>
+						<a href="#" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
+					</header>
+					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+						@foreach($suggestions as $suggestion)
+							<div class="activities-slider__item">
+								<figure>
+									<a href="{{ route('suggestions-single', ['id' => $suggestion->id]) }}">
+										<img class="lazyload"
+											 src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+											 data-original="{{ asset($suggestion->image) }}"
+											 alt="{{ $suggestion->name }}">
+									</a>
+								</figure>
+								<div class="suggested-plans__description">
+									<h3><a href="{{ route('suggestions-single', ['id' => $suggestion->id]) }}">{{ $suggestion->name }}</a></h3>
+									<p>{{ $suggestion->short_description }}</p>
+								</div>
+								<footer>
+									<ul>
+										<li><img src="{{ asset('/images/'.$suggestion->category.'-icon.png') }}" alt="hiking icon"></li>
+									</ul>
+									<div class="suggested-plans__intensity">
+										@for($i = 1; $i <= 4; $i++)
+											<span class="{{ $i === $suggestion->intensity ? 'chosen' : '' }}"></span>
+										@endfor
+									</div>
+								</footer>
 							</div>
-							<div class="col-xs-6 free-guide__textMB">
-								<p class="hecho">
-									Hecho por  quien sabe:
-									<span class="guias">
-									guias locales
-								</span>
-								</p>
-							</div>
-						</div>
-						<div class="row free-guide__textText">
-							<p>
-								A diferença: feito por guias locais.
-							</p>
-							<p>
-								Tienen la experienciay saben cuales son las mejores actividades.
-								Todas as respostas estão aquí. O que você precisa saber
-								para aproveitar seus dias em Pucón no melhor estilo.
-							</p>
-							<p>
-								Mapas, Guias, Endereços, Sugestões
-							</p>
-						</div>
-						<div class="row free-guide__GO">
-							<span class="glyphicon glyphicon-menu-right"></span>
-							<span>Ir ao guía</span>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</section>
-		</div>
+		@endif
+
+
+
 
 		@if(count($slider_activities) > 0)
 			<section class="activities-slider-section">
@@ -97,8 +137,10 @@
 					<header class="activities-slider-section__header">
 						<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
 						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
+						<a href="#" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+						{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 						@foreach($slider_activities as $activity)
 							<div class="activities-slider__item">
 								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
@@ -176,29 +218,6 @@
 			{{--</div>--}}
 		{{--</section>--}}
 
-		@if(count($random_activities) > 0)
-			<section class="activities-slider-section">
-				<div class="container-fluid">
-					<header class="activities-slider-section__header">
-						<h2 class="activities-slider-section__title">{{ trans('main.some_activities_in_pucon') }}</h2>
-						<p class="activities-slider-section__sub-title">{{ trans('main.first_choose_your_itinerary') }}</p>
-					</header>
-					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
-						@foreach($random_activities as $activity)
-							<div class="activities-slider__item">
-								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
-									<figure>
-										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
-									</figure>
-									<h3 class="activities-slider__name">{{ $activity->name }}</h3>
-									<p class="activities-slider__description">{{ $activity->short_description }}</p>
-								</a>
-							</div>
-						@endforeach
-					</div>
-				</div>
-			</section>
-		@endif
 
 		<section id="viagem" class="s_viagem">
 			<div class="container">
