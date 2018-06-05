@@ -5,6 +5,7 @@ require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 require('owl.carousel');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
+require('../../../public/libs/rwdImageMaps.js');
 require('jquery-lazyload');
 
 $(document).ready(function(){
@@ -34,6 +35,8 @@ $(document).ready(function(){
     $('[data-datepicker]').datepicker({
         dateFormat: 'dd/mm/yy'
     });
+
+    $('.vectorial-img[usemap]').rwdImageMaps();
 
     $("#most-visited-activities-slider, #some-activities-slider").owlCarousel({
         items: 1,

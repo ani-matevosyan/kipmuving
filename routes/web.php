@@ -198,7 +198,7 @@ Route::get('/reserve/payu', 'ReservationController@paymentPayU');
 //Route::get('/reserve/payu', 'ReservationController@getPayU');
 
 
-Route::get('/routes/home', 'RoutesController@index');
+Route::get('/routes/home', 'RoutesController@index')->name('routes.home');;
 Route::get('/routes/filter', 'RoutesController@filterSuggestions');
 Route::get('/routes/suggestions/{id}', 'RoutesController@suggestion')
 	->name('suggestions-single')

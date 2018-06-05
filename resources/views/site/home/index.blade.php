@@ -42,12 +42,22 @@
 						<span>{{ trans('main.why_search_for_low') }}</span>
 						{{ trans('main.enter') }} aventuraschile.com, {{ trans('main.choose_the_best_adventures') }}
 					</p>
-					{{--<div class="pantalla-img"></div>--}}
-					<img class="pantalla-img" src="{{ asset('images/pantella.jpg') }}">
+					<div class="best-price-section__video-container pantalla-video">
+						@if( app()->getLocale() === 'pt' )
+							<iframe src="https://www.youtube.com/embed/lr-TlHPJWCo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+						@else
+							<iframe src="https://www.youtube.com/embed/N_x9OJHMLvI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+						@endif
+					</div>
 				</div>
 				<div class="col-sm-6 free-guide">
-					{{--<div class="vectorial-img"></div>--}}
-					<img class="vectorial-img" src="{{ asset('images/vectorial.png') }}">
+					<img class="vectorial-img" src="{{ asset('images/vectorial.png') }}"  usemap="#freeGuide">
+					<map name="freeGuide">
+						<area shape="rect" coords="0,0,71,54" href="{{ action('FreePagesController@getBicicleta') }}" alt="free Guide">
+						<area shape="rect" coords="120,0,195,54" href="{{ action('FreePagesController@getDecarro') }}" alt="free Guide">
+						<area shape="rect" coords="265,0,336,54" href="{{ action('FreePagesController@getTourcultural') }}" alt="free Guide">
+						<area shape="rect" coords="415,0,461,54" href="{{ action('FreePagesController@index') }}" alt="free Guide">
+					</map>
 					<div class="row">
 						<div class="col-xs-6 free-guide__textFG">
 							<p class="guia">
@@ -79,10 +89,12 @@
 							Mapas, Guias, Endereços, Sugestões
 						</p>
 					</div>
-					<div class="row free-guide__GO">
-						<span class="glyphicon glyphicon-menu-right"></span>
-						<span>Ir ao guía</span>
-					</div>
+					<a href="{{ action('FreePagesController@index') }}" class="row free-guide__GO">
+						<div>
+							<span class="glyphicon glyphicon-menu-right"></span>
+							<span>Ir ao guía</span>
+						</div>
+					</a>
 				</div>
 			</div>
 		</section>
@@ -94,7 +106,7 @@
 					<header class="activities-slider-section__header">
 						<h2 class="activities-slider-section__title">Suggestions of routes</h2>
 						<p class="activities-slider-section__sub-title">We have some ideas for you</p>
-						<a href="#" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
+						<a href="{{ route('routes.home') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
 						@foreach($suggestions as $suggestion)
@@ -128,19 +140,55 @@
 			</section>
 		@endif
 
-
+		{{--TODO add translations--}}
+		<section class="win-10-section">
+			<div class="row">
+				<hr>
+				<div class="col-sm-6 win-10">
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="{{ asset('images/homeImages/partners.png') }}" class="partners" alt="Aventuras chile partners">
+						</div>
+						<div class="col-xs-8">
+							<h2>
+								GANE 10%
+							</h2>
+							<p>
+								Para ocupar en las  tiendas Volkanica
+								en las marcas <span>Fjallraven y Salewa </span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 donamos-2">
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="{{ asset('images/homeImages/sprout.png') }}" class="donamos" alt="donamos">
+						</div>
+						<div class="col-xs-8">
+							<h2>
+								DONAMOS 2%
+							</h2>
+							<p>
+								2% de su reserva será donada para
+								<span>plantaciones de árvores nativas en Chile</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
 		@if(count($slider_activities) > 0)
-			<section class="activities-slider-section">
+			<section class="activities-slider-section most-visited">
 				<div class="container-fluid">
 					<header class="activities-slider-section__header">
-						<h2 class="activities-slider-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
+						<h2 class="activities-slider-section__title most-visited">{{ trans('main.most_visited_in_pucon') }}</h2>
 						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
-						<a href="#" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
+						<a href="{{ route('activities') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
-						{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
 						@foreach($slider_activities as $activity)
 							<div class="activities-slider__item">
 								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
