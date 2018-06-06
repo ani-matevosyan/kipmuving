@@ -5,7 +5,7 @@ require('jcf/dist/js/jcf');
 require('jcf/dist/js/jcf.select');
 require('owl.carousel');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
-require('../../../public/libs/rwdImageMaps.js');
+require('../../../public/libs/image-map-resizer/rwdImageMaps.js');
 require('jquery-lazyload');
 
 $(document).ready(function(){
