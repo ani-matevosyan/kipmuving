@@ -12,8 +12,15 @@
 @import "components/loader";
 @import "components/activity-banner";
 
+.main-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 21px;
+  padding: 0px 0;
+}
+
 .visual {
-  height: 264px;
+  height: 342px;
   overflow: visible;
   margin-bottom: 45px;
 }
@@ -373,12 +380,12 @@
 }
 
 .activity-basket {
-  background-color: #fcfbeb;
+  background-color: #fff0c8;
   border-radius: 4px;
-  padding: 14px 10px 11px 25px;
   font-size: 15px;
   header {
     margin-bottom: 19px;
+    padding: 15px 14px 5px 15px
   }
   dl {
     margin-bottom: 9px;
@@ -436,8 +443,9 @@
   }
   footer {
     border-top: 1px solid #e2e1d3;
+    background-color: #f2b41b;
     padding-top: 7px;
-    text-align: right;
+    text-align: center;
     a {
       display: inline-block;
       vertical-align: middle;
@@ -447,27 +455,38 @@
         opacity: 0.6;
       }
     }
+    .col-xs-6:last-child {
+      border-left: 0.5px solid whitesmoke;
+    }
+    .row{
+      padding: 5px 0 15px 0;
+    }
   }
   &__to-calendar {
-    color: #dea709;
+    color: white;
     background: url('../../images/calendar-orange.svg') no-repeat 0 center;
     background-size: 15px;
-    padding-left: 24px;
+    padding-top: 4px;
     &:hover,
     &:focus {
-      color: #dea709;
+      color: white;
+    }
+    @media screen and (max-width: 991px) {
+      float: right;
     }
   }
   &__to-reserve {
-    background: #ebb414 url('../../images/check-icon.png') no-repeat 7px center;
+    background: #f2b41b url('../../images/check-icon.pn') no-repeat 7px center;
     background-size: 19px;
     color: #ffffff;
     border-radius: 4px;
-    padding: 8px 11px 8px 33px;
-    margin-left: 21px;
+    font-size: 20px;
     &:hover,
     &:focus {
       color: #ffffff;
+    }
+    @media screen and (max-width: 991px) {
+      float: left;
     }
   }
 }
@@ -1123,5 +1142,52 @@
   }
 }
 
+
+.your-reservation .win-donamos-section {
+
+  font-family: "Dosis";
+  text-align: center;
+  font-size: 17px;
+
+  p{
+    margin-right: 27px;
+    margin-left: 27px;
+    line-height: 1.2;
+  }
+  .win-10 {
+    background-color: #cae8ee;
+    h2{
+      font-size: 41px;
+      color: rgb(127,45,76);
+      font-weight: bold;
+    }
+    img{
+      width: 70%;
+      height: auto;
+      padding-bottom: 10px;
+      @media screen and (max-width: 991px) {
+        width: auto;
+      }
+    }
+  }
+  .donamos-1 {
+    background-color: #a9d1ae;
+    h2{
+      font-size: 39px;
+      color: rgb(43,43,43);
+      font-weight: bold;
+      padding-top: 10px;
+    }
+    img{
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  h2{
+    @media screen and (max-width: 1280px) {
+      font-size: 30px!important;
+    }
+  }
+}
 
 

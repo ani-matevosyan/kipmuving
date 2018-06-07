@@ -28,8 +28,14 @@
 		<dd>$ <span id="program_total">{{ number_format($count['total'], 0, ".", ".") }}</span></dd>
 	</dl>
 	<footer>
-		<a href="{{ action('CalendarController@index') }}" class="activity-basket__to-calendar">{{ trans('button-links.my_agenda') }}</a>
-		<a href="{{ action('ReservationController@index') }}" class="activity-basket__to-reserve">{{ trans('main.reserve') }}</a>
+		<div class="row">
+			<div class="col-xs-6">
+				<a href="{{ action('CalendarController@index') }}" class="activity-basket__to-calendar"><span class="glyphicon glyphicon-calendar"></span> {{ trans('button-links.my_agenda') }}</a>
+			</div>
+			<div class="col-xs-6">
+				<a href="{{ action('ReservationController@index') }}" class="activity-basket__to-reserve"><span class="glyphicon glyphicon-check"></span> {{ trans('main.reserve') }}</a>
+			</div>
+		</div>
 	</footer>
 </section>
 <section class="important-block">

@@ -147,7 +147,7 @@
 				<div class="col-sm-6 win-10">
 					<div class="row">
 						<div class="col-xs-4">
-							<img src="{{ asset('images/homeImages/partners.png') }}" class="partners" alt="Aventuras chile partners">
+							<img src="{{ asset('images/siteImages/partners.png') }}" class="partners" alt="Aventuras chile partners">
 						</div>
 						<div class="col-xs-8">
 							<h2>
@@ -163,7 +163,7 @@
 				<div class="col-sm-6 donamos-2">
 					<div class="row">
 						<div class="col-xs-4">
-							<img src="{{ asset('images/homeImages/sprout.png') }}" class="donamos" alt="donamos">
+							<img src="{{ asset('images/siteImages/sprout.png') }}" class="donamos" alt="donamos">
 						</div>
 						<div class="col-xs-8">
 							<h2>

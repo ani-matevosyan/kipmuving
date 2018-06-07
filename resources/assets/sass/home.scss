@@ -6,6 +6,12 @@
 // @import "../../../public/libs/product-tour/product-tour.min";
 
 
+.main-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  margin-top: 5px;
+}
+
 .container-fluid{
   padding-right: 15px;
   padding-left: 15px;
@@ -601,7 +607,7 @@
     }
     @for $i from 1 through 4 {
       #item-#{$i}{
-        background-image: url('../../images/homeSliderImages/#{$i}.jpg');
+        background-image: url('../../images/siteImages/homeSliderImages/#{$i}.jpg');
       }
     }
   }

@@ -2,21 +2,7 @@
 
 {{-- Content --}}
 @section('content')
-    <div class="activity-banner">
-        <p>{{ trans('main.make_reservation_and') }} <strong>{{ trans('main.win') }}
-                10% {{ trans('main.discount') }}</strong> {{ trans('main.in') }}</p>
-        <ul>
-            <li>
-                <img src="{{ asset('images/volkanica-logo_small.png') }}" alt="Volcanica logo">
-            </li>
-            <li>
-                <img src="{{ asset('images/fjallraven-logo_small.png') }}" alt="Fjallraven logo">
-            </li>
-            <li>
-                <img src="{{ asset('images/salewa-logo_small.png') }}" alt="Salewa Chile logo">
-            </li>
-        </ul>
-    </div>
+
     <section class="visual lazyload" @if ($activity->image) data-original="/{{ $activity['image'] }}" @endif>
         <div class="gradoverlay"></div>
         <div class="activity-search">
@@ -33,16 +19,16 @@
     </section>
 
     <main id="main">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
-                    {{--@include('site.offers.offers_quickinfo')--}}
+{{--                    @include('site.offers.offers_quickinfo')--}}
                     <div class="your-reservation activity add new">
                         <div class="row">
-                            <div id="activity-single-sidebar" class="col-md-4 col-sm-12 col-xs-12">
+                            <div id="activity-single-sidebar" class="col-md-3 col-sm-12 col-xs-12">
                                 @include('site.activities.activity-single-sidebar')
                             </div>
-                            <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-md-7 col-sm-12 col-xs-12">
                                 <header class="activity-title">
                                     @if($activity->name)
                                         <h1>{{ $activity->name }}</h1>
@@ -226,6 +212,23 @@
                                     </div>
 
                                 </section>
+                            </div>
+                            <div class="col-md-2 col-sm-12 col-xs-12 win-donamos-section">
+                                <div class="row win-10">
+                                    <h2>GANE 10%</h2>
+                                    <p>Para ocupar en las  tiendas
+                                        Volkanica en las marcas
+                                        Fjallraven y Salewa</p>
+                                    <img src="{{ asset('images/siteImages/partners2.png') }}" class="partners" alt="Aventuras chile partners">
+
+                                </div>
+                                <div class="row donamos-1">
+                                    <h2>DONAMOS 1%</h2>
+                                    <p>1% de su reserva será donada
+                                        para plantaciones de árvores
+                                        nativas en Chile</p>
+                                    <img src="{{ asset('images/siteImages/sprout2.png') }}" class="sprout" alt="sprout">
+                                </div>
                             </div>
                         </div>
                     </div>
