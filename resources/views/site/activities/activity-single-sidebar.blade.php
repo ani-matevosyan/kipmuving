@@ -39,6 +39,19 @@
 	</footer>
 </section>
 <section class="important-block">
+
+	@if ($activity->instagram_location_id || $activity->instagram_name)
+		<div class="activity-instagram">
+			@if(is_null($activity->instagram_location_id) && $activity->instagram_name)
+				<span class="activity-tag">{{ $activity->instagram_name }}</span>
+			@endif
+			<div id="instafeed5" class="instafeed"
+				 @if($activity->instagram_location_id) data-location-id="{{ $activity->instagram_location_id }}" @endif
+				 data-tag="{{ $activity->instagram_name }}"></div>
+			<div class="clearfix"></div>
+		</div>
+	@endif
+
 	<div class="box alert">
 		<p>{{ trans('main.minimum_age') }}: <strong>{{ $activity['min_age'] }} {{ trans('main.years') }}</strong></p>
 	</div>
@@ -61,22 +74,6 @@
 					<li>{{ $item }}</li>
 				@endforeach
 			</ul>
-		</div>
-	@endif
-	@if ($activity->instagram_location_id || $activity->instagram_name)
-		<div class="activity-instagram">
-			@if(is_null($activity->instagram_location_id) && $activity->instagram_name)
-				<span class="activity-tag">{{ $activity->instagram_name }}</span>
-			@endif
-			<div id="instafeed5" class="instafeed"
-					 @if($activity->instagram_location_id) data-location-id="{{ $activity->instagram_location_id }}" @endif
-					 data-tag="{{ $activity->instagram_name }}"></div>
-			<div class="clearfix"></div>
-		</div>
-	@endif
-	@if($activity->tripadvisor_code)
-		<div class="box tripadvisor">
-			{!! $activity->tripadvisor_code !!}
 		</div>
 	@endif
 	{{--<div class="img-tour" id="image-tour">--}}

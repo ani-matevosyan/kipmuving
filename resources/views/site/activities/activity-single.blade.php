@@ -33,6 +33,11 @@
                                     @if($activity->name)
                                         <h1>{{ $activity->name }}</h1>
                                     @endif
+                                    @if($activity->tripadvisor_code)
+                                        <div class="box tripadvisor">
+                                            {!! $activity->tripadvisor_code !!}
+                                        </div>
+                                    @endif
                                 </header>
                                 <section class="post-box">
                                     <div class="title-box">
