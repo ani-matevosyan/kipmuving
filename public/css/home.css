@@ -13045,16 +13045,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 /**********END Activities slider section*************/
 .s-banner {
   position: relative;
-  /*  &__form-container{
-    text-align: center;
-    position: absolute;
-    bottom: 40px;
-    background-color: rgba(0,0,0,0);
-    width: 100%;
-    @media screen and (max-width: 600px){
-      bottom: 80px;
-    }
-  }*/
 }
 
 .s-banner__slider {
