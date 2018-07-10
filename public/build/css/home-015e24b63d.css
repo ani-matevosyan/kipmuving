@@ -12309,6 +12309,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
 }
 
 .best-price-section {
+  display: none;
   text-align: center;
   font-family: 'Dosis', sans-serif;
   position: relative;
@@ -12819,7 +12820,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
 /**********Activities slider section*************/
 .activities-slider-section {
   background: #fff;
-  padding: 77px 0 24px;
+  padding: 58px 0 24px;
 }
 
 .activities-slider-section .see-all-link {
@@ -12854,7 +12855,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
 }
 
 .activities-slider-section .most-visited {
-  color: #4f4f4f;
+  color: #ebb414;
 }
 
 .activities-slider-section__sub-title {
@@ -13045,16 +13046,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 /**********END Activities slider section*************/
 .s-banner {
   position: relative;
-  /*  &__form-container{
-    text-align: center;
-    position: absolute;
-    bottom: 40px;
-    background-color: rgba(0,0,0,0);
-    width: 100%;
-    @media screen and (max-width: 600px){
-      bottom: 80px;
-    }
-  }*/
 }
 
 .s-banner__slider {
@@ -13115,7 +13106,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
   padding-left: 17px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 991px) {
   .s-banner__termas-geometricas {
     left: auto;
     right: 0;
@@ -13162,7 +13153,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
   right: 27px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 991px) {
   .s-banner__price {
     left: auto;
     right: 0;
@@ -13597,7 +13588,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 .win-10-section {
   /* equal heights for cols*/
   font-family: "Dosis";
-  padding-top: 50px;
 }
 
 .win-10-section .row {

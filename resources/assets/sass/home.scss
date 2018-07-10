@@ -22,6 +22,7 @@
 }
 
 .best-price-section{
+  display: none;
   .row{
     overflow: hidden;
   }
@@ -406,7 +407,7 @@
 
 .activities-slider-section{
   background: #fff;
-  padding: 77px 0 24px;
+  padding: 58px 0 24px;
 
   .see-all-link{
     float: right;
@@ -431,7 +432,7 @@
     }
   }
   .most-visited{
-    color: rgb(79, 79, 79);
+    color: rgb(235,180,20);
   }
   &__sub-title{
     font-family: "Dosis";
@@ -627,7 +628,7 @@
       margin-top: 19px;
       padding-left: 17px;
     }
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 991px){
       left: auto;
       right: 0;
       bottom: 150px;
@@ -666,7 +667,7 @@
       top: 18px;
       right: 27px;
     }
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 991px){
       left: auto;
       right: 0;
       bottom: 81px;
@@ -1014,7 +1015,6 @@
     padding-bottom: 99999px;
   }
   font-family: "Dosis";
-  padding-top: 50px;
   .col-xs-4 {
     text-align: center;
   }

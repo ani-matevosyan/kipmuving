@@ -22,8 +22,47 @@
 			</div>
 		</section>
 
-		{{--todo add translations--}}
 
+		{{--TODO add translations--}}
+		<section class="win-10-section">
+			<div class="row">
+				<div class="col-sm-6 win-10">
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="{{ asset('images/siteImages/partners.png') }}" class="partners" alt="Aventuras chile partners">
+						</div>
+						<div class="col-xs-8">
+							<h2>
+								GANE 10%
+							</h2>
+							<p>
+								Para ocupar en las  tiendas Volkanica
+								en las marcas <span>Fjallraven y Salewa </span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 donamos-2">
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="{{ asset('images/siteImages/sprout.png') }}" class="donamos" alt="donamos">
+						</div>
+						<div class="col-xs-8">
+							<h2>
+								DONAMOS 2%
+							</h2>
+							<p>
+								2% de su reserva será donada para
+								<span>plantaciones de árvores nativas en Chile</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		{{--todo add translations--}}
 		<section class="best-price-section">
 			<div class="row">
 				<div class="col-sm-6 best-price">
@@ -92,6 +131,32 @@
 		</section>
 
 
+		@if(count($slider_activities) > 0)
+			<section class="activities-slider-section most-visited">
+				<div class="container-fluid">
+					<header class="activities-slider-section__header">
+						<h2 class="activities-slider-section__title most-visited">{{ trans('main.most_visited_in_pucon') }}</h2>
+						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
+						<a href="{{ route('activities') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
+					</header>
+					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
+						@foreach($slider_activities as $activity)
+							<div class="activities-slider__item">
+								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
+									<figure>
+										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
+									</figure>
+									<h3 class="activities-slider__name">{{ $activity->name }}</h3>
+									<p class="activities-slider__description">{{ $activity->short_description }}</p>
+								</a>
+							</div>
+						@endforeach
+					</div>
+				</div>
+			</section>
+		@endif
+
+
 		@if(count($random_activities) > 0)
 			<section class="activities-slider-section suggested-plans">
 				<div class="container-fluid">
@@ -132,70 +197,6 @@
 			</section>
 		@endif
 
-		{{--TODO add translations--}}
-		<section class="win-10-section">
-			<div class="row">
-				<hr>
-				<div class="col-sm-6 win-10">
-					<div class="row">
-						<div class="col-xs-4">
-							<img src="{{ asset('images/siteImages/partners.png') }}" class="partners" alt="Aventuras chile partners">
-						</div>
-						<div class="col-xs-8">
-							<h2>
-								GANE 10%
-							</h2>
-							<p>
-								Para ocupar en las  tiendas Volkanica
-								en las marcas <span>Fjallraven y Salewa </span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 donamos-2">
-					<div class="row">
-						<div class="col-xs-4">
-							<img src="{{ asset('images/siteImages/sprout.png') }}" class="donamos" alt="donamos">
-						</div>
-						<div class="col-xs-8">
-							<h2>
-								DONAMOS 2%
-							</h2>
-							<p>
-								2% de su reserva será donada para
-								<span>plantaciones de árvores nativas en Chile</span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		@if(count($slider_activities) > 0)
-			<section class="activities-slider-section most-visited">
-				<div class="container-fluid">
-					<header class="activities-slider-section__header">
-						<h2 class="activities-slider-section__title most-visited">{{ trans('main.most_visited_in_pucon') }}</h2>
-						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
-						<a href="{{ route('activities') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
-					</header>
-					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
-						@foreach($slider_activities as $activity)
-							<div class="activities-slider__item">
-								<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="activities-slider__link">
-									<figure>
-										<img src="{{ asset($activity->image_thumb) }}" onerror="this.src='/images/image-none.jpg';" class="activities-slider__image" alt="{{ $activity->name }}"/>
-									</figure>
-									<h3 class="activities-slider__name">{{ $activity->name }}</h3>
-									<p class="activities-slider__description">{{ $activity->short_description }}</p>
-								</a>
-							</div>
-						@endforeach
-					</div>
-				</div>
-			</section>
-		@endif
 
 		{{--<section id="guia" class="s_guia">--}}
 			{{--<div class="container">--}}
