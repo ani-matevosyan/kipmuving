@@ -7,9 +7,9 @@
 
 
 .main-header {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  margin-top: 5px;
+  margin-top: 11px;
 }
 
 .container-fluid{
@@ -592,7 +592,7 @@
     z-index: 0;
     .owl-item {
       width:100%;
-      height: 507px;
+      height: 603px;
     }
     .owl-dots{
       height: 0px;
@@ -611,7 +611,7 @@
       }
     }
   }
-  &__form-container{
+/*  &__form-container{
     text-align: center;
     position: absolute;
     bottom: 40px;
@@ -619,6 +619,67 @@
     width: 100%;
     @media screen and (max-width: 600px){
       bottom: 80px;
+    }
+  }*/
+  &__termas-geometricas{
+    text-align: left;
+    position: absolute;
+    width: 436px;
+    height: 60px; //96px
+    background-color: rgba(255,255,255, 0.92);
+    bottom: 280px;
+    left: 139px;
+    p{
+      font-size: 40px;
+      color: rgb(91,56,6);
+      font-family: "P TSans";
+      font-weight: bold;
+      margin-top: 19px;
+      padding-left: 17px;
+    }
+    @media screen and (max-width: 600px){
+      left: auto;
+      right: 0;
+      bottom: 150px;
+      width: 340px;
+      p{
+        font-size: 30px;
+      }
+    }
+  }
+  &__price{
+    text-align: center;
+    position: absolute;
+    width: 197px;
+    height: 69px;
+    background-color: rgba(105,77,85, 0.9); //rgba(127,45,76, 0.9);
+    bottom: 211px;
+    left: 378px;
+    color: rgb(255,255,255);
+    font-family: "P TSans";
+    p:first-child{
+      font-size: 14px;
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
+    span:nth-child(2){
+      font-size: 19px;
+    }
+    span:nth-child(3){
+      font-size: 27px;
+      margin-right: 27px;
+      margin-left: 4px;
+    }
+    i{
+      font-size: 35px;
+      position: absolute;
+      top: 18px;
+      right: 27px;
+    }
+    @media screen and (max-width: 600px){
+      left: auto;
+      right: 0;
+      bottom: 81px;
     }
   }
   &__link{

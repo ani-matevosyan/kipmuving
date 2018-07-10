@@ -11,22 +11,31 @@
 				<div class="item" id="item-3"></div>
 				<div class="item" id="item-4"></div>
 			</div>
-			<div class="s-banner__form-container">
-				<form action="/activity/search" class="banner-form" method="post">
-					{{ csrf_field() }}
-					<select class="banner-form__select" name="activity_id" required>
-						<option selected value="">{{ trans('main.select_an_activity') }}</option>
-						@foreach ($activitiesList as $item)
-							<option value="{{ $item->id }}">{{ $item->name }}</option>
-						@endforeach
-					</select>
-					<input name="activity_date"
-						   value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"
-						   placeholder="{{ trans('form.date') }}"
-						   class="banner-form__date"
-						   data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>
-					<input type="submit" value="{{ trans('button-links.search') }}" class="btn banner-form__submit">
-				</form>
+			{{--<div class="s-banner__form-container">--}}
+				{{--<form action="/activity/search" class="banner-form" method="post">--}}
+					{{--{{ csrf_field() }}--}}
+					{{--<select class="banner-form__select" name="activity_id" required>--}}
+						{{--<option selected value="">{{ trans('main.select_an_activity') }}</option>--}}
+						{{--@foreach ($activitiesList as $item)--}}
+							{{--<option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+						{{--@endforeach--}}
+					{{--</select>--}}
+					{{--<input name="activity_date"--}}
+						   {{--value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}"--}}
+						   {{--placeholder="{{ trans('form.date') }}"--}}
+						   {{--class="banner-form__date"--}}
+						   {{--data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'/>--}}
+					{{--<input type="submit" value="{{ trans('button-links.search') }}" class="btn banner-form__submit">--}}
+				{{--</form>--}}
+			{{--</div>--}}
+			<div class="s-banner__termas-geometricas">
+				<p>Termas Geométricas</p>
+			</div>
+			<div class="s-banner__price">
+				<p>a partir de</p>
+				<span>R$</span>
+				<span>50,00</span>
+				<i class="glyphicon glyphicon-menu-right"></i>
 			</div>
 		</section>
 
