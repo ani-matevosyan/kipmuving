@@ -45,7 +45,7 @@
 						</div>
 						<button class="mobile-sidebar__close-btn"></button>
 					</header>
-					<div class="col-md-4 col-md-push-5 col-sm-8">
+					<div class="col-md-3 col-md-push-6 col-sm-8">
 						<div class="main-header__right-side">
 							{{--  <span class="info-btn"></span>  --}}
 							<div class="dropdown language">
@@ -103,7 +103,7 @@
 									</ul>
 								</div>
 							@else
-								<a href="{{ url('/login') }}" class="auth">{{ trans('button-links.login') }}</a>
+								<a href="{{ url('/login') }}" class="auth">Iniciar sessão</a>
 							@endif
 							<a href="{{ action('ReservationController@index') }}" class="shopping-cart">
 								<img src="{{ asset('/images/cart.svg') }}" alt="Shopping cart icon">
@@ -111,7 +111,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-md-5 col-md-pull-4 col-xs-12">
+					<div class="col-md-6 col-md-pull-3 col-xs-12">
 						<nav>
 							<ul>
 								<li>
@@ -121,10 +121,10 @@
 									<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 								</li>  --}}
 								<li>
-									<a href="{{ action('RoutesController@index') }}">{{ trans('main.routes') }}</a>
+									<a href="{{ action('RoutesController@index') }}">Guia e Itinararios</a>
 								</li>
 								<li>
-									<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.guide') }}</a>
+									<a href="{{ action('GuideController@howToGetToPucon') }}">Informações Úteis</a>
 								</li>
 							</ul>
 						</nav>

@@ -8070,12 +8070,28 @@ button.close {
 }
 
 .main-header nav li {
-  margin-right: 32px;
+  margin-right: 70px;
   font-size: 19px;
 }
 
 .main-header nav li:last-child {
   margin-right: 0;
+}
+
+.main-header nav li:first-child {
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1300px) {
+  .main-header nav li {
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .main-header nav li {
+    margin-right: 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -8263,6 +8279,12 @@ button.close {
   font-weight: 700;
   color: #ffffff;
   font-family: 'PT-Sans', sans-serif;
+}
+
+@media screen and (max-width: 1015px) and (min-width: 991px) {
+  .main-header__right-side .shopping-cart {
+    margin-left: 5px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -13100,7 +13122,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
 .s-banner__termas-geometricas p {
   font-size: 40px;
   color: #5b3806;
-  font-family: "P TSans";
+  font-family: 'PT-Sans', sans-serif;
   font-weight: bold;
   margin-top: 19px;
   padding-left: 17px;
