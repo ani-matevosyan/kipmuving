@@ -52,20 +52,6 @@
                                             </div>
                                         @endif
                                         <div class="get-offers">
-                                            <button class="get-offers__button
-                                                    @if((\Carbon\Carbon::parse(session('selectedDate'))->month) > 11 || (\Carbon\Carbon::parse(session('selectedDate'))->month) < 3)
-                                                        get-offers__button_disabled
-                                                    @endif"
-                                                    id="get-offers-button"
-                                                    @if((\Carbon\Carbon::parse(session('selectedDate'))->month) > 11 || (\Carbon\Carbon::parse(session('selectedDate'))->month) < 3)
-                                                        disabled
-                                                    @endif
-                                                    data-activity-id="{{ $activity->id }}">
-                                                {{ trans('main.i_want_to_receive') }}
-                                                <span>{{ trans('main.available_from') }}
-                                                    <strong>{{ trans('main.march_to_december') }}</strong>
-                                                </span>
-                                            </button>
                                             <div class="get-offers__date-persons">
                                                 <div class="get-offers__sub-col">
                                                     <input id="reserve-date"

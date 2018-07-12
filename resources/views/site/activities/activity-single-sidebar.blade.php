@@ -16,10 +16,6 @@
 		</dd>
 	</dl>
 	<dl>
-		<dt>{{ trans('main.receive_offers') }}:</dt>
-		<dd><span id="program_subscriptions">@if($count['special_offers'] > 0) {{ $count['special_offers'] }} @else {{ trans('main.still_no_offers') }} @endif</span></dd>
-	</dl>
-	<dl>
 		<dt>{{ trans('main.persons') }}:</dt>
 		<dd><span id="program_persons">{{ $count['persons'] }}</span></dd>
 	</dl>
