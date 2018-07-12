@@ -27,7 +27,13 @@
 							$
 						@endif
 					</span>
-					<span>{{ $tGActivity->offers->min('price') }}</span>
+					<span>
+						@if(session('currency.type') === 'CLP')
+							{{ number_format($tGActivity->offers->min('price'), 0, ".", ",") }}
+						@else
+							{{ number_format($tGActivity->offers->min('price'), 2, ".", ",") }}
+						@endif
+					</span>
 				</div>
 
 				<a href="{{ route('activities') }}">
