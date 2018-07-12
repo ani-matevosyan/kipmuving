@@ -616,10 +616,14 @@
     text-align: left;
     position: absolute;
     width: 436px;
-    height: 60px; //96px
+    height: 96px;
     background-color: rgba(255,255,255, 0.92);
     bottom: 280px;
     left: 139px;
+    .box.tripadvisor{
+      margin-left: 27px;
+      margin-top: -7px;
+    }
     p{
       font-size: 40px;
       color: rgb(91,56,6);
@@ -632,8 +636,13 @@
       right: 0;
       bottom: 350px;
       width: 340px;
+      height: 73px;
       p{
         font-size: 30px;
+        margin-top: 13px;
+      }
+      .box.tripadvisor{
+        margin-top: -17px;
       }
     }
   }

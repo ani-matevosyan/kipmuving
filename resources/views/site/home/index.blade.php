@@ -11,6 +11,11 @@
 			</div>
 			<div class="s-banner__termas-geometricas">
 				<p>Termas Geométricas</p>
+				@if($tGActivity->tripadvisor_code)
+					<div class="box tripadvisor">
+						{!! $tGActivity->tripadvisor_code !!}
+					</div>
+				@endif
 			</div>
 			<div class="s-banner__price">
 				<div class="minP">

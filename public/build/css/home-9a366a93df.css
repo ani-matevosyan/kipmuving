@@ -13113,10 +13113,15 @@ body > .jcf-select-drop.jcf-drop-flipped {
   text-align: left;
   position: absolute;
   width: 436px;
-  height: 60px;
+  height: 96px;
   background-color: rgba(255, 255, 255, 0.92);
   bottom: 280px;
   left: 139px;
+}
+
+.s-banner__termas-geometricas .box.tripadvisor {
+  margin-left: 27px;
+  margin-top: -7px;
 }
 
 .s-banner__termas-geometricas p {
@@ -13133,9 +13138,14 @@ body > .jcf-select-drop.jcf-drop-flipped {
     right: 0;
     bottom: 350px;
     width: 340px;
+    height: 73px;
   }
   .s-banner__termas-geometricas p {
     font-size: 30px;
+    margin-top: 13px;
+  }
+  .s-banner__termas-geometricas .box.tripadvisor {
+    margin-top: -17px;
   }
 }
 
