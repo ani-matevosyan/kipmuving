@@ -31,6 +31,7 @@ class HomeController extends Controller
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
 
 		$s_offers = \session('basket.special');
+        $tGActivity = Activity::find(10);
 
 		$data = [
 			'styles'            => config('resources.home.styles'),
@@ -60,6 +61,7 @@ class HomeController extends Controller
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
 			],
             'suggestions'     => Suggestion::withActivities()->get(),
+            'tGActivity'     => $tGActivity,
 		];
 		if (session('cities.current') == 'atacama')
 			return view('site.home.atacama-index', $data);

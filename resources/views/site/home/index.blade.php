@@ -7,18 +7,27 @@
 		<section class="s-banner">
 			<div class="owl-carousel owl-theme s-banner__slider">
 				<div class="item" id="item-1"></div>
-				<div class="item" id="item-2"></div>
-				<div class="item" id="item-3"></div>
-				<div class="item" id="item-4"></div>
+				{{--<div class="item" id="item-2"></div>--}}
 			</div>
 			<div class="s-banner__termas-geometricas">
 				<p>Termas Geométricas</p>
 			</div>
 			<div class="s-banner__price">
-				<p>a partir de</p>
-				<span>R$</span>
-				<span>50,00</span>
-				<i class="glyphicon glyphicon-menu-right"></i>
+				<div class="minP">
+					<p>a partir de</p>
+					<span>
+						@if(session('currency.type') === 'BRL')
+							R$
+						@else
+							$
+						@endif
+					</span>
+					<span>{{ $tGActivity->offers->min('price') }}</span>
+				</div>
+
+				<a href="{{ route('activities') }}">
+					<div></div>
+				</a>
 			</div>
 		</section>
 

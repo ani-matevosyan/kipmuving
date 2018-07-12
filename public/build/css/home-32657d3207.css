@@ -13122,7 +13122,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 .s-banner__termas-geometricas p {
   font-size: 40px;
   color: #5b3806;
-  font-family: 'PT-Sans', sans-serif;
   font-weight: bold;
   margin-top: 19px;
   padding-left: 17px;
@@ -13132,7 +13131,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
   .s-banner__termas-geometricas {
     left: auto;
     right: 0;
-    bottom: 150px;
+    bottom: 350px;
     width: 340px;
   }
   .s-banner__termas-geometricas p {
@@ -13149,37 +13148,52 @@ body > .jcf-select-drop.jcf-drop-flipped {
   bottom: 211px;
   left: 378px;
   color: white;
-  font-family: "P TSans";
 }
 
-.s-banner__price p:first-child {
+.s-banner__price .minP {
+  width: 129px;
+  margin-top: 13px;
+  text-align: right;
+}
+
+.s-banner__price .minP p:first-child {
   font-size: 14px;
-  margin-top: 12px;
-  margin-bottom: 5px;
+  line-height: 1;
+  margin-bottom: 7px;
 }
 
-.s-banner__price span:nth-child(2) {
+.s-banner__price .minP span:nth-child(2) {
   font-size: 19px;
+  line-height: 0;
 }
 
-.s-banner__price span:nth-child(3) {
+.s-banner__price .minP span:nth-child(3) {
   font-size: 27px;
-  margin-right: 27px;
-  margin-left: 4px;
+  font-weight: bold;
 }
 
-.s-banner__price i {
+.s-banner__price a {
+  cursor: pointer;
+  color: white;
+  display: inline;
   font-size: 35px;
   position: absolute;
   top: 18px;
   right: 27px;
 }
 
+.s-banner__price a div {
+  width: 24px;
+  height: 36px;
+  background-image: url("../../images/siteImages/arrowIcon.png");
+  background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 991px) {
   .s-banner__price {
     left: auto;
     right: 0;
-    bottom: 81px;
+    bottom: 281px;
   }
 }
 

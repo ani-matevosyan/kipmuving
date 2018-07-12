@@ -623,7 +623,6 @@
     p{
       font-size: 40px;
       color: rgb(91,56,6);
-      font-family: 'PT-Sans', sans-serif;;
       font-weight: bold;
       margin-top: 19px;
       padding-left: 17px;
@@ -631,7 +630,7 @@
     @media screen and (max-width: 991px){
       left: auto;
       right: 0;
-      bottom: 150px;
+      bottom: 350px;
       width: 340px;
       p{
         font-size: 30px;
@@ -647,30 +646,43 @@
     bottom: 211px;
     left: 378px;
     color: rgb(255,255,255);
-    font-family: "P TSans";
-    p:first-child{
-      font-size: 14px;
-      margin-top: 12px;
-      margin-bottom: 5px;
+    .minP {
+      width: 129px;
+      margin-top: 13px;
+      text-align: right;
+      p:first-child{
+        font-size: 14px;
+        line-height: 1;
+        margin-bottom: 7px;
+      }
+      span:nth-child(2){
+        font-size: 19px;
+        line-height: 0;
+      }
+      span:nth-child(3){
+        font-size: 27px;
+        font-weight: bold;
+      }
     }
-    span:nth-child(2){
-      font-size: 19px;
-    }
-    span:nth-child(3){
-      font-size: 27px;
-      margin-right: 27px;
-      margin-left: 4px;
-    }
-    i{
+    a{
+      cursor: pointer;
+      color: white;
+      display: inline;
       font-size: 35px;
       position: absolute;
       top: 18px;
       right: 27px;
+      div {
+        width: 24px;
+        height: 36px;
+        background-image: url('../../images/siteImages/arrowIcon.png');
+        background-repeat: no-repeat;
+      }
     }
     @media screen and (max-width: 991px){
       left: auto;
       right: 0;
-      bottom: 81px;
+      bottom: 281px;
     }
   }
   &__link{
