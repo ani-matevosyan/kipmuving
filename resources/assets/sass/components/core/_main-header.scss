@@ -17,6 +17,10 @@ body.mobile-menu-open{
   padding: 7px 0;
   position: relative;
   width: 100%;
+  .container-fluid {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
   &.open{
     .mobile-sidebar{
       right: 0;

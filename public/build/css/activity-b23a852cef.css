@@ -7692,6 +7692,11 @@ button.close {
   width: 100%;
 }
 
+.main-header .container-fluid {
+  padding-right: 35px;
+  padding-left: 35px;
+}
+
 .main-header.open .mobile-sidebar {
   right: 0;
 }
