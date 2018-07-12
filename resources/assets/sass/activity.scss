@@ -913,7 +913,9 @@
 
 .get-offers {
   font-size: 0;
+  text-align: right;
   &__button {
+    display: none;
     @extend %get-offers-item;
     width: 46%;
     background-color: #5c81c2;
@@ -1007,7 +1009,6 @@
       top: 11px;
       bottom: 11px;
       right: 17px;
-      left: 30px;
     }
     @media screen and (max-width: 1149px) and (min-width: 992px) {
       padding-left: 15px;

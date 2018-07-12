@@ -36,7 +36,7 @@
 					</span>
 				</div>
 
-				<a href="{{ route('activities') }}">
+				<a href="{{ action('ActivityController@getActivity', $tGActivity->id) }}">
 					<div></div>
 				</a>
 			</div>

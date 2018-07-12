@@ -228,8 +228,8 @@
 
                                 </div>
                                 <div class="row donamos-1">
-                                    <h2>DONAMOS 1%</h2>
-                                    <p>1% de su reserva será donada
+                                    <h2>DONAMOS 2%</h2>
+                                    <p>2% de su reserva será donada
                                         para plantaciones de árvores
                                         nativas en Chile</p>
                                     <img src="{{ asset('images/siteImages/sprout2.png') }}" class="sprout" alt="sprout">
