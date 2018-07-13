@@ -1897,9 +1897,16 @@ body {
 }
 
 .login-content {
-  max-width: 356px;
+  max-width: 376px;
   padding-left: 64px;
   position: relative;
+  .login-form-div {
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+    @media screen and (max-width: 767px) {
+      border-right: 0;
+    }
+  }
 }
 
 .login-content__social-buttons {
@@ -1974,6 +1981,19 @@ body {
   color: #BDBDBD;
 }
 
+.login-content-no-account{
+  text-align: center;
+  margin-top: 141px;
+  p{
+    margin: 0 0 5px;
+  }
+  a{
+    color: #dfa90c;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
 .blue-checkbox {
   margin: 0;
   cursor: pointer;
@@ -2025,7 +2045,7 @@ body {
 }
 
 .login-form {
-  padding: 0 0 30px;
+  margin: 0 0 30px;
 }
 
 .login-form__group {

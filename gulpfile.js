@@ -70,10 +70,10 @@ const elixir = require('laravel-elixir');
 
 
 elixir((mix) => {
-  mix.sass('activities.scss')
+  mix.sass('common.scss')
     .webpack('activities.js')
     .version([
-      'css/activities.css',
+      'css/common.css',
       'js/activities.js'
     ])
 });
