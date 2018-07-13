@@ -47,6 +47,11 @@ ul {
   position: relative;
 }
 
+.container-fluid {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
 .top_nav ul, .two-columns .list, .two-columns .meta, .activities .list, .packages .list, .activities-list, .res-process .col ul, .main-footer .footer-nav ul, .main-footer .payment-cards, .reservation .payment-card, .program-schedule ul, .transparent-price .list, .social-likes ul, .your-reservation .timing1, .your-reservation .accordion, .your-reservation .list-box .list, .your-reservation .timing, .your-reservation .subnav ul, .your-reservation .links, .your-reservation .you-add .list, .your-reservation .category, .your-reservation .widget ul, .your-reservation .important-block .list, .table .tbody, .profile-block .tablist, .profile-block .item-list, .profile-block .timing, .all-activities .subnav ul {
   margin: 0;
   padding: 0;

@@ -33,7 +33,7 @@ class ActivityController extends Controller
 			'slider_activities' => Activity::where('region', '=', $region)
 				->where('slider_activities_page', true)
 //				->translatedIn(app()->getLocale())
-				->limit(4)
+				->limit(5)
 				->inRandomOrder()
 				->get(),
 			'activities'        => $activity->getAllActivities(),
@@ -44,7 +44,7 @@ class ActivityController extends Controller
 				'total'          => $offer->getSelectedOffersTotal(),
 			],
 		];
-
+//        dd($data['slider_activities']);
 		return view('site.activities.index', $data);
 	}
 

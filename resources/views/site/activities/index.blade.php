@@ -4,29 +4,15 @@
 @section('content')
 
 	<main id="main">
-		<div class="activity-banner">
-			<p>{{ trans('main.make_reservation_and') }} <strong>{{ trans('main.win') }} 10% {{ trans('main.discount') }}</strong> {{ trans('main.in') }}</p>
-			<ul>
-				<li>
-					<img src="{{ asset('images/volkanica-logo_small.png') }}" alt="Volcanica logo">
-				</li>
-				<li>
-					<img src="{{ asset('images/fjallraven-logo_small.png') }}" alt="Fjallraven logo">
-				</li>
-				<li>
-					<img src="{{ asset('images/salewa-logo_small.png') }}" alt="Salewa Chile logo">
-				</li>
-			</ul>
-		</div>
 		<section class="visited-activities-section">
-			<div class="container">
+			<div class="container-fluid">
 				<header class="visited-activities-section__header">
 					<h2 class="visited-activities-section__title">{{ trans('main.most_visited_in_pucon') }}</h2>
 					<p class="visited-activities-section__sub-title">{{ trans('main.below_are_activities') }}</p>
 				</header>
-				<div class="top-activities">
+				<div class="top-activities row">
 					@foreach($slider_activities as $activity)
-						<div class="top-activities__item">
+						<div class="top-activities__item col-md-5ths col-sm-4 col-xs-6">
 							<a href="{{ action('ActivityController@getActivity', $activity->id) }}" class="top-activities__link">
 								<figure>
 									<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="{{ asset($activity->image_thumb) }}" alt="{{ $activity->name }}" class="top-activities__image lazyload">
@@ -46,7 +32,7 @@
 				</div>
 			</div>
 		</section>
-		<div class="container">
+		<div class="container-fluid">
 			@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_activities'])
 			<div class="filters">
 				<a href="#" class="btn btn-open-filters">Filters <span></span></a>
@@ -201,21 +187,10 @@
 							{{ trans('main.trekking') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Trekking') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -233,21 +208,10 @@
 							{{ trans('main.river') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Rio') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -265,21 +229,10 @@
 							{{ trans('main.action') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Aire') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -297,21 +250,10 @@
 							{{ trans('main.relax') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Relax') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -329,21 +271,10 @@
 							{{ trans('main.snow') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Nieve') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -361,21 +292,10 @@
 							{{ trans('main.cultural') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Familia') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>
@@ -386,21 +306,10 @@
 							{{ trans('main.cycling') }}
 						</strong>
 						<div class="row">
-							<?php $key_for_4_col = 0; $key_for_3_col = 0; ?>
 							@foreach ($activities->where('styles', 'Ciclismo') as $activity)
-								<div class="col-md-3 col-sm-4 col-xs-12 col">
+								<div class="col-md-5ths col-sm-4 col-xs-6">
 									@include('site.partials.activities.all-list-item')
 								</div>
-								<?php ++$key_for_4_col; ++$key_for_3_col; ?>
-								@if($key_for_4_col ===4 )
-									<div class="clearfix visible-lg-block"></div>
-									<div class="clearfix visible-md-block"></div>
-									<?php $key_for_4_col = 0; ?>
-								@endif
-								@if($key_for_3_col ===3 )
-									<div class="clearfix visible-sm-block"></div>
-									<?php $key_for_3_col = 0; ?>
-								@endif
 							@endforeach
 						</div>
 					</section>

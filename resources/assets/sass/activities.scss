@@ -534,6 +534,7 @@
     margin-bottom: 51px;
   }
   &__title{
+    color: rgb(243,175,24);
     font-size: 38px;
     font-weight: 700;
     margin: 0 0 10px;
@@ -555,12 +556,12 @@
   &__link:focus{
     color: #000;
   }
-  &__item{
-    width: calc( (100%/4) - 15px );
-  }
+  //&__item{
+  //  width: calc( (100%/5) - 15px );
+  //}
   figure{
     position: relative;
-    padding-top: 36%;
+    padding-top: 71%;
   }
   &__image{
     position: absolute;
@@ -571,7 +572,7 @@
     height: 100%;
   }
   &__info{
-    padding: 0 18px;
+    padding: 0 2px 0 0;
   }
   &__name{
     margin: 14px 0 6px;
@@ -593,13 +594,21 @@
 }
 
 
-@media screen and (max-width: 991px){
+@media screen and (max-width: 991px) and (min-width: 771px){
+  .top-activities__item{
+    width: calc( (100%/4) - 15px );
+    margin-bottom: 30px;
+    &:last-child{
+      display: none;
+    }
+  }
+}
 
+@media screen and (max-width: 771px){
   .top-activities__item{
     width: calc( (100%/2) - 15px );
     margin-bottom: 30px;
   }
-
 }
 
 @media screen and (max-width: 640px){
@@ -631,10 +640,41 @@
     max-width: 370px;
   }
 
-  .top-activities__image{
-    height: 173px;
-  }
-
 }
 
+// five equal columns
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 7px;
+  padding-left: 7px;
+  //border:1px solid;
+}
+
+.col-xs-5ths {
+  width: 20%;
+  float: left;
+}
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
+}
 /*---------------END Most visited activities section---------------*/
