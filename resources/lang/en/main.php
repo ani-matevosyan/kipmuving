@@ -10,7 +10,8 @@ return [
 	
 	'register'        => 'Register',
 	'welcome_to_site' => 'Welcome to the largest adventure site in Pucon, where you can find the best options and prices of the adventures available.',
-	
+    'register_here'     => 'Register here',
+    'dont_have_account' => 'Do not have an account?',
 	'compare_prices_between' => 'Compare prices between',
 	'agencies'               => 'agencies',
 	
@@ -401,5 +402,24 @@ return [
   'error'                     => 'Error',
   'success'                   => 'Success',
   'no_result_by_search'       => 'Sorry, there is no result by your search',
-  'routes'                    => 'Routes',            
+  'routes'                    => 'Routes',
+
+
+    'from' => 'from',
+    'win_10_p' => 'WIN 10%',
+    'win_10_text' => 'To occupy in the Volkanica stores in the Fjallraven and Salewa brands',
+    'donate_2_p' => 'We donate 2%',
+    'donate_2_text' => '2% of your reserve will be donated for plantations of native trees in Chile',
+
+    'activities_stand_out' => 'The activities that stand out',
+    'itinerary_suggestions' => 'Itinerary Suggestions',
+    'some_ideas_for_you' => 'Some ideas for you',
+
 ];
+
+
+
+
+
+
+

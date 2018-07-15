@@ -19,7 +19,7 @@
 			</div>
 			<div class="s-banner__price">
 				<div class="minP">
-					<p>a partir de</p>
+					<p>{{ trans('main.from') }}</p>
 					<span>
 						@if(session('currency.type') === 'BRL')
 							R$
@@ -43,7 +43,6 @@
 		</section>
 
 
-		{{--TODO add translations--}}
 		<section class="win-10-section">
 			<div class="row">
 				<div class="col-sm-6 win-10">
@@ -53,11 +52,10 @@
 						</div>
 						<div class="col-xs-8">
 							<h2>
-								GANE 10%
+								{{ trans('main.win_10_p') }}
 							</h2>
 							<p>
-								Para ocupar en las  tiendas Volkanica
-								en las marcas <span>Fjallraven y Salewa </span>
+								{{ trans('main.win_10_text') }}
 							</p>
 						</div>
 					</div>
@@ -69,11 +67,10 @@
 						</div>
 						<div class="col-xs-8">
 							<h2>
-								DONAMOS 2%
+								{{ trans('main.donate_2_p') }}
 							</h2>
 							<p>
-								2% de su reserva será donada para
-								<span>plantaciones de árvores nativas en Chile</span>
+								{{ trans('main.donate_2_text') }}
 							</p>
 						</div>
 					</div>
@@ -156,7 +153,7 @@
 				<div class="container-fluid">
 					<header class="activities-slider-section__header">
 						<h2 class="activities-slider-section__title most-visited">{{ trans('main.most_visited_in_pucon') }}</h2>
-						<p class="activities-slider-section__sub-title">{{ trans('main.below_are_activities') }}</p>
+						<p class="activities-slider-section__sub-title">{{ trans('main.activities_stand_out') }}</p>
 						<a href="{{ route('activities') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">
@@ -181,8 +178,8 @@
 			<section class="activities-slider-section suggested-plans">
 				<div class="container-fluid">
 					<header class="activities-slider-section__header">
-						<h2 class="activities-slider-section__title">Suggestions of routes</h2>
-						<p class="activities-slider-section__sub-title">We have some ideas for you</p>
+						<h2 class="activities-slider-section__title">{{ trans('main.itinerary_suggestions') }}</h2>
+						<p class="activities-slider-section__sub-title">{{ trans('main.some_ideas_for_you') }}</p>
 						<a href="{{ route('routes.home') }}" class="see-all-link">{{ trans('main.see_all') }} <span class="glyphicon glyphicon-menu-right"></span></a>
 					</header>
 					<div id="most-visited-activities-slider" class="owl-carousel csHidden activities-slider">

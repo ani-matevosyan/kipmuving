@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'login'                 => 'Entrar',
+  'login'                 => 'Iniciar sessão',
   'log_in_at'             => 'Para confirmar a reserva, inscreva-se em ',
   'or_register'           => ' ou se você já está cadastrado, faça o login com seu e-mail e senha.',
   'login_with'            => 'Faça login com ',
@@ -10,7 +10,8 @@ return [
 
   'register'        => 'Registrar',
   'welcome_to_site' => 'Bem-vindo ao maior site de aventuras de Pucón, onde você poderá encontrar as melhores opções e preços das aventuras disponíveis.',
-
+  'register_here'     => 'Cadastre-se aqui',
+  'dont_have_account' => 'Não tem uma conta?',
   'compare_prices_between' => 'Comparar preços entre',
   'agencies'               => 'agências',
 
@@ -76,7 +77,7 @@ return [
   'parks_for_chili'                => 'PARQUES PARA CHILE',
   'aventuraschile_is_aware_that_nature' => 'Aventuras Chile está consciente de que a natureza nos move e queremos ajudar a mantê-la para que podamos seguir disfrutando de suas maravilhas. Com isso doamos 1% da nossa comissão para a preservação dos parques chilenos, juntamente com a Fundação Parques para Chile',
 
-  'activities_in_pucon'         => 'As atividades em Pucón',
+  'activities_in_pucon'         => 'Os mais visitados em Pucón',
   'first_choose_your_itinerary' => 'Primeiramente escolha seu itinerário, o que gostaria de fazer, e veja o resultado',
   'from'                        => 'Desde de',
 
@@ -402,4 +403,26 @@ return [
   'success'                   => 'Sucesso',
   'no_result_by_search'       => 'Desculpe, não há resultado por sua pesquisa',  
   'routes'                    => 'Rotas',
+
+    'from' => 'a partir de',
+    'win_10_p' => 'GANHE 10%',
+    'win_10_text' => 'Para ocupar nas lojas Volkanica nas marcas Fjallraven e Salewa',
+    'donate_2_p' => 'Doamos 2%',
+    'donate_2_text' => '2% da sua reserva será doada para plantações de árvores nativas no Chile',
+
+    'activities_stand_out' => 'As atividades que se destacam',
+    'itinerary_suggestions' => 'Sugestões de Itinerários',
+    'some_ideas_for_you' => 'Algumas idéias pra voce',
+
 ];
+
+
+
+
+
+
+
+
+
+
+

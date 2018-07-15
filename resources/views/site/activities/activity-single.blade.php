@@ -206,18 +206,13 @@
                             </div>
                             <div class="col-md-2 col-sm-12 col-xs-12 win-donamos-section">
                                 <div class="row win-10">
-                                    <h2>GANE 10%</h2>
-                                    <p>Para ocupar en las  tiendas
-                                        Volkanica en las marcas
-                                        Fjallraven y Salewa</p>
+                                    <h2>{{ trans('main.win_10_p') }}</h2>
+                                    <p>{{ trans('main.win_10_text') }}</p>
                                     <img src="{{ asset('images/siteImages/partners2.png') }}" class="partners" alt="Aventuras chile partners">
-
                                 </div>
                                 <div class="row donamos-1">
-                                    <h2>DONAMOS 2%</h2>
-                                    <p>2% de su reserva será donada
-                                        para plantaciones de árvores
-                                        nativas en Chile</p>
+                                    <h2>{{ trans('main.donate_2_p') }}</h2>
+                                    <p>{{ trans('main.donate_2_text') }}</p>
                                     <img src="{{ asset('images/siteImages/sprout2.png') }}" class="sprout" alt="sprout">
                                 </div>
                             </div>

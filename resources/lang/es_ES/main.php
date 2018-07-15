@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'login'                 => 'Iniciar sesión',
+  'login'                 => 'Iniciar sesión',
   'log_in_at'             => 'Para confirmar la reserva, por favor, registrase en ',
   'or_register'           => ' o si ya eres registrado, haga login con su email y clave.',
   'login_with'            => 'Iniciar sesión con ',
@@ -10,7 +10,8 @@ return [
 	
 	'register'        => 'Tu registro',
 	'welcome_to_site' => 'Bienvenido al mayor sitio de aventuras de Pucón, donde podrá encontrar las mejores opciones y precios de las aventuras disponibles.',
-	
+    'register_here'     => 'Regístrase aqui',
+    'dont_have_account' => '¿No tienes una cuenta?',
 	'compare_prices_between' => 'Comparar precios entre',
 	'agencies'               => 'agencias',
 	
@@ -402,4 +403,23 @@ return [
   'success'                   => 'Éxito',
   'no_result_by_search'       => 'Lo sentimos, no hay resultados por su búsqueda',  
   'routes'                    => 'Rutas',
+
+    'from' => 'a partir de',
+    'win_10_p' => 'GANE 10%',
+    'win_10_text' => 'Para ocupar en las tiendas Volkanica en las marcas Fjallraven y Salewa',
+    'donate_2_p' => 'Donamos 2%',
+    'donate_2_text' => '2% de su reserva será donada para plantaciones de árvores nativas en Chile',
+
+    'activities_stand_out' => 'Las actividades que más se destacan',
+    'itinerary_suggestions' => 'Sugerencias de itinerario',
+    'some_ideas_for_you' => 'Algunas ideas para usted',
+
+
 ];
+
+
+
+
+
+
+

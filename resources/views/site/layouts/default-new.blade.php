@@ -103,7 +103,7 @@
 									</ul>
 								</div>
 							@else
-								<a href="{{ url('/login') }}" class="auth">Iniciar sessão</a>
+								<a href="{{ url('/login') }}" class="auth">{{trans('main.login')}}</a>
 							@endif
 							<a href="{{ action('ReservationController@index') }}" class="shopping-cart">
 								<img src="{{ asset('/images/cart.svg') }}" alt="Shopping cart icon">
@@ -121,10 +121,10 @@
 									<a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a>
 								</li>  --}}
 								<li>
-									<a href="{{ action('RoutesController@index') }}">Guia e Itinararios</a>
+									<a href="{{ action('RoutesController@index') }}">{{ trans('button-links.guides_and_itineraries') }}</a>
 								</li>
 								<li>
-									<a href="{{ action('GuideController@howToGetToPucon') }}">Informações Úteis</a>
+									<a href="{{ action('GuideController@howToGetToPucon') }}">{{ trans('button-links.useful_information') }}</a>
 								</li>
 							</ul>
 						</nav>
