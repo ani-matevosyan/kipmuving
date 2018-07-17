@@ -3,13 +3,15 @@
 {{-- Content --}}
 @section('content')
 	<main id="main" class="user-reservations-page">
-		<div class="container">
+		<div class="container-fluid">
 			<header class="user-page-header user-reservations-page__header">
 				<h1 class="user-page-header__title">{{ trans('main.my_adventures') }}</h1>
 				<p class="user-page-header__description">{{ trans('main.here_you_will_find_adventures') }}</p>
 				<button id="coupon-button" data-name="{{ auth()->user()->first_name }}" data-date="{{ \Carbon\Carbon::now()->addMonth(3)->format('d-m-Y') }}" class="btn coupon-button">{{ trans('main.print_btn').' '.trans('main.discount') }} Volcanica</button>
 			</header>
-			@if(isset($user->special_offers) && count($user->special_offers) > 0)
+
+			{{--todo delete this section--}}
+			@if(isset($user->special_offers) && count($user->special_offers) > 0 && false)
 				<section class="s-offers">
 					<header class="s-offers__header s-offers__header_special">
 						<h2 class="s-offers__title s-offers__title_special">{{ trans('main.received_offers') }}</h2>
@@ -55,9 +57,10 @@
 					</ul>
 				</section>
 			@endif
+
 			@if(isset($user->reservations) && count($user->reservations) > 0)
 				<section class="s-offers">
-					<header class="s-offers__header">
+					<header class="s-offers__header" style="display: none"> {{--todo delete header--}}
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
 						<button class="s-offers__print-button" id="print-activities" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.select_to_print') }}</button>
 					</header>
@@ -102,8 +105,10 @@
 									
 									@if(\Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date) >= \Carbon\Carbon::now())
 										<div class="your-offers__cancel">
-											<a href="{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}"
-												 class="your-offers__cancel-button">{{ trans('main.cancel_activity') }}</a>
+											<a {{--href="--}}{{--{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}--}}{{--"--}}
+												 class="your-offers__cancel-button cancelReservationBtn"  res-id="{{$reservation->id}}">
+												{{ trans('main.cancel_activity') }}
+											</a>
 										</div>
 									@endif
 								</li>
@@ -335,6 +340,43 @@
 			</div>
 		</div>
 	</div>
+
+	{{--<div class="modal fade" role="dialog" id="cancelActivityModal">--}}
+		{{--<div class="modal-dialog modal-sm">--}}
+			{{--<div class="modal-content">--}}
+				{{--<div class="modal-header">--}}
+					{{--<a href="#" data-dismiss="modal" class="close">close</a>--}}
+					{{--<h4 class="modal-title">Cancelar Actividad</h4>--}}
+				{{--</div>--}}
+				{{--<div class="modal-body">--}}
+					{{--<p>Usted tiene 2 días para cancelar sin que la agencia le cobre una multa de 10%.</p>--}}
+				{{--</div>--}}
+				{{--<div class="modal-footer">--}}
+					{{--<a href="#" class="btn btn-success" id="confirm_cancel">CONFIRMAR</a>--}}
+					{{--<a href="#" class="btn btn-warning" data-dismiss="modal">CANCELAR</a>--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</div>--}}
+	{{--</div>--}}
+
+	<div class="modal fade" id="cancelActivityModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div class="clearfix"></div>
+					<h4 class="modal-title">Confirma que deseas eliminar la reserva:</h4>
+				</div>
+				<div class="modal-body">
+					<div class="theActivity"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-warning">Si, deseo eliminarla</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
 		<div class="modal-dialog">

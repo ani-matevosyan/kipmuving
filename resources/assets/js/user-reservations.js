@@ -344,4 +344,18 @@ $(document).ready(function(){
     },1000);
   });
 
+
+    $("body").delegate(".cancelReservationBtn", "click", function(ev){
+
+
+        const activity = $(this).parents('li').html();
+        $("#cancelActivityModal .theActivity").html(activity);
+        $("#cancelActivityModal .theActivity").find('.your-offers__cancel').remove();
+
+        $("#cancelActivityModal").modal();
+
+    });
+
+
+
 });

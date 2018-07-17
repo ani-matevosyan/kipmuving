@@ -12,7 +12,8 @@
     bottom: 80px;
   }
   &__header{
-    margin-bottom: 22px;
+    margin-bottom: 40px;
+    margin-left: 10px;
   }
 }
 
@@ -109,12 +110,15 @@
     margin-right: 0;
   }
   &__item{
-    width: calc( 33.333% - 60px );
+    width: calc( 20.333% - 30px );
     position: relative;
-    padding-bottom: 67px;
+    //padding-bottom: 67px;
     margin:{
       right: 60px;
       bottom: 50px;
+    }
+    h3{
+      padding-top: 20px;
     }
     &:after{
       content: '';
@@ -125,7 +129,7 @@
       width: 1px;
       background-color: #e5e5e5;
     }
-    &:nth-child(3n-3):after{
+    &:nth-child(4n-4):after{
       display: none;
     }
     &_special{
@@ -141,13 +145,14 @@
     }
     @media screen and (max-width: 991px){
       width: calc( 50% - 60px );
-      &:nth-child(3n-3):after{
+      &:nth-child(4n-4):after{
         display: block;
       }
-      &:nth-child(even):after{
-        display: none;
-      }
     }
+    @media screen and (max-width: 991px) and (min-width: 767px){
+      width: calc( 33.333% - 60px );
+    }
+
     @media screen and (max-width: 600px){
       width: 100%;
       margin-right: 0;
@@ -233,15 +238,12 @@
     margin-bottom: 18px;
   }
   &__cancel{
-    border-top: 1px solid #e5e5e5;
-    text-align: center;
-    margin-top: 10px;
-    padding: 22px 0 11px;
-    position: absolute;
+    text-align: left;
+    margin-top: 35px;
     bottom: 0;
     width: 100%;
     left: 0;
-    height: 57px;
+    cursor: pointer;
     @media screen and (max-width: 600px){
       height: auto;
       position: relative;
@@ -249,7 +251,7 @@
   }
   &__cancel-button{
     display: inline-block;
-    font-size: 12px;
+    font-size: 13px;
     color: #972639;
     font-weight: 700;
     vertical-align: middle;
@@ -295,7 +297,7 @@
 .coupon-button{
   padding: 7px 16px 7px 48px;
   color: #fff;
-  background-color: #8A4260;
+  background-color: rgb(243,175,24);
   text-transform: none;
   font-size: 15px;
   background-image: url(../../images/printer-white-icon.png);
@@ -1314,4 +1316,67 @@
   .to_print{
     margin: 0;
   }
+}
+
+
+ /*for vertically centering the modal*/
+.modal {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
+#cancelActivityModal{
+
+  .modal-sm {
+    width: 350px; /* New width for small modal */
+  }
+  .modal-header {
+    color: rgb(0,0,0);
+    background: white;
+    .close {
+      opacity: 0.3;
+      background: url(../../../images/siteImages/cancel-svg.png) no-repeat;
+      background-size: 100% 100%;
+    }
+    .modal-title {
+      font-size: 15px;;
+      padding-left: 10px;
+      font-weight: normal;
+    }
+
+  }
+  .modal-content {
+    font-size: 15px;
+    background: white;
+    .theActivity{
+      padding-left: 17px;
+      h3{
+        margin-left: -5px;
+      }
+    }
+  }
+  .modal-footer{
+    .btn-warning{
+      background-color: #F2B41B;
+      font-weight: bold;
+      text-transform: none;
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+  }
+
+
 }
