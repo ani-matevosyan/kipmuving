@@ -64,10 +64,10 @@
 						<h2 class="s-offers__title">{{ trans('main.immediate_and_confirmed') }}</h2>
 						<button class="s-offers__print-button" id="print-activities" data-print-text="{{ trans('main.print_btn') }}">{{ trans('main.select_to_print') }}</button>
 					</header>
-					<ul class="your-offers" id="your-offers-list">
+					<ul class="your-offers confirmed_reservations" id="your-offers-list">
 						@foreach($user->reservations->where('status', true) as $reservation)
 							@if($reservation->offer)
-								<li class="your-offers__item">
+								<li class="your-offers__item" res_id="{{ $reservation->id }}">
 									<label class="your-offers__check-offer">
 										<input type="checkbox" value="{{ $reservation->id }}">
 										<i class="glyphicon glyphicon-ok"></i>
@@ -371,7 +371,7 @@
 					<div class="theActivity"></div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-warning">Si, deseo eliminarla</button>
+					<button type="button" class="btn btn-warning cancelReservationOK">Si, deseo eliminarla</button>
 				</div>
 			</div>
 		</div>

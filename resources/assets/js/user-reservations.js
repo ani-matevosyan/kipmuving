@@ -346,15 +346,36 @@ $(document).ready(function(){
 
 
     $("body").delegate(".cancelReservationBtn", "click", function(ev){
-
-
-        const activity = $(this).parents('li').html();
-        $("#cancelActivityModal .theActivity").html(activity);
+        const reservation = $(this).parents('li').html();
+        $("#cancelActivityModal .theActivity").html(reservation);
         $("#cancelActivityModal .theActivity").find('.your-offers__cancel').remove();
 
+        $("#cancelActivityModal .cancelReservationOK").attr('res_id',$(this).attr('res-id'));
         $("#cancelActivityModal").modal();
+    });
+
+
+    $("body").delegate(".cancelReservationOK", "click", function(ev){
+        const resId = $(this).attr('res_id');
+        $.ajax({
+            type: 'POST',
+            url: `/reservation/cancelReservation/${resId}`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+            },
+            success: function(data){
+                $('.confirmed_reservations').find(`li[res_id='${resId}']`).fadeOut('slow');
+            },
+            error: function(data){
+                console.log(data);
+            },
+            complete: () => {
+                $("#cancelActivityModal").modal('hide');
+            }
+        })
 
     });
+
 
 
 

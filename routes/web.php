@@ -182,6 +182,8 @@ Route::post('/pagseguro/notification', [
 	'as'   => 'pagseguro.notification',
 ]);
 Route::post('/reservation/print', 'ReservationController@getPrintData');
+Route::post('/reservation/cancelReservation/{id}', 'ReservationController@cancelReservation')
+    ->where('id', '[0-9]+');
 
 #Proposals
 Route::post('/proposals/save', 'ProposalController@saveProposal');
