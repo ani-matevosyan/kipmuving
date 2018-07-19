@@ -103,14 +103,13 @@
 												$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
 									@endif
 									
-									@if(\Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date) >= \Carbon\Carbon::now())
+{{--									@if(\Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date) >= \Carbon\Carbon::now())--}}
 										<div class="your-offers__cancel">
-											<a {{--href="--}}{{--{{ action('ReservationController@cancelReservation', ['id' => $reservation->id]) }}--}}{{--"--}}
-												 class="your-offers__cancel-button cancelReservationBtn"  res-id="{{$reservation->id}}">
+											<a class="your-offers__cancel-button cancelReservationBtn"  res-id="{{$reservation->id}}">
 												{{ trans('main.cancel_activity') }}
 											</a>
 										</div>
-									@endif
+									{{--@endif--}}
 								</li>
 							@endif
 						@endforeach
