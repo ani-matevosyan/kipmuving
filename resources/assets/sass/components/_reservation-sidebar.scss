@@ -1,8 +1,12 @@
 /*--------------RIGHT SIDE BAR "SU PROGRAM"------------*/
 
 .sidebar{
-  max-width: 385px;
+  max-width: 334px;
   margin: 0 auto;
+  margin-top: 164px;
+  @media screen and (max-width: 991px){
+    margin-top: 0px;
+  }
 }
 
 .s-program{
@@ -12,7 +16,6 @@
   }
   &__content{
     background: #fff;
-    border: 1px solid #cccccc;
     padding: 1px;
     position: relative;
     &_brl-curr{
@@ -191,9 +194,9 @@
 }
 
 .note{
-  padding: 15px 12px;
+  padding: 30px 12px 30px 12px;
   font-size: 12px;
-  color: #ffb400;
+  color: black;
 }
 .fixed{
   position: fixed;

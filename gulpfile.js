@@ -71,10 +71,10 @@ const elixir = require('laravel-elixir');
 
 
 elixir((mix) => {
-  mix.sass('user-reservations.scss')
-    .webpack('user-reservations.js')
+  mix.sass('reservation-style.scss')
+    .webpack('reservation-scripts.js')
     .version([
-      'css/user-reservations.css',
-      'js/user-reservations.js'
+      'css/reservation-style.css',
+      'js/reservation-scripts.js'
     ])
 });

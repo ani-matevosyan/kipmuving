@@ -207,7 +207,7 @@
     color: black;
     &:hover,
     &:focus{
-      color: #607293;
+      color: #606060;
     }
     &_special{
       color: #0081CC;
@@ -1339,7 +1339,6 @@
 
 
 #cancelActivityModal{
-
   .modal-sm {
     width: 350px; /* New width for small modal */
   }
@@ -1377,6 +1376,4 @@
       margin-bottom: 14px;
     }
   }
-
-
 }

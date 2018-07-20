@@ -3,13 +3,7 @@
 {{-- Content --}}
 @section('content')
 	<main id="main">
-		<div class="container">
-			<ul class="breadcrumb">
-				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-				<li><a href="{{ action('CalendarController@index') }}">{{ trans('main.your_agenda') }}</a></li>
-				<li>{{ trans('main.reservation') }}</li>
-			</ul>
-
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-sm-12">
 
@@ -20,61 +14,61 @@
 					@else
 						<header class="reservation-page__header">
 							<h1 class="reservation-page__title">{{ trans('main.these_are_your_activities') }}</h1>
-							<p class="reservation-page__description">{{ trans('main.please') }} {{ $user->username ? $user->username : $user->first_name }} {{ trans('main.confirm_below_the_activities') }}</p>
+							<p class="reservation-page__description">{{ trans('main.please') }} <span class="user-name">{{ $user->username ? $user->username : $user->first_name }}</span> {{ trans('main.confirm_below_the_activities') }}</p>
 						</header>
 					@endif
 
 					@if(count($reservation->offers) > 0)
-						<section class="picked-offers">
-							<h2 class="picked-offers__title">{{ trans('main.instant_booking') }}</h2>
-							<ul class="chosen-offers-list">
-								<?php $first_offer = true ?>
-								@foreach ($reservation->offers as $offer)
-									<li class="chosen-offers-list__item">
-										<header class="chosen-offers-list__header">
-											<h3 class="chosen-offers-list__name">
-												<a href="{{ action('ActivityController@getActivity', $offer->activity->id) }}" class="chosen-offers-list__name-link">{{ $offer->activity->name }}</a>
-											</h3>
-											<p class="chosen-offers-list__agency">{{ $offer->agency->name }} <span class="chosen-offers-list__agency-address">{{ $offer->agency->address }}</span></p>
-										</header>
-										<div class="chosen-offers-list__information">
-											<div class="you-should-take chosen-offers-list__you-should-take">
-												<strong class="you-should-take__title">{{ trans('main.you_must_take') }}</strong>
-												<ul class="you-should-take__list">
-													@foreach ($offer->includes as $include)
-														<li class="you-should-take__item">{{ $include }}</li>
-													@endforeach
-												</ul>
-											</div>
-											<div class="chosen-offers-list__order-information">
-												<ul class="order-information-list">
-													<li class="order-information-list__item order-information-list__item_time">
-														<strong class="order-information-list__point order-information-list__point_date">{{ trans('form.day') }}: {{ $offer->reservation['date'] }}</strong>
-														<p class="order-information-list__point"><strong>{{ trans('main.duration') }}</strong>: {{ $offer->duration }}hrs</p>
-														<p class="order-information-list__point">
-															<strong>{{ trans('main.schedule') }}</strong>: {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}
-															a {{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}</p>
-													</li>
-													<li class="order-information-list__item order-information-list__item_persons">
-														<p class="order-information-list__point"><strong>{{ $offer->reservation['persons'] }}</strong> {{ trans('main.persons') }}</p>
-													</li>
-												</ul>
-											</div>
-											<span class="chosen-offers-list__price">
-												<small class="chosen-offers-list__currency-sign">@if(session('currency.type') === 'BRL') R$ @else $ @endif</small>
-												{{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span>
+						<section class="s-offers">
+							<ul class="your-offers basket_reservations" id="your-offers-list">
+								@foreach($reservation->offers as $key => $offer)
+									<li class="your-offers__item" res_id="{{ $key }}">
+										<h3 class="your-offers__name">
+											<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">
+												{{ $offer->activity->name }}</a>
+										</h3>
+										<div class="your-offers__info-block">
+											<p class="your-offers__paragraph"><strong>{{ trans('main.agency') }}</strong>: {{  $offer->agency->name }}</p>
+											<p class="your-offers__paragraph"><strong>{{ trans('main.address') }}</strong>: {{ $offer->agency->address }}</p>
 										</div>
-										<div class="chosen-offers-list__additional-information">
-											<p class="chosen-offers-list__important"><strong>{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
-											<p class="chosen-offers-list__cancellation"><strong>{{ trans('main.cost_to_cancel') }}:</strong> {{ $offer->cancellation_rules }}</p>
+										<div class="your-offers__info-block">
+											<p class="your-offers__paragraph">
+												<strong>{{ trans('form.day') }}</strong>:
+												{{ $offer->reservation['date'] }}
+											</p>
+											<p class="your-offers__paragraph">
+												<strong>{{ trans('main.duration') }}</strong>:
+												{{  $offer->duration }} hrs</p>
+											<p class="your-offers__paragraph">
+												<strong>{{ trans('main.schedule') }}</strong>:
+												{{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}
+												{{ trans('emails.to') }}
+												{{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
+											</p>
+											<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $offer->reservation['persons'] }}</p>
+										</div>
+										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price"> {{ session('currency.type') }}
+												$ {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span></p>
+
+										<div class="your-offers__cancel">
+											<a class="your-offers__cancel-button cancelReservationBtn"  res-id="{{ $key }}">
+												{{ trans('main.cancel_activity') }}
+											</a>
 										</div>
 									</li>
 								@endforeach
 							</ul>
+
+							<div class="chosen-offers-list__additional-information">
+								<p class="chosen-offers-list__important"><strong>{{ trans('main.important') }}:</strong> {{ $offer->important }}</p>
+								<p class="chosen-offers-list__cancellation"><strong>{{ trans('main.cost_to_cancel') }}:</strong> {{ $offer->cancellation_rules }}</p>
+							</div>
+
 						</section>
 					@endif
 
-					@if(count($special_offers) > 0)
+						{{--todo delete this section, see && false--}}
+					@if(count($special_offers) > 0 && false)
 						<section class="picked-offers_special">
 							<h2 class="picked-offers__title picked-offers__title_special">{{ trans('main.receive_offers') }}</h2>
 							<ul class="chosen-offers-list">
@@ -104,6 +98,8 @@
 						</section>
 					@endif
 
+
+
 					@if (empty($message))
 						<section class="s-more-details">
 							<p class="s-more-details__paragraph">{{ trans('main.to_confirm_your_activities') }}
@@ -117,35 +113,46 @@
 						</section>
 					@endif
 				</div>
-				<div class="col-md-3 col-md-offset-1 col-sm-12">
+				<div class="col-md-4 col-sm-12">
 					<aside class="sidebar">
+
 						<section class="s-program">
 							<div class="s-program__content @if(session('currency.type') === 'BRL') s-program__content_brl-curr @endif">
-								@if(isset($reservation->offers) && count($reservation->offers) > 0)
-									<div class="s-program__basket">
-										<header class="s-program__header">
-											<h3 class="s-program__title">{{ trans('main.instant_booking') }}</h3>
-											<p class="s-program__offers-count">
-											<span
-													id="count-activities">{{ count($reservation->offers) }}</span> @if(count($reservation->offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
-											</p>
-										</header>
-										<ul class="basket-list">
-											@foreach ($reservation->offers as $key => $offer)
-												<li class="basket-list__item">
-													<a class="basket-list__delete-button" href="{{ action('OfferController@removeFromBasket', ['oid' => $key]) }}"></a>
-													<h4 class="basket-list__name">{{ $offer->activity->name }}</h4>
-													<span class="basket-list__price">{{number_format($offer->price * $offer->reservation['persons'], 0, '.', '.')}}</span>
-												</li>
-											@endforeach
-										</ul>
-										<div class="s-program__total">
-											<p class="s-program__price">{{ number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</p>
-											<span class="s-program__total-text">{{ trans('main.total') }}</span>
+
+								<div class="activity-basket">
+									<header>{{ trans('emails.hello') }} <strong>{{ auth()->user() ? (auth()->user()->username ? auth()->user()->username : auth()->user()->first_name) : trans('main.guest') }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
+									<dl>
+										<dt>{{ trans('main.confirmed') }}:</dt>
+										<dd>
+											<ul class="activity-basket__confirms-list">
+												@if(isset($reservation->offers) && count($reservation->offers) > 0)
+													@foreach ($reservation->offers as $key => $offer)
+														<li res_id="{{  $key }}">
+															<button data-offer-id="{{ $key }}"></button>
+															{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->format('d/m') }} {{ $offer->activity->name  }}
+														</li>
+													@endforeach
+												@endif
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt>{{ trans('main.persons') }}:</dt>
+										<dd><span id="program_persons">{{ $count['persons'] }}</span></dd>
+									</dl>
+									<dl>
+										<dt>{{ trans('main.total_of') }}:</dt>
+										<dd>$ <span id="program_total">{{  number_format($reservation->total[session('currency.type')], 0, ".", ".") }}</span></dd>
+									</dl>
+									<footer>
+										<div class="row">
+											<a href="{{ action('ReservationController@reserve') }}" class="activity-basket__to-reserve"><span class="glyphicon glyphicon-check"></span> {{ trans('main.reserve') }}</a>
 										</div>
-									</div>
-								@endif
-								@if(isset($special_offers) && count($special_offers) > 0)
+									</footer>
+								</div>
+
+								{{--todo delete special offers basket, see && false--}}
+								@if(isset($special_offers) && count($special_offers) > 0 && false)
 									<div class="s-program__basket">
 										<header class="s-program__header s-program__header_subscription">
 											<h3 class="s-program__title s-program__title_subscription">{{ trans('main.receive_offers') }}</h3>
@@ -164,7 +171,6 @@
 										</ul>
 									</div>
 								@endif
-								<a href="{{ action('ReservationController@reserve') }}" class="btn-reservar s-program__reserve-button">{{ trans('main.confirm') }}</a>
 							</div>
 						</section>
 						<div class="note">
@@ -173,7 +179,32 @@
 					</aside>
 				</div>
 			</div>
+
+			<div class="modal fade" id="cancelActivityModal" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<div class="clearfix"></div>
+							<h4 class="modal-title">Confirma que deseas eliminar la reserva:</h4>
+						</div>
+						<div class="modal-body">
+							<div class="theActivity"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning cancelReservationOK">Si, deseo eliminarla</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</main>
+
+	<script>
+        window.translateData = {
+            still_no_offers: '{{ trans('main.still_no_offers') }}'
+        }
+	</script>
 
 @stop
