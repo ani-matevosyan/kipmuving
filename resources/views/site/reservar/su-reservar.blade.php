@@ -22,7 +22,7 @@
 						<section class="s-offers">
 							<ul class="your-offers basket_reservations" id="your-offers-list">
 								@foreach($reservation->offers as $key => $offer)
-									<li class="your-offers__item" res_id="{{ $key }}">
+									<li class="your-offers__item" fake_id="{{ $key }}">
 										<h3 class="your-offers__name">
 											<a class="your-offers__name-link" href="{{ action('ActivityController@getActivity', $offer->activity->id) }}">
 												{{ $offer->activity->name }}</a>
@@ -51,7 +51,7 @@
 												$ {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span></p>
 
 										<div class="your-offers__cancel">
-											<a class="your-offers__cancel-button cancelReservationBtn"  res-id="{{ $key }}">
+											<a class="your-offers__cancel-button cancelReservationBtn"  fake_id="{{ $key }}">
 												{{ trans('main.cancel_activity') }}
 											</a>
 										</div>
@@ -127,7 +127,7 @@
 											<ul class="activity-basket__confirms-list">
 												@if(isset($reservation->offers) && count($reservation->offers) > 0)
 													@foreach ($reservation->offers as $key => $offer)
-														<li res_id="{{  $key }}">
+														<li fake_id="{{  $key }}">
 															<button data-offer-id="{{ $key }}"></button>
 															{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->format('d/m') }} {{ $offer->activity->name  }}
 														</li>

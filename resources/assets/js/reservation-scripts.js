@@ -31,27 +31,33 @@ $(document).ready(function(){
         $("#cancelActivityModal .theActivity").html(reservation);
         $("#cancelActivityModal .theActivity").find('.your-offers__cancel').remove();
 
-        $("#cancelActivityModal .cancelReservationOK").attr('res_id',$(this).attr('res-id'));
+        $("#cancelActivityModal .cancelReservationOK").attr('fake_id',$(this).attr('fake_id'));
+        const prevCount = $(this).parents('li').prevAll().length;
+        $("#cancelActivityModal .cancelReservationOK").attr('res_id',prevCount);
         $("#cancelActivityModal").modal();
     });
 
 
-    jQuery('.activity-basket__confirms-list').on("click", "button", function () {
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        let oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent();
 
-        const reservation = $('.basket_reservations').find(`li[res_id=${oid}]`).html();
+    $(document.body).undelegate('.activity-basket__confirms-list button', 'click')
+    .delegate(".activity-basket__confirms-list button", "click", function(ev){
+        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
+        const oid = $(this).parents('li').prevAll().length;
+        const fake_id = $(this).parents('li').attr('fake_id');
+
+        const reservation = $('.basket_reservations').find(`li[fake_id=${fake_id}]`).html();
         $("#cancelActivityModal .theActivity").html(reservation);
         $("#cancelActivityModal .theActivity").find('.your-offers__cancel').remove();
 
         $("#cancelActivityModal .cancelReservationOK").attr('res_id',oid);
+        $("#cancelActivityModal .cancelReservationOK").attr('fake_id',fake_id);
         $("#cancelActivityModal").modal();
     });
 
 
     $("body").delegate(".cancelReservationOK", "click", function(ev){
         const resId = $(this).attr('res_id');
+        const fake_id = $(this).attr('fake_id');
         $.ajax({
             type: 'POST',
             url: `/offer/remove`,
@@ -60,8 +66,8 @@ $(document).ready(function(){
                 'oid': resId
             },
             success: function(data){
-                $('.basket_reservations').find(`li[res_id='${resId}']`).fadeOut('slow');
-                $('.activity-basket').find(`li[res_id='${resId}']`).fadeOut('slow');
+                $('.basket_reservations').find(`li[fake_id='${fake_id}']`).fadeOut('slow').remove();
+                $('.activity-basket').find(`li[fake_id='${fake_id}']`).fadeOut('slow').remove();
             },
             error: function(data){
                 console.log(data);
@@ -69,6 +75,7 @@ $(document).ready(function(){
             complete: () => {
                 $("#cancelActivityModal").modal('hide');
                 getsuprogram();
+                // location.reload();
             }
         })
 
