@@ -6,11 +6,12 @@
   padding-bottom: 50px;
   &__header{
     margin-bottom: 38px;
+    margin-top: 40px;
   }
 }
 
 .s-user-information{
-  max-width: 575px;
+  max-width: 800px;
 }
 
 %inline-block{
@@ -25,7 +26,7 @@
     font-size: 15px;
   }
 }
-
+/* TODO delete this style about image */
 .load-image{
   width: 117px;
   height: 117px;
@@ -71,7 +72,6 @@
 }
 
 .user-details-form{
-  font-size: 0;
   &:after{
     content: '';
     display: table;
@@ -79,12 +79,24 @@
   }
   &__form-group{
     margin-bottom: 7px;
+    span{
+     @media screen and (max-width: 740px){
+       display: block;
+       margin-left: 25%;
+     }
+      @media screen and (max-width: 520px){
+        margin-left: 1px;
+      }
+    }
   }
   &__label-wrap{
     @extend %inline-block_middle;
-    width: 34%;
+    width: 15%;
     padding-right: 14px;
     text-align: right;
+    @media screen and (max-width: 740px){
+      width: 25%;
+    }
     @media screen and (max-width: 520px){
       width: 100%;
       margin-bottom: 5px;
@@ -95,29 +107,49 @@
     font-weight: 400;
   }
   &__input{
-    width: 66%;
+    width: 38%;
+    @media screen and (max-width: 740px){
+      width: 60%;
+    }
     @extend %inline-block_middle;
     background-color: transparent;
     border-radius: 3px;
-    border: 2px solid #d2d2d2;
+    border: 1px solid #d2d2d2;
     outline: none;
-    padding: 4px 10px;
+    padding: 7px 10px;
     @media screen and (max-width: 520px){
       width: 100%;
     }
   }
   &__update-button{
     font-size: 14px;
-    float: right;
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
-    background-color: #089f02;
+    background-color: #f2b41b;
     border: none;
     outline: none;
     padding: 6px 18px;
     border-radius: 4px;
+    position:relative;
+    display: block;
+    width: 84.09px;
+    margin-top: 28px;
+    left: calc(50% - 55px);
+    @media screen and (max-width: 520px){
+       margin-right: 0;
+    }
   }
+  .subscribe_check{
+    left: calc(15% + 5px);
+    @media screen and (max-width: 740px){
+      left: calc(25% + 5px);
+    }
+    @media screen and (max-width: 520px){
+      left: 5px;
+    }
+  }
+
 }
 
 .user-form{
@@ -134,9 +166,11 @@
     }
   }
   &__details-form{
-    padding-left: 117px;
+    padding-left: 0px;
     @media screen and (max-width: 520px){
       padding-left: 0;
     }
   }
 }
+
+

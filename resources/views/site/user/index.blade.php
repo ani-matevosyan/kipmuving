@@ -3,7 +3,7 @@
 {{-- Content --}}
 @section('content')
 	<main id="main" class="user-account-page">
-		<div class="container">
+		<div class="container-fluid">
 			<header class="user-page-header user-account-page__header">
 				<h1 class="user-page-header__title">{{ trans('main.my_account') }}</h1>
 				<p class="user-page-header__description">{{ trans('main.here_your_personal_info') }}</p>
@@ -77,7 +77,8 @@
 				</div>
 
 				<div class="user-form">
-					<div class="user-form__avatar">
+					{{--TODO delete this avatar form, see display:none--}}
+					<div class="user-form__avatar" style="display: none">
 						<div class="load-image">
 							<img class="load-image__image" src="{{ $user->avatar }}" alt="your photo"
 								 onerror="this.src='{{ asset('images/image-none.jpg') }}';" id="youravatar">
@@ -98,7 +99,7 @@
 							  autocomplete="off"
 							  enctype="multipart/form-data">
 							{{ csrf_field() }}
-							<div class="user-details-form__form-group">
+                            <div class="user-details-form__form-group">
 								<div class="user-details-form__label-wrap">
 									<label for="first_name" class="user-details-form__label">{{ trans('form.first_name') }}</label>
 								</div>
@@ -121,6 +122,7 @@
 									<label for="phone" class="user-details-form__label">{{ trans('form.phone') }}</label>
 								</div>
 								<input type="text" id="phone" name="phone" class="user-details-form__input" value="{{ $user->phone }}">
+								<span>* como whastapp, su teléfono completo con +</span>
 							</div>
 							<div class="user-details-form__form-group">
 								<div class="user-details-form__label-wrap">
@@ -134,6 +136,12 @@
 								</div>
 								<input type="password" id="password_confirmation" name="password_confirmation" class="user-details-form__input">
 							</div>
+                            <div class="subscribe_check checkbox user-details-form__form-group">
+                                <label for="subscribe">
+                                    <input type="checkbox" name="subscribe" id="chk1" @if(old('subscribe') == 'on') checked @endif>
+                                    {{ trans('form.news_subscribe') }}
+                                </label>
+                            </div>
 							<button class="user-details-form__update-button">{{ trans('main.update') }}</button>
 						</form>
 					</div>
