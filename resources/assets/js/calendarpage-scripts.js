@@ -42,36 +42,9 @@ $(document).ready(function(){
 
     $('.activity-basket .activity-basket__confirms-list').on("click", "button", function(e){
         e.preventDefault();
-        $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
-        let oid = $(this).parent().prevAll().length,
-            pickedel = $(this).parent(),
-            itemsCount = $(this).parent().parent().find('.basket_lis').length;
-        $.ajax({
-            type: 'POST',
-            url: "/offer/remove",
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                oid: oid
-            },
-            success: () => {
-                let itemsCount = pickedel.parent().find('.basket_lis').length - 1;
-                pickedel.remove();
-                if(itemsCount < 1){
-                    if($(".activity-basket").find('.basket_lis').length < 1){
-                        window.location.replace(document.location.origin+'/activities');
-                    }
-                }else{
-                    calendarCalc();
-                }
-                jQuery('#calendar').fullCalendar('refetchEvents');
-            },
-            error: () => {
-                location.reload();
-            },
-          complete: () => {
-            getsuprogram();
-          }
-        })
+        let oid = $(this).parent().prevAll().length;
+        $('#delete-modal .btn-confirm').data('oid', oid);
+        $('#delete-modal').modal('show');
     });
 
     $("#receive-offers-list").on('click', '.basket-list__delete-button', function(e){
