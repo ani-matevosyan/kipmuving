@@ -3,11 +3,7 @@
 {{-- Content --}}
 @section('content')
 	<main id="main">
-		<div class="container">
-			<ul class="breadcrumb">
-				<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-				<li>{{ trans('main.your_agenda') }}</li>
-			</ul>
+		<div class="container-fluid">
 			<header class="calendar-page-header">
 				<h1 class="calendar-page-header__title">{{ trans('main.your_panorama_in_pucon') }}</h1>
 				<p class="calendar-page-header__description">{{ trans('main.here_is_your_schedule') }}{{ trans('main.reserve') }}.</p>
@@ -17,7 +13,7 @@
 				@endability()
 			</header>
 			<div class="row">
-				<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="col-md-8 col-sm-12 col-xs-12">
 					{{--<div class="alert alert-danger alert-overlap ">--}}
 					{{--{{ trans('main.the_are_activities_of_the_same_day') }}--}}
 					{{--</div>--}}
@@ -25,56 +21,53 @@
 					<div id='calendar' class="calendar" data-date="{{ $viewDate }}" data-lang="{{ app()->getLocale() }}"></div>
 					<br>
 				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="col-md-4 col-sm-12 col-xs-12">
 					<aside class="sidebar">
+
 						<section class="s-program">
 							<div class="s-program__content @if(session('currency.type') === 'BRL') s-program__content_brl-curr @endif">
-								@if(isset($selectedOffers) && count($selectedOffers) > 0)
-									<div class="s-program__basket" id="offers-basket">
-										<header class="s-program__header">
-											<h3 class="s-program__title">{{ trans('main.instant_booking') }}</h3>
-											<p class="s-program__offers-count">
-												<span
-														id="count-activities">{{ $count['offers'] }}</span> @if($count['offers'] > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
-											</p>
-										</header>
-										<ul class="basket-list" id="instant-booking-list">
-											<?php $total_cost = 0; ?>
-											@foreach ($selectedOffers as $key => $offer)
-												<li class="basket-list__item">
-													<a class="basket-list__delete-button" href="{{ action('OfferController@removeFromBasket', ['id' => $key]) }}"></a>
-													<h4 class="basket-list__name">{{ $offer['name'] }}</h4>
-													<span class="basket-list__price">{{ number_format($offer['price'] * $offer['persons'], 0, '.', '.') }}</span>
-												</li>
-												<?php $total_cost += $offer['price'] * $offer['persons']; ?>
-											@endforeach
-										</ul>
-										<div class="s-program__total">
-											<p class="s-program__price">{{ number_format($total_cost, 0, ".", ".") }}</p>
-											<span class="s-program__total-text">{{ trans('main.total') }}</span>
+
+								<div class="activity-basket">
+									<header>{{ trans('emails.hello') }} <strong>{{ auth()->user() ? (auth()->user()->username ? auth()->user()->username : auth()->user()->first_name) : trans('main.guest') }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
+									<dl>
+										<dt>{{ trans('main.confirmed') }}:</dt>
+										<dd>
+											<ul class="activity-basket__confirms-list">
+												@if(isset($selectedOffers) && count($selectedOffers) > 0)
+                                                    <?php $total_cost = 0; ?>
+													@foreach ($selectedOffers as $key => $offer)
+														<li fake_id="{{  $key }}" class="basket_lis">
+															<button data-offer-id="{{ $key }}"></button>
+															{{ \Carbon\Carbon::createFromFormat('d/m/Y', $offer['date'])->format('d/m') }}  {{ $offer['name'] }}
+														</li>
+														<?php $total_cost += $offer['price'] * $offer['persons']; ?>
+													@endforeach
+												@endif
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt>{{ trans('main.persons') }}:</dt>
+										<dd><span id="program_persons">{{ $count['persons'] }}</span></dd>
+									</dl>
+									<dl>
+										<dt>{{ trans('main.total_of') }}:</dt>
+										<dd>
+											@if(session('currency.type') === 'BRL')
+												R$
+											@else
+												$
+											@endif
+											<span id="program_total">{{ number_format($total_cost, 0, ".", ".") }}</span>
+										</dd>
+									</dl>
+									<footer>
+										<div class="row">
+											<a href="{{ action('ReservationController@index') }}" class="activity-basket__to-reserve"><span class="glyphicon glyphicon-check"></span> {{ trans('main.reserve') }}</a>
 										</div>
-									</div>
-								@endif
-								@if(isset($special_offers) && count($special_offers) > 0)
-									<div class="s-program__basket" id="special-offers-basket">
-										<header class="s-program__header s-program__header_subscription">
-											<h3 class="s-program__title s-program__title_subscription">{{ trans('main.receive_offers') }}</h3>
-											<p class="s-program__offers-count">
-												<span id="count-special-offers">{{ count($special_offers) }}</span>
-												@if(count($special_offers) > 1) {{ trans('main.activities') }} @else  {{ trans('main.activity') }} @endif
-											</p>
-										</header>
-										<ul class="basket-list basket-list_subscription" id="receive-offers-list">
-											@foreach ($special_offers as $key => $offer)
-												<li class="basket-list__item basket-list__item_subscription">
-													<a class="basket-list__delete-button" href="{{ action('SpecialOffersController@removeFromBasket', ['id' => $key]) }}"></a>
-													<h4 class="basket-list__name">{{ $offer['activity']->name }}</h4>
-												</li>
-											@endforeach
-										</ul>
-									</div>
-								@endif
-								<a class="btn-reservar s-program__reserve-button">{{ trans('main.reserve_this_panorama') }}</a>
+									</footer>
+								</div>
+
 							</div>
 						</section>
 						@ability('admin,developer', '')
@@ -83,9 +76,6 @@
 							<input type="text" class="generate-link__generated-link" readonly value="asdasdsd">
 						</div>
 						@endability()
-						<div class="note">
-							* {{ trans('main.keep_in_mind') }}
-						</div>
 					</aside>
 				</div>
 			</div>

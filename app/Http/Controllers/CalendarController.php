@@ -36,6 +36,8 @@ class CalendarController extends Controller
 			],
 		];
 
+//		dd($selectedOffers);
+
 		return view('site.calendar.index', $data);
 	}
 

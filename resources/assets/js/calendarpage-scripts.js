@@ -13,6 +13,8 @@ $(document).ready(function(){
                 $("#count-activities").text(response.data.offers);
                 $("#count-special-offers").text(response.data.special_offers);
                 $("#header-cart").text(response.data.offers + response.data.special_offers);
+                $("#program_persons").text(response.data.persons);
+                $("#program_total").text(numberWithDots(response.data.total));
             },
             error: err => {
                 console.log(err);
@@ -24,6 +26,11 @@ $(document).ready(function(){
         })
     }
 
+    function numberWithDots(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+
     function calendarCalc(){
         let totalcost = 0;
         $("#instant-booking-list .basket-list__item" ).each( function(){
@@ -33,12 +40,12 @@ $(document).ready(function(){
         $(".s-program__price").text(Number(totalcost).toLocaleString('de-DE'));
     }
 
-    $('#instant-booking-list').on("click", ".basket-list__delete-button", function(e){
+    $('.activity-basket .activity-basket__confirms-list').on("click", "button", function(e){
         e.preventDefault();
         $('body').append('<div class="loader"><div class="loader__inner"></div></div>');
         let oid = $(this).parent().prevAll().length,
             pickedel = $(this).parent(),
-            itemsCount = $(this).parent().parent().find('.basket-list__item').length;
+            itemsCount = $(this).parent().parent().find('.basket_lis').length;
         $.ajax({
             type: 'POST',
             url: "/offer/remove",
@@ -47,11 +54,10 @@ $(document).ready(function(){
                 oid: oid
             },
             success: () => {
-                let itemsCount = pickedel.parent().find('.basket-list__item').length - 1;
+                let itemsCount = pickedel.parent().find('.basket_lis').length - 1;
                 pickedel.remove();
                 if(itemsCount < 1){
-                    $("#offers-basket").remove();
-                    if($("#special-offers-basket").find('.basket-list__item').length < 1){
+                    if($(".activity-basket").find('.basket_lis').length < 1){
                         window.location.replace(document.location.origin+'/activities');
                     }
                 }else{
@@ -138,12 +144,14 @@ $(document).ready(function(){
                 // console.log(isOverlapping(event));
                 // event.overlap = true;
                 element.data('duplicate', event.duplicate);
+                console.log(event);
                 element.append('<br>');
                 element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
                 element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
                 element.append('<br>');
                 if(event.agency_name != undefined){
                     element.append('<div class="agency-name">' + event.agency_name + '</div>');
+                    element.append('<div class="price">' + '$' + event.price + '</div>');
                 }else{
                     element.append('<br>');
                 }

@@ -71,10 +71,10 @@ const elixir = require('laravel-elixir');
 
 
 elixir((mix) => {
-  mix.sass('user-account.scss')
-    .webpack('user-account.js')
+  mix.sass('calendar-style.scss')
+    .webpack('calendarpage-scripts.js')
     .version([
-      'css/user-account.css',
-      'js/user-account.js'
+      'css/calendar-style.css',
+      'js/calendarpage-scripts.js'
     ])
 });
