@@ -12492,6 +12492,7 @@ be a descendant of the grid when it is being dragged.
 
 .calendar-page-header__include-activities-button {
   background-color: #ebae00;
+  text-transform: lowercase;
   font-size: 15px;
   font-weight: 700;
   color: #fff;
@@ -12502,6 +12503,10 @@ be a descendant of the grid when it is being dragged.
   transition: all .2s ease;
 }
 
+.calendar-page-header__include-activities-button:first-letter {
+  text-transform: uppercase;
+}
+
 .calendar-page-header__include-activities-button:hover, .calendar-page-header__include-activities-button:focus {
   color: #fff;
   background-color: #209D5B;
@@ -12509,7 +12514,12 @@ be a descendant of the grid when it is being dragged.
 
 .calendar-page-header__export-button {
   vertical-align: top;
-  margin-left: 9px;
+  margin-left: 31px;
+  text-transform: lowercase;
+}
+
+.calendar-page-header__export-button:first-letter {
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 480px) {
@@ -12542,40 +12552,28 @@ be a descendant of the grid when it is being dragged.
   border-radius: 0px;
 }
 
-.fc-event.cal-offer .fc-time {
-  display: none;
-}
-
-.fc-event.cal-offer .fc-title {
-  color: black;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 700;
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
-}
-
 .fc-event.cal-offer .fc-bg {
   display: none;
 }
 
+.fc-event.cal-offer .fc-title {
+  margin-top: 60px;
+  color: black;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.fc-event.cal-offer .fc-time {
+  display: none;
+}
+
 .fc-event.cal-offer .agency-name {
-  /*text-transform: uppercase;*/
   margin-bottom: 12px;
   font-size: 14px;
   line-height: 16px;
   color: #000;
-  margin-top: -33px;
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  /*font-weight: 700;*/
+  margin-top: -31px;
 }
 
 .fc-event.cal-offer .price {
@@ -12584,12 +12582,27 @@ be a descendant of the grid when it is being dragged.
   line-height: 16px;
   color: #000;
   margin-top: 0px;
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.fc-event.cal-offer .move-days {
+  position: absolute;
+  bottom: 10px;
+  left: 30%;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
+}
+
+.fc-event.cal-offer a.move.prev {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.fc-event.cal-offer a.move.next {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 @media (max-width: 767px) {

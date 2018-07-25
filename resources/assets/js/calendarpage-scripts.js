@@ -118,13 +118,17 @@ $(document).ready(function(){
                 // event.overlap = true;
                 element.data('duplicate', event.duplicate);
                 console.log(event);
+                const start_time = Number(event.start_time.substring(0, 2));
+                const end_time = Number(event.end_time.substring(0, 2));
+                const duration = end_time - start_time;
                 element.append('<br>');
                 element.append('<a href="#" class="move prev" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>');
+                element.append('<span class="move-days">move days</span>');
                 element.append('<a href="#" class="move next" data-oid="' + event.id + '"><span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></a>');
                 element.append('<br>');
                 if(event.agency_name != undefined){
-                    element.append('<div class="agency-name">' + event.agency_name + '</div>');
-                    element.append('<div class="price">' + '$' + event.price + '</div>');
+                    element.append(`<div class="agency-name">${event.agency_name}</div>`);
+                    element.append(`<div class="price">$ ${event.price}</div>`);
                 }else{
                     element.append('<br>');
                 }
@@ -134,6 +138,19 @@ $(document).ready(function(){
                 }
                 element.append('<br>');
                 element.append('<a href="#" class="delete" data-oid="' + event.id + '"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>');
+
+                if (duration < 2) {
+                    element.find(".fc-title").css('margin-top', '15px');
+                    element.find(".price").css('visibility', 'hidden');
+                }
+                if (duration > 2 && duration <= 4) {
+                    element.find(".fc-title").css('margin-top', '30px');
+                    element.find(".price").css('visibility', 'hidden');
+                }
+                if(duration < 7){
+                    element.find(".hours").css('visibility', 'hidden');
+                    element.find(".persona").css('visibility', 'hidden');
+                }
             },
             eventAfterAllRender: function (view) {
                 jQuery('.btn-reservar').attr("href", '/reserve');

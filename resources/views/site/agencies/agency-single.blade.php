@@ -3,52 +3,21 @@
 {{-- Content --}}
 @section('content')
 	<main id="main">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12">
-					<ul class="breadcrumb">
-						<li><a href="{{ action('HomeController@index') }}">{{ trans('main.home') }}</a></li>
-						<li><a href="{{ action('AgencyController@index') }}">{{ trans('button-links.agencies') }}</a></li>
-						@if($agency->name)
-							<li>{{ $agency->name }}</li>
-						@endif
-					</ul>
 					<div class="your-reservation adventure new">
 						<article class="main-post">
 							<header>
 								<h1>{{ $agency->name }}</h1>
 								<strong class="sub-title">O`Higgins Nº211-C </strong>
 							</header>
-							<div class="post-holder">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="agency-photo-wrapp">
-											<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/{{ $agency->image }}" alt="image description" onerror="this.src='/images/image-none.jpg';" class="lazyload">
-										</div>
-									</div>
-									<div class="col-md-8">
-										<div class="text">
-											<p>{{ $agency->description }}</p>
-										</div>
-										@if($agency->instagram_id)
-											<div class="agency-gallery">
-												<div class="row">
-													<div class="col-xs-9">
-														<div id="instafeed4" class="instafeed"
-															 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
-													</div>
-													@if($agency->instagram_name)
-														<span class="agency-tag">{{ $agency->instagram_name }}</span>
-													@endif
-												</div>
-											</div>
-										@endif
-									</div>
-								</div>
-							</div>
+
 						</article>
 						<div class="row">
 							<div class="col-md-4 col-md-push-7 col-md-offset-1 col-sm-12 col-xs-12">
+
+
 								<aside class="agency-aside">
 									<div class="map-block">
 										<div id="map" style="width: 100%; height: 300px"></div>
@@ -76,6 +45,33 @@
 								</aside>
 							</div>
 							<div class="col-md-7 col-md-pull-5 col-sm-12 col-xs-12">
+								<div class="post-holder">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="agency-photo-wrapp">
+												<img src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/{{ $agency->image }}" alt="image description" onerror="this.src='/images/image-none.jpg';" class="lazyload">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="text">
+												<p>{{ $agency->description }}</p>
+											</div>
+											@if($agency->instagram_id)
+												<div class="agency-gallery">
+													<div class="row">
+														<div class="col-xs-9">
+															<div id="instafeed4" class="instafeed"
+																 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
+														</div>
+														@if($agency->instagram_name)
+															<span class="agency-tag">{{ $agency->instagram_name }}</span>
+														@endif
+													</div>
+												</div>
+											@endif
+										</div>
+									</div>
+								</div>
 								<section class="post-box">
 									<div class="performed-act">
 										<h2>{{ trans('main.realized_activities') }}</h2>

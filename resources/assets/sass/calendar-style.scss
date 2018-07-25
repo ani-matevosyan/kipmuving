@@ -22,6 +22,10 @@
   }
   &__include-activities-button{
     background-color: #ebae00;
+    text-transform: lowercase;
+    &:first-letter {
+      text-transform: uppercase
+    }
     font-size: 15px;
     font-weight: 700;
     color: #fff;
@@ -38,7 +42,11 @@
   }
   &__export-button{
     vertical-align: top;
-    margin-left: 9px;
+    margin-left: 31px;
+    text-transform: lowercase;
+    &:first-letter {
+      text-transform: uppercase
+    }
     @media screen and (max-width: 480px){
       display: table;
       margin:{
@@ -65,42 +73,32 @@
 .fc-time-grid .fc-bgevent {
   /*text-align: center;*/
 }
+
 .fc-event.cal-offer {
   padding: 12px 10px;
   border-radius: 0px;
-}
-.fc-event.cal-offer .fc-time {
-  display: none;
-}
-.fc-event.cal-offer .fc-title {
-  color: black;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 700;
-  position: relative;
-  width: fit-content;
-  margin: auto;
-}
-.fc-event.cal-offer .fc-bg {
-  display: none;
-}
-.fc-event.cal-offer {
+
+  .fc-bg {
+    display: none;
+  }
+  .fc-title {
+    margin-top: 60px;
+    color: black;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  .fc-time {
+    display: none;
+  }
   .agency-name{
-    /*text-transform: uppercase;*/
-    //margin-top: 6px;
     margin-bottom: 12px;
     font-size: 14px;
     line-height: 16px;
     color: #000;
+    margin-top: -31px;
 
-
-    margin-top: -33px;
-    position: relative;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-
-    /*font-weight: 700;*/
   }
   .price {
      margin-bottom: 40px;
@@ -108,11 +106,26 @@
      line-height: 16px;
      color: #000;
      margin-top: 0px;
-     position: relative;
-     width: fit-content;
-     margin-left: auto;
-     margin-right: auto;
    }
+  .move-days{
+    position: absolute;
+    bottom: 10px;
+    left: 30%;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+    font-style: italic;;
+
+  }
+  a.move.prev{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  a.move.next{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
 @media (max-width: 767px) {

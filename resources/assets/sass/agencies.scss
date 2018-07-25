@@ -364,14 +364,14 @@
 }
 
 .main-post header {
-  margin: 0 0 20px;
+  margin: 35px 0 20px;
   overflow: hidden;
 }
 
-.main-post .post-holder {
+ .post-holder {
   overflow: hidden;
-  padding-bottom: 13px;
-  border-bottom: 1px solid #cccccc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .main-post .text-holder {
@@ -497,7 +497,7 @@
 }
 
 .your-reservation.new .main-post {
-  margin: 0 0 50px;
+  margin: 0;
 }
 
 .in-image-agency{
@@ -512,9 +512,10 @@
 
 .your-reservation .performed-act h2 {
   margin: 0 0 10px;
-  font-size: 26px;
   line-height: 30px;
   font-weight: 700;
+  font-size: 30px;
+  color: rgb(243,175,24);
 }
 
 @media (max-width: 767px) {
