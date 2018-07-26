@@ -245,6 +245,10 @@ body.mobile-menu-open{
       left: 66%;
     }
     .profile .dropdown-menu{
+      text-align: center;
+      button{
+        text-align: center;
+      }
       @media screen and (max-width: 767px){
         top: 130%;
         background-color: rgba(0,0,0,1);

@@ -338,8 +338,8 @@
 .filter-item img{
   position: absolute;
   top: 5px;
-  right: 85px;
   width: 13px;
+  margin-left: 5px;
 }
 
 /*JQuery UI input range*/
@@ -421,9 +421,6 @@
     max-width: 250px;
   }
 
-  .filter-item img{
-    right: 110px;
-  }
 }
 
 @media screen and (min-width: 768px){
@@ -459,9 +456,6 @@
     height: 14px;
     background: url(../../images/filters-icon.svg) no-repeat;
     background-size: contain;
-  }
-  .filter-item img{
-    display: none;
   }
   .filters-group{
     padding: 11px 10px;

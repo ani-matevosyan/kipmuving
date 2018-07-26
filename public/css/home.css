@@ -8224,6 +8224,14 @@ button.close {
   left: 66%;
 }
 
+.main-header__right-side .profile .dropdown-menu {
+  text-align: center;
+}
+
+.main-header__right-side .profile .dropdown-menu button {
+  text-align: center;
+}
+
 @media screen and (max-width: 767px) {
   .main-header__right-side .profile .dropdown-menu {
     top: 130%;
