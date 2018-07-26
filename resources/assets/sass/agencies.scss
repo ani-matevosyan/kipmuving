@@ -6,6 +6,10 @@
 @import "components/loader";
 @import "components/all-activities";
 
+#main .container-fluid{
+  margin-left: 15px;
+  margin-right: 15px;
+}
 .post-box{
   @media screen and (max-width: 767px){
     padding-bottom: 30px;
@@ -26,7 +30,6 @@
 
 .agency-aside{
   position: relative;
-  padding-top: 160px;
   @media screen and (max-width: 991px){
     padding-top: 0;
     margin-bottom: 40px;
@@ -36,13 +39,22 @@
     display: table;
     clear: both;
   }
+  .map-block {
+    width: 80%;
+    @media screen and (max-width: 1200px){
+      width: auto;
+    }
+  }
 }
 
 .program-schedule_agency{
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  margin-right: 20%;
+  @media screen and (max-width: 1200px){
+    margin-right: auto;
+  }
   @media screen and (max-width: 991px){
     position: relative;
     margin-top: 18px;
@@ -353,8 +365,55 @@
 }
 
 .main-post {
+  header {
+    margin: 30px 0 20px;
+    overflow: hidden;
+  }
+  .text-holder {
+    overflow: hidden;
+    min-height: 160px;
+  }
   overflow: hidden;
   margin: 0 0 20px;
+  .agency-name {
+    width: fit-content;
+  }
+  h1 {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 34px;
+    line-height: 38px;
+    font-weight: 700;
+  }
+  .sub-title {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .agency-gallery{
+    position: relative;
+    margin-right: 20%;
+    @media screen and (max-width: 1200px){
+      margin-right: 0;
+    }
+  }
+  .agency-tag{
+    bottom: 10px;
+    right: 0;
+    padding-left: 27px;
+    padding-right: 10px;
+    background-image: url("../../images/instagram.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 19px;
+    line-height: 19px;
+    color: #e12570;
+    &:before{
+      content: "@";
+    }
+  }
 }
 
 @media (max-width: 639px) {
@@ -362,36 +421,11 @@
     margin: 0;
   }
 }
-
-.main-post header {
-  margin: 35px 0 20px;
-  overflow: hidden;
-}
-
- .post-holder {
-  overflow: hidden;
-  padding-bottom: 10px;
-  margin-bottom: 30px;
-}
-
-.main-post .text-holder {
-  overflow: hidden;
-  min-height: 160px;
-}
-
 @media (max-width: 639px) {
   .main-post .text-holder {
     min-height: inherit;
   }
 }
-
-.main-post h1 {
-  margin: 0;
-  font-size: 34px;
-  line-height: 38px;
-  font-weight: 700;
-}
-
 @media (max-width: 767px) {
   .main-post h1 {
     font-size: 26px;
@@ -399,14 +433,6 @@
     font-weight: 700;
   }
 }
-
-.main-post .sub-title {
-  display: block;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
-}
-
 @media (max-width: 991px) {
   .main-post .align-left {
     float: none;
@@ -416,7 +442,20 @@
   }
 }
 
-.main-post{
+.post-holder{
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  .agency-text{
+    padding-right: 22px;
+    padding-left: 25px;
+    @media screen and (max-width: 767px){
+      margin-left: 0px;
+    }
+  }
+  .agency-img{
+    padding-right: 0;
+  }
   .agency-photo-wrapp{
     position: relative;
     padding-top: 72%;
@@ -438,24 +477,6 @@
       position: absolute;
       margin: auto;
       object-fit: cover;
-    }
-  }
-  .agency-gallery{
-    position: relative;
-  }
-  .agency-tag{
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-    padding-left: 27px;
-    background-image: url("../../images/instagram.svg");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 19px;
-    line-height: 19px;
-    color: #e12570;
-    &:before{
-      content: "@";
     }
   }
 }
@@ -507,7 +528,6 @@
 
 .your-reservation .performed-act {
   overflow: hidden;
-  margin-right: -15%;
 }
 
 .your-reservation .performed-act h2 {

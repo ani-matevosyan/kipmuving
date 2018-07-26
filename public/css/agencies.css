@@ -12599,6 +12599,11 @@ body > .jcf-select-drop.jcf-drop-flipped {
   flex-direction: column;
 }
 
+#main .container-fluid {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 @media screen and (max-width: 767px) {
   .post-box {
     padding-bottom: 30px;
@@ -12616,7 +12621,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 
 .agency-aside {
   position: relative;
-  padding-top: 160px;
 }
 
 @media screen and (max-width: 991px) {
@@ -12632,11 +12636,29 @@ body > .jcf-select-drop.jcf-drop-flipped {
   clear: both;
 }
 
+.agency-aside .map-block {
+  width: 80%;
+}
+
+@media screen and (max-width: 1200px) {
+  .agency-aside .map-block {
+    width: auto;
+  }
+}
+
 .program-schedule_agency {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-right: 20%;
+}
+
+@media screen and (max-width: 1200px) {
+  .program-schedule_agency {
+    margin-right: auto;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -12962,26 +12984,70 @@ body > .jcf-select-drop.jcf-drop-flipped {
   margin: 0 0 20px;
 }
 
-@media (max-width: 639px) {
-  .main-post {
-    margin: 0;
-  }
-}
-
 .main-post header {
-  margin: 35px 0 20px;
+  margin: 30px 0 20px;
   overflow: hidden;
-}
-
-.post-holder {
-  overflow: hidden;
-  padding-bottom: 10px;
-  margin-bottom: 30px;
 }
 
 .main-post .text-holder {
   overflow: hidden;
   min-height: 160px;
+}
+
+.main-post .agency-name {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.main-post h1 {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+.main-post .sub-title {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.main-post .agency-gallery {
+  position: relative;
+  margin-right: 20%;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-post .agency-gallery {
+    margin-right: 0;
+  }
+}
+
+.main-post .agency-tag {
+  bottom: 10px;
+  right: 0;
+  padding-left: 27px;
+  padding-right: 10px;
+  background-image: url("../../images/instagram.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 19px;
+  line-height: 19px;
+  color: #e12570;
+}
+
+.main-post .agency-tag:before {
+  content: "@";
+}
+
+@media (max-width: 639px) {
+  .main-post {
+    margin: 0;
+  }
 }
 
 @media (max-width: 639px) {
@@ -12990,26 +13056,12 @@ body > .jcf-select-drop.jcf-drop-flipped {
   }
 }
 
-.main-post h1 {
-  margin: 0;
-  font-size: 34px;
-  line-height: 38px;
-  font-weight: 700;
-}
-
 @media (max-width: 767px) {
   .main-post h1 {
     font-size: 26px;
     line-height: 30px;
     font-weight: 700;
   }
-}
-
-.main-post .sub-title {
-  display: block;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
 }
 
 @media (max-width: 991px) {
@@ -13021,13 +13073,34 @@ body > .jcf-select-drop.jcf-drop-flipped {
   }
 }
 
-.main-post .agency-photo-wrapp {
+.post-holder {
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.post-holder .agency-text {
+  padding-right: 22px;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .post-holder .agency-text {
+    margin-left: 0px;
+  }
+}
+
+.post-holder .agency-img {
+  padding-right: 0;
+}
+
+.post-holder .agency-photo-wrapp {
   position: relative;
   padding-top: 72%;
 }
 
 @media screen and (max-width: 991px) {
-  .main-post .agency-photo-wrapp {
+  .post-holder .agency-photo-wrapp {
     margin: 0 auto 25px;
     max-width: 350px;
     padding-top: 0;
@@ -13036,12 +13109,12 @@ body > .jcf-select-drop.jcf-drop-flipped {
 }
 
 @media screen and (max-width: 400px) {
-  .main-post .agency-photo-wrapp {
+  .post-holder .agency-photo-wrapp {
     height: 200px;
   }
 }
 
-.main-post .agency-photo-wrapp img {
+.post-holder .agency-photo-wrapp img {
   width: 100%;
   height: 100%;
   left: 0;
@@ -13051,27 +13124,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
   margin: auto;
   -o-object-fit: cover;
   object-fit: cover;
-}
-
-.main-post .agency-gallery {
-  position: relative;
-}
-
-.main-post .agency-tag {
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  padding-left: 27px;
-  background-image: url("../../images/instagram.svg");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 19px;
-  line-height: 19px;
-  color: #e12570;
-}
-
-.main-post .agency-tag:before {
-  content: "@";
 }
 
 .main-post .align-right {
@@ -13120,7 +13172,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 
 .your-reservation .performed-act {
   overflow: hidden;
-  margin-right: -15%;
 }
 
 .your-reservation .performed-act h2 {

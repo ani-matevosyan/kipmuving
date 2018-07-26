@@ -10675,1744 +10675,1689 @@ body {
 }
 
 /********** END Log in page *******************/
-/*!
- * FullCalendar v3.8.2
- * Docs & License: https://fullcalendar.io/
- * (c) 2018 Adam Shaw
- */
-.fc {
-  direction: ltr;
-  text-align: left;
-}
-
-.fc-rtl {
-  text-align: right;
-}
-
-body .fc {
-  /* extra precedence to overcome jqui */
-  font-size: 1em;
-}
-
-/* Colors
---------------------------------------------------------------------------------------------------*/
-.fc-highlight {
-  /* when user is selecting cells */
-  background: #bce8f1;
-  opacity: .3;
-}
-
-.fc-bgevent {
-  /* default look for background events */
-  background: #8fdf82;
-  opacity: .3;
-}
-
-.fc-nonbusiness {
-  /* default look for non-business-hours areas */
-  /* will inherit .fc-bgevent's styles */
-  background: #d7d7d7;
-}
-
-/* Buttons (styled <button> tags, normalized to work cross-browser)
---------------------------------------------------------------------------------------------------*/
-.fc button {
-  /* force height to include the border and padding */
-  box-sizing: border-box;
-  /* dimensions */
-  margin: 0;
-  height: 2.1em;
-  padding: 0 .6em;
-  /* text & cursor */
-  font-size: 1em;
-  /* normalize */
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-/* Firefox has an annoying inner border */
-.fc button::-moz-focus-inner {
-  margin: 0;
-  padding: 0;
-}
-
-.fc-state-default {
-  /* non-theme */
-  border: 1px solid;
-}
-
-.fc-state-default.fc-corner-left {
-  /* non-theme */
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.fc-state-default.fc-corner-right {
-  /* non-theme */
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-/* icons in buttons */
-.fc button .fc-icon {
-  /* non-theme */
-  position: relative;
-  top: -0.05em;
-  /* seems to be a good adjustment across browsers */
-  margin: 0 .2em;
-  vertical-align: middle;
-}
-
-/*
-  button states
-  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
-*/
-.fc-state-default {
-  background-color: #f5f5f5;
-  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-  background-repeat: repeat-x;
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  color: #333;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.fc-state-hover,
-.fc-state-down,
-.fc-state-active,
-.fc-state-disabled {
-  color: #333333;
-  background-color: #e6e6e6;
-}
-
-.fc-state-hover {
-  color: #333333;
-  text-decoration: none;
-  background-position: 0 -15px;
-  transition: background-position 0.1s linear;
-}
-
-.fc-state-down,
-.fc-state-active {
-  background-color: #cccccc;
-  background-image: none;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.fc-state-disabled {
-  cursor: default;
-  background-image: none;
-  opacity: 0.65;
-  box-shadow: none;
-}
-
-/* Buttons Groups
---------------------------------------------------------------------------------------------------*/
-.fc-button-group {
-  display: inline-block;
-}
-
-/*
-every button that is not first in a button group should scootch over one pixel and cover the
-previous button's border...
-*/
-.fc .fc-button-group > * {
-  /* extra precedence b/c buttons have margin set to zero */
-  float: left;
-  margin: 0 0 0 -1px;
-}
-
-.fc .fc-button-group > :first-child {
-  /* same */
-  margin-left: 0;
-}
-
-/* Popover
---------------------------------------------------------------------------------------------------*/
-.fc-popover {
-  position: absolute;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.fc-popover .fc-header {
-  /* TODO: be more consistent with fc-head/fc-body */
-  padding: 2px 4px;
-}
-
-.fc-popover .fc-header .fc-title {
-  margin: 0 2px;
-}
-
-.fc-popover .fc-header .fc-close {
-  cursor: pointer;
-}
-
-.fc-ltr .fc-popover .fc-header .fc-title,
-.fc-rtl .fc-popover .fc-header .fc-close {
-  float: left;
-}
-
-.fc-rtl .fc-popover .fc-header .fc-title,
-.fc-ltr .fc-popover .fc-header .fc-close {
-  float: right;
-}
-
-/* Misc Reusable Components
---------------------------------------------------------------------------------------------------*/
-.fc-divider {
-  border-style: solid;
-  border-width: 1px;
-}
-
-hr.fc-divider {
-  height: 0;
-  margin: 0;
-  padding: 0 0 2px;
-  /* height is unreliable across browsers, so use padding */
-  border-width: 1px 0;
-}
-
-.fc-clear {
-  clear: both;
-}
-
-.fc-bg,
-.fc-bgevent-skeleton,
-.fc-highlight-skeleton,
-.fc-helper-skeleton {
-  /* these element should always cling to top-left/right corners */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.fc-bg {
-  bottom: 0;
-  /* strech bg to bottom edge */
-}
-
-.fc-bg table {
-  height: 100%;
-  /* strech bg to bottom edge */
-}
-
-/* Tables
---------------------------------------------------------------------------------------------------*/
-.fc table {
-  width: 100%;
-  box-sizing: border-box;
-  /* fix scrollbar issue in firefox */
-  table-layout: fixed;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 1em;
-  /* normalize cross-browser */
-}
-
-.fc th {
-  text-align: center;
-}
-
-.fc th,
-.fc td {
-  border-style: solid;
-  border-width: 1px;
-  padding: 0;
-  vertical-align: top;
-}
-
-.fc td.fc-today {
-  border-style: double;
-  /* overcome neighboring borders */
-}
-
-/* Internal Nav Links
---------------------------------------------------------------------------------------------------*/
-a[data-goto] {
-  cursor: pointer;
-}
-
-a[data-goto]:hover {
-  text-decoration: underline;
-}
-
-/* Fake Table Rows
---------------------------------------------------------------------------------------------------*/
-.fc .fc-row {
-  /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
-  /* no visible border by default. but make available if need be (scrollbar width compensation) */
-  border-style: solid;
-  border-width: 0;
-}
-
-.fc-row table {
-  /* don't put left/right border on anything within a fake row.
-     the outer tbody will worry about this */
-  border-left: 0 hidden transparent;
-  border-right: 0 hidden transparent;
-  /* no bottom borders on rows */
-  border-bottom: 0 hidden transparent;
-}
-
-.fc-row:first-child table {
-  border-top: 0 hidden transparent;
-  /* no top border on first row */
-}
-
-/* Day Row (used within the header and the DayGrid)
---------------------------------------------------------------------------------------------------*/
-.fc-row {
-  position: relative;
-}
-
-.fc-row .fc-bg {
-  z-index: 1;
-}
-
-/* highlighting cells & background event skeleton */
-.fc-row .fc-bgevent-skeleton,
-.fc-row .fc-highlight-skeleton {
-  bottom: 0;
-  /* stretch skeleton to bottom of row */
-}
-
-.fc-row .fc-bgevent-skeleton table,
-.fc-row .fc-highlight-skeleton table {
-  height: 100%;
-  /* stretch skeleton to bottom of row */
-}
-
-.fc-row .fc-highlight-skeleton td,
-.fc-row .fc-bgevent-skeleton td {
-  border-color: transparent;
-}
-
-.fc-row .fc-bgevent-skeleton {
-  z-index: 2;
-}
-
-.fc-row .fc-highlight-skeleton {
-  z-index: 3;
-}
-
-/*
-row content (which contains day/week numbers and events) as well as "helper" (which contains
-temporary rendered events).
-*/
-.fc-row .fc-content-skeleton {
-  position: relative;
-  z-index: 4;
-  padding-bottom: 2px;
-  /* matches the space above the events */
-}
-
-.fc-row .fc-helper-skeleton {
-  z-index: 5;
-}
-
-.fc .fc-row .fc-content-skeleton table,
-.fc .fc-row .fc-content-skeleton td,
-.fc .fc-row .fc-helper-skeleton td {
-  /* see-through to the background below */
-  /* extra precedence to prevent theme-provided backgrounds */
-  background: none;
-  /* in case <td>s are globally styled */
-  border-color: transparent;
-}
-
-.fc-row .fc-content-skeleton td,
-.fc-row .fc-helper-skeleton td {
-  /* don't put a border between events and/or the day number */
-  border-bottom: 0;
-}
-
-.fc-row .fc-content-skeleton tbody td,
-.fc-row .fc-helper-skeleton tbody td {
-  /* don't put a border between event cells */
-  border-top: 0;
-}
-
-/* Scrolling Container
---------------------------------------------------------------------------------------------------*/
-.fc-scroller {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* TODO: move to agenda/basic */
-.fc-scroller > .fc-day-grid,
-.fc-scroller > .fc-time-grid {
-  position: relative;
-  /* re-scope all positions */
-  width: 100%;
-  /* hack to force re-sizing this inner element when scrollbars appear/disappear */
-}
-
-/* Global Event Styles
---------------------------------------------------------------------------------------------------*/
-.fc-event {
-  position: relative;
-  /* for resize handle and other inner positioning */
-  display: block;
-  /* make the <a> tag block */
-  font-size: .85em;
-  line-height: 1.3;
-  border-radius: 3px;
-  border: 1px solid #3a87ad;
-  /* default BORDER color */
-}
-
-.fc-event,
-.fc-event-dot {
-  background-color: #3a87ad;
-  /* default BACKGROUND color */
-}
-
-.fc-event,
-.fc-event:hover {
-  color: #fff;
-  /* default TEXT color */
-  text-decoration: none;
-  /* if <a> has an href */
-}
-
-.fc-event[href],
-.fc-event.fc-draggable {
-  cursor: pointer;
-  /* give events with links and draggable events a hand mouse pointer */
-}
-
-.fc-not-allowed,
-.fc-not-allowed .fc-event {
-  /* to override an event's custom cursor */
-  cursor: not-allowed;
-}
-
-.fc-event .fc-bg {
-  /* the generic .fc-bg already does position */
-  z-index: 1;
-  background: #fff;
-  opacity: .25;
-}
-
-.fc-event .fc-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* resizer (cursor AND touch devices) */
-.fc-event .fc-resizer {
-  position: absolute;
-  z-index: 4;
-}
-
-/* resizer (touch devices) */
-.fc-event .fc-resizer {
+.ui-helper-hidden {
   display: none;
 }
 
-.fc-event.fc-allow-mouse-resize .fc-resizer,
-.fc-event.fc-selected .fc-resizer {
-  /* only show when hovering or selected (with touch) */
-  display: block;
-}
-
-/* hit area */
-.fc-event.fc-selected .fc-resizer:before {
-  /* 40x40 touch area */
-  content: "";
-  position: absolute;
-  z-index: 9999;
-  /* user of this util can scope within a lower z-index */
-  top: 50%;
-  left: 50%;
-  width: 40px;
-  height: 40px;
-  margin-left: -20px;
-  margin-top: -20px;
-}
-
-/* Event Selection (only for touch devices)
---------------------------------------------------------------------------------------------------*/
-.fc-event.fc-selected {
-  z-index: 9999 !important;
-  /* overcomes inline z-index */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.fc-event.fc-selected.fc-dragging {
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-}
-
-/* Horizontal Events
---------------------------------------------------------------------------------------------------*/
-/* bigger touch area when selected */
-.fc-h-event.fc-selected:before {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  /* below resizers */
-  top: -10px;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-}
-
-/* events that are continuing to/from another week. kill rounded corners and butt up against edge */
-.fc-ltr .fc-h-event.fc-not-start,
-.fc-rtl .fc-h-event.fc-not-end {
-  margin-left: 0;
-  border-left-width: 0;
-  padding-left: 1px;
-  /* replace the border with padding */
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.fc-ltr .fc-h-event.fc-not-end,
-.fc-rtl .fc-h-event.fc-not-start {
-  margin-right: 0;
-  border-right-width: 0;
-  padding-right: 1px;
-  /* replace the border with padding */
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-/* resizer (cursor AND touch devices) */
-/* left resizer  */
-.fc-ltr .fc-h-event .fc-start-resizer,
-.fc-rtl .fc-h-event .fc-end-resizer {
-  cursor: w-resize;
-  left: -1px;
-  /* overcome border */
-}
-
-/* right resizer */
-.fc-ltr .fc-h-event .fc-end-resizer,
-.fc-rtl .fc-h-event .fc-start-resizer {
-  cursor: e-resize;
-  right: -1px;
-  /* overcome border */
-}
-
-/* resizer (mouse devices) */
-.fc-h-event.fc-allow-mouse-resize .fc-resizer {
-  width: 7px;
-  top: -1px;
-  /* overcome top border */
-  bottom: -1px;
-  /* overcome bottom border */
-}
-
-/* resizer (touch devices) */
-.fc-h-event.fc-selected .fc-resizer {
-  /* 8x8 little dot */
-  border-radius: 4px;
-  border-width: 1px;
-  width: 6px;
-  height: 6px;
-  border-style: solid;
-  border-color: inherit;
-  background: #fff;
-  /* vertically center */
-  top: 50%;
-  margin-top: -4px;
-}
-
-/* left resizer  */
-.fc-ltr .fc-h-event.fc-selected .fc-start-resizer,
-.fc-rtl .fc-h-event.fc-selected .fc-end-resizer {
-  margin-left: -4px;
-  /* centers the 8x8 dot on the left edge */
-}
-
-/* right resizer */
-.fc-ltr .fc-h-event.fc-selected .fc-end-resizer,
-.fc-rtl .fc-h-event.fc-selected .fc-start-resizer {
-  margin-right: -4px;
-  /* centers the 8x8 dot on the right edge */
-}
-
-/* DayGrid events
-----------------------------------------------------------------------------------------------------
-We use the full "fc-day-grid-event" class instead of using descendants because the event won't
-be a descendant of the grid when it is being dragged.
-*/
-.fc-day-grid-event {
-  margin: 1px 2px 0;
-  /* spacing between events and edges */
-  padding: 0 1px;
-}
-
-tr:first-child > td > .fc-day-grid-event {
-  margin-top: 2px;
-  /* a little bit more space before the first event */
-}
-
-.fc-day-grid-event.fc-selected:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  /* same z-index as fc-bg, behind text */
-  /* overcome the borders */
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  /* darkening effect */
-  background: #000;
-  opacity: .25;
-}
-
-.fc-day-grid-event .fc-content {
-  /* force events to be one-line tall */
-  white-space: nowrap;
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
-}
-
-.fc-day-grid-event .fc-time {
-  font-weight: bold;
-}
-
-/* resizer (cursor devices) */
-/* left resizer  */
-.fc-ltr .fc-day-grid-event.fc-allow-mouse-resize .fc-start-resizer,
-.fc-rtl .fc-day-grid-event.fc-allow-mouse-resize .fc-end-resizer {
-  margin-left: -2px;
-  /* to the day cell's edge */
-}
-
-/* right resizer */
-.fc-ltr .fc-day-grid-event.fc-allow-mouse-resize .fc-end-resizer,
-.fc-rtl .fc-day-grid-event.fc-allow-mouse-resize .fc-start-resizer {
-  margin-right: -2px;
-  /* to the day cell's edge */
-}
-
-/* Event Limiting
---------------------------------------------------------------------------------------------------*/
-/* "more" link that represents hidden events */
-a.fc-more {
-  margin: 1px 3px;
-  font-size: .85em;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-a.fc-more:hover {
-  text-decoration: underline;
-}
-
-.fc-limited {
-  /* rows and cells that are hidden because of a "more" link */
-  display: none;
-}
-
-/* popover that appears when "more" link is clicked */
-.fc-day-grid .fc-row {
-  z-index: 1;
-  /* make the "more" popover one higher than this */
-}
-
-.fc-more-popover {
-  z-index: 2;
-  width: 220px;
-}
-
-.fc-more-popover .fc-event-container {
-  padding: 10px;
-}
-
-/* Now Indicator
---------------------------------------------------------------------------------------------------*/
-.fc-now-indicator {
-  position: absolute;
-  border: 0 solid red;
-}
-
-/* Utilities
---------------------------------------------------------------------------------------------------*/
-.fc-unselectable {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/*
-TODO: more distinction between this file and common.css
-*/
-/* Colors
---------------------------------------------------------------------------------------------------*/
-.fc-unthemed th,
-.fc-unthemed td,
-.fc-unthemed thead,
-.fc-unthemed tbody,
-.fc-unthemed .fc-divider,
-.fc-unthemed .fc-row,
-.fc-unthemed .fc-content,
-.fc-unthemed .fc-popover,
-.fc-unthemed .fc-list-view,
-.fc-unthemed .fc-list-heading td {
-  border-color: #ddd;
-}
-
-.fc-unthemed .fc-popover {
-  background-color: #fff;
-}
-
-.fc-unthemed .fc-divider,
-.fc-unthemed .fc-popover .fc-header,
-.fc-unthemed .fc-list-heading td {
-  background: #eee;
-}
-
-.fc-unthemed .fc-popover .fc-header .fc-close {
-  color: #666;
-}
-
-.fc-unthemed td.fc-today {
-  background: #fcf8e3;
-}
-
-.fc-unthemed .fc-disabled-day {
-  background: #d7d7d7;
-  opacity: .3;
-}
-
-/* Icons (inline elements with styled text that mock arrow icons)
---------------------------------------------------------------------------------------------------*/
-.fc-icon {
-  display: inline-block;
-  height: 1em;
-  line-height: 1em;
-  font-size: 1em;
-  text-align: center;
-  overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
-  /* don't allow browser text-selection */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/*
-Acceptable font-family overrides for individual icons:
-  "Arial", sans-serif
-  "Times New Roman", serif
-
-NOTE: use percentage font sizes or else old IE chokes
-*/
-.fc-icon:after {
-  position: relative;
-}
-
-.fc-icon-left-single-arrow:after {
-  content: "\2039";
-  font-weight: bold;
-  font-size: 200%;
-  top: -7%;
-}
-
-.fc-icon-right-single-arrow:after {
-  content: "\203A";
-  font-weight: bold;
-  font-size: 200%;
-  top: -7%;
-}
-
-.fc-icon-left-double-arrow:after {
-  content: "\AB";
-  font-size: 160%;
-  top: -7%;
-}
-
-.fc-icon-right-double-arrow:after {
-  content: "\BB";
-  font-size: 160%;
-  top: -7%;
-}
-
-.fc-icon-left-triangle:after {
-  content: "\25C4";
-  font-size: 125%;
-  top: 3%;
-}
-
-.fc-icon-right-triangle:after {
-  content: "\25BA";
-  font-size: 125%;
-  top: 3%;
-}
-
-.fc-icon-down-triangle:after {
-  content: "\25BC";
-  font-size: 125%;
-  top: 2%;
-}
-
-.fc-icon-x:after {
-  content: "\D7";
-  font-size: 200%;
-  top: 6%;
-}
-
-/* Popover
---------------------------------------------------------------------------------------------------*/
-.fc-unthemed .fc-popover {
-  border-width: 1px;
-  border-style: solid;
-}
-
-.fc-unthemed .fc-popover .fc-header .fc-close {
-  font-size: .9em;
-  margin-top: 2px;
-}
-
-/* List View
---------------------------------------------------------------------------------------------------*/
-.fc-unthemed .fc-list-item:hover td {
-  background-color: #f5f5f5;
-}
-
-/* Colors
---------------------------------------------------------------------------------------------------*/
-.ui-widget .fc-disabled-day {
-  background-image: none;
-}
-
-/* Popover
---------------------------------------------------------------------------------------------------*/
-.fc-popover > .ui-widget-header + .ui-widget-content {
-  border-top: 0;
-  /* where they meet, let the header have the border */
-}
-
-/* Global Event Styles
---------------------------------------------------------------------------------------------------*/
-.ui-widget .fc-event {
-  /* overpower jqui's styles on <a> tags. TODO: more DRY */
-  color: #fff;
-  /* default TEXT color */
-  text-decoration: none;
-  /* if <a> has an href */
-  /* undo ui-widget-header bold */
-  font-weight: normal;
-}
-
-/* TimeGrid axis running down the side (for both the all-day area and the slot area)
---------------------------------------------------------------------------------------------------*/
-.ui-widget td.fc-axis {
-  font-weight: normal;
-  /* overcome bold */
-}
-
-/* TimeGrid Slats (lines that run horizontally)
---------------------------------------------------------------------------------------------------*/
-.fc-time-grid .fc-slats .ui-widget-content {
-  background: none;
-  /* see through to fc-bg */
-}
-
-.fc.fc-bootstrap3 a {
-  text-decoration: none;
-}
-
-.fc.fc-bootstrap3 a[data-goto]:hover {
-  text-decoration: underline;
-}
-
-.fc-bootstrap3 hr.fc-divider {
-  border-color: inherit;
-}
-
-.fc-bootstrap3 .fc-today.alert {
-  border-radius: 0;
-}
-
-/* Popover
---------------------------------------------------------------------------------------------------*/
-.fc-bootstrap3 .fc-popover .panel-body {
   padding: 0;
-  /* undo built-in padding */
-}
-
-/* TimeGrid Slats (lines that run horizontally)
---------------------------------------------------------------------------------------------------*/
-.fc-bootstrap3 .fc-time-grid .fc-slats table {
-  /* some themes have background color. see through to slats */
-  background: none;
-}
-
-/* Toolbar
---------------------------------------------------------------------------------------------------*/
-.fc-toolbar {
-  text-align: center;
-}
-
-.fc-toolbar.fc-header-toolbar {
-  margin-bottom: 1em;
-}
-
-.fc-toolbar.fc-footer-toolbar {
-  margin-top: 1em;
-}
-
-.fc-toolbar .fc-left {
-  float: left;
-}
-
-.fc-toolbar .fc-right {
-  float: right;
-}
-
-.fc-toolbar .fc-center {
-  display: inline-block;
-}
-
-/* the things within each left/right/center section */
-.fc .fc-toolbar > * > * {
-  /* extra precedence to override button border margins */
-  float: left;
-  margin-left: .75em;
-}
-
-/* the first thing within each left/center/right section */
-.fc .fc-toolbar > * > :first-child {
-  /* extra precedence to override button border margins */
-  margin-left: 0;
-}
-
-/* title text */
-.fc-toolbar h2 {
-  margin: 0;
-}
-
-/* button layering (for border precedence) */
-.fc-toolbar button {
-  position: relative;
-}
-
-.fc-toolbar .fc-state-hover,
-.fc-toolbar .ui-state-hover {
-  z-index: 2;
-}
-
-.fc-toolbar .fc-state-down {
-  z-index: 3;
-}
-
-.fc-toolbar .fc-state-active,
-.fc-toolbar .ui-state-active {
-  z-index: 4;
-}
-
-.fc-toolbar button:focus {
-  z-index: 5;
-}
-
-/* View Structure
---------------------------------------------------------------------------------------------------*/
-/* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
-/* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
-.fc-view-container *,
-.fc-view-container *:before,
-.fc-view-container *:after {
-  box-sizing: content-box;
-}
-
-.fc-view,
-.fc-view > table {
-  /* so dragged elements can be above the view's main element */
-  position: relative;
-  z-index: 1;
-}
-
-/* BasicView
---------------------------------------------------------------------------------------------------*/
-/* day row structure */
-.fc-basicWeek-view .fc-content-skeleton,
-.fc-basicDay-view .fc-content-skeleton {
-  /* there may be week numbers in these views, so no padding-top */
-  padding-bottom: 1em;
-  /* ensure a space at bottom of cell for user selecting/clicking */
-}
-
-.fc-basic-view .fc-body .fc-row {
-  min-height: 4em;
-  /* ensure that all rows are at least this tall */
-}
-
-/* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
-.fc-row.fc-rigid {
-  overflow: hidden;
-}
-
-.fc-row.fc-rigid .fc-content-skeleton {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* week and day number styling */
-.fc-day-top.fc-other-month {
-  opacity: 0.3;
-}
-
-.fc-basic-view .fc-week-number,
-.fc-basic-view .fc-day-number {
-  padding: 2px;
-}
-
-.fc-basic-view th.fc-week-number,
-.fc-basic-view th.fc-day-number {
-  padding: 0 2px;
-  /* column headers can't have as much v space */
-}
-
-.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
-  float: right;
-}
-
-.fc-rtl .fc-basic-view .fc-day-top .fc-day-number {
-  float: left;
-}
-
-.fc-ltr .fc-basic-view .fc-day-top .fc-week-number {
-  float: left;
-  border-radius: 0 0 3px 0;
-}
-
-.fc-rtl .fc-basic-view .fc-day-top .fc-week-number {
-  float: right;
-  border-radius: 0 0 0 3px;
-}
-
-.fc-basic-view .fc-day-top .fc-week-number {
-  min-width: 1.5em;
-  text-align: center;
-  background-color: #f2f2f2;
-  color: #808080;
-}
-
-/* when week/day number have own column */
-.fc-basic-view td.fc-week-number {
-  text-align: center;
-}
-
-.fc-basic-view td.fc-week-number > * {
-  /* work around the way we do column resizing and ensure a minimum width */
-  display: inline-block;
-  min-width: 1.25em;
-}
-
-/* AgendaView all-day area
---------------------------------------------------------------------------------------------------*/
-.fc-agenda-view .fc-day-grid {
-  position: relative;
-  z-index: 2;
-  /* so the "more.." popover will be over the time grid */
-}
-
-.fc-agenda-view .fc-day-grid .fc-row {
-  min-height: 3em;
-  /* all-day section will never get shorter than this */
-}
-
-.fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
-  padding-bottom: 1em;
-  /* give space underneath events for clicking/selecting days */
-}
-
-/* TimeGrid axis running down the side (for both the all-day area and the slot area)
---------------------------------------------------------------------------------------------------*/
-.fc .fc-axis {
-  /* .fc to overcome default cell styles */
-  vertical-align: middle;
-  padding: 0 4px;
-  white-space: nowrap;
-}
-
-.fc-ltr .fc-axis {
-  text-align: right;
-}
-
-.fc-rtl .fc-axis {
-  text-align: left;
-}
-
-/* TimeGrid Structure
---------------------------------------------------------------------------------------------------*/
-.fc-time-grid-container,
-.fc-time-grid {
-  /* so slats/bg/content/etc positions get scoped within here */
-  position: relative;
-  z-index: 1;
-}
-
-.fc-time-grid {
-  min-height: 100%;
-  /* so if height setting is 'auto', .fc-bg stretches to fill height */
-}
-
-.fc-time-grid table {
-  /* don't put outer borders on slats/bg/content/etc */
-  border: 0 hidden transparent;
-}
-
-.fc-time-grid > .fc-bg {
-  z-index: 1;
-}
-
-.fc-time-grid .fc-slats,
-.fc-time-grid > hr {
-  /* the <hr> AgendaView injects when grid is shorter than scroller */
-  position: relative;
-  z-index: 2;
-}
-
-.fc-time-grid .fc-content-col {
-  position: relative;
-  /* because now-indicator lives directly inside */
-}
-
-.fc-time-grid .fc-content-skeleton {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* divs within a cell within the fc-content-skeleton */
-.fc-time-grid .fc-business-container {
-  position: relative;
-  z-index: 1;
-}
-
-.fc-time-grid .fc-bgevent-container {
-  position: relative;
-  z-index: 2;
-}
-
-.fc-time-grid .fc-highlight-container {
-  position: relative;
-  z-index: 3;
-}
-
-.fc-time-grid .fc-event-container {
-  position: relative;
-  z-index: 4;
-}
-
-.fc-time-grid .fc-now-indicator-line {
-  z-index: 5;
-}
-
-.fc-time-grid .fc-helper-container {
-  /* also is fc-event-container */
-  position: relative;
-  z-index: 6;
-}
-
-/* TimeGrid Slats (lines that run horizontally)
---------------------------------------------------------------------------------------------------*/
-.fc-time-grid .fc-slats td {
-  height: 1.5em;
-  border-bottom: 0;
-  /* each cell is responsible for its top border */
-}
-
-.fc-time-grid .fc-slats .fc-minor td {
-  border-top-style: dotted;
-}
-
-/* TimeGrid Highlighting Slots
---------------------------------------------------------------------------------------------------*/
-.fc-time-grid .fc-highlight-container {
-  /* a div within a cell within the fc-highlight-skeleton */
-  position: relative;
-  /* scopes the left/right of the fc-highlight to be in the column */
-}
-
-.fc-time-grid .fc-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  /* top and bottom will be in by JS */
-}
-
-/* TimeGrid Event Containment
---------------------------------------------------------------------------------------------------*/
-.fc-ltr .fc-time-grid .fc-event-container {
-  /* space on the sides of events for LTR (default) */
-  margin: 0 2.5% 0 2px;
-}
-
-.fc-rtl .fc-time-grid .fc-event-container {
-  /* space on the sides of events for RTL */
-  margin: 0 2px 0 2.5%;
-}
-
-.fc-time-grid .fc-event,
-.fc-time-grid .fc-bgevent {
-  position: absolute;
-  z-index: 1;
-  /* scope inner z-index's */
-}
-
-.fc-time-grid .fc-bgevent {
-  /* background events always span full width */
-  left: 0;
-  right: 0;
-}
-
-/* Generic Vertical Event
---------------------------------------------------------------------------------------------------*/
-.fc-v-event.fc-not-start {
-  /* events that are continuing from another day */
-  /* replace space made by the top border with padding */
-  border-top-width: 0;
-  padding-top: 1px;
-  /* remove top rounded corners */
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.fc-v-event.fc-not-end {
-  /* replace space made by the top border with padding */
-  border-bottom-width: 0;
-  padding-bottom: 1px;
-  /* remove bottom rounded corners */
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-/* TimeGrid Event Styling
-----------------------------------------------------------------------------------------------------
-We use the full "fc-time-grid-event" class instead of using descendants because the event won't
-be a descendant of the grid when it is being dragged.
-*/
-.fc-time-grid-event {
-  overflow: hidden;
-  /* don't let the bg flow over rounded corners */
-}
-
-.fc-time-grid-event.fc-selected {
-  /* need to allow touch resizers to extend outside event's bounding box */
-  /* common fc-selected styles hide the fc-bg, so don't need this anyway */
-  overflow: visible;
-}
-
-.fc-time-grid-event.fc-selected .fc-bg {
-  display: none;
-  /* hide semi-white background, to appear darker */
-}
-
-.fc-time-grid-event .fc-content {
-  overflow: hidden;
-  /* for when .fc-selected */
-}
-
-.fc-time-grid-event .fc-time,
-.fc-time-grid-event .fc-title {
-  padding: 0 1px;
-}
-
-.fc-time-grid-event .fc-time {
-  font-size: .85em;
-  white-space: nowrap;
-}
-
-/* short mode, where time and title are on the same line */
-.fc-time-grid-event.fc-short .fc-content {
-  /* don't wrap to second line (now that contents will be inline) */
-  white-space: nowrap;
-}
-
-.fc-time-grid-event.fc-short .fc-time,
-.fc-time-grid-event.fc-short .fc-title {
-  /* put the time and title on the same line */
-  display: inline-block;
-  vertical-align: top;
-}
-
-.fc-time-grid-event.fc-short .fc-time span {
-  display: none;
-  /* don't display the full time text... */
-}
-
-.fc-time-grid-event.fc-short .fc-time:before {
-  content: attr(data-start);
-  /* ...instead, display only the start time */
-}
-
-.fc-time-grid-event.fc-short .fc-time:after {
-  content: "\A0-\A0";
-  /* seperate with a dash, wrapped in nbsp's */
-}
-
-.fc-time-grid-event.fc-short .fc-title {
-  font-size: .85em;
-  /* make the title text the same size as the time */
-  padding: 0;
-  /* undo padding from above */
-}
-
-/* resizer (cursor device) */
-.fc-time-grid-event.fc-allow-mouse-resize .fc-resizer {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 8px;
-  overflow: hidden;
-  line-height: 8px;
-  font-size: 11px;
-  font-family: monospace;
-  text-align: center;
-  cursor: s-resize;
-}
-
-.fc-time-grid-event.fc-allow-mouse-resize .fc-resizer:after {
-  content: "=";
-}
-
-/* resizer (touch device) */
-.fc-time-grid-event.fc-selected .fc-resizer {
-  /* 10x10 dot */
-  border-radius: 5px;
-  border-width: 1px;
-  width: 8px;
-  height: 8px;
-  border-style: solid;
-  border-color: inherit;
-  background: #fff;
-  /* horizontally center */
-  left: 50%;
-  margin-left: -5px;
-  /* center on the bottom edge */
-  bottom: -5px;
-}
-
-/* Now Indicator
---------------------------------------------------------------------------------------------------*/
-.fc-time-grid .fc-now-indicator-line {
-  border-top-width: 1px;
-  left: 0;
-  right: 0;
-}
-
-/* arrow on axis */
-.fc-time-grid .fc-now-indicator-arrow {
-  margin-top: -5px;
-  /* vertically center on top coordinate */
-}
-
-.fc-ltr .fc-time-grid .fc-now-indicator-arrow {
-  left: 0;
-  /* triangle pointing right... */
-  border-width: 5px 0 5px 6px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-
-.fc-rtl .fc-time-grid .fc-now-indicator-arrow {
-  right: 0;
-  /* triangle pointing left... */
-  border-width: 5px 6px 5px 0;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-}
-
-/* List View
---------------------------------------------------------------------------------------------------*/
-/* possibly reusable */
-.fc-event-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-}
-
-/* view wrapper */
-.fc-rtl .fc-list-view {
-  direction: rtl;
-  /* unlike core views, leverage browser RTL */
-}
-
-.fc-list-view {
-  border-width: 1px;
-  border-style: solid;
-}
-
-/* table resets */
-.fc .fc-list-table {
-  table-layout: auto;
-  /* for shrinkwrapping cell content */
-}
-
-.fc-list-table td {
-  border-width: 1px 0 0;
-  padding: 8px 14px;
-}
-
-.fc-list-table tr:first-child td {
-  border-top-width: 0;
-}
-
-/* day headings with the list */
-.fc-list-heading {
-  border-bottom-width: 1px;
-}
-
-.fc-list-heading td {
-  font-weight: bold;
-}
-
-.fc-ltr .fc-list-heading-main {
-  float: left;
-}
-
-.fc-ltr .fc-list-heading-alt {
-  float: right;
-}
-
-.fc-rtl .fc-list-heading-main {
-  float: right;
-}
-
-.fc-rtl .fc-list-heading-alt {
-  float: left;
-}
-
-/* event list items */
-.fc-list-item.fc-has-url {
-  cursor: pointer;
-  /* whole row will be clickable */
-}
-
-.fc-list-item-marker,
-.fc-list-item-time {
-  white-space: nowrap;
   width: 1px;
 }
 
-/* make the dot closer to the event title */
-.fc-ltr .fc-list-item-marker {
-  padding-right: 0;
-}
-
-.fc-rtl .fc-list-item-marker {
-  padding-left: 0;
-}
-
-.fc-list-item-title a {
-  /* every event title cell has an <a> tag */
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
   text-decoration: none;
-  color: inherit;
+  font-size: 100%;
+  list-style: none;
 }
 
-.fc-list-item-title a[href]:hover {
-  /* hover effect only on titles with hrefs */
-  text-decoration: underline;
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
 }
 
-/* message when no events */
-.fc-list-empty-wrap2 {
+.ui-helper-clearfix:after {
+  clear: both;
+}
+
+.ui-helper-clearfix {
+  min-height: 0;
+}
+
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   position: absolute;
+  opacity: 0;
+  filter: Alpha(Opacity=0);
+}
+
+.ui-front {
+  z-index: 100;
+}
+
+.ui-state-disabled {
+  cursor: default !important;
+}
+
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+.ui-datepicker {
+  width: 17em;
+  padding: .2em .2em 0;
+  display: none;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: .2em 0;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+  position: absolute;
+  top: 2px;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+  top: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+  right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+  margin: 0 2.3em;
+  line-height: 1.8em;
+  text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+  font-size: 1em;
+  margin: 1px 0;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: 45%;
+}
+
+.ui-datepicker table {
+  width: 100%;
+  font-size: .9em;
+  border-collapse: collapse;
+  margin: 0 0 .4em;
+}
+
+.ui-datepicker th {
+  padding: .7em .3em;
+  text-align: center;
+  font-weight: bold;
+  border: 0;
+}
+
+.ui-datepicker td {
+  border: 0;
+  padding: 0;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+  display: block;
+  padding: .2em;
+  border-radius: 2px;
+  text-align: center;
+  transition: none;
+  text-decoration: none;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane {
+  background-image: none;
+  margin: .7em 0 0 0;
+  padding: 0 .2em;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+  float: right;
+  margin: .5em .2em .4em;
+  cursor: pointer;
+  padding: .2em .6em .3em .6em;
+  width: auto;
+  overflow: visible;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: left;
+}
+
+.ui-datepicker.ui-datepicker-multi {
+  width: auto;
+}
+
+.ui-datepicker-multi .ui-datepicker-group {
+  float: left;
+}
+
+.ui-datepicker-multi .ui-datepicker-group table {
+  width: 95%;
+  margin: 0 auto .4em;
+}
+
+.ui-datepicker-multi-2 .ui-datepicker-group {
+  width: 50%;
+}
+
+.ui-datepicker-multi-3 .ui-datepicker-group {
+  width: 33.3%;
+}
+
+.ui-datepicker-multi-4 .ui-datepicker-group {
+  width: 25%;
+}
+
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+  border-left-width: 0;
+}
+
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+  clear: left;
+}
+
+.ui-datepicker-row-break {
+  clear: both;
+  width: 100%;
+  font-size: 0;
+}
+
+.ui-datepicker-rtl {
+  direction: rtl;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev {
+  right: 2px;
+  left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next {
+  left: 2px;
+  right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+  right: 1px;
+  left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+  left: 1px;
+  right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+  clear: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+  float: left;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current, .ui-datepicker-rtl .ui-datepicker-group {
+  float: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+
+.ui-menu .ui-menu {
+  position: absolute;
+}
+
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0;
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+
+.ui-menu .ui-menu-divider {
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+
+.ui-menu .ui-state-focus, .ui-menu .ui-state-active {
+  margin: -1px;
+}
+
+.ui-menu-icons {
+  position: relative;
+}
+
+.ui-menu-icons .ui-menu-item {
+  padding-left: 2em;
+}
+
+.ui-menu .ui-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: .2em;
+  margin: auto 0;
+}
+
+.ui-menu .ui-menu-icon {
+  left: auto;
+  right: 0;
+}
+
+.ui-widget {
+  font-family: 'PT-Sans', sans-serif;
+  font-size: 1em;
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-family: 'PT-Sans', sans-serif;
+  font-size: 1em;
+}
+
+.ui-widget-content {
+  margin: 3px 0 0;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+}
+
+.ui-widget-content a {
+  color: #333;
+}
+
+.ui-widget-header {
+  color: #333;
+  font-weight: bold;
+}
+
+.ui-widget-header a {
+  color: #333;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  font-weight: normal;
+  color: #454545;
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+  color: #454545;
+  text-decoration: none;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus, .ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  cursor: pointer;
+  background: #507ada;
+  font-weight: normal;
+  color: #fff;
+}
+
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited {
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 1px solid #003eff;
+  background: #007fff;
+  font-weight: normal;
+  color: #fff;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  background: #507ada;
+  color: #fff;
+}
+
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
+  color: #777620;
+}
+
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+  border: 1px solid #f1a899;
+  background: #fddfdf;
+  color: #5f3f3f;
+}
+
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a {
+  color: #5f3f3f;
+}
+
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {
+  color: #5f3f3f;
+}
+
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
+  font-weight: bold;
+}
+
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  filter: Alpha(Opacity=70);
+  font-weight: normal;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  filter: Alpha(Opacity=35);
+  background-image: none;
+}
+
+.ui-state-disabled .ui-icon {
+  filter: Alpha(Opacity=35);
+}
+
+.ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-icon, .ui-widget-content .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_444444_256x240.png");
+}
+
+.ui-widget-header .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_444444_256x240.png");
+}
+
+.ui-state-default .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_777777_256x240.png");
+}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_ffffff_256x240.png");
+}
+
+.ui-state-active .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_ffffff_256x240.png");
+}
+
+.ui-state-highlight .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_777620_256x240.png");
+}
+
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+  background-image: url("../../libs/jquery-ui/images/ui-icons_cc0000_256x240.png");
+}
+
+.ui-icon-blank {
+  background-position: 16px 16px;
+}
+
+.ui-icon-carat-1-n {
+  background-position: 0 0;
+}
+
+.ui-icon-carat-1-ne {
+  background-position: -16px 0;
+}
+
+.ui-icon-carat-1-e {
+  background-position: -32px 0;
+}
+
+.ui-icon-carat-1-se {
+  background-position: -48px 0;
+}
+
+.ui-icon-carat-1-s {
+  background-position: -64px 0;
+}
+
+.ui-icon-carat-1-sw {
+  background-position: -80px 0;
+}
+
+.ui-icon-carat-1-w {
+  background-position: -96px 0;
+}
+
+.ui-icon-carat-1-nw {
+  background-position: -112px 0;
+}
+
+.ui-icon-carat-2-n-s {
+  background-position: -128px 0;
+}
+
+.ui-icon-carat-2-e-w {
+  background-position: -144px 0;
+}
+
+.ui-icon-triangle-1-n {
+  background-position: 0 -16px;
+}
+
+.ui-icon-triangle-1-ne {
+  background-position: -16px -16px;
+}
+
+.ui-icon-triangle-1-e {
+  background-position: -32px -16px;
+}
+
+.ui-icon-triangle-1-se {
+  background-position: -48px -16px;
+}
+
+.ui-icon-triangle-1-s {
+  background-position: -64px -16px;
+}
+
+.ui-icon-triangle-1-sw {
+  background-position: -80px -16px;
+}
+
+.ui-icon-triangle-1-w {
+  background-position: -96px -16px;
+}
+
+.ui-icon-triangle-1-nw {
+  background-position: -112px -16px;
+}
+
+.ui-icon-triangle-2-n-s {
+  background-position: -128px -16px;
+}
+
+.ui-icon-triangle-2-e-w {
+  background-position: -144px -16px;
+}
+
+.ui-icon-arrow-1-n {
+  background-position: 0 -32px;
+}
+
+.ui-icon-arrow-1-ne {
+  background-position: -16px -32px;
+}
+
+.ui-icon-arrow-1-e {
+  background-position: -32px -32px;
+}
+
+.ui-icon-arrow-1-se {
+  background-position: -48px -32px;
+}
+
+.ui-icon-arrow-1-s {
+  background-position: -64px -32px;
+}
+
+.ui-icon-arrow-1-sw {
+  background-position: -80px -32px;
+}
+
+.ui-icon-arrow-1-w {
+  background-position: -96px -32px;
+}
+
+.ui-icon-arrow-1-nw {
+  background-position: -112px -32px;
+}
+
+.ui-icon-arrow-2-n-s {
+  background-position: -128px -32px;
+}
+
+.ui-icon-arrow-2-ne-sw {
+  background-position: -144px -32px;
+}
+
+.ui-icon-arrow-2-e-w {
+  background-position: -160px -32px;
+}
+
+.ui-icon-arrow-2-se-nw {
+  background-position: -176px -32px;
+}
+
+.ui-icon-arrowstop-1-n {
+  background-position: -192px -32px;
+}
+
+.ui-icon-arrowstop-1-e {
+  background-position: -208px -32px;
+}
+
+.ui-icon-arrowstop-1-s {
+  background-position: -224px -32px;
+}
+
+.ui-icon-arrowstop-1-w {
+  background-position: -240px -32px;
+}
+
+.ui-icon-arrowthick-1-n {
+  background-position: 0 -48px;
+}
+
+.ui-icon-arrowthick-1-ne {
+  background-position: -16px -48px;
+}
+
+.ui-icon-arrowthick-1-e {
+  background-position: -32px -48px;
+}
+
+.ui-icon-arrowthick-1-se {
+  background-position: -48px -48px;
+}
+
+.ui-icon-arrowthick-1-s {
+  background-position: -64px -48px;
+}
+
+.ui-icon-arrowthick-1-sw {
+  background-position: -80px -48px;
+}
+
+.ui-icon-arrowthick-1-w {
+  background-position: -96px -48px;
+}
+
+.ui-icon-arrowthick-1-nw {
+  background-position: -112px -48px;
+}
+
+.ui-icon-arrowthick-2-n-s {
+  background-position: -128px -48px;
+}
+
+.ui-icon-arrowthick-2-ne-sw {
+  background-position: -144px -48px;
+}
+
+.ui-icon-arrowthick-2-e-w {
+  background-position: -160px -48px;
+}
+
+.ui-icon-arrowthick-2-se-nw {
+  background-position: -176px -48px;
+}
+
+.ui-icon-arrowthickstop-1-n {
+  background-position: -192px -48px;
+}
+
+.ui-icon-arrowthickstop-1-e {
+  background-position: -208px -48px;
+}
+
+.ui-icon-arrowthickstop-1-s {
+  background-position: -224px -48px;
+}
+
+.ui-icon-arrowthickstop-1-w {
+  background-position: -240px -48px;
+}
+
+.ui-icon-arrowreturnthick-1-w {
+  background-position: 0 -64px;
+}
+
+.ui-icon-arrowreturnthick-1-n {
+  background-position: -16px -64px;
+}
+
+.ui-icon-arrowreturnthick-1-e {
+  background-position: -32px -64px;
+}
+
+.ui-icon-arrowreturnthick-1-s {
+  background-position: -48px -64px;
+}
+
+.ui-icon-arrowreturn-1-w {
+  background-position: -64px -64px;
+}
+
+.ui-icon-arrowreturn-1-n {
+  background-position: -80px -64px;
+}
+
+.ui-icon-arrowreturn-1-e {
+  background-position: -96px -64px;
+}
+
+.ui-icon-arrowreturn-1-s {
+  background-position: -112px -64px;
+}
+
+.ui-icon-arrowrefresh-1-w {
+  background-position: -128px -64px;
+}
+
+.ui-icon-arrowrefresh-1-n {
+  background-position: -144px -64px;
+}
+
+.ui-icon-arrowrefresh-1-e {
+  background-position: -160px -64px;
+}
+
+.ui-icon-arrowrefresh-1-s {
+  background-position: -176px -64px;
+}
+
+.ui-icon-arrow-4 {
+  background-position: 0 -80px;
+}
+
+.ui-icon-arrow-4-diag {
+  background-position: -16px -80px;
+}
+
+.ui-icon-extlink {
+  background-position: -32px -80px;
+}
+
+.ui-icon-newwin {
+  background-position: -48px -80px;
+}
+
+.ui-icon-refresh {
+  background-position: -64px -80px;
+}
+
+.ui-icon-shuffle {
+  background-position: -80px -80px;
+}
+
+.ui-icon-transfer-e-w {
+  background-position: -96px -80px;
+}
+
+.ui-icon-transferthick-e-w {
+  background-position: -112px -80px;
+}
+
+.ui-icon-folder-collapsed {
+  background-position: 0 -96px;
+}
+
+.ui-icon-folder-open {
+  background-position: -16px -96px;
+}
+
+.ui-icon-document {
+  background-position: -32px -96px;
+}
+
+.ui-icon-document-b {
+  background-position: -48px -96px;
+}
+
+.ui-icon-note {
+  background-position: -64px -96px;
+}
+
+.ui-icon-mail-closed {
+  background-position: -80px -96px;
+}
+
+.ui-icon-mail-open {
+  background-position: -96px -96px;
+}
+
+.ui-icon-suitcase {
+  background-position: -112px -96px;
+}
+
+.ui-icon-comment {
+  background-position: -128px -96px;
+}
+
+.ui-icon-person {
+  background-position: -144px -96px;
+}
+
+.ui-icon-print {
+  background-position: -160px -96px;
+}
+
+.ui-icon-trash {
+  background-position: -176px -96px;
+}
+
+.ui-icon-locked {
+  background-position: -192px -96px;
+}
+
+.ui-icon-unlocked {
+  background-position: -208px -96px;
+}
+
+.ui-icon-bookmark {
+  background-position: -224px -96px;
+}
+
+.ui-icon-tag {
+  background-position: -240px -96px;
+}
+
+.ui-icon-home {
+  background-position: 0 -112px;
+}
+
+.ui-icon-flag {
+  background-position: -16px -112px;
+}
+
+.ui-icon-calendar {
+  background-position: -32px -112px;
+}
+
+.ui-icon-cart {
+  background-position: -48px -112px;
+}
+
+.ui-icon-pencil {
+  background-position: -64px -112px;
+}
+
+.ui-icon-clock {
+  background-position: -80px -112px;
+}
+
+.ui-icon-disk {
+  background-position: -96px -112px;
+}
+
+.ui-icon-calculator {
+  background-position: -112px -112px;
+}
+
+.ui-icon-zoomin {
+  background-position: -128px -112px;
+}
+
+.ui-icon-zoomout {
+  background-position: -144px -112px;
+}
+
+.ui-icon-search {
+  background-position: -160px -112px;
+}
+
+.ui-icon-wrench {
+  background-position: -176px -112px;
+}
+
+.ui-icon-gear {
+  background-position: -192px -112px;
+}
+
+.ui-icon-heart {
+  background-position: -208px -112px;
+}
+
+.ui-icon-star {
+  background-position: -224px -112px;
+}
+
+.ui-icon-link {
+  background-position: -240px -112px;
+}
+
+.ui-icon-cancel {
+  background-position: 0 -128px;
+}
+
+.ui-icon-plus {
+  background-position: -16px -128px;
+}
+
+.ui-icon-plusthick {
+  background-position: -32px -128px;
+}
+
+.ui-icon-minus {
+  background-position: -48px -128px;
+}
+
+.ui-icon-minusthick {
+  background-position: -64px -128px;
+}
+
+.ui-icon-close {
+  background-position: -80px -128px;
+}
+
+.ui-icon-closethick {
+  background-position: -96px -128px;
+}
+
+.ui-icon-key {
+  background-position: -112px -128px;
+}
+
+.ui-icon-lightbulb {
+  background-position: -128px -128px;
+}
+
+.ui-icon-scissors {
+  background-position: -144px -128px;
+}
+
+.ui-icon-clipboard {
+  background-position: -160px -128px;
+}
+
+.ui-icon-copy {
+  background-position: -176px -128px;
+}
+
+.ui-icon-contact {
+  background-position: -192px -128px;
+}
+
+.ui-icon-image {
+  background-position: -208px -128px;
+}
+
+.ui-icon-video {
+  background-position: -224px -128px;
+}
+
+.ui-icon-script {
+  background-position: -240px -128px;
+}
+
+.ui-icon-alert {
+  background-position: 0 -144px;
+}
+
+.ui-icon-info {
+  background-position: -16px -144px;
+}
+
+.ui-icon-notice {
+  background-position: -32px -144px;
+}
+
+.ui-icon-help {
+  background-position: -48px -144px;
+}
+
+.ui-icon-check {
+  background-position: -64px -144px;
+}
+
+.ui-icon-bullet {
+  background-position: -80px -144px;
+}
+
+.ui-icon-radio-on {
+  background-position: -96px -144px;
+}
+
+.ui-icon-radio-off {
+  background-position: -112px -144px;
+}
+
+.ui-icon-pin-w {
+  background-position: -128px -144px;
+}
+
+.ui-icon-pin-s {
+  background-position: -144px -144px;
+}
+
+.ui-icon-play {
+  background-position: 0 -160px;
+}
+
+.ui-icon-pause {
+  background-position: -16px -160px;
+}
+
+.ui-icon-seek-next {
+  background-position: -32px -160px;
+}
+
+.ui-icon-seek-prev {
+  background-position: -48px -160px;
+}
+
+.ui-icon-seek-end {
+  background-position: -64px -160px;
+}
+
+.ui-icon-seek-start {
+  background-position: -80px -160px;
+}
+
+.ui-icon-seek-first {
+  background-position: -80px -160px;
+}
+
+.ui-icon-stop {
+  background-position: -96px -160px;
+}
+
+.ui-icon-eject {
+  background-position: -112px -160px;
+}
+
+.ui-icon-volume-off {
+  background-position: -128px -160px;
+}
+
+.ui-icon-volume-on {
+  background-position: -144px -160px;
+}
+
+.ui-icon-power {
+  background-position: 0 -176px;
+}
+
+.ui-icon-signal-diag {
+  background-position: -16px -176px;
+}
+
+.ui-icon-signal {
+  background-position: -32px -176px;
+}
+
+.ui-icon-battery-0 {
+  background-position: -48px -176px;
+}
+
+.ui-icon-battery-1 {
+  background-position: -64px -176px;
+}
+
+.ui-icon-battery-2 {
+  background-position: -80px -176px;
+}
+
+.ui-icon-battery-3 {
+  background-position: -96px -176px;
+}
+
+.ui-icon-circle-plus {
+  background-position: 0 -192px;
+}
+
+.ui-icon-circle-minus {
+  background-position: -16px -192px;
+}
+
+.ui-icon-circle-close {
+  background-position: -32px -192px;
+}
+
+.ui-icon-circle-triangle-e {
+  background-position: -48px -192px;
+}
+
+.ui-icon-circle-triangle-s {
+  background-position: -64px -192px;
+}
+
+.ui-icon-circle-triangle-w {
+  background-position: -80px -192px;
+}
+
+.ui-icon-circle-triangle-n {
+  background-position: -96px -192px;
+}
+
+.ui-icon-circle-arrow-e {
+  background-position: -112px -192px;
+}
+
+.ui-icon-circle-arrow-s {
+  background-position: -128px -192px;
+}
+
+.ui-icon-circle-arrow-w {
+  background-position: -144px -192px;
+}
+
+.ui-icon-circle-arrow-n {
+  background-position: -160px -192px;
+}
+
+.ui-icon-circle-zoomin {
+  background-position: -176px -192px;
+}
+
+.ui-icon-circle-zoomout {
+  background-position: -192px -192px;
+}
+
+.ui-icon-circle-check {
+  background-position: -208px -192px;
+}
+
+.ui-icon-circlesmall-plus {
+  background-position: 0 -208px;
+}
+
+.ui-icon-circlesmall-minus {
+  background-position: -16px -208px;
+}
+
+.ui-icon-circlesmall-close {
+  background-position: -32px -208px;
+}
+
+.ui-icon-squaresmall-plus {
+  background-position: -48px -208px;
+}
+
+.ui-icon-squaresmall-minus {
+  background-position: -64px -208px;
+}
+
+.ui-icon-squaresmall-close {
+  background-position: -80px -208px;
+}
+
+.ui-icon-grip-dotted-vertical {
+  background-position: 0 -224px;
+}
+
+.ui-icon-grip-dotted-horizontal {
+  background-position: -16px -224px;
+}
+
+.ui-icon-grip-solid-vertical {
+  background-position: -32px -224px;
+}
+
+.ui-icon-grip-solid-horizontal {
+  background-position: -48px -224px;
+}
+
+.ui-icon-gripsmall-diagonal-se {
+  background-position: -64px -224px;
+}
+
+.ui-icon-grip-diagonal-se {
+  background-position: -80px -224px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+  border-top-left-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+  border-top-right-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+  border-bottom-left-radius: 3px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+  border-bottom-right-radius: 3px;
+}
+
+.ui-widget-overlay {
+  background: #aaa;
+  opacity: .3;
+  filter: Alpha(Opacity=30);
+}
+
+.ui-widget-shadow {
+  margin: 0 0 0 0;
+  padding: 5px;
+  background: #666;
+  opacity: .3;
+  filter: Alpha(Opacity=30);
+  border-radius: 8px;
+}
+
+/* custom select styles */
+.jcf-select {
+  width: 100%;
+  height: 34px;
+  overflow: hidden;
+  min-width: 150px;
+  position: relative;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #cdcdcd;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.jcf-select select {
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.jcf-select .jcf-select-text {
+  color: #000;
+  display: block;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 6px 20px 0 9px;
+}
+
+.jcf-select .jcf-select-opener {
+  position: absolute;
+  text-align: center;
+  background: transparent;
+  width: 26px;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
+.jcf-select .jcf-select-opener:after {
+  width: 0;
+  height: 0;
+  content: '';
+  border-style: solid;
+  border-width: 4px 4px 0;
+  border-color: #000 transparent transparent;
+  position: absolute;
+  left: auto;
+  top: 14px;
+  right: 9px;
+  bottom: auto;
+}
+
+body > .jcf-select-drop {
+  position: absolute;
+  margin: -1px 0 0;
+  z-index: 9999;
+}
+
+.jcf-select {
+  border-radius: 4px;
+}
+
+body > .jcf-select-drop.jcf-drop-flipped {
+  margin: 1px 0 0;
+}
+
+.jcf-select .jcf-select-drop {
+  position: absolute;
+  margin-top: 0px;
+  z-index: 9999;
+  top: 100%;
+  left: -1px;
+  right: -1px;
+}
+
+.jcf-select .jcf-drop-flipped {
+  bottom: 100%;
+  top: auto;
+}
+
+.jcf-select-drop .jcf-select-drop-content {
+  border: 1px solid #cdcdcd;
+}
+
+/* multiple select styles */
+.jcf-list-box {
+  overflow: hidden;
+  display: inline-block;
+  border: 1px solid #b8c3c9;
+  min-width: 200px;
+  margin: 0 15px;
+}
+
+/* select options styles */
+.jcf-list {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  background: #fff;
+  line-height: 18px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.jcf-list .jcf-list-content {
+  vertical-align: top;
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+}
+
+.jcf-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jcf-list ul li {
+  overflow: hidden;
+  display: block;
+}
+
+.jcf-list .jcf-overflow {
+  overflow: auto;
+}
+
+.jcf-list .jcf-option {
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+  display: block;
+  padding: 5px 9px;
+  color: #656565;
+  height: 1%;
+}
+
+.jcf-list .jcf-disabled {
+  background: #fff !important;
+  color: #aaa !important;
+}
+
+.jcf-select-drop .jcf-hover,
+.jcf-list-box .jcf-selected {
+  background: #eab011;
+  color: #fff;
+}
+
+.jcf-list .jcf-optgroup-caption {
+  white-space: nowrap;
+  font-weight: bold;
+  display: block;
+  padding: 5px 9px;
+  cursor: default;
+  color: #000;
+}
+
+.jcf-list .jcf-optgroup .jcf-option {
+  padding-left: 30px;
+}
+
+/* custom checkbox styles */
+.jcf-checkbox {
+  width: 17px;
+  float: left;
+  height: 17px;
+  overflow: hidden;
+  cursor: default;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  border: 1px solid #c9c9c9;
+}
+
+.jcf-checkbox span {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: none;
+  position: absolute;
 }
 
-.fc-list-empty-wrap1 {
+.jcf-checkbox span:after {
+  width: 12px;
+  height: 9px;
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  right: auto;
+  bottom: auto;
+  background: url(../../../images/sprite.png) no-repeat -29px -81px;
+}
+
+:root .jcf-checkbox span {
+  margin: -4px 0 0 -5px;
+}
+
+.jcf-checkbox input[type="checkbox"] {
+  position: absolute;
   width: 100%;
   height: 100%;
+  border: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
+.jcf-checkbox.jcf-checked span {
+  display: block;
+}
+
+#myModalX .modal-dialog {
+  width: 600px;
+}
+
+.in-image,
+.in-image > a > img {
+  width: 145px;
+  height: 145px;
+  margin: 0;
+}
+
+#the-image img {
+  width: 500px;
+  margin-left: 30px;
+}
+
+.instafeed {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.instafeed:before,
+.instafeed:after {
+  content: '';
   display: table;
 }
 
-.fc-list-empty {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+.instafeed:after {
+  clear: both;
 }
 
-.fc-unthemed .fc-list-empty {
-  /* theme will provide own background */
-  background-color: #eee;
-}
-
-/*--------------RIGHT SIDE BAR "SU PROGRAM"------------*/
-.sidebar {
-  max-width: 334px;
-  margin: 0 auto;
-  margin-top: 164px;
-}
-
-@media screen and (max-width: 991px) {
-  .sidebar {
-    margin-top: 0px;
+@media (max-width: 1378px) {
+  .in-image,
+  .in-image > a > img {
+    width: 140px;
+    height: 140px;
   }
 }
 
-.s-program {
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 991px) {
-  .s-program {
-    height: auto !important;
+@media (max-width: 1149px) {
+  .in-image,
+  .in-image > a > img {
+    width: 125px;
+    height: 125px;
   }
 }
 
-.s-program__content {
-  background: #fff;
-  padding: 1px;
-  position: relative;
-}
-
-.s-program__content_brl-curr .offers-list__price:before,
-.s-program__content_brl-curr .s-program__total-price:before {
-  content: "R$";
-}
-
-@media screen and (max-width: 991px) {
-  .s-program__content {
-    width: 100% !important;
+@media (max-width: 991px) {
+  .in-image:nth-child(17n) {
+    display: none !important;
+  }
+  .in-image:nth-child(18n) {
+    display: none !important;
+  }
+  .in-image {
+    width: 25%;
+    height: auto;
+    padding: 0;
+  }
+  .in-image > a > img {
+    width: 100%;
+    height: auto;
   }
 }
 
-.s-program__basket {
-  padding-bottom: 10px;
-}
-
-.s-program__header {
-  background-color: #353535;
-  padding: 6px 41px;
-}
-
-@media (max-width: 1199px) and (min-width: 992px) {
-  .s-program__header {
-    padding: 8px 20px;
+@media (max-width: 767px) {
+  #the-image img {
+    width: 400px !important;
+    margin-left: 30px;
+  }
+  .in-image:nth-child(17n) {
+    display: block !important;
+  }
+  .in-image:nth-child(18n) {
+    display: block !important;
+  }
+  #myModalX .modal-dialog {
+    width: 470px;
+    margin: 50px auto;
   }
 }
 
-.s-program__header_subscription {
-  background-color: #008DD0;
+@media (max-width: 480px) {
+  #the-image img {
+    width: 250px !important;
+    margin-left: 0 !important;
+  }
+  .in-image {
+    width: 33.333%;
+    height: auto;
+    padding: 0;
+  }
+  #myModalX .modal-dialog {
+    width: 300px;
+  }
 }
 
-.s-program__title {
-  margin: 0;
-  font-weight: 700;
-  font-size: 20px;
-  color: #EEEFEE;
+.accordion > li {
+  padding: 20px 0 0;
 }
 
-.s-program__title_subscription {
-  color: #fff;
-  position: relative;
+.accordion > li.active .more-detail:after {
+  background: #c26708;
+}
+
+.accordion > li.active .more-detail .opener {
+  color: #c26708;
+}
+
+.accordion > li.active .more-detail .opener:before {
+  background-position: -16px -184px;
+}
+
+.accordion > li.active .more-detail .less {
+  display: inline;
+}
+
+.accordion > li.active .more-detail .more {
+  display: none;
+}
+
+.accordion header {
+  margin: 0 0 20px;
+}
+
+.accordion .sub-title {
+  display: block;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .accordion .sub-title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+.accordion .sub-title span {
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
   display: inline-block;
-}
-
-.s-program__title_subscription:after {
-  content: '';
-  width: 23px;
-  height: 23px;
   vertical-align: middle;
-  background-image: url(../../images/sale-icon.png);
-  background-size: contain;
-  position: absolute;
-  right: -35px;
-  top: 0;
-  bottom: 0;
-  margin: auto;
 }
 
-.s-program__offers-count {
-  margin: 0;
-  color: #fff;
+.adventure .accordion .text {
+  margin-top: 12px;
 }
 
-.s-program__total {
-  padding-top: 14px;
-  padding-left: 36px;
+.accordion > .offer-item {
   position: relative;
+  padding-left: 99px;
 }
 
-.s-program__total:before {
-  content: "$";
-  position: absolute;
-  right: 87%;
-  margin: auto;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-@media screen and (max-width: 991px) {
-  .s-program__total:before {
-    right: 92%;
+@media (max-width: 767px) {
+  .activity .accordion > li {
+    padding: 0;
+  }
+  .activity .accordion header {
+    padding: 25px 0 0 10px;
   }
 }
 
-@media (max-width: 1199px) and (min-width: 992px) {
-  .s-program__total {
-    padding-left: 27px;
-  }
-  .s-program__total:before {
-    right: 90%;
-  }
+.accordion {
+  max-width: 713px;
 }
 
-.s-program__price {
-  font-size: 18px;
-  margin: 0;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.s-program__total-text {
-  font-family: "PT-Sans", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  position: relative;
-  top: -5px;
-}
-
-.s-program__reserve-button {
-  width: 100%;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  background: #ffb400;
-  padding: 20px 0;
-  border: none;
-  outline: none;
-  display: block;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.s-program__reserve-button:hover, .s-program__reserve-button:focus {
-  background: #ffd91f;
-  text-decoration: none;
-  color: #fff;
-}
-
-@media (max-width: 1199px) and (min-width: 992px) {
-  .s-program__reserve-button {
-    font-size: 14px;
+@media (max-width: 991px) {
+  .accordion {
+    margin-bottom: 20px;
   }
 }
 
-.basket-list {
-  padding: 5px 3px 0;
-  margin: 0;
-}
-
-.basket-list_subscription {
-  padding-top: 10px;
-  padding-bottom: 15px;
-}
-
-.basket-list__item {
-  border-bottom: 1px solid #cccccc;
+.new .list-box ul {
+  padding: 0;
   list-style: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 38px;
-  margin-top: 4px;
+}
+
+.new .list-box ul li {
+  margin: 0 0 6px;
   position: relative;
 }
 
-@media (max-width: 1199px) and (min-width: 992px) {
-  .basket-list__item {
-    padding-left: 28px;
-  }
-  .basket-list__item:before {
-    left: 6px;
-  }
-}
-
-.basket-list__item_subscription:last-child {
-  border-bottom: none;
-}
-
-.basket-list__delete-button {
-  color: #000;
-  font-size: 14px;
+.new .list-box > ul li:before {
+  content: "\2022";
   position: absolute;
+  left: -11px;
+  top: -1px;
+  color: #4F4F4F;
+}
+
+.list-box .title {
   display: block;
-  height: 13px;
-  width: 13px;
-  top: 0;
-  left: 12px;
-  bottom: 0;
-  background: url(../../images/minus.svg);
-  background-size: 13px;
-  margin: auto;
+  font-weight: bold;
+  padding: 0 0 5px 0;
 }
 
-.basket-list__name {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.basket-list__price {
+.list-box .list {
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 16px;
   font-weight: 400;
-  display: block;
-  line-height: 1;
 }
 
-.basket-list__price:before {
-  content: "$";
-  margin-right: 4px;
+.list-box .list li {
+  position: relative;
+  padding: 0 0 5px 10px;
 }
 
-.note {
-  padding: 30px 12px 30px 12px;
-  font-size: 12px;
-  color: black;
-}
-
-.fixed {
-  position: fixed;
+.list-box .list li:after {
+  content: '\2022';
+  position: absolute;
+  left: 0;
   top: 0;
+  font-size: 9px;
+  color: #089f02;
 }
 
-@media screen and (max-width: 991px) {
-  .fixed {
-    position: relative;
+.accordion h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.accordion h2 a {
+  color: #000;
+}
+
+.accordion h2 a:hover {
+  color: #0dce05;
+}
+
+@media (max-width: 767px) {
+  .accordion h2 {
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 
-/*--------------END RIGHT SIDE BAR "SU PROGRAM"------------*/
-.export-button {
-  background: #343b4e url("../../images/phone.png") no-repeat;
-  background-size: 16px 20px;
-  background-position: 11px center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 8px 18px 8px 38px;
+.accordion .ico {
+  float: left;
+  margin: 0;
+  width: 80px;
+  position: absolute;
+  left: 0;
+  top: 23px;
 }
 
-.export-button:hover, .export-button:focus {
-  color: #fff;
+.accordion .ico img {
+  width: 100%;
+  display: block;
+  height: auto;
 }
 
-.export-button:active {
-  background-image: url("../../images/phone.png");
+@media (max-width: 767px) {
+  .accordion .ico {
+    width: 40px;
+    margin: 5px 10px 0 0;
+  }
 }
 
 .loader {
@@ -12468,346 +12413,798 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
-.calendar-page-header {
-  margin-top: 48px;
-  max-width: 600px;
-  padding-bottom: 29px;
-}
-
-.calendar-page-header__title {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0 0 22px;
-}
-
-@media screen and (max-width: 480px) {
-  .calendar-page-header__title {
-    font-size: 26px;
-  }
-}
-
-.calendar-page-header__description {
-  margin: 0 0 23px;
-}
-
-.calendar-page-header__include-activities-button {
-  background-color: #ebae00;
-  text-transform: lowercase;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  padding: 7px 14px;
-  border-radius: 3px;
-  display: inline-block;
-  vertical-align: top;
-  transition: all .2s ease;
-}
-
-.calendar-page-header__include-activities-button:first-letter {
-  text-transform: uppercase;
-}
-
-.calendar-page-header__include-activities-button:hover, .calendar-page-header__include-activities-button:focus {
-  color: #fff;
-  background-color: #209D5B;
-}
-
-.calendar-page-header__export-button {
-  vertical-align: top;
-  margin-left: 31px;
-  text-transform: lowercase;
-}
-
-.calendar-page-header__export-button:first-letter {
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 480px) {
-  .calendar-page-header__export-button {
-    display: table;
-    margin-top: 10px;
-    margin-left: 0;
-  }
-}
-
-.fc-toolbar h2 {
-  font-weight: 700;
-}
-
-.btn-success.btn-success-cal {
-  font-size: 14px;
-  font-family: "PT-Sans", sans-serif;
-  font-weight: 700;
-  padding: 9px 15px;
-}
-
-/* Calendar Customization */
-.fc-time-grid .fc-event,
-.fc-time-grid .fc-bgevent {
-  /*text-align: center;*/
-}
-
-.fc-event.cal-offer {
-  padding: 12px 10px;
-  border-radius: 0px;
-}
-
-.fc-event.cal-offer .fc-bg {
-  display: none;
-}
-
-.fc-event.cal-offer .fc-title {
-  margin-top: 60px;
-  color: black;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 700;
-}
-
-.fc-event.cal-offer .fc-time {
-  display: none;
-}
-
-.fc-event.cal-offer .agency-name {
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #000;
-  margin-top: -31px;
-}
-
-.fc-event.cal-offer .price {
-  margin-bottom: 40px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #000;
-  margin-top: 0px;
-}
-
-.fc-event.cal-offer .move-days {
-  position: absolute;
-  bottom: 10px;
-  left: 30%;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.6);
-  font-style: italic;
-}
-
-.fc-event.cal-offer a.move.prev {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-.fc-event.cal-offer a.move.next {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.all-activities {
+  padding-top: 25px;
 }
 
 @media (max-width: 767px) {
-  .fc-event.cal-offer .hours,
-  .fc-event.cal-offer .persona {
-    margin-left: 0;
+  .all-activities {
+    padding: 20px 0;
   }
 }
 
-@media screen and (max-width: 625px) {
-  .calendar .fc-center {
-    display: block;
-    clear: both;
+.all-activities.all-activities-header {
+  padding: 0;
+}
+
+.all-activities header {
+  overflow: hidden;
+  text-align: left;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 767px) {
+  .all-activities header {
+    margin: 0 auto 20px;
   }
-  .calendar .fc-center h2 {
-    font-size: 24px;
-    margin-top: 15px;
-  }
 }
 
-.fc-event.cal-offer .move,
-.fc-event.cal-offer .delete {
-  color: #d1d1d1;
-  font-size: 16px;
-}
-
-.fc-event.cal-offer .move:hover,
-.fc-event.cal-offer .delete:hover {
-  color: #ffffff;
-}
-
-.fc-event.cal-offer .delete {
-  position: absolute;
-  right: 8px;
-  top: 12px;
-  z-index: 5;
-}
-
-.sidebar__block {
-  margin-top: 15px;
-  margin-bottom: 20px;
-}
-
-.btn-block {
-  font-size: 14px;
-  font-weight: 700;
-  background: #003856;
-  padding: 12px 0;
-  border-radius: 0;
-  display: block;
-  color: #fff;
-}
-
-.btn-block:hover,
-.btn-block:focus {
-  color: #fff;
-  background: #072334;
-}
-
-.generate-link__generated-link {
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  width: 100%;
-  padding: 7px 9px;
-  display: none;
-}
-
-.sidebar {
+.all-activities h1 {
   margin: 0;
-  margin-top: 50px;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
 }
 
-.sidebar .activity-basket {
-  background-color: #fff0c8;
-  border-radius: 4px;
+@media (max-width: 767px) {
+  .all-activities h1 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+}
+
+.all-activities h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.all-activities h2 a {
+  color: #000;
+}
+
+.all-activities h2 a:hover {
+  color: #eab011;
+}
+
+.all-activities .btn-holder {
+  text-align: center;
+}
+
+.all-activities .btn-success {
+  padding: 10px;
+  min-width: 200px;
   font-size: 15px;
 }
 
-.sidebar .activity-basket header {
-  margin-bottom: 19px;
-  padding: 15px 14px 5px 15px;
+.all-activities .btn-primary {
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 3px;
+  background: #eab011;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.sidebar .activity-basket dl {
-  margin-bottom: 9px;
+.all-activities .btn-primary:hover {
+  opacity: 0.8;
 }
 
-.sidebar .activity-basket dl:after {
+.all-activities .col {
+  margin-bottom: 30px;
+}
+
+.all-activities .img-holder {
+  overflow: hidden;
+  margin: 0 0 10px;
+  position: relative;
+  padding-top: 71%;
+}
+
+.all-activities .img-holder img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.all-activities .price {
+  color: #eab011;
+  display: block;
+  margin: 0 0 20px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.all-activities .price span {
+  color: #000;
+  margin: 0 10px 0 0;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.all-activities .price sub {
+  bottom: 0;
+}
+
+.all-activities .subnav {
+  float: right;
+  margin: 35px 0 0;
+  background: #ededed;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 991px) {
+  .all-activities .subnav {
+    float: none;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.all-activities .subnav ul {
+  padding: 8px 0;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.all-activities .subnav ul li {
+  padding: 0 13px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.all-activities .subnav ul li.active a {
+  color: #dc7f3c;
+}
+
+@media (max-width: 767px) {
+  .all-activities .subnav ul li {
+    display: block;
+    padding: 5px 13px;
+  }
+}
+
+.all-activities .subnav ul a {
+  color: #000;
+}
+
+.all-activities .subnav ul a:hover {
+  color: #dc7f3c;
+}
+
+.all-activities .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-activities .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+#main .container-fluid {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .post-box {
+    padding-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .accordion > .offer-item {
+    padding-left: 15px;
+  }
+  .accordion .ico {
+    display: none;
+  }
+}
+
+.agency-aside {
+  position: relative;
+}
+
+@media screen and (max-width: 991px) {
+  .agency-aside {
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+}
+
+.agency-aside:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.sidebar .activity-basket dt, .sidebar .activity-basket dd {
-  float: left;
+.agency-aside .map-block {
+  width: 80%;
 }
 
-.sidebar .activity-basket dt {
-  width: 35%;
-  text-align: right;
+@media screen and (max-width: 1200px) {
+  .agency-aside .map-block {
+    width: auto;
+  }
 }
 
-.sidebar .activity-basket dd {
-  width: 65%;
-  padding-left: 8px;
-}
-
-.sidebar .activity-basket__confirms-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sidebar .activity-basket__confirms-list li {
+.program-schedule_agency {
   position: relative;
-  padding-left: 18px;
-}
-
-.sidebar .activity-basket__confirms-list button {
-  position: absolute;
-  border: none;
-  outline: none;
-  background-color: #ebb414;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: auto;
-  padding: 0;
+  margin-right: 20%;
 }
 
-.sidebar .activity-basket__confirms-list button:before {
+@media screen and (max-width: 1200px) {
+  .program-schedule_agency {
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .program-schedule_agency {
+    position: relative;
+    margin-top: 18px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .program-schedule_agency {
+    float: left;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .ta-code {
+    float: left;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .ta-code {
+    float: none;
+  }
+}
+
+.your-reservation.adventure .program-schedule .btn-primary {
+  font-size: 15px;
+  font-weight: 700;
+  background: #fff;
+  float: none;
+  min-width: 0;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.adventure {
+    padding: 20px 0 40px;
+  }
+}
+
+.your-reservation.adventure .head {
+  border: 0;
+  position: relative;
+  max-width: inherit;
+  padding: 0 0 10px 54px;
+}
+
+.your-reservation.adventure .head:after {
+  width: 55px;
   content: '';
+  height: 50px;
   position: absolute;
-  width: 6px;
-  height: 2px;
-  background-color: #f9edc0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  left: -8px;
+  top: 7px;
+  right: auto;
+  bottom: auto;
+  background: url(../../images/ico8.png) no-repeat;
 }
 
-.sidebar .activity-basket footer {
-  border-top: 1px solid #e2e1d3;
-  background-color: #f2b41b;
-  padding-top: 7px;
-  text-align: center;
-  height: 59px;
+@media (max-width: 767px) {
+  .your-reservation.adventure .head:after {
+    top: 0;
+  }
 }
 
-.sidebar .activity-basket footer a {
-  display: inline-block;
-  vertical-align: middle;
+.your-reservation.adventure .head .sub-title {
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.adventure .head .sub-title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+.your-reservation.adventure h3 {
+  color: #089f02;
+  margin: 0 0 5px;
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 700;
 }
 
-.sidebar .activity-basket footer a:hover, .sidebar .activity-basket footer a:focus {
-  opacity: 0.6;
-}
-
-.sidebar .activity-basket footer .col-xs-6:last-child {
-  border-left: 0.5px solid whitesmoke;
-}
-
-.sidebar .activity-basket footer .row {
-  padding: 9px 0 15px 0;
-}
-
-.sidebar .activity-basket__to-calendar {
-  color: white;
-  background: url("../../images/calendar-orange.svg") no-repeat 0 center;
-  background-size: 15px;
-  padding-top: 4px;
-}
-
-.sidebar .activity-basket__to-calendar:hover, .sidebar .activity-basket__to-calendar:focus {
-  color: white;
-}
-
-@media screen and (max-width: 991px) {
-  .sidebar .activity-basket__to-calendar {
-    float: right;
+@media (max-width: 767px) {
+  .your-reservation.adventure h3 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
   }
 }
 
-.sidebar .activity-basket__to-reserve {
-  background: #f2b41b url("../../images/check-icon.pn") no-repeat 7px center;
+.your-reservation.adventure h3 a {
+  color: #089f02;
+}
+
+.your-reservation.adventure h3 a:hover {
+  color: #000;
+}
+
+.your-reservation.adventure .sub-title span {
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.adventure .timing {
+    padding: 0;
+  }
+}
+
+.your-reservation.adventure .timing li {
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.adventure .timing li {
+    padding-left: 20px;
+  }
+  .your-reservation.adventure .timing li:after {
+    left: 0;
+  }
+}
+
+.your-reservation.adventure .timing li.total {
+  border-top: 1px solid #d9d9d9;
+}
+
+.your-reservation.adventure .timing li.total:after {
+  display: none;
+}
+
+.your-reservation.adventure .price {
+  padding: 13px 0 10px;
+  text-align: right;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+  .your-reservation.adventure .price {
+    padding: 10px 0;
+    text-align: left;
+  }
+}
+
+.your-reservation.adventure .btn-primary {
+  float: right;
+  min-width: 100px;
+  background: #eab011;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.adventure .btn-primary {
+    float: none;
+    margin: 0 0 10px;
+  }
+}
+
+.your-reservation.adventure .btn-primary:hover {
+  opacity: 0.8;
+}
+
+.offer-item-desc {
+  margin: 10px;
+  font-size: 13px;
+}
+
+.select-activity {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .select-activity .timing1 {
+  border: none;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .your-reservation.new .select-activity .timing1 {
+    padding-bottom: 0;
+  }
+}
+
+.your-reservation.new .timing1 {
+  margin: 0 0 10px;
+  padding: 0 24px 10px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.your-reservation.new .timing1 li {
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.time {
+  min-height: 40px;
+}
+
+.your-reservation.new .timing1 li.profile {
+  padding: 10px 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.profile.hours {
+  padding: 4px 0 3px 30px;
+}
+
+.your-reservation.new .timing1 li.profile:after {
+  width: 20px;
+  content: '';
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 17px;
+  right: auto;
+  bottom: auto;
+  background: url(../../images/happy.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.your-reservation.new .timing1 li.profile.hours:after {
+  width: 22px;
+  height: 22px;
+  background: url(../../images/clock.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
+  top: 31px;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener {
+  display: none;
+}
+
+.timing1 li.profile .jcf-select {
+  border: 2px solid #fdd164;
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .your-reservation.new .timing1 li.profile .jcf-select {
+    width: auto;
+  }
+}
+
+.timing1 li.profile .jcf-select .jcf-select-text {
+  color: #f5ad00;
+  font-weight: bold;
+}
+
+.your-reservation.new .timing1 li.profile .jcf-select .jcf-select-opener:after {
+  border-color: #fff transparent transparent;
+}
+
+.your-reservation.new .timing1 li.profile.hours .jcf-select {
+  min-width: 100px;
+  width: auto;
+}
+
+.your-reservation.new .timing1 li.profile.hours strong,
+.your-reservation.new .timing1 li.profile.hours label {
+  margin-bottom: 3px;
+}
+
+.your-reservation.new .timing1 li.profile.hours label {
+  font-weight: bold;
+  display: block;
+}
+
+.timing1 li.cal input {
+  border: 1px solid #cdcdcd;
+  padding: 6px 12px;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .timing1 li.cal input {
+    max-width: 160px;
+  }
+}
+
+.timing1 li.cal:after {
+  width: 18px;
+  content: '';
+  height: 18px;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  right: auto;
+  bottom: auto;
+  background: url(../../images/calendar.svg) no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.your-reservation.new .timing1 strong {
+  display: block;
+  font-weight: normal;
+}
+
+.your-reservation.new .timing1 strong span {
+  font-weight: bold;
+}
+
+.your-reservation.new .timing1 .btn-primary {
+  float: left;
+  font-weight: normal;
+  background: #963d4c;
+  text-transform: none;
+}
+
+.main-post {
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+
+.main-post header {
+  margin: 30px 0 20px;
+  overflow: hidden;
+}
+
+.main-post .text-holder {
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.main-post .agency-name {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.main-post h1 {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 34px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+.main-post .sub-title {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.main-post .agency-gallery {
+  position: relative;
+  margin-right: 20%;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-post .agency-gallery {
+    margin-right: 0;
+  }
+}
+
+.main-post .agency-tag {
+  bottom: 10px;
+  right: 0;
+  padding-left: 27px;
+  padding-right: 10px;
+  background-image: url("../../images/instagram.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
   background-size: 19px;
-  color: #ffffff;
-  border-radius: 4px;
-  font-size: 20px;
+  line-height: 19px;
+  color: #e12570;
 }
 
-.sidebar .activity-basket__to-reserve:hover, .sidebar .activity-basket__to-reserve:focus {
-  color: #ffffff;
+.main-post .agency-tag:before {
+  content: "@";
 }
 
-@media screen and (max-width: 991px) {
-  .sidebar {
-    margin: auto;
+@media (max-width: 639px) {
+  .main-post {
+    margin: 0;
   }
 }
 
-/*# sourceMappingURL=calendar-style.css.map */
+@media (max-width: 639px) {
+  .main-post .text-holder {
+    min-height: inherit;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-post h1 {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-post .align-left {
+    float: none;
+    width: auto;
+    margin: 0 0 10px;
+    overflow: hidden;
+  }
+}
+
+.post-holder {
+  overflow: hidden;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.post-holder .agency-text {
+  padding-right: 22px;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .post-holder .agency-text {
+    margin-left: 0px;
+  }
+}
+
+.post-holder .agency-img {
+  padding-right: 0;
+}
+
+.post-holder .agency-photo-wrapp {
+  position: relative;
+  padding-top: 72%;
+}
+
+@media screen and (max-width: 991px) {
+  .post-holder .agency-photo-wrapp {
+    margin: 0 auto 25px;
+    max-width: 350px;
+    padding-top: 0;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .post-holder .agency-photo-wrapp {
+    height: 200px;
+  }
+}
+
+.post-holder .agency-photo-wrapp img {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  margin: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.main-post .align-right {
+  float: right;
+  width: 145px;
+  margin: 0 0 0 20px;
+}
+
+@media (max-width: 639px) {
+  .main-post .align-right {
+    display: none;
+  }
+}
+
+.main-post .align-right img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.main-post .text {
+  overflow: hidden;
+  position: relative;
+}
+
+.main-post .rating {
+  float: none;
+  overflow: hidden;
+  margin: 0 0 20px -5px;
+}
+
+@media (max-width: 639px) {
+  .main-post .rating {
+    margin: 0 0 10px;
+  }
+}
+
+.your-reservation.new .main-post {
+  margin: 0;
+}
+
+.in-image-agency {
+  width: 86px;
+  height: 86px;
+}
+
+.your-reservation .performed-act {
+  overflow: hidden;
+}
+
+.your-reservation .performed-act h2 {
+  margin: 0 0 10px;
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 30px;
+  color: #f3af18;
+}
+
+@media (max-width: 767px) {
+  .your-reservation .performed-act h2 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 1149px) and (min-width: 992px) {
+  .select-activity > .row > div {
+    width: 100%;
+  }
+  .select-activity > .row > .col-md-4 {
+    padding-left: 44px;
+  }
+  .your-reservation.adventure .price {
+    text-align: left;
+    padding-bottom: 10px;
+  }
+  .your-reservation.adventure .btn-primary {
+    float: none;
+    margin-bottom: 15px;
+  }
+}
+
+/*# sourceMappingURL=agencies.css.map */
