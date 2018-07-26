@@ -89,11 +89,13 @@
 											<a href="{{ action('UserController@getUser') }}" title="{{ trans('main.my_account') }}">
 												{{ trans('main.my_account') }}
 											</a>
+											<hr>
 										</li>
 										<li>
 											<a href="{{ action('UserController@getUserReservations') }}" title="{{ trans('main.my_reservations') }}">
 												{{ trans('main.my_reservations') }}
 											</a>
+											<hr>
 										</li>
 										<li>
 											<form id="logout-form" action="{{ url('/logout') }}" method="POST">
