@@ -1,5 +1,5 @@
 <section class="activity-basket">
-	<header>{{ trans('emails.hello') }} <strong>{{ auth()->user() ? (auth()->user()->username ? auth()->user()->username : auth()->user()->first_name) : trans('main.guest') }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
+	<header>{{ trans('emails.hello') }}<strong>{{ auth()->user() ? (auth()->user()->username ? ' '.auth()->user()->username : ' '.auth()->user()->first_name) : '' }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
 	<dl>
 		<dt>{{ trans('main.confirmed') }}:</dt>
 		<dd>
@@ -38,7 +38,7 @@
 
 	@if ($activity->instagram_location_id || $activity->instagram_name)
 		<div class="activity-instagram">
-			@if(is_null($activity->instagram_location_id) && $activity->instagram_name)
+			@if(!is_null($activity->instagram_location_id) && $activity->instagram_name)
 				<span class="activity-tag">{{ $activity->instagram_name }}</span>
 			@endif
 			<div id="instafeed5" class="instafeed"

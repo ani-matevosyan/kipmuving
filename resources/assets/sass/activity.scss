@@ -389,6 +389,7 @@
   }
   dl {
     margin-bottom: 9px;
+    padding-right: 10px;
     &:after {
       content: '';
       display: table;
@@ -914,6 +915,7 @@
 .get-offers {
   font-size: 0;
   text-align: right;
+  margin-bottom: 27px;
   &__date-persons {
     font-size: 0;
     @extend %get-offers-item;
@@ -990,36 +992,6 @@
   }
 }
 
-.divider {
-  text-align: center;
-  position: relative;
-  font-size: 13px;
-  margin: 0;
-  padding: 29px 0 15px;
-}
-
-.divider:before {
-  content: '';
-  height: 1px;
-  width: 100%;
-  left: 0;
-  top: 8px;
-  bottom: 0;
-  margin: auto;
-  position: absolute;
-  background-color: #e5e5e5;
-}
-
-.divider__text {
-  background-color: #fff;
-  padding: 0 15px;
-  position: relative;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  max-width: 100%;
-  display: inline-block;
-  color: #BDBDBD;
-}
 
 //Offers navigation
 

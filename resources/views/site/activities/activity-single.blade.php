@@ -74,9 +74,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="divider">
-                                            <span class="divider__text">o reserve imediamente</span>
-                                        </div>
                                         <nav class="offers-navigation">
                                             <ul role="tablist" class="offers-navigation__list">
                                                 <li class="offers-navigation__item active">

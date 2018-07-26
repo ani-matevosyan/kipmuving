@@ -28,7 +28,7 @@
 							<div class="s-program__content @if(session('currency.type') === 'BRL') s-program__content_brl-curr @endif">
 
 								<div class="activity-basket">
-									<header>{{ trans('emails.hello') }} <strong>{{ auth()->user() ? (auth()->user()->username ? auth()->user()->username : auth()->user()->first_name) : trans('main.guest') }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
+									<header>{{ trans('emails.hello') }}<strong>{{ auth()->user() ? (auth()->user()->username ? ' '.auth()->user()->username : ' '.auth()->user()->first_name) : '' }}</strong>, {{ trans('main.here_is_the_view') }}:</header>
 									<dl>
 										<dt>{{ trans('main.confirmed') }}:</dt>
 										<dd>
