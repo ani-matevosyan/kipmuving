@@ -1,10 +1,5 @@
 <li class="offer-item">
     <header>
-        <div class="ico">
-            <img src="/{{ $offer->activity['image_icon'] }}"
-                 onerror="this.src='/images/image-none.jpg';"
-                 alt="agency image">
-        </div>
         <div class="rating">
             <!-- <div class="star"><img src="images/img-star.png" alt="image description"></div> -->
             <!-- <span>120 comentarios</span> -->
@@ -13,6 +8,9 @@
             <h2>
                 <a href="{{ action('ActivityController@getActivity', $offer->activity['id']) }}">{{ $offer->activity['name'] }}</a>
             </h2>
+			<div class="ta-code">
+				{!! $offer->activity['tripadvisor_code'] !!}
+			</div>
         </div>
     </header>
 	<div class="row">

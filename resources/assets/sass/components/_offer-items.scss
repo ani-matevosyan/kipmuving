@@ -52,11 +52,17 @@
 
 .adventure .accordion .text{
   margin-top: 12px;
+  margin-bottom: 40px;
+  a{
+    font-weight: 700;
+  }
+  .ta-code{
+    margin-top: -10px;
+  }
 }
 
 .accordion > .offer-item{
   position: relative;
-  padding-left: 99px;
 }
 
 @media (max-width: 767px) {
@@ -79,10 +85,15 @@
   }
 }
 
+.new .list-box{
+  padding-left: 5px;
+}
+
 .new .list-box ul{
   padding: 0;
   list-style: none;
 }
+
 
 
 .new .list-box ul li{
@@ -100,7 +111,8 @@
 
 .list-box .title {
   display: block;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 15px;
   padding: 0 0 5px 0;
 }
 

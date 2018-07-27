@@ -79,7 +79,6 @@
 											}
 										</script>
 									</div>
-									@include('site.offers.offers_quickinfo', ['classPlace' => 'program-schedule_agency'])
 
 								</aside>
 							</div>

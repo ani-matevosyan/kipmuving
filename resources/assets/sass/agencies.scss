@@ -47,23 +47,6 @@
   }
 }
 
-.program-schedule_agency{
-  position: relative;
-  width: fit-content;
-  margin: auto;
-  margin-right: 20%;
-  @media screen and (max-width: 1200px){
-    margin-right: auto;
-  }
-  @media screen and (max-width: 991px){
-    position: relative;
-    margin-top: 18px;
-  }
-  @media screen and (max-width: 640px){
-    float: left;
-  }
-}
-
 .ta-code{
   @media screen and (max-width: 991px){
     float: left;
@@ -73,14 +56,6 @@
   }
 }
 
-.your-reservation.adventure .program-schedule .btn-primary{
-  font-size: 15px;
-  font-weight: 700;
-  background: #fff;
-  float: none;
-  min-width: 0;
-  line-height: 1;
-}
 
 @media (max-width: 767px) {
   .your-reservation.adventure {
