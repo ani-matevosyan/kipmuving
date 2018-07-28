@@ -108,5 +108,5 @@
 			@endif
 		</div>
 	</div>
-	<div class="trip-adv"></div>
+	{{--<div class="trip-adv"></div>--}}
 </li>

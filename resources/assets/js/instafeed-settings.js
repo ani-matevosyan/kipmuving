@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	let accessToken = '3468302324.ba4c844.14cdb6234cde4beb825b5b67ad86bfd3';
+	//mine is this one '8303498988.1677ed0.4faf0c3980c643109dac0029dc67e2c2',
 
 	if($("#instafeed1").length){
 		let feed1 = new Instafeed({

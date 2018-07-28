@@ -39,46 +39,31 @@
 									</div>
 								</div>
 								<div class="col-md-4">
-									@if($agency->instagram_id)
-										<div class="agency-gallery">
-											<div class="row">
-												@if($agency->instagram_name)
-													<div class="col-xs-12">
-														<span class="agency-tag">{{ $agency->instagram_name }}</span>
-													</div>
-												@endif
-												<div class="col-xs-12">
-													<div id="instafeed4" class="instafeed"
-														 data-instagram-id="{{ $agency['instagram_id'] }}"></div>
-												</div>
-											</div>
-										</div>
-									@endif
+									<div class="map-block">
+										<div id="map" style="width: 100%; height: 300px"></div>
+										<script type="text/javascript">
+                                            function initAgencyMap() {
+                                                var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
+                                                var myOptions = {
+                                                    zoom: 15,
+                                                    center: latLng,
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                };
+                                                var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                                                var marker = new google.maps.Marker({
+                                                    position: latLng,
+                                                    map: map,
+                                                    title: '{{ $agency->name }}'
+                                                });
+                                            }
+										</script>
+									</div>
 								</div>
 							</div>
 						</article>
 						<div class="row">
 							<div class="col-md-4 col-md-push-8 col-sm-12 col-xs-12">
 								<aside class="agency-aside">
-									<div class="map-block">
-										<div id="map" style="width: 100%; height: 300px"></div>
-										<script type="text/javascript">
-											function initAgencyMap() {
-												var latLng = new google.maps.LatLng({{ $agency->latitude }}, {{ $agency->longitude }});
-												var myOptions = {
-													zoom: 15,
-													center: latLng,
-													mapTypeId: google.maps.MapTypeId.ROADMAP
-												};
-												var map = new google.maps.Map(document.getElementById("map"), myOptions);
-												var marker = new google.maps.Marker({
-													position: latLng,
-													map: map,
-													title: '{{ $agency->name }}'
-												});
-											}
-										</script>
-									</div>
 
 								</aside>
 							</div>

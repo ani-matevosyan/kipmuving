@@ -39,15 +39,12 @@
     display: table;
     clear: both;
   }
-  .map-block {
-    width: 80%;
-    @media screen and (max-width: 1200px){
-      width: auto;
-    }
-  }
 }
 
 .ta-code{
+  @media screen and (max-width: 767px){
+    margin-top: -10px;
+  }
   @media screen and (max-width: 991px){
     float: left;
   }
@@ -359,6 +356,9 @@
     font-size: 34px;
     line-height: 38px;
     font-weight: 700;
+    @media screen and (max-width: 767px){
+      margin-top: 0;
+    }
   }
   .sub-title {
     display: block;
@@ -387,6 +387,12 @@
     color: #e12570;
     &:before{
       content: "@";
+    }
+  }
+  .map-block {
+    width: 80%;
+    @media screen and (max-width: 1200px){
+      width: auto;
     }
   }
 }
