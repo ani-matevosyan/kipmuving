@@ -7949,7 +7949,7 @@ button.close {
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   background-color: #343434;
-  padding: 7px 0;
+  padding: 6px 0;
   position: relative;
   width: 100%;
 }
@@ -8003,10 +8003,13 @@ button.close {
 .main-header .logo {
   width: 254px;
   padding-bottom: 5px;
+  position: relative;
 }
 
 .main-header .logo img {
-  width: 100%;
+  width: 80%;
+  height: auto;
+  margin-left: -8px;
 }
 
 .main-header .logo .logo_a {
@@ -8014,8 +8017,9 @@ button.close {
 }
 
 .main-header .logo .pucon-state {
-  float: right;
-  margin-top: 17px;
+  position: absolute;
+  right: 0;
+  top: 17px;
   font-size: 18px;
   color: #dc8700;
   font-weight: bold;
@@ -8403,6 +8407,7 @@ button.close {
 
 .main-header .mobile-sidebar__logo img {
   width: 100%;
+  height: auto;
 }
 
 .main-header .mobile-sidebar__close-btn {

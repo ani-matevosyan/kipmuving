@@ -14,7 +14,7 @@ body.mobile-menu-open{
   font-family: 'Dosis', sans-serif;
   color: #ffffff;
   background-color:#343434;
-  padding: 7px 0;
+  padding: 6px 0;
   position: relative;
   width: 100%;
   .container-fluid {
@@ -60,15 +60,21 @@ body.mobile-menu-open{
   .logo{
     width: 254px;
     padding-bottom: 5px;
+    position: relative;
     img{
-      width: 100%;
+      width: 80%;
+      height: auto;
+      margin-left: -8px;
     }
     .logo_a {
       float: left;
     }
     .pucon-state {
-      float: right;
-      margin-top: 17px;
+      position: absolute;
+      right: 0;
+      top: 17px;
+      //float: right;
+      //margin-top: 17px;
       font-size: 18px;
       color: rgb(220,135,0);
       font-weight: bold;
@@ -401,6 +407,7 @@ body.mobile-menu-open{
       margin: auto;
       img{
         width: 100%;
+        height: auto;
       }
     }
     &__close-btn{

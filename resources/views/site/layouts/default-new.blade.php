@@ -22,7 +22,7 @@
 				<div class="col-md-3 col-sm-4">
 					<div class="logo">
 						<a href="{{ asset('/') }}" class="logo_a">
-							<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="Aventuras Chile logo">
+							<img src="{{ asset('/images/siteImages/logo_av.svg') }}" alt="Aventuras Chile logo">
 						</a>
 						<div class="dropdown pucon-state">
 							<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

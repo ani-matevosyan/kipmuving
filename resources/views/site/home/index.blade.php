@@ -80,7 +80,7 @@
 		</section>
 
 
-		{{--todo add translations--}}
+		{{--todo add translations, delete this--}}
 		<section class="best-price-section">
 			<div class="row">
 				<div class="col-sm-6 best-price">

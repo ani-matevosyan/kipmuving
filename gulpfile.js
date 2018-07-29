@@ -71,11 +71,11 @@ const elixir = require('laravel-elixir');
 
 
 elixir((mix) => {
-  mix.sass('agencies.scss')
+  mix.sass('home.scss')
     .sass('activity.scss')
     .webpack('agencies.js')
     .version([
-      'css/agencies.css',
+      'css/home.css',
       'css/activity.css',
       'js/agencies.js'
     ])
