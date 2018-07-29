@@ -61,7 +61,11 @@
   }
 }
 
-.accordion > .offer-item{
+.activity .accordion > .offer-item{
+  position: relative;
+  padding-left: 99px;
+}
+.adventure .accordion > .offer-item{
   position: relative;
 }
 

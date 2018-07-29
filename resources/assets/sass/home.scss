@@ -617,6 +617,7 @@
     position: absolute;
     width: 436px;
     height: 96px;
+    cursor: pointer;
     background-color: rgba(255,255,255, 0.92);
     bottom: 280px;
     left: 139px;
@@ -651,6 +652,7 @@
     position: absolute;
     width: 197px;
     height: 69px;
+    cursor: pointer;
     background-color: rgba(105,77,85, 0.9); //rgba(127,45,76, 0.9);
     bottom: 211px;
     left: 378px;
@@ -1069,6 +1071,10 @@
   .donamos-2{
     background-color: #a9e3b1;
     color: rgb(43,43,43);
+    img {
+      width: 112px;
+      height: 105px;
+    }
   }
 
 }

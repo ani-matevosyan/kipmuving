@@ -9,7 +9,7 @@
 				<div class="item" id="item-1"></div>
 				{{--<div class="item" id="item-2"></div>--}}
 			</div>
-			<div class="s-banner__termas-geometricas">
+			<div class="s-banner__termas-geometricas" onclick="window.open( '{{ action('ActivityController@getActivity', $tGActivity->id) }}','_top' ); return false;">
 				<p>Termas Geométricas</p>
 				@if($tGActivity->tripadvisor_code)
 					<div class="box tripadvisor">
@@ -17,7 +17,7 @@
 					</div>
 				@endif
 			</div>
-			<div class="s-banner__price">
+			<div class="s-banner__price" onclick="window.open( '{{ action('ActivityController@getActivity', $tGActivity->id) }}','_top' ); return false;">
 				<div class="minP">
 					<p>{{ trans('main.from') }}</p>
 					<span>
@@ -36,10 +36,11 @@
 					</span>
 				</div>
 
-				<a href="{{ action('ActivityController@getActivity', $tGActivity->id) }}">
-					<div></div>
-				</a>
-			</div>
+					<a href="{{ action('ActivityController@getActivity', $tGActivity->id) }}">
+						<div></div>
+					</a>
+				</div>
+			{{--</a>--}}
 		</section>
 
 
@@ -63,7 +64,7 @@
 				<div class="col-sm-6 donamos-2">
 					<div class="row">
 						<div class="col-xs-4">
-							<img src="{{ asset('images/siteImages/sprout.png') }}" class="donamos" alt="donamos">
+							<img src="{{ asset('images/siteImages/sprout.svg') }}" class="donamos" alt="donamos">
 						</div>
 						<div class="col-xs-8">
 							<h2>
