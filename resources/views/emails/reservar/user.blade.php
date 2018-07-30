@@ -127,12 +127,12 @@
 		}
 
 		.footer {
-			padding: 20px;
+			padding: 7px 30px 20px 30px;
 			vertical-align: top;
 		}
 
 		.footer p {
-			margin: 15px 0;
+			margin: 20px 0;
 		}
 	</style>
 </head>
@@ -142,109 +142,95 @@
 <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
 	<tr>
 		<td align="center" valign="top" id="bodyCell">
-			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #fff;"
+			<table style="margin:0 auto; width: auto !important; max-width:600px !important; background: #f6f6f6;"
 						 cellpadding="0"
 						 cellspacing="0" align="center">
 				<tr>
-					<td bgcolor="#133939"
+					<td bgcolor="#f6f6f6"
 							style="padding-top:15px; padding-right:15px; padding-bottom:15px; padding-left:15px;">
 						<span width="340" valign="top" height="82" style="display:block;" style="width:250px !important;
 						height:auto !important; overflow:hidden;">
 								<a target="_blank" href="{{ asset('/') }}">
-								<img src="{{ asset('/images/aventuraschile_logo.png') }}" alt="" align="left" vspace="0" hspace="0"
+								<img src="{{ asset('/images/siteImages/email-header-logo.png') }}" alt="" align="left" vspace="0" hspace="0"
 										 style="width:180px !important;">
 							</a>
 						</span>
 					</td>
 				</tr>
 				<tr>
-					<td id="main" style=" padding-left:20px; padding-right:20px;">
-						<table cellpadding="0" cellspacing="0">
+					<td id="main" style=" padding-left:30px; padding-right:30px;">
+						<table cellpadding="0" cellspacing="0" style="width: 100%; border-bottom: 1px solid #CCCCCC;">
 							<tr>
 								<td
-									style="font-size:14px; line-height:20px; color:#000000; padding-top:45px; padding-bottom:16px; border-bottom:1px solid #cccccc;">
-									<strong
-										style="font-weight:bold;">{{ trans('emails.hello') }} {{ $user->first_name }} {{ $user->last_name }}</strong>,
-									{{ trans('emails.many_thanks_for_booking') }}
-									<p>{{ trans('emails.what_will_we_do_now') }}</p>
-									<strong
-										style="display:block; font-weight:bold; margin-top: 25px;">{{ trans('emails.activities_you_booked') }}
-										:</strong>
+									style="font-size:15px; line-height:20px; color:#000000; padding-top:29px; padding-bottom:16px; border-top: 1px solid #cccccc;">
+									{{ trans('emails.hello') }} <strong style="font-weight:bold;">{{ $user->first_name }} {{ $user->last_name }}</strong>
+									<div>
+										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
+										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
+										{{ trans('emails.congratulations') }}!! {{ trans('emails.it_has') }}
+										<span style="color:#980e25; font-weight:bold;">{{ count($reservation->offers) }}</span>
+										{{ trans('emails.reserved') }}.
+									</div>
 								</td>
 							</tr>
 							@foreach($reservation->offers as $offer)
 								<tr>
 									<td
-										style="padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; border-bottom:1px solid #cccccc;">
+										style="padding-top:20px; padding-bottom:20px;">
 										<table cellpadding="0" cellspacing="0" width="100%">
 											<tr>
-												<td style="padding-bottom:20px;" colspan="2">
+												<td style="padding-bottom:8px;" colspan="2">
 													<table cellpadding="0" cellspacing="0" width="100%">
 														<tr>
-															<td width="51" height="39" valign="middle"
-																	style="font-size:0; line-height:0; padding-right:20px;">
-																<img src="{{ asset($offer->activity->image_icon) }}"
-																		 alt="activity image" align="left" vspace="0" hspace="0">
-															</td>
 															<td>
 																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:22px; line-height:20px; color:#089f02;">{{ $offer->activity->name }}</span>
+																		style="font-size:31px; line-height:20px; color:#198ccd;">{{ $offer->activity->name }}</span>
 																</h2>
-																<strong
-																	style="font-size:16px; line-height:20px; font-weight:normal; display:block;">{{ $offer->agency->name }}<span style="font-size: 12px; display: inline-block; margin-left: 10px;">{{ $offer->agency->address }}</span></strong>
 															</td>
 														</tr>
 													</table>
 												</td>
 											</tr>
-											<tr>
+											<tr style="width:100%; font-size: 15px;">
 												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<strong
-														style="display:block; font-weight:bold; padding-left:10px;">{{ trans('emails.you_must_take') }}
-														:</strong>
-													{{--<p>{{ $offer->carries }}</p>--}}
-													@if ($offer->activity->carries)
-														<ul class="you-must-take">
-															@foreach($offer->activity->carries as $carry)
-																<li>{{ $carry }}</li>
-															@endforeach
-														</ul>
-													@endif
-												</td>
-												<td style="width:50%; padding-bottom:20px;" valign="top">
-													<ul class="timing">
-														<li class="time">
-															<strong class="title">
-																{{ trans('form.day') }}: {{ $offer->reservation['date'] }}
-															</strong>
-															<strong>
-																		<span>{{ trans('main.duration') }}
-																			:</span> {{ $offer->duration }}
-																hrs
-															</strong>
-															<strong>
-																		<span>{{ trans('main.schedule') }}
-																			:</span> {{ \Carbon\Carbon::parse($offer->reservation['time']['start'])->format('H:i') }}-{{ \Carbon\Carbon::parse($offer->reservation['time']['end'])->format('H:i') }}
-															</strong>
-														</li>
-														<li class="person">
-															<strong>
-																<span>{{ $offer->reservation['persons'] }}</span> {{ trans('main.persons') }}
-															</strong>
-														</li>
-														<li class="money">
-															<strong>Pagar en agencia</strong>
-															<strong class="title">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP</strong>
-														</li>
-													</ul>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2">
-													<div class="important">
-														<strong class="title">{{ trans('emails.important') }}:</strong>
-														{{ $offer->important }}
+													<div>
+														<div>
+															{{ trans('emails.for') }}
+															<span style="color:#980e25; font-weight:bold;">
+																{{ $offer->reservation['date'] }}
+															</span>
+														</div>
+														<div>
+															{{ trans('emails.total_persons') }}
+															<span style="color:#980e25; font-weight:bold;">
+																{{ $offer->reservation['persons'] }}
+															</span>
+														</div>
+														<div>
+															{{ trans('emails.total_activity') }}
+															<span style="color:#980e25; font-weight:bold;">
+																$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP
+															</span>
+														</div>
 													</div>
+
+												</td>
+												<td style="width:50%; padding-bottom:20px;" valign="top" >
+													<strong style="display:block; font-weight:bold; padding-left:20px;">
+														{{ trans('emails.data_of_the_agency') }}:
+													</strong>
+													<div style=" padding-left:20px;">
+														<div>
+															{{ $offer->agency->name }}
+														</div>
+														<div>
+															{{ $offer->agency->address }}
+														</div>
+														<div>
+															{{ $offer->agency->email }}
+														</div>
+													</div>
+
 												</td>
 											</tr>
 										</table>
@@ -256,16 +242,13 @@
 				</tr>
 				<tr>
 					<td id="footer" class="footer">
-						<p>{{ trans('emails.total_to_pay') }}
-							<strong style="color:#980e25; font-weight:bold;">$ {{ number_format($reservation->total['CLP'], 0, '.', ' ') }} CLP. </strong>{{ trans('emails.must_be_paid_at_agency') }}</p>
-						<p>{{ trans('emails.each_agency_has_cancellation_policy') }}.</p>
+						<p>{{ trans('emails.agencies_received_confirmation_email') }}</p>
 						<p>
 							{{ trans('emails.any_questions') }}
 							<a href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a>
 						</p>
-						<p>{{ trans('emails.with_regards') }}</p>
-						<p style="margin-bottom: 0">{{ trans('emails.aventuraschile_team') }}</p>
-						<a href="#" style="color:#000000; text-decoration:none;">{{ url('/') }}</a>
+						<div>{{ trans('emails.with_regards') }}</div>
+						<p style="margin-bottom: 0; margin-top: 0">Aventuras Chile</p>
 					</td>
 				</tr>
 			</table>

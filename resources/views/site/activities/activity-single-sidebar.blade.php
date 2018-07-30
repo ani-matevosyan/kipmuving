@@ -35,10 +35,9 @@
 	</footer>
 </section>
 <section class="important-block">
-
 	@if ($activity->instagram_location_id || $activity->instagram_name)
 		<div class="activity-instagram">
-			@if(!is_null($activity->instagram_location_id) && $activity->instagram_name)
+			@if(!$activity->instagram_location_id && $activity->instagram_name)
 				<span class="activity-tag">{{ $activity->instagram_name }}</span>
 			@endif
 			<div id="instafeed5" class="instafeed"

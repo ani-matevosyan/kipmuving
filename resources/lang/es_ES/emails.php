@@ -55,4 +55,13 @@ return [
   'now_we_suggest'                      => 'Ahora que sugerimos hacer',
   'you_get_in_touch'                    => 'que entres en contacto con el pasajero',
   'and_explain_your_terms'              => 'y explique sus condiciones de pago y cierre los detalles',
+    'agencies_received_confirmation_email' => 'Las agencias recibieran el correo de confirmación. Cualquier duda puedes
+							                 hablar directamente con ellos por email, teléfono o whatsapp.',
+    'for' => 'para',
+    'total_persons' => 'total personas',
+    'total_activity' => 'total actividad',
+    'data_of_the_agency' => 'Datos de la agencia',
+    'congratulations' => 'felicitaciones',
+    'it_has' => 'Tiene',
+    'reserved' => 'reservadas',
 ];
