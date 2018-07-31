@@ -57,7 +57,7 @@ return [
   'and_explain_your_terms'              => 'and explain your payment terms and the closing details',
     'agencies_received_confirmation_email' => 'Las agencias recibieran el correo de confirmación. Cualquier duda puedes
 							                 hablar directamente con ellos por email, teléfono o whatsapp.',
-    'for' => 'para',
+    'day' => 'para',
     'total_persons' => 'total personas',
     'total_activity' => 'total actividad',
     'data_of_the_agency' => 'Datos de la agencia',

@@ -1,10 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+	  xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Aventuras Chile</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	<style type="text/css">
+		@media only screen and (max-width: 480px) {
+			h2 {
+				font-size: 25px !important;
+				line-height: 125% !important;
+			}
+		}
+	</style>
 </head>
 <body style="font-family: 'PT Sans', sans-serif; font-size: 15px; font-weight: 400;  min-width: 320px !important; margin: 0; padding: 0; color: #000000;">
 {{--<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">--}}
@@ -122,11 +131,11 @@
 	<tbody>
 	<tr style="padding: 10px 0 30px 0;">
 		<td>
-			<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" bgcolor="#f6f6f6" style="border-collapse: collapse;">
+			<table align="center" border="0" cellpadding="0" cellspacing="0"  bgcolor="#f6f6f6" style="border-collapse: collapse; max-width: 600px;">
 				<tbody>
 				<tr>
 					<td align="left" style="padding-top: 7px; padding-right: 10px; padding-bottom: 6px; padding-left: 38px; color: #FFCD06; font-size: 32px;">
-						<div style="border-bottom: 1px solid #dddddd; padding-bottom: 5px; padding-top: 33px;">
+						<div style="border-bottom: 1px solid #dddddd; padding-bottom: 5px; padding-top: 15px;">
 							<a href="{{ asset('/') }}">
 								<img src="{{ asset('/images/aventuraschile_logo.png') }}" style="margin-left: -8px;" alt="Aventuras Chile" width="171">
 							</a>
@@ -140,7 +149,18 @@
 							<tr>
 								<td style="padding-bottom: 16px;">
 									<p style="margin: 0 0 0 0">{{ trans('emails.hello') }} <strong>{{ $reservations['0']->agency->name }},</strong></p>
-									<p style="margin: 0 0 0 0">{{ trans('main.congratulations') }}. {{ trans('emails.you_have') }} {{ count($reservations) }} @if(count($reservations) > 1) {{ trans('main.reserves') }} @else {{ trans('main.reserve_s') }} @endif{{ trans('main.for2') }}: </p>
+									<p style="margin: 0 0 0 0">
+										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
+										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
+										{{ trans('main.congratulations') }}!!
+										{{ trans('emails.you_have') }}
+										{{ count($reservations) }}
+										@if(count($reservations) > 1)
+											{{ trans('main.reserves') }}
+										@else
+											{{ trans('main.reserve_s') }}
+										@endif
+										{{ trans('main.for2') }}: </p>
 								</td>
 							</tr>
 							<tr>
@@ -158,19 +178,21 @@
 										@foreach($reservations as $offer)
 											<tr>
 												<td style="padding-bottom: 58px;">
-													<h2 style="font-weight: 700; font-size: 36px; margin: 0; margin-bottom: 5px; line-height: 1;">
-														<a href="{{ asset('/activity').'/'.$offer->activity_id }}" style="color: #323e5b; text-decoration: none;">{{ $offer->activity->name }}</a>
+													<h2 style="font-weight: 700; font-size: 31px; margin: 0; margin-bottom: 5px; line-height: 1;">
+														<a href="{{ asset('/activity').'/'.$offer->activity_id }}" style="color: #198ccd; text-decoration: none;">
+															{{ $offer->activity->name }}
+														</a>
 													</h2>
-													<p style="margin: 0 0 0 0; line-height: 1;">{{ trans('form.day_s') }} <strong style="font-size: 20px; color: #980e25;">{{ $offer->reservation['date'] }}</strong></p>
-													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.persons_s') }} <strong style="font-size: 20px; color: #980e25;">{{ $offer->reservation['persons'] }}</strong></p>
-													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.activity') }} <strong style="font-size: 20px; color: #980e25;">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }}</strong></p>
+													<p style="margin: 0 0 0 0; line-height: 1;">{{ trans('form.day_s') }} <strong style="font-size: 15px; color: #980e25;">{{ $offer->reservation['date'] }}</strong></p>
+													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.persons_s') }} <strong style="font-size: 15px; color: #980e25;">{{ $offer->reservation['persons'] }}</strong></p>
+													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.activity') }} <strong style="font-size: 15px; color: #980e25;">$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }}</strong></p>
 													<?php $totalprice += $offer->real_price * $offer->reservation['persons'] ?>
 												</td>
 											</tr>
 										@endforeach
 										<tr>
 											<td style="display: block; margin-top: -15px;">
-												<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('emails.of_the') }} {{ trans('main.activities') }} <strong style="font-size: 20px; color: #980e25;">$ {{ number_format($totalprice, 0, '.', ' ') }}</strong></p>
+												<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('emails.of_the') }} {{ trans('main.activities') }} <strong style="font-size: 15px; color: #980e25;">$ {{ number_format($totalprice, 0, '.', ' ') }}</strong></p>
 											</td>
 										</tr>
 										</tbody>
@@ -183,7 +205,7 @@
 										<tbody>
 										<tr>
 											<td style="padding-top: 22px;">
-												{{ trans('emails.now_we_suggest') }}: <strong>{{ trans('emails.you_get_in_touch') }} {{ trans('emails.and_explain_your_terms') }}</strong>.
+												{{ trans('emails.now_we_suggest') }}: {{ trans('emails.you_get_in_touch') }} {{ trans('emails.and_explain_your_terms') }}.
 											</td>
 										</tr>
 										<tr>
@@ -192,8 +214,7 @@
 										<tr>
 											<td style="padding-top: 22px;">
 												<p style="margin: 0;">{{ trans('emails.with_regards') }}</p>
-												<p style="margin: 0;">{{ trans('emails.aventuraschile_team') }}</p>
-												<a style="text-decoration: none; color: #191919;" href="/">aventuraschile.com</a>
+												<p style="margin: 0;">Aventuras Chile</p>
 											</td>
 										</tr>
 										</tbody>

@@ -134,6 +134,12 @@
 		.footer p {
 			margin: 20px 0;
 		}
+		@media only screen and (max-width: 480px) {
+			h2 {
+				font-size: 25px !important;
+				line-height: 125% !important;
+			}
+		}
 	</style>
 </head>
 <body
@@ -167,7 +173,7 @@
 									<div>
 										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
 										<img width="15px" height="15px" src="{{ asset('/images/siteImages/clapping.png') }}" />
-										{{ trans('emails.congratulations') }}!! {{ trans('emails.it_has') }}
+										{{ trans('main.congratulations') }}!! {{ trans('emails.it_has') }}
 										<span style="color:#980e25; font-weight:bold;">{{ count($reservation->offers) }}</span>
 										{{ trans('emails.reserved') }}.
 									</div>
@@ -183,8 +189,8 @@
 													<table cellpadding="0" cellspacing="0" width="100%">
 														<tr>
 															<td>
-																<h2 style="margin-top:0; margin-bottom:0;"><span
-																		style="font-size:31px; line-height:20px; color:#198ccd;">{{ $offer->activity->name }}</span>
+																<h2 style="margin-top:0; margin-bottom: 5px; font-size:31px; line-height:20px; color:#198ccd;">
+																	{{ $offer->activity->name }}
 																</h2>
 															</td>
 														</tr>
@@ -195,7 +201,7 @@
 												<td style="width:50%; padding-bottom:20px;" valign="top">
 													<div>
 														<div>
-															{{ trans('emails.for') }}
+															{{ trans('emails.day') }}
 															<span style="color:#980e25; font-weight:bold;">
 																{{ $offer->reservation['date'] }}
 															</span>
@@ -227,6 +233,9 @@
 															{{ $offer->agency->address }}
 														</div>
 														<div>
+															{{ $offer->agency->whatsapp }}
+														</div>
+														<div>
 															{{ $offer->agency->email }}
 														</div>
 													</div>
@@ -241,7 +250,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td id="footer" class="footer">
+					<td id="footer" class="footer" style="font-size: 15px">
 						<p>{{ trans('emails.agencies_received_confirmation_email') }}</p>
 						<p>
 							{{ trans('emails.any_questions') }}
