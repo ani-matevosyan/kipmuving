@@ -323,26 +323,8 @@
 
 {{--/Scripts--}}
 
-{{--<script>--}}
-    {{--window.FCSP = 'a7159e9ba0d267713e72384e8a748dc4';--}}
-{{--</script>--}}
-{{--<script src="https://chat-assets.frontapp.com/v1/chat.bundle.js"></script>--}}
-
-
-{{--<!-- Start of LiveChat (www.livechatinc.com) code -->--}}
-{{--<script type="text/javascript">--}}
-    {{--window.__lc = window.__lc || {};--}}
-    {{--window.__lc.license = 9901030;--}}
-    {{--(function() {--}}
-        {{--var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;--}}
-        {{--lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';--}}
-        {{--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);--}}
-    {{--})();--}}
-{{--</script>--}}
-{{--<!-- End of LiveChat code -->--}}
-
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4778081.js"></script>
-<!-- End of HubSpot Embed Code —>
+<!-- End of HubSpot Embed Code -->
 </body>
 </html>

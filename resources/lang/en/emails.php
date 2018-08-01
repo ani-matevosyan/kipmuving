@@ -4,7 +4,7 @@ return [
 	#Confirmation email
 	'hello'                               => 'Hello',
 	'thanks_for_joining'                  => 'thanks for joining KipMuving',
-	'confirm_mail_message'                => 'Lorem ipsum dolor sit ammet!',
+	'confirm_mail_message'                => 'Confirm your email!',
 	'please_activate_your_account_here'   => 'Please activate your account here',
 	'with_regards'                        => 'With regards',
 	'aventuraschile_team'                      => 'Aventuras Chile team',

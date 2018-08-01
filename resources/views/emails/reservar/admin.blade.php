@@ -436,7 +436,7 @@
 				<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f6f6f6" style="max-width: 600px !important;">
 					<tr>
 						<td valign="top"
-							 style="border-top: 0; border-bottom: 0; padding-top: 9px; padding-bottom: 9px;">
+							 style="border-top: 0; border-bottom: 0; padding-top: 9px;">
 							<table class="mcnImageBlock" style="min-width:100%;" border="0" cellpadding="0" cellspacing="0"
 									 width="100%">
 								<tbody class="mcnImageBlockOuter">
