@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 27" width="25" height="27">
+	<defs>
+		<image width="25" height="27" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAbCAMAAAC+/9RaAAAAllBMVEX///////////////////8AAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+0zRd5AAAAMnRSTlNmYGNkJgAzLToWDk1UGgVGAhIGPw1KH1MVIDwRXDIcWUhHG1sBS11VIy5eCmEsMVoLAzfrpt0AAACwSURBVHicpdLZDoIwEEDRFhhpwSKgFsQK4r4v//9zEqxoF5+4D02TkzQzSRHC2HGwkutBE8IAAx+USF+hpCtQxQt92ZBpQoKwLRoZErG22JTkvUtqyHgim2rCs668/6ZKM/pPAFgxtwsXC5HYpHRz4JVFmFjW8WptChN0U28FNaSB5j1MjQmoYPLQJNl9QBficgm67A/ieCrBlPPlmjkcLHK7FzySd/TzR1N4PL9TvgAtqhSpIYJLDQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Objeto inteligente vectorial" href="#img1" transform="matrix(1,0,0,1,0,0)"/>
+</svg>
