@@ -208,3 +208,8 @@ Route::get('/routes/suggestions/{id}', 'RoutesController@suggestion')
 Route::get('/routes/activities/{id}', 'RoutesController@activity')
 	->name('routes-single')
 	->where('id', '[0-9]+');
+
+
+Route::get('/admin/agency', [
+    'middleware' => ['role:admin|developer'],
+    'uses'       => 'AdminAgency\ReservationsController@index']);
