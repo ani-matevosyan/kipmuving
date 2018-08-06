@@ -6,43 +6,111 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Offer;
+use App\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminAgency\View_Generator_Table;
 
 class ReservationsController extends Controller
 {
-    //
-    #Display reservations (/reserve)
+    /**
+     * Display reservations (/)
+     *
+     * @param Offer $offer
+     * @return View
+     */
     public function index(Offer $offer)
     {
-        if (!($user = Auth::user()))
-            return redirect('/login');
+        $dateBeforeTwoWeeks = date('Y-m-d', strtotime('-2 weeks'));
+        $prev_prev_monday = date('Y-m-d', strtotime('previous monday', strtotime('previous monday')));
+//        $reservations = Reservation::where([['created_at', '>', $prev_prev_monday] ])->get();
 
-        $selected_offers = session('basket.offers');
+        $period = $this->date_range('2018-07-23', date('Y-m-d', strtotime('tomorrow')));
+        $periodWithKeys = array();
+        foreach ($period as $key => $value) {
+            $periodWithKeys[$value] = [];
+        }
 
-//        if (count($selected_offers) + count(session('basket.special')) < 1)
-//            return redirect()->action('ActivityController@index');
+        $reservations = Reservation::with('offer')->where([['created_at', '>', '2018-07-23'] ])->get();
 
-        $s_offers = \session('basket.special');
-        $s_offers_max_persons = count($s_offers) > 0 ? max(array_column($s_offers, 'persons')) : 0;
+        $groupedArray = array();
+        foreach($reservations as $key => $valuesAry)
+        {
+            $activity = $valuesAry->offer->activity->name;
+            $groupedArray[$activity][\Carbon\Carbon::parse($valuesAry->created_at)->format('Y-m-d')][] = [
+                'persons' => $valuesAry->persons,
+                'date' => \Carbon\Carbon::parse($valuesAry->created_at)->format('Y-m-d'),
+                'price' => $valuesAry->offer->price,
+                'name' => $valuesAry->offer->activity->name,
+                'time' => $valuesAry->offer->schedule['start'],
+            ];
+        }
 
-        $reservations = $this->getReservationData($selected_offers);
+        $finalArray = array();
+        $c = 0;
+        foreach ($groupedArray as $key => $value){
+            foreach ($value as $k => $v){
+                $finalArray[$c][$k] = $v;
+                $finalArray[$c] = array_merge($periodWithKeys,$finalArray[$c]);
+            }
+            array_unshift($finalArray[$c], $key);
+            $c++;
+        }
+
+        $thsArray = array_merge([''],$period);
+
+        $reservationsTable = "";
+        $table = new View_Generator_Table( $thsArray );
+        foreach($finalArray as $row) {
+            foreach ($row as $key => $item){
+                if(is_array($item)){
+                    if(count($item) == 0){
+                        $cel = '';
+                    }else {
+                        if(count($item) == 1){
+                            $cel = '<ul>'
+                                  .'<li>'.$item[0]['persons'].'</li>'
+                                .' <li>'.$item[0]['time'].'</li>'
+                                .' <li>'.$item[0]['price'].'</li></ul>';
+                        }else{
+                             $cel = '';
+                            foreach ($item  as $i){
+                                $cel .= '<ul>'
+                                        .'<li>'.$i['persons'].'</li>'
+                                    .' <li>'. $i['time'].'</li>'
+                                    .' <li>'. $i['price'].'</li></ul><hr>';
+                            }
+                        }
+                    }
+                }else {
+                    $cel = $item;
+                }
+                $table->addCell($cel);
+            }
+        }
+        $reservationsTable = $table->generate();
+
 
         $data = [
-//            'styles'         => config('resources.reservation.styles'),
-//            'scripts'        => config('resources.reservation.scripts'),
-            'user'           => $user,
-            'reservation'    => $reservations,
-            'count'             => [
-                'special_offers' => count($s_offers),
-                'offers'         => count(session('basket.offers')) + count(session('basket.free')),
-                'persons'        => $offer->getSelectedOffersPersons() > $s_offers_max_persons ? $offer->getSelectedOffersPersons() : $s_offers_max_persons,
-                'total'          => $offer->getSelectedOffersTotal(),
-            ]
+            'reservationsTable'        => $reservationsTable,
         ];
-
-        return view('site.adminAgency.layouts.default', $data);
-        return view('site.adminAgency.welcome', $data);
+        return view('site.adminAgency.reservations', $data);
     }
+
+
+
+    private function date_range($first, $last) {
+        $period = new \DatePeriod(
+            new \DateTime($first),
+            new \DateInterval('P1D'),
+            new \DateTime($last)
+        );
+        $dates = array();
+        foreach ($period as $key => $value) {
+            $dates[] = $value->format('Y-m-d');
+        }
+        return $dates;
+    }
+
 
 
     #Collect reservation data from selected offers
