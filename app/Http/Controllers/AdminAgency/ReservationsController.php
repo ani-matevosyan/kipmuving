@@ -23,11 +23,17 @@ class ReservationsController extends Controller
         $dateBeforeTwoWeeks = date('Y-m-d', strtotime('-2 weeks'));
         $prev_prev_monday = date('Y-m-d', strtotime('previous monday', strtotime('previous monday')));
 //        $reservations = Reservation::where([['created_at', '>', $prev_prev_monday] ])->get();
+        setlocale(LC_TIME, 'es_ES');
+        ini_set('default_charset', 'utf-8');
 
         $period = $this->date_range('2018-07-23', date('Y-m-d', strtotime('tomorrow')));
         $periodWithKeys = array();
         foreach ($period as $key => $value) {
             $periodWithKeys[$value] = [];
+        }
+        $formattedPeriod = array();
+        foreach ($period as $item){
+            $formattedPeriod[] = utf8_encode(strftime('%a %e', strtotime($item)));
         }
 
         $reservations = Reservation::with('offer')->where([['created_at', '>', '2018-07-23'] ])->get();
@@ -56,7 +62,7 @@ class ReservationsController extends Controller
             $c++;
         }
 
-        $thsArray = array_merge([''],$period);
+        $thsArray = array_merge([''],$formattedPeriod);
 
         $reservationsTable = "";
         $table = new View_Generator_Table( $thsArray );
@@ -89,8 +95,9 @@ class ReservationsController extends Controller
         }
         $reservationsTable = $table->generate();
 
-
         $data = [
+            'styles'         => config('resources.admin-agency.reservations.styles'),
+            'scripts'        => config('resources.admin-agency.reservations.scripts'),
             'reservationsTable'        => $reservationsTable,
         ];
         return view('site.adminAgency.reservations', $data);

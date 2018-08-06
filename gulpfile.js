@@ -19,6 +19,7 @@ const elixir = require('laravel-elixir');
 //     .sass('coupon-print.scss')
 //     .sass('routes.scss')
 //     .sass('admin-agency-common.scss')
+//     .sass('admin-agency-reservations.scss')
 //     .webpack('activities.js')
 //     .webpack('activity.js')
 //     .webpack('agencies.js')
@@ -36,6 +37,7 @@ const elixir = require('laravel-elixir');
 //     .webpack('reservation-scripts.js')
 //     .webpack('routes.js')
 //     .webpack('admin-agency-common.js')
+//     .webpack('admin-agency-reservations.js')
 //     .version([
 //       'css/about-style.css',
 //       'css/activities.css',
@@ -52,6 +54,7 @@ const elixir = require('laravel-elixir');
 //       'css/user-reservations.css',
 //       'css/routes.css',
 //       'css/admin-agency-common.css',
+//       'css/admin-agency-reservations.css',
 //       'js/activities.js',
 //       'js/activity.js',
 //       'js/agencies.js',
@@ -69,6 +72,7 @@ const elixir = require('laravel-elixir');
 //       'js/reservation-scripts.js',
 //       'js/routes.js',
 //       'js/admin-agency-common.js'
+//       'js/admin-agency-reservations.js'
 //     ])
 // });
 
@@ -76,9 +80,13 @@ const elixir = require('laravel-elixir');
 
 elixir((mix) => {
   mix.sass('admin-agency-common.scss')
+    .sass('admin-agency-reservations.scss')
     .webpack('admin-agency-common.js')
+    .webpack('admin-agency-reservations.js')
     .version([
       'css/admin-agency-common.css',
-      'js/admin-agency-common.js'
+      'css/admin-agency-reservations.css',
+      'js/admin-agency-common.js',
+      'js/admin-agency-reservations.js',
     ])
 });

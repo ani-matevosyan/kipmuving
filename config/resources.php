@@ -205,5 +205,17 @@ return [
         'js/routes.js'
       ]
     ]
-  ]
+  ],
+
+  'admin-agency' => [
+    'reservations' => [
+        'styles' => [
+            'css/admin-agency-reservations.css'
+        ],
+        'scripts' => [
+            'js/admin-agency-reservations.js'
+        ]
+    ]
+  ],
+
 ];
