@@ -3,7 +3,7 @@
 return [
 	#Confirmation email
 	'hello'                               => 'Olá,',
-	'thanks_for_joining'                  => 'Onbrigado por unir-se a KipMuving',
+	'thanks_for_joining'                  => 'Onbrigado por unir-se a Aventuras Chile',
 	'confirm_mail_message'                => 'Confirme seu e-mail!',
 	'please_activate_your_account_here'   => 'Por favor, ative sua conta aqui',
 	'with_regards'                        => 'Abraços',

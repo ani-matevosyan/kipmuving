@@ -115,13 +115,13 @@ class ReservationController extends Controller
 
 		#Email to user
 		Mail::send('emails.reservations.confirm-to-user', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user) {
-			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your AventurasChile.com reservation');
 		});
 
 		#Email to agency
 		Mail::send('emails.reservations.confirm-to-agency', ['user' => $user, 'reservation' => $reservation], function ($message) use ($user, $s_offer) {
-			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 			$message->to($s_offer->offer->agency->email)->subject('AventurasChile.com reservation');
 		});
 
@@ -189,12 +189,12 @@ class ReservationController extends Controller
 							$reservation->save();
 
 							Mail::send('emails.reservar.cancelation.user', ['user' => $user, 'reservation' => $reservation_data], function ($message) use ($user) {
-								$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+								$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 								$message->to($user->email, $user->first_name.' '.$user->last_name)->subject('You canceled reservation on AventurasChile.com');
 							});
 
 							Mail::send('emails.reservar.cancelation.agencia', ['reservations' => $reservation_data->offers, 'user' => $user], function ($message) use ($reservation_data) {
-								$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+								$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 								$message->to($reservation_data->offers[0]->agency->email)->subject('AventurasChile.com canceled reservation');
 							});
 
@@ -285,13 +285,13 @@ class ReservationController extends Controller
 	{
 		#Send email about reservation to user
 		Mail::send('emails.reservar.user', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user) {
-			$message->from('contacto@aventuraschile.com', 'Kipmuving team');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 			$message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject('Your AventurasChile.com reservations');
 		});
 
 		#Send email about reservation to admin
 		Mail::send('emails.reservar.admin', ['user' => $user, 'reservation' => $reservations], function ($message) use ($user, $reservations) {
-			$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+			$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 			$message->to(config('app.admin_email'))->subject(count($reservations->offers).' AventurasChile.com reservations');
 		});
 
@@ -305,7 +305,7 @@ class ReservationController extends Controller
 				'user'         => $user,
 				'total'        => $item->sum('reservation.total')
 			], function ($message) use ($agency_email) {
-				$message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+				$message->from('contacto@aventuraschile.com', 'Aventuras Chile');
 				$message->to($agency_email)->subject('AventurasChile.com reservation');
 			});
 		}

@@ -476,7 +476,7 @@
 													 valign="top">
 													<hr>
 													<br>
-													<strong>Hola Administrator</strong><br>
+													Hola <strong>Administrator</strong><br>
 													tenemos <span style="color:#980e25; font-weight: bold;">{{ count($reservation->offers) }} paseos</span>
 													para <span style="color:#980e25; font-weight: bold;">{{ $reservation->persons }} persona.</span><br>&nbsp;
 												</td>
@@ -530,15 +530,15 @@
 														get. Sed facilisis bibendum elit, bibendum vulputate tellus viverra ac. Praesent l
 														acus eros.
 													</p>
-													<p>
-														Saludos.
-													</p>
-													<p>
-														Equipo Aventura Chile
-													</p>
-													<p style="text-align: center; margin-top: 40px">
-														www.aventuraschile.com
-													</p>
+													<div>
+														Atentamente,
+													</div>
+													<div>
+													    Aventura Chile
+													</div>
+													<div style="margin-bottom: 20px">
+														<a style="color: #626262; cursor: pointer;" href="mailto:contacto@aventuraschile.com">contacto@aventuraschile.com</a>
+													</div>
 												</td>
 											</tr>
 											</tbody>
