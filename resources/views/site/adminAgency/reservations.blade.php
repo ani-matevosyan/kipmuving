@@ -11,7 +11,13 @@
                 </div>
             </div>
             <div class="totalPrice">
-                <div class="price">Total Venta:</div>
+                <div class="price">
+                    Total Venta:
+                    <div>
+                        @if(session('currency.type') === 'BRL') R$ @else $ @endif
+                        {{ number_format($totalPrice, 2, ".", ",") }}
+                    </div>
+                </div>
             </div>
             <div class="hasMinPersons">
                 <div class="confirmed">

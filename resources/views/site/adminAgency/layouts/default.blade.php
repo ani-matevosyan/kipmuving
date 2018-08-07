@@ -58,7 +58,7 @@
 						<nav>
 							<ul>
 								<li>
-									<a href="">
+									<a href="{{ action('AdminAgency\ReservationsController@index') }}">
 										<img src="{{asset('/images/siteImages/adminAgency/reservas.svg')}}">
 										<span class="header-menu-item">RESERVAS</span>
 									</a>

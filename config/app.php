@@ -12,8 +12,8 @@ return [
 	| any other location as required by the application or its packages.
 	*/
 
-	'name'        => 'Kipmuving',
-	'admin_email' => 'rafaelzarro@gmail.com',
+	'name'        => 'aventuraschile.com',
+	'admin_email' => 'contacto@aventuraschile.com',
 //	'admin_email' => 'sanek.solodovnikov.94@gmail.com',
 	
 	/*

@@ -8294,6 +8294,7 @@ body {
   padding-bottom: 12px;
   text-align: left;
   background-color: #f5f5f5;
+  font-weight: normal;
 }
 
 .reservationsTable table th:first-child {

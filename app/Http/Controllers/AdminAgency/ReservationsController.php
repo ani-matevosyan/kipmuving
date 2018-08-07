@@ -20,27 +20,27 @@ class ReservationsController extends Controller
      */
     public function index(Offer $offer)
     {
-        $dateBeforeTwoWeeks = date('Y-m-d', strtotime('-2 weeks'));
-        $prev_prev_monday = date('Y-m-d', strtotime('previous monday', strtotime('previous monday')));
-//        $reservations = Reservation::where([['created_at', '>', $prev_prev_monday] ])->get();
         setlocale(LC_TIME, 'es_ES');
-        ini_set('default_charset', 'utf-8');
 
-        $period = $this->date_range('2018-07-23', date('Y-m-d', strtotime('tomorrow')));
+        $dateBeforeTwoWeeksP1 = date('Y-m-d', strtotime('-2 weeks +1 day'));
+        $prev_prev_monday = date('Y-m-d', strtotime('previous monday', strtotime('previous monday')));
+
+        $period = $this->date_range($dateBeforeTwoWeeksP1, date('Y-m-d', strtotime('tomorrow')));
+
         $periodWithKeys = array();
+        $formattedPeriod = array();
         foreach ($period as $key => $value) {
             $periodWithKeys[$value] = [];
-        }
-        $formattedPeriod = array();
-        foreach ($period as $item){
-            $formattedPeriod[] = utf8_encode(strftime('%a %e', strtotime($item)));
+            $formattedPeriod[] = utf8_encode(strftime('%a %e', strtotime($value)));
         }
 
-        $reservations = Reservation::with('offer')->where([['created_at', '>', '2018-07-23'] ])->get();
+        $reservations = Reservation::with('offer')->where([['created_at', '>=', $dateBeforeTwoWeeksP1 ] ])->get();
 
         $groupedArray = array();
+        $totalPrice = 0;
         foreach($reservations as $key => $valuesAry)
         {
+            $totalPrice += $valuesAry->offer->price * $valuesAry->persons;
             $activity = $valuesAry->offer->activity->name;
             $groupedArray[$activity][\Carbon\Carbon::parse($valuesAry->created_at)->format('Y-m-d')][] = [
                 'persons' => $valuesAry->persons,
@@ -76,14 +76,14 @@ class ReservationsController extends Controller
                             $cel = '<ul>'
                                   .'<li>'.$item[0]['persons'].'</li>'
                                 .' <li>'.$item[0]['time'].'</li>'
-                                .' <li>'.$item[0]['price'].'</li></ul>';
+                                .' <li>'. number_format($item[0]['price'], 2, ".", ",").'</li></ul>';
                         }else{
                              $cel = '';
                             foreach ($item  as $i){
                                 $cel .= '<ul>'
                                         .'<li>'.$i['persons'].'</li>'
                                     .' <li>'. $i['time'].'</li>'
-                                    .' <li>'. $i['price'].'</li></ul><hr>';
+                                    .' <li>'. number_format($i['price'], 2, ".", ",").'</li></ul><hr>';
                             }
                         }
                     }
@@ -99,6 +99,7 @@ class ReservationsController extends Controller
             'styles'         => config('resources.admin-agency.reservations.styles'),
             'scripts'        => config('resources.admin-agency.reservations.scripts'),
             'reservationsTable'        => $reservationsTable,
+            'totalPrice'        => $totalPrice,
         ];
         return view('site.adminAgency.reservations', $data);
     }
