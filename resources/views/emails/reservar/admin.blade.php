@@ -478,7 +478,7 @@
 													<br>
 													Hola <strong>Administrator</strong><br>
 													tenemos <span style="color:#980e25; font-weight: bold;">{{ count($reservation->offers) }} paseos</span>
-													para <span style="color:#980e25; font-weight: bold;">{{ $reservation->persons }} persona.</span><br>&nbsp;
+													para <span style="color:#980e25; font-weight: bold;">{{ $reservation->persons }} persona.</span><br>
 												</td>
 											</tr>
 											</tbody>
@@ -511,9 +511,9 @@
 														<span>Date: <b>{{ $offer->reservation['date'] }}</b></span>
 														<br>
 
-														&nbsp
+
 														<br>
-														<address style="font-style:normal">
+														<address style="font-style:normal; color:black">
 															<div class="userInf"><b>Información del pasajero</b></div>
 															<b>Name:</b> {{ $user->first_name.' '.$user->last_name }}<br>
 															<b>Email:</b> <a href="#"

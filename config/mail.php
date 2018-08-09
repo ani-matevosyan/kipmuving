@@ -112,6 +112,6 @@ return [
 
 	'sendmail' => '/usr/sbin/sendmail -bs',
 
-	'admin_email' => 'sanek.solodovnikov.94@gmail.com'
+	'admin_email' => 'matevosyanani.h@gmail.com'
 
 ];

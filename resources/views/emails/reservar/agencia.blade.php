@@ -214,7 +214,7 @@
 										<tr>
 											<td style="padding-top: 22px;">
 												<p style="margin: 0;">{{ trans('emails.with_regards') }}</p>
-												<p style="margin: 0;">Aventuras Chile</p>
+												<p style="margin: 0; color:black">Aventuras Chile</p>
 											</td>
 										</tr>
 										</tbody>
