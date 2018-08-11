@@ -64,7 +64,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="{{ route('adminAgency.activities') }}">
 										<img src="{{asset('/images/siteImages/adminAgency/actividad.png')}}">
 										<span class="header-menu-item">ACTIVIDAD</span>
 									</a>

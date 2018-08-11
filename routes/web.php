@@ -210,6 +210,10 @@ Route::get('/routes/activities/{id}', 'RoutesController@activity')
 	->where('id', '[0-9]+');
 
 
-Route::get('/admin/agency', [
-    'middleware' => ['role:admin|developer'],
+Route::get('/admin/agency', ['middleware' => ['role:admin|developer'],
     'uses'       => 'AdminAgency\ReservationsController@index']);
+Route::get('/admin/agency/activities', [
+    'middleware' => ['role:admin|developer'],
+    'uses'       => 'AdminAgency\ActivityController@index',
+    'as'         => 'adminAgency.activities'
+]);

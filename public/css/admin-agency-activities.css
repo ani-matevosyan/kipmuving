@@ -8240,135 +8240,163 @@ body {
   position: relative;
 }
 
-.under-header {
-  background-color: #f5f5f5;
-  width: 100%;
-  height: 10px;
-}
-
-.reservationsTable {
-  padding-right: 19px;
-}
-
-.reservationsTable .resTable {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-}
-
-.reservationsTable .resTable .rTable {
-  display: table-cell;
-  overflow-x: auto;
-  width: 100%;
-}
-
-.reservationsTable table {
-  margin-top: 20px;
-  width: 100%;
-}
-
-.reservationsTable table td, .reservationsTable table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.reservationsTable table td {
-  font-weight: bold;
-}
-
-.reservationsTable table td:first-child {
-  text-transform: uppercase;
-}
-
-.reservationsTable table td hr {
-  margin-right: -8px;
-  margin-left: -8px;
-}
-
-.reservationsTable table td hr:last-child {
-  display: none;
-}
-
-.reservationsTable table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #f5f5f5;
-  font-weight: normal;
-}
-
-.reservationsTable table th:first-child {
-  background-color: white;
-}
-
-.reservationsTable .totalPrice {
-  background-color: #eeeeee;
-  width: 100%;
-  height: 60px;
-}
-
-.reservationsTable .totalPrice .price {
-  font-size: 15px;
-  background-color: #76bb61;
-  color: white;
-  float: right;
-  padding: 10px 15px;
-  width: 128px;
-  height: 100%;
-}
-
-.reservationsTable ul {
-  list-style: initial;
-  padding-left: 18px;
-}
-
-.reservationsTable ul li:last-child {
-  color: green;
-}
-
-.reservationsTable .hasMinPersons {
-  margin-top: 10px;
-}
-
-.reservationsTable .hasMinPersons .square {
-  display: inline-block;
-  background-color: #76bb61;
-  width: 28px;
-  height: 26px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-.reservationsTable .hasMinPersons .confirmed, .reservationsTable .hasMinPersons .notYetMin {
-  display: inline-block;
-  vertical-align: middle;
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
   position: relative;
-  margin-bottom: 10px;
+  min-height: 1px;
+  padding-right: 7px;
+  padding-left: 7px;
 }
 
-.reservationsTable .hasMinPersons .confirmed span, .reservationsTable .hasMinPersons .notYetMin span {
-  top: 18%;
-  left: 36px;
-  position: absolute;
+.col-xs-5ths {
+  width: 20%;
+  float: left;
 }
 
-.reservationsTable .hasMinPersons .confirmed {
-  margin-right: 30px;
-  width: 110px;
-}
-
-@media screen and (max-width: 355px) {
-  .reservationsTable .hasMinPersons .confirmed {
-    width: 90px;
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left;
   }
 }
 
-.reservationsTable .hasMinPersons .notYetMin {
-  width: 150px;
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
 }
 
-.reservationsTable .hasMinPersons .notYetMin .square {
-  background-color: #d8bbbb;
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
 }
 
-/*# sourceMappingURL=admin-agency-reservations.css.map */
+.under-header {
+  position: relative;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 78px;
+}
+
+.under-header .addActivity {
+  position: absolute;
+  right: 6%;
+  top: 34%;
+  font-size: 15px;
+  line-height: 21px;
+  background-color: #5cb85c;
+  color: white;
+  text-transform: none;
+}
+
+.under-header .addActivity:hover {
+  background-color: #449144;
+}
+
+.activities {
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.activities .activity {
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 12px;
+  background-color: #f8f8f8;
+}
+
+.activities .activity h3 {
+  font-size: 25px;
+  color: #095960;
+  font-weight: bold;
+  margin-bottom: 23px;
+}
+
+.activities .activity .activity-hours {
+  margin-bottom: -6px;
+}
+
+.activities .activity .activity-hours .hours {
+  padding-left: 7px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.activities .activity .info {
+  margin-top: -5px;
+  padding-bottom: 15px;
+}
+
+.activities .activity .info ~ .info {
+  margin-top: 0;
+}
+
+.activities .activity .edit-activity {
+  position: relative;
+  height: 47px;
+}
+
+.activities .activity .edit-activity .edit-activity-icon {
+  position: absolute;
+  bottom: 17px;
+  right: 9px;
+  width: 35px;
+  height: 31px;
+  background-color: #636363;
+  background-image: url("../../images/siteImages/adminAgency/edit-svg.svg");
+  background-repeat: no-repeat;
+  background-size: 17px auto;
+  background-position: center center;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .activities {
+    margin-right: 30px;
+  }
+  .activities .col-xs-6 {
+    width: 100% !important;
+  }
+}
+
+.activities .col-xs-5ths,
+.activities .col-sm-5ths,
+.activities .col-md-5ths,
+.activities .col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+@media (min-width: 1401px) {
+  .activities .col-xs-5ths,
+  .activities .col-sm-5ths,
+  .activities .col-md-5ths,
+  .activities .col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+}
+
+.activities .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.activities .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=admin-agency-activities.css.map */

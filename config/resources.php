@@ -215,7 +215,15 @@ return [
         'scripts' => [
             'js/admin-agency-reservations.js'
         ]
-    ]
+    ],
+    'activities' => [
+        'styles' => [
+            'css/admin-agency-activities.css'
+        ],
+        'scripts' => [
+            'js/admin-agency-activities.js'
+        ]
+]
   ],
 
 ];

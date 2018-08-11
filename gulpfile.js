@@ -79,14 +79,10 @@ const elixir = require('laravel-elixir');
 
 
 elixir((mix) => {
-  mix.sass('admin-agency-common.scss')
-    .sass('admin-agency-reservations.scss')
-    .webpack('admin-agency-common.js')
-    .webpack('admin-agency-reservations.js')
+  mix.sass('admin-agency-activities.scss')
+    .webpack('admin-agency-activities.js')
     .version([
-      'css/admin-agency-common.css',
-      'css/admin-agency-reservations.css',
-      'js/admin-agency-common.js',
-      'js/admin-agency-reservations.js',
+      'css/admin-agency-activities.css',
+      'js/admin-agency-activities.js',
     ])
 });
