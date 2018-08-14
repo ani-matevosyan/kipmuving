@@ -1,4 +1,5 @@
 @import "./admin-agency-common";
+@import "../../../node_modules/select2/dist/css/select2";
 
 
 
@@ -116,4 +117,65 @@
     flex-direction: column;
   }
 
+}
+
+#addActivityModal{
+  .modal-dialog{
+    width: 750px;
+    margin: auto;
+    @media (max-width:766px) {
+      width: auto;
+    }
+    .modal-content{
+      background-color: #f9f6e6;
+    }
+    .modal-header {
+      border: 0;
+      padding-bottom: 0;
+      h4 {
+        font-size: 19px;
+        line-height: 23px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #b49f70;
+        padding-left: 91px;
+      }
+    }
+    .modal-body{
+      padding-right: 35px;
+      .times{
+        .col-sm-4 {
+          padding-left: 0;
+          padding-right: 3px;
+          margin-bottom: 3px;
+          .operations{
+            min-height: 34px;
+            position: relative;
+            span{
+              position: absolute;
+              top: 29%;
+              font-size: 12px;
+              color: green;
+              cursor: pointer;
+            }
+            .glyphicon-remove{
+              left: 20px;
+              color: gray;
+            }
+          }
+        }
+      }
+      .select2-container--default .select2-selection--multiple{
+        border: 1px solid #ccc;
+      }
+      .select2-container .select2-selection--multiple {
+        min-height: 34px;
+      }
+
+    }
+    .modal-footer {
+      padding-right: 35px;
+      border: 0;
+    }
+  }
 }
