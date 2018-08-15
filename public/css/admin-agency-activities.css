@@ -9031,7 +9031,7 @@ body {
   margin: auto;
 }
 
-@media (max-width: 766px) {
+@media (max-width: 767px) {
   #addActivityModal .modal-dialog {
     width: auto;
   }
@@ -9094,6 +9094,18 @@ body {
 #addActivityModal .modal-dialog .modal-footer {
   padding-right: 35px;
   border: 0;
+}
+
+/*
+*   Vertically centering the modal
+*/
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%) !important;
+  }
 }
 
 /*# sourceMappingURL=admin-agency-activities.css.map */

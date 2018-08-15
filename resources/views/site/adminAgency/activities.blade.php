@@ -169,45 +169,49 @@
                     <h4 class="modal-title">Actividad</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="/action_page.php">
+                    <form class="form-horizontal addActivityForm" action="/action_page.php">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="email">Nombre</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="name">
+                                        <input type="text" name="name" class="form-control" id="name" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Valor</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="price">
+                                        <input type="text" name="price" class="form-control" id="price" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Horario</label>
                                     <div class="col-sm-9 times">
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" class="hours start_time">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" class="hours end_time">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="operations">
-                                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                        <div class="timesHours">
+                                            <div class="col-sm-4">
+                                                <input type="text" name="start_time[]" class="form-control start_time">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" name="end_time[]" class="form-control end_time">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="operations">
+                                                    <span class="glyphicon glyphicon-plus-sign"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" class="hours start_time">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control" class="hours end_time">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="operations">
-                                                <span class="glyphicon glyphicon-plus-sign"></span>
-                                                <span class="glyphicon glyphicon-remove"></span>
+                                        <div class="timesHours">
+                                            <div class="col-sm-4">
+                                                <input type="text" name="start_time[]" class="form-control start_time">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" name="end_time[]" class="form-control end_time">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="operations">
+                                                    <span class="glyphicon glyphicon-plus-sign"></span>
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +221,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Guia</label>
                                     <div class="col-sm-9">
-                                        <select class="select2select" multiple="multiple">
+                                        <select name="guides" class="select2select" multiple="multiple">
                                             <option value="JAN">Lorem Ispum</option>
                                             <option value="FEB">Dolar Sit Amet</option>
                                             <option value="FEBm">Luis Lopez</option>
@@ -227,7 +231,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Asistentes</label>
                                     <div class="col-sm-9">
-                                        <select class="select2select" multiple="multiple">
+                                        <select name="assistants"class="select2select" multiple="multiple">
                                             <option value="JAN">Lorem Ispum</option>
                                             <option value="DFEB">Dolar Sit Amet</option>
                                             <option value="DFEB">Luis Lopez</option>
@@ -237,7 +241,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Transportista</label>
                                     <div class="col-sm-9">
-                                        <select class="select2select" multiple="multiple">
+                                        <select name="transporters" class="select2select" multiple="multiple">
                                             <option value="JAN">Lorem Ispum</option>
                                             <option value="FEB">Dolar Sit Amet</option>
                                             <option value="FEBm">Luis Lopez</option>
@@ -247,7 +251,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Minimo</label>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" class="min">
+                                        <input type="text" name="min_persons" class="form-control min">
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +259,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success"> Adicionar </button>
+                    <button type="button" class="btn btn-success addActivity"> Adicionar </button>
                 </div>
             </div>
         </div>
