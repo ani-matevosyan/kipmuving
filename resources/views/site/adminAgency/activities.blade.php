@@ -7,30 +7,38 @@
     </div>
     <div class="container-fluid">
         <div class="activities">
-            <div class="row">
-                <div class="col-md-5ths col-sm-4 col-xs-6">
+            <div class="row col-container">
+                @foreach($activities as $activity)
+                    <div class="col-md-5ths col-sm-4 col-xs-6">
                     <div class="activity">
-                        <h3>RAFTING ALTO</h3>
-                        <p><b>Valor: </b> 80.000</p>
+                        <h3>{{ $activity->name }}</h3>
+                        <p><b>Valor: </b> {{ $activity->price }}</p>
                         <div class="activity-hours">
                             <b>Horario: </b>
                             <div class="hours">
-                                <div>12:00 a 15:00</div>
-                                <div>15:00 a 20:00</div>
+                                @foreach($activity->hours as $hour)
+                                   <div>{{ $hour->start_time }} a {{ $hour->end_time }}</div>
+                                @endforeach
                             </div>
                         </div>
                         <hr>
                         <div class="info">
                             <div><b>Guía: </b></div>
-                            <div> name name name name</div>
+                            @foreach($activity->providers->where('type','1') as $provider)
+                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
+                            @endforeach
                         </div>
                         <div class="info">
                             <div><b>Asistentes: </b></div>
-                            <div> name name name name</div>
+                            @foreach($activity->providers->where('type','2') as $provider)
+                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
+                            @endforeach
                         </div>
                         <div class="info">
                             <div><b>Transportista: </b></div>
-                            <div> name name name name</div>
+                            @foreach($activity->providers->where('type','3') as $provider)
+                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
+                            @endforeach
                         </div>
                         <div class="edit-activity">
                             <div class="edit-activity-icon">
@@ -38,6 +46,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 <div class="col-md-5ths col-sm-4 col-xs-6">
                     <div class="activity">
                         <h3>RAFTING ALTO</h3>

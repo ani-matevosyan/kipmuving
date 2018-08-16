@@ -66,6 +66,17 @@ return [
             'engine' => null,
         ],
 
+        'admin_agency' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => 'admin_agency',
+            'username'  => 'root',
+            'password'  => '123456',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),

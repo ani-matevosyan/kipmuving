@@ -8934,7 +8934,7 @@ body {
 
 .activities .activity {
   margin-bottom: 14px;
-  position: relative;
+  height: 100%;
   padding-left: 20px;
   padding-right: 12px;
   background-color: #f8f8f8;
@@ -8945,6 +8945,7 @@ body {
   color: #095960;
   font-weight: bold;
   margin-bottom: 23px;
+  text-transform: uppercase;
 }
 
 .activities .activity .activity-hours {

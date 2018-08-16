@@ -29,7 +29,7 @@
   margin-bottom: 100px;
   .activity {
     margin-bottom: 14px;
-    position: relative;
+    height: 100%;
     //height: 363px;
     //width: 242px;
     padding-left: 20px;
@@ -40,6 +40,7 @@
       color: rgb(9,89,96);
       font-weight: bold;
       margin-bottom: 23px;
+      text-transform: uppercase;
     }
     .activity-hours{
       margin-bottom: -6px;
@@ -109,7 +110,7 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display:         flex;
+    display: flex;
     flex-wrap: wrap;
   }
   .row > [class*='col-'] {
