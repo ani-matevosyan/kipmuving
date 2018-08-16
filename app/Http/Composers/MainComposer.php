@@ -13,6 +13,7 @@ class MainComposer
     public function compose(View $view)
     {
         $locales = Locale::where('active', true)->get();
+        $currentLocale = $locales[0];
         foreach ($locales as $key => $locale) {
             $localeCodes[] = $locale['code'];
             if ($locale['code'] === Session::get('currentLocale', config('app.locale'))) {
