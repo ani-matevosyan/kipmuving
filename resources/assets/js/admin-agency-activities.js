@@ -1,8 +1,28 @@
 require('./common');
 window.select2 = require('select2');
+window.toastr = require('toastr');
+
+set_toastr_options = function(){
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-center",
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "4000",
+        "extendedTimeOut": "0",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+};
 
 
 $(document).ready(function(){
+
+    set_toastr_options();
 
     $('.under-header').on("click", "button", function () {
         $('#addActivityModal').modal('show');
@@ -43,7 +63,38 @@ $(document).ready(function(){
 
     $('#addActivityModal').on("click", "button.addActivity", function () {
         const formData = $('.addActivityForm').serialize();
-        // console.log(formData);
+
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/addActivity`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'formData': formData
+            },
+            success: function(res){
+                console.log(response);
+                let response = JSON.parse(res);
+                if(response.success){
+                    window.location.reload();
+                    toastr.success('success', '');
+                    $('#addActivityModal').modal('hide');
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        if (isNaN(i)) {
+                            // $(`input[name=${i}]`).css('border-color', '#FD676A');
+                        }
+                        toastr.error(value, '');
+                    });
+                }
+
+            },
+            error: function(data){
+                console.log(data);
+            },
+            complete: (data) => {
+            }
+        })
     });
 
 

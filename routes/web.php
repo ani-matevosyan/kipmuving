@@ -217,3 +217,8 @@ Route::get('/admin/agency/activities', [
     'uses'       => 'AdminAgency\ActivityController@index',
     'as'         => 'adminAgency.activities'
 ]);
+
+Route::post('/admin/agency/addActivity', [
+    'uses'       => 'AdminAgency\ActivityController@addActivity',
+    'as'         => 'adminAgency.addActivity'
+]);

@@ -24,21 +24,33 @@
                         <hr>
                         <div class="info">
                             <div><b>Guía: </b></div>
-                            @foreach($activity->providers->where('type','1') as $provider)
-                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
-                            @endforeach
+                            <div>
+                                @php ($resultStr = array())
+                                @foreach($activity->providers->where('type','1') as $provider)
+                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
+                                @endforeach
+                                {{ implode(", ", $resultStr) }}
+                            </div>
                         </div>
                         <div class="info">
                             <div><b>Asistentes: </b></div>
-                            @foreach($activity->providers->where('type','2') as $provider)
-                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
-                            @endforeach
+                            <div>
+                                @php ($resultStr = array())
+                                @foreach($activity->providers->where('type','2') as $provider)
+                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
+                                @endforeach
+                                {{ implode(", ", $resultStr) }}
+                            </div>
                         </div>
                         <div class="info">
                             <div><b>Transportista: </b></div>
-                            @foreach($activity->providers->where('type','3') as $provider)
-                                <div>{{ $provider->first_name }} {{ $provider->last_name }}</div>
-                            @endforeach
+                            <div>
+                                @php ($resultStr = array())
+                                @foreach($activity->providers->where('type','3') as $provider)
+                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
+                                @endforeach
+                                {{ implode(", ", $resultStr) }}
+                            </div>
                         </div>
                         <div class="edit-activity">
                             <div class="edit-activity-icon">
@@ -47,126 +59,6 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col-md-5ths col-sm-4 col-xs-6">
-                    <div class="activity">
-                        <h3>RAFTING ALTO</h3>
-                        <p><b>Valor: </b> 80.000</p>
-                        <div class="activity-hours">
-                            <b>Horario: </b>
-                            <div class="hours">
-                                <div>12:00 a 15:00</div>
-                                <div>15:00 a 20:00</div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="info">
-                            <div><b>Guía: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Asistentes: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Transportista: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="edit-activity">
-                            <div class="edit-activity-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5ths col-sm-4 col-xs-6">
-                    <div class="activity">
-                        <h3>RAFTING ALTO</h3>
-                        <p><b>Valor: </b> 80.000</p>
-                        <div class="activity-hours">
-                            <b>Horario: </b>
-                            <div class="hours">
-                                <div>12:00 a 15:00</div>
-                                <div>15:00 a 20:00</div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="info">
-                            <div><b>Guía: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Asistentes: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Transportista: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="edit-activity">
-                            <div class="edit-activity-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5ths col-sm-4 col-xs-6">
-                    <div class="activity">
-                        <h3>RAFTING ALTO</h3>
-                        <p><b>Valor: </b> 80.000</p>
-                        <div class="activity-hours">
-                            <b>Horario: </b>
-                            <div class="hours">
-                                <div>12:00 a 15:00</div>
-                                <div>15:00 a 20:00</div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="info">
-                            <div><b>Guía: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Asistentes: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Transportista: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="edit-activity">
-                            <div class="edit-activity-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5ths col-sm-4 col-xs-6">
-                    <div class="activity">
-                        <h3>RAFTING ALTO</h3>
-                        <p><b>Valor: </b> 80.000</p>
-                        <div class="activity-hours">
-                            <b>Horario: </b>
-                            <div class="hours">
-                                <div>12:00 a 15:00</div>
-                                <div>15:00 a 20:00</div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="info">
-                            <div><b>Guía: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Asistentes: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="info">
-                            <div><b>Transportista: </b></div>
-                            <div> name name name name</div>
-                        </div>
-                        <div class="edit-activity">
-                            <div class="edit-activity-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -230,30 +122,36 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Guia</label>
                                     <div class="col-sm-9">
-                                        <select name="guides" class="select2select" multiple="multiple">
-                                            <option value="JAN">Lorem Ispum</option>
-                                            <option value="FEB">Dolar Sit Amet</option>
-                                            <option value="FEBm">Luis Lopez</option>
+                                        <select name="providers[]" class="select2select" multiple="multiple">
+                                            @foreach($providers->where('type','1') as $provider)
+                                                <option value="{{$provider->id}}">
+                                                    {{ $provider->first_name }} {{ $provider->last_name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Asistentes</label>
                                     <div class="col-sm-9">
-                                        <select name="assistants"class="select2select" multiple="multiple">
-                                            <option value="JAN">Lorem Ispum</option>
-                                            <option value="DFEB">Dolar Sit Amet</option>
-                                            <option value="DFEB">Luis Lopez</option>
+                                        <select name="providers[]"class="select2select" multiple="multiple">
+                                            @foreach($providers->where('type','2') as $provider)
+                                                <option value="{{$provider->id}}">
+                                                    {{ $provider->first_name }} {{ $provider->last_name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Transportista</label>
                                     <div class="col-sm-9">
-                                        <select name="transporters" class="select2select" multiple="multiple">
-                                            <option value="JAN">Lorem Ispum</option>
-                                            <option value="FEB">Dolar Sit Amet</option>
-                                            <option value="FEBm">Luis Lopez</option>
+                                        <select name="providers[]" class="select2select" multiple="multiple">
+                                            @foreach($providers->where('type','3') as $provider)
+                                                <option value="{{$provider->id}}">
+                                                    {{ $provider->first_name }} {{ $provider->last_name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

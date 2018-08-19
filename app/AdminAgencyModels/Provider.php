@@ -9,6 +9,16 @@ class Provider extends Model
     protected $connection = 'admin_agency';
     protected $table = 'providers';
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'type',
+        'address',
+        'created_at',
+        'updated_at'
+    ];
+
 
     public function activities()
     {
