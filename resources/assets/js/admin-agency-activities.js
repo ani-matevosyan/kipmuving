@@ -98,6 +98,9 @@ $(document).ready(function(){
 
     $('.activities').on("click", ".edit-activity-icon", function () {
         const activity_id = $(this).attr('activity_id');
+        const activity_name = $(this).parent().parent().find('h3').html();
+        $('#deleteActivityOkModal .deleteActivityOkBtn').attr('activity_id', activity_id);
+        $('#deleteActivityOkModal #activityNameSpan').html( activity_name);
         $.ajax({
             type: 'POST',
             url: `/admin/agency/getActivity`,
@@ -146,7 +149,31 @@ $(document).ready(function(){
     });
 
 
+    $(document.body).undelegate('#editActivityModal .deleteActivityBtn', 'click')
+        .delegate('#editActivityModal .deleteActivityBtn', "click", function(ev) {
+            $('#deleteActivityOkModal').modal('show');
+            $('#editActivityModal').modal('hide');
+    });
 
+
+    $(document.body).undelegate('#deleteActivityOkModal .deleteActivityOkBtn', 'click')
+        .delegate('#deleteActivityOkModal .deleteActivityOkBtn', "click", function(ev) {
+            const activity_id = $(this).attr('activity_id');
+            $.ajax({
+                type: 'POST',
+                url: `/admin/agency/deleteActivity`,
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'activity_id': activity_id,
+                },
+                success: function(res){
+                    let response = JSON.parse(res);
+                    if(response.success){
+                        window.location.reload();
+                    }
+                }
+            });
+    });
 
 
 

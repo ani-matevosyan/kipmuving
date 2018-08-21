@@ -111,6 +111,7 @@
                 </form>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default deleteActivityBtn"> Eliminar </button>
                 <button type="button" class="btn btn-success editActivityBtn"> Editar </button>
             </div>
         </div>

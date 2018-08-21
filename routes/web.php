@@ -221,3 +221,4 @@ Route::get('/admin/agency/activities', [
 Route::post('/admin/agency/addActivity', 'AdminAgency\ActivityController@addActivity');
 Route::post('/admin/agency/getActivity', 'AdminAgency\ActivityController@getActivity');
 Route::post('/admin/agency/editActivity', 'AdminAgency\ActivityController@editActivity');
+Route::post('/admin/agency/deleteActivity', 'AdminAgency\ActivityController@deleteActivity');

@@ -9353,6 +9353,56 @@ button.toast-close-button {
   border: 0;
 }
 
+#addActivityModal .modal-dialog .modal-footer .deleteActivityBtn, #editActivityModal .modal-dialog .modal-footer .deleteActivityBtn {
+  background-color: #898989;
+  color: white;
+}
+
+#addActivityModal .modal-dialog .modal-footer .deleteActivityBtn:hover, #editActivityModal .modal-dialog .modal-footer .deleteActivityBtn:hover {
+  background-color: #737373;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-content {
+  background-color: #f9f6e6;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-header {
+  border: 0;
+  padding-bottom: 0;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-header h4 {
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #b49f70;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-body p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-body p span {
+  font-weight: bold;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-footer {
+  padding-right: 35px;
+  border: 0;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-footer .deleteActivityOkBtn {
+  background-color: #898989;
+  color: white;
+}
+
+#deleteActivityOkModal .modal-dialog .modal-footer .deleteActivityOkBtn:hover {
+  background-color: #737373;
+}
+
 /*
 *   Vertically centering the modal
 */

@@ -175,6 +175,18 @@ class ActivityController extends Controller
     }
 
 
+    protected function deleteActivity(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $activity_id = $request->activity_id;
+            $activity = Activity::find($activity_id);
+            $activity->delete();
+            echo json_encode(['success' => true]);
+            exit;
+        }
+    }
+
+
 
 
 
