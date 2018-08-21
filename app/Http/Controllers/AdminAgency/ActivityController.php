@@ -27,7 +27,7 @@ class ActivityController extends Controller
             'username' => 'root',
             'password' => '123456'
         ];
-        DatabaseConnection::setConnection($params);
+//        DatabaseConnection::setConnection($params);
         $activities = Activity::with(['hours','providers'])->get();
         $providers = Provider::all();
 
@@ -37,7 +37,7 @@ class ActivityController extends Controller
             'activities'     => $activities,
             'providers'      => $providers,
         ];
-        return view('site.adminAgency.activities', $data);
+        return view('site.adminAgency.activities.activities', $data);
     }
 
 
@@ -49,7 +49,9 @@ class ActivityController extends Controller
             $validator = Validator::make($formData, [
                 'name' => 'required|max:30',
                 'price' => 'required|numeric',
-                'min_persons' => 'required|numeric'
+                'min_persons' => 'required|numeric',
+                'start_time.0' => 'required|size:5',
+                'end_time.0' => 'required|size:5',
             ]);
 
             if(!$validator->fails()){
@@ -84,6 +86,94 @@ class ActivityController extends Controller
             exit;
         }
     }
+
+    protected function getActivity(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $activityId = $request->activity_id;
+            $activity = Activity::with(['hours','providers'])->find($activityId);
+            $providers = Provider::all();
+            $data = [
+                'activity'      => $activity,
+                'providers'      => $providers,
+            ];
+            echo view('site.adminAgency.activities.editModal', $data);
+        }
+    }
+
+
+    protected function editActivity(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $activity_id = $request->activity_id;
+            parse_str($request->formData, $formData);
+            $messages = ['name.required' => ':attribute -@ anhrajest E, :) '];
+            $validator = Validator::make($formData, [
+                'name' => 'required|max:30',
+                'price' => 'required|numeric',
+                'min_persons' => 'required|numeric',
+                'start_time.0' => 'required|size:5',
+                'end_time.0' => 'required|size:5',
+            ]);
+
+            if(!$validator->fails()){
+                $activity = Activity::find($activity_id);
+                $activity->name = $formData['name'];
+                $activity->price = $formData['price'];
+                $activity->min_persons = $formData['min_persons'];
+                $activity->save();
+
+                $hoursArr = [];
+                $hArr = [];
+                foreach ($formData['start_time'] as $key=>$item){
+                    foreach ($formData['end_time'] as $k=>$i){
+                        if($key == $k){
+                            if($item != '' || $i != ''){
+                                $hoursArr[] = new Hour([
+                                    'start_time' => $item,
+                                    'end_time'  => $i,
+                                ]);
+                                $hArr[] =[
+                                    'start_time' => $item,
+                                    'end_time'  => $i,
+                                ];
+                            }
+                        }
+                    }
+                }
+
+                if(count($hoursArr) >= count($activity->hours)){
+                    $c = 0;
+                    foreach ($activity->hours as $hour){
+                        $activity->hours()->where('id', $hour->id)->update($hArr[$c]);
+                        $c++;
+                    }
+                    array_splice($hoursArr,0, count($activity->hours));
+                    $activity->hours()->saveMany($hoursArr);
+                }else {
+                    $countDeleted = count($activity->hours) - count($hoursArr);
+                     $c = 0;
+                    foreach ($activity->hours->slice(0, -$countDeleted) as $hour){
+                        $activity->hours()->where('id', $hour->id)->update($hArr[$c]);
+                        $c++;
+                    }
+                    foreach ($activity->hours->take(-$countDeleted) as $hour){
+                        $activity->hours()->where('id', $hour->id)->delete();
+                    }
+                }
+
+                if(isset($formData['providers'])){
+                    $activity->providers()->sync($formData['providers']);
+                }
+                echo json_encode(['success' => true]);
+            }else{
+                $errorMessages = $validator->errors();
+                echo json_encode(['errorMessages' => $errorMessages]);
+            }
+            exit;
+        }
+    }
+
 
 
 

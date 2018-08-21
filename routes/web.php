@@ -218,7 +218,6 @@ Route::get('/admin/agency/activities', [
     'as'         => 'adminAgency.activities'
 ]);
 
-Route::post('/admin/agency/addActivity', [
-    'uses'       => 'AdminAgency\ActivityController@addActivity',
-    'as'         => 'adminAgency.addActivity'
-]);
+Route::post('/admin/agency/addActivity', 'AdminAgency\ActivityController@addActivity');
+Route::post('/admin/agency/getActivity', 'AdminAgency\ActivityController@getActivity');
+Route::post('/admin/agency/editActivity', 'AdminAgency\ActivityController@editActivity');

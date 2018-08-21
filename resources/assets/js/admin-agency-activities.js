@@ -72,7 +72,6 @@ $(document).ready(function(){
                 'formData': formData
             },
             success: function(res){
-                console.log(response);
                 let response = JSON.parse(res);
                 if(response.success){
                     window.location.reload();
@@ -87,7 +86,6 @@ $(document).ready(function(){
                         toastr.error(value, '');
                     });
                 }
-
             },
             error: function(data){
                 console.log(data);
@@ -96,6 +94,63 @@ $(document).ready(function(){
             }
         })
     });
+
+
+    $('.activities').on("click", ".edit-activity-icon", function () {
+        const activity_id = $(this).attr('activity_id');
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/getActivity`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'activity_id': activity_id
+            },
+            success: function(res){
+                $('.editActivityModal').html(res);
+                $('.select2select').select2({
+                    placeholder: '',
+                    width: '100%',
+                });
+                $('#editActivityModal .editActivityBtn').attr('activity_id', activity_id);
+                $('#editActivityModal').modal('show');
+            }
+        });
+    });
+
+
+    $(document.body).undelegate('#editActivityModal .editActivityBtn', 'click')
+        .delegate('#editActivityModal .editActivityBtn', "click", function(ev) {
+        const activity_id = $(this).attr('activity_id');
+        const formData = $('.editActivityForm').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/editActivity`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'activity_id': activity_id,
+                'formData': formData,
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    window.location.reload();
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
+        });
+    });
+
+
+
+
+
+
+
 
 
 

@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="edit-activity">
-                            <div class="edit-activity-icon">
+                            <div class="edit-activity-icon"  activity_id="{{ $activity->id }}">
                             </div>
                         </div>
                     </div>
@@ -171,4 +171,5 @@
             </div>
         </div>
     </div>
+    <div class="editActivityModal"></div>
 @stop

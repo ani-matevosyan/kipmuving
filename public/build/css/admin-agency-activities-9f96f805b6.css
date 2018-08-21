@@ -9283,27 +9283,27 @@ button.toast-close-button {
   flex-direction: column;
 }
 
-#addActivityModal .modal-dialog {
+#addActivityModal .modal-dialog, #editActivityModal .modal-dialog {
   width: 750px;
   margin: auto;
 }
 
 @media (max-width: 767px) {
-  #addActivityModal .modal-dialog {
+  #addActivityModal .modal-dialog, #editActivityModal .modal-dialog {
     width: auto;
   }
 }
 
-#addActivityModal .modal-dialog .modal-content {
+#addActivityModal .modal-dialog .modal-content, #editActivityModal .modal-dialog .modal-content {
   background-color: #f9f6e6;
 }
 
-#addActivityModal .modal-dialog .modal-header {
+#addActivityModal .modal-dialog .modal-header, #editActivityModal .modal-dialog .modal-header {
   border: 0;
   padding-bottom: 0;
 }
 
-#addActivityModal .modal-dialog .modal-header h4 {
+#addActivityModal .modal-dialog .modal-header h4, #editActivityModal .modal-dialog .modal-header h4 {
   font-size: 19px;
   line-height: 23px;
   font-weight: 500;
@@ -9312,22 +9312,22 @@ button.toast-close-button {
   padding-left: 91px;
 }
 
-#addActivityModal .modal-dialog .modal-body {
+#addActivityModal .modal-dialog .modal-body, #editActivityModal .modal-dialog .modal-body {
   padding-right: 35px;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 {
+#addActivityModal .modal-dialog .modal-body .times .col-sm-4, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 {
   padding-left: 0;
   padding-right: 3px;
   margin-bottom: 3px;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations {
+#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations {
   min-height: 34px;
   position: relative;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations span {
+#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations span, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations span {
   position: absolute;
   top: 29%;
   font-size: 12px;
@@ -9335,20 +9335,20 @@ button.toast-close-button {
   cursor: pointer;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations .glyphicon-remove {
+#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations .glyphicon-remove, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations .glyphicon-remove {
   left: 20px;
   color: gray;
 }
 
-#addActivityModal .modal-dialog .modal-body .select2-container--default .select2-selection--multiple {
+#addActivityModal .modal-dialog .modal-body .select2-container--default .select2-selection--multiple, #editActivityModal .modal-dialog .modal-body .select2-container--default .select2-selection--multiple {
   border: 1px solid #ccc;
 }
 
-#addActivityModal .modal-dialog .modal-body .select2-container .select2-selection--multiple {
+#addActivityModal .modal-dialog .modal-body .select2-container .select2-selection--multiple, #editActivityModal .modal-dialog .modal-body .select2-container .select2-selection--multiple {
   min-height: 34px;
 }
 
-#addActivityModal .modal-dialog .modal-footer {
+#addActivityModal .modal-dialog .modal-footer, #editActivityModal .modal-dialog .modal-footer {
   padding-right: 35px;
   border: 0;
 }
