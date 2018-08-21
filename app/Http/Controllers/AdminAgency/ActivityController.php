@@ -45,7 +45,6 @@ class ActivityController extends Controller
     {
         if($request->isMethod('post')) {
             parse_str($request->formData, $formData);
-            $messages = ['name.required' => ':attribute -@ anhrajest E, :) '];
             $validator = Validator::make($formData, [
                 'name' => 'required|max:30',
                 'price' => 'required|numeric',
@@ -53,7 +52,6 @@ class ActivityController extends Controller
                 'start_time.0' => 'required|size:5',
                 'end_time.0' => 'required|size:5',
             ]);
-
             if(!$validator->fails()){
                 $activity = new Activity;
                 $activity->name = $formData['name'];
@@ -107,7 +105,6 @@ class ActivityController extends Controller
         if($request->isMethod('post')) {
             $activity_id = $request->activity_id;
             parse_str($request->formData, $formData);
-            $messages = ['name.required' => ':attribute -@ anhrajest E, :) '];
             $validator = Validator::make($formData, [
                 'name' => 'required|max:30',
                 'price' => 'required|numeric',
@@ -115,7 +112,6 @@ class ActivityController extends Controller
                 'start_time.0' => 'required|size:5',
                 'end_time.0' => 'required|size:5',
             ]);
-
             if(!$validator->fails()){
                 $activity = Activity::find($activity_id);
                 $activity->name = $formData['name'];
