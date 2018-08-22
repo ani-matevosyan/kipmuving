@@ -63,8 +63,8 @@ return [
 	
 	#Custom Validation Attributes
 	'attributes'       => [
-        'start_time.0' => 'hora de inicio',
-        'end_time.0' => 'hora de finalización',
+        'start_time.*' => 'hora de inicio',
+        'end_time.*' => 'hora de finalización',
         'name' => 'nombre',
         'price' => 'valor',
         'min_persons' => 'minimo',

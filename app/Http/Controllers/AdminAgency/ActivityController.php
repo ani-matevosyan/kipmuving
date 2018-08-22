@@ -49,8 +49,10 @@ class ActivityController extends Controller
                 'name' => 'required|max:30',
                 'price' => 'required|numeric',
                 'min_persons' => 'required|numeric',
-                'start_time.0' => 'required|size:5',
-                'end_time.0' => 'required|size:5',
+                'start_time.0' => 'required|date_format:H:i',
+                'end_time.0' => 'required|date_format:H:i',
+                'start_time.*' => 'date_format:H:i',
+                'end_time.*' => 'date_format:H:i',
             ]);
             if(!$validator->fails()){
                 $activity = new Activity;
@@ -109,8 +111,10 @@ class ActivityController extends Controller
                 'name' => 'required|max:30',
                 'price' => 'required|numeric',
                 'min_persons' => 'required|numeric',
-                'start_time.0' => 'required|size:5',
-                'end_time.0' => 'required|size:5',
+                'start_time.0' => 'required|date_format:H:i',
+                'end_time.0' => 'required|date_format:H:i',
+                'start_time.*' => 'date_format:H:i',
+                'end_time.*' => 'date_format:H:i',
             ]);
             if(!$validator->fails()){
                 $activity = Activity::find($activity_id);

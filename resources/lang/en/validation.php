@@ -82,5 +82,8 @@ return [
 	
 	
 	#Custom Validation Attributes
-	'attributes'           => [],
+	'attributes'           => [
+        'start_time.*' => 'start time',
+        'end_time.*' => 'end time',
+    ],
 ];
