@@ -76,7 +76,7 @@
 									</a>
 								</li>
 								<li >
-									<a href="">
+									<a href="{{ route('adminAgency.providers') }}">
 										<img src="{{asset('/images/siteImages/adminAgency/proveedores.png')}}">
 										<span class="header-menu-item">PROVEEDORES</span>
 									</a>

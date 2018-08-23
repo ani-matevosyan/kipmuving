@@ -209,16 +209,22 @@ Route::get('/routes/activities/{id}', 'RoutesController@activity')
 	->name('routes-single')
 	->where('id', '[0-9]+');
 
-
+# Admin Agency System
 Route::get('/admin/agency', ['middleware' => ['role:admin|agencyAdmin|developer'],
     'uses'       => 'AdminAgency\ReservationsController@index']);
+
 Route::get('/admin/agency/activities', [
     'middleware' => ['role:admin|agencyAdmin|developer'],
     'uses'       => 'AdminAgency\ActivityController@index',
     'as'         => 'adminAgency.activities'
 ]);
-
 Route::post('/admin/agency/addActivity', 'AdminAgency\ActivityController@addActivity');
 Route::post('/admin/agency/getActivity', 'AdminAgency\ActivityController@getActivity');
 Route::post('/admin/agency/editActivity', 'AdminAgency\ActivityController@editActivity');
 Route::post('/admin/agency/deleteActivity', 'AdminAgency\ActivityController@deleteActivity');
+
+Route::get('/admin/agency/providers', [
+    'middleware' => ['role:admin|agencyAdmin|developer'],
+    'uses'       => 'AdminAgency\ProviderController@index',
+    'as'         => 'adminAgency.providers'
+]);

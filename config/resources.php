@@ -223,7 +223,15 @@ return [
         'scripts' => [
             'js/admin-agency-activities.js'
         ]
-]
+    ],
+    'providers' => [
+        'styles' => [
+            'css/admin-agency-providers.css'
+        ],
+        'scripts' => [
+            'js/admin-agency-providers.js'
+        ]
+    ],
   ],
 
 ];
