@@ -37,9 +37,89 @@
   .filterDiv{
     margin-top: -54px;
     margin-bottom: 68px;
+    .addProviderDiv{
+      display: inline-block;
+      .addProvidersBtn{
+        font-weight: bold;
+      }
+    }
+    .dataTables_filter{
+      input{
+        width: 253px;
+        font-size: 14px;
+        background-image: url('../../images/siteImages/adminAgency/search.svg');
+        background-repeat: no-repeat;
+        background-size: 18px;
+        background-position: 15px center;
+        text-indent: 34px;
+      }
+      ::-webkit-input-placeholder {
+        color: #000000;
+        font-size: 14px;
+      }
+      ::-moz-placeholder {
+        color: #000000;
+        font-size: 14px;
+      }
+      :-ms-input-placeholder {
+        color: #000000;
+        font-size: 14px;
+      }
+      ::placeholder {
+        color: #000000;
+        font-size: 14px;
+      }
+    }
+  }
+  .download-excel{
+    position: relative;
+    height: 227px;
+    .btn-group{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      button{
+        background-color: white;
+      }
+    }
   }
 
 }
+.providerTypes{
+  margin-top: -210px;//-208
+  background-color: #eeeeee;
+  height: 177px;
+  margin-bottom: 100px;
+  font-size: 14px;
+  line-height: 25px;
+  .tipo {
+    margin: auto;
+    width: fit-content;
+    text-align: left;
+    p {
+      font-weight: bold;
+      margin-top: 17px;
+      margin-bottom: 2px;
+    }
+    span.deleteProvider {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 10px;
+        width: 12px;
+        background: url('../../images/siteImages/adminAgency/minus-icon.svg');
+        background-size: 10px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+  .addProviderType {
+    margin-top: 11px;
+  }
+}
+
+
 
 
 table.dataTable{
@@ -47,6 +127,7 @@ table.dataTable{
     border-bottom: 1px solid #d2d2d2;
   }
   thead th{
+    text-align: left;
     border: 1px solid #ddd!important;
     border-top: 2px solid #ddd!important;
     border-left: 0!important;

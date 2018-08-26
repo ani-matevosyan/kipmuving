@@ -1,11 +1,16 @@
 require('./common');
 window.select2 = require('select2');
 window.toastr = require('toastr');
-require('datatables');
+
+require("datatables.net");
+require("datatables.net-bs");
+window.JSZip = require("jszip");
+require("datatables.net-buttons");
+require("datatables.net-buttons-bs");
+require( 'datatables.net-buttons/js/buttons.html5' );
 
 
-
-set_toastr_options = function(){
+const set_toastr_options = function(){
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -30,11 +35,10 @@ $(document).ready(function(){
     const ProvidersTable = function(dbdata) {
         const table = $('<table  class="table display cell-border"></table>');
         $('#providersTable').empty().append(table);
-        providersTable = table.dataTable({
+        const providersTable = table.dataTable({
             data: providersTableData,
             "ordering": true,
             "searchable": true,
-
             columns: [
                 {
                     "data": 'id',
@@ -73,7 +77,7 @@ $(document).ready(function(){
                     }
                 },
                 {
-                    "data": 'id',
+                    "data": 'identity',
                     "title": 'ID',
                     "orderable": true,
                     "searchable": true,
@@ -84,10 +88,11 @@ $(document).ready(function(){
                 {
                     "data": 'phone',
                     "title": 'Teléfono',
+                    "class": 'text-right',
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data
+                        return data;
                     }
                 },
                 {
@@ -96,72 +101,38 @@ $(document).ready(function(){
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data
+                        return data;
                     }
                 },
                 {
                     "data": 'service_price',
                     "title": 'Valor Servicio',
+                    "class": 'text-right',
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data
+                        return `$ ${data}`;
                     }
                 },
-
-
             ],
-            "sDom": "<'row'<'col-xs-12 text-xs-center text-left filterDiv 'f><'col-x-12 col-sm-8 btn-group text-xs-center text-right  export_option 'B>><'ze_wrapper margin-top-10 't><'row margin-top-20'<'col-xs-6 units 'l><'col-xs-6'p>>",
+            "sDom": "<'row'<'col-xs-12 text-xs-center text-right filterDiv '<'addProviderDiv'>f>><'ze_wrapper margin-top-10 't><'row margin-top-20'<'col-xs-6 units 'l><'col-xs-6'p>><'bottom download-excel text-right'B>",
             buttons: [
-
                 {
-                    extend: 'collection',
-                    text: '<i class="fa fa-cog"></i>  ' + 'classroom_export_options' + '  <i class="fa fa-angle-down"></i>',
-                    className: 'dt_buttons_drop btn-circle margin-bottom-0 ',
-
-                    buttons: [
-                        {
-                            extend:    'copyHtml5',
-                            text:      '<i class="fa fa-files-o"></i> Copy',
-                            titleAttr: 'Copy'
-                        },
-                        {
-                            extend:    'excelHtml5',
-                            text:      '<i class="fa fa-file-excel-o"></i> Excel',
-                            titleAttr: 'Excel'
-                        },
-                        {
-                            extend:    'csvHtml5',
-                            text:      '<i class="fa fa-file-text-o"></i> CSV',
-                            titleAttr: 'CSV'
-                        },
-                        {
-                            extend:    'pdfHtml5',
-                            text:      '<i class="fa fa-file-pdf-o"></i> PDF',
-                            titleAttr: 'PDF'
-                        },
-                        {
-                            extend:    'pdfHtml5',
-                            text:      '<i class="fa fa-print"></i> Print',
-                            titleAttr: 'PDF'
-                        }
-                    ],
-                    fade: true
+                    extend: 'excel',
+                    text: '<span class="glyphicon glyphicon-download-alt"></span> <u>Download Excel</u> ',
                 }
             ],
-            // "language": {
-            //     "url": base_url + "app/lang/" + lang + '.json'
-            // },
-            "bLengthChange": true,
+            "language": {
+                "search": "",
+                searchPlaceholder: "Buscar"
+            },
+            "bLengthChange": false,
             "iDisplayLength": 25,
             "drawCallback": function( settings ) {
-                // $('.dt-buttons').removeClass('btn-group');
-                // $('.dt-buttons .buttons-pdf').attr('class', 'dt-button buttons-pdf buttons-html5 btn green btn-outline');
-                // $('.dt-buttons .buttons-print').attr('class', 'dt-button buttons-print btn dark btn-outline');
-                // $('.dt-buttons .buttons-csv').attr('class', 'dt-button buttons-csv buttons-html5 btn purple btn-outline');
-                // $('.dataTables_filter').addClass('no-padding');
+                $('.addProviderDiv').html('<button class="btn btn-success addProvidersBtn">Adicionar Proveedores</button>');
             },
             "bAutoWidth": true,
+            "paging": false,
             "sPaginationType": "simple_numbers",
         });
 
