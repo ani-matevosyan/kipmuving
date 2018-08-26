@@ -25,4 +25,9 @@ class Provider extends Model
         return $this->belongsToMany('App\AdminAgencyModels\Activity', 'activity_provider', 'provider_id');
     }
 
+    public function providerType()
+    {
+        return $this->belongsTo('App\AdminAgencyModels\ProviderType', 'type', 'id');
+    }
+
 }

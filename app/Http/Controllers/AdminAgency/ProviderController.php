@@ -15,7 +15,10 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        $providers = Provider::with('providerType')->get();
+//        foreach ($providers as $provider){
+//            echo $provider->providerType->name;
+//        }
 
         $data = [
             'styles'         => config('resources.admin-agency.providers.styles'),

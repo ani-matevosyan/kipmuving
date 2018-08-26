@@ -64,7 +64,7 @@ $(document).ready(function(){
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data;
+                        return row.provider_type.name;
                     }
                 },
                 {
