@@ -122,6 +122,8 @@ $(document).ready(function(){
                     text: '<span class="glyphicon glyphicon-download-alt"></span> <u>Download Excel</u> ',
                 }
             ],
+            "sScrollX": "100%",
+            "sScrollXInner": "100%",
             "language": {
                 "search": "",
                 searchPlaceholder: "Buscar"

@@ -120,32 +120,40 @@
 }
 
 
-
-
-table.dataTable{
-  &.no-footer {
-    border-bottom: 1px solid #d2d2d2;
+.dataTables_scrollBody{
+  border: 0!important;
+  table.dataTable {
+    th{
+      border-bottom: 0!important;
+    }
+    &.display tbody tr{
+      &.even {
+        background-color: #f9f9f9;
+      }
+      &.odd {
+        background-color: #ffffff;
+      }
+      &:hover {
+        background-color: #f6f6f6;
+      }
+    }
+    &.no-footer {
+      border-bottom: 1px solid #d2d2d2 !important;
+    }
   }
+}
+
+.dataTables_scrollHead table.dataTable{
   thead th{
     text-align: left;
     border: 1px solid #ddd!important;
     border-top: 2px solid #ddd!important;
-    border-left: 0!important;
+    border-right: 0.5px solid #ddd!important;
+    border-left: 0.5px solid #ddd!important;
     &:first-child{
       border-left: 1px solid #ddd!important;
     }
     background-color: #f2f2f2!important;
-  }
-  &.display tbody tr{
-    &.even {
-      background-color: #f9f9f9;
-    }
-    &.odd {
-      background-color: #ffffff;
-    }
-    &:hover {
-      background-color: #f6f6f6;
-    }
   }
 }
 
