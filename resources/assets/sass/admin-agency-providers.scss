@@ -3,6 +3,7 @@
 @import "../../../node_modules/toastr/build/toastr";
 @import "../../../node_modules/datatables/media/css/jquery.dataTables.min";
 @import "../../../public/libs/dataTables/css/bootstrap";
+@import "../../../node_modules/country-select-js/build/css/countrySelect";
 
 
 
@@ -39,7 +40,7 @@
     margin-bottom: 68px;
     .addProviderDiv{
       display: inline-block;
-      .addProvidersBtn{
+      .addProviderBtn{
         font-weight: bold;
       }
     }
@@ -160,42 +161,83 @@
 
 
 
-
-#addProviderTypeModal{
-  .modal-dialog{
-    .modal-content{
-      background-color: #f9f6e9;
+#addProviderModal {
+  .modal-dialog {
+    width: 750px;
+    margin: auto;
+    @media (max-width: 767px) {
+      width: auto;
     }
-    .modal-header {
-      border: 0;
-      padding-bottom: 0;
+    .modal-header{
       h4 {
-        font-size: 19px;
-        line-height: 23px;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: #b49f70;
+        padding-left: 87px;
       }
     }
     .modal-body{
+      padding-right: 50px;
+      .form-horizontal{
+        margin-bottom: 0;
+        .form-group{
+          margin-bottom: 10px;
+        }
+        .country-select{
+          width: 100%;
+          .flag {
+            background-image: url("../../images/siteImages/adminAgency/flags.png");
+          }
+        }
+        .comments{
+          textarea{
+            height: 58px;
+          }
+          @media (min-width: 767px) {
+            .col-sm-2{
+              width: 12.66667%;
+            }
+            .col-sm-10{
+              width: 87.33333%;
+            }
+          }
+
+        }
+      }
 
     }
-    .modal-footer {
-      padding-top: 0;
-      padding-right: 35px;
-      border: 0;
-    }
-  }
-
-  /*
-  *   Vertically centering the modal
-  */
-  @media screen  and (min-width:768px) {
-    .modal-dialog {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -30%) !important;
+    .modal-footer{
+      background-color: #f2ebcf;
+      .activities{
+        padding-left: 30px;
+        text-align: left;
+        p{
+          font-size: 19px;
+          line-height: 26px;
+          padding-top: 15px;
+          color: rgb(206,188,117);
+          text-transform: uppercase;
+        }
+        [class*="col-"]{
+          padding-left: 0;
+          padding-right: 8px;
+        }
+        .activity{
+          margin-bottom: 3px;
+          .operations {
+            min-height: 34px;
+            position: relative;
+            span {
+              position: absolute;
+              top: 29%;
+              font-size: 15px;
+              color: green;
+              cursor: pointer;
+            }
+            .glyphicon-remove {
+              left: 20px;
+              color: gray;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\AdminAgencyModels\Provider;
 use Illuminate\Support\Facades\Validator;
+use App\AdminAgencyModels\Activity;
 
 class ProviderController extends Controller
 {
@@ -19,11 +20,13 @@ class ProviderController extends Controller
     {
         $providers = Provider::with('providerType')->get();
         $providerTypes = ProviderType::all();
+        $activities = Activity::all();
         $data = [
             'styles'         => config('resources.admin-agency.providers.styles'),
             'scripts'        => config('resources.admin-agency.providers.scripts'),
             'providers'      => $providers,
             'providerTypes'      => $providerTypes,
+            'activities' => $activities,
         ];
         return view('site.adminAgency.providers', $data);
     }

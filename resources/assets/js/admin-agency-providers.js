@@ -9,6 +9,8 @@ require("datatables.net-buttons");
 require("datatables.net-buttons-bs");
 require( 'datatables.net-buttons/js/buttons.html5' );
 
+require( 'country-select-js' );
+
 
 const set_toastr_options = function(){
     toastr.options = {
@@ -131,7 +133,7 @@ $(document).ready(function(){
             "bLengthChange": false,
             "iDisplayLength": 25,
             "drawCallback": function( settings ) {
-                $('.addProviderDiv').html('<button class="btn btn-success addProvidersBtn">Adicionar Proveedores</button>');
+                $('.addProviderDiv').html('<button class="btn btn-success addProviderBtn">Adicionar Proveedores</button>');
             },
             "bAutoWidth": true,
             "paging": false,
@@ -173,6 +175,7 @@ $(document).ready(function(){
     $('.download-excel').height(providerTypesDivHeight + 50);
     $('.providerTypes').css('margin-top', -providerTypesDivHeight - 33);
 
+
     $('.providerTypes').on("click", ".deleteProviderBtn", function () {
         const providerTypeId = $(this).attr('provider-type-id');
         $.ajax({
@@ -196,6 +199,51 @@ $(document).ready(function(){
         });
     });
 
+    $(document.body).undelegate('.addProviderDiv .addProviderBtn', 'click')
+        .delegate('.addProviderDiv .addProviderBtn', "click", function(ev) {
+            $('#addProviderModal').modal('show');
+    });
+
+
+    $("#country").countrySelect({
+        'defaultCountry': 'br',
+        });
+    const countryData = $("#country").countrySelect("getSelectedCountryData");
+    $("#country").countrySelect("selectCountry", "br");
+
+
+    $(document.body).undelegate('.glyphicon-plus-sign', 'click')
+        .delegate(".glyphicon-plus-sign", "click", function(ev){
+            let html = `<div class="row activity">
+                          <div class="col-sm-4">
+                            <select name="activity[]" class="activity form-control">`;
+            $.each(activities, function (key, item) {
+                html +=      `<option value="${item.id}">
+                                    ${item.name}
+                              </option>`
+            });
+            html +=        `</select>
+                          </div>
+                          <div class="col-sm-2">
+                                <input type="text" name="price" class="form-control " placeholder="Valor">
+                          </div>
+                          <div class="col-sm-2">
+                              <div class="operations">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                              </div>
+                          </div>
+                        </div>`;
+            const element = $(this).parent().parent().parent();
+            $(html).insertAfter(element);
+        });
+
+
+    $(document.body).undelegate('.glyphicon-remove', 'click')
+        .delegate(".glyphicon-remove", "click", function(ev){
+            const element = $(this).parent().parent().parent();
+            element.fadeOut().remove();
+        });
 
 
 });
