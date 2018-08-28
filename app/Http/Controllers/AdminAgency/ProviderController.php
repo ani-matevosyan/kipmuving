@@ -58,7 +58,8 @@ class ProviderController extends Controller
                     $providerType->delete();
                     echo json_encode(['success' => true]);
                 }else{
-                    $errorMessages = array('This provider type has provider you cannot delete it!!!!');
+//                    $errorMessages = array('You cannot delete provider types that have providers !!');
+                    $errorMessages = array('¡No puedes eliminar los tipos de proveedores que tienen proveedores!');
                      echo json_encode(['errorMessages' => $errorMessages]);
                 }
             }else{

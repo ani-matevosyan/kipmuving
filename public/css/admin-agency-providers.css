@@ -9927,7 +9927,6 @@ div.FixedHeader_Cloned table {
 .providerTypes {
   margin-top: -210px;
   background-color: #eeeeee;
-  height: 177px;
   margin-bottom: 100px;
   font-size: 14px;
   line-height: 25px;
@@ -9960,6 +9959,7 @@ div.FixedHeader_Cloned table {
 
 .providerTypes .addProviderType {
   margin-top: 11px;
+  margin-bottom: 16px;
 }
 
 .dataTables_scrollBody {

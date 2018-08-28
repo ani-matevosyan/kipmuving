@@ -169,6 +169,9 @@ $(document).ready(function(){
         });
     });
 
+    const providerTypesDivHeight = $('.providerTypes').height();
+    $('.download-excel').height(providerTypesDivHeight + 50);
+    $('.providerTypes').css('margin-top', -providerTypesDivHeight - 33);
 
     $('.providerTypes').on("click", ".deleteProviderBtn", function () {
         const providerTypeId = $(this).attr('provider-type-id');
