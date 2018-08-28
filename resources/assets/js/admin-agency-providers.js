@@ -143,5 +143,32 @@ $(document).ready(function(){
     ProvidersTable();
 
 
+    $('.providerTypes').on("click", ".addProviderType", function () {
+        $('#addProviderTypeModal').modal('show');
+    });
+    $('#addProviderTypeModal').on("click", ".addProviderTypeBtn", function () {
+       const providerType = $('input[name=provider_type]').val();
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/addProviderType`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'provider_type': providerType
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    window.location.reload();
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
+        });
+    });
+
+
 
 });

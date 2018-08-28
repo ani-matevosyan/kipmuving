@@ -228,3 +228,4 @@ Route::get('/admin/agency/providers', [
     'uses'       => 'AdminAgency\ProviderController@index',
     'as'         => 'adminAgency.providers'
 ]);
+Route::post('/admin/agency/addProviderType', 'AdminAgency\ProviderController@addProviderType');

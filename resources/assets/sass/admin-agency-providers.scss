@@ -160,7 +160,44 @@
 
 
 
+#addProviderTypeModal{
+  .modal-dialog{
+    .modal-content{
+      background-color: #f9f6e9;
+    }
+    .modal-header {
+      border: 0;
+      padding-bottom: 0;
+      h4 {
+        font-size: 19px;
+        line-height: 23px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #b49f70;
+      }
+    }
+    .modal-body{
 
+    }
+    .modal-footer {
+      padding-top: 0;
+      padding-right: 35px;
+      border: 0;
+    }
+  }
+
+  /*
+  *   Vertically centering the modal
+  */
+  @media screen  and (min-width:768px) {
+    .modal-dialog {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%) !important;
+    }
+  }
+}
 
 
 

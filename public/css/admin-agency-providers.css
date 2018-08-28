@@ -9999,4 +9999,42 @@ div.FixedHeader_Cloned table {
   border-left: 1px solid #ddd !important;
 }
 
+#addProviderTypeModal {
+  /*
+  *   Vertically centering the modal
+  */
+}
+
+#addProviderTypeModal .modal-dialog .modal-content {
+  background-color: #f9f6e9;
+}
+
+#addProviderTypeModal .modal-dialog .modal-header {
+  border: 0;
+  padding-bottom: 0;
+}
+
+#addProviderTypeModal .modal-dialog .modal-header h4 {
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #b49f70;
+}
+
+#addProviderTypeModal .modal-dialog .modal-footer {
+  padding-top: 0;
+  padding-right: 35px;
+  border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #addProviderTypeModal .modal-dialog {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%) !important;
+  }
+}
+
 /*# sourceMappingURL=admin-agency-providers.css.map */
