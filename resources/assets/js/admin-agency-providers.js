@@ -170,5 +170,29 @@ $(document).ready(function(){
     });
 
 
+    $('.providerTypes').on("click", ".deleteProviderBtn", function () {
+        const providerTypeId = $(this).attr('provider-type-id');
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/deleteProviderType`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'provider_type_id': providerTypeId
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    window.location.reload();
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
+        });
+    });
+
+
 
 });

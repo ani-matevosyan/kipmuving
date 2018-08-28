@@ -46,4 +46,26 @@ class ProviderController extends Controller
             exit;
         }
     }
+
+    protected function deleteProviderType(Request $request){
+        if($request->isMethod('post')) {
+            $validator = Validator::make($request->all(), [
+                'provider_type_id' => 'required|numeric',
+            ]);
+            if(!$validator->fails()){
+                $providerType = ProviderType::withCount('providers')->find($request->provider_type_id);
+                if($providerType->providers_count == 0){
+                    $providerType->delete();
+                    echo json_encode(['success' => true]);
+                }else{
+                    $errorMessages = array('This provider type has provider you cannot delete it!!!!');
+                     echo json_encode(['errorMessages' => $errorMessages]);
+                }
+            }else{
+                $errorMessages = $validator->errors();
+                echo json_encode(['errorMessages' => $errorMessages]);
+            }
+            exit;
+        }
+    }
 }

@@ -14,7 +14,7 @@
                        <ul>
                            @if( count($providerTypes) > 0 )
                                @foreach($providerTypes as $type )
-                                    <li><span class="deleteProvider"></span> {{ $type->name }} </li>
+                                    <li><span class="deleteProviderBtn" provider-type-id="{{ $type->id }}"></span> {{ $type->name }} </li>
                                @endforeach
                            @endif
                        </ul>

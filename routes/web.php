@@ -229,3 +229,4 @@ Route::get('/admin/agency/providers', [
     'as'         => 'adminAgency.providers'
 ]);
 Route::post('/admin/agency/addProviderType', 'AdminAgency\ProviderController@addProviderType');
+Route::post('/admin/agency/deleteProviderType', 'AdminAgency\ProviderController@deleteProviderType');

@@ -9947,7 +9947,7 @@ div.FixedHeader_Cloned table {
   margin-bottom: 2px;
 }
 
-.providerTypes .tipo span.deleteProvider:before {
+.providerTypes .tipo span.deleteProviderBtn:before {
   content: '';
   display: inline-block;
   height: 10px;
