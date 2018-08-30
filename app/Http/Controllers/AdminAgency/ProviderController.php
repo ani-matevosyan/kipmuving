@@ -18,15 +18,15 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::with('providerType')->get();
+        $providers = Provider::with(['providerType', 'activities'])->get();
         $providerTypes = ProviderType::all();
         $activities = Activity::all();
         $data = [
             'styles'         => config('resources.admin-agency.providers.styles'),
             'scripts'        => config('resources.admin-agency.providers.scripts'),
             'providers'      => $providers,
-            'providerTypes'      => $providerTypes,
-            'activities' => $activities,
+            'providerTypes'  => $providerTypes,
+            'activities'     => $activities,
         ];
         return view('site.adminAgency.providers', $data);
     }

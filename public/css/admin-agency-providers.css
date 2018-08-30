@@ -11448,6 +11448,19 @@ div.FixedHeader_Cloned table {
   background-color: white;
 }
 
+#providersTable td .activityNameDiv {
+  white-space: nowrap;
+}
+
+#providersTable td hr {
+  margin: 8px -10px 8px -10px;
+  border-top: 1px solid #ddd;
+}
+
+#providersTable td hr:last-child {
+  display: none;
+}
+
 .providerTypes {
   margin-top: -210px;
   background-color: #eeeeee;

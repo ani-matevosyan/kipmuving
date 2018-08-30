@@ -82,38 +82,58 @@ $(document).ready(function(){
                     "data": 'identity',
                     "title": 'ID',
                     "orderable": true,
+                    "class": 'identityHr',
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data;
+                        return `<div class="identityDiv">${data}</div>`;
                     }
                 },
                 {
                     "data": 'phone',
                     "title": 'Teléfono',
-                    "class": 'text-right',
+                    "class": 'text-right phoneHr',
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data;
+                        return `<div class="phoneDiv">${data}</div>`;
                     }
                 },
                 {
                     "data": 'email',
                     "title": 'Email',
                     "orderable": true,
+                    "class": ' emailHr',
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return data;
+                        return `<div class="emailDiv">${data}</div>`;
                     }
                 },
                 {
-                    "data": 'service_price',
+                    "data": '',
+                    "title": 'Actividad',
+                    "class": 'text-left activitiesHr',
+                    "orderable": true,
+                    "searchable": true,
+                    "render": function (data, type, row, meta) {
+                        let html = '';
+                        $.each(row.activities, function (i, v) {
+                           html += `<div class="activityNameDiv">${v.name}</div> <hr>`;
+                        });
+                        return html;
+                    }
+                },
+                {
+                    "data": '',
                     "title": 'Valor Servicio',
                     "class": 'text-right',
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return `$ ${data}`;
+                        let html = '';
+                        $.each(row.activities, function (i, v) {
+                            html += `$ ${v.pivot.price} <hr>`;
+                        });
+                        return html;
                     }
                 },
             ],

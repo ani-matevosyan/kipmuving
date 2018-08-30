@@ -84,6 +84,18 @@
       }
     }
   }
+  td{
+    .activityNameDiv{
+      white-space: nowrap;
+    }
+    hr{
+      margin: 8px -10px 8px -10px;
+      border-top: 1px solid #ddd;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
 
 }
 .providerTypes{
