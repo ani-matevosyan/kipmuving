@@ -85,5 +85,7 @@ return [
 	'attributes'           => [
         'start_time.*' => 'start time',
         'end_time.*' => 'end time',
+        'prices.0' => 'price',
+        'prices.*' => 'price',
     ],
 ];

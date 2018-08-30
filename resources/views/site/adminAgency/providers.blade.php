@@ -56,7 +56,7 @@
                     <h4 class="modal-title">Datos personales</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal addActivityForm" action="/action_page.php">
+                    <form class="form-horizontal addProviderForm" action="/action_page.php">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -116,7 +116,7 @@
                                 <div class="form-group comments">
                                     <label class="control-label col-sm-2" for="pwd">Comentario</label>
                                     <div class="col-sm-10">
-                                        <textarea name="comments" class="form-control" id="comments" ></textarea>
+                                        <textarea name="comment" class="form-control" id="comments" ></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -124,31 +124,32 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <div class="activities">
-                        <p>Actividades</p>
-                        <div class="row activity">
-                            <div class="col-sm-4">
-                                <select name="activity[]" class="activity form-control">
-                                    @foreach($activities as $item)
-                                        <option value="{{$item->id}}">
-                                            {{ ucfirst($item->name) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="text" name="price" class="form-control " placeholder="Valor">
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="operations">
-                                    <span class="glyphicon glyphicon-plus-sign"></span>
-                                    {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                    <form class="form-horizontal providerActivitiesForm" action="/action_page.php">
+                        <div class="activities">
+                            <p>Actividades</p>
+                            <div class="row activity">
+                                <div class="col-sm-4">
+                                    <select name="activities[]" class="activity form-control">
+                                        @foreach($activities as $item)
+                                            <option value="{{$item->id}}">
+                                                {{ ucfirst($item->name) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" name="prices[]" class="form-control " placeholder="Valor">
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="operations">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                        {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <button type="button" class="btn btn-success addProviderTypeBtn">Adicionar </button>
+                    </form>
+                    <button type="button" class="btn btn-success addProviderBtn">Adicionar </button>
                 </div>
             </div>
         </div>

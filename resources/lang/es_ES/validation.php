@@ -68,5 +68,7 @@ return [
         'name' => 'nombre',
         'price' => 'valor',
         'min_persons' => 'minimo',
+        'prices.0' => 'valor',
+        'prices.*' => 'valor',
     ],
 ];

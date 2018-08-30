@@ -19,7 +19,8 @@ class Activity extends Model
 
     public function providers()
     {
-        return $this->belongsToMany('App\AdminAgencyModels\Provider', 'activity_provider', 'activity_id');
+        return $this->belongsToMany('App\AdminAgencyModels\Provider', 'activity_provider', 'activity_id')
+                    ->withPivot('price');
     }
 
 

@@ -216,7 +216,7 @@ $(document).ready(function(){
         .delegate(".glyphicon-plus-sign", "click", function(ev){
             let html = `<div class="row activity">
                           <div class="col-sm-4">
-                            <select name="activity[]" class="activity form-control">`;
+                            <select name="activities[]" class="activity form-control">`;
             $.each(activities, function (key, item) {
                 html +=      `<option value="${item.id}">
                                     ${item.name}
@@ -225,7 +225,7 @@ $(document).ready(function(){
             html +=        `</select>
                           </div>
                           <div class="col-sm-2">
-                                <input type="text" name="price" class="form-control " placeholder="Valor">
+                                <input type="text" name="prices[]" class="form-control " placeholder="Valor">
                           </div>
                           <div class="col-sm-2">
                               <div class="operations">
@@ -243,7 +243,35 @@ $(document).ready(function(){
         .delegate(".glyphicon-remove", "click", function(ev){
             const element = $(this).parent().parent().parent();
             element.fadeOut().remove();
+    });
+
+
+    $('#addProviderModal').on("click", ".addProviderBtn", function () {
+        const formData = $('.addProviderForm, .providerActivitiesForm').serialize();
+        console.log(formData);
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/addProvider`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'formData': formData
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    window.location.reload();
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
         });
+    });
+
+
+
 
 
 });
