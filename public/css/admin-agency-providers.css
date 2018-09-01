@@ -11536,64 +11536,64 @@ div.FixedHeader_Cloned table {
   border-left: 1px solid #ddd !important;
 }
 
-#addProviderModal .modal-dialog {
+#addProviderModal .modal-dialog, #editProviderModal .modal-dialog {
   width: 750px;
   margin: auto;
 }
 
 @media (max-width: 767px) {
-  #addProviderModal .modal-dialog {
+  #addProviderModal .modal-dialog, #editProviderModal .modal-dialog {
     width: auto;
   }
 }
 
-#addProviderModal .modal-dialog .modal-header h4 {
+#addProviderModal .modal-dialog .modal-header h4, #editProviderModal .modal-dialog .modal-header h4 {
   padding-left: 87px;
 }
 
-#addProviderModal .modal-dialog .modal-body {
+#addProviderModal .modal-dialog .modal-body, #editProviderModal .modal-dialog .modal-body {
   padding-right: 50px;
 }
 
-#addProviderModal .modal-dialog .modal-body .form-horizontal {
+#addProviderModal .modal-dialog .modal-body .form-horizontal, #editProviderModal .modal-dialog .modal-body .form-horizontal {
   margin-bottom: 0;
 }
 
-#addProviderModal .modal-dialog .modal-body .form-horizontal .form-group {
+#addProviderModal .modal-dialog .modal-body .form-horizontal .form-group, #editProviderModal .modal-dialog .modal-body .form-horizontal .form-group {
   margin-bottom: 10px;
 }
 
-#addProviderModal .modal-dialog .modal-body .form-horizontal .country-select {
+#addProviderModal .modal-dialog .modal-body .form-horizontal .country-select, #editProviderModal .modal-dialog .modal-body .form-horizontal .country-select {
   width: 100%;
 }
 
-#addProviderModal .modal-dialog .modal-body .form-horizontal .country-select .flag {
+#addProviderModal .modal-dialog .modal-body .form-horizontal .country-select .flag, #editProviderModal .modal-dialog .modal-body .form-horizontal .country-select .flag {
   background-image: url("../../images/siteImages/adminAgency/flags.png");
 }
 
-#addProviderModal .modal-dialog .modal-body .form-horizontal .comments textarea {
+#addProviderModal .modal-dialog .modal-body .form-horizontal .comment textarea, #editProviderModal .modal-dialog .modal-body .form-horizontal .comment textarea {
   height: 58px;
 }
 
 @media (min-width: 767px) {
-  #addProviderModal .modal-dialog .modal-body .form-horizontal .comments .col-sm-2 {
+  #addProviderModal .modal-dialog .modal-body .form-horizontal .comment .col-sm-2, #editProviderModal .modal-dialog .modal-body .form-horizontal .comment .col-sm-2 {
     width: 12.66667%;
   }
-  #addProviderModal .modal-dialog .modal-body .form-horizontal .comments .col-sm-10 {
+  #addProviderModal .modal-dialog .modal-body .form-horizontal .comment .col-sm-10, #editProviderModal .modal-dialog .modal-body .form-horizontal .comment .col-sm-10 {
     width: 87.33333%;
   }
 }
 
-#addProviderModal .modal-dialog .modal-footer {
+#addProviderModal .modal-dialog .modal-footer, #editProviderModal .modal-dialog .modal-footer {
   background-color: #f2ebcf;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities {
+#addProviderModal .modal-dialog .modal-footer .activities, #editProviderModal .modal-dialog .modal-footer .activities {
   padding-left: 30px;
   text-align: left;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities p {
+#addProviderModal .modal-dialog .modal-footer .activities p, #editProviderModal .modal-dialog .modal-footer .activities p {
   font-size: 19px;
   line-height: 26px;
   padding-top: 15px;
@@ -11601,21 +11601,21 @@ div.FixedHeader_Cloned table {
   text-transform: uppercase;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities [class*="col-"] {
+#addProviderModal .modal-dialog .modal-footer .activities [class*="col-"], #editProviderModal .modal-dialog .modal-footer .activities [class*="col-"] {
   padding-left: 0;
   padding-right: 8px;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities .activity {
+#addProviderModal .modal-dialog .modal-footer .activities .activity, #editProviderModal .modal-dialog .modal-footer .activities .activity {
   margin-bottom: 3px;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities .activity .operations {
+#addProviderModal .modal-dialog .modal-footer .activities .activity .operations, #editProviderModal .modal-dialog .modal-footer .activities .activity .operations {
   min-height: 34px;
   position: relative;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities .activity .operations span {
+#addProviderModal .modal-dialog .modal-footer .activities .activity .operations span, #editProviderModal .modal-dialog .modal-footer .activities .activity .operations span {
   position: absolute;
   top: 29%;
   font-size: 15px;
@@ -11623,7 +11623,7 @@ div.FixedHeader_Cloned table {
   cursor: pointer;
 }
 
-#addProviderModal .modal-dialog .modal-footer .activities .activity .operations .glyphicon-remove {
+#addProviderModal .modal-dialog .modal-footer .activities .activity .operations .glyphicon-remove, #editProviderModal .modal-dialog .modal-footer .activities .activity .operations .glyphicon-remove {
   left: 20px;
   color: gray;
 }

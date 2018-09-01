@@ -28,7 +28,7 @@ const set_toastr_options = function(){
         "hideMethod": "fadeOut"
     }
 };
-
+let providersTable;
 
 $(document).ready(function(){
 
@@ -37,7 +37,7 @@ $(document).ready(function(){
     const ProvidersTable = function(dbdata) {
         const table = $('<table  class="table display cell-border"></table>');
         $('#providersTable').empty().append(table);
-        const providersTable = table.dataTable({
+         providersTable = table.DataTable({
             data: providersTableData,
             "ordering": true,
             "searchable": true,
@@ -268,18 +268,81 @@ $(document).ready(function(){
 
     $('#addProviderModal').on("click", ".addProviderBtn", function () {
         const formData = $('.addProviderForm, .providerActivitiesForm').serialize();
-        console.log(formData);
+        const countryData = $("#addProviderModal #country").countrySelect("getSelectedCountryData");
+        const country = countryData.iso2;
         $.ajax({
             type: 'POST',
             url: `/admin/agency/addProvider`,
             data: {
                 '_token': $('meta[name="csrf-token"]').attr('content'),
-                'formData': formData
+                'formData': formData,
+                'country': country
             },
             success: function(res){
                 let response = JSON.parse(res);
                 if(response.success){
-                    window.location.reload();
+                    providersTable.row.add(response.provider).draw();
+                    $('#addProviderModal').modal('hide');
+                    toastr.success('success');
+                    $('.addProviderForm, .providerActivitiesForm').trigger("reset");
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
+        });
+    });
+
+
+    $('#providersTable .dataTables_scrollBody .table tbody').on( 'click', ' tr', function () {
+        const tr = $(this);
+        $('#providersTable tr.selected').removeClass('selected');
+        tr.addClass('selected');
+        const row_data = providersTable.row(tr).data();
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/getProvider`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'provider_id': row_data.id
+            },
+            success: function(res){
+                $('.editProviderModal').html(res);
+                $('#editProviderModal').modal('show');
+                $("#editProviderModal #country").countrySelect();
+                const countryCode = $("#editProviderModal #country").attr('valueCode');
+                $("#editProviderModal #country").countrySelect("selectCountry", countryCode);
+            }
+        });
+    });
+
+
+    $(document.body).undelegate('#editProviderModal .editProviderBtn', 'click')
+        .delegate("#editProviderModal .editProviderBtn", "click", function(ev){
+
+        const formData = $('.editProviderForm, .providerActivitiesEditForm').serialize();
+        const countryData = $("#editProviderModal #country").countrySelect("getSelectedCountryData");
+        const country = countryData.iso2;
+        const provider_id = $(this).attr('provider_id');
+
+        $.ajax({
+            type: 'POST',
+            url: `/admin/agency/editProvider`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'formData': formData,
+                'country': country,
+                'provider_id': provider_id,
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    $('#editProviderModal').modal('hide');
+                    const tr = $('#providersTable tr.selected');
+                    providersTable.row(tr).data(response.provider).draw();
+                    toastr.success('success');
                 }
                 if(response.errorMessages){
                     $.each(response.errorMessages, function (i, value) {

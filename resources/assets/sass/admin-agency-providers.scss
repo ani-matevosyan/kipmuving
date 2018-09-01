@@ -173,7 +173,7 @@
 
 
 
-#addProviderModal {
+#addProviderModal, #editProviderModal {
   .modal-dialog {
     width: 750px;
     margin: auto;
@@ -198,7 +198,7 @@
             background-image: url("../../images/siteImages/adminAgency/flags.png");
           }
         }
-        .comments{
+        .comment{
           textarea{
             height: 58px;
           }

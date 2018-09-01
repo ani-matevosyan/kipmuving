@@ -28,7 +28,23 @@ class ProviderController extends Controller
             'providerTypes'  => $providerTypes,
             'activities'     => $activities,
         ];
-        return view('site.adminAgency.providers', $data);
+        return view('site.adminAgency.providers.providers', $data);
+    }
+
+    protected function getProvider(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $providerId = $request->provider_id;
+            $providerTypes = ProviderType::all();
+            $activities = Activity::all();
+            $provider = Provider::with(['providerType', 'activities'])->find($providerId);
+            $data = [
+                'providerTypes'  => $providerTypes,
+                'activities'     => $activities,
+                'provider'      => $provider,
+            ];
+            echo view('site.adminAgency.providers.editModal', $data);
+        }
     }
 
     protected function addProvider(Request $request){
@@ -52,7 +68,7 @@ class ProviderController extends Controller
             if(!$validator->fails()){
                 $provider = new Provider;
                 $provider->name = $formData['name'];
-                $provider->country = $formData['country'];
+                $provider->country = $request->country;
                 $provider->identity = $formData['identity'];
                 $provider->address = $formData['address'];
                 $provider->email = $formData['email'];
@@ -78,7 +94,69 @@ class ProviderController extends Controller
                 if(isset($activities)){
                     $provider->activities()->attach($arrForAttach);
                 }
-                echo json_encode(['success' => true]);
+                echo json_encode([
+                    'success' => true,
+                    'provider' =>  Provider::with(['providerType', 'activities'])->find($provider->id),
+                ]);
+            }else{
+                $errorMessages = $validator->errors();
+                echo json_encode(['errorMessages' => $errorMessages]);
+            }
+            exit;
+        }
+    }
+
+    protected function editProvider(Request $request){
+        if($request->isMethod('post')) {
+            parse_str($request->formData, $formData);
+            $validator = Validator::make($formData, [
+                'name' => 'required|max:255',
+                'country' => 'max:255',
+                'identity' => 'max:255',
+                'address' => 'max:255',
+                'email' => "email|max:255|unique:admin_agency.providers,email,$request->provider_id",
+                'phone' => 'max:255',
+                'type' => 'numeric',
+                'phone' => 'max:255',
+                'comment' => 'max:1255',
+                'activities.0' => 'required|numeric',
+                'prices.0' => 'required|numeric',
+                'prices.*' => 'numeric',
+            ]);
+            if(!$validator->fails()){
+                $provider = Provider::find($request->provider_id);
+                $provider->name = $formData['name'];
+                $provider->country = $request->country;
+                $provider->identity = $formData['identity'];
+                $provider->address = $formData['address'];
+                $provider->email = $formData['email'];
+                $provider->phone = $formData['phone'];
+                $provider->type = $formData['type'];
+                $provider->comment = $formData['comment'];
+                $nameArr =  explode(" ",$formData['name']);
+                $provider->first_name = $nameArr[0];
+                $provider->last_name = isset($nameArr[1]) ? $nameArr[1]: '';
+
+                $provider->save();
+
+                $activities = $formData['activities'];
+                $prices = $formData['prices'];
+
+                $arrForAttach = array();
+                foreach ($activities as $key =>$value){
+                    foreach ($prices as $k=>$v){
+                        if ($key==$k){
+                            $arrForAttach[$value] = array('price'=>$v);
+                        }
+                    }
+                }
+                if(isset($activities)){
+                    $provider->activities()->sync($arrForAttach);
+                }
+                echo json_encode([
+                    'success' => true,
+                    'provider' =>  Provider::with(['providerType', 'activities'])->find($request->provider_id),
+                ]);
             }else{
                 $errorMessages = $validator->errors();
                 echo json_encode(['errorMessages' => $errorMessages]);
