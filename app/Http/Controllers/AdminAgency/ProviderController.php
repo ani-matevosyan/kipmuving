@@ -169,6 +169,27 @@ class ProviderController extends Controller
         }
     }
 
+
+    protected function deleteProvider(Request $request){
+        if($request->isMethod('post')) {
+            $validator = Validator::make($request->all(), [
+                'provider_id' => 'required|numeric',
+            ]);
+            if(!$validator->fails()){
+                $provider = Provider::find($request->provider_id);
+                $provider->delete();
+                echo json_encode([
+                    'success' => true,
+                ]);
+            }else{
+                $errorMessages = $validator->errors();
+                echo json_encode(['errorMessages' => $errorMessages]);
+            }
+            exit;
+        }
+    }
+
+
     protected function addProviderType(Request $request){
         if($request->isMethod('post')) {
             $validator = Validator::make($request->all(), [

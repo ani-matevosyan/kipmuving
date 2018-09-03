@@ -111,6 +111,7 @@
                         @endforeach
                     </div>
                 </form>
+                <button type="button" class="btn btn-default deleteProviderBtn" provider_id="{{ $provider->id }}"> Eliminar </button>
                 <button type="button" class="btn btn-success editProviderBtn" provider_id="{{ $provider->id }}"> Editar </button>
             </div>
         </div>

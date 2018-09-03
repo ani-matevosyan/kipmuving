@@ -11483,7 +11483,7 @@ div.FixedHeader_Cloned table {
   margin-bottom: 2px;
 }
 
-.providerTypes .tipo span.deleteProviderBtn:before {
+.providerTypes .tipo span.deleteProviderTypeBtn:before {
   content: '';
   display: inline-block;
   height: 10px;
@@ -11626,6 +11626,34 @@ div.FixedHeader_Cloned table {
 #addProviderModal .modal-dialog .modal-footer .activities .activity .operations .glyphicon-remove, #editProviderModal .modal-dialog .modal-footer .activities .activity .operations .glyphicon-remove {
   left: 20px;
   color: gray;
+}
+
+#addProviderModal .modal-dialog .modal-footer .deleteProviderBtn, #editProviderModal .modal-dialog .modal-footer .deleteProviderBtn {
+  background-color: #898989;
+  color: white;
+}
+
+#addProviderModal .modal-dialog .modal-footer .deleteProviderBtn:hover, #editProviderModal .modal-dialog .modal-footer .deleteProviderBtn:hover {
+  background-color: #737373;
+}
+
+#deleteProviderOkModal .modal-dialog .modal-body p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+#deleteProviderOkModal .modal-dialog .modal-body p span {
+  font-weight: bold;
+}
+
+#deleteProviderOkModal .modal-dialog .modal-footer .deleteProviderOkBtn {
+  background-color: #898989;
+  color: white;
+}
+
+#deleteProviderOkModal .modal-dialog .modal-footer .deleteProviderOkBtn:hover {
+  background-color: #737373;
 }
 
 /*# sourceMappingURL=admin-agency-providers.css.map */

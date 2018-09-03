@@ -184,7 +184,7 @@
                     <p>¿De verdad quieres eliminar la actividad <span id="activityNameSpan"></span>?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger deleteActivityOkBtn"> Yes </button>
+                    <button type="button" class="btn btn-danger deleteActivityOkBtn"> Sí  </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"> No </button>
                 </div>
             </div>

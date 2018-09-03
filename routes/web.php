@@ -231,5 +231,6 @@ Route::get('/admin/agency/providers', [
 Route::post('/admin/agency/addProvider', 'AdminAgency\ProviderController@addProvider');
 Route::post('/admin/agency/getProvider', 'AdminAgency\ProviderController@getProvider');
 Route::post('/admin/agency/editProvider', 'AdminAgency\ProviderController@editProvider');
+Route::post('/admin/agency/deleteProvider', 'AdminAgency\ProviderController@deleteProvider');
 Route::post('/admin/agency/addProviderType', 'AdminAgency\ProviderController@addProviderType');
 Route::post('/admin/agency/deleteProviderType', 'AdminAgency\ProviderController@deleteProviderType');

@@ -196,7 +196,7 @@ $(document).ready(function(){
     $('.providerTypes').css('margin-top', -providerTypesDivHeight - 33);
 
 
-    $('.providerTypes').on("click", ".deleteProviderBtn", function () {
+    $('.providerTypes').on("click", ".deleteProviderTypeBtn", function () {
         const providerTypeId = $(this).attr('provider-type-id');
         $.ajax({
             type: 'POST',
@@ -301,6 +301,9 @@ $(document).ready(function(){
         $('#providersTable tr.selected').removeClass('selected');
         tr.addClass('selected');
         const row_data = providersTable.row(tr).data();
+
+        $('#deleteProviderOkModal .deleteProviderOkBtn').attr('provider_id', row_data.id);
+        $('#deleteProviderOkModal #providerNameSpan').html( row_data.name);
         $.ajax({
             type: 'POST',
             url: `/admin/agency/getProvider`,
@@ -351,6 +354,43 @@ $(document).ready(function(){
                 }
             }
         });
+    });
+
+
+    $(document.body).undelegate('#editProviderModal .deleteProviderBtn', 'click')
+        .delegate('#editProviderModal .deleteProviderBtn', "click", function(ev) {
+            const provider_id = $(this).attr('provider_id');
+             $('#editProviderModal').modal('hide');
+             $('#deleteProviderOkModal').modal('show');
+
+    });
+
+
+    $(document.body).undelegate('#deleteProviderOkModal .deleteProviderOkBtn', 'click')
+        .delegate('#deleteProviderOkModal .deleteProviderOkBtn', "click", function(ev) {
+            const provider_id = $(this).attr('provider_id');
+            $.ajax({
+                type: 'POST',
+                url: `/admin/agency/deleteProvider`,
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'provider_id': provider_id
+                },
+                success: function(res){
+                    let response = JSON.parse(res);
+                    if(response.success){
+                        $('#deleteProviderOkModal').modal('hide');
+                        const tr = $('#providersTable tr.selected');
+                        providersTable.row(tr).remove().draw();
+                        toastr.success('success');
+                    }
+                    if(response.errorMessages){
+                        $.each(response.errorMessages, function (i, value) {
+                            toastr.error(value, '');
+                        });
+                    }
+                }
+            });
     });
 
 
