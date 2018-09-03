@@ -55,6 +55,7 @@ class ProviderController extends Controller
                 'country' => 'max:255',
                 'identity' => 'max:255',
                 'address' => 'max:255',
+                'city' => 'max:255',
                 'email' => 'email|max:255|unique:admin_agency.providers',
                 'phone' => 'max:255',
                 'type' => 'numeric',
@@ -69,6 +70,7 @@ class ProviderController extends Controller
                 $provider = new Provider;
                 $provider->name = $formData['name'];
                 $provider->country = $request->country;
+                $provider->city = $formData['city'];
                 $provider->identity = $formData['identity'];
                 $provider->address = $formData['address'];
                 $provider->email = $formData['email'];
@@ -114,6 +116,7 @@ class ProviderController extends Controller
                 'country' => 'max:255',
                 'identity' => 'max:255',
                 'address' => 'max:255',
+                'city' => 'max:255',
                 'email' => "email|max:255|unique:admin_agency.providers,email,$request->provider_id",
                 'phone' => 'max:255',
                 'type' => 'numeric',
@@ -127,6 +130,7 @@ class ProviderController extends Controller
                 $provider = Provider::find($request->provider_id);
                 $provider->name = $formData['name'];
                 $provider->country = $request->country;
+                $provider->city = $formData['city'];
                 $provider->identity = $formData['identity'];
                 $provider->address = $formData['address'];
                 $provider->email = $formData['email'];

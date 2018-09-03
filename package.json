@@ -29,7 +29,6 @@
     "jquery": "^3.3.1",
     "jquery-lazyload": "^1.9.7",
     "jszip": "^3.1.5",
-    "localize-country-select": "^1.0.1",
     "magnific-popup": "^1.1.0",
     "mapbox-gl": "^0.44.1",
     "moment": "^2.20.1",

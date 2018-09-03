@@ -16,15 +16,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">Pais</label>
+                                <label class="control-label col-sm-3" for="country">Pais</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="country" class="form-control" id="country" valueCode="{{ $provider->country }}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">ID</label>
+                                <label class="control-label col-sm-3" for="pwd">Ciudad</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="identity" class="form-control" id="identity" value="{{ $provider->identity }}">
+                                    <input type="text" name="city" class="form-control" id="city" value="{{ $provider->city }}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -35,6 +35,12 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="pwd">ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="identity" class="form-control" id="identity" value="{{ $provider->identity }}">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="pwd">Email</label>
                                 <div class="col-sm-9">

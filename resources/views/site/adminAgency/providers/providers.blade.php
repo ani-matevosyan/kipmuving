@@ -72,19 +72,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">ID</label>
+                                    <label class="control-label col-sm-3" for="pwd">Ciudad</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="identity" class="form-control" id="identity" >
+                                        <input type="text" name="city" class="form-control" id="city">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Dirección</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="address" class="form-control" id="address" >
+                                        <input type="text" name="address" class="form-control" id="address">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="pwd">ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="identity" class="form-control" id="identity">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Email</label>
                                     <div class="col-sm-9">
