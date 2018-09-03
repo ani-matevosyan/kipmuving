@@ -1,1 +1,1 @@
-require('./common');
+require('./admin-agency-common');

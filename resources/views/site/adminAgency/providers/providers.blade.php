@@ -162,6 +162,7 @@
     </div>
 
     <div class="editProviderModal"></div>
+    
     <div id="deleteProviderOkModal" class="modal fade">
         <div class="modal-dialog modal-md">
             <div class="modal-content">

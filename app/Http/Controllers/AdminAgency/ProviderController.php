@@ -62,9 +62,7 @@ class ProviderController extends Controller
                 'phone' => 'max:255',
                 'comment' => 'max:1255',
                 'activities.0' => 'required|numeric',
-                'prices.0' => 'required|numeric',
-                'prices.*' => 'numeric',
-                'prices.*' => 'numeric',
+                'prices.*' => 'required|numeric|max:2147483647',
             ]);
             if(!$validator->fails()){
                 $provider = new Provider;
@@ -123,8 +121,7 @@ class ProviderController extends Controller
                 'phone' => 'max:255',
                 'comment' => 'max:1255',
                 'activities.0' => 'required|numeric',
-                'prices.0' => 'required|numeric',
-                'prices.*' => 'numeric',
+                'prices.*' => 'required|numeric|max:2147483647',
             ]);
             if(!$validator->fails()){
                 $provider = Provider::find($request->provider_id);

@@ -1,4 +1,4 @@
-require('./common');
+require('./admin-agency-common');
 window.select2 = require('select2');
 window.toastr = require('toastr');
 

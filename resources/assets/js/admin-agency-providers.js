@@ -1,4 +1,4 @@
-require('./common');
+require('./admin-agency-common');
 window.select2 = require('select2');
 window.toastr = require('toastr');
 
@@ -131,7 +131,7 @@ $(document).ready(function(){
                     "render": function (data, type, row, meta) {
                         let html = '';
                         $.each(row.activities, function (i, v) {
-                            html += `$ ${v.pivot.price} <hr>`;
+                            html += `$ ${ parseFloat(v.pivot.price).format(0, 3, '.', ',')} <hr>`;
                         });
                         return html;
                     }
