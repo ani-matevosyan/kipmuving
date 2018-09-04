@@ -144,7 +144,8 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" name="prices[]" class="form-control " placeholder="Valor">
+                                    <input type="text" class="form-control priceString" placeholder="Valor">
+                                    <input type="hidden" name="prices[]" class="form-control price" >
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="operations">

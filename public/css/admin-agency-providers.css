@@ -8235,6 +8235,10 @@ body {
   position: relative;
 }
 
+body:not(.modal-open) {
+  padding-right: 0px !important;
+}
+
 .col-xs-5ths,
 .col-sm-5ths,
 .col-md-5ths,

@@ -245,7 +245,8 @@ $(document).ready(function(){
             html +=        `</select>
                           </div>
                           <div class="col-sm-2">
-                                <input type="text" name="prices[]" class="form-control " placeholder="Valor">
+                                <input type="text"  class="form-control priceString" placeholder="Valor">
+                                <input type="hidden" name="prices[]" class="form-control price" >
                           </div>
                           <div class="col-sm-2">
                               <div class="operations">
@@ -313,6 +314,10 @@ $(document).ready(function(){
             },
             success: function(res){
                 $('.editProviderModal').html(res);
+                const inputPriceString = $('#editProviderModal .priceString');
+                inputPriceString.each(function(i, obj) {
+                    $(obj).val(window.numberWithDots($(obj).next().val()));
+                });
                 $('#editProviderModal').modal('show');
                 $("#editProviderModal #country").countrySelect();
                 const countryCode = $("#editProviderModal #country").attr('valueCode');
@@ -391,6 +396,21 @@ $(document).ready(function(){
                     }
                 }
             });
+    });
+
+
+
+
+    $(document.body).undelegate('.priceString, ', 'keyup keypress')
+        .delegate('.priceString', 'keyup keypress', function(ev) {
+            let price = $(this).val();
+            price = price.replace(/,|\D/g, "");
+            if ($(this).val() != '') {
+                $(this).val(window.numberWithDots(price));
+            }
+            const priceNumber = price.replace(/,|\./g, "");
+            $(this).next().val(priceNumber);
+
     });
 
 
