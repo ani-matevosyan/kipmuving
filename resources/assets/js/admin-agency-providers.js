@@ -66,7 +66,7 @@ $(document).ready(function(){
                     "orderable": true,
                     "searchable": true,
                     "render": function (data, type, row, meta) {
-                        return row.provider_type.name;
+                        return row.provider_type.name.replace(/^\w/, c => c.toUpperCase());
                     }
                 },
                 {

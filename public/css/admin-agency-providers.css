@@ -11588,6 +11588,10 @@ div.FixedHeader_Cloned table {
   }
 }
 
+#addProviderModal .modal-dialog .modal-body .form-horizontal label, #editProviderModal .modal-dialog .modal-body .form-horizontal label {
+  font-weight: normal;
+}
+
 #addProviderModal .modal-dialog .modal-footer, #editProviderModal .modal-dialog .modal-footer {
   background-color: #f2ebcf;
 }
