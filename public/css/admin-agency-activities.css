@@ -8166,11 +8166,11 @@ ul {
 }
 
 .btn-success {
-  background: #089f02;
+  background: #5cb85c;
 }
 
 .btn-success:hover {
-  background: #045b00;
+  background: #048500;
 }
 
 a {
@@ -8235,6 +8235,10 @@ body {
   position: relative;
 }
 
+body:not(.modal-open) {
+  padding-right: 0px !important;
+}
+
 .col-xs-5ths,
 .col-sm-5ths,
 .col-md-5ths,
@@ -8268,6 +8272,44 @@ body {
   .col-lg-5ths {
     width: 20%;
     float: left;
+  }
+}
+
+.modal-dialog {
+  /*
+*   Vertically centering the modal
+*/
+}
+
+.modal-dialog .modal-content {
+  background-color: #f9f6e9;
+}
+
+.modal-dialog .modal-header {
+  border: 0;
+  padding-bottom: 0;
+}
+
+.modal-dialog .modal-header h4 {
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #b49f70;
+}
+
+.modal-dialog .modal-footer {
+  padding-top: 0;
+  padding-right: 35px;
+  border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%) !important;
   }
 }
 
@@ -9316,26 +9358,76 @@ button.toast-close-button {
   padding-right: 35px;
 }
 
+#addActivityModal .modal-dialog .modal-body label, #editActivityModal .modal-dialog .modal-body label {
+  font-weight: normal;
+}
+
+#addActivityModal .modal-dialog .modal-body .form-group, #editActivityModal .modal-dialog .modal-body .form-group {
+  margin-bottom: 14px;
+}
+
+#addActivityModal .modal-dialog .modal-body .form-group:first-child, #editActivityModal .modal-dialog .modal-body .form-group:first-child {
+  margin-bottom: 10px;
+}
+
+#addActivityModal .modal-dialog .modal-body .minPersons label, #editActivityModal .modal-dialog .modal-body .minPersons label {
+  text-align: left;
+  margin-left: 11px;
+}
+
+#addActivityModal .modal-dialog .modal-body .minPersons .col, #editActivityModal .modal-dialog .modal-body .minPersons .col {
+  padding-left: 0;
+}
+
+#addActivityModal .modal-dialog .modal-body h5, #editActivityModal .modal-dialog .modal-body h5 {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#addActivityModal .modal-dialog .modal-body .providers, #editActivityModal .modal-dialog .modal-body .providers {
+  padding-bottom: 10px;
+  margin-left: 0px;
+  position: relative;
+}
+
+#addActivityModal .modal-dialog .modal-body .providers .provider, #editActivityModal .modal-dialog .modal-body .providers .provider {
+  position: relative;
+  padding-right: 0;
+  padding-left: 6px;
+}
+
+#addActivityModal .modal-dialog .modal-body .providers .operationsCol, #editActivityModal .modal-dialog .modal-body .providers .operationsCol {
+  padding-left: 9px;
+}
+
 #addActivityModal .modal-dialog .modal-body .times .col-sm-4, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 {
   padding-left: 0;
   padding-right: 3px;
   margin-bottom: 3px;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations {
+#addActivityModal .modal-dialog .modal-body .times .operations, #editActivityModal .modal-dialog .modal-body .times .operations {
+  padding-left: 7px;
+}
+
+#addActivityModal .modal-dialog .modal-body .times .operations .glyphicon-remove, #editActivityModal .modal-dialog .modal-body .times .operations .glyphicon-remove {
+  left: 27px;
+}
+
+#addActivityModal .modal-dialog .modal-body .operations, #editActivityModal .modal-dialog .modal-body .operations {
   min-height: 34px;
   position: relative;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations span, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations span {
+#addActivityModal .modal-dialog .modal-body .operations span, #editActivityModal .modal-dialog .modal-body .operations span {
   position: absolute;
   top: 29%;
-  font-size: 12px;
+  font-size: 13px;
   color: green;
   cursor: pointer;
 }
 
-#addActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations .glyphicon-remove, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 .operations .glyphicon-remove {
+#addActivityModal .modal-dialog .modal-body .operations .glyphicon-remove, #editActivityModal .modal-dialog .modal-body .operations .glyphicon-remove {
   left: 20px;
   color: gray;
 }
@@ -9401,18 +9493,6 @@ button.toast-close-button {
 
 #deleteActivityOkModal .modal-dialog .modal-footer .deleteActivityOkBtn:hover {
   background-color: #737373;
-}
-
-/*
-*   Vertically centering the modal
-*/
-@media screen and (min-width: 768px) {
-  .modal-dialog {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%) !important;
-  }
 }
 
 /*# sourceMappingURL=admin-agency-activities.css.map */

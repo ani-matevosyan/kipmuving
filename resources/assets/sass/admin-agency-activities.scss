@@ -145,26 +145,67 @@
     }
     .modal-body{
       padding-right: 35px;
+      label{
+        font-weight: normal;
+      }
+      .form-group{
+        margin-bottom:14px;
+        &:first-child{
+          margin-bottom: 10px;
+        }
+      }
+      .minPersons{
+        label{
+          text-align: left;
+          margin-left: 11px;
+        }
+        .col{
+          padding-left: 0;
+        }
+      }
+      h5{
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .providers{
+        padding-bottom: 10px;
+        margin-left: 0px;
+        position: relative;
+        .provider{
+          position: relative;
+          padding-right: 0;
+          padding-left: 6px;
+        }
+        .operationsCol{
+           padding-left: 9px;
+        }
+      }
       .times{
         .col-sm-4 {
           padding-left: 0;
           padding-right: 3px;
           margin-bottom: 3px;
-          .operations{
-            min-height: 34px;
-            position: relative;
-            span{
-              position: absolute;
-              top: 29%;
-              font-size: 12px;
-              color: green;
-              cursor: pointer;
-            }
-            .glyphicon-remove{
-              left: 20px;
-              color: gray;
-            }
+        }
+        .operations{
+          padding-left: 7px;
+          .glyphicon-remove{
+            left: 27px;
           }
+        }
+      }
+      .operations{
+        min-height: 34px;
+        position: relative;
+        span{
+          position: absolute;
+          top: 29%;
+          font-size: 13px;
+          color: green;
+          cursor: pointer;
+        }
+        .glyphicon-remove{
+          left: 20px;
+          color: gray;
         }
       }
       .select2-container--default .select2-selection--multiple{

@@ -33,8 +33,8 @@ $(document).ready(function(){
         width: '100%',
     });
 
-    $(document.body).undelegate('.glyphicon-plus-sign', 'click')
-        .delegate(".glyphicon-plus-sign", "click", function(ev){
+    $(document.body).undelegate('.timesHours .glyphicon-plus-sign', 'click')
+        .delegate(".timesHours .glyphicon-plus-sign", "click", function(ev){
             const html = '<div class="timesHours">'
                             + '<div class="col-sm-4">'
                             +   '<input type="text" name="start_time[]" class="form-control start_time">'
@@ -52,6 +52,59 @@ $(document).ready(function(){
             const element = $(this).parent().parent().parent();
             $(html).insertAfter(element);
     });
+
+
+
+    $(document.body).undelegate('.providers .glyphicon-plus-sign', 'click')
+        .delegate(".providers .glyphicon-plus-sign", "click", function(ev){
+            let html = `<div class="providers row">
+                            <div class="col-sm-5 type">
+                                <select name="providerTypes" class="form-control">
+                                    <option value="0">
+                                    Seleccione
+                                    </option>`;
+            $.each(providerTypes, function (i , v) {
+                html +=            `<option value="${ v.id }">
+                                         ${ v.name.replace(/^\w/, c => c.toUpperCase()) }
+                                    </option>`;
+            });
+            html +=            `</select>
+                            </div>
+                            <div class="col-sm-5 provider">
+                               
+                            </div>
+                            <div class="col-sm-2 operationsCol">
+                                <div class="operations">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </div>
+                           
+                       </div>;`;
+            const element = $(this).parent().parent().parent();
+            $(html).insertAfter(element);
+        });
+
+
+    $(document.body).undelegate('.providers select[name=providerTypes]', 'change')
+        .delegate('.providers select[name=providerTypes]', 'change', function(ev){
+            let c = 0;
+            let html = `<select name="providers[]" class="form-control">`;
+                            $.each(providers, function (i , v) {
+                                if(ev.target.value ==  v.id){
+                                    html += `<option value="${ v.id }">
+                                                 ${ v.name.replace(/^\w/, c => c.toUpperCase()) }
+                                             </option>`;
+                                    c++;
+                                }
+                            });
+            html +=   `</select>`;
+            if(c > 0){
+                $(this).parents('.providers').find('.provider').html(html);
+            }else{
+                $(this).parents('.providers').find('.provider').html('');
+            }
+
+        });
 
 
     $(document.body).undelegate('.glyphicon-remove', 'click')

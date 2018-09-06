@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminAgency;
 use App\AdminAgencyModels\Hour;
 use App\AdminAgencyModels\Provider;
+use App\AdminAgencyModels\ProviderType;
 use App\Helpers\DatabaseConnection;
 
 use Illuminate\Http\Request;
@@ -30,12 +31,14 @@ class ActivityController extends Controller
 //        DatabaseConnection::setConnection($params);
         $activities = Activity::with(['hours','providers'])->get();
         $providers = Provider::all();
+        $providerTypes = ProviderType::all();
 
         $data = [
             'styles'         => config('resources.admin-agency.activities.styles'),
             'scripts'        => config('resources.admin-agency.activities.scripts'),
             'activities'     => $activities,
             'providers'      => $providers,
+            'providerTypes'      => $providerTypes,
         ];
         return view('site.adminAgency.activities.activities', $data);
     }
@@ -56,7 +59,7 @@ class ActivityController extends Controller
             ]);
             if(!$validator->fails()){
                 $activity = new Activity;
-                $activity->name = $formData['name'];
+                $activity->name = ucwords(strtolower($formData['name']));
                 $activity->price = $formData['price'];
                 $activity->min_persons = $formData['min_persons'];
                 $activity->save();
@@ -118,7 +121,7 @@ class ActivityController extends Controller
             ]);
             if(!$validator->fails()){
                 $activity = Activity::find($activity_id);
-                $activity->name = $formData['name'];
+                $activity->name = ucwords(strtolower($formData['name']));
                 $activity->price = $formData['price'];
                 $activity->min_persons = $formData['min_persons'];
                 $activity->save();

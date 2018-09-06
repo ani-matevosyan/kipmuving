@@ -75,19 +75,19 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="email">Nombre</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="text" name="name" class="form-control" id="name" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Valor</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="text" name="price" class="form-control" id="price" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Horario</label>
-                                    <div class="col-sm-9 times">
+                                    <div class="col-sm-8 times">
                                         <div class="timesHours">
                                             <div class="col-sm-4">
                                                 <input type="text" name="start_time[]" class="form-control start_time">
@@ -98,20 +98,6 @@
                                             <div class="col-sm-4">
                                                 <div class="operations">
                                                     <span class="glyphicon glyphicon-plus-sign"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timesHours">
-                                            <div class="col-sm-4">
-                                                <input type="text" name="start_time[]" class="form-control start_time">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="text" name="end_time[]" class="form-control end_time">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="operations">
-                                                    <span class="glyphicon glyphicon-plus-sign"></span>
-                                                    <span class="glyphicon glyphicon-remove"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,46 +105,36 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">Guia</label>
-                                    <div class="col-sm-9">
-                                        <select name="providers[]" class="select2select" multiple="multiple">
-                                            @foreach($providers->where('type','1') as $provider)
-                                                <option value="{{$provider->id}}">
-                                                    {{ $provider->first_name }} {{ $provider->last_name }}
+                                <div class="form-group minPersons">
+                                    <label class="control-label col-sm-5" for="min">Mínimo de personas</label>
+                                    <div class="col col-sm-3 ">
+                                        <input type="text" name="min_persons" class="form-control" id="min">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <h5>Proveedores</h5>
+                                </div>
+
+                                <div class="providers row">
+                                    <div class="col-sm-5 type">
+                                        <select name="providerTypes" class="form-control">
+                                            <option value="0">
+                                                Seleccione
+                                            </option>
+                                            @foreach($providerTypes as $type)
+                                                <option value="{{$type->id}}">
+                                                    {{ ucfirst($type->name) }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">Asistentes</label>
-                                    <div class="col-sm-9">
-                                        <select name="providers[]"class="select2select" multiple="multiple">
-                                            @foreach($providers->where('type','2') as $provider)
-                                                <option value="{{$provider->id}}">
-                                                    {{ $provider->first_name }} {{ $provider->last_name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                    <div class="col-sm-5 provider">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">Transportista</label>
-                                    <div class="col-sm-9">
-                                        <select name="providers[]" class="select2select" multiple="multiple">
-                                            @foreach($providers->where('type','3') as $provider)
-                                                <option value="{{$provider->id}}">
-                                                    {{ $provider->first_name }} {{ $provider->last_name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">Minimo</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" name="min_persons" class="form-control min">
+                                    <div class="col-sm-2 operationsCol">
+                                        <div class="operations">
+                                            <span class="glyphicon glyphicon-plus-sign"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -190,4 +166,11 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+        const providerTypes = JSON.parse('{!! json_encode($providerTypes) !!}');
+        const providers = JSON.parse('{!! json_encode($providers) !!}');
+    </script>
+
 @stop
