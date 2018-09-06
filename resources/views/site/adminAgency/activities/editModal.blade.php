@@ -59,7 +59,6 @@
                                             </div>
                                         @endforeach
                                     @endif
-
                                 </div>
                             </div>
                         </div>
@@ -70,7 +69,6 @@
                                     <input type="text" name="min_persons" class="form-control" id="min" value="{{ $activity->min_persons }}">
                                 </div>
                             </div>
-
                             <div class="col-sm-12">
                                 <h5>Proveedores</h5>
                             </div>
@@ -115,9 +113,11 @@
                                         </div>
                                         <div class="col-sm-5 provider">
                                             <select name="providers[]" class="form-control">
-                                                 <option value="{{$provider->id}}">
-                                                        {{ $provider->name }}
-                                                 </option>
+                                                @foreach($providers->where('type', $provider->type) as $pr)
+                                                    <option value="{{$pr->id}}" @if($pr->id == $provider->id) selected @endif>
+                                                        {{ ucfirst($pr->name) }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-sm-2 operationsCol">

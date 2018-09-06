@@ -22,36 +22,19 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="info">
-                            <div><b>Guía: </b></div>
-                            <div>
-                                @php ($resultStr = array())
-                                @foreach($activity->providers->where('type','1') as $provider)
-                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
-                                @endforeach
-                                {{ implode(", ", $resultStr) }}
+                        @foreach($providerTypes as $type)
+                            <div class="info">
+                                <div><b>{{ucfirst($type->name)}}: </b></div>
+                                <div>
+                                    @php ($resultStr = array())
+                                    @foreach($activity->providers->where('type', $type->id) as $provider)
+                                        @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
+                                    @endforeach
+                                    {{ implode(", ", $resultStr) }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="info">
-                            <div><b>Asistentes: </b></div>
-                            <div>
-                                @php ($resultStr = array())
-                                @foreach($activity->providers->where('type','2') as $provider)
-                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
-                                @endforeach
-                                {{ implode(", ", $resultStr) }}
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div><b>Transportista: </b></div>
-                            <div>
-                                @php ($resultStr = array())
-                                @foreach($activity->providers->where('type','3') as $provider)
-                                    @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
-                                @endforeach
-                                {{ implode(", ", $resultStr) }}
-                            </div>
-                        </div>
+                        @endforeach
+
                         <div class="edit-activity">
                             <div class="edit-activity-icon"  activity_id="{{ $activity->id }}">
                             </div>
@@ -111,11 +94,9 @@
                                         <input type="text" name="min_persons" class="form-control" id="min">
                                     </div>
                                 </div>
-
                                 <div class="col-sm-12">
                                     <h5>Proveedores</h5>
                                 </div>
-
                                 <div class="providers row">
                                     <div class="col-sm-5 type">
                                         <select name="providerTypes" class="form-control">
