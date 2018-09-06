@@ -9370,9 +9370,15 @@ button.toast-close-button {
   margin-bottom: 10px;
 }
 
+#addActivityModal .modal-dialog .modal-body .minPersons, #editActivityModal .modal-dialog .modal-body .minPersons {
+  margin-bottom: 0 !important;
+}
+
 #addActivityModal .modal-dialog .modal-body .minPersons label, #editActivityModal .modal-dialog .modal-body .minPersons label {
   text-align: left;
   margin-left: 11px;
+  padding-right: 0;
+  font-size: 15px;
 }
 
 #addActivityModal .modal-dialog .modal-body .minPersons .col, #editActivityModal .modal-dialog .modal-body .minPersons .col {
@@ -9385,9 +9391,13 @@ button.toast-close-button {
 }
 
 #addActivityModal .modal-dialog .modal-body .providers, #editActivityModal .modal-dialog .modal-body .providers {
-  padding-bottom: 10px;
+  padding-bottom: 4px;
   margin-left: 0px;
   position: relative;
+}
+
+#addActivityModal .modal-dialog .modal-body .providers .type, #editActivityModal .modal-dialog .modal-body .providers .type {
+  margin-bottom: 5px;
 }
 
 #addActivityModal .modal-dialog .modal-body .providers .provider, #editActivityModal .modal-dialog .modal-body .providers .provider {
@@ -9396,8 +9406,21 @@ button.toast-close-button {
   padding-left: 6px;
 }
 
+@media screen and (max-width: 767px) {
+  #addActivityModal .modal-dialog .modal-body .providers .provider, #editActivityModal .modal-dialog .modal-body .providers .provider {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+}
+
 #addActivityModal .modal-dialog .modal-body .providers .operationsCol, #editActivityModal .modal-dialog .modal-body .providers .operationsCol {
   padding-left: 9px;
+}
+
+@media screen and (max-width: 767px) {
+  #addActivityModal .modal-dialog .modal-body .providers .operationsCol, #editActivityModal .modal-dialog .modal-body .providers .operationsCol {
+    padding-left: 11px;
+  }
 }
 
 #addActivityModal .modal-dialog .modal-body .times .col-sm-4, #editActivityModal .modal-dialog .modal-body .times .col-sm-4 {
@@ -9441,6 +9464,7 @@ button.toast-close-button {
 }
 
 #addActivityModal .modal-dialog .modal-footer, #editActivityModal .modal-dialog .modal-footer {
+  padding-top: 20px;
   padding-right: 35px;
   border: 0;
 }

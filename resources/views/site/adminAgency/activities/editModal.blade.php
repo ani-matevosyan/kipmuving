@@ -11,19 +11,19 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="email">Nombre</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                     <input type="text" name="name" class="form-control" id="name" value="{{  $activity->name }}" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3" for="pwd">Valor</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                     <input type="text" name="price" class="form-control" id="price" value="{{  $activity->price }}" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Horario</label>
-                                <div class="col-sm-9 times">
+                                <div class="col-sm-8 times">
 
                                     @if(count($activity->hours) >= 1)
                                         <div class="timesHours">
@@ -64,48 +64,73 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">Guia</label>
-                                <div class="col-sm-9">
-                                    <select name="providers[]" class="select2select" multiple="multiple">
-                                        @foreach($providers->where('type','1') as $provider)
-                                            <option value="{{$provider->id}}" @if($activity->providers->where('type','1')->contains($provider)) selected @endif >
-                                                {{ $provider->first_name }} {{ $provider->last_name }}
+                            <div class="form-group minPersons">
+                                <label class="control-label col-xs-5" for="min">Mínimo de personas</label>
+                                <div class="col col-xs-3 ">
+                                    <input type="text" name="min_persons" class="form-control" id="min" value="{{ $activity->min_persons }}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <h5>Proveedores</h5>
+                            </div>
+                            @if(count($activity->providers) == 0)
+                                <div class="providers row">
+                                    <div class="col-sm-5 type">
+                                        <select name="providerTypes" class="form-control">
+                                            <option value="0">
+                                                Seleccione
                                             </option>
-                                        @endforeach
-                                    </select>
+                                            @foreach($providerTypes as $type)
+                                                <option value="{{$type->id}}">
+                                                    {{ ucfirst($type->name) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 provider">
+                                    </div>
+                                    <div class="col-sm-2 operationsCol">
+                                        <div class="operations">
+                                            <span class="glyphicon glyphicon-plus-sign"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">Asistentes</label>
-                                <div class="col-sm-9">
-                                    <select name="providers[]"class="select2select" multiple="multiple">
-                                        @foreach($providers->where('type','2') as $provider)
-                                            <option value="{{$provider->id}}" @if($activity->providers->where('type','2')->contains($provider)) selected @endif >
-                                                {{ $provider->first_name }} {{ $provider->last_name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">Transportista</label>
-                                <div class="col-sm-9">
-                                    <select name="providers[]" class="select2select" multiple="multiple">
-                                        @foreach($providers->where('type','3') as $provider)
-                                            <option value="{{$provider->id}}" @if($activity->providers->where('type','3')->contains($provider)) selected @endif >
-                                                {{ $provider->first_name }} {{ $provider->last_name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-3" for="pwd">Minimo</label>
-                                <div class="col-sm-3">
-                                    <input type="text" name="min_persons" class="form-control min" value="{{  $activity->min_persons }}">
-                                </div>
-                            </div>
+                            @else
+                                @php($c = 0)
+                                @foreach($activity->providers as $provider)
+                                    @php($c++)
+                                    <div class="providers row">
+                                        <div class="col-sm-5 type">
+                                            <select name="providerTypes" class="form-control">
+                                                <option value="0">
+                                                    Seleccione
+                                                </option>
+                                                @foreach($providerTypes as $type)
+                                                    <option value="{{$type->id}}" @if($provider->type == $type->id) selected @endif>
+                                                        {{ ucfirst($type->name) }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5 provider">
+                                            <select name="providers[]" class="form-control">
+                                                 <option value="{{$provider->id}}">
+                                                        {{ $provider->name }}
+                                                 </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 operationsCol">
+                                            <div class="operations">
+                                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                                @if($c != 1)
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </form>

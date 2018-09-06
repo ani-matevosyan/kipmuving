@@ -106,8 +106,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group minPersons">
-                                    <label class="control-label col-sm-5" for="min">Mínimo de personas</label>
-                                    <div class="col col-sm-3 ">
+                                    <label class="control-label col-xs-5" for="min">Mínimo de personas</label>
+                                    <div class="col col-xs-3 ">
                                         <input type="text" name="min_persons" class="form-control" id="min">
                                     </div>
                                 </div>

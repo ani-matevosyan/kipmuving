@@ -90,7 +90,7 @@ $(document).ready(function(){
             let c = 0;
             let html = `<select name="providers[]" class="form-control">`;
                             $.each(providers, function (i , v) {
-                                if(ev.target.value ==  v.id){
+                                if(ev.target.value ==  v.type){
                                     html += `<option value="${ v.id }">
                                                  ${ v.name.replace(/^\w/, c => c.toUpperCase()) }
                                              </option>`;

@@ -155,9 +155,12 @@
         }
       }
       .minPersons{
+        margin-bottom: 0!important;
         label{
           text-align: left;
           margin-left: 11px;
+          padding-right: 0;
+          font-size: 15px;
         }
         .col{
           padding-left: 0;
@@ -168,16 +171,26 @@
         font-size: 15px;
       }
       .providers{
-        padding-bottom: 10px;
+        padding-bottom: 4px;
         margin-left: 0px;
         position: relative;
+        .type{
+          margin-bottom: 5px;
+        }
         .provider{
           position: relative;
           padding-right: 0;
           padding-left: 6px;
+          @media screen and(max-width: 767px) {
+             padding-left: 11px;
+             padding-right: 11px;
+          }
         }
         .operationsCol{
            padding-left: 9px;
+          @media screen and(max-width: 767px) {
+            padding-left: 11px
+          }
         }
       }
       .times{
@@ -217,6 +230,7 @@
 
     }
     .modal-footer {
+      padding-top: 20px;
       padding-right: 35px;
       border: 0;
       .deleteActivityBtn{

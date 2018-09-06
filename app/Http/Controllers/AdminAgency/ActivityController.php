@@ -79,7 +79,7 @@ class ActivityController extends Controller
                 }
                 $activity->hours()->saveMany($hoursArr);
                 if(isset($formData['providers'])){
-                    $activity->providers()->attach($formData['providers']);
+                    $activity->providers()->sync($formData['providers']);
                 }
                 echo json_encode(['success' => true]);
             }else{
@@ -96,9 +96,11 @@ class ActivityController extends Controller
             $activityId = $request->activity_id;
             $activity = Activity::with(['hours','providers'])->find($activityId);
             $providers = Provider::all();
+            $providerTypes = ProviderType::all();
             $data = [
                 'activity'      => $activity,
                 'providers'      => $providers,
+                'providerTypes'      => $providerTypes,
             ];
             echo view('site.adminAgency.activities.editModal', $data);
         }
