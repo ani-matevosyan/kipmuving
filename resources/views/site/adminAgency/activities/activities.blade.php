@@ -12,7 +12,7 @@
                     <div class="col-md-5ths col-sm-4 col-xs-6">
                     <div class="activity">
                         <h3>{{ $activity->name }}</h3>
-                        <p><b>Valor: </b> {{ $activity->price }}</p>
+                        <p><b>Valor: </b> {{ number_format($activity->price, 0, ",", ".")}}</p>
                         <div class="activity-hours">
                             <b>Horario: </b>
                             <div class="hours">
@@ -23,16 +23,19 @@
                         </div>
                         <hr>
                         @foreach($providerTypes as $type)
-                            <div class="info">
-                                <div><b>{{ucfirst($type->name)}}: </b></div>
-                                <div>
-                                    @php ($resultStr = array())
-                                    @foreach($activity->providers->where('type', $type->id) as $provider)
-                                        @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
-                                    @endforeach
-                                    {{ implode(", ", $resultStr) }}
+                            @php($thisTypeProviders = $activity->providers->where('type', $type->id))
+                            @if(count($thisTypeProviders) > 0)
+                                <div class="info">
+                                    <div><b>{{ ucfirst($type->name) }}: </b></div>
+                                    <div>
+                                        @php ($resultStr = array())
+                                        @foreach($thisTypeProviders as $provider)
+                                            @php ($resultStr[] = $provider->first_name . ' '.$provider->last_name )
+                                        @endforeach
+                                        {{ implode(", ", $resultStr) }}
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
 
                         <div class="edit-activity">

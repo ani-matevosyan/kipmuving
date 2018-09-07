@@ -15,6 +15,7 @@
     "laravel-elixir-webpack-official": "^1.0.10"
   },
   "dependencies": {
+    "binary-com-jquery-ui-timepicker": "^1.0.1",
     "chosen-js": "^1.8.3",
     "country-select-js": "^2.0.1",
     "datatables": "^1.10.18",
