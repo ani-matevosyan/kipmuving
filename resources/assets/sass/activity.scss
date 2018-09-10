@@ -147,6 +147,10 @@
   background: #f8f8f8;
   padding: 0 20px 300px;
   border-radius: 4px;
+  .google_alertBox_hr{
+    margin-bottom: 2px;
+    margin-top: 30px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -501,6 +505,7 @@
     font-weight: 700;
     font-family: 'Dosis', sans-serif;
     font-size: 40px;
+    margin-bottom: 15px;
     color: #000000;
     line-height: 1;
     @media screen and (max-width: 767px) {
@@ -510,7 +515,17 @@
       font-size: 28px;
     }
   }
-  .box.tripadvisor{
+  .logoOfGoogle {
+    vertical-align: 100%;
+    margin-right: 5px;
+  }
+  .tripadvisorReview {
+    width: 280px;
+    .rating{
+      margin-top: -3px;
+    }
+  }
+  .box.tripadvisor {
     padding-top: 0;
     margin-left: 10px;
   }
@@ -550,14 +565,13 @@
   }
 }
 
-.activity-instagram {
+.activity-instagram, .googleSearchedPhotos {
   padding: 29px 0 0;
-  border-top: 1px solid #dfdfdf;
   @media screen and (max-width: 767px) {
     margin: 0 auto 7px;
     max-width: 600px;
   }
-  .instafeed {
+  .instafeed, .photos {
     margin-left: -11px;
     margin-top: 13px;
     @media screen and (max-width: 767px) {
@@ -1081,5 +1095,45 @@
     }
   }
 }
+
+
+
+.lclink:hover {
+  color: blue;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-size: 18px 36px;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 90px;
+  margin: 0 auto;
+}
+.star-ratings-sprite-rating {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  background-position: 0 131%;
+  background-size: 18px 36px;
+  float: left;
+  height: 20px;
+  display: block;
+}
+
+#d1 {
+  display: table;
+}
+
+#d2 {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 
 

@@ -36,17 +36,56 @@
 </section>
 <section class="important-block">
 	@if ($activity->instagram_location_id || $activity->instagram_name)
-		<div class="activity-instagram">
-			@if(!$activity->instagram_location_id && $activity->instagram_name)
-				<span class="activity-tag">{{ $activity->instagram_name }}</span>
-			@endif
-			<div id="instafeed5" class="instafeed"
-				 @if($activity->instagram_location_id) data-location-id="{{ $activity->instagram_location_id }}" @endif
-				 data-tag="{{ $activity->instagram_name }}"></div>
-			<div class="clearfix"></div>
-		</div>
+		{{--<div class="activity-instagram"> --}}{{--todo delete this section--}}
+			{{--@if(!$activity->instagram_location_id && $activity->instagram_name)--}}
+				{{--<span class="activity-tag">{{ $activity->instagram_name }}</span>--}}
+			{{--@endif--}}
+			{{--<div id="instafeed5" class="instafeed"--}}
+				 {{--@if($activity->instagram_location_id) data-location-id="{{ $activity->instagram_location_id }}" @endif--}}
+				 {{--data-tag="{{ $activity->instagram_name }}"></div>--}}
+			{{--<div class="clearfix"></div>--}}
+		{{--</div>--}}
 	@endif
 
+	{{--start instagram photos--}}
+	<div class="activity-instagram">
+		@if($activity->instagram_name)
+			<span class="activity-tag">{{ $activity->instagram_name }}</span>
+		@endif
+		<div id="" class="photos" data-tag="{{$hashtag}}">
+			@foreach($photos as $key=>$data)
+				@if($key > 8)
+					@break
+				@endif
+				<div class="col-xs-2 in-image-activity">
+					<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"></a>
+				</div>
+			@endforeach
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	{{--end instagram photos--}}
+
+	{{--start google search photos--}}
+	<div class="googleSearchedPhotos">
+		@if($photos_google)
+			<img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png" width="22px" height="22px"/>
+		@endif
+		<div id="" class="photos" data-tag="{{$hashtag}}">
+			@foreach($photos_google as $key=>$data)
+				@if($key > 8)
+					@break
+				@endif
+				<div class="col-xs-2 in-image-activity">
+					<a href="{{$data}}"><img src="{{$data}}"></a>
+				</div>
+			@endforeach
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	{{--end google search photos--}}
+
+	<hr class="google_alertBox_hr">
 	<div class="box alert">
 		<p>{{ trans('main.minimum_age') }}: <strong>{{ $activity['min_age'] }} {{ trans('main.years') }}</strong></p>
 	</div>

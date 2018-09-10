@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 
+use App\Classes\InstagramAPI;
+use App\Classes\TripadvisorAPI;
+use App\Classes\GoogleApi;
+
+use odannyc\GoogleImageSearch\ImageSearch;
+
 class ActivityController extends Controller
 {
 	public function index(Activity $activity, Offer $offer)
@@ -72,6 +78,48 @@ class ActivityController extends Controller
 
 	public function getActivity($id)
 	{
+        $photos = [];
+        $tag = '';
+        $photos_google = [];
+        $reviews = 0;
+        $rating = '00';
+        $google_rating = '00';
+
+
+        if (!empty('https://www.tripadvisor.com.br/Hotel_Review-g297400-d2063337-Reviews-Patagonia_Adventure-Puerto_Natales_Magallanes_Region.html')) {
+            $tripadvisor = new TripadvisorAPI();
+
+            $data = ($tripadvisor->getContent('https://www.tripadvisor.com.br/Hotel_Review-g297400-d2063337-Reviews-Patagonia_Adventure-Puerto_Natales_Magallanes_Region.html'));
+            $reviews = $data['reviews'];
+            $rating = $data['rating'];
+        }
+
+        if (!empty('https://www.instagram.com/explore/locations/245541105/tsingtao-beer-museum/')) {
+            $instgram = new InstagramAPI();
+            $url_parser = 'https://www.instagram.com/explore/locations/245541105/tsingtao-beer-museum/'; //ссылка для парсинга
+            $photos = $instgram->getInstPhoto($url_parser);
+            (empty($photos)) ? $photos = [] : $photos;
+        }
+
+        if (!empty('ChIJQaFByV6s2YgRNJNv4A_4C-Q')) {
+            $googleapi = new GoogleApi();
+            $google_rating = $googleapi->getInfoToPlaceId('ChIJQaFByV6s2YgRNJNv4A_4C-Q');
+            (empty($google_rating)) ? $google_rating = '00' : $google_rating;
+        }
+
+        if (!empty('Ararat')) {
+            ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
+            ImageSearch::config()->cx(env('GOOGLE_API_CX'));
+            ($temp = ImageSearch::search('Ararat')); // returns array of results
+            foreach ($temp["items"] as $result) {
+                $photos_google[] = $result["link"];
+            }
+            (empty($photos_google)) ? $photos_google = [] : $photos_google;
+        }
+
+
+
+
 		$_activity = new Activity();
 		if (!($activity = $_activity->getActivity($id)))
 			abort(404);
@@ -93,12 +141,19 @@ class ActivityController extends Controller
 				'selected' => $_offer->getSelectedOffers(),
 			],
 			'count'          => [
-        'special_offers' => count(session('basket.special')),
+            'special_offers' => count(session('basket.special')),
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
 				'persons'        => $_offer->getSelectedOffersPersons(),
 				'total'          => $_offer->getSelectedOffersTotal(),
 			],
 			'title'          => empty($activity->name) ? null : $activity->name,
+            //google, inatgram photos, reviews
+            'photos' => $photos,
+            'photos_google' => $photos_google,
+            'google_rating' => $google_rating,
+            'hashtag' => $tag,
+            'reviews' => $reviews,
+            'rating' => $rating
 		];
 
 		return view('site.activities.activity-single', $data);

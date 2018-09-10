@@ -38,6 +38,38 @@
                                             {!! $activity->tripadvisor_code !!}
                                         </div>
                                     @endif
+
+                                    {{--start tripadvisor review--}}
+                                        <div class="tripadvisorReview">
+                                            <span class="header_rating">
+                                                <div class="rs rating">
+                                                    <div class="prw_rup prw_common_bubble_rating bubble_rating" data-prwidget-name="common_bubble_rating" data-prwidget-init="">
+                                                        <img src="https://www.frixoshotel.com.cy/static/images/tripadvisor-grey.png" width="20" height="20"/>
+                                                        <a href=""></a>
+                                                        <span class="ui_bubble_rating bubble_{{$rating}}" style="font-size:15px;" property="ratingValue" content="4,5" alt="4,5 de 5 círculos"></span>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=887&amp;
+                                                locationId=1762622&amp;lang=en_UK&amp;rating=true&amp;reviews=true&amp;
+                                                writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=true">
+                                            </script>
+                                        </div>
+                                    {{--end tripadvisor review--}}
+
+                                    {{--start google review--}}
+                                    <img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                                         class="logoOfGoogle" width="16px" height="16px"/>
+                                    <div style="display:inline-block">
+                                        <div class="star-ratings-sprite">
+                                            <span style="width:{{$google_rating}}%" class="star-ratings-sprite-rating"></span>
+                                        </div>
+                                        <div style="display:inline;font-size:15px;margin-left:11px">
+                                            <span class="Vfp4xe p13zmc" style="white-space:nowrap"></span>
+                                        </div>
+                                    </div>
+                                    {{--end google review--}}
+
                                 </header>
                                 <section class="post-box">
                                     <div class="title-box">
