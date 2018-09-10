@@ -146,12 +146,15 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 			'Weather'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::textarea('weather_embed', 'Weather embed'),
 			]),
-			'Tripadvisor'  => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::textarea('real_tripadvisor_code', 'Tripadvisor code'),
-			]),
 			'Gallery'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::images('images', 'Images'),
-			])
+			]),
+            'Widgets and photos'      => new \SleepingOwl\Admin\Form\FormElements([
+                AdminFormElement::text('google_place_id', 'Google PlaceId'),
+                AdminFormElement::text('tripadvisor_link', 'Tripadvisor Link'),
+                AdminFormElement::text('instagram_link', 'Instagram Link'),
+                AdminFormElement::text('google_search_word', 'Google search word'),
+            ]),
 		]);
 		
 		$form->addElement($tabs);

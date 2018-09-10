@@ -78,6 +78,13 @@ class ActivityController extends Controller
 
 	public function getActivity($id)
 	{
+        $_activity = new Activity();
+        if (!($activity = $_activity->getActivity($id)))
+            abort(404);
+
+        $_offer = new Offer();
+
+
         $photos = [];
         $tag = '';
         $photos_google = [];
@@ -86,45 +93,37 @@ class ActivityController extends Controller
         $google_rating = '00';
 
 
-        if (!empty('https://www.tripadvisor.com.br/Hotel_Review-g297400-d2063337-Reviews-Patagonia_Adventure-Puerto_Natales_Magallanes_Region.html')) {
+        if (!empty($activity->tripadvisor_link)) {
             $tripadvisor = new TripadvisorAPI();
 
-            $data = ($tripadvisor->getContent('https://www.tripadvisor.com.br/Hotel_Review-g297400-d2063337-Reviews-Patagonia_Adventure-Puerto_Natales_Magallanes_Region.html'));
+            $data = ($tripadvisor->getContent($activity->tripadvisor_link));
             $reviews = $data['reviews'];
             $rating = $data['rating'];
         }
 
-        if (!empty('https://www.instagram.com/explore/locations/245541105/tsingtao-beer-museum/')) {
+        if (!empty($activity->instagram_link)) {
             $instgram = new InstagramAPI();
-            $url_parser = 'https://www.instagram.com/explore/locations/245541105/tsingtao-beer-museum/'; //ссылка для парсинга
+            $url_parser = $activity->instagram_link; //ссылка для парсинга
             $photos = $instgram->getInstPhoto($url_parser);
             (empty($photos)) ? $photos = [] : $photos;
         }
 
-        if (!empty('ChIJQaFByV6s2YgRNJNv4A_4C-Q')) {
+        if (!empty($activity->google_place_id)) {
             $googleapi = new GoogleApi();
-            $google_rating = $googleapi->getInfoToPlaceId('ChIJQaFByV6s2YgRNJNv4A_4C-Q');
+            $google_rating = $googleapi->getInfoToPlaceId($activity->google_place_id);
             (empty($google_rating)) ? $google_rating = '00' : $google_rating;
         }
 
-        if (!empty('Ararat')) {
+        if (!empty($activity->google_search_word)) {
             ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
             ImageSearch::config()->cx(env('GOOGLE_API_CX'));
-            ($temp = ImageSearch::search('Ararat')); // returns array of results
+            ($temp = ImageSearch::search($activity->google_search_word)); // returns array of results
             foreach ($temp["items"] as $result) {
                 $photos_google[] = $result["link"];
             }
             (empty($photos_google)) ? $photos_google = [] : $photos_google;
         }
 
-
-
-
-		$_activity = new Activity();
-		if (!($activity = $_activity->getActivity($id)))
-			abort(404);
-
-		$_offer = new Offer();
 
 //		$activity_comments = ActivityComment::where('activity_id', '=', $id)->get();
 //

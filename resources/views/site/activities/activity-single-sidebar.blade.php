@@ -48,41 +48,45 @@
 	@endif
 
 	{{--start instagram photos--}}
-	<div class="activity-instagram">
-		@if($activity->instagram_name)
-			<span class="activity-tag">{{ $activity->instagram_name }}</span>
-		@endif
-		<div id="" class="photos" data-tag="{{$hashtag}}">
-			@foreach($photos as $key=>$data)
-				@if($key > 8)
-					@break
-				@endif
-				<div class="col-xs-2 in-image-activity">
-					<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"></a>
-				</div>
-			@endforeach
+	@if($activity->instagram_link)
+		<div class="activity-instagram">
+			@if($activity->instagram_name)
+				<span class="activity-tag">{{ $activity->instagram_name }}</span>
+			@endif
+			<div id="" class="photos" data-tag="{{$hashtag}}">
+				@foreach($photos as $key=>$data)
+					@if($key > 8)
+						@break
+					@endif
+					<div class="col-xs-2 in-image-activity">
+						<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"></a>
+					</div>
+				@endforeach
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
-	</div>
+	@endif
 	{{--end instagram photos--}}
 
 	{{--start google search photos--}}
-	<div class="googleSearchedPhotos">
-		@if($photos_google)
-			<img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png" width="22px" height="22px"/>
-		@endif
-		<div id="" class="photos" data-tag="{{$hashtag}}">
-			@foreach($photos_google as $key=>$data)
-				@if($key > 8)
-					@break
-				@endif
-				<div class="col-xs-2 in-image-activity">
-					<a href="{{$data}}"><img src="{{$data}}"></a>
-				</div>
-			@endforeach
+	@if($activity->google_search_word)
+		<div class="googleSearchedPhotos">
+			@if($photos_google)
+				<img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png" width="22px" height="22px"/>
+			@endif
+			<div id="" class="photos" data-tag="{{$hashtag}}">
+				@foreach($photos_google as $key=>$data)
+					@if($key > 8)
+						@break
+					@endif
+					<div class="col-xs-2 in-image-activity">
+						<a href="{{$data}}"><img src="{{$data}}"></a>
+					</div>
+				@endforeach
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
-	</div>
+	@endif
 	{{--end google search photos--}}
 
 	<hr class="google_alertBox_hr">
