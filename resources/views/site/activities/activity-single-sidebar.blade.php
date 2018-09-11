@@ -75,14 +75,18 @@
 				<img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png" width="22px" height="22px"/>
 			@endif
 			<div id="" class="photos" data-tag="{{$hashtag}}">
+				{{--<div class="row">--}}
 				@foreach($photos_google as $key=>$data)
 					@if($key > 8)
 						@break
 					@endif
-					<div class="col-xs-2 in-image-activity">
-						<a href="{{$data}}"><img src="{{$data}}"></a>
-					</div>
+						<div class="col-sm-4 col-xs-2 in-image-activity">
+							<a href="{{$data}}"><img src="{{$data}}"></a>
+						</div>
+{{--					@if(($key+1)%3 == 0 && $key != 0 )</div><div class="row">@endif--}}
+
 				@endforeach
+						{{--</div>--}}
 			</div>
 			<div class="clearfix"></div>
 		</div>

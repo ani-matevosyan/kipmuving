@@ -294,5 +294,11 @@ $(document).ready(function () {
     feed5.run();
   }
 
+    $(".in-image-activity a img").on('click', function (ev) {
+        ev.preventDefault();
+        $("#the-image").html("<img src=\"" + $(this).attr('src') + "\"/>");
+        $("#myModalX").modal('show');
+    });
+
 
 });
