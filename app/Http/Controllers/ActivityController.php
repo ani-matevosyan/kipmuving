@@ -90,7 +90,8 @@ class ActivityController extends Controller
         $photos_google = [];
         $tripadvisorReviews = 0;
         $tripadvisorRating = '00';
-        $google_rating = '00';
+        $googleRating = '00';
+        $googleReviews = 0;
 
 
         if (!empty($activity->tripadvisor_link)) {
