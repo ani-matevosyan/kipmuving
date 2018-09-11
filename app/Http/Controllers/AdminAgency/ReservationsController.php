@@ -76,14 +76,14 @@ class ReservationsController extends Controller
                             $cel = '<ul>'
                                   .'<li>'.$item[0]['persons'].'</li>'
                                 .' <li>'.$item[0]['time'].'</li>'
-                                .' <li>'. number_format($item[0]['price'], 2, ".", ",").'</li></ul>';
+                                .' <li>'. number_format($item[0]['price'], 2, ",", ".").'</li></ul>';
                         }else{
                              $cel = '';
                             foreach ($item  as $i){
                                 $cel .= '<ul>'
                                         .'<li>'.$i['persons'].'</li>'
                                     .' <li>'. $i['time'].'</li>'
-                                    .' <li>'. number_format($i['price'], 2, ".", ",").'</li></ul><hr>';
+                                    .' <li>'. number_format($i['price'], 2, ",", ".").'</li></ul><hr>';
                             }
                         }
                     }

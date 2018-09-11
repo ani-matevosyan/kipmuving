@@ -15,7 +15,7 @@
                     Total Venta:
                     <div>
                         @if(session('currency.type') === 'BRL') R$ @else $ @endif
-                        {{ number_format($totalPrice, 2, ".", ",") }}
+                        {{ number_format($totalPrice, 2, ",", ".") }}
                     </div>
                 </div>
             </div>
