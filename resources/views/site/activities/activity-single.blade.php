@@ -36,13 +36,14 @@
 
                                     {{--start tripadvisor review--}}
                                         @if($activity->tripadvisor_link)
-                                            <div class="tripadvisorReview">
+                                            <div class="tripadvisorReviews">
                                                 <span class="header_rating">
                                                     <div class="rs rating">
                                                         <div class="prw_rup prw_common_bubble_rating bubble_rating" data-prwidget-name="common_bubble_rating" data-prwidget-init="">
-                                                            <img src="https://www.frixoshotel.com.cy/static/images/tripadvisor-grey.png" width="20" height="20"/>
+                                                            <img src="{{asset('images/siteImages/tripadvisorIcon.png')}}"/>
                                                             <a href=""></a>
-                                                            <span class="ui_bubble_rating bubble_{{$rating}}" style="font-size:15px;" property="ratingValue" content="4,5" alt="4,5 de 5 círculos"></span>
+                                                            <span class="ui_bubble_rating bubble_{{$tripadvisorRating}} ratingCount" property="ratingValue" content="4,5" alt="4,5 de 5 círculos"></span>
+                                                            <span href="{{$activity->tripadvisor_link}}" target="_blank" class="reviews">{{$tripadvisorReviews}} reviews</span>
                                                         </div>
                                                     </div>
                                                 </span>
@@ -56,14 +57,15 @@
 
                                     {{--start google review--}}
                                     @if($activity->google_place_id)
-                                        <img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png"
-                                             class="logoOfGoogle" width="16px" height="16px"/>
-                                        <div style="display:inline-block">
-                                            <div class="star-ratings-sprite">
-                                                <span style="width:{{$google_rating}}%" class="star-ratings-sprite-rating"></span>
-                                            </div>
-                                            <div style="display:inline;font-size:15px;margin-left:11px">
-                                                <span class="Vfp4xe p13zmc" style="white-space:nowrap"></span>
+                                        <div class="googleReviews">
+                                            <img src="https://www.google.com.ua/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                                                 class="logoOfGoogle" width="18px" height="18px"/>
+                                            <span class="ratingNumber">{{$googleRating}}</span>
+                                            <div class="rating-reviews">
+                                                <div class="star-ratings-sprite ratingCount" >
+                                                    <span style="width:{{$googleRating*20}}%" class="star-ratings-sprite-rating"></span>
+                                                </div>
+                                                <span class="reviews">{{$googleReviews}} reviews</span>
                                             </div>
                                         </div>
                                     @endif

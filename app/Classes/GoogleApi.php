@@ -9,9 +9,13 @@ class GoogleApi{
         if(!$response = $this->getApi($string)){
             return false;
         }
+//        dd($response);
 
         if(isset($response['result']['rating'])){
-            return $this->stringFormatter($response['result']['rating']);
+            return array(
+                'rating'=>$this->stringFormatter($response['result']['rating']),
+                'reviews'=>count($response['result']['reviews'])
+            );
         }else {
             return [];
         }
@@ -19,7 +23,7 @@ class GoogleApi{
 
     public function  stringFormatter($sting){
 
-        return  $float = (float) filter_var($sting, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION) * 20 ;
+        return  $float = (float) filter_var($sting, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION) ;
     }
 
     public static function isOk($string){

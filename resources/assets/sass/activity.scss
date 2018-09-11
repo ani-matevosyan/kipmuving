@@ -515,14 +515,44 @@
       font-size: 28px;
     }
   }
-  .logoOfGoogle {
-    vertical-align: 100%;
-    margin-right: 5px;
-  }
-  .tripadvisorReview {
-    width: 280px;
+  .tripadvisorReviews {
+    width: 428px;
+    margin-bottom: 7px;
     .rating{
       margin-top: -3px;
+    }
+    .ratingCount{
+     font-size: 15px;
+    }
+    .reviews{
+      white-space: nowrap;
+      color: #6d9445;
+      font-size: 14px;
+      margin-left: 0;
+    }
+  }
+  .googleReviews {
+    .ratingNumber{
+      vertical-align: 39%;
+      color: #cc6c21;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .rating-reviews{
+      display: inline-block;
+      .ratingCount{
+        display: inline-block;
+      }
+      .reviews{
+        white-space: nowrap;
+        vertical-align: 40%;
+        padding-left: 5px;
+        color: #cc6c21;
+      }
+    }
+    .logoOfGoogle {
+      vertical-align: 20%;
+      margin-right: 4px;
     }
   }
   .box.tripadvisor {

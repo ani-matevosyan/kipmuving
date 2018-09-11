@@ -58,7 +58,7 @@
 					@if($key > 8)
 						@break
 					@endif
-					<div class="col-xs-2 in-image-activity">
+					<div class="col-sm-4 col-xs-2 in-image-activity">
 						<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"></a>
 					</div>
 				@endforeach
@@ -86,10 +86,10 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+		<hr class="google_alertBox_hr">
 	@endif
 	{{--end google search photos--}}
 
-	<hr class="google_alertBox_hr">
 	<div class="box alert">
 		<p>{{ trans('main.minimum_age') }}: <strong>{{ $activity['min_age'] }} {{ trans('main.years') }}</strong></p>
 	</div>

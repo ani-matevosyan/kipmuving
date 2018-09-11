@@ -88,8 +88,8 @@ class ActivityController extends Controller
         $photos = [];
         $tag = '';
         $photos_google = [];
-        $reviews = 0;
-        $rating = '00';
+        $tripadvisorReviews = 0;
+        $tripadvisorRating = '00';
         $google_rating = '00';
 
 
@@ -97,8 +97,8 @@ class ActivityController extends Controller
             $tripadvisor = new TripadvisorAPI();
 
             $data = ($tripadvisor->getContent($activity->tripadvisor_link));
-            $reviews = $data['reviews'];
-            $rating = $data['rating'];
+            $tripadvisorReviews = $data['reviews'];
+            $tripadvisorRating = $data['rating'];
         }
 
         if (!empty($activity->instagram_link)) {
@@ -110,8 +110,9 @@ class ActivityController extends Controller
 
         if (!empty($activity->google_place_id)) {
             $googleapi = new GoogleApi();
-            $google_rating = $googleapi->getInfoToPlaceId($activity->google_place_id);
-            (empty($google_rating)) ? $google_rating = '00' : $google_rating;
+            $googleData = $googleapi->getInfoToPlaceId($activity->google_place_id);
+            $googleRating = isset($googleData['rating'] )? $googleData['rating'] : '00';
+            $googleReviews = isset($googleData['reviews'])? $googleData['reviews'] : 0;
         }
 
         if (!empty($activity->google_search_word)) {
@@ -149,10 +150,11 @@ class ActivityController extends Controller
             //google, inatgram photos, reviews
             'photos' => $photos,
             'photos_google' => $photos_google,
-            'google_rating' => $google_rating,
+            'googleRating' => $googleRating,
+            'googleReviews' => $googleReviews,
             'hashtag' => $tag,
-            'reviews' => $reviews,
-            'rating' => $rating
+            'tripadvisorReviews' => $tripadvisorReviews,
+            'tripadvisorRating' => $tripadvisorRating
 		];
 
 		return view('site.activities.activity-single', $data);
