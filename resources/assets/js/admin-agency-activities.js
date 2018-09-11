@@ -163,6 +163,8 @@ $(document).ready(function(){
             },
             success: function(res){
                 $('.editActivityModal').html(res);
+                const inputPriceString = $('#editActivityModal .priceString');
+                inputPriceString.val(window.numberWithDots(inputPriceString.next().val()));
                 $('.select2select').select2({
                     placeholder: '',
                     width: '100%',
@@ -227,6 +229,20 @@ $(document).ready(function(){
                 }
             });
     });
+
+
+    $(document.body).undelegate('.priceString, ', 'keyup keypress')
+        .delegate('.priceString', 'keyup keypress', function(ev) {
+            let price = $(this).val();
+            price = price.replace(/,|\D/g, "");
+            if ($(this).val() != '') {
+                $(this).val(window.numberWithDots(price));
+            }
+            const priceNumber = price.replace(/,|\./g, "");
+            $(this).next().val(priceNumber);
+
+    });
+
 
 
 

@@ -68,7 +68,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="pwd">Valor</label>
                                     <div class="col-sm-8">
-                                        <input type="text" name="price" class="form-control" id="price" >
+                                        <input type="text" class="form-control priceString" id="price" >
+                                        <input type="hidden" name="price" >
                                     </div>
                                 </div>
                                 <div class="form-group">
