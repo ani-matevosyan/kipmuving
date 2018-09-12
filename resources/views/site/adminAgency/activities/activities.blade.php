@@ -77,10 +77,10 @@
                                     <div class="col-sm-8 times">
                                         <div class="timesHours">
                                             <div class="col-sm-4">
-                                                <input type="text" name="start_time[]" class="form-control start_time">
+                                                <input type="text" name="start_time[]" autocomplete="off" class="form-control start_time timepicker">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" name="end_time[]" class="form-control end_time">
+                                                <input type="text" name="end_time[]" autocomplete="off" class="form-control end_time timepicker">
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="operations">

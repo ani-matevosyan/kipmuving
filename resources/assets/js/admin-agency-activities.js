@@ -1,6 +1,8 @@
 require('./admin-agency-common');
 window.select2 = require('select2');
 window.toastr = require('toastr');
+require('binary-com-jquery-ui-timepicker/include/ui-1.10.0/jquery.ui.core.min');
+require('binary-com-jquery-ui-timepicker/jquery.ui.timepicker');
 
 set_toastr_options = function(){
     toastr.options = {
@@ -20,9 +22,12 @@ set_toastr_options = function(){
 };
 
 
+
+
 $(document).ready(function(){
 
     set_toastr_options();
+    $('.timepicker').timepicker();
 
     $('.under-header').on("click", "button", function () {
         $('#addActivityModal').modal('show');
@@ -35,22 +40,23 @@ $(document).ready(function(){
 
     $(document.body).undelegate('.timesHours .glyphicon-plus-sign', 'click')
         .delegate(".timesHours .glyphicon-plus-sign", "click", function(ev){
-            const html = '<div class="timesHours">'
-                            + '<div class="col-sm-4">'
-                            +   '<input type="text" name="start_time[]" class="form-control start_time">'
-                            + '</div>'
-                            + '<div class="col-sm-4">'
-                            +   '<input type="text" name="end_time[]" class="form-control end_time">'
-                            + '</div>'
-                            + '<div class="col-sm-4">'
-                            +   '<div class="operations">'
-                            +       '<span class="glyphicon glyphicon-plus-sign"></span>'
-                            +       '<span class="glyphicon glyphicon-remove"></span>'
-                            +   '</div>'
-                            + '</div>'
-                        + '</div>';
+            const html = `<div class="timesHours">
+                             <div class="col-sm-4">
+                               <input type="text" name="start_time[]" autocomplete="off" class="form-control start_time timepicker">
+                             </div>
+                             <div class="col-sm-4">
+                               <input type="text" name="end_time[]" autocomplete="off" class="form-control end_time timepicker">
+                             </div>
+                             <div class="col-sm-4">
+                               <div class="operations">
+                                   <span class="glyphicon glyphicon-plus-sign"></span>
+                                   <span class="glyphicon glyphicon-remove"></span>
+                               </div>
+                             </div>
+                          </div>`;
             const element = $(this).parent().parent().parent();
             $(html).insertAfter(element);
+            $('.timepicker').timepicker();
     });
 
 
@@ -165,6 +171,7 @@ $(document).ready(function(){
                 $('.editActivityModal').html(res);
                 const inputPriceString = $('#editActivityModal .priceString');
                 inputPriceString.val(window.numberWithDots(inputPriceString.next().val()));
+                $('.timepicker').timepicker();
                 $('.select2select').select2({
                     placeholder: '',
                     width: '100%',
