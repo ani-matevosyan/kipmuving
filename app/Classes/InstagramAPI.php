@@ -71,18 +71,18 @@ class InstagramAPI
         if(!$insta_massiv = (instaWrapper::getFeedByUrl($url_parser))){
             return false;
         }
-        for ($i = 1; $i < count($insta_massiv); $i++) {
+       /* for ($i = 1; $i < count($insta_massiv); $i++) {
             $last_id_anketa = $insta_massiv[$i]['id'];
         }
-        $x = 0;
-        while ($x++ < $glubina_stranic) {
+        $x = 0;*/
+/*        while ($x++ < $glubina_stranic) {
             if(!$insta_massiv = (instaWrapper::getFeedByUrl("$url_parser?max_id=$last_id_anketa"))){
                 return false;
             }
             for ($i = 1; $i < count($insta_massiv); $i++) {
                 $last_id_anketa = $insta_massiv[$i]['id'];
             }
-        }
+        }*/
 
         return $insta_massiv;
     }

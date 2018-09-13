@@ -59,7 +59,7 @@
 						@break
 					@endif
 					<div class="col-sm-4 col-xs-2 in-image-activity">
-						<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"></a>
+						<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"  link-src="{{$data['display_url']}}" ></a>
 					</div>
 				@endforeach
 			</div>
@@ -76,12 +76,12 @@
 			@endif
 			<div id="" class="photos" data-tag="{{$hashtag}}">
 				{{--<div class="row">--}}
-				@foreach($photos_google as $key=>$data)
+				@foreach($photos_google as $key=>$item)
 					@if($key > 8)
 						@break
 					@endif
 						<div class="col-sm-4 col-xs-2 in-image-activity">
-							<a href="{{$data}}"><img src="{{$data}}"></a>
+							<a href="{{$item['link']}}"><img src="{{$item['thumbnailLink']}}" link-src="{{$item['link']}}"></a>
 						</div>
 {{--					@if(($key+1)%3 == 0 && $key != 0 )</div><div class="row">@endif--}}
 

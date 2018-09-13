@@ -162,4 +162,11 @@ class Activity extends Model
 
 		return $activities;
 	}
+
+
+    public function getParamTripadvisor(){
+        preg_match( "|-d(\d+)|u", $this->tripadvisor_link, $object);
+        return($object[1]);
+        // return(substr(explode("-", $this->tripadvisor_link)[2], 1));
+    }
 }

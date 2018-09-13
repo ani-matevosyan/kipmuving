@@ -21,7 +21,8 @@
         "omnipay/stripe": "~2.0@dev",
         "michael/laravelpagseguro": "dev-master#f0981fb",
         "laravel/socialite": "^2.0",
-        "odannyc/google-image-search": "^1.0"
+        "odannyc/google-image-search": "^1.0",
+        "netglue/zf2-tripadvisor-module": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -13,6 +13,7 @@ use Carbon\Carbon;
 
 use App\Classes\InstagramAPI;
 use App\Classes\TripadvisorAPI;
+use App\Classes\Tripadvisor;
 use App\Classes\GoogleApi;
 
 use odannyc\GoogleImageSearch\ImageSearch;
@@ -95,11 +96,10 @@ class ActivityController extends Controller
 
 
         if (!empty($activity->tripadvisor_link)) {
-            $tripadvisor = new TripadvisorAPI();
-
-            $data = ($tripadvisor->getContent($activity->tripadvisor_link));
-            $tripadvisorReviews = $data['reviews'];
-            $tripadvisorRating = $data['rating'];
+            $ta = new Tripadvisor();
+            $data = $ta->getQuery('location',$activity->getParamTripadvisor(),'','');
+            $tripadvisorReviews = $data['num_reviews'];
+            $tripadvisorRating = (float) $data['rating'];
         }
 
         if (!empty($activity->instagram_link)) {
@@ -120,11 +120,13 @@ class ActivityController extends Controller
             ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
             ImageSearch::config()->cx(env('GOOGLE_API_CX'));
             ($temp = ImageSearch::search($activity->google_search_word)); // returns array of results
-            foreach ($temp["items"] as $result) {
-                $photos_google[] = $result["link"];
+            foreach ($temp["items"] as $key=>$result) {
+                $photos_google[$key]['link'] = $result['link'];
+                $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
             }
             (empty($photos_google)) ? $photos_google = [] : $photos_google;
         }
+
 
 
 //		$activity_comments = ActivityComment::where('activity_id', '=', $id)->get();

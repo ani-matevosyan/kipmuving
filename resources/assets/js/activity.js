@@ -296,7 +296,7 @@ $(document).ready(function () {
 
     $(".in-image-activity a img").on('click', function (ev) {
         ev.preventDefault();
-        $("#the-image").html("<img src=\"" + $(this).attr('src') + "\"/>");
+        $("#the-image").html("<img src=\"" + $(this).attr('link-src') + "\"/>");
         $("#myModalX").modal('show');
     });
 
