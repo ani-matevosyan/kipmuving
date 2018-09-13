@@ -166,7 +166,9 @@ class Activity extends Model
 
     public function getParamTripadvisor(){
         preg_match( "|-d(\d+)|u", $this->tripadvisor_link, $object);
-        return($object[1]);
-        // return(substr(explode("-", $this->tripadvisor_link)[2], 1));
+        if(isset($object[1])){
+            return($object[1]);
+        }else
+            return '';
     }
 }

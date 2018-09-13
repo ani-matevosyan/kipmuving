@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\ActivityComment;
+use App\Locale;
 use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -95,35 +96,26 @@ class ActivityController extends Controller
         $googleReviews = 0;
 
 
+
         if (!empty($activity->tripadvisor_link)) {
-            $ta = new Tripadvisor();
-            $data = $ta->getQuery('location',$activity->getParamTripadvisor(),'','');
-            $tripadvisorReviews = $data['num_reviews'];
-            $tripadvisorRating = (float) $data['rating'];
+            $data = json_decode($activity->tripadvisor_widget_data );
+            $tripadvisorReviews = isset($data->num_reviews) ? $data->num_reviews: 0 ;
+            $tripadvisorRating =  isset($data->rating)? (float)$data->rating: 0 ;
         }
 
         if (!empty($activity->instagram_link)) {
-            $instgram = new InstagramAPI();
-            $url_parser = $activity->instagram_link; //ссылка для парсинга
-            $photos = $instgram->getInstPhoto($url_parser);
+            $photos = json_decode($activity->instagram_data);
             (empty($photos)) ? $photos = [] : $photos;
         }
 
         if (!empty($activity->google_place_id)) {
-            $googleapi = new GoogleApi();
-            $googleData = $googleapi->getInfoToPlaceId($activity->google_place_id);
-            $googleRating = isset($googleData['rating'] )? $googleData['rating'] : '00';
-            $googleReviews = isset($googleData['reviews'])? $googleData['reviews'] : 0;
+            $googleData = json_decode($activity->google_widget_data);
+            $googleRating = isset($googleData->rating )? $googleData->rating : '00';
+            $googleReviews = isset($googleData->reviews)? $googleData->reviews : 0;
         }
 
         if (!empty($activity->google_search_word)) {
-            ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
-            ImageSearch::config()->cx(env('GOOGLE_API_CX'));
-            ($temp = ImageSearch::search($activity->google_search_word)); // returns array of results
-            foreach ($temp["items"] as $key=>$result) {
-                $photos_google[$key]['link'] = $result['link'];
-                $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
-            }
+          $photos_google = json_decode($activity->google_search_data);
             (empty($photos_google)) ? $photos_google = [] : $photos_google;
         }
 
@@ -254,4 +246,50 @@ class ActivityController extends Controller
 
 		return redirect()->back();
 	}
+
+
+    public function updateWidgetsData(Request $request)
+    {
+        $activities = Activity::all();
+        foreach ($activities as $activity){
+            $photos_google = [];
+
+            if (!empty($activity->tripadvisor_link)) {
+                $ta = new Tripadvisor();
+                $data = $ta->getQuery('location',$activity->getParamTripadvisor(),'','');
+                $activity->tripadvisor_widget_data = json_encode( $data, JSON_UNESCAPED_UNICODE );;
+            }
+
+            if (!empty($activity->instagram_link)) {
+                $instgram = new InstagramAPI();
+                $url_parser = $activity->instagram_link; //ссылка для парсинга
+                $photos = $instgram->getInstPhoto($url_parser);
+                (empty($photos)) ? $photos = [] : $photos;
+                $activity->instagram_data = json_encode( $photos, JSON_UNESCAPED_UNICODE );;;
+            }
+
+            if (!empty($activity->google_place_id)) {
+                $googleapi = new GoogleApi();
+                $googleData = $googleapi->getInfoToPlaceId($activity->google_place_id);
+                $activity->google_widget_data = json_encode( $googleData, JSON_UNESCAPED_UNICODE );;
+            }
+
+            if (!empty($activity->google_search_word)) {
+                ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
+                ImageSearch::config()->cx(env('GOOGLE_API_CX'));
+                ($temp = ImageSearch::search($activity->google_search_word)); // returns array of results
+                foreach ($temp["items"] as $key=>$result) {
+                    $photos_google[$key]['link'] = $result['link'];
+                    $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
+                }
+                $activity->google_search_data = json_encode( $photos_google, JSON_UNESCAPED_UNICODE );;
+                (empty($photos_google)) ? $photos_google = [] : $photos_google;
+            }
+            $activity->save();
+        }
+
+    }
+
+
+
 }

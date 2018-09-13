@@ -68,7 +68,7 @@ Route::get('/activities/getselectedoffers', 'ActivityController@getSelectedOffer
 Route::get('/activities/getalloffers/{id}', 'ActivityController@getAllOffers');
 Route::post('/activities/filters', 'ActivityController@filters');
 Route::post('/activity/comment/add', 'ActivityController@addComment');
-
+Route::get('updateActivitiesWidgetsdata', 'ActivityController@updateWidgetsData');
 
 #Offers
 Route::post('/offer/date/set', 'OfferController@setDate');

@@ -59,7 +59,7 @@
 						@break
 					@endif
 					<div class="col-sm-4 col-xs-2 in-image-activity">
-						<a href="{{$data['thumbnail_src']}}"><img src="{{$data['thumbnail_src'] }}"  link-src="{{$data['display_url']}}" ></a>
+						<a href="{{$data->thumbnail_src}}"><img src="{{$data->thumbnail_src }}"  data-original="{{$data->display_url}}" ></a>
 					</div>
 				@endforeach
 			</div>
@@ -81,7 +81,7 @@
 						@break
 					@endif
 						<div class="col-sm-4 col-xs-2 in-image-activity">
-							<a href="{{$item['link']}}"><img src="{{$item['thumbnailLink']}}" link-src="{{$item['link']}}"></a>
+							<a href="{{$item->link}}"><img src="{{$item->thumbnailLink}}" data-original="{{ $item->link }}" class="lazyload" ></a>
 						</div>
 {{--					@if(($key+1)%3 == 0 && $key != 0 )</div><div class="row">@endif--}}
 

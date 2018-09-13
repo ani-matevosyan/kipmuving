@@ -8,7 +8,7 @@ window.Instafeed = require('instafeed.js');
 require('chosen-js');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 require('magnific-popup');
-require('jquery-lazyload');
+require('jquery-lazyload/jquery.lazyload');
 
 $(document).ready(function () {
 
@@ -296,7 +296,7 @@ $(document).ready(function () {
 
     $(".in-image-activity a img").on('click', function (ev) {
         ev.preventDefault();
-        $("#the-image").html("<img src=\"" + $(this).attr('link-src') + "\"/>");
+        $("#the-image").html("<img src=\"" + $(this).attr('data-original') + "\"/>");
         $("#myModalX").modal('show');
     });
 
