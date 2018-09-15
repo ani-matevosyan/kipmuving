@@ -42,15 +42,14 @@
                                                         <div class="prw_rup prw_common_bubble_rating bubble_rating" data-prwidget-name="common_bubble_rating" data-prwidget-init="">
                                                             <img src="{{asset('images/siteImages/tripadvisorIcon.png')}}"/>
                                                             <a href=""></a>
-                                                            <span class="ui_bubble_rating bubble_{{$tripadvisorRating}} ratingCount" property="ratingValue" content="4,5" alt="4,5 de 5 círculos"></span>
+                                                            <span class="ratingTropadvisor">
+                                                                <span class="tripadvisor-0"></span>
+                                                                <span class="tripadvisor-5" style="width:{{ $tripadvisorRating }}%"></span>
+                                                            </span>
                                                             <span href="{{$activity->tripadvisor_link}}" target="_blank" class="reviews">{{$tripadvisorReviews}} reviews</span>
                                                         </div>
                                                     </div>
                                                 </span>
-                                                <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=887&amp;
-                                                    locationId=1762622&amp;lang=en_UK&amp;rating=true&amp;reviews=true&amp;
-                                                    writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=true">
-                                                </script>
                                             </div>
                                         @endif
                                     {{--end tripadvisor review--}}

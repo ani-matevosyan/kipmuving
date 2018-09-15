@@ -99,6 +99,7 @@ class ActivityController extends Controller
 
         if (!empty($activity->tripadvisor_link)) {
             $data = json_decode($activity->tripadvisor_widget_data );
+            $data->rating = (float)$data->rating * 20;
             $tripadvisorReviews = isset($data->num_reviews) ? $data->num_reviews: 0 ;
             $tripadvisorRating =  isset($data->rating)? (float)$data->rating: 0 ;
         }
