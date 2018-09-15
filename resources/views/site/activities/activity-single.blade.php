@@ -34,26 +34,6 @@
                                         <h1>{{ $activity->name }}</h1>
                                     @endif
 
-                                    {{--start tripadvisor review--}}
-                                        @if($activity->tripadvisor_link)
-                                            <div class="tripadvisorReviews">
-                                                <span class="header_rating">
-                                                    <div class="rs rating">
-                                                        <div class="prw_rup prw_common_bubble_rating bubble_rating" data-prwidget-name="common_bubble_rating" data-prwidget-init="">
-                                                            <img src="{{asset('images/siteImages/tripadvisorIcon.png')}}"/>
-                                                            <a href=""></a>
-                                                            <span class="ratingTropadvisor">
-                                                                <span class="tripadvisor-0"></span>
-                                                                <span class="tripadvisor-5" style="width:{{ $tripadvisorRating }}%"></span>
-                                                            </span>
-                                                            <span href="{{$activity->tripadvisor_link}}" target="_blank" class="reviews">{{$tripadvisorReviews}} reviews</span>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                            </div>
-                                        @endif
-                                    {{--end tripadvisor review--}}
-
                                     {{--start google review--}}
                                     @if($activity->google_place_id)
                                         <div class="googleReviews">
@@ -69,6 +49,20 @@
                                         </div>
                                     @endif
                                     {{--end google review--}}
+
+                                    {{--start tripadvisor review--}}
+                                    @if($activity->tripadvisor_link)
+                                        <div class="tripadvisorReviews">
+                                            <img src="{{asset('images/siteImages/tripadvisorIcon.png')}}"/>
+                                            <a href=""></a>
+                                            <span class="ratingTripadvisor">
+                                                <span class="tripadvisor-0"></span>
+                                                <span class="tripadvisor-5" style="width:{{ $tripadvisorRating }}%"></span>
+                                            </span>
+                                            <span href="{{$activity->tripadvisor_link}}" target="_blank" class="reviews">{{$tripadvisorReviews}} reviews</span>
+                                        </div>
+                                    @endif
+                                    {{--end tripadvisor review--}}
 
                                 </header>
                                 <section class="post-box">

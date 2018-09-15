@@ -516,10 +516,14 @@
     }
   }
   .tripadvisorReviews {
-    width: 428px;
+    display: inline-block;
     margin-bottom: 7px;
-    .ratingTropadvisor{
-      margin: 0 9px 0 0;
+    img{
+      vertical-align: 22%;
+    }
+    .ratingTripadvisor{
+      vertical-align: 10%;
+      margin: 0 5px;
       display: inline-block;
       position: relative;
       width: 78px;
@@ -546,6 +550,7 @@
      font-size: 15px;
     }
     .reviews{
+      vertical-align: 40%;
       white-space: nowrap;
       color: #6d9445;
       font-size: 14px;
@@ -553,6 +558,8 @@
     }
   }
   .googleReviews {
+    margin-right: 25px;
+    display: inline-block;
     .ratingNumber{
       vertical-align: 39%;
       color: #cc6c21;

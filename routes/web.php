@@ -69,6 +69,7 @@ Route::get('/activities/getalloffers/{id}', 'ActivityController@getAllOffers');
 Route::post('/activities/filters', 'ActivityController@filters');
 Route::post('/activity/comment/add', 'ActivityController@addComment');
 Route::get('updateActivitiesWidgetsPhotosData', 'ActivityController@updateActivitiesWidgetsPhotosData');
+Route::get('updateActivitiesWidgetsPhotosData2', 'ActivityController@updateActivitiesWidgetsPhotosData');
 Route::post('updateActivityWidgetsPhotosData', 'ActivityController@updateActivityWidgetsPhotosData');
 
 #Offers
