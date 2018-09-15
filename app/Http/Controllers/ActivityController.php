@@ -248,7 +248,7 @@ class ActivityController extends Controller
 	}
 
 
-    public function updateWidgetsData(Request $request)
+    public function updateActivitiesWidgetsPhotosData(Request $request)
     {
         $activities = Activity::all();
         foreach ($activities as $activity){
@@ -287,9 +287,63 @@ class ActivityController extends Controller
             }
             $activity->save();
         }
-
+        echo 'The updates finished successfully!';
     }
 
+
+    public function updateActivityWidgetsPhotosData(Request $request)
+    {
+        $activity = Activity::find($request->id);
+        $tripadvisor_link = $request->tripadvisor_link;
+        $instagram_link = $request->instagram_link;
+        $google_place_id = $request->google_place_id;
+        $google_search_word = $request->google_search_word;
+
+        $photos_google = [];
+        if ($tripadvisor_link) {
+            $ta = new Tripadvisor();
+            $data = $ta->getQuery('location',$this->getParamTripadvisor($tripadvisor_link),'','');
+            $activity->tripadvisor_widget_data = json_encode( $data, JSON_UNESCAPED_UNICODE );;
+        }
+
+        if ($instagram_link) {
+            $instgram = new InstagramAPI();
+            $url_parser = $instagram_link; //ссылка для парсинга
+            $photos = $instgram->getInstPhoto($url_parser);
+            (empty($photos)) ? $photos = [] : $photos;
+            $activity->instagram_data = json_encode( $photos, JSON_UNESCAPED_UNICODE );;;
+        }
+
+        if ($google_place_id) {
+            $googleapi = new GoogleApi();
+            $googleData = $googleapi->getInfoToPlaceId($google_place_id);
+            $activity->google_widget_data = json_encode( $googleData, JSON_UNESCAPED_UNICODE );;
+        }
+
+        if ($google_search_word) {
+            ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
+            ImageSearch::config()->cx(env('GOOGLE_API_CX'));
+            ($temp = ImageSearch::search($google_search_word)); // returns array of results
+            foreach ($temp["items"] as $key=>$result) {
+                $photos_google[$key]['link'] = $result['link'];
+                $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
+            }
+            $activity->google_search_data = json_encode( $photos_google, JSON_UNESCAPED_UNICODE );;
+            (empty($photos_google)) ? $photos_google = [] : $photos_google;
+        }
+        $activity->save();
+        echo 'The updates finished successfully!';
+    }
+
+
+
+    public function getParamTripadvisor($tripadvisor_link){
+        preg_match( "|-d(\d+)|u", $tripadvisor_link, $object);
+        if(isset($object[1])){
+            return($object[1]);
+        }else
+            return '';
+    }
 
 
 }

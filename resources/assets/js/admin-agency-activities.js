@@ -1,4 +1,7 @@
 require('./admin-agency-common');
+// require('popper.js');
+// require('popover/popover');
+// require('bootstrap-confirmation2/bootstrap-confirmation');
 window.select2 = require('select2');
 window.toastr = require('toastr');
 require('binary-com-jquery-ui-timepicker/include/ui-1.10.0/jquery.ui.core.min');
