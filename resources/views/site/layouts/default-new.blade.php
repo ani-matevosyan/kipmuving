@@ -324,6 +324,10 @@
 </script>
 {{--Google analitics--}}
 
+<script type="text/javascript">
+    const langMessageSent = "{{trans('main.messageWasSent')}}";
+</script>
+
 
 
 {{--/Scripts--}}

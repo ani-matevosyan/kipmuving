@@ -413,6 +413,7 @@ return [
     'activities_stand_out' => 'Las actividades que más se destacan',
     'itinerary_suggestions' => 'Sugerencias de itinerario',
     'some_ideas_for_you' => 'Algunas ideas para usted',
+    'messageWasSent' => '¡Su mensaje fue enviado y le responderemos pronto!',
 
 
 ];

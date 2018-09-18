@@ -414,6 +414,7 @@ return [
     'activities_stand_out' => 'The activities that stand out',
     'itinerary_suggestions' => 'Itinerary Suggestions',
     'some_ideas_for_you' => 'Some ideas for you',
+    'messageWasSent' => 'Your message was sent and we will reply soon!!',
 
 ];
 

@@ -99,7 +99,7 @@ $(document).ready(function(){
             success: function(res){
                 let response = JSON.parse(res);
                 if(response.success){
-                    toastr.success('success');
+                    toastr.success(langMessageSent);
                 }
                 if(response.errorMessages){
                     $.each(response.errorMessages, function (i, value) {
