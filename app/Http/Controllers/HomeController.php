@@ -158,7 +158,7 @@ class HomeController extends Controller
 
             Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
                 $message->from('matevosyanani.h@gmail.com', 'Aventuras Chile team');
-                $message->to('matevosyanani.h@gmail.com', $data['name'])->subject('Homepage form message');
+                $message->to('contacto@aveturaschile.com', $data['name'])->subject('Homepage form message');
             });
             echo json_encode(['success' => true]);
         }else{

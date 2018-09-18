@@ -64,6 +64,9 @@
 .activity .accordion > .offer-item{
   position: relative;
   padding-left: 99px;
+  @media (max-width: 767px) {
+     padding-left: 10px;
+  }
 }
 .adventure .accordion > .offer-item{
   position: relative;
