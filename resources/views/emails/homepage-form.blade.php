@@ -50,7 +50,7 @@
 							Saludos.
 							<br>
 							<br>
-							Equipo Kip Muving Chile
+							Equipo Aventuras Chile
 							<br>
 							<br>
 							<br>

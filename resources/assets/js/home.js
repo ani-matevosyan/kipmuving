@@ -7,9 +7,28 @@ require('owl.carousel');
 require('../../../public/libs/jquery-ui/datepicker/jquery-ui');
 require('../../../public/libs/image-map-resizer/rwdImageMaps.js');
 require('jquery-lazyload');
+window.toastr = require('toastr');
+
+const set_toastr_options = function(){
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-center",
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "4000",
+        "extendedTimeOut": "0",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+};
 
 $(document).ready(function(){
 
+    set_toastr_options();
     $(".lazyload").lazyload();
 
     jcf.setOptions('Select', {
@@ -66,5 +85,30 @@ $(document).ready(function(){
         }
     });
     $('#most-visited-activities-slider, some-activities-slider').removeClass('csHidden');
+
+    $(document).on('submit','.contact-form',function(ev){
+        ev.preventDefault();
+        const formData = $('.contact-form').serialize();
+        $.ajax({
+            type: 'POST',
+            url: `/contact-us`,
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                'formData': formData,
+            },
+            success: function(res){
+                let response = JSON.parse(res);
+                if(response.success){
+                    toastr.success('success');
+                }
+                if(response.errorMessages){
+                    $.each(response.errorMessages, function (i, value) {
+                        toastr.error(value, '');
+                    });
+                }
+            }
+        });
+
+    });
 
 });

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Suggestion;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -134,31 +135,37 @@ class HomeController extends Controller
 
 	public function sendMessage(Request $request)
 	{
-		$this->validate($request, [
-			'email'                => 'email|required|max:128',
-			'name'                 => 'alpha|required|max:128',
-			'message'              => 'required|min:5|max:1000',
-			'g-recaptcha-response' => 'required|recaptcha',
-		]);
-		$data = [
-			'name'    => $request['name'],
-			'email'   => $request['email'],
-			'message' => $request['message'],
-		];
+        parse_str($request->formData, $formData);
+        $validator = Validator::make($formData, [
+            'email'                => 'email|required|max:128',
+            'name'                 => 'alpha|required|max:128',
+            'message'              => 'required|min:5|max:1000',
+            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+        if(!$validator->fails()){
+            $data = [
+                'name'    => $formData['name'],
+                'email'   => $formData['email'],
+                'message' => $formData['message'],
+            ];
 
-		$homeMail = new HomeMail();
-		$homeMail->name = $data['name'];
-		$homeMail->email = $data['email'];
-		$homeMail->message = $data['message'];
-		$homeMail->user_ip = $request->ip();
-		$homeMail->save();
+            $homeMail = new HomeMail();
+            $homeMail->name = $data['name'];
+            $homeMail->email = $data['email'];
+            $homeMail->message = $data['message'];
+            $homeMail->user_ip = $request->ip();
+            $homeMail->save();
 
-		Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
-			$message->from('contacto@aventuraschile.com', 'Kipmuving team');
-			$message->to(config('mail.admin_email'), $data['name'])->subject('Homepage form message');
-		});
-
-		return Redirect::to('/')->with('info', 'Your message is successfully send.');
+            Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
+                $message->from('matevosyanani.h@gmail.com', 'Aventuras Chile team');
+                $message->to('matevosyanani.h@gmail.com', $data['name'])->subject('Homepage form message');
+            });
+            echo json_encode(['success' => true]);
+        }else{
+            $errorMessages = $validator->errors();
+            echo json_encode(['errorMessages' => $errorMessages]);
+        }
+        exit;
 	}
 
 	public function siteEntrance()
