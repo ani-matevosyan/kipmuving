@@ -138,7 +138,7 @@ class HomeController extends Controller
         parse_str($request->formData, $formData);
         $validator = Validator::make($formData, [
             'email'                => 'email|required|max:128',
-            'name'                 => 'alpha|required|max:128',
+            'name'                 => 'regex:/^[\pL\s\-]+$/u|required|max:128',
             'message'              => 'required|min:5|max:1000',
             'g-recaptcha-response' => 'required|recaptcha',
         ]);
@@ -157,8 +157,8 @@ class HomeController extends Controller
             $homeMail->save();
 
             Mail::send('emails.homepage-form', ['data' => $data], function ($message) use ($data) {
-                $message->from('matevosyanani.h@gmail.com', 'Aventuras Chile team');
-                $message->to('contacto@aveturaschile.com', $data['name'])->subject('Homepage form message');
+                $message->from('contacto@aventuraschile.com', 'Aventuras Chile team');
+                $message->to('contacto@aventuraschile.com', $data['name'])->subject('Homepage form message');
             });
             echo json_encode(['success' => true]);
         }else{

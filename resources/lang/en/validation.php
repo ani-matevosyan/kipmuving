@@ -78,6 +78,9 @@ return [
 		'attribute-name' => [
 			'rule-name' => 'custom-message',
 		],
+        'name' => [
+            'regex' => 'The name may only contain letters, hyphens and spaces!!',
+        ],
 	],
 	
 	

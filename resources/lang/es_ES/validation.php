@@ -58,6 +58,9 @@ return [
 		'attribute-name' => [
 			'rule-name' => 'custom-message',
 		],
+        'name' => [
+            'regex' => '¡El nombre solo puede contener letras, guiones y espacios!',
+        ],
 	],
 	
 	

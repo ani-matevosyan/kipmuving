@@ -58,6 +58,9 @@ return [
 		'attribute-name' => [
 			'rule-name' => 'custom-message',
 		],
+        'name' => [
+            'regex' => 'O nome pode conter apenas letras, hífens e espaços !!',
+        ],
 	],
 	
 	
