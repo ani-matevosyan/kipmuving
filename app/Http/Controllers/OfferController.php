@@ -13,6 +13,7 @@ class OfferController extends Controller
 		if (!$timeString)
 			return null;
 
+        $timeString = str_replace(' ', '', $timeString);
 		$tmp = explode('-', $timeString);
 
 		$result = [
