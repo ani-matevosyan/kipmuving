@@ -26,11 +26,14 @@
 						</a>
 						<div class="dropdown pucon-state">
 							<span data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Pucon <span class="glyphicon glyphicon-triangle-bottom"></span>
+								{{ ucfirst(session('cities.current')) }} <span class="glyphicon glyphicon-triangle-bottom"></span>
 							</span>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">Pucon</a>
+									<a href="{{ action('CityController@setCity', 'pucon')}}">Pucon</a>
+								</li>
+								<li>
+									<a href="{{ action('CityController@setCity', 'atacama')}}">Atacama</a>
 								</li>
 							</ul>
 						</div>

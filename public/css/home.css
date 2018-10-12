@@ -8018,8 +8018,9 @@ button.close {
 
 .main-header .logo .pucon-state {
   position: absolute;
-  right: 0;
   top: 17px;
+  white-space: nowrap;
+  left: 180px;
   font-size: 18px;
   color: #dc8700;
   font-weight: bold;

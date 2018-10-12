@@ -125,8 +125,9 @@ class Activity extends Model
 
 	public static function getActivitiesList()
 	{
+//	    dd(session());
 		$region = session('cities.current') ? session('cities.current') : 'pucon';
-
+//        dd(session('cities'));
 		$activitiesList = Activity::where('visibility', true)
 			->translatedIn(app()->getLocale())
 			->where('region', '=', $region)

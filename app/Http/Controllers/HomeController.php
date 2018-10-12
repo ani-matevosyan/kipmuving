@@ -65,7 +65,7 @@ class HomeController extends Controller
             'tGActivity'     => $tGActivity,
 		];
 		if (session('cities.current') == 'atacama')
-			return view('site.home.atacama-index', $data);
+			return view('site.home.index', $data);
 
 		return view('site.home.index', $data);
 	}
