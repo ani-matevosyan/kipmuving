@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Locale;
 
 //use GuzzleHttp\Client;
 //use Illuminate\Support\Facades\Log;
@@ -70,12 +71,70 @@ class ReservationController extends Controller
 	 */
     public function apiGetReservations(Offer $offer)
     {
+        setlocale(LC_TIME, 'es_ES');
+        app()->setLocale('es_ES');
+
         $dateBeforeTwoWeeksP1 = date('Y-m-d', strtotime('-2 weeks +1 day'));
+        $prev_prev_monday = date('Y-m-d', strtotime('previous monday', strtotime('previous monday')));
+        $period = $this->date_range($dateBeforeTwoWeeksP1, date('Y-m-d', strtotime('tomorrow')));
+        $periodWithKeys = array();
+        $formattedPeriod = array();
+        foreach ($period as $key => $value) {
+            $periodWithKeys[$value] = [];
+            $formattedPeriod[] = utf8_encode(strftime('%a %e', strtotime($value)));
+        }
+
         $reservations = Reservation::with('offer')->where([['created_at', '>=', $dateBeforeTwoWeeksP1 ] ])->get();
-        return $reservations;
+        $groupedArray = array();
+        $totalPrice = 0;
+        foreach($reservations as $key => $valuesAry)
+        {
+            $totalPrice += $valuesAry->offer->price * $valuesAry->persons;
+            $activity = $valuesAry->offer->activity->name;
+            $groupedArray[$activity][\Carbon\Carbon::parse($valuesAry->created_at)->format('Y-m-d')][] = [
+                'persons' => $valuesAry->persons,
+                'date' => \Carbon\Carbon::parse($valuesAry->created_at)->format('Y-m-d'),
+                'price' => $valuesAry->offer->price,
+                'name' => $valuesAry->offer->activity->name,
+                'time' => $valuesAry->offer->schedule['start'],
+            ];
+        }
+        $finalArray = array();
+        $c = 0;
+        foreach ($groupedArray as $key => $value){
+            foreach ($value as $k => $v){
+                $finalArray[$c][$k] = $v;
+                $finalArray[$c] = array_merge($periodWithKeys,$finalArray[$c]);
+            }
+            array_unshift($finalArray[$c], $key);
+            $c++;
+        }
+        $thsArray = array_merge([''],$formattedPeriod);
+
+        return [
+            'finalArray' => $finalArray,
+            'thsArray' => $thsArray,
+            'totalPrice' => $totalPrice
+        ];
     }
 
-	public function reserve()
+
+
+    private function date_range($first, $last) {
+        $period = new \DatePeriod(
+            new \DateTime($first),
+            new \DateInterval('P1D'),
+            new \DateTime($last)
+        );
+        $dates = array();
+        foreach ($period as $key => $value) {
+            $dates[] = $value->format('Y-m-d');
+        }
+        return $dates;
+    }
+
+
+    public function reserve()
 	{
 		if (!($user = Auth::user()))
 			return redirect('/login');
