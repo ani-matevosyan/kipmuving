@@ -30,10 +30,10 @@
 							</span>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="{{ action('CityController@setCity', 'pucon')}}">Pucon</a>
+									<a href="{{ action('CityController@setCity', ['city' =>'pucon', 'route' => 'home'] )}}">Pucon</a>
 								</li>
 								<li>
-									<a href="{{ action('CityController@setCity', 'atacama')}}">Atacama</a>
+									<a href="{{ action('CityController@setCity', ['city' => 'atacama', 'route' => 'home'])}}">Atacama</a>
 								</li>
 							</ul>
 						</div>
