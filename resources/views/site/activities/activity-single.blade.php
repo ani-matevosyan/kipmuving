@@ -44,7 +44,7 @@
                                                 <div class="star-ratings-sprite ratingCount" >
                                                     <span style="width:{{$googleRating*20}}%" class="star-ratings-sprite-rating"></span>
                                                 </div>
-                                                <span class="reviews">{{$googleReviews}} reviews</span>
+                                                {{--<span class="reviews">{{$googleReviews}} reviews</span>--}}
                                             </div>
                                         </div>
                                     @endif

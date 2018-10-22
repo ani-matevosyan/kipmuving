@@ -77,10 +77,10 @@ const elixir = require('laravel-elixir');
 //       'js/user-reservations.js',
 //       'js/reservation-scripts.js',
 //       'js/routes.js',
-//       'js/admin-agency-common.js'
-//       'js/admin-agency-reservations.js'
-//       'js/admin-agency-activities.js'
-//       'js/admin-agency-providers.js'
+//       'js/admin-agency-common.js',
+//       'js/admin-agency-reservations.js',
+//       'js/admin-agency-activities.js',
+//       'js/admin-agency-providers.js',
 //     ])
 // });
 
