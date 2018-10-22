@@ -65,6 +65,16 @@ class ReservationController extends Controller
 		return view('site.reservar.su-reservar', $data);
 	}
 
+	/*
+	 * Get reservations for api
+	 */
+    public function apiGetReservations(Offer $offer)
+    {
+        $dateBeforeTwoWeeksP1 = date('Y-m-d', strtotime('-2 weeks +1 day'));
+        $reservations = Reservation::with('offer')->where([['created_at', '>=', $dateBeforeTwoWeeksP1 ] ])->get();
+        return $reservations;
+    }
+
 	public function reserve()
 	{
 		if (!($user = Auth::user()))
