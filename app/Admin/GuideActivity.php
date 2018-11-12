@@ -64,7 +64,10 @@ AdminSection::registerModel(FreeActivity::class, function (ModelConfiguration $m
 				->addColumn([
 					AdminFormElement::select('region', 'REGION')->required()->setOptions([
 						'pucon'   => 'Pucon',
-						'atacama' => 'Atacama'
+						'atacama' => 'Atacama',
+                        'valparaiso' => 'Valparaiso',
+                        'torresDelPaine' => 'Torres del Paine',
+                        'santigo' => 'Santigo',
 					])
 				], 2),
 			AdminFormElement::columns()

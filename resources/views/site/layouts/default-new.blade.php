@@ -35,6 +35,16 @@
 								<li>
 									<a href="{{ action('CityController@setCity', ['city' => 'atacama', 'route' => 'home'])}}">Atacama</a>
 								</li>
+								<li>
+									<a href="{{ action('CityController@setCity', ['city' => 'valparaiso', 'route' => 'home'])}}">Valparaiso</a>
+								</li>
+								<li>
+									<a href="{{ action('CityController@setCity', ['city' => 'torresDelPaine', 'route' => 'home'])}}">Torres del Paine</a>
+								</li>
+								<li>
+									<a href="{{ action('CityController@setCity', ['city' => 'santigo', 'route' => 'home'])}}">Santigo</a>
+								</li>
+
 							</ul>
 						</div>
 					</div>

@@ -13,7 +13,7 @@ class setCity
 		if (!session('cities')) {
 			$cities = [
 				'current' => 'pucon',
-				'list' => ['pucon', 'atacama'],
+				'list' => ['pucon', 'atacama', 'valparaiso', 'torresDelPaine', 'santigo'],
 				'entrance' => true
 			];
 			session()->put('cities', $cities);

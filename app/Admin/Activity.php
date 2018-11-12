@@ -77,7 +77,10 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 					->addColumn([
 						AdminFormElement::select('region', 'REGION')->setOptions([
 							'pucon' => 'Pucon',
-							'atacama' => 'Atacama'
+							'atacama' => 'Atacama',
+                            'valparaiso' => 'Valparaiso',
+                            'torresDelPaine' => 'Torres del Paine',
+                            'santigo' => 'Santigo',
 						])->required(),
 					], 3),
 				AdminFormElement::text('subtitle', 'Subtitle')->required(),

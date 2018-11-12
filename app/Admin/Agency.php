@@ -66,7 +66,10 @@ AdminSection::registerModel(Agency::class, function (ModelConfiguration $model) 
 						AdminFormElement::text('whatsapp', 'Whatsapp')->required(),
 						AdminFormElement::select('region', 'REGION')->setOptions([
 							'pucon' => 'Pucon',
-							'atacama' => 'Atacama'
+							'atacama' => 'Atacama',
+							'valparaiso' => 'Valparaiso',
+							'torresDelPaine' => 'Torres del Paine',
+							'santigo' => 'Santigo',
 						])->required()
 					], 4),
 				AdminFormElement::textarea('description', 'Description')->required(),
