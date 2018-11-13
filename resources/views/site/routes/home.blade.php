@@ -5,7 +5,7 @@
 	<main>
 		<section class="s-plans">
 			<div class="container">
-				<div class="filters">
+				<div class="filters" style="display: none">
 					<button class="filters__open-modal" id="open-filters">{{ trans('main.filters') }} <span></span></button>
 					<div class="filters__modal" id="filters-modal">
 						<div class="filters__buttons">
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 				<div class="suggested-plans">
-					<header>
+					<header style="margin-top: 30px"> {{--todo delete this style--}}
 						<h2>{{ trans('main.popular_routes') }}</h2>
 						<p>{{ trans('main.we_separated_some_routes') }}</p>
 						{{--  <a href="#" class="see-all-link">{{ trans('main.see_all') }}</a>  --}}
@@ -138,7 +138,7 @@
 									<h3><a href="{{ route('suggestions-single', ['id' => $suggestion->id]) }}">{{ $suggestion->name }}</a></h3>
 									<p>{{ $suggestion->short_description }}</p>
 								</div>
-								<footer>
+								<footer style="display: none">
 									<ul>
 										<li><img src="{{ asset('/images/'.$suggestion->category.'-icon.png') }}" alt="hiking icon"></li>
 									</ul>
