@@ -13,6 +13,7 @@ class RoutesController extends Controller
 	public function index()
 	{
 		$s_offers = \session('basket.special');
+        $region = session('cities.current') ? session('cities.current') : 'pucon';
 		$data = [
 			'styles'          => config('resources.routes.styles'),
 			'scripts'         => config('resources.routes.scripts.home'),
@@ -21,7 +22,7 @@ class RoutesController extends Controller
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
 			],
 			'free_activities' => $this->getFreeActivities(),
-			'suggestions'     => Suggestion::withActivities()->get(),
+			'suggestions'     => Suggestion::withActivities()->where('region', $region)->get(),
 		];
 
 		return view('site.routes.home', $data);

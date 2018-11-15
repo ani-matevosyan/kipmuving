@@ -61,10 +61,16 @@ AdminSection::registerModel(SuggestionDayActivity::class, function (ModelConfigu
 			if ($suggestion_day_activity->activity_type == 'paid') {
 				$select = AdminFormElement::select('activity_id', 'Paid activity')
 					->setModelForOptions('App\Activity')
+                    ->setLoadOptionsQueryPreparer(function($element, $query) use($suggestion_day_activity) {
+                        return $query->where('region', $suggestion_day_activity->suggestionDay->suggestion->region);
+                     })
 					->setDisplay('name');
 			} elseif ($suggestion_day_activity->activity_type == 'free') {
 				$select = AdminFormElement::select('activity_id', 'Free activity')
 					->setModelForOptions('App\FreeActivity')
+                    ->setLoadOptionsQueryPreparer(function($element, $query) use ($suggestion_day_activity) {
+                        return $query->where('region', $suggestion_day_activity->suggestionDay->suggestion->region);
+                    })
 					->setDisplay('name');
 			}
 		}

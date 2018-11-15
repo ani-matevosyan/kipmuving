@@ -4,6 +4,7 @@ namespace App;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use App\Suggestion;
 
 class SuggestionDay extends Model
 {
@@ -25,4 +26,8 @@ class SuggestionDay extends Model
 	public function activities() {
 		return $this->hasMany(SuggestionDayActivity::class, 'suggestion_day_id', 'id');
 	}
+
+    public function suggestion() {
+        return $this->belongsTo(Suggestion::class, 'suggestion_id', 'id');
+    }
 }

@@ -12,6 +12,7 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 			AdminColumn::text('id', '#')
 				->setWidth(100),
 			AdminColumn::text('name', 'Name'),
+			AdminColumn::text('region', 'Region'),
 			AdminColumn::text('weather', 'Weather')
 				->append(
 					AdminColumn::filter('weather')
@@ -48,9 +49,20 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 
 		$tabs = AdminDisplay::tabbed([
 			'Suggestion' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::text('name', 'Name')->required(),
 
 				AdminFormElement::columns()
+                    ->addColumn([
+                        AdminFormElement::text('name', 'Name')->required(),
+                    ], 9)
+                    ->addColumn([
+                        AdminFormElement::select('region', 'REGION')->setOptions([
+                            'pucon' => 'Pucon',
+                            'atacama' => 'Atacama',
+                            'valparaiso' => 'Valparaiso',
+                            'torresDelPaine' => 'Torres del Paine',
+                            'santigo' => 'Santigo',
+                        ])->required(),
+                    ], 3)
 					->addColumn([
 						AdminFormElement::textarea('short_description', 'Short description')->required(),
 					], 4)
@@ -117,6 +129,18 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 				AdminFormElement::text('name', 'Name')->required(),
 
 				AdminFormElement::columns()
+                    ->addColumn([
+                        AdminFormElement::text('name', 'Name')->required(),
+                    ], 9)
+                    ->addColumn([
+                        AdminFormElement::select('region', 'REGION')->setOptions([
+                            'pucon' => 'Pucon',
+                            'atacama' => 'Atacama',
+                            'valparaiso' => 'Valparaiso',
+                            'torresDelPaine' => 'Torres del Paine',
+                            'santigo' => 'Santigo',
+                        ])->required(),
+                    ], 3)
 					->addColumn([
 						AdminFormElement::textarea('short_description', 'Short description')->required(),
 					], 4)

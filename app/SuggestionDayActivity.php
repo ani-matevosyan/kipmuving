@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\SuggestionDay;
 
 class SuggestionDayActivity extends Model
 {
@@ -31,4 +32,8 @@ class SuggestionDayActivity extends Model
 
 		return null;
 	}
+
+    public function suggestionDay() {
+        return $this->belongsTo(SuggestionDay::class, 'suggestion_day_id', 'id');
+    }
 }

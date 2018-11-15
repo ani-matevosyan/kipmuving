@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
 		foreach ($this->widgets as $widget) {
 			$widgetsRegistry->registerWidget($widget);
 		}
+//        DB::listen(function ($query){
+//            dump($query->sql);
+//            dump($query->bindings);
+//        });
 	}
 
 	/**
