@@ -126,7 +126,6 @@ AdminSection::registerModel(Suggestion::class, function (ModelConfiguration $mod
 
 		$tabs = AdminDisplay::tabbed([
 			'Suggestion' => new \SleepingOwl\Admin\Form\FormElements([
-				AdminFormElement::text('name', 'Name')->required(),
 
 				AdminFormElement::columns()
                     ->addColumn([

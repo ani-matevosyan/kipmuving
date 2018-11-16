@@ -61,11 +61,9 @@ class HomeController extends Controller
 				'special_offers' => count($s_offers),
 				'offers'         => count(session('basket.offers')) + count(session('basket.free')),
 			],
-            'suggestions'     => Suggestion::withActivities()->get(),
+            'suggestions'     => Suggestion::withActivities()->where('region', $region)->get(),
             'tGActivity'     => $tGActivity,
 		];
-		if (session('cities.current') == 'atacama')
-			return view('site.home.index', $data);
 
 		return view('site.home.index', $data);
 	}

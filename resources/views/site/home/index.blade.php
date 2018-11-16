@@ -175,7 +175,7 @@
 		@endif
 
 
-		@if(count($random_activities) > 0)
+		@if(count($suggestions) > 0)
 			<section class="activities-slider-section suggested-plans">
 				<div class="container-fluid">
 					<header class="activities-slider-section__header">
@@ -198,7 +198,7 @@
 									<h3><a href="{{ route('suggestions-single', ['id' => $suggestion->id]) }}">{{ $suggestion->name }}</a></h3>
 									<p>{{ $suggestion->short_description }}</p>
 								</div>
-								<footer>
+								<footer style="display: none">
 									<ul>
 										<li><img src="{{ asset('/images/'.$suggestion->category.'-icon.png') }}" alt="hiking icon"></li>
 									</ul>
