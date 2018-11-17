@@ -99,8 +99,12 @@ class ActivityController extends Controller
 
         if (!empty($activity->tripadvisor_link)) {
             $data = json_decode($activity->tripadvisor_widget_data );
-            $tripadvisorReviews = isset($data->num_reviews) ? $data->num_reviews: 0 ;
-            $tripadvisorRating =  isset($data->rating)? (float)$data->rating * 20: 0 ;
+//            with API
+//            $tripadvisorReviews = isset($data->num_reviews) ? $data->num_reviews: 0 ;
+//            $tripadvisorRating =  isset($data->rating)? (float)$data->rating * 20: 0 ;
+
+            $tripadvisorReviews = isset($data->reviews) ? $data->reviews: 0 ;
+            $tripadvisorRating =  isset($data->rating)? (float)$data->rating * 2: 0 ;
         }
 
         if (!empty($activity->instagram_link)) {
@@ -255,8 +259,12 @@ class ActivityController extends Controller
             $photos_google = [];
 
             if (!empty($activity->tripadvisor_link)) {
-                $ta = new Tripadvisor();
-                $data = $ta->getQuery('location',$activity->getParamTripadvisor(),'','');
+                // without the Api
+                $tripadvisor = new TripadvisorAPI();
+                $data = ($tripadvisor->getContent($activity->tripadvisor_link));
+                // with API
+                // $ta = new Tripadvisor();
+                // $data = $ta->getQuery('location',$activity->getParamTripadvisor(),'','');
                 $activity->tripadvisor_widget_data = json_encode( $data, JSON_UNESCAPED_UNICODE );;
             }
 
@@ -301,8 +309,11 @@ class ActivityController extends Controller
 
         $photos_google = [];
         if ($tripadvisor_link) {
-            $ta = new Tripadvisor();
-            $data = $ta->getQuery('location',$this->getParamTripadvisor($tripadvisor_link),'','');
+            $tripadvisor = new TripadvisorAPI();
+            $data = ($tripadvisor->getContent($activity->tripadvisor_link));
+//            with API
+//            $ta = new Tripadvisor();
+//            $data = $ta->getQuery('location',$this->getParamTripadvisor($tripadvisor_link),'','');
             $activity->tripadvisor_widget_data = json_encode( $data, JSON_UNESCAPED_UNICODE );;
         }
 
