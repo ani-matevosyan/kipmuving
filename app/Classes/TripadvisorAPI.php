@@ -51,7 +51,7 @@ class TripadvisorAPI{
 
 
 
-                return ['reviews' => $reviews, 'rating' => $matches[0][0]];
+                return ['reviews' => $reviews, 'rating' => isset($matches[0][0])? $matches[0][0]: null ];
             } else {
                return false;
             }

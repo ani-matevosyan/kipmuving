@@ -21,27 +21,35 @@ class instaWrapper
             return false;
         }
         $shards = explode('window._sharedData = ', $source);
-        $insta_json = explode(';</script>', $shards[1]);
-        $insta_array = json_decode($insta_json[0], TRUE);
-        if (isset($insta_array['entry_data']['ProfilePage']))
-            $nodes = $insta_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'];
-        elseif (isset($insta_array['entry_data']['LocationsPage']))
-            ($nodes = $insta_array['entry_data']['LocationsPage'][0]['graphql']['location']['edge_location_to_media']['edges']);
-        elseif (isset($insta_array['entry_data']['TagPage']))
-            $nodes = $insta_array['entry_data']['TagPage'][0]['tag']['media']['nodes'];
-        $result = [];
-        foreach ($nodes as $item) {
-            $item = $item['node'];
+        if(isset($shards[1])){
+            $insta_json = explode(';</script>', $shards[1]);
+            $insta_array = json_decode($insta_json[0], TRUE);
+            if (isset($insta_array['entry_data']['ProfilePage']))
+                $nodes = $insta_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'];
+            elseif (isset($insta_array['entry_data']['LocationsPage']))
+                ($nodes = $insta_array['entry_data']['LocationsPage'][0]['graphql']['location']['edge_location_to_media']['edges']);
+            elseif (isset($insta_array['entry_data']['TagPage'])) {
+                if(isset($insta_array['entry_data']['TagPage'][0]['tag'])) {
+                    $nodes = $insta_array['entry_data']['TagPage'][0]['tag']['media']['nodes'];
+                }
+            }
+            $result = [];
+            foreach ($nodes as $item) {
+                $item = $item['node'];
 //             dd($item);
-            $result[] = [
-                "id" => $item['id'],
-                "display_url" => $item['display_url'],
-                "thumbnail_max" => $item['thumbnail_src'],
-                "thumbnail_src" => $item['thumbnail_resources']['1']['src'],
-                "is_video" => (boolean)$item['is_video'],
-            ];
+                $result[] = [
+                    "id" => $item['id'],
+                    "display_url" => $item['display_url'],
+                    "thumbnail_max" => $item['thumbnail_src'],
+                    "thumbnail_src" => $item['thumbnail_resources']['1']['src'],
+                    "is_video" => (boolean)$item['is_video'],
+                ];
+            }
+            return $result;
+        }else {
+            return [];
         }
-        return $result;
+
     }
 
     public static function getApi($string)
