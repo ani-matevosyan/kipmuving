@@ -340,11 +340,15 @@ class ActivityController extends Controller
             ImageSearch::config()->apiKey(env('GOOGLE_API_KEY'));
             ImageSearch::config()->cx(env('GOOGLE_API_CX'));
             ($temp = ImageSearch::search($google_search_word)); // returns array of results
-            foreach ($temp["items"] as $key=>$result) {
-                $photos_google[$key]['link'] = $result['link'];
-                $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
+            if(isset($temp["items"])){
+                foreach ($temp["items"] as $key=>$result) {
+                    $photos_google[$key]['link'] = $result['link'];
+                    $photos_google[$key]['thumbnailLink'] = $result['image']['thumbnailLink'];
+                }
+                $activity->google_search_data = json_encode( $photos_google, JSON_UNESCAPED_UNICODE );;
+            }else{
+                $activity->google_search_data = "{}";
             }
-            $activity->google_search_data = json_encode( $photos_google, JSON_UNESCAPED_UNICODE );;
             (empty($photos_google)) ? $photos_google = [] : $photos_google;
         }
         $activity->save();
