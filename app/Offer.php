@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use App\OfferDay;
 
 class Offer extends Model
 {
@@ -19,6 +20,10 @@ class Offer extends Model
 	];
 	protected $table = 'offers';
 
+    public function days()
+    {
+        return $this->hasMany(OfferDay::class, 'offer_id', 'id');
+    }
 
 	public function activity()
 	{
