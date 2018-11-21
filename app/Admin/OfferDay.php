@@ -42,12 +42,11 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
                             ->required(),
                     ], 3)
                     ->addColumn([
-                        AdminFormElement::text('price', 'Price')
+                        AdminFormElement::number('price', 'Price')
                             ->required(),
                     ], 3)
                     ->addColumn([
-                        AdminFormElement::text('price_offer', 'Offer price')
-                            ->required(),
+                        AdminFormElement::number('price_offer', 'Offer price'),
                         AdminFormElement::hidden('offer_id')
                              ->setDefaultValue(request()['offer_id']),
                     ], 3)
@@ -82,12 +81,11 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
                             ->required(),
                     ], 3)
                     ->addColumn([
-                        AdminFormElement::text('price', 'Price')
+                        AdminFormElement::number('price', 'Price')
                             ->required(),
                     ], 3)
                     ->addColumn([
-                        AdminFormElement::text('price_offer', 'Offer price')
-                            ->required()
+                        AdminFormElement::number('price_offer', 'Offer price'),
                     ], 3)
                     ->addColumn([
                         AdminFormElement::html("<a href=".'/admin/offers/'.$offerDay->offer_id.'/edit'." class='btn btn-success'>Return Back</a>"),

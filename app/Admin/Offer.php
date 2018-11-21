@@ -72,34 +72,21 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::date('available_start', 'Start date')
-							->setPickerFormat('d.m')
-							->required(),
-						AdminFormElement::date('available_end', 'End date')
-							->setPickerFormat('d.m')
-							->required(),
-//						AdminFormElement::time('start_time', 'Start time')
-//							->required(),
-					], 4)
+                        AdminFormElement::text('real_price', 'Standard Price')
+                            ->required(),
+					], 3)
 					->addColumn([
-						AdminFormElement::text('real_price', 'Price')
-							->required(),
-						AdminFormElement::text('real_price_offer', 'Offer price')
-							->required()
-//						AdminFormElement::time('end_time', 'End time')
-//							->required()
-					], 4)
+                        AdminFormElement::text('break_start', 'Break start')
+                            ->required(),
+					], 3)
 					->addColumn([
-						AdminFormElement::text('break_start', 'Break start')
-							->required(),
 						AdminFormElement::text('break_close', 'Break close')
 							->required()
-					], 4),
-//					->addColumn([
-//						AdminFormElement::number('persons', 'Persons')
-//							->required()
-//					], 3),
-				AdminFormElement::checkbox('availability', 'Available'),
+					], 3)
+                    ->addColumn([
+                        AdminFormElement::html('<br>'),
+                        AdminFormElement::checkbox('availability', 'Available'),
+                    ], 3),
 			]),
 			'Time'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::html($warning_time),
@@ -150,29 +137,22 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
                     ->required(),
                 AdminFormElement::columns()
                     ->addColumn([
-                        AdminFormElement::date('available_start', 'Start date')
-                            ->setPickerFormat('d.m')
+                        AdminFormElement::text('real_price', 'Standard Price')
                             ->required(),
-                        AdminFormElement::date('available_end', 'End date')
-                            ->setPickerFormat('d.m')
-                            ->required(),
-                    ], 4)
-                    ->addColumn([
-                        AdminFormElement::text('real_price', 'Price')
-                            ->required(),
-                        AdminFormElement::text('real_price_offer', 'Offer price')
-                            ->required()
-
-                    ], 4)
+                    ], 3)
                     ->addColumn([
                         AdminFormElement::text('break_start', 'Break start')
                             ->required(),
+                    ], 3)
+                    ->addColumn([
                         AdminFormElement::text('break_close', 'Break close')
                             ->required()
-                    ], 4),
-                AdminFormElement::checkbox('availability', 'Available'),
-                AdminFormElement::html('<h4>Other Offer days</h4>'),
-
+                    ], 3)
+                    ->addColumn([
+                        AdminFormElement::html('<br>'),
+                        AdminFormElement::checkbox('availability', 'Available'),
+                    ], 3),
+                AdminFormElement::html('<h4>Offer days</h4>'),
                 $days
             ]),
             'Time'      => new \SleepingOwl\Admin\Form\FormElements([
