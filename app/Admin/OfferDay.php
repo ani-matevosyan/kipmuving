@@ -16,8 +16,8 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
 		$display->setColumns([
             AdminColumn::text('available_start', 'Start date'),
             AdminColumn::text('available_end', 'End date'),
-            AdminColumn::text('price', 'price'),
-            AdminColumn::text('price_offer', 'Offer price'),
+            AdminColumn::text('price', 'Price'),
+            AdminColumn::text('price_offer', 'Offer Price'),
 		]);
 
 		$display->setOrder([[0, 'asc']]);
@@ -88,7 +88,7 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
                         AdminFormElement::number('price_offer', 'Offer price'),
                     ], 3)
                     ->addColumn([
-                        AdminFormElement::html("<a href=".'/admin/offers/'.$offerDay->offer_id.'/edit'." class='btn btn-success'>Return Back</a>"),
+                        AdminFormElement::html("<div class='returnBackAD' style='display: none'><a href=".'/admin/offers/'.$offerDay->offer_id.'/edit'." class='btn btn-success'>Return Back</a> </div>"),
                     ], 12),
 			]),
 		]);
