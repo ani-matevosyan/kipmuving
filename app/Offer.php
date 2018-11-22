@@ -124,8 +124,20 @@ class Offer extends Model
 
 	public function getPriceAttribute()
 	{
-		$price = $this->attributes['price'];
-
+        $price = $this->attributes['price'];
+	    $today = date('Y-m-d');
+        $modelDays = $this->days()->get();
+        if($modelDays->isNotEmpty()){
+            foreach ($modelDays as $key=>$item){
+                if($today >= $item->available_start && $today <= $item->available_end){
+                    if($item->price_offer){
+                        $price = $item->price_offer;
+                    }else{
+                        $price = $item->price;
+                    }
+                }
+            }
+        }
 		if (session('currency.type') == 'USD')
 			$price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
 		elseif (session('currency.type') == 'BRL')
@@ -135,6 +147,38 @@ class Offer extends Model
 
 		return round($price, 2);
 	}
+
+    public function getOldPriceAttribute()
+    {
+        $price = $this->attributes['price'];
+        $today = date('Y-m-d');
+        $modelDays = $this->days()->get();
+        $countDaysContainingToday = 0;
+        if($modelDays->isNotEmpty()){
+            foreach ($modelDays as $key=>$item){
+                if($today >= $item->available_start && $today <= $item->available_end ){
+                    $countDaysContainingToday++;
+                    if(!$item->price_offer){
+                        $price = 0;
+                    }else{
+                        $price = $item->price;
+                    }
+                }
+            }
+            if($countDaysContainingToday == 0){
+                return false;
+            }
+            if (session('currency.type') == 'USD')
+                $price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+            elseif (session('currency.type') == 'BRL')
+                $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+            elseif (session('currency.type') == 'ILS')
+                $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
+            return round($price, 2);
+        }else {
+            return false;
+        }
+    }
 
 	public function getAvailableStartDateAttribute()
 	{

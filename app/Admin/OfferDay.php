@@ -14,14 +14,13 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
 		$display = AdminDisplay::datatables();
 
 		$display->setColumns([
-            AdminColumn::text('available_start', 'Start date'),
-            AdminColumn::text('available_end', 'End date'),
-            AdminColumn::text('price', 'Price'),
-            AdminColumn::text('price_offer', 'Offer Price'),
+            AdminColumn::text('available_start', 'Start date')->setOrderable(false),
+            AdminColumn::text('available_end', 'End date')->setOrderable(false),
+            AdminColumn::text('price', 'Price')->setOrderable(false),
+            AdminColumn::text('price_offer', 'Offer Price')->setOrderable(false),
 		]);
 
-		$display->setOrder([[0, 'asc']]);
-
+		$display->setOrder([[0, false],[1, false], [2, false],[3, false], [4, false],[5, false],[6, false]]);
 		return $display;
 	});
 
