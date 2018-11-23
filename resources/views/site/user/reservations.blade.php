@@ -95,7 +95,7 @@
 									</div>
 									@if($reservation->is_special_offer)
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>:
-											<span class="price price_line-through"> $ {{ number_format($reservation->offer->real_price * $reservation->persons, 0, ".", ".") }}</span>
+											<span class="price price_line-through"> $ {{ number_format($reservation->offer->current_price * $reservation->persons, 0, ".", ".") }}</span>
 											<span class="price">$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span>
 										</p>
 									@else

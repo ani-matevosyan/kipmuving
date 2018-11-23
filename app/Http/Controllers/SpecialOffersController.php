@@ -78,8 +78,8 @@ class SpecialOffersController extends Controller
 			'agency_name'      => $s_offer->offer->agency['name'],
 			'date'             => Carbon::createFromFormat('Y-m-d', $s_offer->offer_date)->format('d/m/Y'),
 			'persons'          => $s_offer->persons,
-			'price'            => $s_offer->offer->real_price,
-			'total_price'      => $s_offer->offer->real_price * $s_offer->persons,
+			'price'            => $s_offer->offer->current_price,
+			'total_price'      => $s_offer->offer->current_price * $s_offer->persons,
 			'new_total_price'  => $request['price'],
 			'offer_valid_date' => Carbon::createFromFormat('Y-m-d H:i:s', $s_offer->updated_at)->addDays(3)->format('d/m/Y'),
 		];
@@ -134,7 +134,7 @@ class SpecialOffersController extends Controller
 					'includes'   => $s_offer->offer->includes,
 					'duration'   => $s_offer->offer->duration,
 					'schedule'   => $s_offer->offer->schedule['start'] . '-' . $s_offer->offer->schedule['end'],
-					'old_price'  => $s_offer->offer->real_price * $s_offer->persons,
+					'old_price'  => $s_offer->offer->current_price * $s_offer->persons,
 					'new_price'  => $s_offer->price,
 				],
 				'activity' => [

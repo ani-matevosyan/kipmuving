@@ -215,7 +215,7 @@
 														<div>
 															{{ trans('emails.total_activity') }}
 															<span style="color:#980e25; font-weight:bold;">
-																$ {{ number_format($offer->real_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP
+																$ {{ number_format($offer->current_price * $offer->reservation['persons'], 0, '.', ' ') }} CLP
 															</span>
 														</div>
 													</div>

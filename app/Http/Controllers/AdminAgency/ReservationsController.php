@@ -146,7 +146,7 @@ class ReservationsController extends Controller
 
                 $data->offers[$key]['reservation'] = $reservation;
                 $data->offers[$key]['is_special_offer'] = $new_price ? true : false;
-                $new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
+                $new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->current_price * $data->offers[$key]->reservation['persons'];
                 $data->persons += $selected_offer['persons'];
             }
 

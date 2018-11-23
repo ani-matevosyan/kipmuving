@@ -28,7 +28,7 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
 		$form = AdminForm::panel();
 
 		$tabs = AdminDisplay::tabbed([
-			'Offer' => new \SleepingOwl\Admin\Form\FormElements([
+			'OfferDay' => new \SleepingOwl\Admin\Form\FormElements([
                 AdminFormElement::columns()
                     ->addColumn([
                         AdminFormElement::date('available_start', 'Start date')
@@ -46,6 +46,7 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
                     ], 3)
                     ->addColumn([
                         AdminFormElement::number('price_offer', 'Offer price'),
+//                        AdminFormElement::view('welcome'),
                         AdminFormElement::hidden('offer_id')
                              ->setDefaultValue(request()['offer_id']),
                     ], 3)
@@ -67,7 +68,7 @@ AdminSection::registerModel(OfferDay::class, function (ModelConfiguration $model
         $offerDay = OfferDay::find($id);
 
 		$tabs = AdminDisplay::tabbed([
-			'Offer' => new \SleepingOwl\Admin\Form\FormElements([
+			'OfferDay' => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::columns()
                     ->addColumn([
                         AdminFormElement::date('available_start', 'Start date')

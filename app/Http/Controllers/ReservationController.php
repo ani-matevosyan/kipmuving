@@ -322,8 +322,8 @@ class ReservationController extends Controller
 						'activity_name' => $activity->name,
 						'date'          => $offer['date'],
 						'persons'       => $offer['persons'],
-						'offer_price'   => $a_offer['real_price'],
-						'total_price'   => $a_offer['real_price'] * $offer['persons'],
+						'offer_price'   => $a_offer['current_price'],
+						'total_price'   => $a_offer['current_price'] * $offer['persons'],
 						'uid'           => $uid,
 					];
 
@@ -405,7 +405,7 @@ class ReservationController extends Controller
 
 				$data->offers[$key]['reservation'] = $reservation;
 				$data->offers[$key]['is_special_offer'] = $new_price ? true : false;
-				$new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
+				$new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->current_price * $data->offers[$key]->reservation['persons'];
 				$data->persons += $selected_offer['persons'];
 			}
 

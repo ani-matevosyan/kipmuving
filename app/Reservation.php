@@ -35,7 +35,7 @@ class Reservation extends Model
 
 	public function getSumAttribute()
 	{
-		return $this->offer['real_price'] * $this->attributes['persons'];
+		return $this->offer['current_price'] * $this->attributes['persons'];
 	}
 	
 	public function getNameAttribute()

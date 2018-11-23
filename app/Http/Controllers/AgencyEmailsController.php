@@ -31,7 +31,7 @@ class AgencyEmailsController extends Controller
 				$activities = '<h3>Activities</h3>';
 				
 				foreach ($agency->offers as $offer) {
-					$activities .= '<strong>Activity: </strong>'.$offer->activity->name.' ('.$offer->real_price.' CLP)<br>';
+					$activities .= '<strong>Activity: </strong>'.$offer->activity->name.' ('.$offer->current_price.' CLP)<br>';
 					$activities .= '<strong>Description: </strong>'.$offer->description.'<br>';
 					
 					if (isset($offer->includes) && count($offer->includes) > 0) {
