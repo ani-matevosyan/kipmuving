@@ -77,10 +77,8 @@ class OfferController extends Controller
     {
         parse_str($request->formData, $formData);
         $validator = Validator::make($formData, [
-            'available_start.0' => 'required|max:255',
-            'available_end.0' => 'required|max:255',
-            'price.0' => 'required|numeric',
-            'price_offer.0' => 'numeric',
+            'available_start.*' => 'max:255',
+            'available_end.*' => 'max:255',
             'price.*' => 'numeric',
             'price_offer.*' => 'numeric',
         ]);
@@ -113,16 +111,17 @@ class OfferController extends Controller
 
     public function editDays(Request $request)
     {
+
         parse_str($request->formData, $formData);
         $validator = Validator::make($formData, [
-            'available_start.0' => 'required|max:255',
-            'available_end.0' => 'required|max:255',
-            'price.0' => 'required|numeric',
-            'price_offer.0' => 'numeric',
+            'available_start.*' => 'max:255',
+            'available_end.*' => 'max:255',
             'price.*' => 'numeric',
             'price_offer.*' => 'numeric',
         ]);
         if(!$validator->fails()){
+
+            OfferDay::where('offer_id', $request->offer_id)->delete();
             $start_dates = $formData['available_start'];
             $end_dates = $formData['available_end'];
             $prices = $formData['price'];

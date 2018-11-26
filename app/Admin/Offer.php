@@ -3,6 +3,7 @@
 use Illuminate\Pagination\PaginationServiceProvider;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use App\Offer;
+use App\OfferDay;
 
 AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	
@@ -83,7 +84,7 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
                         AdminFormElement::html('<h4 class="offer-days">Offer days</h4>')
                     ], 12)
                     ->addColumn([
-                        AdminFormElement::view('site.admin.offer_days', $data)
+                        AdminFormElement::view('site.admin.add_offer_days', $data)
                     ], 10)
 					->addColumn([
                         AdminFormElement::text('break_start', 'Break start')
@@ -126,6 +127,12 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
         $days->getScopes()->push(['withOffer', $id]);
         $days->setParameter('offer_id', $id);
 
+        $offerDays = OfferDay::where('offer_id', $id)->get();
+        $data = [
+            'offerDays'  => $offerDays,
+            'offerId'  => $id,
+        ];
+
         $tabs = AdminDisplay::tabbed([
             'Offer'     => new \SleepingOwl\Admin\Form\FormElements([
 
@@ -149,19 +156,22 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
                             ->required(),
                     ], 3)
                     ->addColumn([
+                        AdminFormElement::html('<h4 class="offer-days">Offer days</h4>')
+                    ], 12)
+                    ->addColumn([
+                        AdminFormElement::view('site.admin.edit_offer_days', $data)
+                    ], 10)
+                    ->addColumn([
                         AdminFormElement::text('break_start', 'Break start')
                             ->required(),
-                    ], 3)
-                    ->addColumn([
                         AdminFormElement::text('break_close', 'Break close')
                             ->required()
-                    ], 3)
+                    ], 2)
                     ->addColumn([
                         AdminFormElement::html('<br>'),
                         AdminFormElement::checkbox('availability', 'Available'),
                     ], 3),
-                AdminFormElement::html('<h4>Offer days</h4>'),
-                $days
+//                $days
             ]),
             'Time'      => new \SleepingOwl\Admin\Form\FormElements([
                 AdminFormElement::html($warning_time),
