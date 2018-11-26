@@ -92,7 +92,8 @@ Route::get('/offer/special/confirm', 'SpecialOffersController@getConfirmOfferJso
 Route::post('/offer/special/confirm', 'ReservationController@reserveSpecialOffer');
 Route::get('/offer/special/cancel/{id}', 'SpecialOffersController@unsubscribeOffer')
 	->where('id', '[0-9a-z]+');
-
+Route::post('/offer/addDays', 'OfferController@addDays');
+Route::post('/offer/editDays', 'OfferController@editDays');
 
 
 #Agencies

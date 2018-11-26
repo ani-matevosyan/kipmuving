@@ -49,7 +49,11 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	$model->onCreate(function () {
 		$warning_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>09:00-14:00;<br>10:00-15:00<br><strong>In the last element you don\'t need ";"</strong></small></div>';
 		$warning_includes = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Transporte ida y vuelta;<br>Guieda Profesional;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
-		
+
+        $maxId = Offer::max('id');
+        $data = [
+            'offerMaxId' => $maxId,
+        ];
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$tabs = AdminDisplay::tabbed([
@@ -75,18 +79,22 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
                         AdminFormElement::text('real_price', 'Standard Price')
                             ->required(),
 					], 3)
+                    ->addColumn([
+                        AdminFormElement::html('<h4 class="offer-days">Offer days</h4>')
+                    ], 12)
+                    ->addColumn([
+                        AdminFormElement::view('site.admin.offer_days', $data)
+                    ], 10)
 					->addColumn([
                         AdminFormElement::text('break_start', 'Break start')
                             ->required(),
-					], 3)
-					->addColumn([
-						AdminFormElement::text('break_close', 'Break close')
-							->required()
-					], 3)
+                        AdminFormElement::text('break_close', 'Break close')
+                            ->required()
+					], 2)
                     ->addColumn([
                         AdminFormElement::html('<br>'),
                         AdminFormElement::checkbox('availability', 'Available'),
-                    ], 3),
+                    ], 12),
 			]),
 			'Time'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::html($warning_time),
