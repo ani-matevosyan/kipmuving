@@ -82,7 +82,7 @@ class OfferController extends Controller
             'price.*' => 'numeric',
             'price_offer.*' => 'numeric',
         ]);
-        if(!$validator->fails()){
+        if(!$validator->fails() && isset($formData['available_start'])){
             $start_dates = $formData['available_start'];
             $end_dates = $formData['available_end'];
             $prices = $formData['price'];
@@ -119,8 +119,7 @@ class OfferController extends Controller
             'price.*' => 'numeric',
             'price_offer.*' => 'numeric',
         ]);
-        if(!$validator->fails()){
-
+        if(!$validator->fails() && isset($formData['available_start'])){
             OfferDay::where('offer_id', $request->offer_id)->delete();
             $start_dates = $formData['available_start'];
             $end_dates = $formData['available_end'];

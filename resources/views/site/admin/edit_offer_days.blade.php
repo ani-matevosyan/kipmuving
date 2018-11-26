@@ -38,6 +38,9 @@
   h4.offer-days{
     display: none;
   }
+  .addOfferDay {
+    width: 100%;
+  }
   @media screen and (max-width: 991px){
     .offer_day{
       margin-bottom: 20px;
@@ -62,6 +65,11 @@
 <section>
   <div class="offer-days">
     @if($offerDays->isNotEmpty())
+      <div class="row" style="display: none">
+        <div class="col-md-3">
+          <a class="btn btn-success addOfferDay">Add Offer Day</a>
+        </div>
+      </div>
        @foreach($offerDays as $key=>$item)
           <div class="offer_day row">
             <div class="col-md-3">
@@ -112,67 +120,16 @@
             </div>
             <div class="col-md-1">
               <div class="operations">
-                @if($key != 0)
-                  <span class="glyphicon glyphicon-remove"></span>
-                @endif
+                <span class="glyphicon glyphicon-remove"></span>
                 <span class="glyphicon glyphicon-plus-sign"></span>
               </div>
             </div>
           </div>
        @endforeach
     @else
-      <div class="offer_day row">
+      <div class="row">
         <div class="col-md-3">
-          <div class="form-elements first">
-            <div class="form-group form-element-date ">
-              <label for="available_end" class="control-label">
-                Start date
-              </label>
-              <div class="input-date input-group">
-                <input data-date-format="DD/MM/YYYY" data-date-pickdate="true" data-date-picktime="false" data-date-useseconds="false" class="form-control offerDayField" name="available_start[]" type="text" id="available_start" value="">
-                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-elements">
-            <div class="form-group form-element-date ">
-              <label for="available_end" class="control-label">
-                End date
-              </label>
-              <div class="input-date input-group">
-                <input data-date-format="DD/MM/YYYY" data-date-pickdate="true" data-date-picktime="false" data-date-useseconds="false" class="form-control offerDayField" name="available_end[]" type="text" id="available_end" value="">
-                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-elements">
-            <div class="form-group form-element-text ">
-              <label for="real_price" class="control-label">
-                Price
-              </label>
-              <input class="form-control" name="price[]" type="text" id="price" value="">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-elements">
-            <div class="form-group form-element-text ">
-              <label for="real_price" class="control-label nowrap">
-                Offer Price
-              </label>
-              <input class="form-control" name="price_offer[]" type="text" id="price_offer" value="">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-1">
-          <div class="operations">
-              {{--<span class="glyphicon glyphicon-remove"></span>--}}
-              <span class="glyphicon glyphicon-plus-sign"></span>
-          </div>
+          <a class="btn btn-success addOfferDay">Add Offer Day</a>
         </div>
       </div>
     @endif
@@ -185,9 +142,8 @@ $(document).ready(function(){
     const offerDays = JSON.parse('{!! json_encode($offerDays) !!}');
     const offerId = '{!! $offerId !!}';
 
-    $(document.body).undelegate('.glyphicon-plus-sign', 'click')
-        .delegate(".glyphicon-plus-sign", "click", function(ev){
-              let html = `<div class="offer_day row">
+    const addOfferDay = function(element){
+        let html = `<div class="offer_day row">
                             <div class="col-md-3">
                               <div class="form-elements">
                                 <div class="form-group form-element-date ">
@@ -241,28 +197,61 @@ $(document).ready(function(){
                               </div>
                             </div>
                           </div>`;
-              const element = $(this).parent().parent().parent();
-              $(html).insertAfter(element);
-              $('.fa-calendar').click(function() {
-                  $(this).parent().prev('.datepicker').datepicker({
-                      changeYear: true,
-                      changeMonth: true,
-                      autoclose: true,
-                  }).focus();
-                  $('.prev i').removeClass();
-                  $('.prev i').addClass("fa fa-chevron-left");
+        $(html).insertAfter(element);
+        $('.fa-calendar').click(function() {
+            $(this).parent().prev('.datepicker').datepicker({
+                changeYear: true,
+                changeMonth: true,
+                autoclose: true,
+            }).focus();
+            $('.prev i').removeClass();
+            $('.prev i').addClass("fa fa-chevron-left");
 
-                  $('.next i').removeClass();
-                  $('.next i').addClass("fa fa-chevron-right");
-              });
+            $('.next i').removeClass();
+            $('.next i').addClass("fa fa-chevron-right");
+        });
+    };
 
-    });
+    $(document.body).undelegate('.glyphicon-plus-sign', 'click')
+        .delegate(".glyphicon-plus-sign", "click", function(ev){
+            const element = $(this).parent().parent().parent();
+            addOfferDay(element);
+        });
+
+    $(document.body).undelegate('.addOfferDay', 'click')
+        .delegate(".addOfferDay", "click", function(ev){
+            $(this).parent().parent().hide();
+            const element = $(this).parent().parent();
+            addOfferDay(element);
+        });
 
 
     $(document.body).undelegate('.glyphicon-remove', 'click')
         .delegate(".glyphicon-remove", "click", function(ev){
             const element = $(this).parent().parent().parent();
-            element.fadeOut().remove();
+            Promise.prototype.done = function() {
+                return this.catch(function() {
+                    // Catch promise rejections.
+                });
+            };
+            swal({
+                title: "Are you sure?",
+//                    text: "You will not be able to recover!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "Cancel",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+            }).then(function(isConfirm) {
+                if (isConfirm) {
+                    if(!element.next().hasClass( 'offer_day')){
+                        element.prev().show();
+                    }
+                    element.fadeOut().remove();
+                }
+            }).done();
         });
 
     $(document.body).undelegate('button[name=next_action]', 'click')
