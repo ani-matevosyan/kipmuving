@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\OfferDay;
+use App\Offer;
 use Illuminate\Support\Facades\Validator;
 
 class OfferController extends Controller
@@ -28,7 +29,19 @@ class OfferController extends Controller
 
 	public function setDate(Request $request)
 	{
+	    $activityId = $request->activityId;
 		Session::set('selectedDate', Carbon::createFromFormat('d/m/Y', $request['date'])->toDateString());
+        $offers = Offer::with('days')
+            ->where('activity_id','=', $activityId)
+            ->whereHas('agency')
+            ->get();
+        if($offers->isNotEmpty()){
+            foreach ($offers as $key=>$item){
+                $offers[$key]->old_price = $item->old_price;
+                $offers[$key]->the_price = $item->price;
+            }
+        }
+	    echo json_encode(['offers' => $offers]);
 	}
 
 	public function reserve(Request $request)

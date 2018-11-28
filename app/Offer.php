@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use App\OfferDay;
+use Illuminate\Support\Facades\Session;
 
 class Offer extends Model
 {
@@ -126,6 +127,9 @@ class Offer extends Model
 	{
         $price = $this->attributes['price'];
 	    $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
         $modelDays = $this->days()->get();
         if($modelDays->isNotEmpty()){
             foreach ($modelDays as $key=>$item){
@@ -152,6 +156,9 @@ class Offer extends Model
     {
         $price = $this->attributes['price'];
         $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
         $modelDays = $this->days()->get();
         $countDaysContainingToday = 0;
         if($modelDays->isNotEmpty()){
@@ -217,6 +224,9 @@ class Offer extends Model
     {
         $price = $this->attributes['price'];
         $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
         $modelDays = $this->days()->get();
         if($modelDays->isNotEmpty()){
             foreach ($modelDays as $key=>$item){

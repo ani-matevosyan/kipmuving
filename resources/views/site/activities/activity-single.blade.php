@@ -268,6 +268,7 @@
 
 
     <script>
+      const activityId = '{!! $activity->id !!}';
       window.translateData = {
         still_no_offers: '{{ trans('main.still_no_offers') }}'
       }
