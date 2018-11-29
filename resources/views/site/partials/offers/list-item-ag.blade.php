@@ -46,7 +46,7 @@
 							</li>
 							@if($offer->price)
 								<li class="profile">
-									<select id="select-persona-{{$offer->id}}" class="persona">
+									<select id="select-persona-{{$offer->id}}" data-offer-id="{{ $offer->id }}" class="persona">
 										<option selected value="">{{ trans('main.persons') }}</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -78,6 +78,7 @@
 											 type="text"
 											 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 											 placeholder=""
+										     data-offer-id="{{ $offer->id }}"
 											 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
 									<!-- </a> -->
 								</li>
@@ -86,7 +87,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="text-right">
 							@if($offer->old_price)
-								<del>
+								<del class="old_price" data-unit-price="{{ $offer->old_price }}">
 									@if(session('currency.type') === 'BRL') R$ @else $ @endif
 									{{ number_format($offer->old_price, 0, '.', '.') }}
 								</del>

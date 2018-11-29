@@ -159,4 +159,22 @@ class OfferController extends Controller
         }
     }
 
+
+    public function getPriceByDateAndPersons(Request $request){
+        $offer_id = $request->offer_id;
+        $persons = $request->persons ? $request->persons : 1;
+        $date = date('Y-m-d', strtotime(str_replace('/', '-', $request->date)));
+        $offer = Offer::with('days')->find( $offer_id);
+        $oldPrice = $offer->getOldPrice($date);
+        $price = $offer->getPrice($date);
+        $priceWithPersons = $persons * $price;
+        $oldPriceWithPersons = $persons * $oldPrice;
+        echo json_encode([
+            'price' => $price,
+            'oldPrice' => $oldPrice,
+            'priceWithPersons' => $priceWithPersons,
+            'oldPriceWithPersons' => $oldPriceWithPersons,
+        ]);
+    }
+
 }
