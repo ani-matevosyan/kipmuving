@@ -124,7 +124,6 @@ class OfferController extends Controller
 
     public function editDays(Request $request)
     {
-
         parse_str($request->formData, $formData);
         $validator = Validator::make($formData, [
             'available_start.*' => 'max:255',

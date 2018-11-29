@@ -232,15 +232,20 @@ class Offer extends Model
 
     public function getCurrentPriceAttribute()
     {
-        $price = $this->attributes['price'];
         $today = date('Y-m-d');
         if(Session::has('selectedDate')) {
             $today = session('selectedDate');
         }
+        return $this->getCurrentRealPrice($today);
+    }
+
+    public function getCurrentRealPrice($date)
+    {
+        $price = $this->attributes['price'];
         $modelDays = $this->days()->get();
         if($modelDays->isNotEmpty()){
             foreach ($modelDays as $key=>$item){
-                if($today >= $item->available_start && $today <= $item->available_end){
+                if($date >= $item->available_start && $date <= $item->available_end){
                     if($item->price_offer){
                         $price = $item->price_offer;
                     }else{
