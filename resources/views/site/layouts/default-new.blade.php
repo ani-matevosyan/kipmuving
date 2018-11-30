@@ -5,9 +5,9 @@
 	@include('site.head.metatags')
 
 	@if(isset($title))
-		<title>Aventuras Chile: {{ $title }}</title>
+		<title>Aventuras Latam: {{ $title }}</title>
 	@else
-		<title>Aventuras Chile</title>
+		<title>Aventuras Latam</title>
 	@endif
 
 	@include('site.head.styles')

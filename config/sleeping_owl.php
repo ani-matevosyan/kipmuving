@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'title' => 'Kipmuving admin',
+    'title' => 'Aventuras Latam admin',
 
     /*
     |--------------------------------------------------------------------------
