@@ -131,26 +131,28 @@ class OfferController extends Controller
             'price.*' => 'numeric',
             'price_offer.*' => 'numeric',
         ]);
-        if(!$validator->fails() && isset($formData['available_start'])){
+        if(!$validator->fails()){
             OfferDay::where('offer_id', $request->offer_id)->delete();
-            $start_dates = $formData['available_start'];
-            $end_dates = $formData['available_end'];
-            $prices = $formData['price'];
-            $price_offers = $formData['price_offer'];
+            if(isset($formData['available_start'])){
+                $start_dates = $formData['available_start'];
+                $end_dates = $formData['available_end'];
+                $prices = $formData['price'];
+                $price_offers = $formData['price_offer'];
 
-            $offerDayArr = [];
-            foreach ($start_dates as $key=>$value){
-                if($value && $end_dates[$key] && $prices[$key]){
-                    $offerDayArr[] = [
-                        'offer_id' => $request->offer_id,
-                        'available_start'=> date('Y-m-d', strtotime(str_replace('/', '-', $value))),
-                        'available_end'=> date('Y-m-d', strtotime(str_replace('/', '-', $end_dates[$key]))),
-                        'price'=> $prices[$key],
-                        'price_offer'=> ($price_offers[$key]? $price_offers[$key] : null),
-                    ];
+                $offerDayArr = [];
+                foreach ($start_dates as $key=>$value){
+                    if($value && $end_dates[$key] && $prices[$key]){
+                        $offerDayArr[] = [
+                            'offer_id' => $request->offer_id,
+                            'available_start'=> date('Y-m-d', strtotime(str_replace('/', '-', $value))),
+                            'available_end'=> date('Y-m-d', strtotime(str_replace('/', '-', $end_dates[$key]))),
+                            'price'=> $prices[$key],
+                            'price_offer'=> ($price_offers[$key]? $price_offers[$key] : null),
+                        ];
+                    }
                 }
+                OfferDay::insert($offerDayArr);
             }
-            OfferDay::insert($offerDayArr);
 
         }else{
             $errorMessages = $validator->errors();
