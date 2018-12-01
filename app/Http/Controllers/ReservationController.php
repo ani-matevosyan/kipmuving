@@ -288,6 +288,7 @@ class ReservationController extends Controller
 			$reservation->lang_code = app()->getLocale();
 			$reservation->user_id = $user->id;
 			$reservation->offer_id = $offer->id;
+			$reservation->price = $offer->updated_real_price;
 			$reservation->persons = $offer->reservation['persons'];
 			$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->toDateString();
 			$reservation->time_range = $offer->reservation['time']['start'] . '-' . $offer->reservation['time']['end'];

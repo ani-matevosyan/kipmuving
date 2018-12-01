@@ -185,8 +185,8 @@
 													</h2>
 													<p style="margin: 0 0 0 0; line-height: 1;">{{ trans('form.day_s') }} <strong style="font-size: 15px; color: #980e25;">{{ $offer->reservation['date'] }}</strong></p>
 													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.persons_s') }} <strong style="font-size: 15px; color: #980e25;">{{ $offer->reservation['persons'] }}</strong></p>
-													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.activity') }} <strong style="font-size: 15px; color: #980e25;">$ {{ number_format($offer->current_price * $offer->reservation['persons'], 0, '.', ' ') }}</strong></p>
-													<?php $totalprice += $offer->current_price * $offer->reservation['persons'] ?>
+													<p style="margin: 0 0 0 0; line-height: 1;">total {{ trans('main.activity') }} <strong style="font-size: 15px; color: #980e25;">$ {{ number_format($offer->updated_real_price * $offer->reservation['persons'], 0, '.', ' ') }}</strong></p>
+													<?php $totalprice += $offer->updated_real_price * $offer->reservation['persons'] ?>
 												</td>
 											</tr>
 										@endforeach

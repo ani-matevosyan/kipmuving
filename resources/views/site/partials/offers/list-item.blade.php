@@ -65,12 +65,12 @@
 						@if($offer['price'])
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="text-right">
-									@if($offer->old_price)
-										<del class="old_price" data-unit-price="{{ $offer->old_price }}">
+									<del class="old_price" data-unit-price="{{ $offer->old_price }}">
+										@if($offer->old_price)
 											@if(session('currency.type') === 'BRL') R$ @else $ @endif
 											{{ number_format($offer->old_price, 0, '.', '.') }}
-										</del>
-									@endif
+										@endif
+									</del>
 								</div>
 								<div>
 									<strong class="price" data-unit-price="{{ $offer->price }}">

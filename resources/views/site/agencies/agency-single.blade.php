@@ -15,7 +15,7 @@
 									</div>
 									<div class="col-xs-5">
 										<div class="ta-code">
-											{!! $agency->tripadvisor_code !!}
+{{--											{!! $agency->tripadvisor_code !!}--}}
 										</div>
 									</div>
 								</div>
