@@ -37,10 +37,10 @@
 										<strong>Persons:</strong> {{ $offer->persons }}
 									</li>
 									<li class="special-offers-list__info-item">
-										<strong>Your price:</strong> $ {{ number_format($offer->offer->real_price, 0, '.', '.') }}
+										<strong>Your price:</strong> $ {{ number_format($offer->offer->current_price, 0, '.', '.') }}
 									</li>
 									<li class="special-offers-list__info-item">
-										<strong>Total:</strong> $ {{ number_format($offer->offer->real_price * $offer->persons, 0, '.', '.') }}
+										<strong>Total:</strong> $ {{ number_format($offer->offer->current_price * $offer->persons, 0, '.', '.') }}
 									</li>
 								</ul>
 
@@ -59,23 +59,23 @@
 									<ul class="pick-discount__list">
 										<li class="pick-discount__item">
 											<span href="#" class="pick-discount__button pick-discount__button_yellow"
-														data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}">5%</span>
-											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.95, 0, '.', '.') }}</span>
+														data-price="{{ number_format($offer->offer->current_price * $offer->persons * 0.95, 0, '.', '.') }}">5%</span>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->current_price * $offer->persons * 0.95, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
 											<span href="#" class="pick-discount__button pick-discount__button_orange"
-														data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}">10%</span>
-											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.9, 0, '.', '.') }}</span>
+														data-price="{{ number_format($offer->offer->current_price * $offer->persons * 0.9, 0, '.', '.') }}">10%</span>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->current_price * $offer->persons * 0.9, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
 											<span class="pick-discount__button pick-discount__button_red"
-														data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}">15%</span>
-											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.85, 0, '.', '.') }}</span>
+														data-price="{{ number_format($offer->offer->current_price * $offer->persons * 0.85, 0, '.', '.') }}">15%</span>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->current_price * $offer->persons * 0.85, 0, '.', '.') }}</span>
 										</li>
 										<li class="pick-discount__item">
 											<span class="pick-discount__button pick-discount__button_purple"
-														data-price="{{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}">20%</span>
-											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->real_price * $offer->persons * 0.8, 0, '.', '.') }}</span>
+														data-price="{{ number_format($offer->offer->current_price * $offer->persons * 0.8, 0, '.', '.') }}">20%</span>
+											<span class="pick-discount__end-price">$ {{ number_format($offer->offer->current_price * $offer->persons * 0.8, 0, '.', '.') }}</span>
 										</li>
 									</ul>
 

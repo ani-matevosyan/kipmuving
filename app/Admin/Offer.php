@@ -3,6 +3,7 @@
 use Illuminate\Pagination\PaginationServiceProvider;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use App\Offer;
+use App\OfferDay;
 
 AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 	
@@ -46,10 +47,14 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 		return $display;
 	});
 	
-	$model->onCreateAndEdit(function () {
+	$model->onCreate(function () {
 		$warning_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>09:00-14:00;<br>10:00-15:00<br><strong>In the last element you don\'t need ";"</strong></small></div>';
 		$warning_includes = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Transporte ida y vuelta;<br>Guieda Profesional;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
-		
+
+        $maxId = Offer::max('id');
+        $data = [
+            'offerMaxId' => $maxId,
+        ];
 		$form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
 		
 		$tabs = AdminDisplay::tabbed([
@@ -72,34 +77,25 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 				
 				AdminFormElement::columns()
 					->addColumn([
-						AdminFormElement::date('available_start', 'Start date')
-							->setPickerFormat('d.m')
-							->required(),
-						AdminFormElement::date('available_end', 'End date')
-							->setPickerFormat('d.m')
-							->required(),
-//						AdminFormElement::time('start_time', 'Start time')
-//							->required(),
-					], 4)
+                        AdminFormElement::text('real_price', 'Standard Price')
+                            ->required(),
+					], 3)
+                    ->addColumn([
+                        AdminFormElement::html('<h4 class="offer-days">Offer days</h4>')
+                    ], 12)
+                    ->addColumn([
+                        AdminFormElement::view('site.admin.add_offer_days', $data)
+                    ], 10)
 					->addColumn([
-						AdminFormElement::text('real_price', 'Price')
-							->required(),
-						AdminFormElement::text('real_price_offer', 'Offer price')
-							->required()
-//						AdminFormElement::time('end_time', 'End time')
-//							->required()
-					], 4)
-					->addColumn([
-						AdminFormElement::text('break_start', 'Break start')
-							->required(),
-						AdminFormElement::text('break_close', 'Break close')
-							->required()
-					], 4),
-//					->addColumn([
-//						AdminFormElement::number('persons', 'Persons')
-//							->required()
-//					], 3),
-				AdminFormElement::checkbox('availability', 'Available'),
+                        AdminFormElement::text('break_start', 'Break start')
+                            ->required(),
+                        AdminFormElement::text('break_close', 'Break close')
+                            ->required()
+					], 2)
+                    ->addColumn([
+                        AdminFormElement::html('<br>'),
+                        AdminFormElement::checkbox('availability', 'Available'),
+                    ], 12),
 			]),
 			'Time'      => new \SleepingOwl\Admin\Form\FormElements([
 				AdminFormElement::html($warning_time),
@@ -118,5 +114,82 @@ AdminSection::registerModel(Offer::class, function (ModelConfiguration $model) {
 		
 		return $form;
 	});
-	
+
+    $model->onEdit(function ($id) {
+        $warning_time = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>09:00-14:00;<br>10:00-15:00<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+        $warning_includes = '<div class="alert bg-warning text-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><small><strong>For example:</strong><br>Transporte ida y vuelta;<br>Guieda Profesional;<br><strong>In the last element you don\'t need ";"</strong></small></div>';
+
+
+        $offer = Offer::find($id);
+        $form = AdminForm::panel()->setHtmlAttribute('enctype', 'multipart/form-data');
+
+        $days = AdminSection::getModel(\App\OfferDay::class)->fireDisplay();
+        $days->getScopes()->push(['withOffer', $id]);
+        $days->setParameter('offer_id', $id);
+
+        $offerDays = OfferDay::where('offer_id', $id)->get();
+        $data = [
+            'offerDays'  => $offerDays,
+            'offerId'  => $id,
+        ];
+
+        $tabs = AdminDisplay::tabbed([
+            'Offer'     => new \SleepingOwl\Admin\Form\FormElements([
+
+                AdminFormElement::columns()
+                    ->addColumn([
+                        AdminFormElement::select('agency_id', 'Agency')
+                            ->setModelForOptions('App\Agency')
+                            ->setDisplay('name'),
+                    ], 6)
+                    ->addColumn([
+                        AdminFormElement::select('activity_id', 'Activity')
+                            ->setModelForOptions('App\Activity')
+                            ->setDisplay('name'),
+                    ], 6),
+                AdminFormElement::textarea('description', 'Description'),
+                AdminFormElement::text('cancellation_rules', 'Cancellation rules')
+                    ->required(),
+                AdminFormElement::columns()
+                    ->addColumn([
+                        AdminFormElement::text('real_price', 'Standard Price')
+                            ->required(),
+                    ], 3)
+                    ->addColumn([
+                        AdminFormElement::html('<h4 class="offer-days">Offer days</h4>')
+                    ], 12)
+                    ->addColumn([
+                        AdminFormElement::view('site.admin.edit_offer_days', $data)
+                    ], 10)
+                    ->addColumn([
+                        AdminFormElement::text('break_start', 'Break start')
+                            ->required(),
+                        AdminFormElement::text('break_close', 'Break close')
+                            ->required()
+                    ], 2)
+                    ->addColumn([
+                        AdminFormElement::html('<br>'),
+                        AdminFormElement::checkbox('availability', 'Available'),
+                    ], 3),
+//                $days
+            ]),
+            'Time'      => new \SleepingOwl\Admin\Form\FormElements([
+                AdminFormElement::html($warning_time),
+                AdminFormElement::textarea('real_available_time', 'Time')->required()
+            ]),
+            'Includes'  => new \SleepingOwl\Admin\Form\FormElements([
+                AdminFormElement::html($warning_includes),
+                AdminFormElement::textarea('real_includes', 'Includes')->required()
+            ]),
+            'Important' => new \SleepingOwl\Admin\Form\FormElements([
+                AdminFormElement::textarea('important', 'Important')->required()
+            ]),
+        ]);
+
+        $form->addElement($tabs);
+
+        return $form;
+    });
+
+
 });

@@ -288,6 +288,7 @@ class ReservationController extends Controller
 			$reservation->lang_code = app()->getLocale();
 			$reservation->user_id = $user->id;
 			$reservation->offer_id = $offer->id;
+			$reservation->price = $offer->updated_real_price;
 			$reservation->persons = $offer->reservation['persons'];
 			$reservation->reserve_date = Carbon::createFromFormat('d/m/Y', $offer->reservation['date'])->toDateString();
 			$reservation->time_range = $offer->reservation['time']['start'] . '-' . $offer->reservation['time']['end'];
@@ -322,8 +323,8 @@ class ReservationController extends Controller
 						'activity_name' => $activity->name,
 						'date'          => $offer['date'],
 						'persons'       => $offer['persons'],
-						'offer_price'   => $a_offer['real_price'],
-						'total_price'   => $a_offer['real_price'] * $offer['persons'],
+						'offer_price'   => $a_offer['current_price'],
+						'total_price'   => $a_offer['current_price'] * $offer['persons'],
 						'uid'           => $uid,
 					];
 
@@ -394,18 +395,22 @@ class ReservationController extends Controller
 
 		if (count($selected_offers) > 0) {
 			foreach ($selected_offers as $key => $selected_offer) {
-				$data->offers->push(Offer::find($selected_offer['offer_id']));
+			    $offer = Offer::find($selected_offer['offer_id']);
+                $date = date('Y-m-d', strtotime(str_replace('/', '-', $selected_offer['date'])));
+				$offer->updated_price = $offer->getPrice($date);
+				$offer->updated_real_price = $offer->getCurrentRealPrice($date);
+                $data->offers->push($offer);
 
 				$reservation = [
 					'date'    => $selected_offer['date'],
 					'persons' => $selected_offer['persons'],
 					'time'    => $selected_offer['time'],
-					'total'   => $data->offers[$key]->price * $selected_offer['persons'] * (1 - config('kipmuving.discount')),
+					'total'   => $data->offers[$key]->updated_price * $selected_offer['persons'] * (1 - config('kipmuving.discount')),
 				];
 
 				$data->offers[$key]['reservation'] = $reservation;
 				$data->offers[$key]['is_special_offer'] = $new_price ? true : false;
-				$new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->real_price * $data->offers[$key]->reservation['persons'];
+				$new_price ? $data->total['CLP'] = $new_price : $data->total['CLP'] += $data->offers[$key]->updated_real_price * $data->offers[$key]->reservation['persons'];
 				$data->persons += $selected_offer['persons'];
 			}
 

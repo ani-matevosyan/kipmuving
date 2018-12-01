@@ -5,6 +5,8 @@ namespace App;
 use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use App\OfferDay;
+use Illuminate\Support\Facades\Session;
 
 class Offer extends Model
 {
@@ -19,6 +21,10 @@ class Offer extends Model
 	];
 	protected $table = 'offers';
 
+    public function days()
+    {
+        return $this->hasMany(OfferDay::class, 'offer_id', 'id');
+    }
 
 	public function activity()
 	{
@@ -119,17 +125,77 @@ class Offer extends Model
 
 	public function getPriceAttribute()
 	{
-		$price = $this->attributes['price'];
-
-		if (session('currency.type') == 'USD')
-			$price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
-		elseif (session('currency.type') == 'BRL')
-			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
-		elseif (session('currency.type') == 'ILS')
-			$price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
-
-		return round($price, 2);
+	    $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
+        return $this->getPrice($today);
 	}
+
+    public function getPrice($date)
+    {
+        $price = $this->attributes['price'];
+        $modelDays = $this->days()->get();
+        if($modelDays->isNotEmpty()){
+            foreach ($modelDays as $key=>$item){
+                if($date >= $item->available_start && $date <= $item->available_end){
+                    if($item->price_offer){
+                        $price = $item->price_offer;
+                    }else{
+                        $price = $item->price;
+                    }
+                }
+            }
+        }
+        if (session('currency.type') == 'USD')
+            $price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+        elseif (session('currency.type') == 'BRL')
+            $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+        elseif (session('currency.type') == 'ILS')
+            $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
+
+        return round($price, 2);
+    }
+
+    public function getOldPriceAttribute()
+    {
+        $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
+        return $this->getOldPrice($today);
+    }
+
+    public function getOldPrice($date)
+    {
+        $price = $this->attributes['price'];
+        $modelDays = $this->days()->get();
+        $countDaysContainingToday = 0;
+        if($modelDays->isNotEmpty()){
+            foreach ($modelDays as $key=>$item){
+                if($date >= $item->available_start && $date <= $item->available_end ){
+                    $countDaysContainingToday++;
+                    if(!$item->price_offer){
+                        $price = 0;
+                    }else{
+                        $price = $item->price;
+                    }
+                }
+            }
+            if($countDaysContainingToday == 0){
+                return false;
+            }
+            if (session('currency.type') == 'USD')
+                $price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+            elseif (session('currency.type') == 'BRL')
+                $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+            elseif (session('currency.type') == 'ILS')
+                $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
+            return round($price, 2);
+        }else {
+            return false;
+        }
+    }
 
 	public function getAvailableStartDateAttribute()
 	{
@@ -163,6 +229,33 @@ class Offer extends Model
 	{
 		return $this->attributes['price'];
 	}
+
+    public function getCurrentPriceAttribute()
+    {
+        $today = date('Y-m-d');
+        if(Session::has('selectedDate')) {
+            $today = session('selectedDate');
+        }
+        return $this->getCurrentRealPrice($today);
+    }
+
+    public function getCurrentRealPrice($date)
+    {
+        $price = $this->attributes['price'];
+        $modelDays = $this->days()->get();
+        if($modelDays->isNotEmpty()){
+            foreach ($modelDays as $key=>$item){
+                if($date >= $item->available_start && $date <= $item->available_end){
+                    if($item->price_offer){
+                        $price = $item->price_offer;
+                    }else{
+                        $price = $item->price;
+                    }
+                }
+            }
+        }
+        return $price;
+    }
 
 	public function getRealPriceOfferAttribute()
 	{

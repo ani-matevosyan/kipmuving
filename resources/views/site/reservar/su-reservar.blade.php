@@ -48,7 +48,7 @@
 											<p class="your-offers__paragraph"><strong>{{ trans('main.persons') }}</strong>: {{ $offer->reservation['persons'] }}</p>
 										</div>
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price"> {{ session('currency.type') }}
-												$ {{ number_format($offer->reservation['persons'] * $offer->price, 0, '.', '.') }}</span></p>
+												$ {{ number_format($offer->reservation['persons'] * $offer->updated_price, 0, '.', '.') }}</span></p>
 
 										<div class="your-offers__cancel">
 											<a class="your-offers__cancel-button cancelReservationBtn"  fake_id="{{ $key }}">

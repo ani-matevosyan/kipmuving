@@ -35,12 +35,24 @@ class Reservation extends Model
 
 	public function getSumAttribute()
 	{
-		return $this->offer['real_price'] * $this->attributes['persons'];
+		return $this->price * $this->attributes['persons'];
 	}
 	
 	public function getNameAttribute()
 	{
-//		dd($this->user);
 		return $this->user->first_name.' '.$this->user->last_name;
 	}
+
+    public function getPriceAttribute()
+    {
+        $price = $this->attributes['price'];
+        if (session('currency.type') == 'USD')
+            $price = round($price / session('currency.values.USDCLP'), 2, PHP_ROUND_HALF_EVEN);
+        elseif (session('currency.type') == 'BRL')
+            $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDBRL'), 2, PHP_ROUND_HALF_EVEN);
+        elseif (session('currency.type') == 'ILS')
+            $price = round($price / session('currency.values.USDCLP') * session('currency.values.USDILS'), 2, PHP_ROUND_HALF_EVEN);
+
+        return round($price, 2);
+    }
 }

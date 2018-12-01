@@ -57,8 +57,31 @@ $(document).ready(function () {
       url: '/offer/date/set',
       data: {
         date: dt,
-        '_token': $('meta[name="csrf-token"]').attr('content')
-      }
+        activityId: activityId,
+        '_token': $('meta[name="csrf-token"]').attr('content'),
+      },
+      success: (response) => {
+          const result = JSON.parse(response);
+          const offers = result.offers;
+          let currencySign = $("#get-offers-persons").attr('data-currencySign');
+
+          $('.offer-item').each(function () {
+            let _this = $(this);
+             offers.forEach(function(el) {
+                 if(el.id == _this.data('offer-id')){
+                     let priceElem = _this.find('.price');
+                     priceElem.html('<sub>' + currencySign + '</sub>' + numberWithDots(Math.round(el.price)));
+
+                     let oldPriceElem = _this.find('.old_price');
+                     if(el.old_price){
+                          oldPriceElem.html( currencySign + '  ' + numberWithDots(Math.round(el.old_price)));
+                      }else{
+                        oldPriceElem.html('');
+                      }
+                 }
+             });
+          });
+      },
     });
 
     let currentMonth = theDatePicker.datepicker("getDate").getMonth()+1;
@@ -88,13 +111,17 @@ $(document).ready(function () {
   }
 
   $("#get-offers-persons").on('change', function () {
-    let currencySign = $(this).attr('data-currencySign'),
+      let currencySign = $(this).attr('data-currencySign'),
       value = $(this).val();
-    $('.offer-item').each(function () {
-      let priceElem = $(this).find('.price'),
-        unit_price = 0 + priceElem.data('unit-price');
-      priceElem.html('<sub>' + currencySign + '</sub>' + numberWithDots(Math.round(value * unit_price)));
-    })
+      $('.offer-item').each(function () {
+        let priceElem = $(this).find('.price'),
+          unit_price = 0 + priceElem.data('unit-price');
+        priceElem.html('<sub>' + currencySign + '</sub>' + numberWithDots(Math.round(value * unit_price)));
+
+        let oldPriceElem = $(this).find('.old_price'),
+            old_unit_price = 0 + oldPriceElem.data('unit-price');
+        oldPriceElem.html( currencySign + ' ' + numberWithDots(Math.round(value * old_unit_price)));
+      })
   });
 
   function getsuprogram() {

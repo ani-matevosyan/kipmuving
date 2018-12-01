@@ -9,7 +9,7 @@
                 <a href="{{ action('ActivityController@getActivity', $offer->activity['id']) }}">{{ $offer->activity['name'] }}</a>
             </h2>
 			<div class="ta-code">
-				{!! $offer->activity['tripadvisor_code'] !!}
+{{--				{!! $offer->activity['tripadvisor_code'] !!}--}}
 			</div>
         </div>
     </header>
@@ -46,7 +46,7 @@
 							</li>
 							@if($offer->price)
 								<li class="profile">
-									<select id="select-persona-{{$offer->id}}" class="persona">
+									<select id="select-persona-{{$offer->id}}" data-offer-id="{{ $offer->id }}" class="persona">
 										<option selected value="">{{ trans('main.persons') }}</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -78,20 +78,23 @@
 											 type="text"
 											 data-datepicker='{"firstDay": 1, "minDate": 1, "dateFormat": "dd/mm/yy" }'
 											 placeholder=""
+										     data-offer-id="{{ $offer->id }}"
 											 value="{{ \Carbon\Carbon::parse(session('selectedDate'))->format('d/m/Y') }}">
 									<!-- </a> -->
 								</li>
 						</ul>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="text-right">
+							<del class="old_price" data-unit-price="{{ $offer->old_price }}">
+								@if($offer->old_price)
+									@if(session('currency.type') === 'BRL') R$ @else $ @endif
+									{{ number_format($offer->old_price, 0, '.', '.') }}
+								@endif
+							</del>
+						</div>
 						<div>
 							<strong class="price" data-unit-price="{{ $offer->price }}">
-								{{--<del>--}}
-									{{--<small>--}}
-										{{--<sub>@if(session('currency.type') === 'BRL') R @endif $ </sub>{{ number_format($offer->price, 0, '.', '.') }}--}}
-									{{--</small>--}}
-								{{--</del>--}}
-								{{--<br>--}}
 								<sub>@if(session('currency.type') === 'BRL') R$ @else $ @endif</sub> {{ number_format($offer->price, 0, '.', '.') }}
 							</strong>
 							<a href="#" class="btn btn-primary btn-reserve-ag"

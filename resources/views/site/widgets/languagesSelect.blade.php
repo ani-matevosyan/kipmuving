@@ -46,4 +46,13 @@
                 });
         });
 	}
+
+    if(location.pathname.split('/')[2] == 'offer_days' && location.pathname.split('/')[4] == 'edit'){
+        $(document).ready(function () {
+            $('.form-buttons .btn-group').prepend($('.returnBackAD').html());
+            $('.btn-group a').css('border-radius','5px').css('margin-right', '5px');
+            $('.btn-group button[name=next_action]').css('border-radius','5px');
+            $('.form-buttons button.dropdown-toggle, .form-buttons .btn-delete').css('display','none');
+        });
+    }
 </script>

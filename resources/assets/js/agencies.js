@@ -47,12 +47,72 @@ $(document).ready(function(){
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
-    jQuery('.persona').on("change", function(){
-        let priceElem = $(this).parents('.offer-item').find('.price');
-        let currency = $(this).parents('.offer-item').find('.price sub').html();
-        let unit_price = 0 + priceElem.data('unit-price');
+    $('.persona').on("change", function(){
+        let _this = $(this);
+        let offer_id = $(this).data('offer-id');
+        let persona = $(this).val();
+        let dt = $(this).parents('.offer-item').find('.reserve-date').val();
 
-        priceElem.html('<sub>'+currency+'</sub>' + numberWithDots(Math.round($(this).val() * unit_price)));
+        $.ajax({
+            type: "POST",
+            url: "/offer/getPriceByDateAndPersons",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                offer_id: offer_id,
+                persons: persona,
+                date: dt,
+            },
+            success: function(response){
+                response = JSON.parse(response);
+                let currency = _this.parents('.offer-item').find('.price sub').html();
+                let priceElem = _this.parents('.offer-item').find('.price');
+                priceElem.html('<sub>' + currency + '</sub>' + numberWithDots(Math.round(response.priceWithPersons)));
+
+                let oldPriceElem = _this.parents('.offer-item').find('.old_price');
+                if(response.oldPrice){
+                    oldPriceElem.html(currency + ' ' + numberWithDots(Math.round(response.oldPriceWithPersons)));
+                }else{
+                    oldPriceElem.html('');
+                }
+            },
+            error: function(){
+                // location.reload();
+            }
+        });
+    });
+
+
+    let theDatePicker = $(".reserve-date");
+    theDatePicker.datepicker('option', 'onSelect', function (dt) {
+        let _this = $(this);
+        let offer_id = $(this).data('offer-id');
+        let persona = $(this).parents('.offer-item').find('.persona').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/offer/getPriceByDateAndPersons",
+            data: {
+                '_token': $('meta[name="csrf-token"]').attr('content'),
+                offer_id: offer_id,
+                persons: persona,
+                date: dt,
+            },
+            success: function(response){
+                response = JSON.parse(response);
+                let currency = _this.parents('.offer-item').find('.price sub').html();
+                let priceElem = _this.parents('.offer-item').find('.price');
+                priceElem.html('<sub>' + currency + '</sub>' + numberWithDots(Math.round(response.priceWithPersons)));
+
+                let oldPriceElem = _this.parents('.offer-item').find('.old_price');
+                if(response.oldPrice){
+                    oldPriceElem.html(currency + ' ' + numberWithDots(Math.round(response.oldPriceWithPersons)));
+                }else{
+                     oldPriceElem.html('');
+                }
+            },
+            error: function(){
+            }
+        });
     });
 
     jQuery('.btn-reserve-ag').click(function(){

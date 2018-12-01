@@ -39,7 +39,7 @@ AdminSection::registerModel(Reservation::class, function (ModelConfiguration $mo
 				->setHtmlAttribute('class', 'text-center'),
 			$persons = AdminColumn::text('persons', 'Persons')
 				->setHtmlAttribute('class', 'text-center'),
-			$price = AdminColumn::text('offer.real_price', 'Price')
+			$price = AdminColumn::text('price', 'Price')
 				->setHtmlAttribute('class', 'text-center'),
 			$sum = AdminColumn::text('sum', 'Sum')
 				->setHtmlAttribute('class', 'text-center'),

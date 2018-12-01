@@ -95,14 +95,17 @@
 									</div>
 									@if($reservation->is_special_offer)
 										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>:
-											<span class="price price_line-through"> $ {{ number_format($reservation->offer->real_price * $reservation->persons, 0, ".", ".") }}</span>
+											<span class="price price_line-through"> $ {{ number_format($reservation->offer->current_price * $reservation->persons, 0, ".", ".") }}</span>
 											<span class="price">$ {{ number_format($reservation->offer_price, 0, ".", ".") }}</span>
 										</p>
 									@else
-										<p class="your-offers__paragraph"><strong>{{ trans('main.total_of') }}</strong>: <span class="price">{{ session('currency.type') }}
-												$ {{ number_format(($reservation->offer->price * $reservation->persons), 0, ".", ".") }}</span></p>
+										<p class="your-offers__paragraph">
+											<strong>{{ trans('main.total_of') }}</strong> :
+											<span class="price">{{ session('currency.type') }}
+												$ {{ number_format(($reservation->price * $reservation->persons), 0, ".", ".") }}
+											</span>
+										</p>
 									@endif
-									
 {{--									@if(\Carbon\Carbon::createFromFormat('Y-m-d', $reservation->reserve_date) >= \Carbon\Carbon::now())--}}
 										<div class="your-offers__cancel">
 											<a class="your-offers__cancel-button cancelReservationBtn"  res-id="{{$reservation->id}}">

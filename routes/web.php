@@ -92,7 +92,9 @@ Route::get('/offer/special/confirm', 'SpecialOffersController@getConfirmOfferJso
 Route::post('/offer/special/confirm', 'ReservationController@reserveSpecialOffer');
 Route::get('/offer/special/cancel/{id}', 'SpecialOffersController@unsubscribeOffer')
 	->where('id', '[0-9a-z]+');
-
+Route::post('/offer/addDays', 'OfferController@addDays');
+Route::post('/offer/editDays', 'OfferController@editDays');
+Route::post('/offer/getPriceByDateAndPersons', 'OfferController@getPriceByDateAndPersons');
 
 
 #Agencies
@@ -105,7 +107,6 @@ Route::get('/agency-emails', [
 Route::post('/agency-emails/send', [
 	'middleware' => ['role:admin|developer'],
 	'uses'       => '\App\Http\Controllers\AgencyEmailsController@sendEmails']);
-
 
 #User
 Route::get('/user/confirm/{confirmationCode}', 'UserController@confirmUser');
