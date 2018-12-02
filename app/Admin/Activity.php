@@ -25,7 +25,7 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 				->setHtmlAttribute('class', 'text-center'),
 			$name = AdminColumn::text('name', 'Name')
 				->setHtmlAttribute('class', 'text-center'),
-			$style = AdminColumn::text('styles', 'Style')
+			$style = AdminColumn::text('style_text', 'Style')
 				->setHtmlAttribute('class', 'text-center'),
 			$instagram = AdminColumn::text('instagram_name', 'Instagram')
 				->setHtmlAttribute('class', 'text-center'),
@@ -93,9 +93,9 @@ AdminSection::registerModel(Activity::class, function (ModelConfiguration $model
 						AdminFormElement::select('styles', 'Style')->required()->setOptions([
 							'Trekking' => 'Trekking',
 							'Rio'      => 'Rio',
-							'Aire'     => 'Aire',
+							'Aire'     => 'Accion',
 							'Relax'    => 'Relax',
-							'Familia'  => 'Familia',
+							'Familia'  => 'Cultural',
 							'Nieve'    => 'Nieve',
 							'Ciclismo' => 'Ciclismo'
 						]),

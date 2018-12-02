@@ -170,4 +170,18 @@ class Activity extends Model
         }else
             return '';
     }
+
+    public function getStyleTextAttribute()
+    {
+        $style = $this->attributes['styles'];
+        if($style == 'Aire'){
+            return 'Accion';
+        }else if($style == 'Familia'){
+            return 'Cultural';
+        }else{
+            return $style;
+        }
+    }
+
+
 }

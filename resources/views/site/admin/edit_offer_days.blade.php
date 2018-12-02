@@ -67,7 +67,7 @@
     @if($offerDays->isNotEmpty())
       <div class="row" style="display: none">
         <div class="col-md-3">
-          <a class="btn btn-success addOfferDay">Add Offer Day</a>
+          <a class="btn btn-success addOfferDay">Add Offer Days</a>
         </div>
       </div>
        @foreach($offerDays as $key=>$item)
@@ -129,7 +129,7 @@
     @else
       <div class="row">
         <div class="col-md-3">
-          <a class="btn btn-success addOfferDay">Add Offer Day</a>
+          <a class="btn btn-success addOfferDay">Add Offer Days</a>
         </div>
       </div>
     @endif
